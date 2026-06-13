@@ -1,5 +1,58 @@
 # Decision Log
 
+## 2026-06-13 - SPEC Alias Dedup (Charles/Arthur) (DLG-005)
+
+decision_id: `DL_TOOLING_20260613_024`
+
+scope:
+
+- deleted: `IsaacInfra\Charles\current\CrawlScouter_v0.10.0_pipeline_contract\SPEC_v0.10.1.md`, `IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\SPEC_Arthur_v0.6.1.md`
+- edited: Charles README, Arthur README, `IsaacInfra\README.md`, `_WORKING_CONTEXT\01_SOURCE_MAP.md`
+
+what_changed:
+
+호환용 SPEC 별칭(사본) 2개 제거, 정본만 유지. 별칭 안내문을 4개 문서에서 제거/tombstone. Charles 별칭은 정본과 바이트동일했음. Arthur 별칭은 DL_022 수정이 정본에만 들어가 1줄 stale였음(정본이 올바름).
+
+why:
+
+이중관리가 DL_022에서 alias 미동기화 사고를 냄 → 단일 정본 통합. IsaacInfra\README cleanup 조건 충족(head 참조검증: 활성 참조 0, 안내문만).
+
+authority:
+
+operator 2026-06-13 (선택지 A).
+
+boundary:
+
+정본 내용 미변경. git history로 복원 가능. 코드/도구/케이스 canonical 데이터 미변경.
+
+status: active
+
+## 2026-06-13 - Local Git Baseline (DLG-004)
+
+decision_id: `DL_TOOLING_20260613_023`
+
+scope:
+
+- `D:\Codex_Workspace` (git init, root .gitignore, 첫 커밋 cde6166)
+
+what_changed:
+
+로컬 전용 git 착공. root .gitignore(런타임캐시/크롬프로필 실데이터/_tmp/.codex_deps/embedded repo 제외) + 베이스라인 커밋 cde6166 (추적 1530 파일).
+
+why:
+
+이후 삭제·정리의 되돌리기 안전망. 추적 파일만 보호되며 gitignored 자산(.codex_deps·크롬프로필)은 미보호.
+
+authority:
+
+operator 2026-06-13 (PROPOSAL-001 승인).
+
+boundary:
+
+remote/push/글로벌 config 없음. 파일 이동·삭제 없음. embedded repo는 ignore 처리(디스크·nested .git 보존).
+
+status: active
+
 ## 2026-06-13 - PROPOSAL-002 Git-Pre Document Consistency Cleanup
 
 decision_id: `DL_TOOLING_20260613_022`
