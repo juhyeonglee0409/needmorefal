@@ -1,5 +1,21 @@
 # Decision Log
 
+## 2026-06-13 - 정본 추가: Isaac_Gunsmith_FULL_EN_revised git 등록 (DLG-009 0단계)
+
+decision_id: `DL_TOOLING_20260613_028`
+
+scope: `Instruction\Isaac_Gunsmith_FULL_EN_revised.md` (git baseline 누락분 등록)
+
+what_changed: DLG-004 베이스라인에서 untracked로 남았던 설계철학 정본을 git에 등록.
+
+why: 정본 문서가 git 안전망 밖에 있는 위험 제거.
+
+authority: operator 2026-06-13.
+
+boundary: 파일 내용 미변경. 등록만.
+
+status: active
+
 ## 2026-06-13 - Arthur universal challenge/throttle/cooldown routing (DLG-008)
 
 decision_id: `DL_TOOLING_20260613_027`
