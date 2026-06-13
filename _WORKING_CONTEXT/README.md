@@ -15,6 +15,12 @@ D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\README.md
 
 This file is the canonical project entrypoint. `00_READ_FIRST.md` is a compatibility pointer only.
 
+Then read the session behavior contract:
+
+```text
+11_SESSION_BEHAVIOR_CONTRACT.md
+```
+
 Then classify the task using:
 
 ```text
@@ -40,6 +46,7 @@ Read only the focused context files needed for that scenario.
 | `09_NEW_SESSION_WORKFLOW_SCENARIOS.md` | scenario router |
 | `10_USER_CLI_WORKFLOW.md` | solo user + CLI/Codex workflow and session handoff rules |
 | `10_USER_CLI_WORKFLOW.ko.md` | Korean translation of the User-CLI workflow |
+| `11_SESSION_BEHAVIOR_CONTRACT.md` | implementation session behavior contract |
 | `SESSION_NOTE.md` | current handoff note; read only when resuming active context work |
 
 ## Source Loading Rule

@@ -1,5 +1,33 @@
 # Decision Log
 
+## 2026-06-13 - Session Behavior Contract Added
+
+decision_id: `DL_CONTEXT_20260613_032`
+
+scope:
+
+- `D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\11_SESSION_BEHAVIOR_CONTRACT.md`
+- `D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\README.md`
+- `D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\07_DECISION_LOG.md`
+
+what_changed:
+
+Added `11_SESSION_BEHAVIOR_CONTRACT.md` as the required post-README behavior contract for implementation sessions, and updated the working-context README load order/file-role table.
+
+why:
+
+Prevent future sessions from reintroducing DLG-002/008/010 technique-name moralization or overcautious policy drift. The contract keeps sessions aligned to operator scope, harm-based boundary judgment, and existing approval/no-laundering gates.
+
+authority:
+
+operator approved saving the rewritten contract on 2026-06-13.
+
+boundary:
+
+Working-context documentation only. No code, live access, Charles/Arthur run, profile/session access, package install, or case/package canonical mutation.
+
+status: active
+
 ## 2026-06-13 - Harm-Based Boundary Normalization Cleanup (DLG-011)
 
 decision_id: `DL_TOOLING_20260613_031`
