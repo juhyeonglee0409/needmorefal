@@ -1,5 +1,38 @@
 # Decision Log
 
+## 2026-06-13 - Arthur universal challenge/throttle/cooldown routing (DLG-008)
+
+decision_id: `DL_TOOLING_20260613_027`
+
+scope:
+
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\arthur\inspect.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\arthur\collect_chrome_profile.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\arthur\fetcher.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\arthur\cli.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\tests\test_universal_challenge_pass_v0_1.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\tests\test_universal_path_v0_1.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\SPEC_Arthur_v0_6_1.md`
+- `D:\Codex_Workspace\Instruction\BOT_DEFENSE_OPERATIONAL_ROUTING_v0_2.md`
+
+what_changed:
+
+Arthur chrome_profile path에 host-agnostic 비인터랙티브 checkpoint wait, same-host min interval stop, HTTP 429/unresolved-checkpoint host cooldown을 추가했다. interactive CAPTCHA는 solver/reload 없이 stop + operator manual-pass 안내로 기록한다.
+
+why:
+
+Softcon inspect/collect parity 문제를 site-specific bypass가 아니라 범용 polite routing으로 좁힌다. navigation 1회, no reload, no aggressive retry, no raw/secret/screenshot storage 원칙을 코드와 테스트로 고정한다.
+
+authority:
+
+operator 2026-06-13 (DLG-008 implementation request).
+
+boundary:
+
+오프라인 구현/테스트만. 라이브 요청 없음. 호스트별 전용 분기 없음. stealth plugin/CAPTCHA solver/proxy farm 없음. 간격·쿨다운 완화 없음. canonical case/package 데이터 미변경.
+
+status: active
+
 ## 2026-06-13 - Softcon Chrome Profile Cache Slim (DLG-007)
 
 decision_id: `DL_TOOLING_20260613_026`
