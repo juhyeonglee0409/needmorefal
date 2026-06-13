@@ -1,5 +1,31 @@
 # Decision Log
 
+## 2026-06-13 - Softcon Chrome Profile Cache Slim (DLG-007)
+
+decision_id: `DL_TOOLING_20260613_026`
+
+scope:
+
+- recycled (Windows 휴지통) under `...\local_chrome_profiles\softcon_fallback_user_data\`: Default\Cache(60M), Default\Code Cache(15M), optimization_guide_model_store(43M), ko-3-0.bdic(11M), GPU/shader caches, en-US dict (~138M)
+
+what_changed:
+
+크롬 프로필의 재생성 캐시만 휴지통으로 이동. 세션(Network\Cookies, Local Storage, Login Data, Preferences, Web Data, Local State)은 보존. 프로필 143MB → ~5MB.
+
+why:
+
+Softcon parity 작업 추진 결정에 따라 프로필은 유지하되, parity와 무관한 캐시 ~138MB 회수. "캐시 비우기 하되 로그인 유지"와 동일. git 미추적이라 휴지통이 안전망.
+
+authority:
+
+operator 2026-06-13 (Softcon parity 추진 + 프로필 슬림).
+
+boundary:
+
+세션·정본·코드 미변경. git 미추적 자산만. 휴지통(복구 가능).
+
+status: active
+
 ## 2026-06-13 - Legacy preflight_v0_4 cache cleanup (DLG-006)
 
 decision_id: `DL_TOOLING_20260613_025`
