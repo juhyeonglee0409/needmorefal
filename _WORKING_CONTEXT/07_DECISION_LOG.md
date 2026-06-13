@@ -1,5 +1,33 @@
 # Decision Log
 
+## 2026-06-13 - Bridge v0.1 patch-candidate apply contract (DLG-009)
+
+decision_id: `DL_TOOLING_20260613_029`
+
+scope:
+
+- `D:\Codex_Workspace\IsaacInfra\Bridge\v0.1\bridge_apply_contract\`
+- `D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\07_DECISION_LOG.md`
+- `D:\Codex_Workspace\Instruction\delegation\reports\DELEGATION_REPORT_DLG_009_BRIDGE_APPLY_20260613.md`
+
+what_changed:
+
+Bridge v0.1을 신규 추가했다. `bridge plan`은 R2.5 adapter output과 operator approval JSON을 검증하고 dry-run preview만 출력한다. `bridge apply`는 approval 검증 통과 시 EvidencePackage `source_items` append, AbsenceInventory `absence_items` append 또는 empty no-op, 신규 DisclosureLog 파일 생성, backup, ApplyReceipt 생성을 수행한다.
+
+why:
+
+DLG-003에서 닫은 envelope-to-canonical draft gap 다음 단계로, proposed PatchCandidate를 operator-gated case package mutation lifecycle에 연결하는 최소 Bridge 계약이 필요했다.
+
+authority:
+
+operator 2026-06-13 (DLG-009 Bridge v0.1 execution approved).
+
+boundary:
+
+오프라인 구현/테스트만. 실제 canonical case package 실파일은 테스트에서 읽기 전용 참조만 했고 mutation은 임시 복사본에서만 수행했다. approval 없는 mutation은 STOP. operator-only 필드는 approval JSON 값만 사용. Pearson/Susan/Charles/Arthur 코드, `_tmp\i2`, CaseResult, PortfolioRow, PublicDemoRow 미변경. live access 0.
+
+status: active
+
 ## 2026-06-13 - 정본 추가: Isaac_Gunsmith_FULL_EN_revised git 등록 (DLG-009 0단계)
 
 decision_id: `DL_TOOLING_20260613_028`
