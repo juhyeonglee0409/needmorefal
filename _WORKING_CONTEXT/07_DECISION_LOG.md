@@ -1,5 +1,35 @@
 # Decision Log
 
+## 2026-06-13 - Legacy preflight_v0_4 cache cleanup (DLG-006)
+
+decision_id: `DL_TOOLING_20260613_025`
+
+scope:
+
+- recycled (Windows 휴지통) under `IsaacInfra\_inbox\legacy_tools\preflight_v0_4_dev\`: `.codex_deps`(202M), `.mypy_cache`(15M), `.ruff_cache`, `dist`, `__pycache__` (~218M)
+
+what_changed:
+
+레거시 도구 preflight_v0_4의 재생성 가능 캐시/벤더 패키지를 휴지통으로 이동(영구삭제 아님, 복구 가능). 전부 git 미추적이라 추적 파일 수 불변(1529).
+
+why:
+
+~218MB 공간 회수. 현행 파이프라인 미사용(현행 Charles=v0.10.1). 공개 PyPI 패키지라 재설치 가능. git 백업 불가라 휴지통을 안전망으로 사용.
+
+regeneration:
+
+필요시 `preflight_v0_4_dev`에서 `pip install -r requirements.txt -r requirements-llm.txt`(원래 벤더 절차대로, 예: `--target .codex_deps`). .mypy_cache/.ruff_cache/dist/__pycache__는 빌드/검사 시 자동 재생성.
+
+authority:
+
+operator 2026-06-13 (휴지통 + 옆 캐시 포함).
+
+boundary:
+
+소스코드·정본·코드동작 미변경. git 미추적 자산만. 휴지통 이동(복구 가능). 다른 레거시 도구 미변경.
+
+status: active
+
 ## 2026-06-13 - SPEC Alias Dedup (Charles/Arthur) (DLG-005)
 
 decision_id: `DL_TOOLING_20260613_024`
