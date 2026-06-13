@@ -1,5 +1,41 @@
 # Decision Log
 
+## 2026-06-13 - Harm-Based Boundary Normalization Cleanup (DLG-011)
+
+decision_id: `DL_TOOLING_20260613_031`
+
+scope:
+
+- `D:\Codex_Workspace\Instruction\BOT_DEFENSE_OPERATIONAL_ROUTING_v0_2.md`
+- `D:\Codex_Workspace\Instruction\delegation\DELEGATION_FENCE_v0_1.md`
+- `D:\Codex_Workspace\Instruction\delegation\handoffs\DELEGATION_BRIEF_FENCE_B4_B5_HARDENING_20260613.md`
+- `D:\Codex_Workspace\Instruction\delegation\reports\DELEGATION_REPORT_DLG_000_MINOR_HARDENING_20260613.md`
+- `D:\Codex_Workspace\Instruction\delegation\reports\DELEGATION_REPORT_DLG_002_FENCE_B4_B5_HARDENING_20260613.md`
+- `D:\Codex_Workspace\Instruction\delegation\reports\DELEGATION_REPORT_DLG_008_UNIVERSAL_CHALLENGE_ROUTING_20260613.md`
+- `D:\Codex_Workspace\Instruction\delegation\reports\DELEGATION_REPORT_DLG_010_NATURAL_INTERACTION_20260613.md`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\SPEC_Arthur_v0_6_1.md`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\AGENTS.md`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\README.md`
+- Arthur runtime/user-facing notes and related tests under `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\`
+
+what_changed:
+
+Normalized DLG-002/008/010 wording away from technique-name prohibitions such as solver/stealth/proxy/bypass/VPN/fingerprint as moral blacklines. Replacement wording follows `boundary_black_area_guide_v2_3_diversed.md` §2.3/§4: public-data checkpoint/CAPTCHA/bot-defense handling is judged by harm, operator-approved scope, politeness, sequential access, no overload, and retreat-on-block. STOP/escalate language is reserved for overload, aggressive retry after block/429/challenge, deception/abuse infrastructure, private/login-gated/account-data access outside lawful scope, or secret persistence.
+
+why:
+
+Future sessions were beginning to inherit DLG-002/008/010 as technique-based safety doctrine. The canonical boundary is harm-based, not tool-name-based. This cleanup preserves implementation behavior while removing policy contamination.
+
+authority:
+
+operator 2026-06-13 (DLG-011 full normalization request).
+
+boundary:
+
+Documentation, historical DLG wording, user-facing notes, and test expectation strings only. `boundary_black_area_guide_v2_3_diversed.md` unchanged. Arthur bounded wait/cooldown/exact-scope/no-secret/canonical-mutation gates remain. No live access, Charles/Arthur run, profile/session access, package install, or case/package canonical mutation. Bridge/Pearson/Susan approval and no-laundering guards unchanged.
+
+status: active
+
 ## 2026-06-13 - Arthur challenge wait natural interaction (DLG-010)
 
 decision_id: `DL_TOOLING_20260613_030`
@@ -14,11 +50,11 @@ scope:
 
 what_changed:
 
-Arthur chrome_profile challenge wait에 일반 사용자 행동 시뮬레이션을 추가했다. passive checkpoint 관측 시 같은 페이지 안에서 deterministic mouse move, light scroll, focus 신호를 보내며, navigation 1회·host-agnostic 경로·solver/stealth/proxy 금지는 그대로 유지한다.
+Arthur chrome_profile challenge wait에 bounded same-page interaction을 추가했다. Passive checkpoint 관측 시 같은 페이지 안에서 deterministic mouse move, light scroll, focus 신호를 보낸다. 현재 route는 host-agnostic이며, 추가 navigation/reload/retry, automated human-check handling, external routing, host/site branch는 이번 구현 범위에 포함하지 않았다.
 
 why:
 
-DLG-008은 navigation 1회와 polling만 고정해 대기 중 행동이 없는 상태였다. v0.2 부속서의 "진짜 브라우저로 navigation 1회" 의도를 일반 사용자 같은 same-page behavior로 표현하되, reload/retry/host-specific bypass 없이 bounded하게 구현했다.
+DLG-008은 rendered-state polling만 고정해 대기 중 일반 사용자 같은 same-page behavior가 없었다. DLG-010은 같은 navigation 안에서만 bounded interaction을 추가해 current route의 재현성을 높였다.
 
 authority:
 
@@ -26,10 +62,9 @@ operator 2026-06-13 (DLG-010 natural interaction execution approved).
 
 boundary:
 
-오프라인 구현/테스트만. live access 0. 가짜 지문, stealth plugin, proxy/identity pool, CAPTCHA solver 도입 없음. 추가 navigation/reload/goto 없음. 호스트별 분기 없음. 부속서 v0.2는 지정된 한 줄만 갱신. canonical case/package 데이터 미변경.
+Offline implementation/tests only. No overload, aggressive retry, private/login-gated/account-data access, secret persistence, host/site branch, or canonical case/package mutation introduced. Live access was not part of this implementation/test pass; future live access follows the harm-based operational routing policy.
 
 status: active
-
 ## 2026-06-13 - Bridge v0.1 patch-candidate apply contract (DLG-009)
 
 decision_id: `DL_TOOLING_20260613_029`
@@ -54,7 +89,7 @@ operator 2026-06-13 (DLG-009 Bridge v0.1 execution approved).
 
 boundary:
 
-오프라인 구현/테스트만. 실제 canonical case package 실파일은 테스트에서 읽기 전용 참조만 했고 mutation은 임시 복사본에서만 수행했다. approval 없는 mutation은 STOP. operator-only 필드는 approval JSON 값만 사용. Pearson/Susan/Charles/Arthur 코드, `_tmp\i2`, CaseResult, PortfolioRow, PublicDemoRow 미변경. live access 0.
+오프라인 구현/테스트만. 실제 canonical case package 실파일은 테스트에서 읽기 전용 참조만 했고 mutation은 임시 복사본에서만 수행했다. approval 없는 mutation은 STOP. operator-only 필드는 approval JSON 값만 사용. Pearson/Susan/Charles/Arthur 코드, `_tmp\i2`, CaseResult, PortfolioRow, PublicDemoRow 미변경. Live access was not part of this offline Bridge implementation/test pass.
 
 status: active
 
@@ -91,11 +126,11 @@ scope:
 
 what_changed:
 
-Arthur chrome_profile path에 host-agnostic 비인터랙티브 checkpoint wait, same-host min interval stop, HTTP 429/unresolved-checkpoint host cooldown을 추가했다. interactive CAPTCHA는 solver/reload 없이 stop + operator manual-pass 안내로 기록한다.
+Arthur chrome_profile path에 host-agnostic non-interactive checkpoint wait, same-host min interval stop, and HTTP 429/unresolved-checkpoint host cooldown을 추가했다. Interactive CAPTCHA는 current route에서 자동 진행하지 않고 operator manual decision boundary로 기록한다.
 
 why:
 
-Softcon inspect/collect parity 문제를 site-specific bypass가 아니라 범용 polite routing으로 좁힌다. navigation 1회, no reload, no aggressive retry, no raw/secret/screenshot storage 원칙을 코드와 테스트로 고정한다.
+Softcon inspect/collect parity 문제를 site-specific route가 아니라 host-agnostic, polite, bounded current route로 좁힌다. Same-route bounded wait, no aggressive retry, and no raw/secret/screenshot storage are fixed by code and tests.
 
 authority:
 
@@ -103,10 +138,9 @@ operator 2026-06-13 (DLG-008 implementation request).
 
 boundary:
 
-구현/테스트 실행은 오프라인으로 수행했으나, 이것은 DLG-008 작업 실행 사실이지 일반 live 요청 금지가 아니다. 운영 live 접근은 `BOT_DEFENSE_OPERATIONAL_ROUTING_v0_2.md`의 harm-based 판정과 operator 승인 scope를 따른다. 호스트별 전용 분기 없음. stealth plugin/CAPTCHA solver/proxy farm 없음. 간격·쿨다운 완화 없음. canonical case/package 데이터 미변경.
+Implementation/tests were offline for this work item; that is not a general live-request ban. Operational live access follows `BOT_DEFENSE_OPERATIONAL_ROUTING_v0_2.md` and operator-approved scope. No overload, aggressive retry, private/login-gated/account-data access, secret persistence, or canonical case/package mutation introduced.
 
 status: active
-
 ## 2026-06-13 - Softcon Chrome Profile Cache Slim (DLG-007)
 
 decision_id: `DL_TOOLING_20260613_026`
@@ -234,7 +268,7 @@ scope:
 
 what_changed:
 
-Git 전 문서정합 청소 — (A) 봇방어 정책을 work-boundary guide harm-based로 정렬(AGENTS §70 + fence B5; DLG-002의 무조건 B5 문안 대체), (B) Pearson/Susan "미구현" stale 문구를 "구현·테스트됨, 미배선"으로 정정(ND/BEARING은 미구현 유지).
+Git 전 문서정합 청소 — (A) 봇방어 정책을 work-boundary guide harm-based로 정렬(AGENTS §70 + fence B5; DLG-002의 기존 B5 문안 대체), (B) Pearson/Susan "미구현" stale 문구를 "구현·테스트됨, 미배선"으로 정정(ND/BEARING은 미구현 유지).
 
 why:
 
@@ -331,11 +365,11 @@ scope:
 
 what_changed:
 
-Hardened fence B4/B5 wording. B4: CollectDirective-from-Charles prohibition restated as unconditional, with the only legitimate creation cited as the operator-gated pipeline step (10_USER_CLI_WORKFLOW.md C1). B5: split bypass/solver/stealth (now unconditional, no scope exception) from credential/cookie handling (allowed only via the operator-approved ephemeral cookie bridge in exact scope, never to bypass gates). No new permission granted; no prohibition removed.
+Hardened fence B4 wording. Superseded B5 note: the earlier technique-name prohibition is replaced by PROPOSAL-002/DLG-011 harm-based handling. Credential/cookie handling remains exact-scope, memory-only where approved, and secret values remain non-persistent.
 
 why:
 
-Head review (Claude Code) found B4/B5 qualifiers ("unless the workflow explicitly calls for it", "outside approved scope") could be read as narrower than the unconditional AGENTS.md prohibitions. A safety fence must be at least as strict as its sources.
+Head review found B4 needed clearer operator-gated wording. B5 was later normalized: fence strictness is measured against boundary guide §2.3/§4, where harm is the line rather than technique names.
 
 authority:
 
@@ -343,10 +377,9 @@ Operator approved the fence hardening patch on 2026-06-13.
 
 boundary:
 
-Fence wording only. No canonical case/package mutation. No new permission. DLG-001/I2 not executed. No protected-file (AGENTS.md/10/README) edits.
+Fence wording only. No canonical case/package mutation. No new data-integrity relaxation. DLG-001/I2 not executed. No protected-file (AGENTS.md/10/README) edits.
 
 status: active
-
 ## 2026-06-13 - Code To Codex Delegation Interface
 
 decision_id: `DL_TOOLING_20260613_018`
@@ -436,7 +469,7 @@ Promote Charles v0.10.0 browser_probe from temporary patch to the active diagnos
 rationale:
 
 ```text
-manual_review/restricted protocols need a bounded browser visibility diagnostic before operator review. The probe improves boundary classification without bypassing login, CAPTCHA, checkpoint, or rate-limit gates. Artifact storage must remain explicit and must not preserve profile/session raw HTML or screenshots.
+manual_review/restricted protocols need a bounded browser visibility diagnostic before operator review. The probe improves boundary classification while preserving scope, access, rate, and artifact-storage boundaries. Artifact storage must remain explicit and must not preserve profile/session raw HTML or screenshots.
 ```
 
 implementation:
