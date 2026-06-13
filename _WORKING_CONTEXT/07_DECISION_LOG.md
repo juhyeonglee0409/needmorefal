@@ -29,7 +29,7 @@ operator 2026-06-13 (DLG-008 implementation request).
 
 boundary:
 
-오프라인 구현/테스트만. 라이브 요청 없음. 호스트별 전용 분기 없음. stealth plugin/CAPTCHA solver/proxy farm 없음. 간격·쿨다운 완화 없음. canonical case/package 데이터 미변경.
+구현/테스트 실행은 오프라인으로 수행했으나, 이것은 DLG-008 작업 실행 사실이지 일반 live 요청 금지가 아니다. 운영 live 접근은 `BOT_DEFENSE_OPERATIONAL_ROUTING_v0_2.md`의 harm-based 판정과 operator 승인 scope를 따른다. 호스트별 전용 분기 없음. stealth plugin/CAPTCHA solver/proxy farm 없음. 간격·쿨다운 완화 없음. canonical case/package 데이터 미변경.
 
 status: active
 
