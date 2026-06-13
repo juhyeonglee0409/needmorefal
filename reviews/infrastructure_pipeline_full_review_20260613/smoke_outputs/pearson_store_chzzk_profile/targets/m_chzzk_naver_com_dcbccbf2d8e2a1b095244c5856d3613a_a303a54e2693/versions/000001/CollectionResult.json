@@ -1,0 +1,173 @@
+{
+  "version": "0.6",
+  "generated_at": "2026-06-13 00:06:46",
+  "collector_ua": "ArthurMorgan/0.6",
+  "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+  "protocol_ref": {
+    "source": "D:\\Codex_Workspace\\Streamer Consulting Project\\runs\\kimdalsu_20260601\\recollect_20260611_prep\\40_arthur_collect\\directives\\chzzk_subject_profile_api_body_collect_directive.approved_true_record_root_20260613.json",
+    "tool": "charles",
+    "version": "1.0",
+    "protocol_version": "1.0",
+    "protocol_hash": "b9669a599d0eaa12bd5013fec1efdaca189faec6586907d8650178214ee0b4ca",
+    "input_shape": "collect_directive",
+    "agent": "",
+    "generated_at": "2026-06-12 22:42:31",
+    "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path": "api_direct",
+    "best_path_trace": [
+      "usable data API candidate confirmed or strongly indicated",
+      "API direct avoids brittle HTML selectors when endpoint shape is reusable"
+    ],
+    "pre_check": {
+      "robots_status": "allowed",
+      "robots_detail": "robots HTTP 200",
+      "gate_status": "none",
+      "gate_detail": "none; status=none",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "low"
+    },
+    "diagnostic_findings": {
+      "api": {
+        "status": "selected",
+        "candidates_seen": 20,
+        "usable_candidates": 1,
+        "reason": "best_path=api_direct"
+      },
+      "sitemap": {
+        "status": "rejected",
+        "candidates_seen": 8,
+        "usable_candidates": 0,
+        "reason": "sitemap candidates seen but not validated as usable XML sitemap"
+      },
+      "rsc": {
+        "status": "not_found",
+        "payload_count": 0,
+        "reason": "no RSC payload candidates found"
+      }
+    },
+    "operator_directive_hash": "60b5a07dfe0481ca2f75e23028baa3ad5bc32eaafde9b1daa9fab7de252e6eaf",
+    "robots_status": "allowed",
+    "risk_level": "low"
+  },
+  "execution": {
+    "path_used": "api_direct",
+    "executed": true,
+    "stopped_reason": null,
+    "requests_made": 2,
+    "pages_fetched": 1,
+    "delay_seconds": 2.0,
+    "robots_checked": true,
+    "robots_allowed": true,
+    "robots_crawl_delay": null,
+    "started_at": "2026-06-13 00:06:46",
+    "finished_at": "2026-06-13 00:06:46",
+    "elapsed_ms": 332
+  },
+  "items": [
+    {
+      "index": 0,
+      "data": {
+        "channelId": "dcbccbf2d8e2a1b095244c5856d3613a",
+        "channelName": "김달수 Dalsu",
+        "channelDescription": "문의 : biz@nobent.co.kr",
+        "followerCount": 3755,
+        "channelImageUrl": "https://nng-phinf.pstatic.net/MjAyNjA1MzBfNjMg/MDAxNzgwMTUxNDMzNzcx.aFaLyrcMzvIsmxtb8DgMeLbJM3XWalkKxiNisW3ZM_Qg.wCwvmlmwoKALtNKxWN1BdJJK9REMtpgd7wGUq75l0Swg.JPEG/image.jpg",
+        "openLive": false
+      },
+      "source_url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+      "fetched_at": "2026-06-13 00:06:46",
+      "absent_fields": {}
+    }
+  ],
+  "absences": [],
+  "field_coverage": {
+    "channelId": {
+      "present": 1,
+      "absent": 0
+    },
+    "channelName": {
+      "present": 1,
+      "absent": 0
+    },
+    "channelDescription": {
+      "present": 1,
+      "absent": 0
+    },
+    "followerCount": {
+      "present": 1,
+      "absent": 0
+    },
+    "channelImageUrl": {
+      "present": 1,
+      "absent": 0
+    },
+    "openLive": {
+      "present": 1,
+      "absent": 0
+    }
+  },
+  "verification": {
+    "status": "not_verifiable",
+    "expected_row_count": null,
+    "actual_row_count": 1,
+    "null_ratio": 0.0,
+    "null_ratio_threshold": 0.05,
+    "dedup_key": "channelId",
+    "duplicate_count": 0,
+    "checks": [
+      "shape: hint 키 전부 관찰됨 (한계: hint도 같은 진단 산물)",
+      "null_ratio 0.000 <= threshold 0.05",
+      "not_verifiable: expected_row_count=null — 핵심 기준 없음"
+    ]
+  },
+  "storage_hint": {
+    "format": "csv",
+    "columns": [
+      "channelId",
+      "channelName",
+      "channelDescription",
+      "followerCount",
+      "channelImageUrl",
+      "openLive",
+      "source_url",
+      "fetched_at"
+    ],
+    "filename_pattern": "m_chzzk_naver_com_{YYYYMMDD}.csv",
+    "encoding": "utf-8"
+  },
+  "errors": [],
+  "notes": [
+    "best_path: api_direct",
+    "official_api_suggestion: 네이버 검색 API (https://developers.naver.com/docs/serviceapi/search/)",
+    "pagination_unknown: 수동 확인 필요",
+    "collect_shape_patch: json_path_hints uses record root $.content; scalar paths preserved as field_json_path_hints metadata.",
+    "operator_note: Operator approved one bounded Arthur collect on 2026-06-13 for exact CHZZK subject profile API scope only; best_path=api_direct, transport=httpx, row root $.content, max_items=1, max_pages=1, max_requests=3, max_runtime_seconds=60, fields limited to approved profile fields, no raw body/html/screenshot/secret storage.",
+    "extraction_method: json_path:$.content"
+  ],
+  "boundary_signals": [
+    {
+      "source": "robots",
+      "signal": "robots_check",
+      "severity": "info",
+      "action": "recorded",
+      "detail": "robots 200 파싱 성공",
+      "target": "/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": null
+    }
+  ],
+  "policy_trace": [],
+  "execution_metadata": {},
+  "artifacts": [],
+  "session_profile": {
+    "provided": false,
+    "type": null,
+    "status": "not_provided",
+    "secret_values_logged": false,
+    "transport": null,
+    "header_names": [],
+    "cookie_names": []
+  }
+}

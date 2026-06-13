@@ -1,0 +1,174 @@
+{
+  "protocol_version": "gubiba_arthur_execution_protocol_v2.template",
+  "generated_at": "2026-06-10",
+  "status": "template_waiting_for_charles_sources",
+  "case_id": "gubiba",
+  "purpose": "구비바 §4 주/보조 코호트 구축용 공개 채널 단위 통계 수집",
+  "operator_decision": {
+    "main_cohort": "main_general_game",
+    "auxiliary_cohort": "aux_virtual",
+    "do_not_decide": true,
+    "record_only": true
+  },
+  "input_required_from_charles": [
+    "source_candidates with source_url/request_url",
+    "pagination or cursor structure",
+    "available columns",
+    "aggregation window",
+    "boundary_signal notes",
+    "request budget per source"
+  ],
+  "default_budgets": {
+    "inspect_max_requests_per_source": 10,
+    "collect_max_requests_total": 200,
+    "max_pages": 50,
+    "max_items": 2500,
+    "retry_policy": {
+      "max_retries": 2,
+      "backoff_seconds": [
+        3,
+        10
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "inspect_sources",
+      "mode": "inspect",
+      "description": "Charles가 제시한 각 source를 샘플 요청하여 실제 앱/데이터/경계화면 여부 확인",
+      "save_raw": false,
+      "output": [
+        "InspectResult JSON",
+        "boundary_signals",
+        "available_columns"
+      ]
+    },
+    {
+      "task_id": "collect_main_general_game",
+      "mode": "collect",
+      "cohort_type": "main_general_game",
+      "save_raw": true,
+      "output": [
+        "raw/main_general_game",
+        "cohort_general_game_population_normalized.csv"
+      ]
+    },
+    {
+      "task_id": "collect_aux_virtual",
+      "mode": "collect",
+      "cohort_type": "aux_virtual",
+      "save_raw": true,
+      "output": [
+        "raw/aux_virtual",
+        "cohort_virtual_population_normalized.csv"
+      ]
+    },
+    {
+      "task_id": "collect_followers",
+      "mode": "collect",
+      "cohort_type": "follower_match",
+      "save_raw": true,
+      "output": [
+        "raw/followers",
+        "cohort_followers_matched.csv"
+      ]
+    }
+  ],
+  "required_outputs": {
+    "raw_fetch_log": "meta/raw_fetch_log.jsonl",
+    "parser_log": "meta/parser_log.jsonl",
+    "boundary_signals": "meta/boundary_signals.jsonl",
+    "absence_inventory": "meta/absence_inventory.csv",
+    "normalized_main": "normalized/cohort_general_game_population_normalized.csv",
+    "normalized_aux": "normalized/cohort_virtual_population_normalized.csv",
+    "followers_matched": "normalized/cohort_followers_matched.csv"
+  },
+  "required_columns_minimum": [
+    "channel_name",
+    "channel_url",
+    "primary_category",
+    "total_stream_hours",
+    "peak_viewers",
+    "avg_viewers",
+    "viewership",
+    "follower_count",
+    "is_virtual",
+    "is_general_game",
+    "exclude_reason",
+    "collected_at"
+  ],
+  "required_meta_columns": [
+    "run_id",
+    "source_name",
+    "source_url",
+    "request_url",
+    "platform",
+    "cohort_type",
+    "aggregation_window_start",
+    "aggregation_window_end",
+    "fetched_at",
+    "http_status",
+    "content_type",
+    "raw_path",
+    "response_hash",
+    "parse_status",
+    "missing_reason",
+    "boundary_signal",
+    "collector_version"
+  ],
+  "privacy_and_boundary_rules": {
+    "allowed": [
+      "공개 채널 단위 통계",
+      "공개 랭킹",
+      "공개 프로필의 비민감 채널 설명"
+    ],
+    "forbidden": [
+      "비공개/회원전용 자료",
+      "타인 계정 세션/쿠키",
+      "개별 시청자 추적",
+      "후원자 단위 정보",
+      "개인식별정보 저장"
+    ],
+    "record_and_stop_if": [
+      "private_session_required",
+      "custom_checkpoint_bypass_required",
+      "infinite_retry_needed",
+      "operator_scope_exceeded"
+    ],
+    "record_and_continue_if_within_budget": [
+      "public_data_missing",
+      "parse_failed",
+      "aggregation_window_unknown",
+      "limited_5xx_timeout_retry"
+    ]
+  },
+  "missing_value_policy": {
+    "blank_cells_forbidden_without_missing_reason": true,
+    "absence_source_values": [
+      "charles_not_found",
+      "arthur_collection_failed",
+      "target_absent",
+      "undetermined"
+    ],
+    "unknown_allowed_for_flags": [
+      "is_virtual",
+      "is_general_game",
+      "is_corporate",
+      "is_tournament",
+      "is_esports_team",
+      "is_inactive",
+      "is_too_new",
+      "is_duplicate"
+    ]
+  },
+  "handoff_to_analysis": {
+    "after_arthur_returns": [
+      "normalize follower matching",
+      "compute peak bands and derived columns",
+      "produce cohort_final_main_general_game.csv",
+      "produce cohort_final_aux_virtual.csv",
+      "produce cohort_robustness_table.csv",
+      "enter §5 diagnosis"
+    ]
+  }
+}

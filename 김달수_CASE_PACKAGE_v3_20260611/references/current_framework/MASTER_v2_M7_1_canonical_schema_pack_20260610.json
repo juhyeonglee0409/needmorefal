@@ -1,0 +1,795 @@
+{
+  "schema_pack_version": "M7.1",
+  "generated_at": "2026-06-10",
+  "canonical_policy": {
+    "disclosure_field": "disclosure_tag",
+    "deprecated_fields": [
+      "privacy_tag",
+      "privacy_alias",
+      "streamer_id"
+    ],
+    "identity_fields": {
+      "streamer_key": "internal canonical identifier",
+      "platform_channel_id": "optional platform-native identifier",
+      "public_alias": "safe alias for public/demo use"
+    },
+    "case_result_status": "not_ready|partial|ready",
+    "public_demo_rule": "PublicDemoRow is a separately generated object, not a redacted PortfolioRow.",
+    "qa_round_2_status": "patched"
+  },
+  "enums": {
+    "disclosure_tag": [
+      "green",
+      "yellow",
+      "red"
+    ],
+    "case_type": [
+      "private_validation_case",
+      "client_deliverable_case",
+      "portfolio_pilot_case",
+      "public_demo_case",
+      "research_reference_case"
+    ],
+    "analysis_mode": [
+      "public_scout",
+      "portfolio_monitor",
+      "deep_dive",
+      "portfolio_pilot",
+      "public_demo"
+    ],
+    "data_depth": [
+      "public_only",
+      "creator_shared",
+      "mcn_internal",
+      "mixed"
+    ],
+    "data_source": [
+      "interview",
+      "channel_stats",
+      "cohort",
+      "execution_tracking",
+      "mcn_internal_kpi",
+      "public_web",
+      "content_sample",
+      "viewer_reception",
+      "external_validation",
+      "deliverable",
+      "manual_review"
+    ],
+    "case_result_status": [
+      "not_ready",
+      "partial",
+      "ready"
+    ],
+    "bridge_status": [
+      "not_ready",
+      "partial_ready",
+      "portfolio_ready",
+      "public_demo_ready"
+    ],
+    "synthesis_status": [
+      "none",
+      "analyst_synthesis_pending_client_response",
+      "client_accepted",
+      "client_corrected",
+      "externally_validated",
+      "experiment_validated"
+    ],
+    "interpretation_status": [
+      "active_claim",
+      "revised_claim",
+      "killed_claim",
+      "open_claim",
+      "monitoring_claim"
+    ],
+    "claim_level": [
+      "L0_record",
+      "L1_descriptive_stat",
+      "L2_cohort_relative",
+      "L3_pattern_or_correlation",
+      "L4_intervention_candidate",
+      "L5_experiment_validated"
+    ],
+    "components_source": [
+      "self_statement",
+      "content_observation",
+      "viewer_reception",
+      "metric",
+      "cohort_data",
+      "execution_tracking",
+      "external_validation",
+      "mixed"
+    ],
+    "confidence": [
+      "high",
+      "medium",
+      "low",
+      "unknown"
+    ],
+    "milestone_type": [
+      "analysis_report",
+      "execution_manual",
+      "tracking_sheet",
+      "portfolio_row",
+      "decision_card",
+      "public_demo_row"
+    ],
+    "correction_method": [
+      "peak_ratio",
+      "time_weighted",
+      "exclude_long_stream_days",
+      "raw_equals_corrected",
+      "not_applicable"
+    ],
+    "identity_fit": [
+      "fit",
+      "partial",
+      "misfit",
+      "unknown"
+    ],
+    "signal_level": [
+      "high",
+      "medium",
+      "low",
+      "unknown"
+    ],
+    "resource_allocation_tier": [
+      "invest",
+      "experiment",
+      "monitor",
+      "hold",
+      "unknown"
+    ],
+    "recommended_intervention_type": [
+      "promotion",
+      "collab",
+      "editing",
+      "shorts",
+      "routine",
+      "monetization",
+      "coaching",
+      "mcn_connection",
+      "monitor_only",
+      "unknown"
+    ],
+    "primary_bottleneck": [
+      "acquisition",
+      "conversion",
+      "retention",
+      "content_fit",
+      "execution",
+      "monetization",
+      "support_acceptance",
+      "unknown"
+    ],
+    "present_status": [
+      "present",
+      "absent",
+      "unknown",
+      "not_collected"
+    ],
+    "absence_source": [
+      "charles_not_found",
+      "arthur_collection_failed",
+      "target_absent",
+      "undetermined",
+      "manual_review_absent"
+    ],
+    "absence_type": [
+      "actual_absence",
+      "collection_failure",
+      "intentional_nonuse",
+      "not_verified",
+      "not_applicable"
+    ],
+    "retention_policy": [
+      "retain_raw",
+      "retain_summary_only",
+      "redact_sensitive",
+      "do_not_store"
+    ],
+    "boundary_signal": [
+      "none",
+      "rate_limited",
+      "login_required",
+      "checkpoint",
+      "access_friction",
+      "internal_or_private_scope",
+      "policy_stop",
+      "unknown"
+    ],
+    "disclosure_decision": [
+      "approved",
+      "approved_with_redaction",
+      "blocked",
+      "defer",
+      "requires_consent"
+    ],
+    "analysis_status": [
+      "not_started",
+      "in_progress",
+      "analysis_closed"
+    ],
+    "execution_status": [
+      "not_started",
+      "tracking",
+      "execution_closed"
+    ],
+    "portfolio_row_status": [
+      "not_ready",
+      "partial_ready",
+      "portfolio_ready"
+    ],
+    "public_demo_status": [
+      "blocked",
+      "synthetic_candidate",
+      "public_demo_ready"
+    ],
+    "disclosure_review_status": [
+      "not_reviewed",
+      "pending",
+      "approved",
+      "approved_with_redaction",
+      "blocked",
+      "requires_consent"
+    ]
+  },
+  "objects": {
+    "DeliverableMilestone": {
+      "description": "Client-facing or internal milestone generated from a CaseResult.",
+      "required": [
+        "milestone_id",
+        "milestone_type",
+        "audience",
+        "completed",
+        "disclosure_tag"
+      ],
+      "properties": {
+        "milestone_id": "string",
+        "milestone_type": "analysis_report|execution_manual|tracking_sheet|portfolio_row|decision_card|public_demo_row",
+        "audience": "client|internal|mcn|public",
+        "section_sequence": [
+          "string"
+        ],
+        "client_impact_headline": "string|null",
+        "headline_metrics": [
+          "string"
+        ],
+        "completed": "boolean",
+        "completed_at": "YYYY-MM-DD|null",
+        "execution_manual_included": "boolean",
+        "tracking_sheet_included": "boolean",
+        "evidence_refs": [
+          "string"
+        ],
+        "disclosure_tag": "green|yellow|red"
+      }
+    },
+    "MeasurementCorrection": {
+      "description": "A correction that changes interpretation of a metric, such as long-stream distortion.",
+      "required": [
+        "correction_id",
+        "affected_metric",
+        "correction_method",
+        "disclosure_tag"
+      ],
+      "properties": {
+        "correction_id": "string",
+        "affected_metric": "string",
+        "distortion_source": "string|null",
+        "correction_method": "peak_ratio|time_weighted|exclude_long_stream_days|raw_equals_corrected|not_applicable",
+        "raw_vs_corrected_summary": "string",
+        "recommendation_impact": "string|null",
+        "evidence_refs": [
+          "string"
+        ],
+        "disclosure_tag": "yellow|red"
+      }
+    },
+    "CohortBenchmark": {
+      "description": "Cohort definition, filters, metrics, and robustness checks.",
+      "required": [
+        "cohort_cell_id",
+        "cohort_confidence"
+      ],
+      "properties": {
+        "cohort_cell_id": "string|null",
+        "platform": "chzzk|soop|youtube|other|null",
+        "primary_cohort": "string|null",
+        "auxiliary_cohorts": [
+          "string"
+        ],
+        "population_source": "string|null",
+        "base_population_n": "integer|null",
+        "filter_steps": [
+          "object"
+        ],
+        "final_n": "integer|null",
+        "rank_metrics": [
+          "object"
+        ],
+        "robustness_tests": [
+          "object"
+        ],
+        "precision_guardrail": "string|null",
+        "cohort_confidence": "high|medium|low|unknown",
+        "disclosure_tag": "yellow|red"
+      }
+    },
+    "Claim": {
+      "description": "A claim with evidence level, interpretation status, disclosure status, and derivation targets.",
+      "required": [
+        "claim_id",
+        "claim_level",
+        "components_source",
+        "synthesis_status",
+        "interpretation_status",
+        "disclosure_tag"
+      ],
+      "properties": {
+        "claim_id": "string",
+        "internal_text": "string",
+        "client_safe_text": "string|null",
+        "public_safe_text": "string|null",
+        "claim_level": "L0_record|L1_descriptive_stat|L2_cohort_relative|L3_pattern_or_correlation|L4_intervention_candidate|L5_experiment_validated",
+        "components_source": "self_statement|content_observation|viewer_reception|metric|cohort_data|execution_tracking|external_validation|mixed",
+        "synthesis_status": "none|analyst_synthesis_pending_client_response|client_accepted|client_corrected|externally_validated|experiment_validated",
+        "interpretation_status": "active_claim|revised_claim|killed_claim|open_claim|monitoring_claim",
+        "confidence": "high|medium|low|unknown",
+        "precision_guardrail": "string|null",
+        "evidence_refs": [
+          "string"
+        ],
+        "claim_revision_history": [
+          "object"
+        ],
+        "portfolio_field_targets": [
+          "string"
+        ],
+        "disclosure_tag": "green|yellow|red"
+      }
+    },
+    "StrategicTarget": {
+      "description": "A target band, threshold, or monitoring goal derived from the diagnosis.",
+      "required": [
+        "target_name",
+        "target_metric",
+        "tracking_required"
+      ],
+      "properties": {
+        "target_name": "string",
+        "target_metric": "string",
+        "recommended_band": "string|null",
+        "warning_threshold": "string|null",
+        "tradeoff_rationale": "string",
+        "monitoring_window": "string|null",
+        "tracking_required": "boolean",
+        "evidence_refs": [
+          "string"
+        ],
+        "disclosure_tag": "yellow|red"
+      }
+    },
+    "ContentFunnelAnalysis": {
+      "description": "External content reach, conversion, and identity-fit assessment.",
+      "required": [
+        "content_type",
+        "reach_signal",
+        "conversion_signal",
+        "identity_fit"
+      ],
+      "properties": {
+        "content_type": "string",
+        "reach_signal": "high|medium|low|unknown",
+        "conversion_signal": "high|medium|low|unknown",
+        "identity_fit": "fit|partial|misfit|unknown",
+        "recommendation": "string",
+        "caveat": "string|null",
+        "evidence_refs": [
+          "string"
+        ],
+        "disclosure_tag": "yellow|red"
+      }
+    },
+    "Recommendation": {
+      "description": "Action recommendation with priority and tracking basis.",
+      "required": [
+        "recommendation_id",
+        "priority",
+        "category"
+      ],
+      "properties": {
+        "recommendation_id": "string",
+        "priority": "1|2|3|low|monitor",
+        "category": "content|schedule|shorts|monetization|mcn|coaching|cohort|other",
+        "recommendation_text": "string",
+        "rationale_refs": [
+          "string"
+        ],
+        "execution_manual_needed": "boolean",
+        "tracking_basis": "string|null",
+        "disclosure_tag": "yellow|red"
+      }
+    },
+    "CaseResult": {
+      "description": "Canonical M7 case-level output. CaseResult is the standard input to Bridge.",
+      "required": [
+        "case_id",
+        "methodology_version",
+        "case_type",
+        "analysis_mode",
+        "data_depth",
+        "data_sources",
+        "subject",
+        "milestone_status",
+        "claims",
+        "disclosure",
+        "bridge_readiness"
+      ],
+      "properties": {
+        "case_id": "string",
+        "methodology_version": "string",
+        "case_result_status": "not_ready|partial|ready",
+        "case_type": "private_validation_case|client_deliverable_case|portfolio_pilot_case|public_demo_case|research_reference_case",
+        "analysis_mode": "public_scout|portfolio_monitor|deep_dive|portfolio_pilot|public_demo",
+        "data_depth": "public_only|creator_shared|mcn_internal|mixed",
+        "data_sources": [
+          "interview|channel_stats|cohort|execution_tracking|mcn_internal_kpi|public_web|content_sample|viewer_reception|external_validation|deliverable|manual_review"
+        ],
+        "subject": {
+          "streamer_key": "string",
+          "platform": "chzzk|soop|youtube|other",
+          "platform_channel_id": "string|null",
+          "public_alias": "string|null"
+        },
+        "milestone_status": {
+          "analysis_milestone": "boolean",
+          "analysis_close": "boolean",
+          "execution_manual_included": "boolean",
+          "tracking_sheet_included": "boolean",
+          "execution_close": "boolean"
+        },
+        "deliverable_milestones": [
+          "DeliverableMilestone"
+        ],
+        "identity_summary": {
+          "internal_text": "string|null",
+          "client_safe_text": "string|null",
+          "public_safe_text": "string|null",
+          "identity_clarity": "high|medium|low|unknown",
+          "restricted_terms": [
+            "string"
+          ],
+          "disclosure_tag": "green|yellow|red"
+        },
+        "measurement_corrections": [
+          "MeasurementCorrection"
+        ],
+        "cohort": "CohortBenchmark",
+        "diagnostics": {
+          "current_position_summary": "string|null",
+          "primary_bottleneck": "acquisition|conversion|retention|content_fit|execution|monetization|support_acceptance|unknown",
+          "secondary_bottlenecks": [
+            "string"
+          ],
+          "execution_barriers": [
+            "string"
+          ],
+          "support_acceptance": "high|medium|low|unknown"
+        },
+        "claims": [
+          "Claim"
+        ],
+        "strategic_targets": [
+          "StrategicTarget"
+        ],
+        "content_funnel_analysis": [
+          "ContentFunnelAnalysis"
+        ],
+        "recommendations": [
+          "Recommendation"
+        ],
+        "limitations": [
+          "object"
+        ],
+        "open_analysis_tasks": [
+          "object"
+        ],
+        "external_validation": [
+          "object"
+        ],
+        "evidence_refs": [
+          "string"
+        ],
+        "absence_refs": [
+          "string"
+        ],
+        "disclosure": {
+          "case_default_tag": "green|yellow|red",
+          "public_demo_allowed": "boolean",
+          "public_demo_blockers": [
+            "string"
+          ],
+          "synthetic_release_possible": "boolean",
+          "restricted_terms": [
+            "string"
+          ],
+          "disclosure_log_refs": [
+            "string"
+          ]
+        },
+        "bridge_readiness": {
+          "case_result_status": "not_ready|partial|ready",
+          "bridge_status": "not_ready|partial_ready|portfolio_ready|public_demo_ready",
+          "portfolio_ready": "boolean",
+          "public_demo_ready": "boolean",
+          "blocking_reasons": [
+            "string"
+          ]
+        }
+      }
+    },
+    "PortfolioRow": {
+      "description": "Canonical M7 portfolio table row for MCN use.",
+      "required": [
+        "streamer_key",
+        "case_id",
+        "platform",
+        "cohort_cell_id",
+        "data_depth",
+        "scores",
+        "disclosure_tag"
+      ],
+      "properties": {
+        "streamer_key": "string",
+        "case_id": "string",
+        "platform": "chzzk|soop|youtube|other",
+        "platform_channel_id": "string|null",
+        "public_alias": "string|null",
+        "cohort_cell_id": "string|null",
+        "data_depth": "public_only|creator_shared|mcn_internal|mixed",
+        "data_sources": [
+          "string"
+        ],
+        "scores": {
+          "current_level_score": "number|null|string",
+          "growth_velocity_score": "number|null|string",
+          "growth_potential_score": "number|null|string",
+          "identity_clarity_score": "number|null|string",
+          "execution_readiness_score": "number|null|string",
+          "intervention_responsiveness_score": "number|null|string",
+          "support_acceptance_score": "number|null|string",
+          "data_quality_score": "number|null|string"
+        },
+        "primary_bottleneck": "acquisition|conversion|retention|content_fit|execution|monetization|support_acceptance|unknown",
+        "secondary_bottlenecks": [
+          "string"
+        ],
+        "recommended_intervention_type": "promotion|collab|editing|shorts|routine|monetization|coaching|mcn_connection|monitor_only|unknown",
+        "resource_allocation_tier": "invest|experiment|monitor|hold|unknown",
+        "confidence": "high|medium|low|unknown",
+        "portfolio_derivation_refs": [
+          "string"
+        ],
+        "strategic_targets_refs": [
+          "string"
+        ],
+        "measurement_correction_refs": [
+          "string"
+        ],
+        "content_funnel_refs": [
+          "string"
+        ],
+        "open_analysis_tasks_refs": [
+          "string"
+        ],
+        "evidence_refs": [
+          "string"
+        ],
+        "absence_flags": [
+          "string"
+        ],
+        "disclosure_tag": "green|yellow|red",
+        "privacy_notes": "string|null"
+      }
+    },
+    "DecisionCard": {
+      "description": "Human-readable decision card derived from CaseResult or PortfolioRow.",
+      "required": [
+        "case_id",
+        "headline",
+        "recommended_action",
+        "confidence",
+        "disclosure_tag"
+      ],
+      "properties": {
+        "case_id": "string",
+        "streamer_key": "string|null",
+        "headline": "string",
+        "current_position": "string",
+        "growth_signal": "string",
+        "primary_bottleneck": "string",
+        "recommended_action": "string",
+        "next_2_4_week_experiment": "string|null",
+        "execution_barrier": "string|null",
+        "support_acceptance_note": "string|null",
+        "strategic_target_summary": "string|null",
+        "measurement_correction_summary": "string|null",
+        "confidence": "high|medium|low|unknown",
+        "caveats": [
+          "string"
+        ],
+        "recheck_date_or_trigger": "string|null",
+        "evidence_refs": [
+          "string"
+        ],
+        "disclosure_tag": "green|yellow|red"
+      }
+    },
+    "PublicDemoRow": {
+      "description": "Public or preprint-safe demonstration row. It is generated separately, not redacted from PortfolioRow.",
+      "required": [
+        "case_alias",
+        "details_redacted",
+        "not_a_client_result",
+        "public_demo_risk_review",
+        "disclosure_tag"
+      ],
+      "properties": {
+        "case_alias": "Case A|string",
+        "platform_group": "KR platform A|KR platform B|synthetic",
+        "cohort_type": "general_gaming|virtual|talk|music|mixed|synthetic|unknown",
+        "relative_position": "low|mid|high|outlier|synthetic|unknown",
+        "bottleneck_group": "acquisition|conversion|retention|execution|monetization|mixed|unknown",
+        "intervention_group": "short_form_experiment|routine_design|editing_support|monetization_acceptance|content_repositioning|synthetic|unknown",
+        "confidence_group": "low|medium|high|illustrative_only",
+        "data_depth_group": "public_or_synthetic|anonymized_private|mixed_redacted|synthetic",
+        "details_redacted": "boolean",
+        "not_a_client_result": "boolean",
+        "synthetic_or_anonymized": "synthetic|anonymized|hybrid",
+        "public_demo_risk_review": {
+          "approved": "boolean",
+          "review_id": "string|null",
+          "blockers": [
+            "string"
+          ],
+          "redaction_actions": [
+            "string"
+          ]
+        },
+        "disclosure_review_id": "string|null",
+        "disclosure_tag": "green|yellow"
+      }
+    },
+    "EvidencePackage": {
+      "description": "Evidence inventory preserving provenance, raw/meta paths, boundary signals, and retention policy.",
+      "required": [
+        "evidence_package_id",
+        "case_id",
+        "source_items"
+      ],
+      "properties": {
+        "evidence_package_id": "string",
+        "case_id": "string",
+        "source_items": [
+          {
+            "evidence_id": "string",
+            "source_type": "interview|channel_stats|cohort|content_sample|public_web|manual_review|deliverable|other",
+            "source_title": "string|null",
+            "source_url_or_path": "string|null",
+            "raw_path": "string|null",
+            "fetched_at": "ISO8601|null",
+            "aggregation_window": "string|null",
+            "response_hash": "string|null",
+            "parse_status": "success|partial|failed|not_applicable",
+            "boundary_signal": "none|rate_limited|login_required|checkpoint|access_friction|internal_or_private_scope|policy_stop|unknown",
+            "retention_policy": "retain_raw|retain_summary_only|redact_sensitive|do_not_store",
+            "disclosure_tag": "green|yellow|red",
+            "notes": "string|null"
+          }
+        ],
+        "appendix_refs": [
+          "string"
+        ],
+        "created_at": "ISO8601"
+      }
+    },
+    "AbsenceInventory": {
+      "description": "Inventory of checked absences and their source, preventing silent propagation.",
+      "required": [
+        "absence_inventory_id",
+        "case_id",
+        "absence_items"
+      ],
+      "properties": {
+        "absence_inventory_id": "string",
+        "case_id": "string",
+        "absence_items": [
+          {
+            "absence_id": "string",
+            "target_area": "string",
+            "expected_asset": "string",
+            "present_status": "present|absent|unknown|not_collected",
+            "checked_source": "string|null",
+            "checked_at": "ISO8601|null",
+            "absence_source": "charles_not_found|arthur_collection_failed|target_absent|undetermined|manual_review_absent",
+            "absence_type": "actual_absence|collection_failure|intentional_nonuse|not_verified|not_applicable",
+            "confidence": "high|medium|low|unknown",
+            "impact": "string|null",
+            "next_check": "string|null",
+            "disclosure_tag": "green|yellow|red"
+          }
+        ]
+      }
+    },
+    "DisclosureLog": {
+      "description": "Record of disclosure review decisions for any object to be shared outside internal context.",
+      "required": [
+        "review_id",
+        "object_type",
+        "object_id",
+        "final_tag",
+        "decision",
+        "reviewed_at"
+      ],
+      "properties": {
+        "review_id": "string",
+        "object_type": "claim|evidence|CaseResult|PortfolioRow|DecisionCard|PublicDemoRow|report|schema|other",
+        "object_id": "string",
+        "proposed_tag": "green|yellow|red",
+        "final_tag": "green|yellow|red",
+        "reviewer": "string|null",
+        "decision": "approved|approved_with_redaction|blocked|defer|requires_consent",
+        "reason": "string",
+        "reviewed_at": "ISO8601",
+        "public_safe_text": "string|null",
+        "redaction_actions": [
+          "string"
+        ],
+        "recheck_trigger": "string|null"
+      }
+    },
+    "ValidationCaseRegistryRow": {
+      "description": "One row in the validation case registry used to track private validation, client deliverable, portfolio pilot, public demo, and research reference cases.",
+      "required": [
+        "case_id",
+        "case_type",
+        "data_depth",
+        "analysis_status",
+        "case_result_status",
+        "portfolio_row_status",
+        "public_demo_status"
+      ],
+      "properties": {
+        "case_id": "string",
+        "case_alias": "string|null",
+        "case_type": "private_validation_case|client_deliverable_case|portfolio_pilot_case|public_demo_case|research_reference_case",
+        "platform": "string|null",
+        "primary_category": "string|null",
+        "secondary_category": "string|null",
+        "is_virtual": "boolean|null",
+        "data_depth": "public_only|creator_shared|mcn_internal|mixed",
+        "analysis_status": "not_started|in_progress|analysis_closed",
+        "execution_status": "not_started|tracking|execution_closed",
+        "case_result_status": "not_ready|partial|ready",
+        "portfolio_row_status": "not_ready|partial_ready|portfolio_ready",
+        "public_demo_status": "blocked|synthetic_candidate|public_demo_ready",
+        "disclosure_review_status": "not_reviewed|pending|approved|approved_with_redaction|blocked|requires_consent",
+        "main_blockers": [
+          "string"
+        ],
+        "allowed_public_description": "string|null",
+        "restricted_terms": [
+          "string"
+        ],
+        "evidence_package_path": "string|null",
+        "case_result_path": "string|null",
+        "portfolio_row_path": "string|null",
+        "decision_card_path": "string|null",
+        "public_demo_row_path": "string|null",
+        "last_reviewed_at": "YYYY-MM-DD|null",
+        "notes": "string|null"
+      }
+    }
+  }
+}

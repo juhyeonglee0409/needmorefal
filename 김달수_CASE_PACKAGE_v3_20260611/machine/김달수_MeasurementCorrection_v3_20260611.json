@@ -1,0 +1,13 @@
+{
+  "correction_id": "MC1_long_stream_avg_viewer_distortion",
+  "affected_metric": "avg_viewers",
+  "distortion_source": "long_stream_hours / 노방종",
+  "correction_method": "peak_ratio",
+  "raw_vs_corrected_summary": "평균 시청자 하락으로 보이는 일부 구간을 장시간 방송 분모 팽창에 따른 측정 착시로 보정.",
+  "recommendation_impact": "정체/누수 진단을 건강한 성장 진단으로 정정하고, 노방종은 비권장 전략으로 처리.",
+  "evidence_refs": [
+    "deliverables/milestone_report/김달수_채널분석_컨설팅리포트.md#4-지표-신뢰성--측정-보정",
+    "data/cohort/김달수_코호트_분석_방법과결과.md#3-노방종장시간-방송-보정"
+  ],
+  "disclosure_tag": "red"
+}

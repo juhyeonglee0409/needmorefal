@@ -1,0 +1,137 @@
+{
+  "package": "KimDalsu_TargetBatchPlan_MASTER_v2_M7_1_20260611",
+  "generated_at": "2026-06-11T16:47:18+09:00",
+  "file_count": 26,
+  "files": [
+    {
+      "path": "LEGACY_RELOCATION_NOTE.md",
+      "bytes": 703,
+      "sha256": "b6c3c65549bb02e18a0e9e4f4a87fe06de619b58304932be4ee358f0211d0e3e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1615,
+      "sha256": "2b051f9a65b9ebeffc69c0971eb15c2841adfba1ecc36d91a9a2b193d8381228"
+    },
+    {
+      "path": "legacy/baseline_data/김달수_Dalsu_방송통계_1년_20260528.csv",
+      "bytes": 12548,
+      "sha256": "083d5f5c0948c4b71912dce54accdcb008aa4203d75dcaf851319c3a2da132be"
+    },
+    {
+      "path": "legacy/baseline_data/김달수_코호트_131명.csv",
+      "bytes": 13364,
+      "sha256": "e7eb4f0e77d37b3f7d139ae7bef0a7db145028116e14bdf7f0128b3545385d50"
+    },
+    {
+      "path": "legacy/baseline_data/김달수_코호트_분석_방법과결과.md",
+      "bytes": 4800,
+      "sha256": "7ff191f32603e29f7069e8a2b0ebc33c43c1df7754af6c0e537da3b771a86f23"
+    },
+    {
+      "path": "legacy/baseline_data/수집대상_183명.csv",
+      "bytes": 6376,
+      "sha256": "e5cea9505b0ef3013f39ddbf1152820cd8445ea3a4d407780c017c679fb324f4"
+    },
+    {
+      "path": "legacy/baseline_data/스크래핑_작업명세서_구현팀.md",
+      "bytes": 5438,
+      "sha256": "698e42786dd3421f79832291ae9264987988258b85496ebb028cc02baf8f84e3"
+    },
+    {
+      "path": "legacy/previous_milestone_report/김달수_채널분석_컨설팅리포트_LEGACY_20260601.md",
+      "bytes": 19107,
+      "sha256": "428b8910b174d1811b91025f4e1f014d5eb6895bf1884d2641f1637373713a67"
+    },
+    {
+      "path": "references/MASTER_streamer_mcn_framework_v2_draft_M7_1_QA2_patched_20260610.md",
+      "bytes": 128380,
+      "sha256": "5e358ab1b2b50ecea32362cb13e3ca15cc392fcdc2cbf73d3d9491fd39bcf5ca"
+    },
+    {
+      "path": "references/MASTER_v2_M7_1_canonical_enum_table_20260610.csv",
+      "bytes": 5064,
+      "sha256": "e101bd9f532c5ad0c265df05db584387e3665b38790f7ba450c07c167aac4fb4"
+    },
+    {
+      "path": "references/MASTER_v2_M7_1_canonical_schema_pack_20260610.json",
+      "bytes": 24633,
+      "sha256": "29ba47fab0adbd013981f70e9f7f1513516b8718223bb8123573a9f1f9b45c34"
+    },
+    {
+      "path": "references/스트리머_채널진단_방법론_v3_draft_START_20260610.md",
+      "bytes": 82797,
+      "sha256": "20016773bffa533d42530c9234002d4c7c8e56fe127105d9436a1858fd4153e7"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_auro_live_chzzk_follower_public_crosscheck.json",
+      "bytes": 1761,
+      "sha256": "19766b0a5257b1ddef0394c665a37b6cc94803be2aa464fae0ae9995007f678a"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_chzzk_subject_channel_public_profile.json",
+      "bytes": 1869,
+      "sha256": "3ea2b7bb7f33fefa9eeb831f2fe8fff685a1d80743f771f04befc63fb003ff89"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_semorank_chzzk_follower_public_crosscheck.json",
+      "bytes": 1803,
+      "sha256": "1fd350061dbccb7874e86461e745828fa7ba679a2090dae06f90f0d1a3eef2b2"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_softcon_chzzk_follower_ranking_enterprise.json",
+      "bytes": 1837,
+      "sha256": "9eba0fc9a89828b744a472a294b1ec43699299f729dcd95db5318f2852bda79e"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_softcon_chzzk_lol_population_monthly.json",
+      "bytes": 2187,
+      "sha256": "95ca030ce3dbabfb67eeab740e73145e0a42262c66520da80ee6806bb7e93a42"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_softcon_cohort_member_profile_enrichment.json",
+      "bytes": 1901,
+      "sha256": "1f38b7100e1cd47612b1728c2a0651b30a4178a7f33dfdbb73d961b730841d97"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_softcon_subject_channel_current_stats.json",
+      "bytes": 1929,
+      "sha256": "c9207a939e19b9e9903e394e23121ae436cfa95814bfed68912be3fcaff7b473"
+    },
+    {
+      "path": "work/collect_directives/CollectDirective_TEMPLATE_youtube_dalsooisfree_content_funnel.json",
+      "bytes": 2090,
+      "sha256": "6b8bab293d29a6aaaceca4d054c1b0832929fb8c8f61a6ce72fc3ecc4fa6c2b6"
+    },
+    {
+      "path": "work/orchestrator/KimDalsu_CLI_Orchestrator_Prompt_20260611.md",
+      "bytes": 3067,
+      "sha256": "e12522bf25af275e323656552a16859d98a9c119901617ba9de55729e7fedf1b"
+    },
+    {
+      "path": "work/orchestrator/KimDalsu_Recollect_Runbook_20260611.md",
+      "bytes": 1323,
+      "sha256": "6ab0ebf619aab32e8a736bf6645d1cec36f4c3a91f7d3b81ffc9e2eacb744d3c"
+    },
+    {
+      "path": "work/target_batch_plan/KimDalsu_TargetBatchPlan_MASTER_v2_M7_1_20260611.json",
+      "bytes": 30362,
+      "sha256": "54f238a09d86bb157af52c367c4bc2d33cff0f5e64889042eb59eff9e3e4abb9"
+    },
+    {
+      "path": "work/target_batch_plan/KimDalsu_TargetBatchPlan_MASTER_v2_M7_1_20260611.md",
+      "bytes": 2917,
+      "sha256": "cc2d939be2f30b32bf91fa6c03264419db110da0af194eeaae461a2048bd01b7"
+    },
+    {
+      "path": "work/target_batch_plan/KimDalsu_TargetBatchPlan_column_contract_20260611.csv",
+      "bytes": 12431,
+      "sha256": "76892c87564426a75d7ed99f7a54f2d6bac4f509a2ca6deb804fa868c54c8662"
+    },
+    {
+      "path": "work/target_batch_plan/SOURCE_URL_NOTES.md",
+      "bytes": 545,
+      "sha256": "a584bf6fbb801f27d031b4d523b98d0f45582a50b2da9c47024ecef53ad449bf"
+    }
+  ]
+}

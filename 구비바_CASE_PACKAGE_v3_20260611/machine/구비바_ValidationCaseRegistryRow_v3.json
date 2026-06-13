@@ -1,0 +1,39 @@
+{
+  "case_id": "gubiba",
+  "case_alias": "구비바",
+  "case_type": "private_validation_case",
+  "platform": "chzzk",
+  "primary_category": "general_game_pending_final_cohort",
+  "secondary_category": "virtual_aux_pending",
+  "is_virtual": true,
+  "data_depth": "creator_shared",
+  "analysis_status": "in_progress",
+  "execution_status": "not_started",
+  "case_result_status": "not_ready",
+  "portfolio_row_status": "not_ready",
+  "public_demo_status": "blocked",
+  "disclosure_review_status": "blocked",
+  "main_blockers": [
+    "§4 final cohort not collected",
+    "§5 diagnosis incomplete",
+    "O13 response not observed",
+    "O17 action result unknown"
+  ],
+  "allowed_public_description": "Private validation case for a KR livestreamer Deep-Dive protocol using main/auxiliary cohort design.",
+  "restricted_terms": [
+    "실명/정확 나이/직업/거주지",
+    "구비바 고유 발화 원문",
+    "도네·수입 관련 세부값",
+    "NOB 엔터테인먼트 관련 진행 세부",
+    "O13 통합진단 전달문",
+    "O17 실행 결과와 반응 로그",
+    "원본 디스코드 면담 로그"
+  ],
+  "evidence_package_path": "/mnt/data/구비바_EvidencePackage_v3_initial_20260611.json",
+  "case_result_path": "/mnt/data/구비바_CaseResult_v3_stub_20260611.json",
+  "portfolio_row_path": null,
+  "decision_card_path": null,
+  "public_demo_row_path": null,
+  "last_reviewed_at": "2026-06-11",
+  "notes": "Do not convert to PortfolioRow/PublicDemoRow until §4/§5 and O13/O17 are resolved."
+}

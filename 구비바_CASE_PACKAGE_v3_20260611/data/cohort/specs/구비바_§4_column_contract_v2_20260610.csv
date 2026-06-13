@@ -1,0 +1,78 @@
+﻿section,column,requirement,type,description,source_or_calc,output_files
+provenance,run_id,required,string,수집 실행 묶음 ID,collector,"raw_fetch_log, normalized"
+provenance,source_name,required,string,출처명: 소프트콘/치지직/수동자료 등,collector,all
+provenance,source_url,required,url,사람이 확인할 기준 URL,collector,raw_fetch_log
+provenance,request_url,required,url,실제 요청 URL 또는 렌더링 URL,collector,raw_fetch_log
+provenance,platform,required,enum,chzzk 등 플랫폼,collector,normalized
+provenance,cohort_type,required,enum,main_general_game / aux_virtual / robustness_only,operator,normalized
+provenance,aggregation_window_start,required,date,랭킹/통계 집계 시작일,source/collector,normalized
+provenance,aggregation_window_end,required,date,랭킹/통계 집계 종료일,source/collector,normalized
+provenance,fetched_at,required,datetime,수집 시각,collector,all
+provenance,http_status,required,integer,HTTP 상태코드,collector,raw_fetch_log
+provenance,content_type,required,string,응답 content-type,collector,raw_fetch_log
+provenance,raw_path,required,path,원자료 저장 경로,collector,all
+provenance,response_hash,required,sha256,응답 해시,collector,raw_fetch_log
+provenance,parse_status,required,enum,parsed / partial / failed,scraper,normalized
+provenance,missing_reason,conditional,string,값 누락 이유,scraper,normalized
+provenance,boundary_signal,required,string,429/checkpoint/login_required 등 접근 마찰 기록,collector,raw_fetch_log
+provenance,collector_version,required,string,Arthur/스크래퍼 버전,collector,all
+identity,source_rank,recommended,integer,출처 내 순위,source,normalized
+identity,channel_id,strongly_recommended,string,채널 고유 ID,source/scraper,normalized
+identity,channel_name,required,string,채널명,source/scraper,normalized
+identity,display_name,optional,string,표시명/닉네임,source/scraper,normalized
+identity,channel_url,required,url,채널 URL,source/scraper,normalized
+identity,profile_text,optional_sensitive_minimize,string,프로필/소개 텍스트. 개인식별정보는 저장하지 않거나 마스킹,source/scraper,normalized
+category,primary_category,required,string,최종 주 카테고리,scraper/manual,normalized
+category,category_basis,required,string,최근 90일/1년/랭킹/수동판정 등 카테고리 근거,scraper/manual,normalized
+category,category_1,recommended,string,카테고리 1순위,source/scraper,normalized
+category,category_1_share,recommended,float,카테고리 1순위 비중,source/scraper,normalized
+category,category_2,recommended,string,카테고리 2순위,source/scraper,normalized
+category,category_2_share,recommended,float,카테고리 2순위 비중,source/scraper,normalized
+category,category_3,optional,string,카테고리 3순위,source/scraper,normalized
+category,category_3_share,optional,float,카테고리 3순위 비중,source/scraper,normalized
+category,category_confidence,required,enum,high / medium / low,scraper/manual,normalized
+category,is_general_game,required,boolean,종합게임 판정,scraper/manual,normalized
+category,general_game_basis,required,string,종합게임 판정 근거,scraper/manual,normalized
+category,is_virtual,required,boolean_or_unknown,버추얼 판정,scraper/manual,normalized
+category,virtual_basis,required,string,버추얼 판정 근거: profile_tag/category_label/known_list/manual_review/unknown,scraper/manual,normalized
+performance,total_stream_hours,required,float,집계 기간 총 방송시간,source/scraper,normalized
+performance,stream_days,recommended,integer,집계 기간 방송일 수,source/scraper,normalized
+performance,avg_stream_hours_per_stream,recommended,float,방송 1회 평균 길이,calculated,normalized
+performance,peak_viewers,required,integer,출처가 제공하는 대표 최고 시청자,source/scraper,normalized
+performance,peak_max,recommended,integer,기간 내 최고 peak,source/scraper/calculated,normalized
+performance,peak_p95,recommended,float,일별 peak 95분위,calculated,normalized
+performance,peak_median,recommended,float,일별 peak 중앙값,calculated,normalized
+performance,peak_recent_median,recommended,float,최근 90일 일별 peak 중앙값,calculated,normalized
+performance,peak_recent_p95,recommended,float,최근 90일 일별 peak 95분위,calculated,normalized
+performance,avg_viewers,required,float,평균 시청자,source/scraper,normalized
+performance,viewership,required,float,시청량 또는 평균×방송시간,source/scraper,normalized
+performance,max_chat_6m,recommended,float,6분 최고채팅,source/scraper,normalized
+performance,avg_chat_6m,recommended,float,6분 평균 채팅수,source/scraper,normalized
+performance,follower_count,required,integer,팔로워 수,source/scraper/follower_match,normalized
+performance,follower_rank,recommended,integer,팔로워 랭킹 순위,source/scraper,normalized
+performance,follower_source_name,recommended,string,팔로워 출처명,source/scraper,normalized
+performance,follower_collected_at,recommended,datetime,팔로워 수집 시각,collector,normalized
+filters,is_esports_team,required,boolean_or_unknown,e스포츠팀/선수단 계정 여부,scraper/manual,normalized
+filters,is_tournament,required,boolean_or_unknown,대회/이벤트 계정 여부,scraper/manual,normalized
+filters,is_corporate,required,boolean_or_unknown,기업 운영 계정 여부,scraper/manual,normalized
+filters,is_inactive,required,boolean_or_unknown,휴면/최근 활동 부족 여부,scraper/manual,normalized
+filters,is_too_new,required,boolean_or_unknown,신생 1~2개월 미만 여부,scraper/manual,normalized
+filters,is_duplicate,required,boolean_or_unknown,중복 채널 여부,scraper/manual,normalized
+filters,exclude_reason,conditional,string,최종 제외 이유. 포함이면 빈칸,scraper/manual,final
+derived,peak_basis,calculated,enum,raw_max / p95 / all_median / recent_median / recent_p95,analysis,"final, robustness"
+derived,gubiba_reference_peak,calculated,float,비교에 쓰인 구비바 기준 peak,analysis,"final, robustness"
+derived,peak_ratio_to_gubiba,calculated,float,cohort peak / 구비바 기준 peak,analysis,"final, robustness"
+derived,within_band,calculated,boolean,0.5~2.0배 동급 여부,analysis,"final, robustness"
+derived,within_band_by_max,calculated,boolean,raw max 기준 동급 여부,analysis,robustness
+derived,within_band_by_p95,calculated,boolean,p95 기준 동급 여부,analysis,robustness
+derived,within_band_by_median,calculated,boolean,전체 median 기준 동급 여부,analysis,robustness
+derived,within_band_by_recent_median,calculated,boolean,최근 median 기준 동급 여부,analysis,robustness
+derived,peak_to_followers,calculated,float,peak / follower_count,analysis,final
+derived,avg_to_followers,calculated,float,avg_viewers / follower_count,analysis,final
+derived,viewership_per_hour,calculated,float,viewership / total_stream_hours,analysis,final
+derived,chat_per_avg_viewer,calculated,float,avg_chat_6m / avg_viewers,analysis,final
+derived,peak_avg_ratio,calculated,float,peak / avg_viewers. 스파이크 판정 보조,analysis,final
+derived,nobangjong_flag,calculated,boolean,14h+ 또는 par 기준 노방종형 여부,analysis,final
+derived,long_stream_flag,calculated,boolean,긴 방송형 여부,analysis,final
+derived,final_include,calculated,boolean,최종 코호트 포함 여부,analysis/manual,final
+derived,final_cohort_group,calculated,enum,main / aux / robustness_only / excluded,analysis/manual,final

@@ -1,0 +1,87 @@
+{
+  "kind": "CollectDirective",
+  "case_id": "kimdalsu_20260601",
+  "target_id": "softcon_chzzk_lol_population_monthly",
+  "methodology_version": "MASTER_v2_M7.1 + streamer_channel_diagnosis_v3",
+  "source_protocol": "<insert Charles ExecutionProtocol protocol object here>",
+  "approved": false,
+  "approved_best_path": "<requests|api_direct|rsc_payload|sitemap_first|playwright>",
+  "approved_scope": {
+    "allowed_domains": [
+      "viewership.softc.one"
+    ],
+    "path_prefixes": [
+      "/",
+      "/channel",
+      "/ranking",
+      "/category",
+      "/platform"
+    ],
+    "max_requests": 180,
+    "max_pages": 80,
+    "max_items": 2500
+  },
+  "field_policy": {
+    "include": [
+      "run_id",
+      "cohort_cell_id",
+      "cohort_type",
+      "source_name",
+      "source_url",
+      "request_url",
+      "platform",
+      "channel_id",
+      "channel_name",
+      "channel_url",
+      "primary_category",
+      "category_basis",
+      "aggregation_window_start",
+      "aggregation_window_end",
+      "total_stream_hours",
+      "peak_viewers",
+      "avg_viewers",
+      "viewership",
+      "follower_count",
+      "is_virtual",
+      "is_esports_team",
+      "is_tournament",
+      "is_corporate",
+      "exclude_reason",
+      "raw_record_path",
+      "collected_at",
+      "disclosure_tag"
+    ],
+    "exclude": [
+      "email",
+      "phone",
+      "personal_id",
+      "token",
+      "cookie",
+      "session",
+      "csrf",
+      "password",
+      "payment",
+      "private_message"
+    ],
+    "mask": []
+  },
+  "raw_policy": {
+    "save_raw": true,
+    "redact_secrets": true,
+    "retention_policy": "retain_raw_unless_sensitive"
+  },
+  "boundary_policy": {
+    "robots_disallowed": "record",
+    "private_network": "stop",
+    "restricted_gate": "stop",
+    "login_required_without_profile": "stop",
+    "target_specific_bypass": "stop",
+    "rate_limited": "stop_and_record"
+  },
+  "profile_policy": {
+    "profile_required": true,
+    "profile_values_must_not_be_logged": true,
+    "profile_summary_only": true
+  },
+  "operator_note": "Do not set approved=true until Charles protocol and Arthur inspect are reviewed for softcon_chzzk_lol_population_monthly."
+}

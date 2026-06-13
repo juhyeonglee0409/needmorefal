@@ -1,0 +1,60 @@
+{
+  "streamer_key": "kimdalsu",
+  "case_id": "kimdalsu_20260601",
+  "platform": "chzzk",
+  "platform_channel_id": null,
+  "public_alias": "A스트리머",
+  "cohort_cell_id": "chzzk_lol_peak_60_240_personal_streamers_20260428_20260527",
+  "data_depth": "mixed",
+  "data_sources": [
+    "channel_stats",
+    "cohort",
+    "deliverable",
+    "manual_review",
+    "external_validation"
+  ],
+  "scores": {
+    "current_level_score": "qualitative_high_within_cohort",
+    "growth_velocity_score": "qualitative_high",
+    "growth_potential_score": "qualitative_medium_high",
+    "identity_clarity_score": "qualitative_high",
+    "execution_readiness_score": "unknown_pending_followup",
+    "intervention_responsiveness_score": "unknown_pending_followup",
+    "support_acceptance_score": "medium_pending_followup",
+    "data_quality_score": "high_for_analysis_milestone"
+  },
+  "primary_bottleneck": "conversion",
+  "secondary_bottlenecks": [
+    "content_fit",
+    "execution"
+  ],
+  "recommended_intervention_type": "shorts",
+  "resource_allocation_tier": "experiment",
+  "confidence": "medium",
+  "portfolio_derivation_refs": [
+    "machine/김달수_CaseResult_v3_partial_20260611.json"
+  ],
+  "strategic_targets_refs": [
+    "1만 팔로워 도달 + 진성도 유지"
+  ],
+  "measurement_correction_refs": [
+    "MC1_long_stream_avg_viewer_distortion"
+  ],
+  "content_funnel_refs": [
+    "shortform"
+  ],
+  "open_analysis_tasks_refs": [
+    "O17",
+    "O18",
+    "O19"
+  ],
+  "evidence_refs": [
+    "machine/김달수_EvidencePackage_v3_initial.json"
+  ],
+  "absence_flags": [
+    "execution_manual_not_included",
+    "tracking_sheet_not_included"
+  ],
+  "disclosure_tag": "red",
+  "privacy_notes": "부분 row이며 MCN 내부 row로 쓰기 전 후속 응대와 disclosure review 필요."
+}

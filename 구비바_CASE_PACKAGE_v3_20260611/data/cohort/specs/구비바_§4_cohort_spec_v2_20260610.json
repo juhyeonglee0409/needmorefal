@@ -1,0 +1,264 @@
+{
+  "schema_version": "gubiba_cohort_spec_v2.0",
+  "generated_at": "2026-06-10",
+  "case_id": "gubiba",
+  "stage": "Step 1 / §4 cohort construction specification",
+  "methodology_reference": "스트리머_채널진단_방법론_v2_draft_20260610.md",
+  "decision": {
+    "main_cohort": "main_general_game",
+    "auxiliary_cohort": "aux_virtual",
+    "decision_text": "종합게임을 주 코호트로 사용하고, 버추얼을 보조 코호트로 사용한다.",
+    "reason": [
+      "구비바는 종합게임 힐링 채널로 정체성 분석이 정리되어 있다.",
+      "동시에 버추얼 속성이 경계 요인으로 작동할 수 있으므로 보조 코호트로 결론 흔들림을 확인한다.",
+      "§5 진단 전 코호트 정의를 고정해야 한다."
+    ]
+  },
+  "gubiba_reference_metrics": {
+    "data_source": "구비바_방송통계_1년_20260529.csv",
+    "date_start": "2025-05-29",
+    "date_end": "2026-05-29",
+    "period_days": 366,
+    "stream_days": 227,
+    "non_stream_days": 139,
+    "followers_start": 471,
+    "followers_end": 711,
+    "followers_delta": 240,
+    "followers_growth_pct": 50.9554,
+    "stream_hours_median": 5.7,
+    "stream_hours_max": 9.6,
+    "nobangjong_14h_days": 0,
+    "long_stream_10h_days": 0,
+    "peak_max": 148,
+    "peak_p95": 37.7,
+    "peak_median": 20,
+    "peak_recent_median": 23,
+    "peak_recent_p95": 42.9,
+    "peak_recent_max": 67,
+    "avg_viewers_median": 14,
+    "avg_viewers_recent_median": 16,
+    "chat_6m_avg_median": 20,
+    "viewership_median": 83,
+    "recent_window_start": "2026-03-01",
+    "recent_window_end": "2026-05-29",
+    "recent_stream_days": 63
+  },
+  "peak_bands": {
+    "raw_max": {
+      "reference_peak": 148,
+      "band_min": 74,
+      "band_max": 296,
+      "role": "외부 랭킹·스파이크 포함 최대 동원력 대응. 본문 기준으로 단독 사용 금지."
+    },
+    "p95": {
+      "reference_peak": 37.7,
+      "band_min": 18.85,
+      "band_max": 75.4,
+      "role": "극단 스파이크 완화 기준. 외부 통계가 기간 최고치만 줄 때 보조 기준."
+    },
+    "all_median": {
+      "reference_peak": 20,
+      "band_min": 10,
+      "band_max": 40,
+      "role": "1년 일상 체급 기준. §5 진단의 핵심 기준 후보."
+    },
+    "recent_median": {
+      "reference_peak": 23,
+      "band_min": 11.5,
+      "band_max": 46,
+      "role": "최근 90일 현재 체급 기준. 최종 주 코호트 필터의 핵심 기준 후보."
+    },
+    "recent_p95": {
+      "reference_peak": 42.9,
+      "band_min": 21.45,
+      "band_max": 85.8,
+      "role": "최근 스파이크 포함 현재 체급 기준. 강건성 검증용."
+    }
+  },
+  "collection_targets": [
+    {
+      "target_id": "T1",
+      "cohort_type": "main_general_game",
+      "description": "치지직 종합게임 계열 스트리머 모집단",
+      "scope_minimum": "상위 500명",
+      "scope_recommended": "상위 2,000명",
+      "final_target_size_after_filters": "100~150명 이상 권장",
+      "required_population_columns": [
+        "channel_name",
+        "channel_url",
+        "total_stream_hours",
+        "peak_viewers",
+        "avg_viewers",
+        "viewership",
+        "follower_count",
+        "primary_category",
+        "is_general_game",
+        "is_virtual"
+      ],
+      "notes": "본문 결론의 기본 시장 위치 판단에 사용한다."
+    },
+    {
+      "target_id": "T2",
+      "cohort_type": "aux_virtual",
+      "description": "치지직 버추얼 스트리머 모집단. 가능하면 종합게임 성향 버추얼 우선.",
+      "scope_minimum": "필터 후 50명 이상",
+      "scope_recommended": "가능한 전체 또는 상위 2,000명",
+      "final_target_size_after_filters": "50~100명 이상 권장",
+      "required_population_columns": [
+        "channel_name",
+        "channel_url",
+        "total_stream_hours",
+        "peak_viewers",
+        "avg_viewers",
+        "viewership",
+        "follower_count",
+        "primary_category",
+        "is_virtual",
+        "virtual_basis"
+      ],
+      "notes": "결론 강건성 검증에 사용한다. 본문 결론으로 직접 쓰지 않는다."
+    },
+    {
+      "target_id": "T3",
+      "cohort_type": "follower_match",
+      "description": "코호트 채널별 follower_count 매칭 데이터",
+      "scope_minimum": "코호트 후보 전원 매칭",
+      "scope_recommended": "팔로워 랭킹 6,000위 이상 또는 채널별 상세값 전체 매칭",
+      "required_population_columns": [
+        "channel_id",
+        "channel_url",
+        "channel_name",
+        "follower_count",
+        "follower_rank",
+        "follower_collected_at"
+      ],
+      "notes": "§5에서 팔로워 대비 peak/평청/채팅 효율 계산에 필수."
+    }
+  ],
+  "output_files_expected": {
+    "raw": [
+      "raw/main_general_game/*.html_or_json",
+      "raw/aux_virtual/*.html_or_json",
+      "raw/followers/*.html_or_json"
+    ],
+    "meta": [
+      "meta/raw_fetch_log.jsonl",
+      "meta/parser_log.jsonl",
+      "meta/boundary_signals.jsonl",
+      "meta/absence_inventory.csv"
+    ],
+    "normalized": [
+      "cohort_general_game_population_normalized.csv",
+      "cohort_virtual_population_normalized.csv",
+      "cohort_followers_matched.csv",
+      "cohort_final_main_general_game.csv",
+      "cohort_final_aux_virtual.csv",
+      "cohort_robustness_table.csv"
+    ],
+    "docs": [
+      "구비바_§4_코호트_방법론_v2.md",
+      "구비바_§4_Charles_진단요청_v2.md",
+      "구비바_§4_Arthur_ExecutionProtocol_v2.json"
+    ]
+  },
+  "filter_policy": {
+    "include_if": [
+      "공개 채널 단위 통계",
+      "cohort_type에 맞는 카테고리/속성 판정 근거 존재",
+      "팔로워 매칭 성공 또는 missing_reason 기록",
+      "동급 peak band 중 하나 이상에 해당하거나 robustness 검증 대상으로 필요"
+    ],
+    "exclude_if": [
+      "e스포츠팀/대회/기업 운영 계정",
+      "휴면 또는 최근 활동 부족",
+      "신생 1~2개월 미만으로 지표 안정성 부족",
+      "채널 중복",
+      "비공개/회원전용/타인 세션이 필요한 자료"
+    ],
+    "do_not_exclude_automatically": [
+      "버추얼 여부: 주 코호트에서는 flag로 보존하고, 보조 코호트와 비교한다.",
+      "다른 게임 부주력: category share가 있으면 manual_review로 보존한다.",
+      "스파이크형 채널: peak_max만으로 제외하지 않고 p95/median 기준을 같이 본다."
+    ]
+  },
+  "robustness_plan": [
+    {
+      "test_id": "R1",
+      "name": "recent_median_peak_band",
+      "basis": "peak_recent_median 11.5~46",
+      "role": "현재 체급 기준 주 검증"
+    },
+    {
+      "test_id": "R2",
+      "name": "all_median_peak_band",
+      "basis": "peak_median 10~40",
+      "role": "1년 일상 체급 검증"
+    },
+    {
+      "test_id": "R3",
+      "name": "raw_max_peak_band",
+      "basis": "peak_max 74~296",
+      "role": "스파이크/외부 랭킹 기준 비교. 단독 본문 기준 금지"
+    },
+    {
+      "test_id": "R4",
+      "name": "p95_peak_band",
+      "basis": "peak_p95 18.85~75.4",
+      "role": "극단 스파이크 완화 기준"
+    },
+    {
+      "test_id": "R5",
+      "name": "main_vs_aux_virtual",
+      "basis": "종합게임 주 코호트 결과와 버추얼 보조 코호트 결과 비교",
+      "role": "시장 정의 영향 확인"
+    },
+    {
+      "test_id": "R6",
+      "name": "exclude_flags",
+      "basis": "기업/대회/팀/휴면/신생/중복 제외 전후 비교",
+      "role": "정제 영향 확인"
+    },
+    {
+      "test_id": "R7",
+      "name": "non_nobangjong_only",
+      "basis": "노방종/장시간형 제외 후 비교",
+      "role": "방송시간 왜곡 영향 확인"
+    }
+  ],
+  "boundary_and_privacy_policy": {
+    "allowed": [
+      "공개 채널 단위 통계",
+      "공개 랭킹",
+      "공개 프로필의 비민감 정보",
+      "집계·비식별 시청자 반응 유형"
+    ],
+    "forbidden": [
+      "비공개/회원전용 자료",
+      "타인 계정 세션/쿠키",
+      "개별 시청자 추적",
+      "후원자 단위 정보",
+      "개인식별정보 저장"
+    ],
+    "record_as_boundary_signal": [
+      "429",
+      "checkpoint",
+      "login_required",
+      "rate_limit",
+      "robots_or_terms_uncertain",
+      "parse_failed",
+      "data_missing"
+    ],
+    "operator_stop_if": [
+      "비공개 세션 필요",
+      "개별 사용자 추적 필요",
+      "반복 재시도/맞춤 통과 코드 필요",
+      "승인 범위 초과"
+    ]
+  },
+  "column_contract_file": "구비바_§4_column_contract_v2_20260610.csv",
+  "next_step_after_spec": {
+    "step": "Step 1-A Charles diagnostic",
+    "input": "구비바_§4_Charles_진단요청_v2.md",
+    "expected_output": "ExecutionProtocol JSON for Arthur with real source paths and feasibility notes"
+  }
+}

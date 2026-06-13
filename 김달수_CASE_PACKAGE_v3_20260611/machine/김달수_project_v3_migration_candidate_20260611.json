@@ -1,0 +1,60 @@
+{
+  "project": "김달수 1만 팔로워 로드맵",
+  "case_id": "kimdalsu_20260601",
+  "methodology_version": "streamer_channel_diagnosis_v3 + MASTER_v2_M7.1",
+  "legacy_methodology_source": "채널진단방법론 v1 + MASTER v1 산출물",
+  "status": {
+    "analysis_status": "analysis_closed",
+    "execution_status": "tracking",
+    "case_result_status": "partial",
+    "portfolio_row_status": "partial_ready",
+    "public_demo_status": "synthetic_candidate"
+  },
+  "subject": {
+    "streamer_key": "kimdalsu",
+    "platform": "chzzk",
+    "platform_channel_id": null,
+    "public_alias": "A스트리머"
+  },
+  "case_type": "client_deliverable_case",
+  "data_depth": "mixed",
+  "source_register_summary": {
+    "original_project_path": "source_inputs/legacy_project/김달수_project_original.json",
+    "claim_count": 59,
+    "killed_count": 13,
+    "open_count": 11,
+    "case_log_count": 1
+  },
+  "milestone_status": {
+    "analysis_milestone": true,
+    "analysis_close": true,
+    "execution_manual_included": false,
+    "tracking_sheet_included": false,
+    "execution_close": false
+  },
+  "disclosure": {
+    "default_tag": "red",
+    "public_demo_candidate": false,
+    "synthetic_release_possible": true,
+    "allowed_public_terms": [
+      "A스트리머",
+      "MOBA 게임",
+      "개별 Deep-Dive 분석 마일스톤"
+    ],
+    "restricted_terms": [
+      "김달수",
+      "Dalsu",
+      "롤",
+      "구체 수치/코호트 명단",
+      "보고 직후 인터뷰 원문"
+    ],
+    "notes": "익명화 리포트가 존재하지만 공개/외부 활용 전 별도 DisclosureReview 필요."
+  },
+  "next_actions": [
+    "6/16 후속 응대에서 O17/O18/O19 확인",
+    "실행 매뉴얼과 트래킹 시트 생성 여부 판단",
+    "v3 CaseResult를 partial에서 ready로 승격할지 검토",
+    "PublicDemoRow는 실제 사례 직접 공개가 아니라 합성/익명화 방식으로 별도 생성"
+  ],
+  "created_at": "2026-06-11T00:00:00+09:00"
+}

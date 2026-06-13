@@ -1,0 +1,72 @@
+{
+  "version": "0.6",
+  "generated_at": "2026-06-12 14:01:37",
+  "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "boundary_signals": [
+    {
+      "source": "robots",
+      "signal": "robots_check",
+      "severity": "info",
+      "action": "recorded",
+      "detail": "robots 429 → rate limit/challenge 가능성, 보류",
+      "target": "/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": null
+    },
+    {
+      "source": "http",
+      "signal": "chrome_profile_checkpoint_not_cleared",
+      "severity": "stop",
+      "action": "stopped",
+      "detail": "response_status=429; rendered checkpoint remains visible",
+      "target": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": "chrome_profile_checkpoint_not_cleared"
+    }
+  ],
+  "available_resources": [
+    {
+      "kind": "robots",
+      "checked": true,
+      "allowed": null,
+      "crawl_delay": null,
+      "target_path": "/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    },
+    {
+      "kind": "sitemap_candidate",
+      "url": "https://viewership.softc.one/sitemap.xml",
+      "status": "candidate_not_fetched"
+    },
+    {
+      "kind": "http",
+      "url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "status_code": 429,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 32574,
+      "response_status": 429,
+      "effective_status": "checkpoint_not_cleared",
+      "rendered_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "rendered_title": "Vercel Security Checkpoint",
+      "rendered_html_length": 29775,
+      "checkpoint_detected": true,
+      "rsc_payload_detected": false
+    }
+  ],
+  "sample_records": [],
+  "field_maps": [],
+  "estimated_collection_options": [],
+  "operator_questions": [
+    "chrome_profile rendered page still shows an access checkpoint/rate boundary."
+  ],
+  "policy_trace": [],
+  "artifacts": [],
+  "session_profile": {
+    "provided": true,
+    "type": "guest_session",
+    "status": "operator_approved_pending_manual_bootstrap",
+    "secret_values_logged": false,
+    "transport": "chrome_profile",
+    "header_names": [],
+    "cookie_names": []
+  }
+}

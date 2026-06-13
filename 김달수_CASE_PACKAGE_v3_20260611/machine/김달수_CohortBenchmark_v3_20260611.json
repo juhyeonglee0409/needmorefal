@@ -1,0 +1,72 @@
+{
+  "cohort_cell_id": "chzzk_lol_peak_60_240_personal_streamers_20260428_20260527",
+  "platform": "chzzk",
+  "primary_cohort": "롤/MOBA 게임 동급 개인 스트리머",
+  "auxiliary_cohorts": [
+    "버추얼 포함 민감도 확인"
+  ],
+  "population_source": "소프트콘 뷰어십 엔터 구독 / 치지직 롤 카테고리 스트리머 랭킹 2,000명",
+  "base_population_n": 2000,
+  "filter_steps": [
+    {
+      "step": 1,
+      "filter": "peak 60~240",
+      "result_n": 183
+    },
+    {
+      "step": 2,
+      "filter": "e스포츠팀/대회 계정 제외",
+      "excluded_n": 12
+    },
+    {
+      "step": 3,
+      "filter": "팔로워 랭킹 매칭",
+      "notes": "6,000위 랭킹 기준 이름 매칭"
+    },
+    {
+      "step": 4,
+      "filter": "기업형 버추얼 확인",
+      "notes": "코호트 내 0명"
+    }
+  ],
+  "final_n": 131,
+  "rank_metrics": [
+    {
+      "metric": "adjusted_ratio",
+      "value": "2.05%",
+      "rank_summary": "10/131, 상위 약 8%"
+    },
+    {
+      "metric": "raw_ratio",
+      "value": "1.46%",
+      "rank_summary": "21/131, 상위 약 16%"
+    },
+    {
+      "metric": "peak_viewers",
+      "value": 120,
+      "rank_summary": "47/131, 상위 약 36%"
+    },
+    {
+      "metric": "followers",
+      "value": 3617,
+      "rank_summary": "하위 약 19%"
+    }
+  ],
+  "robustness_tests": [
+    {
+      "test": "보정 미적용",
+      "result": "상위 16%로 결론 방향 유지"
+    },
+    {
+      "test": "버추얼 포함/제외 민감도",
+      "result": "비-버추얼과 비율 차이 미미, 포함 유지"
+    },
+    {
+      "test": "peak 상한 편향 점검",
+      "result": "편향 경미로 기록"
+    }
+  ],
+  "precision_guardrail": "정밀 순위보다 동급 대비 상위권/고효율 구조라는 해석을 우선한다.",
+  "cohort_confidence": "high",
+  "disclosure_tag": "red"
+}

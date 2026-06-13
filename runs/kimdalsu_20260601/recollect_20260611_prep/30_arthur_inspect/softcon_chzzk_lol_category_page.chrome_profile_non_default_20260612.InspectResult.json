@@ -1,0 +1,62 @@
+{
+  "version": "0.6",
+  "generated_at": "2026-06-12 00:20:50",
+  "target_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+  "boundary_signals": [
+    {
+      "source": "robots",
+      "signal": "robots_check",
+      "severity": "info",
+      "action": "recorded",
+      "detail": "robots 429 → rate limit/challenge 가능성, 보류",
+      "target": "/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+      "matched_rule": null,
+      "reason": null
+    },
+    {
+      "source": "http",
+      "signal": "http_429",
+      "severity": "stop",
+      "action": "stopped",
+      "detail": "429 rate limit/challenge — 안전 재시도 불가",
+      "target": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+      "matched_rule": null,
+      "reason": "http_429"
+    }
+  ],
+  "available_resources": [
+    {
+      "kind": "robots",
+      "checked": true,
+      "allowed": null,
+      "crawl_delay": null,
+      "target_path": "/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C"
+    },
+    {
+      "kind": "sitemap_candidate",
+      "url": "https://viewership.softc.one/sitemap.xml",
+      "status": "candidate_not_fetched"
+    },
+    {
+      "kind": "http",
+      "url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+      "status_code": 429,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 33815
+    }
+  ],
+  "sample_records": [],
+  "field_maps": [],
+  "estimated_collection_options": [],
+  "operator_questions": [
+    "세션/profile이 필요한 대상인지 Hosea 쪽에서 확인해야 합니다."
+  ],
+  "policy_trace": [],
+  "artifacts": [],
+  "session_profile": {
+    "provided": false,
+    "type": null,
+    "status": "not_provided",
+    "secret_values_logged": false
+  }
+}

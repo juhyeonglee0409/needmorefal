@@ -1,0 +1,17 @@
+{
+  "case_id": "kimdalsu_20260601",
+  "audience": "internal",
+  "status": "partial_decision_card",
+  "headline": "동급 대비 진성도가 강한 성장형 채널. 1만 도달은 진성도 band를 지키는 실험으로 접근.",
+  "current_position": "팔로워 규모는 작지만 라이브 집객력과 보정비율이 상위권.",
+  "primary_bottleneck": "conversion/content_fit",
+  "recommended_intervention": "정체성 정합 숏폼 + 정상 스케줄/노방종 비권장 + 1만 비율 band 트래킹",
+  "next_2_4_week_experiment": [
+    "O17 솔랭 vs 종겜 격차 확인",
+    "O18 자기 의심 영역 정밀화",
+    "O19 저챗 보강 액션 검토"
+  ],
+  "decision_needed": "실행 매뉴얼/트래킹 시트로 확장할지 결정",
+  "confidence": "medium",
+  "disclosure_tag": "red"
+}

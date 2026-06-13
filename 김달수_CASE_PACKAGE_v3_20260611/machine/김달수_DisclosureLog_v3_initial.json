@@ -1,0 +1,19 @@
+{
+  "review_id": "DL_KD_INITIAL_20260611",
+  "object_type": "CaseResult",
+  "object_id": "kimdalsu_20260601",
+  "proposed_tag": "red",
+  "final_tag": "red",
+  "reviewer": "system_repackaging",
+  "decision": "defer",
+  "reason": "실제 클라이언트명·구체 수치·보고 직후 인터뷰·코호트 세부가 포함되어 기본 red. 익명화 리포트는 존재하나 외부 활용 전 별도 검토 필요.",
+  "reviewed_at": "2026-06-11T00:00:00+09:00",
+  "public_safe_text": "Case A: 공개 데이터와 클라이언트 공유 자료 기반의 개별 Deep-Dive 분석 마일스톤 케이스.",
+  "redaction_actions": [
+    "김달수/Dalsu 제거",
+    "롤 → MOBA 게임",
+    "구체 코호트/수치 축약",
+    "인터뷰 원문 비공개"
+  ],
+  "recheck_trigger": "PublicDemoRow 작성 또는 MCN 외부 공유 전"
+}

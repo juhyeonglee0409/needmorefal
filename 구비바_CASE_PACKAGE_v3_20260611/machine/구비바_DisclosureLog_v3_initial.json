@@ -1,0 +1,17 @@
+{
+  "review_id": "DISC_GUBIBA_INITIAL_001",
+  "object_type": "CaseResult",
+  "object_id": "gubiba_case_result_v3_stub",
+  "proposed_tag": "red",
+  "final_tag": "red",
+  "reviewer": "internal",
+  "decision": "blocked",
+  "reason": "Private creator-shared interview data, unique self-phrases, financial/MCN/self-definition details, and incomplete §4/§5. Public sharing blocked; internal use only.",
+  "reviewed_at": "2026-06-11",
+  "public_safe_text": null,
+  "redaction_actions": [
+    "Do not publish actual case details",
+    "Use synthetic PublicDemoRow only after separate review"
+  ],
+  "recheck_trigger": "After anonymization plan and explicit consent review"
+}

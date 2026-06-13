@@ -1,0 +1,12 @@
+{
+  "phase": "M6.5_KimDalsu_Calibration",
+  "created_at": "2026-06-10",
+  "input": "김달수_채널분석_컨설팅리포트.md",
+  "outputs": [
+    "KimDalsu_M6_5_report_structure_decomposition_20260610.md",
+    "KimDalsu_to_M7_schema_gap_register_20260610.csv",
+    "M7_patch_requirements_from_KimDalsu_20260610.md",
+    "KimDalsu_PreCaseResult_calibration_mapping_20260610.json"
+  ],
+  "next_phase": "M7_schema_stabilization_patch"
+}

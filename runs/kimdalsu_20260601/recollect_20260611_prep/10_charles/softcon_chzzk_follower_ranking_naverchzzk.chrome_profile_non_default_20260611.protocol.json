@@ -1,0 +1,402 @@
+﻿{
+    "version":  "1.0",
+    "generated_at":  "2026-06-11 23:45:48",
+    "target_url":  "https://viewership.softc.one/ranking/followers?type=naverchzzk",
+    "best_path":  "rsc_payload",
+    "best_path_trace":  [
+                            "Profile Phase 2 reached actual HTML",
+                            "Next.js RSC payload candidates found"
+                        ],
+    "pre_check":  {
+                      "robots_status":  "unknown",
+                      "robots_detail":  "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+                      "gate_status":  "profile_cleared",
+                      "gate_detail":  "Vercel; status=profile_cleared",
+                      "login_required":  false,
+                      "terms_flag":  false,
+                      "terms_detail":  "",
+                      "risk_level":  "medium"
+                  },
+    "connection_test":  {
+                            "method":  "GET",
+                            "url":  "https://viewership.softc.one/ranking/followers?type=naverchzzk",
+                            "headers":  {
+                                            "User-Agent":  "CharlesSmith/0.10.0",
+                                            "Accept":  "text/html,application/xhtml+xml"
+                                        },
+                            "expected_status":  200,
+                            "expected_content_type":  "text/html",
+                            "sample_response_hint":  "HTML response contains Next.js RSC payload candidates; extract self.__next_f.push payload arrays."
+                        },
+    "collection_plan":  {
+                            "source":  "next_rsc_payload",
+                            "fields":  [
+                                           "createdAt",
+                                           "followerCount",
+                                           "id",
+                                           "language",
+                                           "name",
+                                           "nospacename",
+                                           "profileImg",
+                                           "recentLiveAt",
+                                           "recentLiveCategory",
+                                           "recentLiveTitle",
+                                           "simulcastId",
+                                           "slug",
+                                           "subscriberCount",
+                                           "tags",
+                                           "teamsId",
+                                           "type",
+                                           "updatedAt",
+                                           "userId"
+                                       ],
+                            "pagination":  {
+                                               "type":  "none",
+                                               "pattern":  "next_rsc_payload_indexes",
+                                               "total_items":  100,
+                                               "items_per_page":  100,
+                                               "total_pages":  1
+                                           },
+                            "delay_seconds":  2.0,
+                            "retry":  {
+                                          "max_retries":  3,
+                                          "backoff_seconds":  [
+                                                                  30,
+                                                                  60,
+                                                                  120
+                                                              ],
+                                          "stop_on":  [
+                                                          "403",
+                                                          "login_redirect"
+                                                      ]
+                                      },
+                            "estimated_items":  100,
+                            "estimated_time":  "약 2초",
+                            "sample_record_hint":  {
+                                                       "createdAt":  "\u003ccreatedAt\u003e",
+                                                       "followerCount":  "\u003cfollowerCount\u003e",
+                                                       "id":  "\u003cid\u003e",
+                                                       "language":  "\u003clanguage\u003e",
+                                                       "name":  "\u003cname\u003e",
+                                                       "nospacename":  "\u003cnospacename\u003e",
+                                                       "profileImg":  "\u003cprofileImg\u003e",
+                                                       "recentLiveAt":  "\u003crecentLiveAt\u003e",
+                                                       "recentLiveCategory":  "\u003crecentLiveCategory\u003e",
+                                                       "recentLiveTitle":  "\u003crecentLiveTitle\u003e",
+                                                       "simulcastId":  "\u003csimulcastId\u003e",
+                                                       "slug":  "\u003cslug\u003e"
+                                                   },
+                            "json_path_hints":  [
+                                                    "next_rsc.payloads[0]"
+                                                ],
+                            "selector_hints":  [
+
+                                               ],
+                            "wait_condition":  "after GET: extract Next.js RSC payload arrays [0]"
+                        },
+    "storage":  {
+                    "format":  "csv",
+                    "columns":  [
+                                    "createdAt",
+                                    "followerCount",
+                                    "id",
+                                    "language",
+                                    "name",
+                                    "nospacename",
+                                    "profileImg",
+                                    "recentLiveAt",
+                                    "recentLiveCategory",
+                                    "recentLiveTitle",
+                                    "simulcastId",
+                                    "slug",
+                                    "subscriberCount",
+                                    "tags",
+                                    "teamsId",
+                                    "type",
+                                    "updatedAt",
+                                    "userId",
+                                    "source_url",
+                                    "fetched_at"
+                                ],
+                    "filename_pattern":  "viewership_softc_one_{YYYYMMDD}.csv",
+                    "encoding":  "utf-8"
+                },
+    "verification":  {
+                         "expected_row_count":  100,
+                         "null_ratio_threshold":  0.05,
+                         "dedup_key":  "id",
+                         "sample_check_count":  5
+                     },
+    "agent_prompt":  null,
+    "notes":  [
+                  "best_path: rsc_payload"
+              ],
+    "transport":  "chrome_profile",
+    "profile_required":  true,
+    "profile_summary":  {
+                            "provided":  true,
+                            "type":  "guest_session",
+                            "status":  "operator_approved_pending_manual_bootstrap",
+                            "transport":  "chrome_profile",
+                            "header_names":  [
+
+                                             ],
+                            "cookie_names":  [
+
+                                             ],
+                            "user_agent_provided":  false,
+                            "secret_values_logged":  false
+                        },
+    "rsc_payload_candidates":  [
+                                   {
+                                       "index":  0,
+                                       "rows":  100,
+                                       "keys":  [
+                                                    "createdAt",
+                                                    "followerCount",
+                                                    "id",
+                                                    "language",
+                                                    "name",
+                                                    "nospacename",
+                                                    "profileImg",
+                                                    "recentLiveAt",
+                                                    "recentLiveCategory",
+                                                    "recentLiveTitle",
+                                                    "simulcastId",
+                                                    "slug",
+                                                    "subscriberCount",
+                                                    "tags",
+                                                    "teamsId",
+                                                    "type",
+                                                    "updatedAt",
+                                                    "userId"
+                                                ],
+                                       "types":  [
+                                                     "naverchzzk"
+                                                 ],
+                                       "classification":  "rsc_payload",
+                                       "source":  "next_rsc"
+                                   }
+                               ],
+    "diagnostic_findings":  {
+                                "api":  {
+                                            "status":  "not_found",
+                                            "candidates_seen":  0,
+                                            "usable_candidates":  0,
+                                            "reason":  "no data-like API candidates found"
+                                        },
+                                "sitemap":  {
+                                                "status":  "not_found",
+                                                "candidates_seen":  0,
+                                                "usable_candidates":  0,
+                                                "reason":  "no sitemap candidates found"
+                                            },
+                                "rsc":  {
+                                            "status":  "selected",
+                                            "payload_count":  1,
+                                            "reason":  "RSC payload candidates found"
+                                        }
+                            },
+    "recovery_plan":  [
+
+                      ],
+    "url_resolution_needed":  false,
+    "profile_or_session_likely_needed":  true,
+    "arthur_inspect_recommended":  true,
+    "browser_probe":  {
+                          "attempted":  true,
+                          "ok":  true,
+                          "target_url":  "https://viewership.softc.one/ranking/followers?type=VALUE",
+                          "rendered_url":  "https://viewership.softc.one/ranking/followers?type=VALUE",
+                          "status_code":  200,
+                          "title":  "스트리머 랭킹 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+                          "html_length":  751095,
+                          "screenshot_artifact":  null,
+                          "raw_artifact":  null,
+                          "browser_probe_artifacts_allowed":  false,
+                          "browser_probe_screenshot_saved":  false,
+                          "browser_probe_screenshot_save_reason":  "disabled_no_save_raw",
+                          "browser_probe_raw_saved":  false,
+                          "browser_probe_raw_save_reason":  "disabled_no_save_raw",
+                          "visible_text_sample":  "소프트콘뷰어십 소프트콘 멤버십 대시보드 스탠드 방송 현황 LIVE 스트리머 랭킹 소프트콘 랭킹 스트리머 랭킹 버추얼 랭킹 팔로워 랭킹 랭킹 히스토리 성장 랭킹 채팅 랭킹 방송 그룹 플랫폼 카테고리 랭킹 이스포츠 NEW 로그인 광고제거 이자리 1주에 만원! 스트리머 팔로워 랭킹 팔로워 / 애청자 랭킹 필터 최근 방송 최근 2달 전체 플랫폼 전체 플랫폼 SOOP 치지직 유튜브 트위치 씨미 태그 버츄얼 이세계아이돌 스텔라이브 에스더 아카이브 허니즈 광고제거 이자리 1주에 만원! # 스트리머 최근 방송 애청자/팔로워 1 한동숙 2026.06.09 (화) 05:00 378,462 2 랄로 2026.06.11 (목) 06:30 376,140 3 LCK 2026.06.09 (화) 00:48 372,013 4 울프 2026.06.11 (목) 04:42 363,863 5 괴물쥐 2026.06.11 (목) 23:36 350,245 6 탬탬버린 2026.06.10 (수) 22:24 315,317 7 침착맨 2026.06.11 (목) 23:36 314,585 8 아야츠노 유니 2026.06.11 (목) 23:36 289,718 9 강지 2026.06.11 (목) 18:00 276,982 10 파카 2026.06.11 (목) 05:00 260,557 11 풍월량 2026.06.11 (목) 23:36 247,634 12 아라하시 타비 2026.06.11 (...",
+                          "candidate_links":  [
+                                                  {
+                                                      "text":  "소프트콘 뷰어십",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  },
+                                                  {
+                                                      "text":  "",
+                                                      "href":  "https://viewership.softc.one/search"
+                                                  },
+                                                  {
+                                                      "text":  "소프트콘뷰어십",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  },
+                                                  {
+                                                      "text":  "",
+                                                      "href":  "https://viewership.softc.one/search?q="
+                                                  },
+                                                  {
+                                                      "text":  "소프트콘 멤버십",
+                                                      "href":  "https://viewership.softc.one/pricing"
+                                                  },
+                                                  {
+                                                      "text":  "대시보드",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  },
+                                                  {
+                                                      "text":  "스탠드",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  },
+                                                  {
+                                                      "text":  "방송 현황 LIVE",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  },
+                                                  {
+                                                      "text":  "스트리머 랭킹",
+                                                      "href":  "https://viewership.softc.one/streams"
+                                                  },
+                                                  {
+                                                      "text":  "소프트콘 랭킹",
+                                                      "href":  "https://viewership.softc.one/ranking/softcone"
+                                                  },
+                                                  {
+                                                      "text":  "스트리머 랭킹",
+                                                      "href":  "https://viewership.softc.one/ranking/streamer"
+                                                  },
+                                                  {
+                                                      "text":  "버추얼 랭킹",
+                                                      "href":  "https://viewership.softc.one/ranking/virtualsoftcone"
+                                                  },
+                                                  {
+                                                      "text":  "팔로워 랭킹",
+                                                      "href":  "https://viewership.softc.one/ranking/followers"
+                                                  },
+                                                  {
+                                                      "text":  "랭킹 히스토리",
+                                                      "href":  "https://viewership.softc.one/ranking/history"
+                                                  },
+                                                  {
+                                                      "text":  "성장 랭킹",
+                                                      "href":  "https://viewership.softc.one/ranking/diff"
+                                                  },
+                                                  {
+                                                      "text":  "채팅 랭킹",
+                                                      "href":  "https://viewership.softc.one/ranking/chat"
+                                                  },
+                                                  {
+                                                      "text":  "방송 그룹",
+                                                      "href":  "https://viewership.softc.one/streamergroups"
+                                                  },
+                                                  {
+                                                      "text":  "플랫폼",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  },
+                                                  {
+                                                      "text":  "카테고리 랭킹",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  },
+                                                  {
+                                                      "text":  "이스포츠 NEW",
+                                                      "href":  "https://viewership.softc.one/"
+                                                  }
+                                              ],
+                          "candidate_forms":  [
+
+                                              ],
+                          "candidate_buttons":  [
+                                                    {
+                                                        "text":  "",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "소프트콘 멤버십",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "대시보드",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "스탠드",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "방송 현황 LIVE",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "스트리머 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "소프트콘 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "스트리머 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "버추얼 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "팔로워 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "랭킹 히스토리",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "성장 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "채팅 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "방송 그룹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "플랫폼",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "카테고리 랭킹",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "이스포츠 NEW",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "로그인",
+                                                        "type":  "button"
+                                                    },
+                                                    {
+                                                        "text":  "광고제거",
+                                                        "type":  "button"
+                                                    }
+                                                ],
+                          "checkpoint_detected":  false,
+                          "captcha_detected":  false,
+                          "login_required_likely":  false,
+                          "rate_limited":  false,
+                          "visible_content_likely":  true,
+                          "url_resolution_needed":  false,
+                          "url_candidates":  [
+
+                                             ],
+                          "profile_or_session_likely_needed":  false,
+                          "elapsed_ms":  3085,
+                          "error":  null
+                      }
+}

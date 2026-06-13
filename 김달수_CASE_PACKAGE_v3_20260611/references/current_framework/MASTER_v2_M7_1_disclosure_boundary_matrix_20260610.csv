@@ -1,0 +1,9 @@
+area,green_public,yellow_partial_public,red_private
+framework,"3층 구조, 5축 코호트, 네 렌즈, 6단계 진단, Deep-Dive→Bridge→Portfolio 구조","코호트 매칭 방법론, within-cell filter 단계, CaseResult/PortfolioRow 필드군","정확 필터 임계 도출 데이터, 검증 코호트, 케이스별 판단 근거 코호트"
+agent_operation,"관찰자 분리, 반론권, 레지스터 이름","충돌 엔진 이름·목적, 관할권 개념, 레지스터 필드 정의","자동 발동 조건, 프롬프트, 패널 매핑, 라우팅, 실제 케이스 작동 디테일"
+metrics,"지표 우선순위 원칙, 액션 분해, 트래킹 주기","임계값 정의, 보정 방식 개념","보정 계수, 검증 코호트, 비용 추정, 정확 산식"
+data,"일반화된 함정 패턴, 어휘 처리 원칙","케이스 유형 분류, 정성 패턴, 익명화된 구조","실제 수치, 본인 발화, 식별 단서, 클라이언트 결과, raw evidence"
+growth_definition,"시청 우선, 후원 보조 원칙",후원 보조 지표 종류,"후원 정밀 로직, 실측값, 시장 평균, MCN 내부 KPI"
+aggregation_mcn,"포트폴리오 매트릭스 개념, 반응형 vs 비반응형, 자원배분 논리","축 정의, tier 라벨, PortfolioRow/DecisionCard 구조","실제 배분 공식, 추천 알고리즘, MCN 내부 데이터, 계약·영업 판단"
+bridge,CaseResult → PortfolioRow 개념,"field group mapping, readiness gate 개념","실제 row, evidence refs, scoring formula, derivation trail"
+public_demo,PublicDemoRow 개념,"synthetic case structure, relative bins","실제 client-derived demo without full anonymization, exact metrics"

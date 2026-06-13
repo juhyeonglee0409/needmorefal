@@ -1,0 +1,331 @@
+{
+  "version": "0.6",
+  "generated_at": "2026-06-12 15:23:29",
+  "collector_ua": "ArthurMorgan/0.6",
+  "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "protocol_ref": {
+    "source": "D:\\Codex_Workspace\\Streamer Consulting Project\\runs\\kimdalsu_20260601\\recollect_20260611_prep\\40_arthur_collect\\directives\\softcon_subject_smoke_collect_directive.approved_true_20260612.json",
+    "tool": "charles",
+    "version": "1.0",
+    "protocol_version": "1.0",
+    "protocol_hash": "37daf61a0b92c644738bcf5a1bab7b178e1dc333f70958e314ea5281438a0cdc",
+    "input_shape": "collect_directive",
+    "agent": "",
+    "generated_at": "2026-06-12 14:09:26",
+    "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path": "rsc_payload",
+    "best_path_trace": [
+      "Profile Phase 2 reached actual HTML",
+      "Next.js RSC payload candidates found"
+    ],
+    "pre_check": {
+      "robots_status": "unknown",
+      "robots_detail": "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+      "gate_status": "profile_cleared",
+      "gate_detail": "Vercel; status=profile_cleared",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "medium"
+    },
+    "diagnostic_findings": {
+      "api": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no data-like API candidates found"
+      },
+      "sitemap": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no sitemap candidates found"
+      },
+      "rsc": {
+        "status": "selected",
+        "payload_count": 3,
+        "reason": "RSC payload candidates found"
+      }
+    },
+    "operator_directive_hash": "78f84953a35461de07c403f64f8ec61d2ebaa9eac52a57060d142cb27a8f1214",
+    "robots_status": "unknown",
+    "risk_level": "medium"
+  },
+  "execution": {
+    "path_used": "rsc_payload",
+    "executed": true,
+    "stopped_reason": "chrome_profile_checkpoint_not_cleared",
+    "requests_made": 1,
+    "pages_fetched": 0,
+    "delay_seconds": 2.0,
+    "robots_checked": true,
+    "robots_allowed": null,
+    "robots_crawl_delay": null,
+    "started_at": "2026-06-12 15:23:24",
+    "finished_at": "2026-06-12 15:23:29",
+    "elapsed_ms": 4829
+  },
+  "items": [],
+  "absences": [
+    {
+      "what": "api",
+      "scope": "protocol",
+      "absence_source": "charles_not_found",
+      "detail": "Charles 진단: 사용 가능한 데이터 API 후보 없음"
+    },
+    {
+      "what": "collection",
+      "scope": "execution",
+      "absence_source": "arthur_collection_failed",
+      "detail": "rendered page still contains checkpoint/rate-limit signals"
+    }
+  ],
+  "field_coverage": {
+    "airTime": {
+      "present": 0,
+      "absent": 0
+    },
+    "avgChatCount": {
+      "present": 0,
+      "absent": 0
+    },
+    "avgLiveViews": {
+      "present": 0,
+      "absent": 0
+    },
+    "date": {
+      "present": 0,
+      "absent": 0
+    },
+    "maxAccumulateViews": {
+      "present": 0,
+      "absent": 0
+    },
+    "maxChatCount": {
+      "present": 0,
+      "absent": 0
+    },
+    "maxFollowerCount": {
+      "present": 0,
+      "absent": 0
+    },
+    "maxLiveViews": {
+      "present": 0,
+      "absent": 0
+    },
+    "maxSubscribers": {
+      "present": 0,
+      "absent": 0
+    },
+    "minAccumulateViews": {
+      "present": 0,
+      "absent": 0
+    },
+    "sumChatCount": {
+      "present": 0,
+      "absent": 0
+    },
+    "sumCount": {
+      "present": 0,
+      "absent": 0
+    },
+    "sumLiveViews": {
+      "present": 0,
+      "absent": 0
+    },
+    "viewership": {
+      "present": 0,
+      "absent": 0
+    }
+  },
+  "verification": {
+    "status": "count_mismatch",
+    "expected_row_count": 223,
+    "actual_row_count": 0,
+    "null_ratio": null,
+    "null_ratio_threshold": 0.05,
+    "dedup_key": null,
+    "duplicate_count": null,
+    "checks": [
+      "row_count_mismatch: 0 != expected 223"
+    ]
+  },
+  "storage_hint": {
+    "format": "csv",
+    "columns": [
+      "airTime",
+      "avgChatCount",
+      "avgLiveViews",
+      "date",
+      "maxAccumulateViews",
+      "maxChatCount",
+      "maxFollowerCount",
+      "maxLiveViews",
+      "maxSubscribers",
+      "minAccumulateViews",
+      "sumChatCount",
+      "sumCount",
+      "sumLiveViews",
+      "viewership",
+      "source_url",
+      "fetched_at"
+    ],
+    "filename_pattern": "viewership_softc_one_{YYYYMMDD}.csv",
+    "encoding": "utf-8"
+  },
+  "errors": [],
+  "notes": [
+    "best_path: rsc_payload",
+    "robots 라이브 확인 불명(robots 429 → rate limit/challenge 가능성, 보류) — 처방 상태대로 진행",
+    "chrome_profile_collect_diagnostics: response_status=429; effective_status=checkpoint_not_cleared; checkpoint_detected=True; rsc_payload_detected=False"
+  ],
+  "boundary_signals": [
+    {
+      "source": "robots",
+      "signal": "robots_check",
+      "severity": "info",
+      "action": "recorded",
+      "detail": "robots 429 → rate limit/challenge 가능성, 보류",
+      "target": "/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": null
+    },
+    {
+      "source": "http",
+      "signal": "chrome_profile_checkpoint_not_cleared",
+      "severity": "stop",
+      "action": "stopped",
+      "detail": "rendered page still contains checkpoint/rate-limit signals",
+      "target": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": "chrome_profile_checkpoint_not_cleared"
+    }
+  ],
+  "policy_trace": [
+    "robots_unknown -> proceeded",
+    "chrome_profile_collect:raw_artifacts_suppressed",
+    "chrome_profile_collect:visible_window_used=true",
+    "chrome_profile_collect:allowed_domains_supplemental_only",
+    "chrome_profile_collect:path_prefixes_supplemental_only"
+  ],
+  "execution_metadata": {
+    "chrome_profile_collect": true,
+    "visible_window_used": true,
+    "profile_summary": {
+      "provided": true,
+      "type": "guest_session",
+      "status": "operator_approved_visible_networkidle_diagnostic",
+      "secret_values_logged": false,
+      "transport": "chrome_profile",
+      "header_names": [],
+      "cookie_names": []
+    },
+    "artifact_policy": {
+      "raw_html_saved": false,
+      "screenshot_saved": false
+    },
+    "validation": {
+      "expected_row_count": 223,
+      "sample_check_count": 5,
+      "required_fields": [
+        "airTime",
+        "avgChatCount",
+        "avgLiveViews",
+        "date",
+        "maxAccumulateViews",
+        "maxChatCount",
+        "maxFollowerCount",
+        "maxLiveViews",
+        "maxSubscribers",
+        "minAccumulateViews",
+        "sumChatCount",
+        "sumCount",
+        "sumLiveViews",
+        "viewership"
+      ],
+      "derived_fields": {},
+      "not_verifiable": false,
+      "absences_recorded": [],
+      "field_coverage": {
+        "airTime": {
+          "present": 0,
+          "absent": 0
+        },
+        "avgChatCount": {
+          "present": 0,
+          "absent": 0
+        },
+        "avgLiveViews": {
+          "present": 0,
+          "absent": 0
+        },
+        "date": {
+          "present": 0,
+          "absent": 0
+        },
+        "maxAccumulateViews": {
+          "present": 0,
+          "absent": 0
+        },
+        "maxChatCount": {
+          "present": 0,
+          "absent": 0
+        },
+        "maxFollowerCount": {
+          "present": 0,
+          "absent": 0
+        },
+        "maxLiveViews": {
+          "present": 0,
+          "absent": 0
+        },
+        "maxSubscribers": {
+          "present": 0,
+          "absent": 0
+        },
+        "minAccumulateViews": {
+          "present": 0,
+          "absent": 0
+        },
+        "sumChatCount": {
+          "present": 0,
+          "absent": 0
+        },
+        "sumCount": {
+          "present": 0,
+          "absent": 0
+        },
+        "sumLiveViews": {
+          "present": 0,
+          "absent": 0
+        },
+        "viewership": {
+          "present": 0,
+          "absent": 0
+        }
+      },
+      "verification_status": "count_mismatch"
+    },
+    "rendered": {
+      "rendered_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "rendered_title": "Vercel Security Checkpoint",
+      "rendered_url_query_values_redacted": false,
+      "rendered_title_sanitized": false,
+      "response_status": 429,
+      "effective_status": "checkpoint_not_cleared",
+      "rendered_html_length": 29763,
+      "checkpoint_detected": true,
+      "rsc_payload_detected": false
+    }
+  },
+  "artifacts": [],
+  "session_profile": {
+    "provided": true,
+    "type": "guest_session",
+    "status": "operator_approved_visible_networkidle_diagnostic",
+    "secret_values_logged": false,
+    "transport": "chrome_profile",
+    "header_names": [],
+    "cookie_names": []
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "package_name": "김달수_CASE_PACKAGE_v3_20260611",
+  "created_at": "2026-06-11T00:00:00+09:00",
+  "source_zip": "스트리머팀_김달수_케이스_20260601.zip",
+  "structure_version": "case_package_v3",
+  "status": {
+    "analysis_status": "analysis_closed",
+    "execution_status": "tracking",
+    "case_result_status": "partial",
+    "portfolio_row_status": "partial_ready",
+    "public_demo_status": "synthetic_candidate"
+  },
+  "file_count": 53,
+  "files": [
+    {
+      "path": "README.md",
+      "size": 1928,
+      "sha256": "e385037bc30d977173bf344b5f23143383113bcae6cb5a2da158a07078ff03d4"
+    },
+    {
+      "path": "archive/prior_packages/KimDalsu_M6_5_calibration_package_20260610.zip",
+      "size": 10983,
+      "sha256": "7ccb7b1354a3c246fb3f85a1df13b9a69264e59927b83dc5507e8dad59798f7b"
+    },
+    {
+      "path": "archive/prior_packages/스트리머팀_김달수_케이스_20260601.zip",
+      "size": 115521,
+      "sha256": "bb42bbc7f9f4d19349c7b32c2f70aed0ce5fa795e6f563d058949b9ba8aa9587"
+    },
+    {
+      "path": "archive/prior_versions/김달수_재방문_로드맵_v1.md",
+      "size": 10716,
+      "sha256": "adb3388e3b8289ade9e4f748b78fa98b158ddbaf3565cce86056a61db184aa99"
+    },
+    {
+      "path": "archive/prior_versions/김달수_재방문_로드맵_v2.md",
+      "size": 8725,
+      "sha256": "a510995aeab5c8552f72f3c4637dcbe4b79ded8e7acaba50b58b882cdfe170b7"
+    },
+    {
+      "path": "archive/prior_versions/김달수_재방문_로드맵_v3.md",
+      "size": 11780,
+      "sha256": "de81c6e6d0abc6180c9cf0a68627cfc8a5f64afb8a389d4148259bc9b4dcb7c8"
+    },
+    {
+      "path": "data/cohort/specs/스크래핑_작업명세서_구현팀.md",
+      "size": 5438,
+      "sha256": "698e42786dd3421f79832291ae9264987988258b85496ebb028cc02baf8f84e3"
+    },
+    {
+      "path": "data/cohort/김달수_코호트_131명.csv",
+      "size": 13364,
+      "sha256": "e7eb4f0e77d37b3f7d139ae7bef0a7db145028116e14bdf7f0128b3545385d50"
+    },
+    {
+      "path": "data/cohort/김달수_코호트_분석_방법과결과.md",
+      "size": 4800,
+      "sha256": "7ff191f32603e29f7069e8a2b0ebc33c43c1df7754af6c0e537da3b771a86f23"
+    },
+    {
+      "path": "data/cohort/수집대상_183명.csv",
+      "size": 6376,
+      "sha256": "e5cea9505b0ef3013f39ddbf1152820cd8445ea3a4d407780c017c679fb324f4"
+    },
+    {
+      "path": "data/daily_stats/김달수_Dalsu_방송통계_1년_20260528.csv",
+      "size": 12548,
+      "sha256": "083d5f5c0948c4b71912dce54accdcb008aa4203d75dcaf851319c3a2da132be"
+    },
+    {
+      "path": "deliverables/README.md",
+      "size": 383,
+      "sha256": "2245989a9a3b56eb41cfa05543f61f421b86bd67a32086104935a6e56a3a9f9c"
+    },
+    {
+      "path": "deliverables/anonymized/A스트리머_채널분석_컨설팅리포트_익명.md",
+      "size": 19584,
+      "sha256": "a8e29970044aef390f6c8de5cb014b117865ed66716095d0d170e436d0b9cb01"
+    },
+    {
+      "path": "deliverables/milestone_report/김달수_채널분석_리포트.html",
+      "size": 16271,
+      "sha256": "7b9ce6354d03557a20861961ab9aa3874ca081aeb5a106dcb57afb799e3e326d"
+    },
+    {
+      "path": "deliverables/milestone_report/김달수_채널분석_컨설팅리포트.md",
+      "size": 19107,
+      "sha256": "428b8910b174d1811b91025f4e1f014d5eb6895bf1884d2641f1637373713a67"
+    },
+    {
+      "path": "deliverables/reporting_tools/김달수_보고가이드_v1.md",
+      "size": 30017,
+      "sha256": "e38856e7045c9f49e12e8fbc53b2d70de90e0c1101c1694a662293707ad5e398"
+    },
+    {
+      "path": "deliverables/reporting_tools/김달수_보고질문지_v1.md",
+      "size": 12158,
+      "sha256": "87a1b3a58c369c244c92b8ffb111304bf3ba36f059ff5488961f404093f961be"
+    },
+    {
+      "path": "deliverables/reporting_tools/김달수_실행단계_정보수집질문지_v1.md",
+      "size": 17702,
+      "sha256": "1981403649b107c6dab3721e477150ae8e4f4ee863fb10ad0085162cab6f3f2b"
+    },
+    {
+      "path": "deliverables/roadmap/김달수_재방문_로드맵_v3.1.md",
+      "size": 11850,
+      "sha256": "f8eafb25fd842dd717af555065b137f47b054d10997c48a661c0d21b7f0a2c5e"
+    },
+    {
+      "path": "machine/README.md",
+      "size": 760,
+      "sha256": "327109af76d972816001c93d065fd7fa8a10fa0b4a978ff7d400bbef6a0e5fdb"
+    },
+    {
+      "path": "machine/schema/MASTER_v2_M7_1_canonical_enum_table_20260610.csv",
+      "size": 5064,
+      "sha256": "e101bd9f532c5ad0c265df05db584387e3665b38790f7ba450c07c167aac4fb4"
+    },
+    {
+      "path": "machine/schema/MASTER_v2_M7_1_canonical_schema_pack_20260610.json",
+      "size": 24633,
+      "sha256": "29ba47fab0adbd013981f70e9f7f1513516b8718223bb8123573a9f1f9b45c34"
+    },
+    {
+      "path": "machine/schema/MASTER_v2_M7_1_disclosure_boundary_matrix_20260610.csv",
+      "size": 1661,
+      "sha256": "a3a887b5d5147a148e1c1eeaa4ea329fa01cd043cc5b2e411f427ec88a9261b3"
+    },
+    {
+      "path": "machine/김달수_AbsenceInventory_v3_initial.json",
+      "size": 1774,
+      "sha256": "7d5bb3ed5d0bf245380fa493553df6f46b4d90b31b2654b685ab307c56cec34d"
+    },
+    {
+      "path": "machine/김달수_CaseResult_v3_partial_20260611.json",
+      "size": 11943,
+      "sha256": "bdf4f9288b5d2451313d6c8608aadcbc1e3664d2281bc083406f0222fae77a19"
+    },
+    {
+      "path": "machine/김달수_CohortBenchmark_v3_20260611.json",
+      "size": 1870,
+      "sha256": "1194562731f7fbe470bd5a1c1323749559e280f6edaf0c99b34c884f8e0024d9"
+    },
+    {
+      "path": "machine/김달수_DecisionCard_v3_partial_20260611.json",
+      "size": 805,
+      "sha256": "480afd9750e4827c0717d31b8d22ebb27bde8e9a63e66f9bf6ee8d581f82b122"
+    },
+    {
+      "path": "machine/김달수_DeliverableMilestone_v3_20260611.json",
+      "size": 1005,
+      "sha256": "766f42f694bbc0ac795151ec45d6de9f681866e5443ce53fcb7addb9036a7d38"
+    },
+    {
+      "path": "machine/김달수_DisclosureLog_v3_initial.json",
+      "size": 838,
+      "sha256": "5835d3b2445ed3ee74b5a3854cccb4ab94e4c68870ed5a8b748b63f969b6b40e"
+    },
+    {
+      "path": "machine/김달수_EvidencePackage_v3_initial.json",
+      "size": 4473,
+      "sha256": "52cfea8968f32823b26a8905d72958a2e6fb87fb283f18822a8fba3c49f364ef"
+    },
+    {
+      "path": "machine/김달수_MeasurementCorrection_v3_20260611.json",
+      "size": 757,
+      "sha256": "526db73198ede08d38feb2a06de9895dbedb033eb101ee08fe4a7443ab243689"
+    },
+    {
+      "path": "machine/김달수_PortfolioRow_v3_partial_20260611.json",
+      "size": 1789,
+      "sha256": "47b574263058fbb68df7d96b2922d242a11f67201f13cca221d7951865704393"
+    },
+    {
+      "path": "machine/김달수_ValidationCaseRegistryRow_v3_20260611.csv",
+      "size": 1187,
+      "sha256": "c1292a16dd2bd631f2656001c3c446ab07446a1ae530ae0170beb23c96981bc3"
+    },
+    {
+      "path": "machine/김달수_ValidationCaseRegistryRow_v3_20260611.json",
+      "size": 1397,
+      "sha256": "be90cebd05f2068d05e2e8eb45c9d5b1302bfedc4d108705b2f3ab682762b939"
+    },
+    {
+      "path": "machine/김달수_project_original_v1.json",
+      "size": 60299,
+      "sha256": "426ca3f80f0270950cac054ac347683aa60e463a8a68d7ce1d2ea229a430afd0"
+    },
+    {
+      "path": "machine/김달수_project_v3_migration_candidate_20260611.json",
+      "size": 1983,
+      "sha256": "5387128f94cab7cd96b251231c8f0d328b25a86bc5d597186e842d1214d5fd2b"
+    },
+    {
+      "path": "references/current_framework/MASTER_streamer_mcn_framework_v2_draft_M7_1_QA2_patched_20260610.md",
+      "size": 128380,
+      "sha256": "5e358ab1b2b50ecea32362cb13e3ca15cc392fcdc2cbf73d3d9491fd39bcf5ca"
+    },
+    {
+      "path": "references/current_framework/MASTER_v2_M7_1_canonical_enum_table_20260610.csv",
+      "size": 5064,
+      "sha256": "e101bd9f532c5ad0c265df05db584387e3665b38790f7ba450c07c167aac4fb4"
+    },
+    {
+      "path": "references/current_framework/MASTER_v2_M7_1_canonical_schema_pack_20260610.json",
+      "size": 24633,
+      "sha256": "29ba47fab0adbd013981f70e9f7f1513516b8718223bb8123573a9f1f9b45c34"
+    },
+    {
+      "path": "references/current_framework/MASTER_v2_M7_1_disclosure_boundary_matrix_20260610.csv",
+      "size": 1661,
+      "sha256": "a3a887b5d5147a148e1c1eeaa4ea329fa01cd043cc5b2e411f427ec88a9261b3"
+    },
+    {
+      "path": "references/current_framework/스트리머_채널진단_방법론_v3_draft_START_20260610.md",
+      "size": 82797,
+      "sha256": "20016773bffa533d42530c9234002d4c7c8e56fe127105d9436a1858fd4153e7"
+    },
+    {
+      "path": "references/legacy_framework/MASTER_streamer_mcn_minimal_insert(2).md",
+      "size": 59381,
+      "sha256": "48f68fc6a2fb731c3e34c9be6a558be03bd45c5a1d22d821fae1beb52357831c"
+    },
+    {
+      "path": "references/legacy_framework/스트리머_채널진단_방법론_v1.md",
+      "size": 45196,
+      "sha256": "eeb5f1174727cc289adeba424650f8412d2e073ece90231c6164c75b59d3f405"
+    },
+    {
+      "path": "source_inputs/current_analysis/김달수_보고직후_인터뷰로그_20260601.md",
+      "size": 9206,
+      "sha256": "c02b10c01c530aa56ed1a97389e2e7db984f5584ab4082f5d3cae75d3a58d604"
+    },
+    {
+      "path": "source_inputs/legacy_package_README.md",
+      "size": 6164,
+      "sha256": "4f6a192d01d958ac596c32eb54150c7e7a43c89e66cb7045bb77926ce048076d"
+    },
+    {
+      "path": "source_inputs/legacy_project/김달수_project_original.json",
+      "size": 60299,
+      "sha256": "426ca3f80f0270950cac054ac347683aa60e463a8a68d7ce1d2ea229a430afd0"
+    },
+    {
+      "path": "work/calibration/KimDalsu_M6_5_calibration_manifest_20260610.json",
+      "size": 500,
+      "sha256": "f168a916a450a971f2fbc9cbca7dfec6bf1da54a6d353abca16add0b55d12aeb"
+    },
+    {
+      "path": "work/calibration/KimDalsu_M6_5_report_structure_decomposition_20260610.md",
+      "size": 8849,
+      "sha256": "abf31da10b815211d6b7923d337f45d9e6130a6ffc14cd113f9fdd6527bf8821"
+    },
+    {
+      "path": "work/calibration/KimDalsu_PreCaseResult_calibration_mapping_20260610.json",
+      "size": 1774,
+      "sha256": "7a66d2e9c11ed8c343bd004148c789cb8525bb6b9b7fdd35d65a096ba0cc9ecb"
+    },
+    {
+      "path": "work/calibration/KimDalsu_to_M7_schema_gap_register_20260610.csv",
+      "size": 4713,
+      "sha256": "df95dae5af98a40dff252b76292e84ad03890727e3f0c56bb42a3ae329a39388"
+    },
+    {
+      "path": "work/calibration/M7_patch_requirements_from_KimDalsu_20260610.md",
+      "size": 6474,
+      "sha256": "416eec9a22b7c5106fa61c7c5afe6aacd880f8ba7ec2d724c9d1f612e3a12b81"
+    },
+    {
+      "path": "김달수_CASE_DOSSIER_v3.md",
+      "size": 6975,
+      "sha256": "ac22ba0f2a54f9b05eee49ab367ffe0eeb7f81873e2cd17624486867c35597b9"
+    }
+  ]
+}

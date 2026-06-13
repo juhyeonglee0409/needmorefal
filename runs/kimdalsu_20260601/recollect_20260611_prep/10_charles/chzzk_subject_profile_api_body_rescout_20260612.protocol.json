@@ -1,0 +1,137 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-12 22:42:31",
+  "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+  "best_path": "api_direct",
+  "best_path_trace": [
+    "usable data API candidate confirmed or strongly indicated",
+    "API direct avoids brittle HTML selectors when endpoint shape is reusable"
+  ],
+  "pre_check": {
+    "robots_status": "allowed",
+    "robots_detail": "robots HTTP 200",
+    "gate_status": "none",
+    "gate_detail": "none; status=none",
+    "login_required": false,
+    "terms_flag": false,
+    "terms_detail": "",
+    "risk_level": "low"
+  },
+  "connection_test": {
+    "method": "GET",
+    "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+    "headers": {
+      "User-Agent": "CharlesSmith/0.10.0",
+      "Accept": "application/json"
+    },
+    "expected_status": 200,
+    "expected_content_type": "application/json",
+    "sample_response_hint": "JSON 응답의 배열, totalCount, pagination 필드를 확인합니다."
+  },
+  "collection_plan": {
+    "source": "api",
+    "fields": [
+      "channelId",
+      "channelName",
+      "channelDescription",
+      "followerCount",
+      "channelImageUrl",
+      "openLive"
+    ],
+    "pagination": {
+      "type": "unknown",
+      "pattern": null,
+      "total_items": null,
+      "items_per_page": null,
+      "total_pages": null
+    },
+    "delay_seconds": 2.0,
+    "retry": {
+      "max_retries": 3,
+      "backoff_seconds": [
+        30,
+        60,
+        120
+      ],
+      "stop_on": [
+        "403",
+        "login_redirect"
+      ]
+    },
+    "estimated_items": null,
+    "estimated_time": "규모 미상",
+    "sample_record_hint": {
+      "channelId": "dcbccbf2d8e2a1b095244c5856d3613a",
+      "channelName": "김달수 Dalsu",
+      "channelDescription": "문의 : biz@nobent.co.kr",
+      "followerCount": 3754,
+      "channelImageUrl": "https://nng-phinf.pstatic.net/MjAyNjA1MzBfNjMg/MDAxNzgwMTUxNDMzNzcx.aFaLyrcMz...",
+      "openLive": false
+    },
+    "json_path_hints": [
+      "$.content.channelId",
+      "$.content.channelName",
+      "$.content.channelDescription",
+      "$.content.followerCount",
+      "$.content.channelImageUrl",
+      "$.content.openLive"
+    ],
+    "selector_hints": [],
+    "wait_condition": "http_response: GET https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a returns 2xx JSON"
+  },
+  "storage": {
+    "format": "csv",
+    "columns": [
+      "channelId",
+      "channelName",
+      "channelDescription",
+      "followerCount",
+      "channelImageUrl",
+      "openLive",
+      "source_url",
+      "fetched_at"
+    ],
+    "filename_pattern": "m_chzzk_naver_com_{YYYYMMDD}.csv",
+    "encoding": "utf-8"
+  },
+  "verification": {
+    "expected_row_count": null,
+    "null_ratio_threshold": 0.05,
+    "dedup_key": "channelId",
+    "sample_check_count": 5
+  },
+  "agent_prompt": null,
+  "notes": [
+    "best_path: api_direct",
+    "official_api_suggestion: 네이버 검색 API (https://developers.naver.com/docs/serviceapi/search/)",
+    "pagination_unknown: 수동 확인 필요"
+  ],
+  "transport": "httpx",
+  "profile_required": false,
+  "profile_summary": null,
+  "rsc_payload_candidates": [],
+  "diagnostic_findings": {
+    "api": {
+      "status": "selected",
+      "candidates_seen": 20,
+      "usable_candidates": 1,
+      "reason": "best_path=api_direct"
+    },
+    "sitemap": {
+      "status": "rejected",
+      "candidates_seen": 8,
+      "usable_candidates": 0,
+      "reason": "sitemap candidates seen but not validated as usable XML sitemap"
+    },
+    "rsc": {
+      "status": "not_found",
+      "payload_count": 0,
+      "reason": "no RSC payload candidates found"
+    }
+  },
+  "recovery_plan": [],
+  "url_resolution_needed": false,
+  "profile_or_session_likely_needed": false,
+  "arthur_inspect_recommended": true,
+  "browser_probe": null
+}

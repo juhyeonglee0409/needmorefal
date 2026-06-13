@@ -1,0 +1,485 @@
+{
+  "kind": "TargetBatchPlan",
+  "version": "draft_20260611",
+  "case_id": "kimdalsu_20260601",
+  "run_id": "recollect_20260611_prep",
+  "status": "draft",
+  "created_at": "2026-06-11T18:33:35+09:00",
+  "scenario": "Scenario 3 - Charles/Arthur collection preparation",
+  "research_plan_ref": "00_inputs/research_plan.md",
+  "collect_status": "not_requested",
+  "collect_allowed": false,
+  "collect_directive_policy": {
+    "may_create_draft_after_inspect": true,
+    "draft_default_approved": false,
+    "approved_true_requires_operator_approval": true
+  },
+  "legacy_policy": {
+    "legacy_outputs_are_fresh_evidence": false,
+    "legacy_outputs_role": "baseline_reference_only",
+    "blocked_mutations": [
+      "CaseResult",
+      "DisclosureLog",
+      "PublicDemoRow",
+      "canonical_package_state"
+    ]
+  },
+  "research_intent": [
+    "reconfirm_subject_channel_identity_and_current_metrics",
+    "rebuild_current_chzzk_lol_moba_cohort_population",
+    "match_follower_counts_and_channel_urls_or_hashes",
+    "crosscheck_public_follower_rank_sources",
+    "collect_subject_public_profile_signals",
+    "collect_youtube_content_funnel_candidates_as_weak_contextual_signals",
+    "preserve_absences_boundary_signals_not_verifiable_hashes_and_source_paths"
+  ],
+  "global_stop_gates": [
+    "localhost_private_ip_or_file_target",
+    "manual_review_best_path",
+    "restricted_gate_without_operator_approval",
+    "login_required_or_profile_required_without_profile",
+    "target_specific_bypass_required",
+    "approved_scope_cannot_be_narrowed",
+    "InspectResult_intent_mismatch"
+  ],
+  "targets": [
+    {
+      "target_id": "softcon_subject_channel_current_stats",
+      "priority": 1,
+      "source_name": "Softcon Viewership",
+      "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "profile_required": true,
+      "intent": "Reconfirm current subject channel metrics and identity against the intended CHZZK channel hash.",
+      "required_fields": [
+        "run_id",
+        "case_id",
+        "streamer_key",
+        "platform",
+        "platform_channel_id",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "stream_hours",
+        "peak_viewers",
+        "avg_viewers",
+        "viewership",
+        "max_chat_6m",
+        "avg_chat_6m",
+        "category_1",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "channel_hash",
+        "profile_text",
+        "recent_stream_titles",
+        "recent_category_distribution",
+        "peak_p95",
+        "peak_median",
+        "stream_days",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "expected_target_channel_hash": "dcbccbf2d8e2a1b095244c5856d3613a",
+        "expected_name_contains": [
+          "김달수",
+          "Dalsu"
+        ],
+        "dedup_key": "platform_channel_id"
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "max_requests": 20,
+        "max_pages": 5,
+        "max_items": 50
+      }
+    },
+    {
+      "target_id": "softcon_chzzk_lol_population_monthly",
+      "priority": 1,
+      "source_name": "Softcon Viewership",
+      "target_url": "https://viewership.softc.one/",
+      "target_url_status": "operator_or_charles_must_resolve_category_ranking_url",
+      "profile_required": true,
+      "intent": "Rebuild the latest available CHZZK LoL/MOBA cohort population. Legacy 2026-04-28 to 2026-05-27 cohort is comparison seed only.",
+      "required_fields": [
+        "run_id",
+        "cohort_cell_id",
+        "cohort_type",
+        "source_name",
+        "source_url",
+        "request_url",
+        "platform",
+        "channel_id",
+        "channel_name",
+        "channel_url",
+        "primary_category",
+        "category_basis",
+        "aggregation_window_start",
+        "aggregation_window_end",
+        "total_stream_hours",
+        "peak_viewers",
+        "avg_viewers",
+        "viewership",
+        "follower_count",
+        "is_virtual",
+        "is_esports_team",
+        "is_tournament",
+        "is_corporate",
+        "exclude_reason",
+        "raw_record_path",
+        "collected_at",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "source_rank",
+        "display_name",
+        "profile_text",
+        "secondary_category",
+        "category_confidence",
+        "stream_days",
+        "avg_stream_hours_per_stream",
+        "peak_max",
+        "peak_p95",
+        "peak_median",
+        "peak_recent_median",
+        "max_chat_6m",
+        "avg_chat_6m",
+        "follower_rank",
+        "follower_source_name",
+        "follower_collected_at",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "expected_min_rows_before_filter": 500,
+        "legacy_final_rows_approx_for_comparison_only": 131,
+        "dedup_key": "channel_id_or_channel_url",
+        "sample_check_count": 5
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "max_requests": 180,
+        "max_pages": 80,
+        "max_items": 2500
+      }
+    },
+    {
+      "target_id": "softcon_chzzk_follower_ranking_enterprise",
+      "priority": 1,
+      "source_name": "Softcon Viewership",
+      "target_url": "https://viewership.softc.one/",
+      "target_url_status": "operator_or_charles_must_resolve_follower_ranking_url",
+      "profile_required": true,
+      "intent": "Collect current follower ranking rows and channel hash/url values for cohort matching.",
+      "required_fields": [
+        "run_id",
+        "source_name",
+        "source_url",
+        "platform",
+        "channel_id",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "follower_rank",
+        "channel_hash",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "display_name",
+        "profile_text",
+        "mcn",
+        "rank_delta",
+        "follower_delta",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "expected_min_rows": 1000,
+        "legacy_target_match_names_path": "김달수_CASE_PACKAGE_v3_20260611/data/cohort/수집대상_183명.csv",
+        "target_match_rate_threshold": 0.9,
+        "dedup_key": "channel_hash_or_channel_url"
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "max_requests": 250,
+        "max_pages": 120,
+        "max_items": 6000
+      }
+    },
+    {
+      "target_id": "semorank_chzzk_follower_public_crosscheck",
+      "priority": 2,
+      "source_name": "Semorank CHZZK ranking",
+      "target_url": "https://www.semorank.kr/ranking/chzzk",
+      "profile_required": false,
+      "intent": "Cross-check public CHZZK follower ranking as support only; do not replace profile-gated source if scope is limited.",
+      "required_fields": [
+        "run_id",
+        "source_name",
+        "source_url",
+        "platform",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "follower_rank",
+        "rank_delta",
+        "follower_delta",
+        "mcn",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "gender",
+        "mbti",
+        "score",
+        "growth_score",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "expected_public_scope": "top500_or_available_public_range",
+        "dedup_key": "channel_url_or_name"
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "www.semorank.kr"
+        ],
+        "max_requests": 80,
+        "max_pages": 30,
+        "max_items": 800
+      }
+    },
+    {
+      "target_id": "auro_live_chzzk_follower_public_crosscheck",
+      "priority": 3,
+      "source_name": "Aurolive CHZZK rank",
+      "target_url": "https://auro.live/rank/chzzk/0",
+      "profile_required": false,
+      "intent": "Secondary public follower rank cross-check when Semorank or Softcon matching is incomplete.",
+      "required_fields": [
+        "run_id",
+        "source_name",
+        "source_url",
+        "platform",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "follower_rank",
+        "live_status",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "current_live_viewers",
+        "profile_text",
+        "category",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "expected_public_scope": "public_rank_available_range",
+        "dedup_key": "channel_url_or_name"
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "auro.live"
+        ],
+        "max_requests": 80,
+        "max_pages": 30,
+        "max_items": 1500
+      }
+    },
+    {
+      "target_id": "chzzk_subject_channel_public_profile",
+      "priority": 2,
+      "source_name": "CHZZK public channel",
+      "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+      "profile_required": false,
+      "intent": "Collect public subject profile, recent live/VOD titles, and recent categories for identity and category alignment.",
+      "required_fields": [
+        "run_id",
+        "case_id",
+        "streamer_key",
+        "platform",
+        "platform_channel_id",
+        "channel_name",
+        "channel_url",
+        "profile_text",
+        "follower_count",
+        "recent_live_or_vod_titles",
+        "recent_categories",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "thumbnail_present",
+        "description",
+        "schedule_text",
+        "links",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "expected_channel_id": "dcbccbf2d8e2a1b095244c5856d3613a",
+        "expected_name_contains": [
+          "김달수",
+          "Dalsu"
+        ],
+        "dedup_key": "platform_channel_id"
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "m.chzzk.naver.com",
+          "chzzk.naver.com"
+        ],
+        "max_requests": 30,
+        "max_pages": 5,
+        "max_items": 100
+      }
+    },
+    {
+      "target_id": "youtube_dalsooisfree_content_funnel",
+      "priority": 2,
+      "source_name": "YouTube channel: 달수보는 곳",
+      "target_url": "https://www.youtube.com/@dalsooisfree/videos",
+      "alternate_url": "https://www.youtube.com/channel/UCvkwM7BIrqqEq7I_9UiCY6w",
+      "profile_required": false,
+      "intent": "Collect public content-funnel candidates as weak contextual evidence, not causal proof of CHZZK conversion.",
+      "required_fields": [
+        "run_id",
+        "case_id",
+        "streamer_key",
+        "platform",
+        "content_id",
+        "content_url",
+        "posted_at",
+        "content_type",
+        "content_topic",
+        "duration_sec",
+        "title",
+        "identity_fit",
+        "views",
+        "likes",
+        "comments",
+        "shares",
+        "cta_present",
+        "main_link_present",
+        "conversion_signal",
+        "follower_delta_1d",
+        "follower_delta_3d",
+        "follower_delta_7d",
+        "recommendation",
+        "evidence_refs",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "is_short",
+        "tags",
+        "description_link_to_chzzk",
+        "upload_sequence",
+        "thumbnail_text",
+        "view_count_text_raw",
+        "like_count_text_raw",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "expected_channel_handle": "@dalsooisfree",
+        "expected_channel_name_contains": "김달수",
+        "dedup_key": "content_id"
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "www.youtube.com",
+          "youtube.com"
+        ],
+        "max_requests": 80,
+        "max_pages": 20,
+        "max_items": 200
+      }
+    },
+    {
+      "target_id": "softcon_cohort_member_profile_enrichment",
+      "priority": 3,
+      "source_name": "Softcon Viewership channel pages",
+      "target_url": "derived_from:softcon_chzzk_lol_population_monthly.channel_url",
+      "target_url_status": "derived_after_population_collect",
+      "profile_required": true,
+      "intent": "Enrich only missing or ambiguous cohort rows after population/follower matching.",
+      "required_fields": [
+        "run_id",
+        "cohort_cell_id",
+        "channel_id",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "recent_category",
+        "profile_text",
+        "is_esports_team",
+        "is_tournament",
+        "is_corporate",
+        "is_virtual",
+        "virtual_basis",
+        "exclude_reason",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_fields": [
+        "mcn",
+        "tags",
+        "recent_stream_titles",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "verification_expectations": {
+        "input_filter": "only_missing_or_ambiguous_rows_from_population_or_follower_match",
+        "dedup_key": "channel_url"
+      },
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "max_requests": 200,
+        "max_pages": 200,
+        "max_items": 300
+      }
+    }
+  ],
+  "next_phase": {
+    "charles": "scout_each_target_and_save_full_scout_report",
+    "protocol_extraction": "save_top_level_protocol_only_for_arthur",
+    "arthur": "inspect_only_until_operator_approval",
+    "collect": "blocked_until_CollectDirective_approved_true"
+  }
+}

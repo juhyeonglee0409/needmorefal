@@ -1,0 +1,1015 @@
+{
+  "kind": "TargetBatchPlan",
+  "version": "v0.2-kimdalsu-master-v2-m7.1",
+  "generated_at": "2026-06-11T16:47:18+09:00",
+  "case_id": "kimdalsu_20260601",
+  "run_id_hint": "kimdalsu_recollect_YYYYMMDD_01",
+  "methodology_version": "MASTER_v2_M7.1 + streamer_channel_diagnosis_v3",
+  "case_mode": "deep_dive_recollect",
+  "default_disclosure_tag": "red",
+  "status_intent": {
+    "legacy_milestone_report_status": "legacy_reference_only",
+    "new_run_goal": "rebuild cohort/current evidence under canonical M7.1 schema",
+    "case_result_target_status_after_run": "partial_or_ready_after_human_analysis",
+    "portfolio_row_target_status_after_run": "partial_ready_or_portfolio_ready_after_bridge_review",
+    "public_demo_policy": "synthetic_candidate_only; no direct public use"
+  },
+  "subject": {
+    "streamer_key": "kimdalsu",
+    "case_id": "kimdalsu_20260601",
+    "platform": "chzzk",
+    "platform_channel_id": "dcbccbf2d8e2a1b095244c5856d3613a",
+    "channel_name": "김달수 Dalsu",
+    "public_alias": "A스트리머",
+    "primary_category": "롤/MOBA",
+    "is_virtual": false,
+    "data_depth": "mixed",
+    "restricted_terms": [
+      "김달수",
+      "Dalsu",
+      "롤",
+      "달수보는 곳",
+      "코호트 명단",
+      "보고 직후 인터뷰 원문"
+    ],
+    "allowed_public_terms": [
+      "A스트리머",
+      "MOBA 게임",
+      "개별 Deep-Dive 분석 마일스톤"
+    ]
+  },
+  "legacy_seed_inputs": [
+    {
+      "artifact_id": "legacy_daily_stats_20260528",
+      "path": "legacy/baseline_data/김달수_Dalsu_방송통계_1년_20260528.csv",
+      "role": "baseline_only_not_current_source_of_truth",
+      "rows_expected": 287
+    },
+    {
+      "artifact_id": "legacy_candidate_183",
+      "path": "legacy/baseline_data/수집대상_183명.csv",
+      "role": "baseline_target_name_seed_for_refetch",
+      "rows_expected": 183
+    },
+    {
+      "artifact_id": "legacy_final_cohort_131",
+      "path": "legacy/baseline_data/김달수_코호트_131명.csv",
+      "role": "baseline_benchmark_for_diff_and_schema_calibration",
+      "rows_expected": 131
+    },
+    {
+      "artifact_id": "legacy_milestone_report",
+      "path": "legacy/previous_milestone_report/김달수_채널분석_컨설팅리포트_LEGACY_20260601.md",
+      "role": "legacy_deliverable_reference_only"
+    }
+  ],
+  "profile_policy": {
+    "profile_allowed": true,
+    "profile_required_for_targets": [
+      "softcon_chzzk_lol_population_monthly",
+      "softcon_chzzk_follower_ranking_enterprise",
+      "softcon_subject_channel_current_stats",
+      "softcon_cohort_member_profile_enrichment"
+    ],
+    "profile_values_must_not_be_logged": true,
+    "profile_summary_only": true,
+    "accepted_profile_types": [
+      "browser_profile",
+      "storage_state",
+      "curl_cffi_headers_cookies"
+    ],
+    "operator_must_login_manually": true,
+    "notes": "Softcon enterprise/member views may be required for full rankings. Do not store credentials, cookie values, CSRF tokens, or screenshots containing secrets."
+  },
+  "run_policy": {
+    "default_inspect_max_requests": 10,
+    "default_max_requests": 300,
+    "default_max_pages": 80,
+    "default_max_items": 6000,
+    "default_delay_seconds_min": 5.0,
+    "default_delay_seconds_max": 10.0,
+    "save_raw_default": true,
+    "redact_secrets": true,
+    "stop_on_manual_review": true,
+    "stop_on_restricted_gate": true,
+    "stop_on_private_network": true,
+    "stop_on_target_specific_bypass": true,
+    "stop_on_missing_profile_when_required": true,
+    "robots_disallowed_action": "record_then_operator_review",
+    "rate_limit_action": "stop_and_record_boundary_signal",
+    "session_invalid_action": "stop_and_request_profile_refresh"
+  },
+  "output_contract": {
+    "run_root_pattern": "runs/kimdalsu_20260601/{run_id}/",
+    "charles_outputs": [
+      "10_charles/{target_id}.scout_report.json",
+      "10_charles/{target_id}.protocol.json"
+    ],
+    "arthur_inspect_outputs": [
+      "30_arthur_inspect/{target_id}.InspectResult.json"
+    ],
+    "arthur_collect_outputs": [
+      "40_arthur_collect/{target_id}/_meta.json",
+      "40_arthur_collect/{target_id}/items.jsonl",
+      "40_arthur_collect/{target_id}/combined.json",
+      "40_arthur_collect/{target_id}/raw/"
+    ],
+    "ingest_candidates": [
+      "50_ingest_candidates/EvidencePackage_patch.json",
+      "50_ingest_candidates/AbsenceInventory_patch.json",
+      "50_ingest_candidates/DisclosureLog_patch.json",
+      "50_ingest_candidates/CohortBenchmark_candidate.json",
+      "50_ingest_candidates/ContentFunnelAnalysis_candidate.csv"
+    ],
+    "dossier_update_policy": "Do not update CaseResult/PortfolioRow automatically; hand results back to Hosea/operator for analysis."
+  },
+  "field_sets": {
+    "cohort_population_required": [
+      "run_id",
+      "cohort_cell_id",
+      "cohort_type",
+      "source_name",
+      "source_url",
+      "request_url",
+      "platform",
+      "channel_id",
+      "channel_name",
+      "channel_url",
+      "primary_category",
+      "category_basis",
+      "aggregation_window_start",
+      "aggregation_window_end",
+      "total_stream_hours",
+      "peak_viewers",
+      "avg_viewers",
+      "viewership",
+      "follower_count",
+      "is_virtual",
+      "is_esports_team",
+      "is_tournament",
+      "is_corporate",
+      "exclude_reason",
+      "raw_record_path",
+      "collected_at",
+      "disclosure_tag"
+    ],
+    "cohort_population_preferred": [
+      "source_rank",
+      "display_name",
+      "profile_text",
+      "secondary_category",
+      "category_confidence",
+      "category_1",
+      "category_1_share",
+      "category_2",
+      "category_2_share",
+      "stream_days",
+      "avg_stream_hours_per_stream",
+      "peak_max",
+      "peak_p95",
+      "peak_median",
+      "peak_recent_median",
+      "max_chat_6m",
+      "avg_chat_6m",
+      "follower_rank",
+      "follower_source_name",
+      "follower_collected_at",
+      "is_general_game",
+      "general_game_basis",
+      "virtual_basis",
+      "is_inactive",
+      "is_too_new",
+      "is_duplicate",
+      "parse_status",
+      "missing_reason",
+      "boundary_signal",
+      "response_hash"
+    ],
+    "follower_rank_required": [
+      "run_id",
+      "source_name",
+      "source_url",
+      "platform",
+      "channel_id",
+      "channel_name",
+      "channel_url",
+      "follower_count",
+      "follower_rank",
+      "channel_hash",
+      "collected_at",
+      "raw_record_path",
+      "disclosure_tag"
+    ],
+    "subject_current_stats_required": [
+      "run_id",
+      "case_id",
+      "streamer_key",
+      "platform",
+      "platform_channel_id",
+      "channel_name",
+      "channel_url",
+      "follower_count",
+      "stream_hours",
+      "peak_viewers",
+      "avg_viewers",
+      "viewership",
+      "max_chat_6m",
+      "avg_chat_6m",
+      "category_1",
+      "collected_at",
+      "raw_record_path",
+      "disclosure_tag"
+    ],
+    "external_content_funnel_required": [
+      "run_id",
+      "case_id",
+      "streamer_key",
+      "platform",
+      "content_id",
+      "content_url",
+      "posted_at",
+      "content_type",
+      "content_topic",
+      "duration_sec",
+      "title",
+      "identity_fit",
+      "views",
+      "likes",
+      "comments",
+      "shares",
+      "cta_present",
+      "main_link_present",
+      "conversion_signal",
+      "follower_delta_1d",
+      "follower_delta_3d",
+      "follower_delta_7d",
+      "recommendation",
+      "evidence_refs",
+      "disclosure_tag"
+    ]
+  },
+  "targets": [
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "softcon_subject_channel_current_stats",
+      "target_group": "subject_current_stats",
+      "target_kind": "public_or_member_web_page",
+      "priority": 1,
+      "source_name": "Softcon Viewership",
+      "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "public_reference_url": "https://viewership.softc.one/",
+      "profile_required": true,
+      "purpose": "김달수 현재 Softcon 채널 지표/팔로워/최근 카테고리/채널 URL을 최신 MASTER schema로 재확인한다.",
+      "required_columns": [
+        "run_id",
+        "case_id",
+        "streamer_key",
+        "platform",
+        "platform_channel_id",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "stream_hours",
+        "peak_viewers",
+        "avg_viewers",
+        "viewership",
+        "max_chat_6m",
+        "avg_chat_6m",
+        "category_1",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "channel_hash",
+        "profile_text",
+        "recent_stream_titles",
+        "recent_category_distribution",
+        "peak_p95",
+        "peak_median",
+        "stream_days",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "path_prefixes": [
+          "/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+        ],
+        "max_requests": 20,
+        "max_pages": 5,
+        "max_items": 50
+      },
+      "verification_hint": {
+        "expected_target_channel_hash": "dcbccbf2d8e2a1b095244c5856d3613a",
+        "expected_name_contains": [
+          "김달수",
+          "Dalsu"
+        ],
+        "dedup_key": "platform_channel_id"
+      }
+    },
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "softcon_chzzk_lol_population_monthly",
+      "target_group": "main_cohort_population",
+      "target_kind": "member_ranking_page_or_export",
+      "priority": 1,
+      "source_name": "Softcon Viewership",
+      "target_url": "https://viewership.softc.one/",
+      "target_url_status": "operator_or_charles_must_resolve_category_ranking_url",
+      "source_resolution_instruction": "Softcon에서 platform=naverchzzk, category=League of Legends/롤, aggregation_window=최근 1개월 또는 지정 월, streamer ranking top 2000 페이지/CSV/export/API 후보를 찾는다.",
+      "profile_required": true,
+      "purpose": "김달수 최신 주 코호트: 치지직 롤/MOBA 스트리머 모집단을 재수집한다. 기존 2026-04-28~2026-05-27 legacy cohort는 seed/비교용으로만 둔다.",
+      "required_columns": [
+        "run_id",
+        "cohort_cell_id",
+        "cohort_type",
+        "source_name",
+        "source_url",
+        "request_url",
+        "platform",
+        "channel_id",
+        "channel_name",
+        "channel_url",
+        "primary_category",
+        "category_basis",
+        "aggregation_window_start",
+        "aggregation_window_end",
+        "total_stream_hours",
+        "peak_viewers",
+        "avg_viewers",
+        "viewership",
+        "follower_count",
+        "is_virtual",
+        "is_esports_team",
+        "is_tournament",
+        "is_corporate",
+        "exclude_reason",
+        "raw_record_path",
+        "collected_at",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "source_rank",
+        "display_name",
+        "profile_text",
+        "secondary_category",
+        "category_confidence",
+        "category_1",
+        "category_1_share",
+        "category_2",
+        "category_2_share",
+        "stream_days",
+        "avg_stream_hours_per_stream",
+        "peak_max",
+        "peak_p95",
+        "peak_median",
+        "peak_recent_median",
+        "max_chat_6m",
+        "avg_chat_6m",
+        "follower_rank",
+        "follower_source_name",
+        "follower_collected_at",
+        "is_general_game",
+        "general_game_basis",
+        "virtual_basis",
+        "is_inactive",
+        "is_too_new",
+        "is_duplicate",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "path_prefixes": [
+          "/",
+          "/channel",
+          "/ranking",
+          "/category",
+          "/platform"
+        ],
+        "max_requests": 180,
+        "max_pages": 80,
+        "max_items": 2500
+      },
+      "collection_window_policy": {
+        "preferred": "latest_complete_month",
+        "legacy_window": "2026-04-28_to_2026-05-27",
+        "store_aggregation_window_required": true
+      },
+      "cohort_filter_after_collect": {
+        "platform": "chzzk",
+        "primary_category": "롤/MOBA",
+        "peer_band_basis": [
+          "target_peak_max_120_legacy",
+          "fresh_target_peak_or_recent_median_if_available"
+        ],
+        "peak_band_multiplier": [
+          0.5,
+          2.0
+        ],
+        "legacy_peak_band": [
+          60,
+          240
+        ],
+        "exclude": [
+          "esports_team",
+          "tournament",
+          "corporate"
+        ],
+        "keep_virtual_as_flag_not_exclusion": true
+      },
+      "verification_hint": {
+        "expected_min_rows_before_filter": 500,
+        "expected_final_rows_legacy_approx": 131,
+        "dedup_key": "channel_id_or_channel_url",
+        "sample_check_count": 5
+      }
+    },
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "softcon_chzzk_follower_ranking_enterprise",
+      "target_group": "follower_match",
+      "target_kind": "member_follower_ranking_page",
+      "priority": 1,
+      "source_name": "Softcon Viewership",
+      "target_url": "https://viewership.softc.one/",
+      "target_url_status": "operator_or_charles_must_resolve_follower_ranking_url",
+      "source_resolution_instruction": "Softcon 치지직 follower ranking 전체/엔터프라이즈 범위를 열고 name+follower+channel_hash/channel_url을 수집한다. 300위 컷이면 profile invalid로 중단한다.",
+      "profile_required": true,
+      "purpose": "코호트 채널의 follower_count와 channel_url/hash를 매칭한다. legacy 명세의 183명 follower 수집을 최신 M7.1 schema로 재실행한다.",
+      "required_columns": [
+        "run_id",
+        "source_name",
+        "source_url",
+        "platform",
+        "channel_id",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "follower_rank",
+        "channel_hash",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "display_name",
+        "profile_text",
+        "mcn",
+        "rank_delta",
+        "follower_delta",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "path_prefixes": [
+          "/",
+          "/ranking",
+          "/channel",
+          "/platform"
+        ],
+        "max_requests": 250,
+        "max_pages": 120,
+        "max_items": 6000
+      },
+      "verification_hint": {
+        "expected_min_rows": 1000,
+        "legacy_target_match_names_path": "legacy/baseline_data/수집대상_183명.csv",
+        "target_match_rate_threshold": 0.9,
+        "dedup_key": "channel_hash_or_channel_url"
+      }
+    },
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "semorank_chzzk_follower_public_crosscheck",
+      "target_group": "follower_match_crosscheck",
+      "target_kind": "public_ranking_page",
+      "priority": 2,
+      "source_name": "Semorank CHZZK ranking",
+      "target_url": "https://www.semorank.kr/ranking/chzzk",
+      "profile_required": false,
+      "purpose": "공개 팔로워 랭킹 교차검증. Top 500 중심이므로 Softcon enterprise follower match의 보조 출처로만 사용한다.",
+      "required_columns": [
+        "run_id",
+        "source_name",
+        "source_url",
+        "platform",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "follower_rank",
+        "rank_delta",
+        "follower_delta",
+        "mcn",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "gender",
+        "mbti",
+        "score",
+        "growth_score",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "www.semorank.kr"
+        ],
+        "path_prefixes": [
+          "/ranking/chzzk"
+        ],
+        "max_requests": 80,
+        "max_pages": 30,
+        "max_items": 800
+      },
+      "verification_hint": {
+        "expected_public_scope": "top500_or_available_public_range",
+        "dedup_key": "channel_url_or_name"
+      }
+    },
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "auro_live_chzzk_follower_public_crosscheck",
+      "target_group": "follower_match_crosscheck",
+      "target_kind": "public_ranking_page",
+      "priority": 3,
+      "source_name": "Aurolive CHZZK rank",
+      "target_url": "https://auro.live/rank/chzzk/0",
+      "profile_required": false,
+      "purpose": "공개 팔로워 랭킹 보조 교차검증. Semorank/Softcon 누락 시 follower_count와 channel URL 후보 확인.",
+      "required_columns": [
+        "run_id",
+        "source_name",
+        "source_url",
+        "platform",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "follower_rank",
+        "live_status",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "current_live_viewers",
+        "profile_text",
+        "category",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "auro.live"
+        ],
+        "path_prefixes": [
+          "/rank/chzzk"
+        ],
+        "max_requests": 80,
+        "max_pages": 30,
+        "max_items": 1500
+      },
+      "verification_hint": {
+        "expected_public_scope": "public_rank_available_range",
+        "dedup_key": "channel_url_or_name"
+      }
+    },
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "chzzk_subject_channel_public_profile",
+      "target_group": "subject_profile_public",
+      "target_kind": "public_profile_page",
+      "priority": 2,
+      "source_name": "CHZZK public channel",
+      "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+      "profile_required": false,
+      "purpose": "치지직 공개 프로필/최근 라이브/최근 VOD 제목·카테고리 확인. Softcon과 subject identity를 교차검증한다.",
+      "required_columns": [
+        "run_id",
+        "case_id",
+        "streamer_key",
+        "platform",
+        "platform_channel_id",
+        "channel_name",
+        "channel_url",
+        "profile_text",
+        "follower_count",
+        "recent_live_or_vod_titles",
+        "recent_categories",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "thumbnail_present",
+        "description",
+        "schedule_text",
+        "links",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "m.chzzk.naver.com",
+          "chzzk.naver.com"
+        ],
+        "path_prefixes": [
+          "/dcbccbf2d8e2a1b095244c5856d3613a"
+        ],
+        "max_requests": 30,
+        "max_pages": 5,
+        "max_items": 100
+      },
+      "verification_hint": {
+        "expected_channel_id": "dcbccbf2d8e2a1b095244c5856d3613a",
+        "expected_name_contains": [
+          "김달수",
+          "Dalsu"
+        ],
+        "dedup_key": "platform_channel_id"
+      }
+    },
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "youtube_dalsooisfree_content_funnel",
+      "target_group": "external_content_funnel",
+      "target_kind": "public_youtube_channel_videos",
+      "priority": 2,
+      "source_name": "YouTube channel: 달수보는 곳",
+      "target_url": "https://www.youtube.com/@dalsooisfree/videos",
+      "alternate_url": "https://www.youtube.com/channel/UCvkwM7BIrqqEq7I_9UiCY6w",
+      "profile_required": false,
+      "purpose": "유튜브 숏폼/영상의 도달 신호, 정체성 정합도, 치지직 전환 추정용 후보 데이터를 수집한다. 직접 인과가 아니라 content_funnel_analysis 후보로만 저장한다.",
+      "required_columns": [
+        "run_id",
+        "case_id",
+        "streamer_key",
+        "platform",
+        "content_id",
+        "content_url",
+        "posted_at",
+        "content_type",
+        "content_topic",
+        "duration_sec",
+        "title",
+        "identity_fit",
+        "views",
+        "likes",
+        "comments",
+        "shares",
+        "cta_present",
+        "main_link_present",
+        "conversion_signal",
+        "follower_delta_1d",
+        "follower_delta_3d",
+        "follower_delta_7d",
+        "recommendation",
+        "evidence_refs",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "is_short",
+        "tags",
+        "description_link_to_chzzk",
+        "upload_sequence",
+        "thumbnail_text",
+        "view_count_text_raw",
+        "like_count_text_raw",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "www.youtube.com",
+          "youtube.com"
+        ],
+        "path_prefixes": [
+          "/@dalsooisfree",
+          "/channel/UCvkwM7BIrqqEq7I_9UiCY6w"
+        ],
+        "max_requests": 80,
+        "max_pages": 20,
+        "max_items": 200
+      },
+      "verification_hint": {
+        "expected_channel_handle": "@dalsooisfree",
+        "expected_channel_name_contains": [
+          "김달수"
+        ],
+        "dedup_key": "content_id"
+      }
+    },
+    {
+      "disclosure_tag": "red",
+      "inspect_required": true,
+      "collect_requires_operator_approval": true,
+      "charles_expected_output": [
+        "ScoutReport JSON",
+        "ExecutionProtocol JSON protocol section only"
+      ],
+      "arthur_default_mode": "inspect_first_then_collect_after_CollectDirective",
+      "field_policy_hint": {
+        "exclude": [
+          "email",
+          "phone",
+          "personal_id",
+          "token",
+          "cookie",
+          "session",
+          "csrf",
+          "password",
+          "payment",
+          "private_message"
+        ],
+        "mask": []
+      },
+      "boundary_policy_hint": {
+        "private_network": "stop",
+        "restricted_gate": "stop",
+        "login_required_without_profile": "stop",
+        "target_specific_bypass": "stop",
+        "rate_limited": "stop_and_record"
+      },
+      "target_id": "softcon_cohort_member_profile_enrichment",
+      "target_group": "cohort_profile_enrichment",
+      "target_kind": "member_channel_pages_from_collected_cohort",
+      "priority": 3,
+      "source_name": "Softcon Viewership channel pages",
+      "target_url": "derived_from:softcon_chzzk_lol_population_monthly.channel_url",
+      "target_url_status": "derived_after_population_collect",
+      "profile_required": true,
+      "purpose": "최종 코호트 후보의 channel_url/hash, 최근 카테고리, follower 누락, 기업/대회/팀 여부 플래그를 보강한다. 전체가 아니라 누락/ambiguous 후보만 대상으로 한다.",
+      "required_columns": [
+        "run_id",
+        "cohort_cell_id",
+        "channel_id",
+        "channel_name",
+        "channel_url",
+        "follower_count",
+        "recent_category",
+        "profile_text",
+        "is_esports_team",
+        "is_tournament",
+        "is_corporate",
+        "is_virtual",
+        "virtual_basis",
+        "exclude_reason",
+        "collected_at",
+        "raw_record_path",
+        "disclosure_tag"
+      ],
+      "preferred_columns": [
+        "mcn",
+        "tags",
+        "recent_stream_titles",
+        "parse_status",
+        "missing_reason",
+        "boundary_signal",
+        "response_hash"
+      ],
+      "approved_scope_hint": {
+        "allowed_domains": [
+          "viewership.softc.one"
+        ],
+        "path_prefixes": [
+          "/channel/naverchzzk"
+        ],
+        "max_requests": 200,
+        "max_pages": 200,
+        "max_items": 300
+      },
+      "verification_hint": {
+        "input_filter": "only_missing_or_ambiguous_rows_from_population/follower_match",
+        "dedup_key": "channel_url"
+      }
+    }
+  ]
+}

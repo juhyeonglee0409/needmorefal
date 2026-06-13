@@ -1,0 +1,305 @@
+{
+  "version": "0.6",
+  "generated_at": "2026-06-12 23:28:15",
+  "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+  "boundary_signals": [
+    {
+      "source": "robots",
+      "signal": "robots_check",
+      "severity": "info",
+      "action": "recorded",
+      "detail": "robots 200 파싱 성공",
+      "target": "/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": null
+    }
+  ],
+  "available_resources": [
+    {
+      "kind": "robots",
+      "checked": true,
+      "allowed": true,
+      "crawl_delay": null,
+      "target_path": "/dcbccbf2d8e2a1b095244c5856d3613a"
+    },
+    {
+      "kind": "sitemap_candidate",
+      "url": "https://m.chzzk.naver.com/sitemap.xml",
+      "status": "candidate_not_fetched"
+    },
+    {
+      "kind": "http",
+      "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 655
+    },
+    {
+      "kind": "json",
+      "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+      "sample_count": 1
+    }
+  ],
+  "sample_records": [
+    {
+      "code": 200,
+      "message": null,
+      "content": {
+        "channelId": "dcbccbf2d8e2a1b095244c5856d3613a",
+        "channelName": "김달수 Dalsu",
+        "channelImageUrl": "https://nng-phinf.pstatic.net/MjAyNjA1MzBfNjMg/MDAxNzgwMTUxNDMzNzcx.aFaLyrcMzvIsmxtb8DgMeLbJM3XWalkKxiNisW3ZM_Qg.wCwvmlmwoKALtNKxWN1BdJJK9REMtpgd7wGUq75l0Swg.JPEG/image.jpg",
+        "verifiedMark": false,
+        "channelType": "STREAMING",
+        "channelDescription": "문의 : biz@nobent.co.kr",
+        "followerCount": 3755,
+        "openLive": false,
+        "subscriptionAvailability": true,
+        "subscriptionPaymentAvailability": {
+          "iapAvailability": false,
+          "iabAvailability": true
+        },
+        "adMonetizationAvailability": true,
+        "activatedChannelBadgeIds": [],
+        "paidProductSaleAllowed": false
+      }
+    }
+  ],
+  "field_maps": [
+    {
+      "source": "json",
+      "resource_path": "$",
+      "row_count": 1,
+      "confidence": "medium",
+      "classification": "record_array",
+      "fields": [
+        {
+          "name": "code",
+          "path": "code",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "int"
+          ],
+          "examples": [
+            200
+          ],
+          "nullable": false
+        },
+        {
+          "name": "activatedChannelBadgeIds[]",
+          "path": "content.activatedChannelBadgeIds[]",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "array"
+          ],
+          "examples": [
+            "[]"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "adMonetizationAvailability",
+          "path": "content.adMonetizationAvailability",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "bool"
+          ],
+          "examples": [
+            true
+          ],
+          "nullable": false
+        },
+        {
+          "name": "channelDescription",
+          "path": "content.channelDescription",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "string"
+          ],
+          "examples": [
+            "문의 : biz@nobent.co.kr"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "channelId",
+          "path": "content.channelId",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "string"
+          ],
+          "examples": [
+            "dcbccbf2d8e2a1b095244c5856d3613a"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "channelImageUrl",
+          "path": "content.channelImageUrl",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "string"
+          ],
+          "examples": [
+            "https://nng-phinf.pstatic.net/MjAyNjA1MzBfNjMg/MDAxNzgwMTUxNDMzNzcx.aFaLyrcMzvIsmxtb8DgMeLbJM3XWalkKxiNisW3ZM_Qg.wCwvmlm"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "channelName",
+          "path": "content.channelName",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "string"
+          ],
+          "examples": [
+            "김달수 Dalsu"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "channelType",
+          "path": "content.channelType",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "string"
+          ],
+          "examples": [
+            "STREAMING"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "followerCount",
+          "path": "content.followerCount",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "int"
+          ],
+          "examples": [
+            3755
+          ],
+          "nullable": false
+        },
+        {
+          "name": "openLive",
+          "path": "content.openLive",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "bool"
+          ],
+          "examples": [
+            false
+          ],
+          "nullable": false
+        },
+        {
+          "name": "paidProductSaleAllowed",
+          "path": "content.paidProductSaleAllowed",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "bool"
+          ],
+          "examples": [
+            false
+          ],
+          "nullable": false
+        },
+        {
+          "name": "subscriptionAvailability",
+          "path": "content.subscriptionAvailability",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "bool"
+          ],
+          "examples": [
+            true
+          ],
+          "nullable": false
+        },
+        {
+          "name": "iabAvailability",
+          "path": "content.subscriptionPaymentAvailability.iabAvailability",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "bool"
+          ],
+          "examples": [
+            true
+          ],
+          "nullable": false
+        },
+        {
+          "name": "iapAvailability",
+          "path": "content.subscriptionPaymentAvailability.iapAvailability",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "bool"
+          ],
+          "examples": [
+            false
+          ],
+          "nullable": false
+        },
+        {
+          "name": "verifiedMark",
+          "path": "content.verifiedMark",
+          "present": 1,
+          "non_null": 1,
+          "types": [
+            "bool"
+          ],
+          "examples": [
+            false
+          ],
+          "nullable": false
+        },
+        {
+          "name": "message",
+          "path": "message",
+          "present": 1,
+          "non_null": 0,
+          "types": [
+            "null"
+          ],
+          "examples": [
+            null
+          ],
+          "nullable": true
+        }
+      ]
+    }
+  ],
+  "estimated_collection_options": [
+    {
+      "path": "api_direct",
+      "confidence": "medium",
+      "reason": "JSON/API 후보 발견"
+    }
+  ],
+  "operator_questions": [],
+  "policy_trace": [],
+  "artifacts": [],
+  "session_profile": {
+    "provided": false,
+    "type": null,
+    "status": "not_provided",
+    "secret_values_logged": false,
+    "transport": null,
+    "header_names": [],
+    "cookie_names": []
+  }
+}
