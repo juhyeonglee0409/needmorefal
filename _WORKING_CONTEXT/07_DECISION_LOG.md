@@ -1,5 +1,35 @@
 # Decision Log
 
+## 2026-06-13 - Arthur challenge wait natural interaction (DLG-010)
+
+decision_id: `DL_TOOLING_20260613_030`
+
+scope:
+
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\arthur\inspect.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\tests\test_natural_interaction_v0_1.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\SPEC_Arthur_v0_6_1.md`
+- `D:\Codex_Workspace\Instruction\BOT_DEFENSE_OPERATIONAL_ROUTING_v0_2.md`
+- `D:\Codex_Workspace\Instruction\delegation\reports\DELEGATION_REPORT_DLG_010_NATURAL_INTERACTION_20260613.md`
+
+what_changed:
+
+Arthur chrome_profile challenge wait에 일반 사용자 행동 시뮬레이션을 추가했다. passive checkpoint 관측 시 같은 페이지 안에서 deterministic mouse move, light scroll, focus 신호를 보내며, navigation 1회·host-agnostic 경로·solver/stealth/proxy 금지는 그대로 유지한다.
+
+why:
+
+DLG-008은 navigation 1회와 polling만 고정해 대기 중 행동이 없는 상태였다. v0.2 부속서의 "진짜 브라우저로 navigation 1회" 의도를 일반 사용자 같은 same-page behavior로 표현하되, reload/retry/host-specific bypass 없이 bounded하게 구현했다.
+
+authority:
+
+operator 2026-06-13 (DLG-010 natural interaction execution approved).
+
+boundary:
+
+오프라인 구현/테스트만. live access 0. 가짜 지문, stealth plugin, proxy/identity pool, CAPTCHA solver 도입 없음. 추가 navigation/reload/goto 없음. 호스트별 분기 없음. 부속서 v0.2는 지정된 한 줄만 갱신. canonical case/package 데이터 미변경.
+
+status: active
+
 ## 2026-06-13 - Bridge v0.1 patch-candidate apply contract (DLG-009)
 
 decision_id: `DL_TOOLING_20260613_029`
