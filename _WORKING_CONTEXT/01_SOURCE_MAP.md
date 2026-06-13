@@ -32,12 +32,9 @@ Use this as the router. Do not load every source file.
 | Arthur loader | `...\Arthur_v0.6_pipeline_contract\arthur\protocol_loader.py` | protocol/scout_report/compact/CollectDirective normalization |
 | Arthur CLI | `...\Arthur_v0.6_pipeline_contract\arthur\cli.py` | actual stop gates and orchestration |
 
-Compatibility alias note:
+Spec alias note:
 
-- Use canonical spec paths above for new references.
-- Arthur alias `...\Arthur_v0.6_pipeline_contract\SPEC_Arthur_v0.6.1.md` is retained for older references.
-- Charles alias `...\CrawlScouter_v0.10.0_pipeline_contract\SPEC_v0.10.1.md` is retained for older references.
-- Canonical and alias files must remain byte-identical while aliases exist.
+- Use canonical spec paths above. Compatibility aliases (`SPEC_Arthur_v0.6.1.md`, `SPEC_v0.10.1.md`) were removed 2026-06-13 (DL_TOOLING_20260613_024).
 
 ## Streamer Project Sources
 
