@@ -1,5 +1,37 @@
 # Decision Log
 
+## 2026-06-14 - Arthur ExecutionProtocol 범용/케이스 분리 + preflight 단계 신설
+
+decision_id: `DL_INFRA_20260614_037`
+
+scope:
+
+- `D:\Codex_Workspace\Streamer Consulting Project\specs\Arthur_ExecutionProtocol_v3.json`
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\data\cohort\specs\구비바_§4_case_params_v1.json`
+
+what_changed:
+
+### 1. ExecutionProtocol 범용/케이스 분리 (v2→v3+case_params)
+
+기존 v2는 범용 방법론(소스 레지스트리, 수집 패턴, 정책)과 케이스 파라미터(필터, 예산, 태스크)가 한 파일에 혼재. v3로 분리:
+- `Arthur_ExecutionProtocol_v3.json` — 범용 방법론 (프로젝트 레벨)
+- `구비바_§4_case_params_v1.json` — 케이스 전용 파라미터 (케이스 패키지 내)
+
+### 2. preflight 단계 신설
+
+inspect와 collect 사이에 preflight 단계 추가. 소스 접근성, 파라미터 유효성, dry run, 예산 대조를 검증.
+gate 정책: auto_proceed=true + 전 checks 통과 + budget 여유 50%+ 일 때만 자동 진행. 기본값은 operator 승인 대기.
+
+### 3. 소프트콘 카테고리 랭킹 소스 전환
+
+Hosea Chrome inspect 결과 반영. 기존 일반 랭킹(400ch) → 카테고리 랭킹(롤 10,000ch, CSV 2000행 제한) 전환. 피크밴드(74-296) 치지직 해당 93명 확인.
+
+why:
+
+v2가 케이스 특화 파라미터와 범용 방법론을 분리하지 않아 다른 케이스 재사용이 불가했음. preflight는 collect 전 실행 가능 여부를 기계적으로 검증하는 게이트로, operator 판단 부담을 줄이면서도 승인 권한은 유지.
+
+---
+
 ## 2026-06-14 - 바이블 개정 v2: 코어 철학 + ND 위상 재정립 + BEARING 계보
 
 decision_id: `DL_INFRA_20260614_036`

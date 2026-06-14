@@ -1,0 +1,193 @@
+{
+  "case_id": "gubiba",
+  "protocol_ref": "arthur_execution_protocol_v3",
+  "created_at": "2026-06-14",
+  "charles_diagnostic_id": "gubiba_cohort_charles_20260614",
+  "purpose": "구비바 §4 주/보조 코호트 구축용 공개 채널 단위 통계 수집",
+
+  "operator_decision": {
+    "main_cohort": "main_general_game",
+    "auxiliary_cohort": "aux_virtual",
+    "do_not_decide": true,
+    "record_only": true
+  },
+
+  "source_selection": {
+    "primary": "softcone_category_ranking",
+    "enrichment": "softcone_detail",
+    "fallback_follower": "softcone_followers",
+    "note": "기존 softcone_general_ranking(400ch) 대신 category_ranking(10,000ch)으로 전환. 카테고리 사전 필터링 + CSV 다운로드로 효율 극대화."
+  },
+
+  "filters": {
+    "category": "리그 오브 레전드",
+    "category_url_segment": "%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+    "platforms": ["naverchzzk", "soop"],
+    "peak_band": {
+      "min": 74,
+      "max": 296,
+      "basis": "구비바 raw_max=148 × 0.5~2.0",
+      "extended_max": 500,
+      "extended_note": "소프트콘 7일 기준 peak가 raw_max보다 낮을 수 있으므로 넉넉히 잡고 후필터"
+    },
+    "aggregation_window": "7d (지난 7일)",
+    "virtual_separation": {
+      "method": "tag_filter",
+      "tags": ["버추얼"]
+    }
+  },
+
+  "preflight": {
+    "auto_proceed": false,
+    "minimum_candidates": 30,
+    "dry_run_targets": {
+      "category_ranking": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/ranking",
+      "detail_page_sample": "https://viewership.softc.one/channel/naverchzzk/1de3e9d4595f71ab6c20dbd94d9e2f39"
+    },
+    "expected_results": {
+      "peak_band_candidates_chzzk": "≥93 (Hosea inspect 기준)",
+      "peak_band_candidates_soop": "≥67",
+      "detail_page_fields": ["follower_count", "category_1", "category_1_share"]
+    }
+  },
+
+  "tasks": [
+    {
+      "task_id": "inspect_sources",
+      "mode": "inspect",
+      "description": "Arthur 실행 환경에서 카테고리 랭킹 + 디테일 페이지 접근 가능 여부 재확인",
+      "source_ids": ["softcone_category_ranking", "softcone_detail"],
+      "max_requests": 4,
+      "status": "partially_done_by_hosea",
+      "hosea_findings": {
+        "category_ranking": "Chrome 탐색 완료. 10,000명, CSV 2000행 제한, 플랫폼 필터 작동 확인.",
+        "detail_page": "로컨 LokeN 페이지에서 팔로워·카테고리·채팅 확인.",
+        "sample_csvs": ["스트리머_랭킹_20260614_153047.csv", "소프트콘_랭킹_20260614_153327.csv"]
+      }
+    },
+    {
+      "task_id": "collect_category_ranking_csv",
+      "mode": "collect",
+      "description": "롤 카테고리 스트리머 랭킹 CSV 전수 다운로드. 2000행 제한 있으므로 플랫폼 필터별 반복.",
+      "source_id": "softcone_category_ranking",
+      "method": "csv_download",
+      "iterations": [
+        {"filter": "platform=치지직", "expected_rows": "up to 2000"},
+        {"filter": "platform=SOOP", "expected_rows": "up to 2000"},
+        {"filter": "platform=트위치", "expected_rows": "up to 2000"}
+      ],
+      "tabs_to_download": ["스트리머_랭킹", "소프트콘_랭킹"],
+      "also_explore": ["성장_랭킹"],
+      "save_raw": true,
+      "output": "raw/category_ranking/{platform}_{tab}_{date}.csv"
+    },
+    {
+      "task_id": "collect_virtual_tagged",
+      "mode": "collect",
+      "cohort_type": "aux_virtual",
+      "description": "롤 카테고리에서 버추얼 태그 필터 적용 후 CSV 다운로드. 또는 버추얼 랭킹 소스에서 별도 수집.",
+      "source_id": "softcone_category_ranking",
+      "method": "csv_download_with_tag_filter",
+      "tag_filter": "버추얼",
+      "alternative_source": "softcone_virtual_ranking",
+      "save_raw": true,
+      "output": "raw/virtual/{filename}.csv"
+    },
+    {
+      "task_id": "enrich_peak_band_detail",
+      "mode": "enrich",
+      "description": "피크밴드(74-296) 해당 채널의 상세 페이지 방문 → 팔로워 + 카테고리 비율 추출",
+      "source_id": "softcone_detail",
+      "depends_on": ["collect_category_ranking_csv"],
+      "enrich_filter": {
+        "criterion": "peak_viewers",
+        "range": [74, 296],
+        "platforms": ["naverchzzk"],
+        "estimated_count": "93 (Hosea inspect 기준)"
+      },
+      "enrich_columns": [
+        "follower_count", "follower_updated_at",
+        "peak_follower", "peak_rank",
+        "category_1", "category_1_share",
+        "category_2", "category_2_share",
+        "chat_6m_peak", "chat_6m_avg"
+      ],
+      "save_raw": true,
+      "max_requests": 200,
+      "output": "parsed/detail_enriched.jsonl"
+    },
+    {
+      "task_id": "supplement_followers",
+      "mode": "enrich",
+      "description": "enrich에서 팔로워 누락 채널을 팔로워 랭킹에서 매칭",
+      "source_id": "softcone_followers",
+      "depends_on": ["enrich_peak_band_detail"],
+      "max_requests": 10,
+      "output": "parsed/follower_matched.jsonl"
+    }
+  ],
+
+  "budgets": {
+    "collect_csv_downloads": "3~9 (플랫폼×탭 조합)",
+    "enrich_detail_pages": "93~200",
+    "follower_supplement": "0~10",
+    "total_estimated": "100~220"
+  },
+
+  "classification_rules": {
+    "general_game": {
+      "method": "category_share_analysis",
+      "rules": [
+        "2개 이상 게임 카테고리에 각 15%+ share → is_general_game=true",
+        "단일 게임 80%+ → is_general_game=false",
+        "talk/just chatting 1순위 50%+ → is_general_game=false",
+        "종합게임 카테고리 label → is_general_game=true",
+        "판정 불명확 → is_general_game='unknown'"
+      ]
+    },
+    "exclude_filters": [
+      "is_esports_team (LCK, HLE 등 공식 채널)",
+      "is_tournament (EWC, CBLOL 등)",
+      "is_corporate (공식 채널)",
+      "is_inactive (기간 내 방송시간 0)",
+      "is_duplicate (동일 스트리머 다중 채널)"
+    ]
+  },
+
+  "required_output_columns": [
+    "channel_name", "channel_url", "platform",
+    "primary_category", "category_share",
+    "stream_hours", "peak_viewers", "avg_viewers", "viewership",
+    "follower_count", "is_virtual", "is_general_game",
+    "exclude_reason", "collected_at"
+  ],
+
+  "required_outputs": {
+    "normalized_main": "normalized/cohort_general_game_population_normalized.csv",
+    "normalized_aux": "normalized/cohort_virtual_population_normalized.csv",
+    "followers_matched": "normalized/cohort_followers_matched.csv",
+    "raw_fetch_log": "meta/raw_fetch_log.jsonl",
+    "absence_inventory": "meta/absence_inventory.csv"
+  },
+
+  "handoff_to_analysis": {
+    "after_arthur_returns": [
+      "merge CSV ranking data + detail enrichment → unified channel records",
+      "apply general_game_classification rules → is_general_game flag",
+      "apply exclude_filters → exclude_reason",
+      "normalize follower matching",
+      "compute peak bands and derived columns",
+      "produce cohort_final_main_general_game.csv",
+      "produce cohort_final_aux_virtual.csv",
+      "produce cohort_robustness_table.csv",
+      "enter §5 diagnosis"
+    ]
+  },
+
+  "membership_restricted_fields": {
+    "fields": ["chat_6m_peak", "chat_6m_avg"],
+    "missing_reason": "membership_restricted",
+    "impact": "non-critical for §5 core diagnosis",
+    "note": "ENTERPRISE 멤버십으로 접근 가능하나 공개 API 범위 외. 수집 가능하면 bonus."
+  }
+}
