@@ -12,6 +12,14 @@
     "record_only": true
   },
 
+  "target_streamer_metrics": {
+    "raw_max": 148,
+    "raw_max_source": "chzzk dashboard historical all-time peak",
+    "raw_max_note": "소프트콘 7d peak(집계 윈도우 내 최고 동접)과는 별개 지표. softcone 7d peak는 aggregation_window에 따라 변동하며, 2026-06-14 기준 27로 관측됨",
+    "softcone_7d_peak_observed": 27,
+    "peak_band_derivation": "raw_max × 0.5~2.0 = 74~296"
+  },
+
   "source_selection": {
     "primary": "softcone_category_ranking",
     "enrichment": "softcone_detail",
@@ -30,7 +38,7 @@
       "extended_max": 500,
       "extended_note": "소프트콘 7일 기준 peak가 raw_max보다 낮을 수 있으므로 넉넉히 잡고 후필터"
     },
-    "aggregation_window": "7d (지난 7일)",
+    "aggregation_window": "7d (discovery pass). 30d 전환 예정 (분석용 최소 기준)",
     "virtual_separation": {
       "method": "tag_filter",
       "tags": ["버추얼"]
@@ -53,77 +61,67 @@
 
   "tasks": [
     {
-      "task_id": "inspect_sources",
-      "mode": "inspect",
-      "description": "Arthur 실행 환경에서 카테고리 랭킹 + 디테일 페이지 접근 가능 여부 재확인",
-      "source_ids": ["softcone_category_ranking", "softcone_detail"],
-      "max_requests": 4,
-      "status": "partially_done_by_hosea",
-      "hosea_findings": {
-        "category_ranking": "Chrome 탐색 완료. 10,000명, CSV 2000행 제한, 플랫폼 필터 작동 확인.",
-        "detail_page": "로컨 LokeN 페이지에서 팔로워·카테고리·채팅 확인.",
-        "sample_csvs": ["스트리머_랭킹_20260614_153047.csv", "소프트콘_랭킹_20260614_153327.csv"]
+      "task_id": "discovery_ranking_scan",
+      "mode": "collect",
+      "status": "completed",
+      "description": "SOFTC.ONE 종합 게임 카테고리 랭킹 스캔. 7d aggregation, chzzk only, peak 10-50 band",
+      "source_id": "softcone_category_ranking",
+      "method": "browser_authenticated_fetch",
+      "actual_scope": {
+        "category": "종합 게임 (general ranking, not LoL-specific)",
+        "platform": "naverchzzk",
+        "peak_band": [10, 50],
+        "aggregation": "7d"
+      },
+      "result": {
+        "channels_scanned": 506,
+        "output_file": "gubiba_cohort_enriched_v2.csv"
       }
     },
     {
-      "task_id": "collect_category_ranking_csv",
-      "mode": "collect",
-      "description": "롤 카테고리 스트리머 랭킹 CSV 전수 다운로드. 2000행 제한 있으므로 플랫폼 필터별 반복.",
-      "source_id": "softcone_category_ranking",
-      "method": "csv_download",
-      "iterations": [
-        {"filter": "platform=치지직", "expected_rows": "up to 2000"},
-        {"filter": "platform=SOOP", "expected_rows": "up to 2000"},
-        {"filter": "platform=트위치", "expected_rows": "up to 2000"}
-      ],
-      "tabs_to_download": ["스트리머_랭킹", "소프트콘_랭킹"],
-      "also_explore": ["성장_랭킹"],
-      "save_raw": true,
-      "output": "raw/category_ranking/{platform}_{tab}_{date}.csv"
-    },
-    {
-      "task_id": "collect_virtual_tagged",
-      "mode": "collect",
-      "cohort_type": "aux_virtual",
-      "description": "롤 카테고리에서 버추얼 태그 필터 적용 후 CSV 다운로드. 또는 버추얼 랭킹 소스에서 별도 수집.",
-      "source_id": "softcone_category_ranking",
-      "method": "csv_download_with_tag_filter",
-      "tag_filter": "버추얼",
-      "alternative_source": "softcone_virtual_ranking",
-      "save_raw": true,
-      "output": "raw/virtual/{filename}.csv"
-    },
-    {
-      "task_id": "enrich_peak_band_detail",
+      "task_id": "discovery_detail_enrichment",
       "mode": "enrich",
-      "description": "피크밴드(74-296) 해당 채널의 상세 페이지 방문 → 팔로워 + 카테고리 비율 추출",
+      "status": "completed",
+      "description": "디테일 페이지 RSC payload 파싱 → follower, category shares 추출",
       "source_id": "softcone_detail",
-      "depends_on": ["collect_category_ranking_csv"],
-      "enrich_filter": {
-        "criterion": "peak_viewers",
-        "range": [74, 296],
-        "platforms": ["naverchzzk"],
-        "estimated_count": "93 (Hosea inspect 기준)"
-      },
-      "enrich_columns": [
-        "follower_count", "follower_updated_at",
-        "peak_follower", "peak_rank",
-        "category_1", "category_1_share",
+      "depends_on": ["discovery_ranking_scan"],
+      "method": "RSC_payload_parsing",
+      "enriched_columns": [
+        "follower", "category_1", "category_1_share",
         "category_2", "category_2_share",
-        "chat_6m_peak", "chat_6m_avg"
+        "category_3", "category_3_share", "total_categories"
       ],
-      "save_raw": true,
-      "max_requests": 200,
-      "output": "parsed/detail_enriched.jsonl"
+      "result": {
+        "success_rate": "506/506 (100%)",
+        "worker_config": "3 parallel, 1.5s delay"
+      }
     },
     {
-      "task_id": "supplement_followers",
-      "mode": "enrich",
-      "description": "enrich에서 팔로워 누락 채널을 팔로워 랭킹에서 매칭",
-      "source_id": "softcone_followers",
-      "depends_on": ["enrich_peak_band_detail"],
-      "max_requests": 10,
-      "output": "parsed/follower_matched.jsonl"
+      "task_id": "discovery_classification",
+      "mode": "classify",
+      "status": "completed",
+      "description": "classifyGG() 적용 → is_general_game, gg_reason 판정",
+      "depends_on": ["discovery_detail_enrichment"],
+      "method": "classifyGG_v1",
+      "result": {
+        "true": 235,
+        "false": 271,
+        "unknown": 0,
+        "gg_reasons": ["gg_primary", "multi_game", "gg_secondary", "talk_primary", "single_game_dominant", "single_game_or_non_game"]
+      }
+    },
+    {
+      "task_id": "production_30d_collection",
+      "mode": "collect+enrich+classify",
+      "status": "planned",
+      "description": "30d aggregation 기반 본수집. discovery pass 동일 파이프라인, peak_band 74-296 적용",
+      "depends_on_verification": "discovery pass pipeline validation (506/506, unknown=0)",
+      "planned_scope": {
+        "aggregation": "30d",
+        "peak_band": [74, 296],
+        "platform": "naverchzzk",
+        "method": "browser_authenticated_fetch + RSC_payload_parsing + classifyGG_v1"
+      }
     }
   ],
 

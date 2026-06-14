@@ -1,0 +1,507 @@
+name,platform,channelId,rank,stream_hours,peak_viewers,avg_viewers,viewership,follower,band,category_1,category_1_share,category_2,category_2_share,category_3,category_3_share,total_categories,is_general_game,gg_reason,exclude_reason,sample
+카 알,naverchzzk,341e9802f482e3645de371b5b788893c,55,43.8,39,23,993,2123,31-40,종합 게임,32.1,이환,31.9,007 퍼스트 라이트,5.9,16,true,gg_primary,,sample_1_peak_10_50
+리듬파아,naverchzzk,7200feac2e1cc9e0a1875d93a0e3d4c7,62,34.7,45,25,853,795,41-50,종합 게임,70.6,그림/아트,25.8,몬길: STAR DIVE,3.7,3,true,gg_primary,,sample_1_peak_10_50
+샤커레또,naverchzzk,0396b500c152c7dfaee6641e7da9ceb4,65,26.1,41,28,725,1249,41-50,종합 게임,92.2,서브노티카 2,5.3,보이드링 바운드,2.6,3,true,gg_primary,,sample_1_peak_10_50
+게임은관짜마,naverchzzk,74464510ad0e4fad4c855aff6d483b84,69,45.1,25,13,604,479,21-30,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+성 혜성,naverchzzk,dba054a105477139d4e3a291dfe6fa57,70,33.9,30,17,591,282,21-30,종합 게임,53.9,사이코 노 스토커,12.0,포비아 - 세인트 딘프나 호텔,7.3,21,true,gg_primary,,sample_1_peak_10_50
+정꽁치,naverchzzk,1fbf6dc933f2be3223d0426a8eafd6f2,73,28.6,28,18,522,1881,21-30,종합 게임,67.3,용윤입지전,22.9,talk,9.8,3,true,gg_primary,,sample_1_peak_10_50
+rEm222,naverchzzk,5237431a1ceaa65d67f0e8cf17acd467,78,38.5,31,13,485,53,31-40,PUBG: 배틀그라운드,59.3,종합 게임,40.7,,,2,true,multi_game,,sample_1_peak_10_50
+유키츠네,naverchzzk,52f13f0fde6421312164730f1332a5f1,87,13.4,40,29,393,19538,31-40,리그 오브 레전드,76.9,talk,13.2,종합 게임,5.5,6,false,single_game_or_non_game,,sample_1_peak_10_50
+재온 JAEON,naverchzzk,5edfc4deea955ae0bf15b7ab4401c398,93,10.9,49,32,354,716,41-50,종합 게임,44.1,talk,18.7,디아블로 II: 레저렉션,15.3,13,true,gg_primary,,sample_1_peak_10_50
+시 네 진,naverchzzk,27c308b12e19387d2bc9332c2df66f83,96,13.6,34,26,348,1742,31-40,talk,50.3,리그 오브 레전드,22.0,친구모아 아일랜드 두근두근 라이프,11.3,8,false,talk_primary,,sample_1_peak_10_50
+냐류98,naverchzzk,48d54fc26fecb87b2f6125a08f484322,98,11.3,43,30,343,3991,41-50,talk,46.8,종합 게임,19.3,트릭컬 리바이브,14.1,7,true,gg_secondary,,sample_1_peak_10_50
+피시카,naverchzzk,a23e2caacb04a47b825950ba7969e247,105,9.1,49,34,309,2453,41-50,메이플스토리 월드,82.0,종합 게임,12.6,PUBG: 배틀그라운드,4.6,4,false,single_game_dominant,,sample_1_peak_10_50
+사와사와,naverchzzk,8d87e7057474f4506d2db5d0c2769138,108,19.9,29,15,301,661,21-30,승리의 여신: 니케,61.6,종합 게임,17.9,명조:워더링 웨이브,6.9,13,true,multi_game,,sample_1_peak_10_50
+윰서미,naverchzzk,0166327ca44281daa1d35d57fa8c9bce,109,18.3,26,16,300,203,21-30,talk,46.8,종합 게임,32.7,엘든 링,15.1,6,true,multi_game,,sample_1_peak_10_50
+츠키요 후카,naverchzzk,e434844b6a6c366be98dee2b59a67936,110,22.3,23,13,294,288,21-30,종합 게임,31.3,talk,26.7,음악/노래,18.4,7,true,gg_primary,,sample_1_peak_10_50
+묘리아,naverchzzk,f3cf176831b673829fad548f8f66db87,111,21.3,23,14,293,1595,21-30,talk,53.2,마인크래프트,10.4,펜티먼트,10.3,14,false,talk_primary,,sample_1_peak_10_50
+이카리 SPEEDRUN,naverchzzk,dda688c4743fe41322da1b7afa3976be,112,37.6,17,8,288,166,16-20,종합 게임,58.3,메트로이드 프라임 4 비욘드,11.4,니트로 젠 오메가,10.5,9,true,gg_primary,,sample_1_peak_10_50
+베개갯,naverchzzk,2c2672208d143b0a26b653c75687bd01,114,33.1,18,9,286,1261,16-20,종합 게임,82.3,talk,11.1,발로란트,6.6,3,true,gg_primary,,sample_1_peak_10_50
+쭈와 Zzuwa,naverchzzk,be6b744d84caebdc8102f541b9e3861c,115,21.4,20,13,279,187,16-20,종합 게임,77.1,서브노티카 2,7.2,talk,6.7,6,true,gg_primary,,sample_1_peak_10_50
+채이 chaei,naverchzzk,b228271d41131108f4873dbf77bca0f7,123,9.3,36,26,244,3646,31-40,이터널 리턴,57.1,음악/노래,18.7,talk,13.7,10,true,multi_game,,sample_1_peak_10_50
+서초랭,naverchzzk,2a2a531fcd6472b76877cf5f2fd5167d,124,22.6,18,11,242,503,16-20,마비노기 모바일,68.6,종합 게임,11.1,메이플스토리 월드,10.3,13,false,single_game_or_non_game,,sample_1_peak_10_50
+하곰루,naverchzzk,6fbfc1f21a4ea8d2890ce84f814cac6a,125,13.1,24,18,241,2936,21-30,talk,68.0,포켓몬 포코피아,8.2,잇 테이크 투,5.6,13,false,talk_primary,,sample_1_peak_10_50
+임성율,naverchzzk,5c141e63b3d913aa973a54391da008ca,126,23.8,17,10,241,796,16-20,림버스 컴퍼니,59.0,로보토미 코퍼레이션,15.0,에코,10.5,9,true,multi_game,,sample_1_peak_10_50
+룰라바이030,naverchzzk,4a88b1bb3376523ec84edb3839dfdb0c,127,20.2,17,12,241,275,16-20,엑스컴 2,29.1,종합 게임,22.3,바이오쇼크 인피니트,11.0,11,true,multi_game,,sample_1_peak_10_50
+본명 이순신,naverchzzk,048391f449ce154fb81b37f83804950f,129,25.1,24,9,234,108,21-30,이터널 리턴,73.5,팀파이트 매니저 2,13.3,종합 게임,11.5,6,false,single_game_or_non_game,,sample_1_peak_10_50
+엔와 ENWA,naverchzzk,ef4f0b562376c1565f69b52e97804c98,130,12.5,30,19,233,673,21-30,산소미포함,37.9,종합 게임,35.0,talk,9.7,7,true,multi_game,,sample_1_peak_10_50
+새냥추,naverchzzk,6c6c1f829aa4aa5d846c063ea307741c,133,43.1,17,5,230,215,16-20,종합 게임,71.5,메이플스토리,11.7,던전앤파이터,10.5,6,true,gg_primary,,sample_1_peak_10_50
+야시로 YASIRO,naverchzzk,d6e680f5b17eba0b078f978dd722c0f3,134,7.5,37,30,223,3694,31-40,talk,52.3,종합 게임,15.5,마인크래프트,12.2,8,false,talk_primary,,sample_1_peak_10_50
+리키리킹,naverchzzk,063fc5a0287c24c218e32e44325f385e,136,30.5,14,7,220,374,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+카야jamkaya,naverchzzk,b3a37808768b364fbcf5a5a42421124a,137,28.2,25,8,215,311,21-30,오버워치,28.2,종합 게임,15.9,이스케이프 더 백룸,6.9,25,true,multi_game,,sample_1_peak_10_50
+띵진이,naverchzzk,85527008aabf2458456aab0554a81879,142,11.8,25,17,201,373,21-30,월드 오브 워크래프트: 한밤,88.8,종합 게임,10.0,talk,1.1,4,false,single_game_dominant,,sample_1_peak_10_50
+뇽자,naverchzzk,14fd4427ab76277bee9567d27dcbf0e8,143,9.4,25,21,196,1928,21-30,파스모포비아,34.7,아이온2,32.4,종합 게임,20.6,7,true,multi_game,,sample_1_peak_10_50
+아마노 미오,naverchzzk,f62e2d67324308ec59e009134d9f8a42,146,10.9,27,18,195,1788,21-30,talk,51.4,몬스터 헌터 와일즈,11.3,음악/노래,4.3,26,false,talk_primary,,sample_1_peak_10_50
+해 다,naverchzzk,8d2a6539c9b0570f9d69c8539eebeb69,147,6.7,47,29,194,729,41-50,talk,26.3,서브노티카,22.3,이환,15.5,12,true,multi_game,,sample_1_peak_10_50
+당근카렌,naverchzzk,8e21a4713ba6372e6c5a98c3f7160824,148,7.5,38,26,193,11292,31-40,PUBG: 배틀그라운드,45.2,이터널 리턴,41.0,종합 게임,6.3,7,true,multi_game,,sample_1_peak_10_50
+쫑 민,naverchzzk,1703c76cfc62ebee9254a6fd2ef83b2a,149,6.7,35,29,192,6717,31-40,PUBG: 배틀그라운드,67.1,에이펙스 레전드,13.9,talk,5.4,10,false,single_game_or_non_game,,sample_1_peak_10_50
+김더미,naverchzzk,a1c82f5477f4c1c96ef409fc115a3e19,151,6.6,39,29,190,2435,31-40,종합 게임,32.9,페글린,18.3,더 바자르,11.4,11,true,gg_primary,,sample_1_peak_10_50
+드알,naverchzzk,4698c456176e3b68d56edb55f338c4a2,152,10.8,26,17,188,1229,21-30,talk,62.9,종합 게임,27.5,PUBG: 배틀그라운드,4.9,5,false,talk_primary,,sample_1_peak_10_50
+서농,naverchzzk,d6b3c991c7b19aa02bb08232d8b877a6,156,24.6,15,7,180,2529,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+딸기주스한잔,naverchzzk,7a5cab154fdea558f65c865aef6a8b39,157,9.3,31,18,170,1046,31-40,데드 바이 데이라이트,89.3,종합 게임,6.4,매디슨,1.6,9,false,single_game_dominant,,sample_1_peak_10_50
+짱짱걸안나,naverchzzk,8bf37f7164e814a1881b40f4f6305175,158,9.5,26,18,168,887,21-30,로스트아크,57.0,talk,21.7,마법소녀의 마녀재판,7.4,8,false,single_game_or_non_game,,sample_1_peak_10_50
+쁘눙공작,naverchzzk,ee127dbe96d87d8056348dca8798ddd5,160,10.9,21,15,166,379,21-30,종합 게임,77.6,007 퍼스트 라이트,17.7,리밋 제로 브레이커스,4.6,4,true,gg_primary,,sample_1_peak_10_50
+케이나파르페,naverchzzk,9becba80e75bd5a7ba73ef7de32d578e,163,11.6,22,14,164,251,21-30,종합 게임,48.3,명조:워더링 웨이브,22.5,데이 아 빌리언즈,11.3,7,true,gg_primary,,sample_1_peak_10_50
+이 렌 이 렌,naverchzzk,99af4ec0174c5b79321090b0458d3006,164,8.1,31,20,163,2209,31-40,talk,48.2,림버스 컴퍼니,23.7,종합 게임,20.5,4,true,multi_game,,sample_1_peak_10_50
+무스타디오,naverchzzk,bfb0e2a105ae46284e0b9e5764248457,165,14.1,18,11,160,276,16-20,이스케이프 프롬 타르코프,50.8,종합 게임,41.5,talk,7.8,3,true,multi_game,,sample_1_peak_10_50
+M Lizard,naverchzzk,13d07bd1465f85b902e872da4cf9fb72,166,6.9,40,23,160,1200,31-40,포르자 호라이즌 6,50.0,스트리트 파이터 6,13.7,종합 게임,11.1,9,false,single_game_or_non_game,,sample_1_peak_10_50
+히레 hire,naverchzzk,0be8dc1c87bc63e51380f779123df6aa,167,6.2,30,26,159,3025,21-30,talk,50.3,오버워치,24.6,종합 게임,10.2,9,false,talk_primary,,sample_1_peak_10_50
+밤비타,naverchzzk,c3c8991d780ba0fe7bb7b39d2af4d4c1,168,41.6,10,4,154,825,10-15,PUBG: 배틀그라운드,27.4,talk,18.1,Grand Theft Auto V,16.0,14,true,multi_game,,sample_1_peak_10_50
+딸기 DDALGI,naverchzzk,ddba126063cfa770d867aebfe37c318d,169,4,49,38,153,2511,41-50,이터널 리턴,78.8,talk,13.8,음악/노래,2.4,7,false,single_game_or_non_game,,sample_1_peak_10_50
+훈톨이,naverchzzk,64905798b146c86c255f7d7fff5e9238,171,20.9,12,7,152,382,10-15,오버워치,66.0,종합 게임,20.6,talk,8.7,8,true,multi_game,,sample_1_peak_10_50
+느에누리,naverchzzk,55afeade4c2e1a3107d87f48056b1a00,172,6.9,30,22,151,13737,21-30,talk,38.1,PUBG: 배틀그라운드,18.1,마인크래프트,12.8,15,false,single_game_or_non_game,,sample_1_peak_10_50
+검은바람 게임채널,naverchzzk,4fe4afb376bb35114d50b3fd80b9fc5c,173,24,13,6,149,363,10-15,더 킹 오브 파이터즈 '98,48.0,종합 게임,38.5,히어로즈 오브 마이트 앤 매직: 올든 에라,9.5,4,true,multi_game,,sample_1_peak_10_50
+HERA 헤라,naverchzzk,b14e49789bae3c00b6b4c98d60ff036d,174,5.7,30,26,149,11922,21-30,talk,33.2,역전재판 123 나루호도 셀렉션,24.2,명조:워더링 웨이브,17.2,9,true,multi_game,,sample_1_peak_10_50
+복대장,naverchzzk,40ee04c68dd2699cfebb81f79a2571a5,176,25.6,11,6,148,43,10-15,종합 게임,79.1,talk,16.7,PUBG: 배틀그라운드,4.2,3,true,gg_primary,,sample_1_peak_10_50
+쑈비뇽,naverchzzk,eb064c26cd6f84311b664be23f047ccb,177,12.9,15,11,146,862,10-15,종합 게임,97.9,프래그마타,2.1,,,2,true,gg_primary,,sample_1_peak_10_50
+진코브라,naverchzzk,63d9a00e499979eb701c115cf7aa5e78,178,11.7,17,12,145,46,16-20,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+아하 AHA,naverchzzk,c61969606c0a253f4bd4580d0082b788,181,8.9,24,16,143,399,21-30,종합 게임,27.1,talk,20.8,미제사건은 끝내야 하니까,8.4,16,true,gg_primary,,sample_1_peak_10_50
+이 비,naverchzzk,64faa1ea61160e795e45314cc12960c5,183,4.5,41,32,142,2422,41-50,프로젝트 좀보이드,22.8,에코,21.2,서브노티카 2,20.3,11,true,multi_game,,sample_1_peak_10_50
+윤알티,naverchzzk,7753ae8bcf4995cb752658919aee0e59,185,33.7,10,4,140,540,10-15,종합 게임,97.6,테트리스,1.7,명조:워더링 웨이브,0.3,4,true,gg_primary,,sample_1_peak_10_50
+도다린,naverchzzk,fb2d6d9dcf892d06999102cc2fab670a,186,4.7,36,30,139,852,31-40,talk,46.3,종합 게임,26.7,마인크래프트,17.4,5,true,multi_game,,sample_1_peak_10_50
+캐니 canny,naverchzzk,63d1d26a9dbf5ade38d4fb51b960064d,188,6.1,27,23,138,1926,21-30,서브노티카 2,21.0,마인크래프트,20.7,돈 스타브 투게더,15.8,11,true,multi_game,,sample_1_peak_10_50
+치쿠사마,naverchzzk,934da465f3a628e84820ad284543ceed,191,23.6,10,6,134,408,10-15,로스트아크,56.1,종합 게임,27.0,talk,5.7,9,true,multi_game,,sample_1_peak_10_50
+광말구짱,naverchzzk,8b827c26630c78a3103f7edace82e66a,192,3.8,47,35,134,868,41-50,talk,65.0,그림/아트,7.5,다키스트 던전,7.1,12,false,talk_primary,,sample_1_peak_10_50
+뽀그리 BBOGRI,naverchzzk,2c01322c9c897890b706210d5ed1aaf4,194,9.5,20,14,130,1044,16-20,종합 게임,54.6,바이오하자드,29.9,리그 오브 레전드,15.5,3,true,gg_primary,,sample_1_peak_10_50
+제누아즈,naverchzzk,82bb71d60ffa85b94ad3823e3c52fe69,195,26.7,10,5,129,492,10-15,아레나 브레이크아웃,45.9,종합 게임,21.3,마인크래프트,21.3,9,true,multi_game,,sample_1_peak_10_50
+카논제이,naverchzzk,4db9e0f8f8639d08cebb0d1a10100dc0,196,23.3,11,5,128,832,10-15,이스케이프 프롬 타르코프,22.3,종합 게임,18.2,프래그마타,12.3,14,true,multi_game,,sample_1_peak_10_50
+지구3,naverchzzk,0620b50934f58b684d7aa06a813ccb48,197,4.4,34,29,127,4016,31-40,오버워치,39.7,PUBG: 배틀그라운드,20.9,발로란트,20.3,15,true,multi_game,,sample_1_peak_10_50
+바나나맛우윰,naverchzzk,4435bb951c320149b637c5054c573a46,198,8.2,21,15,126,931,21-30,종합 게임,52.7,발헤임,22.5,호텔 아키텍트,17.3,5,true,gg_primary,,sample_1_peak_10_50
+마빡팔이,naverchzzk,0fa9191435d6a7d5b1271550be2f4c4c,199,7.3,25,17,123,1068,21-30,종합 게임,31.3,데드 바이 데이라이트,20.8,고딕 1 리메이크,16.2,12,true,gg_primary,,sample_1_peak_10_50
+unknown,naverchzzk,7c779722c787e3771cda9a62851037e1,200,11.7,22,10,122,674,21-30,그림/아트,66.6,종합 게임,22.9,talk,9.3,4,true,gg_secondary,,sample_1_peak_10_50
+김세드,naverchzzk,439ad53a326573c0694ce1a19abd4c55,201,25,25,5,122,2307,21-30,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+셉템버,naverchzzk,211af7e67b76aaa621e9aa7fb468d090,203,12,18,10,118,3390,16-20,리그 오브 레전드,35.7,이스케이프 프롬 타르코프,19.9,talk,17.9,8,true,multi_game,,sample_1_peak_10_50
+어츄,naverchzzk,568c1f0a86448b075ac7ff597c407b88,205,4.1,36,29,117,1530,31-40,talk,42.7,레이튼 교수와 악마의 상자 HD,15.1,종합 게임,9.5,13,false,single_game_or_non_game,,sample_1_peak_10_50
+데이빗96,naverchzzk,0a9315685a2938bf2c8a1a3c88ea537d,206,8.6,23,14,117,877,21-30,데드 바이 데이라이트,91.0,리그 오브 레전드,2.2,축구,2.1,8,false,single_game_dominant,,sample_1_peak_10_50
+코메코,naverchzzk,6fdb2087d2d7d0349d0c194cfe1be0d9,207,4.9,29,24,116,1101,21-30,talk,48.2,종합 게임,37.9,PUBG: 배틀그라운드,5.8,5,true,gg_secondary,,sample_1_peak_10_50
+이프이프 ifif,naverchzzk,4152d4882dee686b05288769bbdb6769,209,5.5,26,21,114,329,21-30,talk,34.6,명조:워더링 웨이브,10.0,이터널 리턴,8.2,14,false,single_game_or_non_game,,sample_1_peak_10_50
+티아스 Tias,naverchzzk,a4fd197e164bec9a925c53ac4f831d07,210,11.6,16,10,114,234,16-20,종합 게임,87.4,이스케이프 프롬 타르코프,6.9,러시안 피싱 4,3.6,5,true,gg_primary,,sample_1_peak_10_50
+이찰스,naverchzzk,37932eb04955f8cdd0ff7ea7892797ee,212,5,27,22,112,517,21-30,talk,67.1,종합 게임,15.9,007 퍼스트 라이트,10.2,7,false,talk_primary,,sample_1_peak_10_50
+디단장,naverchzzk,81841392d80c54d99b2d278868072566,213,19.4,10,6,112,195,10-15,종합 게임,53.8,이터널 리턴,45.6,이환,0.7,3,true,gg_primary,,sample_1_peak_10_50
+오세오,naverchzzk,06e643a1c28c3e2cd0b0d18c4fb360be,214,12.9,12,9,111,210,10-15,종합 게임,34.3,talk,31.9,오버워치,22.8,4,true,gg_primary,,sample_1_peak_10_50
+시메빈,naverchzzk,dafbecf1decca1e06f49916683c85e48,215,16.2,10,7,110,177,10-15,종합 게임,33.6,이터널 리턴,27.7,림버스 컴퍼니,21.1,6,true,gg_primary,,sample_1_peak_10_50
+선아린,naverchzzk,07f30d3d52452f3da6ae22fc3bf2c544,217,4.8,28,23,108,2913,21-30,PUBG: 배틀그라운드,47.8,talk,28.6,종합 게임,14.5,5,false,single_game_or_non_game,,sample_1_peak_10_50
+탄 얀다,naverchzzk,5891784ca4e2320cfa25668f1f247579,218,4.4,30,25,108,478,21-30,talk,67.0,음악/노래,8.9,두근두근 문예부!,5.1,11,false,talk_primary,,sample_1_peak_10_50
+오후야,naverchzzk,4cd76d9219e872fb80681d13308025c6,219,8,18,14,108,289,16-20,종합 게임,34.9,용과 같이 0: 맹세의 장소,15.1,talk,14.0,14,true,gg_primary,,sample_1_peak_10_50
+가미영,naverchzzk,1d19dc348fdf699e63885944b49ff60c,223,3.8,31,28,107,2394,31-40,talk,34.5,음악/노래,22.4,이터널 리턴,19.3,10,true,multi_game,,sample_1_peak_10_50
+나 빵,naverchzzk,a1d5bb21b285ecfa61782324e841ac7a,224,16.8,10,6,107,268,10-15,talk,40.0,종합 게임,39.6,마비노기 모바일,20.4,3,true,multi_game,,sample_1_peak_10_50
+유다히,naverchzzk,7083e83967817b39ca8e32ce8a91facc,225,4.1,31,26,106,769,31-40,talk,48.2,친구모아 아일랜드 두근두근 라이프,8.9,언더테일,7.5,15,false,single_game_or_non_game,,sample_1_peak_10_50
+시노 레이,naverchzzk,e630c27b3c51307c1a064213a4a000bd,226,2.7,43,39,106,2585,41-50,종합 게임,36.3,talk,16.6,서브노티카 2,15.7,6,true,gg_primary,,sample_1_peak_10_50
+얼우신,naverchzzk,6636ac6dcac9c0b1e93b8259b8aced8d,227,2.9,41,37,106,1584,41-50,talk,51.1,세키로: 섀도우 다이 트와이스,22.4,아이작의 번제: 리버스,5.9,11,false,talk_primary,,sample_1_peak_10_50
+톱밥입니다,naverchzzk,63b679395f45ff83e2e139385b6634be,228,13.8,10,8,105,1172,10-15,종합 게임,64.5,007 퍼스트 라이트,18.3,고전 게임,8.8,5,true,gg_primary,,sample_1_peak_10_50
+김앙대,naverchzzk,e04181c4169fad7d62d1b81d78ea11b6,229,2.8,41,37,105,2180,41-50,종합 게임,19.9,그림/아트,19.2,모리멘스,10.8,22,true,gg_primary,,sample_1_peak_10_50
+박 나인,naverchzzk,a9e9faf32d32f089b07eb6213e9f4254,230,8.1,20,13,104,432,16-20,블랙 메사,30.3,종합 게임,20.9,하프라이프,18.7,5,true,multi_game,,sample_1_peak_10_50
+생각솔루션TV,naverchzzk,d83dc32f09dcfc8e1513eef57a6e52b3,231,10.8,16,10,103,111,16-20,talk,36.8,PUBG: 배틀그라운드,32.7,종합 게임,11.8,11,false,single_game_or_non_game,,sample_1_peak_10_50
+불녀,naverchzzk,b955e2a87eb767345d2edc921061c784,233,16.4,12,6,101,251,10-15,종합 게임,75.1,스타더스트: 별과 마녀,12.7,폴아웃 4,12.2,3,true,gg_primary,,sample_1_peak_10_50
+링 컨,naverchzzk,1f70ac2d2e5d437b3bc5eedb262efa98,234,10.2,15,10,100,392,10-15,오버워치,67.7,종합 게임,27.8,talk,2.4,4,true,multi_game,,sample_1_peak_10_50
+라벤더09,naverchzzk,5eed8165e379d9201ee3177f1a3b837d,235,14.1,13,7,99,358,10-15,철권 8,46.4,종합 게임,25.6,파이널 판타지 6,16.2,6,true,multi_game,,sample_1_peak_10_50
+Nameless113,naverchzzk,e46cea323438412a97ed8d9311571ac6,237,4.5,28,22,98,579,21-30,talk,48.8,더 게임 오브 시시포스,13.5,융융 전파 신드롬,8.5,14,false,single_game_or_non_game,,sample_1_peak_10_50
+권세이,naverchzzk,408db2e74f9a3d66c57fac2e7b37f77e,239,13.2,16,7,98,863,16-20,로스트아크,52.5,마인크래프트,18.5,PUBG: 배틀그라운드,10.7,9,true,multi_game,,sample_1_peak_10_50
+하윤찡,naverchzzk,2eed456b26210e8ea67149dd5ce56398,241,7.1,18,14,96,436,16-20,talk,29.1,파이널판타지14,28.9,그림/아트,27.5,6,false,single_game_or_non_game,,sample_1_peak_10_50
+마레 플로스,naverchzzk,f55fe79c18a40e8a9a735c5588f8ffe5,242,4.2,30,23,96,4703,21-30,talk,46.0,007 퍼스트 라이트,14.8,서브노티카 2,11.3,7,false,single_game_or_non_game,,sample_1_peak_10_50
+이엘로 HIELO,naverchzzk,9819b8259cf05ff892393e5e4d11705a,244,12.3,14,8,95,588,10-15,라그나로크 온라인,93.4,종합 게임,4.6,더 드리프터,2.0,3,false,single_game_dominant,,sample_1_peak_10_50
+솔티플럼,naverchzzk,60df4036c68428636e26ee01006e428c,245,11.5,13,8,95,457,10-15,PUBG: 배틀그라운드,20.8,종합 게임,17.5,talk,15.5,11,true,multi_game,,sample_1_peak_10_50
+다크테일,naverchzzk,61acacd56ff16f2b5cd09aa8b9d5002d,247,5.3,23,18,94,2197,21-30,talk,50.3,리그 오브 레전드,10.3,007 퍼스트 라이트,7.3,14,false,talk_primary,,sample_1_peak_10_50
+세상 1234,naverchzzk,4a62ee4e2d30ac11709453faf4583f1a,248,5,24,19,93,299,21-30,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+그로스2,naverchzzk,65d845f717e3c3abb93de6158c613f0d,251,3.9,28,24,92,1231,21-30,패스 오브 엑자일 2,40.9,디아블로 4: 증오의 군주,40.7,talk,16.2,4,true,multi_game,,sample_1_peak_10_50
+l늘푸름l,naverchzzk,821bfedf4164f26931931fe00aa01ca4,252,11.9,12,8,92,176,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+비포장TV,naverchzzk,a2bed589acb5ae3d24f0afd3e989d17e,253,17.9,10,5,91,178,10-15,종합 게임,73.9,오버워치,23.4,2026 FIFA 북중미 월드컵,1.7,5,true,gg_primary,,sample_1_peak_10_50
+방구석신선,naverchzzk,a888c2aa0a015dddef2ac7cbb283e71e,254,14.1,10,6,90,39,10-15,종합 게임,93.4,이스케이프 프롬 타르코프,4.0,서브노티카 2,1.7,4,true,gg_primary,,sample_1_peak_10_50
+토코모,naverchzzk,b9da7500aeb83523a78df6ccf8ecea53,257,18.3,11,5,88,372,10-15,종합 게임,42.1,리그 오브 레전드,8.5,와룡: 폴른 다이너스티,7.5,15,true,gg_primary,,sample_1_peak_10_50
+노빠꾸 철권소담TV,naverchzzk,47d609ac528898a1142f7ca1112fec65,258,13,11,7,87,705,10-15,종합 게임,66.0,talk,24.7,리그 오브 레전드,9.4,3,true,gg_primary,,sample_1_peak_10_50
+까만안경님,naverchzzk,ceda73c5e3048554b32b46f65067f896,259,14,12,6,87,1907,10-15,철권 8,85.9,talk,6.3,종합 게임,5.3,4,false,single_game_dominant,,sample_1_peak_10_50
+Kimzero 김제로,naverchzzk,96d273f37dd20e5ba803cac26bdcb404,261,7.5,16,12,86,100,16-20,할로우 나이트: 실크송,27.7,종합 게임,12.0,마인크래프트,11.2,15,false,single_game_or_non_game,,sample_1_peak_10_50
+앙섹시큐티프리티,naverchzzk,556705a020d1a80a054cba7bde333f68,262,6,22,14,86,362,21-30,종합 게임,48.9,talk,27.2,메이플스토리,9.2,6,true,gg_primary,,sample_1_peak_10_50
+롱이롱,naverchzzk,0ece1bc8c36833356e6529760ad88bdf,263,6.8,19,13,86,1178,16-20,이스케이프 프롬 타르코프,90.8,리그 오브 레전드,5.0,종합 게임,3.6,5,false,single_game_dominant,,sample_1_peak_10_50
+설 몽,naverchzzk,4fa802e51ccdbfd071d3df494e329ee1,266,2.7,44,32,86,5731,41-50,talk,59.1,종합 게임,27.2,서브노티카 2,5.4,7,false,talk_primary,,sample_1_peak_10_50
+쿠로나 네로,naverchzzk,e5e29bda5e2a4a997d40d15c220ff248,267,5.7,23,15,85,1274,21-30,로스트아크,62.1,클레르 옵스퀴르: 33 원정대,17.1,마인크래프트,8.9,11,true,multi_game,,sample_1_peak_10_50
+채팅방장,naverchzzk,a3a9a476ea4dd0eef053d76403c59aa5,268,4.1,33,21,85,697,31-40,talk,26.5,음악/노래,21.8,종합 게임,12.7,15,false,single_game_or_non_game,,sample_1_peak_10_50
+송스루,naverchzzk,81d27371db3ecb93e1087661dfe5ac87,269,12.8,13,7,85,155,10-15,talk,69.5,종합 게임,30.5,,,2,false,talk_primary,,sample_1_peak_10_50
+츄프,naverchzzk,7edc1bfd477b6fbfd6d7fb32132f11a6,270,10.4,12,8,85,797,10-15,PUBG: 배틀그라운드,55.2,talk,14.1,마인크래프트,12.4,13,false,single_game_or_non_game,,sample_1_peak_10_50
+쿠빼미,naverchzzk,b49bd578b2a41b2e34ba198a23833305,272,10.2,14,8,83,388,10-15,철권 8,70.6,종합 게임,9.5,명조:워더링 웨이브,6.6,17,false,single_game_or_non_game,,sample_1_peak_10_50
+젠가놈,naverchzzk,348542b853d10d1c6a4a5163a9977b52,275,2.9,34,28,82,991,31-40,talk,78.8,종합 게임,5.9,역전재판 123 나루호도 셀렉션,2.6,16,false,talk_primary,,sample_1_peak_10_50
+요나일,naverchzzk,c89aea6a3d5fc9902c2fda86290a16cd,276,5.2,24,16,81,540,21-30,윈드로즈,40.1,워크래프트 3: 리포지드,24.8,헌트: 쇼다운 1896,9.6,10,true,multi_game,,sample_1_peak_10_50
+유니코 YUNICO,naverchzzk,1abdd12d26d0bdd140274d854165133d,277,9.6,13,8,81,695,10-15,종합 게임,31.9,talk,26.4,PUBG: 배틀그라운드,12.0,11,true,gg_primary,,sample_1_peak_10_50
+롤랜드고릴라김수향,naverchzzk,c96c49c253eb4122842679c2a3b9ebc6,278,4.2,26,19,81,1435,21-30,talk,65.6,이스케이프 더 백룸,8.4,음악/노래,6.7,9,false,talk_primary,,sample_1_peak_10_50
+시권,naverchzzk,cbfa98548ac10dc499d489fe50f61dc3,279,5.5,20,15,80,1149,16-20,던전앤파이터,63.0,메이플스토리 월드,21.4,다잉 라이트,6.9,5,true,multi_game,,sample_1_peak_10_50
+한재아 HANJXAH,naverchzzk,1825d8692fa33e01f977af68d843a15d,280,3.3,36,24,80,2022,31-40,검은사막,66.8,종합 게임,6.1,SD건담 지 제네레이션 이터널,3.9,13,false,single_game_or_non_game,,sample_1_peak_10_50
+명칠,naverchzzk,df6659823ef826712589946135b0ec49,281,4.2,25,19,80,693,21-30,스텔라 블레이드,24.6,서브노티카,22.7,talk,14.7,10,true,multi_game,,sample_1_peak_10_50
+누누2915,naverchzzk,7839037e2c05af7473df365aab79fbaa,284,4,25,20,78,886,21-30,talk,34.1,이환,22.5,검은사막,21.3,7,true,multi_game,,sample_1_peak_10_50
+막셋,naverchzzk,d8c10a2e77e76677b093582ef6373e5b,285,6.3,19,12,78,944,16-20,마인크래프트,30.1,리그 오브 레전드,26.0,talk,19.1,10,true,multi_game,,sample_1_peak_10_50
+팡팡에몽,naverchzzk,67b99b03f73b0bc2f8fe1d2ef5c9af81,286,4.5,25,17,78,618,21-30,림월드,26.6,리그 오브 레전드,25.8,종합 게임,18.3,15,true,multi_game,,sample_1_peak_10_50
+플환,naverchzzk,5c503150c62c3fb8bbf73f589b6b37b8,288,7.1,14,11,77,839,10-15,로스트아크,44.1,talk,19.4,종합 게임,12.9,8,false,single_game_or_non_game,,sample_1_peak_10_50
+라낭,naverchzzk,fd7414e8428411e3b42247643b1f49fe,289,5.8,18,13,77,1139,16-20,던전앤파이터,36.5,승리의 여신: 니케,12.8,그레이브야드 키퍼,9.2,13,false,single_game_or_non_game,,sample_1_peak_10_50
+카라미,naverchzzk,84801f1865c992d74e715ab0734acb5b,291,11.6,11,7,76,77,10-15,리그 오브 레전드,36.6,마인크래프트,35.8,종합 게임,9.2,11,true,multi_game,,sample_1_peak_10_50
+도슈 Dobostorte,naverchzzk,aec7b4a6438338de7757597887b957ba,293,8.5,15,9,76,346,10-15,고전 게임,43.4,요시와 신기한 도감,20.2,미나 더 할로워,19.6,6,true,multi_game,,sample_1_peak_10_50
+시 끝,naverchzzk,2b975a045289eabe29135d7917d5f38d,294,4.5,20,17,75,720,16-20,그림/아트,82.9,종합 게임,15.6,2026 FIFA 북중미 월드컵,1.1,4,false,single_game_dominant,,sample_1_peak_10_50
+민티 Minty,naverchzzk,023ecbfd298488c462289fb2632da178,295,11.3,12,7,75,484,10-15,리그 오브 레전드,43.5,PUBG: 배틀그라운드,22.7,종합 게임,10.3,11,true,multi_game,,sample_1_peak_10_50
+이 늘,naverchzzk,95e423601436eddf88806b91f5d67762,296,4.1,24,18,75,258,21-30,이환,78.9,메이플스토리 월드,14.2,talk,3.2,5,false,single_game_or_non_game,,sample_1_peak_10_50
+지 효 닝,naverchzzk,f2c74e59d7b72c1610bcbcfdeeb0cf34,298,12.2,21,6,74,318,21-30,종합 게임,60.3,성세천하: 여제의 탄생,11.2,모험가 엘리엇의 천 년 이야기,6.8,9,true,gg_primary,,sample_1_peak_10_50
+B DAWN 비던,naverchzzk,6b0ff94648d69467df7af3bc2c8ba413,299,3.9,24,19,73,178,21-30,메이플스토리 월드,91.5,talk,2.6,썸썸 편의점,2.0,8,false,single_game_dominant,,sample_1_peak_10_50
+unknown,naverchzzk,aeb7f6cf0d7f8af56797430b5a74f9cd,300,3.2,26,23,72,570,21-30,talk,96.5,스포츠,2.0,종합 게임,1.5,3,false,talk_primary,,sample_1_peak_10_50
+도기태,naverchzzk,3e1a9477d42ae145c02b0ce5e730a9b0,304,4.6,19,15,70,368,16-20,talk,38.8,고스트피아 시즌 원,20.2,데드 바이 데이라이트,12.0,12,false,single_game_or_non_game,,sample_1_peak_10_50
+옆집사는헤이헤이,naverchzzk,ad56369d215c12693a57f2e258452076,305,4.2,20,17,70,542,16-20,몬스터 헌터 와일즈,44.0,talk,25.7,몬스터 헌터 월드: 아이스본,8.7,10,false,single_game_or_non_game,,sample_1_peak_10_50
+김쿠엔,naverchzzk,c95d476610949334065e94d04dd2aee9,306,4.8,18,15,70,1222,16-20,메이플스토리 월드,54.5,몬길: STAR DIVE,26.4,talk,9.1,13,true,multi_game,,sample_1_peak_10_50
+포토,naverchzzk,a7bff687829833b36f02bc712824de5d,307,8.5,14,8,69,347,10-15,에이펙스 레전드,41.6,talk,26.4,종합 게임,21.7,7,true,multi_game,,sample_1_peak_10_50
+송찐빵,naverchzzk,4028770e384f396fe3318baad907cff5,309,3.1,29,22,69,4385,21-30,블루 아카이브,44.2,talk,21.6,종합 게임,19.5,6,true,multi_game,,sample_1_peak_10_50
+유앵화,naverchzzk,97be9cdfb3dcd0c98219dfcbffb4baab,311,4.1,22,17,68,1018,21-30,talk,22.4,명조:워더링 웨이브,12.1,종합 게임,11.8,19,false,single_game_or_non_game,,sample_1_peak_10_50
+라두스,naverchzzk,3e871ee5eeefd77fff44260a29f24071,313,3.6,24,19,67,422,21-30,talk,45.9,그림/아트,19.2,더 클래스룸,6.0,13,false,single_game_or_non_game,,sample_1_peak_10_50
+수밍수밍,naverchzzk,e3e007896d3e15a985123e1a6c065656,314,6.9,12,10,67,247,10-15,talk,76.2,종합 게임,17.9,에브리씽 이즈 크랩: 동물 진화 로그라이트,5.9,3,false,talk_primary,,sample_1_peak_10_50
+강철심장 박웅철,naverchzzk,58cd460b1e43a1f42871ab41efad6a97,316,20.4,10,3,66,68,10-15,리그 오브 레전드,78.2,홍콩실록,9.7,종합 게임,7.4,8,false,single_game_or_non_game,,sample_1_peak_10_50
+꾸리쨩,naverchzzk,cad40a363b128ba0553ddc2832d32910,317,1.9,41,35,66,4515,41-50,talk,76.2,오버워치,19.1,마인크래프트,2.3,7,false,talk_primary,,sample_1_peak_10_50
+0연이0,naverchzzk,c229e6ea809e224cf14409f89cf14c65,319,9,11,7,64,56,10-15,talk,38.5,종합 게임,29.8,마인크래프트,20.1,4,true,multi_game,,sample_1_peak_10_50
+묘링 Myoring,naverchzzk,ff5c50ee96f6871112f776679ea2c4ee,320,3.6,23,18,64,1617,21-30,talk,72.2,종합 게임,9.7,클로버핏,8.6,7,false,talk_primary,,sample_1_peak_10_50
+복죽이,naverchzzk,c3720c79a7283c79eb4573a4eef8f6e3,321,5.7,20,11,63,1067,16-20,데드 바이 데이라이트,92.9,종합 게임,6.9,talk,0.2,3,false,single_game_dominant,,sample_1_peak_10_50
+마리모O,naverchzzk,10b7410e52f8040ec86ec36c90f8b508,324,1.5,46,42,63,6750,41-50,talk,46.8,로보토미 코퍼레이션,20.2,종합 게임,8.2,15,false,single_game_or_non_game,,sample_1_peak_10_50
+바보6,naverchzzk,a5aecbaee8727e0aea126ec3334cf61f,325,13.4,14,5,63,182,10-15,철권 8,59.2,다크 소울 2,14.6,종합 게임,10.7,10,false,single_game_or_non_game,,sample_1_peak_10_50
+헤냥,naverchzzk,edca046a9e1e8fa80bc35b7fb8855b0b,326,3.6,22,17,63,1585,21-30,talk,33.5,마인크래프트,10.8,승리의 여신: 니케,10.3,10,false,single_game_or_non_game,,sample_1_peak_10_50
+제유기,naverchzzk,b69d419cd22ae14a5c3cc7ee568ec908,327,15.6,10,4,63,212,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+더듬이 Dudemi,naverchzzk,08a4fd4c00f1e0faac6c27eaa19b20db,328,6.1,18,10,63,817,16-20,월드 오브 워크래프트: 한밤,33.5,talk,19.3,음악/노래,16.3,15,true,multi_game,,sample_1_peak_10_50
+샷시호,naverchzzk,e528f5105fb757dbe6050bed8ca77541,330,7.1,15,9,62,243,10-15,talk,34.2,역전재판 3,16.6,종합 게임,13.8,13,false,single_game_or_non_game,,sample_1_peak_10_50
+반토,naverchzzk,0ce04f529e8a94f4f553bec77b0bd76c,333,8.7,11,7,61,1025,10-15,음악/노래,29.1,포켓몬스터 적,19.8,로스트아크,16.7,8,true,multi_game,,sample_1_peak_10_50
+존크라운,naverchzzk,dbb692c84413d92d9bded6ef67246914,334,10.2,11,6,61,194,10-15,고전 게임,66.4,종합 게임,17.4,이지투온 리부트: R,7.0,6,true,multi_game,,sample_1_peak_10_50
+김 달래,naverchzzk,a0fe3f2a4ade129ff4fd1a414d3e1ec5,335,1.9,37,32,61,1827,31-40,그림/아트,93.1,종합 게임,3.1,talk,2.0,4,false,single_game_dominant,,sample_1_peak_10_50
+서 링,naverchzzk,ab756bd312f988fa13e2d5c8744c91b0,336,2.9,28,21,61,1554,21-30,아레나 브레이크아웃,79.0,PUBG: 배틀그라운드,9.8,talk,2.9,9,false,single_game_or_non_game,,sample_1_peak_10_50
+배귤,naverchzzk,4e0908da84e6d23c4b145d90a6a193ec,337,6.7,14,9,60,3523,10-15,talk,46.4,젤다의 전설 브레스 오브 더 와일드,11.8,성세천하: 여제의 탄생 Ⅱ,8.6,14,false,single_game_or_non_game,,sample_1_peak_10_50
+땃 땃 쥐,naverchzzk,8b8697840179cb5269bfc244b7881ea1,340,5.8,15,10,58,639,10-15,림월드,21.9,이스케이프 프롬 타르코프,14.9,talk,8.8,19,false,single_game_or_non_game,,sample_1_peak_10_50
+파피푸 페포,naverchzzk,98c7e0df39f2882e3ce0445e58772d44,342,4,18,14,58,1730,16-20,talk,32.6,종합 게임,24.8,오버워치,12.4,12,true,gg_secondary,,sample_1_peak_10_50
+양지랖,naverchzzk,3a8b3fda88cec6b17c7923b77491fedc,343,7,13,8,58,435,10-15,마인크래프트,38.8,talk,31.4,종합 게임,25.8,4,true,multi_game,,sample_1_peak_10_50
+빵태 Bbangtae,naverchzzk,35eb4ded033312b81de370f365e28ad6,344,5.6,17,10,57,3706,16-20,월드 오브 워크래프트 클래식,74.6,월드 오브 워크래프트: 한밤,9.4,talk,5.6,5,false,single_game_or_non_game,,sample_1_peak_10_50
+호시노아 라쿠,naverchzzk,fe116a266eeb8f92fe3e28748ff9ca9b,345,3.8,22,15,57,213,21-30,아이온2,84.8,종합 게임,4.0,성세천하: 여제의 탄생 Ⅱ,3.4,9,false,single_game_dominant,,sample_1_peak_10_50
+대충1,naverchzzk,4689938f36cf099ba2d03d957e22f9e9,346,5.2,16,11,56,954,16-20,음악/노래,70.9,종합 게임,12.8,그림/아트,10.3,6,false,single_game_or_non_game,,sample_1_peak_10_50
+HUKA후카,naverchzzk,60a7ca5191e7987432e77593a368582a,347,1.9,33,30,56,1477,31-40,talk,39.3,이터널 리턴,13.4,종합 게임,12.6,12,false,single_game_or_non_game,,sample_1_peak_10_50
+리루 Riru,naverchzzk,7cef15773a60d5815e563d93f305c16c,348,3.4,22,17,56,457,21-30,talk,67.6,그림/아트,19.7,종합 게임,12.7,3,false,talk_primary,,sample_1_peak_10_50
+오랑쥬,naverchzzk,c43bc58378e0f9f747e2e69db74495b6,350,3.2,22,17,56,655,21-30,음악/노래,83.6,talk,13.2,종합 게임,3.2,3,false,single_game_dominant,,sample_1_peak_10_50
+김쵸코,naverchzzk,2bbd33069fe3bf11fdeb3f1c58f49d26,351,3.5,20,16,56,977,16-20,명조:워더링 웨이브,72.4,talk,6.9,이환,6.7,7,false,single_game_or_non_game,,sample_1_peak_10_50
+아쾅 Akuang,naverchzzk,92b123a665dab30d86b7cda3a9541480,352,3.3,30,17,56,1567,21-30,종합 게임,62.1,오버워치,19.9,메이플스토리,9.9,4,true,gg_primary,,sample_1_peak_10_50
+허약이,naverchzzk,fa13aa7f06e0ab87ff5eee9935d40c98,353,1.7,36,32,55,771,31-40,스톰 스트라이커,34.5,talk,31.8,작혼: 리치 마작,7.7,17,false,single_game_or_non_game,,sample_1_peak_10_50
+냥금이,naverchzzk,72827bbec4187a10829703330c6149bc,355,4.3,16,13,55,805,16-20,talk,51.1,종합 게임,19.9,승리의 여신: 니케,19.5,7,false,talk_primary,,sample_1_peak_10_50
+김초나,naverchzzk,e90cf133df88bbeefac0d741a37ee5d8,356,6.3,13,9,55,581,10-15,이터널 리턴,41.4,오버워치,22.0,테라리아,13.1,11,true,multi_game,,sample_1_peak_10_50
+밍두,naverchzzk,d583388dc780e7867d0e8d712cea5e8b,357,4.6,19,12,55,985,16-20,talk,42.6,종합 게임,14.7,명조:워더링 웨이브,13.9,10,false,single_game_or_non_game,,sample_1_peak_10_50
+냐모이,naverchzzk,b6a1a1b3e7bd6a8860d61c09a6b79df5,358,4.4,16,12,55,2093,16-20,이터널 리턴,43.0,로스트아크,35.1,명조:워더링 웨이브,11.6,7,true,multi_game,,sample_1_peak_10_50
+브레이든,naverchzzk,f71f8e6388ee43635555caa1769fcde4,359,1.4,44,39,55,12165,41-50,talk,55.1,리그 오브 레전드,14.8,용과 같이 0: 맹세의 장소,7.8,16,false,talk_primary,,sample_1_peak_10_50
+킹지,naverchzzk,1448f838e3f929caeda2e4c81303245c,360,6.1,13,9,54,355,10-15,마운트 앤 블레이드 2: 배너로드,49.2,엘든 링,29.6,서브노티카 2,11.3,6,true,multi_game,,sample_1_peak_10_50
+호꼼이네,naverchzzk,e0943eed63dbef392640f083daf13e49,361,5.6,14,10,54,2473,10-15,리그 오브 레전드,39.9,발로란트,23.3,talk,23.0,8,true,multi_game,,sample_1_peak_10_50
+포란 Poran,naverchzzk,7cf5d6f87f925ea36d1840a2bae21e12,362,6,14,9,54,551,10-15,로스트아크,96.0,종합 게임,3.4,메이플스토리 월드,0.6,3,false,single_game_dominant,,sample_1_peak_10_50
+l베스타,naverchzzk,8f6e71635fcb56907e76182bd18e6def,363,3.5,20,15,53,251,16-20,리틀 나이트메어 VR: 왜곡된 메아리,22.9,VR챗,18.5,종합 게임,15.8,8,true,multi_game,,sample_1_peak_10_50
+로아로앜,naverchzzk,0370f76515359447a5a590333877c372,365,5.3,14,10,53,2461,10-15,종합 게임,39.0,페르소나 5 더 로열,24.8,talk,12.9,8,true,gg_primary,,sample_1_peak_10_50
+일리공,naverchzzk,0298122d69a9b53d2dfc4c4e84d68a09,366,3.1,26,17,53,967,21-30,talk,59.4,종합 게임,15.7,마인크래프트,11.6,7,false,talk_primary,,sample_1_peak_10_50
+온유 ONUU,naverchzzk,bc7c74b648e81ab03565aa7fe2405a61,367,9,12,6,53,225,10-15,talk,36.1,종합 게임,30.0,음악/노래,17.7,5,true,multi_game,,sample_1_peak_10_50
+곤조 G0NZ0,naverchzzk,fcb753fcb6007b1fd8a1275562a31b11,368,1.5,41,35,53,1622,41-50,이터널 리턴,40.8,talk,40.4,명조:워더링 웨이브,9.8,6,false,single_game_or_non_game,,sample_1_peak_10_50
+숲속의늑대,naverchzzk,3684893a6b44aa4bfb5716a8f0ae267f,369,7.8,11,7,53,226,10-15,종합 게임,34.5,talk,10.1,007 퍼스트 라이트,8.6,23,true,gg_primary,,sample_1_peak_10_50
+늑찡,naverchzzk,e1c29ad471fff4e804345cb21181efd0,371,4.7,17,11,52,1046,16-20,이터널 리턴,74.1,세피리아,10.4,종합 게임,10.1,6,false,single_game_or_non_game,,sample_1_peak_10_50
+이소쩍,naverchzzk,8fd0d27f25adb02864c8aa8da80c92ac,372,5,18,10,52,894,16-20,파이널판타지14,85.5,007 퍼스트 라이트,8.4,종합 게임,5.2,4,false,single_game_dominant,,sample_1_peak_10_50
+히스이 렌야 HAVEN,naverchzzk,306b62bd3d7ac5dc4dfa98e57c209775,373,7.4,11,7,52,95,10-15,종합 게임,46.4,두근두근타운,17.7,talk,16.7,6,true,gg_primary,,sample_1_peak_10_50
+응애인간,naverchzzk,937dbaf38df21d2b2be9359493ce4774,374,3.1,19,17,52,809,16-20,talk,36.8,종합 게임,15.8,마인크래프트,13.4,11,true,gg_secondary,,sample_1_peak_10_50
+데로DeRo,naverchzzk,c98118d67256b1ba59b5dc3136962c85,376,7.2,14,7,51,93,10-15,철권 8,53.2,talk,26.2,리그 오브 레전드,9.8,7,false,single_game_or_non_game,,sample_1_peak_10_50
+안드레온,naverchzzk,2f60d4feecc16304f77abd309ae387ba,380,5.7,13,9,51,434,10-15,종합 게임,55.3,talk,38.5,성세천하: 여제의 탄생 Ⅱ,6.2,3,true,gg_primary,,sample_1_peak_10_50
+댕이뾰이,naverchzzk,f3554e67dca8935092004758a4810063,381,6,13,8,51,43,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+후추,naverchzzk,49f844e92f232690480eef280d7f5da6,383,13.6,10,4,51,102,10-15,로스트아크,50.6,종합 게임,20.5,아크 레이더스,18.9,6,true,multi_game,,sample_1_peak_10_50
+캐스터루카와,naverchzzk,c92ad0808021c65614b65df326f342d6,384,5.2,17,10,50,427,16-20,talk,57.8,종합 게임,23.1,데드 바이 데이라이트,7.7,6,false,talk_primary,,sample_1_peak_10_50
+기남시,naverchzzk,2d4aa2f79b0a397d032c479ef1b37a67,385,1.8,44,28,50,38788,41-50,리그 오브 레전드,57.1,PUBG: 배틀그라운드,18.9,마인크래프트,7.3,9,true,multi_game,,sample_1_peak_10_50
+표비PYO B,naverchzzk,9ff5f67c928a1cc1aebc82cce396e5c6,386,11.3,11,4,50,73,10-15,종합 게임,96.2,talk,3.8,,,2,true,gg_primary,,sample_1_peak_10_50
+Mr미나어로,naverchzzk,9c95df644ae8d0d711bb0089d333640b,387,7.6,11,7,50,277,10-15,talk,66.2,마인크래프트,12.8,성세천하: 여제의 탄생 Ⅱ,10.0,6,false,talk_primary,,sample_1_peak_10_50
+아무탈,naverchzzk,bc64d1142877738a7d31f584ae13ea79,392,4.4,17,11,49,389,16-20,talk,62.3,그림/아트,15.9,음악/노래,6.9,7,false,talk_primary,,sample_1_peak_10_50
+아네미네,naverchzzk,e007991bb28c7e6570ec959f08ac549f,395,2,32,25,49,1053,31-40,그림/아트,33.9,talk,33.0,노 맨즈 스카이,5.6,19,false,single_game_or_non_game,,sample_1_peak_10_50
+우에노 소이,naverchzzk,35b825176856fa7ab54f97f111d3344d,396,3.4,19,14,49,682,16-20,talk,93.6,발로란트,2.2,종합 게임,2.0,5,false,talk_primary,,sample_1_peak_10_50
+꿀콤보,naverchzzk,c6fb95c66843162a61d6ae2d40a9d290,398,5.8,11,8,49,590,10-15,에이펙스 레전드,43.2,마인크래프트,20.8,talk,12.6,10,true,multi_game,,sample_1_peak_10_50
+unknown,naverchzzk,2fcd803a238fccd86bcb97cef73233f8,399,6.7,12,7,49,1047,10-15,종합 게임,17.8,스테퍼 케이스:초능력 추리 어드벤처,17.7,팀파이트 매니저 2,16.8,14,true,gg_primary,,sample_1_peak_10_50
+unknown,naverchzzk,1027171a15c91ed71ce5090bc10fe75c,400,4.3,16,11,48,902,16-20,talk,76.5,종합 게임,7.6,스플래툰 3,6.1,8,false,talk_primary,,sample_1_peak_10_50
+아슈 Asu,naverchzzk,8b7b1812ff48c2e63a04ad31237cafd8,401,3.9,16,12,48,796,16-20,음악/노래,59.1,로스트아크,28.9,talk,7.4,6,true,multi_game,,sample_1_peak_10_50
+일쾌,naverchzzk,abc750bb5dd7e8726e1c952571a06408,402,3.8,18,13,48,705,16-20,철권 8,94.4,종합 게임,4.3,리그 오브 레전드,1.3,3,false,single_game_dominant,,sample_1_peak_10_50
+드라미양,naverchzzk,7a847332420ea9ec8a2795d2bfd4ecaa,403,7.1,11,7,48,2223,10-15,림버스 컴퍼니,35.6,음악/노래,14.3,페르소나5: 더 팬텀 X,7.5,18,false,single_game_or_non_game,,sample_1_peak_10_50
+멜랑 Melang,naverchzzk,78285bd858530f68b0d4b5dd9832c455,404,2.6,25,18,47,496,21-30,talk,71.5,음악/노래,18.8,종합 게임,9.7,3,false,talk_primary,,sample_1_peak_10_50
+조 윤 Yun,naverchzzk,491b9e277f1cf6c4e27ddea9dffd137e,405,3.3,25,14,47,808,21-30,로스트아크,51.6,마인크래프트,22.1,메이플스토리 월드,6.9,11,true,multi_game,,sample_1_peak_10_50
+진짜냥뭉,naverchzzk,dd85ba41de91fe4c970fd510d4ef1114,411,5.8,13,8,46,451,10-15,서브노티카 2,30.1,007 퍼스트 라이트,20.4,종합 게임,15.3,9,true,multi_game,,sample_1_peak_10_50
+낙묘살,naverchzzk,9d1cb439b10828e9f26a87c3c89048f1,412,3.1,20,15,46,782,16-20,talk,49.1,오버워치,20.3,종합 게임,10.3,8,false,single_game_or_non_game,,sample_1_peak_10_50
+란코 Ranko,naverchzzk,cc7426546f3874aaf670012e04e6daa1,415,3.2,16,14,46,957,16-20,talk,83.2,림버스 컴퍼니,6.4,점프 킹,4.1,6,false,talk_primary,,sample_1_peak_10_50
+김땡땡72,naverchzzk,e9dae42d16bb265cc8f12de51534f6d2,417,7.1,10,6,46,76,10-15,오버워치,83.1,종합 게임,11.9,서브노티카 2,4.1,5,false,single_game_dominant,,sample_1_peak_10_50
+작호 Jakho,naverchzzk,45206d34eae5d9f26897c0022da76275,420,4.2,16,11,45,383,16-20,이스케이프 프롬 타르코프,25.0,명조:워더링 웨이브,16.9,talk,16.3,10,true,multi_game,,sample_1_peak_10_50
+구희수,naverchzzk,5493a34dc7d8b8941de16b128741f036,421,6.2,13,7,45,108,10-15,스타크래프트 : 리마스터,31.2,종합 게임,22.3,더 파이널스,18.3,6,true,multi_game,,sample_1_peak_10_50
+베코미,naverchzzk,c2d91f611c9a662f53bc7ebf492ad5eb,423,6.2,10,7,44,108,10-15,talk,35.2,마법소녀의 마녀재판,21.5,음악/노래,18.5,6,true,multi_game,,sample_1_peak_10_50
+미엘 스윗하트 HAVEN,naverchzzk,cf882ca21960c190dd6af5c8332d3876,424,2.6,20,17,44,2340,16-20,ASMR,32.9,마인크래프트,32.1,talk,20.1,10,true,multi_game,,sample_1_peak_10_50
+도 하윤,naverchzzk,118008c4ade404fa72ab12c14d368a43,427,8,10,5,44,237,10-15,PUBG: 배틀그라운드,59.9,전략적 팀 전투 : 우주의 신들,19.9,talk,7.5,8,true,multi_game,,sample_1_peak_10_50
+레모치,naverchzzk,0dd508730741917381fae33e6d1f8322,428,5.5,12,8,44,810,10-15,이터널 리턴,45.2,talk,34.2,히어로즈 오브 더 스톰,11.6,7,false,single_game_or_non_game,,sample_1_peak_10_50
+김 용 찬,naverchzzk,8a1654622aa102cd8fec5345ab82e31f,429,8.1,10,5,43,82,10-15,PUBG: 배틀그라운드,42.8,몬스터 헌터 월드: 아이스본,39.5,talk,6.1,9,true,multi_game,,sample_1_peak_10_50
+츠다,naverchzzk,e09e20d99895a71b0f9c549427eea71d,430,3.8,17,11,43,4654,16-20,이터널 리턴,74.4,talk,15.1,종합 게임,5.9,5,false,single_game_or_non_game,,sample_1_peak_10_50
+어둠왕현승이,naverchzzk,6fa642f360b30e5aeac2c64bee50a52c,431,10.3,11,4,43,19,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+도콰,naverchzzk,e43e57d18238478ab373d447b8017d36,436,1.7,26,25,42,2677,21-30,talk,38.9,이환,18.6,명조:워더링 웨이브,10.8,15,false,single_game_or_non_game,,sample_1_peak_10_50
+시스 SYS,naverchzzk,046e219af6bba8966f4fd85478922b7b,438,6.1,11,7,42,326,10-15,메이플스토리 월드,35.0,리그 오브 레전드,20.2,마인크래프트,12.8,10,true,multi_game,,sample_1_peak_10_50
+오랜쥐,naverchzzk,b07d5fab7b903866ba3eb5917527d924,439,2.3,26,18,42,11257,21-30,PUBG: 배틀그라운드,28.1,R.E.P.O.,22.3,프랫폴,18.2,5,true,multi_game,,sample_1_peak_10_50
+엄히로,naverchzzk,44d985ddad9d44bc8bc5e9113d446317,441,2.2,23,19,42,878,21-30,이터널 리턴,98.8,리그 오브 레전드,0.7,종합 게임,0.5,4,false,single_game_dominant,,sample_1_peak_10_50
+우소 마토,naverchzzk,ca6489c1bb63c41ea680d6520d9aaf94,444,1.4,49,30,42,2880,41-50,월드 오브 워크래프트: 한밤,98.8,talk,0.7,종합 게임,0.4,3,false,single_game_dominant,,sample_1_peak_10_50
+히게 hige,naverchzzk,7aa263d03571644d9ecd17471b1a969e,447,8.1,11,5,41,79,10-15,종합 게임,84.0,이환,16.0,,,2,true,gg_primary,,sample_1_peak_10_50
+로직백수,naverchzzk,de207d7ea717cc73a4ed99d303068d88,449,4.1,18,10,40,2597,16-20,talk,40.7,서브노티카 2,14.8,유로 트럭 시뮬레이터 2,10.8,11,false,single_game_or_non_game,,sample_1_peak_10_50
+참 다 래,naverchzzk,fdb983a72e11229985fefa67cb20db89,450,13.2,10,3,40,107,10-15,종합 게임,92.9,talk,7.1,,,2,true,gg_primary,,sample_1_peak_10_50
+승 돌,naverchzzk,4e3533fbf8dba3d3ab7eec1dfca763d6,452,1.1,39,36,40,3106,31-40,리그 오브 레전드,29.6,talk,22.7,007 퍼스트 라이트,9.6,12,false,single_game_or_non_game,,sample_1_peak_10_50
+스컬맨,naverchzzk,5a377e6408e25dbdd46b242e1a67d05b,453,10.1,11,4,40,263,10-15,종합 게임,40.7,명조:워더링 웨이브,33.3,젠레스 존 제로,14.2,5,true,gg_primary,,sample_1_peak_10_50
+백아이,naverchzzk,acb02ea689a10ac7a4df45d36f10be35,454,5,11,8,40,175,10-15,Grand Theft Auto V,82.4,그림자 복도,4.7,피크,3.6,8,false,single_game_dominant,,sample_1_peak_10_50
+멧쥐 MetG,naverchzzk,2228ae2dad51035987c5222b6dcc2b09,455,7.2,10,6,40,235,10-15,종합 게임,65.3,록맨 제로,9.3,블라스퍼머스 2,7.4,8,true,gg_primary,,sample_1_peak_10_50
+쏘야지,naverchzzk,e38a3db0ecf1cf7e8a461a8364c4888c,456,4.8,13,8,40,939,10-15,talk,49.6,종합 게임,19.9,음악/노래,13.6,7,true,gg_secondary,,sample_1_peak_10_50
+하남잘,naverchzzk,a52c6317359cf411e7ceb90ff27c0840,457,5.9,10,7,39,183,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+연금이,naverchzzk,096a2050c7a15d9899b67ac9a77b883b,458,2.5,20,16,39,1593,16-20,로스트아크,96.2,리그 오브 레전드,2.5,talk,0.4,7,false,single_game_dominant,,sample_1_peak_10_50
+카복Cavok,naverchzzk,ab51202b82f3c291ff066ea8447c23b0,459,5.1,11,8,39,423,10-15,FC온라인,79.8,리그 오브 레전드,14.4,축구,2.6,8,false,single_game_or_non_game,,sample_1_peak_10_50
+슈비Shuby,naverchzzk,4c9c2ce216dd84f9116b1d64c8ba8799,460,4.9,12,8,39,48,10-15,좀비고등학교,68.9,종합 게임,16.3,talk,14.8,3,true,multi_game,,sample_1_peak_10_50
+0유이린0,naverchzzk,2a8712b58b30da8cee6695d2bcf028bf,461,2.4,19,16,39,853,16-20,스타 시티즌,98.2,종합 게임,1.0,X4: 파운데이션,0.8,3,false,single_game_dominant,,sample_1_peak_10_50
+댕맹,naverchzzk,8fc0f6e93501c61c9ec64a6d4c7e22e1,463,2.4,21,16,39,1137,21-30,talk,93.2,종합 게임,6.8,,,2,false,talk_primary,,sample_1_peak_10_50
+잼내미,naverchzzk,6f689ad550a705bee880f6b91aa4dc8b,464,4.3,13,9,39,363,10-15,고전 게임,29.8,종합 게임,22.7,이환,21.9,9,true,multi_game,,sample_1_peak_10_50
+은아지,naverchzzk,b0de2c68613b549949fb1ab92c99995b,465,4.9,13,8,39,295,10-15,종합 게임,87.2,talk,12.8,,,2,true,gg_primary,,sample_1_peak_10_50
+아모크 amock82,naverchzzk,db2ca573fc707c43449500d0cfc3740c,466,3,18,13,39,4326,16-20,리그 오브 레전드,45.1,검은사막,43.6,종합 게임,11.3,3,true,multi_game,,sample_1_peak_10_50
+듀 콩,naverchzzk,e3f1c85f98803a8a0f4187840ec6b862,467,1.4,37,27,38,1026,31-40,포켓몬스터 리프그린,33.1,포켓몬 포코피아,22.4,talk,22.1,5,true,multi_game,,sample_1_peak_10_50
+푸하PooHa,naverchzzk,d52a1590fe8cb87e4afc3714e453864f,468,7.1,10,5,38,194,10-15,스타크래프트 : 리마스터,35.0,메이플스토리 월드,34.4,스타크래프트 II : 공허의 유산,11.5,12,true,multi_game,,sample_1_peak_10_50
+강여울yeoul,naverchzzk,4d102ecb54892e3bb9b32e2cdd91e9d6,470,3.1,16,12,38,576,16-20,리그 오브 레전드,57.0,마인크래프트,21.2,전략적 팀 전투 : 우주의 신들,8.0,8,true,multi_game,,sample_1_peak_10_50
+은시오,naverchzzk,2ef658dacd68d7f5a8ab1b3c6bde4efe,472,5.3,10,7,37,310,10-15,종합 게임,33.2,talk,31.1,이터널 리턴,27.9,6,true,gg_primary,,sample_1_peak_10_50
+우리동동,naverchzzk,31c69161e89543693805af8d5bd3c384,475,2.4,26,15,37,494,21-30,talk,30.6,음악/노래,21.6,종합 게임,9.3,8,false,single_game_or_non_game,,sample_1_peak_10_50
+쿨타CoolTa,naverchzzk,558bb6516f96eacefad1de2950bde84d,478,1,40,37,37,10467,31-40,talk,33.8,림버스 컴퍼니,14.1,서브노티카 2,11.4,21,false,single_game_or_non_game,,sample_1_peak_10_50
+빠쿄,naverchzzk,43183746563729d5b47c0180ae2bfa53,479,5.4,14,7,37,120,10-15,종합 게임,92.9,talk,7.1,,,2,true,gg_primary,,sample_1_peak_10_50
+유 ㄹr,naverchzzk,8b04eacf77814a57a740369783a9b898,483,5.3,10,7,36,230,10-15,talk,36.4,음악/노래,27.2,PUBG: 배틀그라운드,11.8,8,false,single_game_or_non_game,,sample_1_peak_10_50
+원두김,naverchzzk,8414921d3832f2ea0faed6291600c415,485,3,14,12,36,922,10-15,패스 오브 엑자일 2,61.2,메이플스토리 월드,32.6,종합 게임,2.5,9,true,multi_game,,sample_1_peak_10_50
+메미리냥냥,naverchzzk,8fe52a88d3d847d6fe21df3b3784f276,486,5.5,12,7,36,856,10-15,메이플스토리 월드,67.8,던전앤파이터,20.4,메이플스토리,6.4,6,true,multi_game,,sample_1_peak_10_50
+토모다치,naverchzzk,89a93878d2be90084d59a4545042493f,491,3.2,15,11,35,307,10-15,talk,34.2,서브노티카 2,23.8,VR챗,13.7,9,false,single_game_or_non_game,,sample_1_peak_10_50
+땽땽,naverchzzk,a639227231fc64bcfa7490c3706a347a,492,3.9,15,9,35,236,10-15,talk,63.6,종합 게임,20.4,이환,13.0,5,false,talk_primary,,sample_1_peak_10_50
+도리찹,naverchzzk,e11eb90cdeaead6cc22fd03779373c5a,494,4.7,11,7,35,1283,10-15,발로란트,34.0,마인크래프트,25.4,PUBG: 배틀그라운드,15.6,16,true,multi_game,,sample_1_peak_10_50
+힉키연,naverchzzk,1659201d9fabaf57a5089ccb9ee469d2,497,5.3,10,7,35,1642,10-15,로스트아크,82.1,007 퍼스트 라이트,6.5,마인크래프트,3.8,7,false,single_game_dominant,,sample_1_peak_10_50
+나능요,naverchzzk,235450dbfb4401df3a1ab642c9f2f342,498,4.6,11,8,35,293,10-15,바이오하자드 빌리지,14.0,아웃라스트,11.8,더 다크 픽처스 앤솔로지: 하우스 오브 애쉬,11.4,16,false,single_game_or_non_game,,sample_1_peak_10_50
+unknown,naverchzzk,76c635a11ab1fab572c1849d9eb60ed8,499,4.9,12,7,35,399,10-15,talk,47.8,종합 게임,44.6,헬로 키티 아일랜드 어드벤처,4.0,6,true,gg_secondary,,sample_1_peak_10_50
+unknown,naverchzzk,e09bbe0aa3bec9df6f181efc634eb281,500,3.5,12,10,35,495,10-15,스플래툰 3,42.4,그림/아트,28.5,종합 게임,24.7,4,true,multi_game,,sample_1_peak_10_50
+므담,naverchzzk,34fb30b1985b85d57675c60113367089,502,3.3,14,10,35,764,10-15,talk,56.5,종합 게임,22.6,철권 8,8.8,8,false,talk_primary,,sample_1_peak_10_50
+유메사키 유즈,naverchzzk,8a1fcaa6cc114ca1662cdad86041bfd8,503,2.4,18,14,34,1363,16-20,talk,29.9,붉은사막,18.8,명조:워더링 웨이브,14.5,15,false,single_game_or_non_game,,sample_1_peak_10_50
+페피노,naverchzzk,8bca5c02ddc6c5a8ae9d0867a9ed8c50,505,2.4,20,14,34,864,16-20,데드 바이 데이라이트,54.7,talk,15.6,바이오하자드 레퀴엠,14.2,7,false,single_game_or_non_game,,sample_1_peak_10_50
+희 야,naverchzzk,c85522130a50966f9624b4650a66b5d5,506,2.7,16,12,34,1138,16-20,데드 바이 데이라이트,87.8,오버워치,7.7,talk,2.3,4,false,single_game_dominant,,sample_1_peak_10_50
+루 엘리야,naverchzzk,8c627607e27d65bd775fb28ce540f378,510,2.8,15,12,33,877,10-15,마인크래프트,43.2,talk,36.7,블루 아카이브,10.1,9,false,single_game_or_non_game,,sample_1_peak_10_50
+겠냥,naverchzzk,1c9c8aebbba5f1bc0fdf5fa237a01130,512,3.9,10,8,33,439,10-15,마인크래프트,47.1,종합 게임,20.5,리그 오브 레전드,8.9,10,true,multi_game,,sample_1_peak_10_50
+필통님,naverchzzk,2b981938a97e5ec827cb66cfe5208759,513,1.7,26,19,33,783,21-30,마비노기,77.0,블랙 소울즈 II,7.2,블랙 소울즈,3.7,11,false,single_game_or_non_game,,sample_1_peak_10_50
+푸콩이,naverchzzk,43341c5abdd1fb6b3645d195977a1c10,514,1.4,31,23,33,821,31-40,talk,63.1,블루 아카이브,13.6,음악/노래,11.0,10,false,talk_primary,,sample_1_peak_10_50
+연 후,naverchzzk,1e546b3f42edad3012dc8a64eca1668d,515,4.1,11,8,33,505,10-15,마비노기,70.6,talk,10.0,그림자 복도,5.3,9,false,single_game_or_non_game,,sample_1_peak_10_50
+키미밍,naverchzzk,0a66bfb1e2630e459cab1218c84bc1c4,516,1.8,24,18,33,2073,21-30,서브노티카 2,24.2,씨 오브 시브즈,22.2,백룸: 이스케이프 투게더,16.1,7,true,multi_game,,sample_1_peak_10_50
+유나 Yunaa,naverchzzk,df94b14a6fc0526c9a611b02ffa33f28,517,3.5,13,9,32,336,10-15,발로란트,43.4,마인크래프트,18.9,talk,13.3,8,true,multi_game,,sample_1_peak_10_50
+껌꾸,naverchzzk,5da7e72088bf9aba5cff61f311e0ca0d,519,6,10,5,32,150,10-15,음악/노래,71.2,talk,11.1,종합 게임,9.9,7,false,single_game_or_non_game,,sample_1_peak_10_50
+소소담,naverchzzk,d27aa8b36153469303374ef5c695f0f7,522,2.8,16,11,32,134,16-20,스타크래프트 : 리마스터,31.2,P의 거짓,14.7,talk,14.7,12,false,single_game_or_non_game,,sample_1_peak_10_50
+G띠,naverchzzk,ce614dfe7f8a59daee3177cf8752e4a6,523,2.5,17,13,32,1525,16-20,talk,40.1,프래그마타,33.5,니디 걸 오버도즈 : NEEDY GIRL OVERDOSE,9.7,7,false,single_game_or_non_game,,sample_1_peak_10_50
+페리2,naverchzzk,bbbcc4a89ad406826a1d0e4a74ad19cd,525,3.5,12,9,32,2096,10-15,talk,27.1,ASMR,21.3,시드 마이어의 문명 VI,14.7,12,false,single_game_or_non_game,,sample_1_peak_10_50
+제 디,naverchzzk,2c0d12b9bf630b9ef1e018247a6cea98,527,4.5,10,7,32,726,10-15,talk,71.3,성세천하: 여제의 탄생 Ⅱ,11.1,종합 게임,4.6,9,false,talk_primary,,sample_1_peak_10_50
+루다니,naverchzzk,06a49a5d30180ebdde03d03049495d42,528,2.9,15,11,32,424,10-15,메이플스토리 월드,96.8,아이온2,1.5,종합 게임,1.3,4,false,single_game_dominant,,sample_1_peak_10_50
+빛나람 starnaram,naverchzzk,c25ff79ec44b787a4064b2908531048c,529,5,10,6,32,768,10-15,talk,18.2,백룸컴퍼니,10.7,아웃라스트 2,10.4,17,false,single_game_or_non_game,,sample_1_peak_10_50
+화렛,naverchzzk,40aaacd9eed9de2c511f23070f70c9d1,530,1.6,24,20,32,13155,21-30,발로란트,84.9,오버워치,8.1,종합 게임,3.2,6,false,single_game_dominant,,sample_1_peak_10_50
+세페일,naverchzzk,54898fb2e56f7cd2532c0e4e51149d65,531,3.9,12,8,31,368,10-15,그림/아트,67.2,talk,21.1,종합 게임,9.4,4,false,single_game_or_non_game,,sample_1_peak_10_50
+유 리 구 두,naverchzzk,5ce0d592f7692ab7653d1b9cef0c8e60,532,2,23,16,31,144,21-30,그림/아트,56.0,talk,33.3,종합 게임,9.7,4,false,single_game_or_non_game,,sample_1_peak_10_50
+아류Ahryu,naverchzzk,fad981710a240c690f46d635231a3e78,533,2.1,18,15,31,795,16-20,검은사막,93.0,레드 데드 리뎀션 2,2.0,리그 오브 레전드,1.4,8,false,single_game_dominant,,sample_1_peak_10_50
+연 하젤콩,naverchzzk,859b9f31e95c66296b8db536a97a3178,534,5.8,10,5,31,514,10-15,talk,63.0,코어 키퍼,16.1,종합 게임,10.2,5,false,talk_primary,,sample_1_peak_10_50
+챠이로 쿠냐,naverchzzk,cccbb46dc713d793a747c00ea15129c1,535,4,12,8,31,1763,10-15,talk,28.6,림월드,22.0,리그 오브 레전드,13.2,10,false,single_game_or_non_game,,sample_1_peak_10_50
+앗 구,naverchzzk,97c69a12835bba786fb82f2c849f2ba8,536,1.8,21,17,31,803,21-30,talk,67.3,음악/노래,14.3,레이튼 교수와 악마의 상자 HD,4.0,13,false,talk_primary,,sample_1_peak_10_50
+한나금,naverchzzk,5992c0c83aaec4f64199fb265e0285ec,538,3.1,13,10,31,1028,10-15,talk,28.7,마비노기,17.8,이환,16.3,18,true,multi_game,,sample_1_peak_10_50
+병건2,naverchzzk,7775af976e6944c8e700e53dfdba1d98,539,1.2,32,26,31,1232,31-40,오버워치,60.8,세키로: 섀도우 다이 트와이스,10.4,바이오하자드 레퀴엠,10.2,9,false,single_game_or_non_game,,sample_1_peak_10_50
+크트리25,naverchzzk,ae6697767b55d8a88facd21aae2d027d,540,3.3,12,9,31,342,10-15,두근두근타운,68.9,종합 게임,17.3,007 퍼스트 라이트,12.0,4,true,multi_game,,sample_1_peak_10_50
+유헤아,naverchzzk,e0148650aafbdd530cec9b97251db8c5,543,2.2,17,14,31,4455,16-20,로스트아크,88.4,마인크래프트,5.5,PUBG: 배틀그라운드,3.2,5,false,single_game_dominant,,sample_1_peak_10_50
+하필인,naverchzzk,a0b8950c7ada047a6ea957b46f325579,545,2.4,17,13,31,375,16-20,러시안 피싱 4,28.5,붉은사막,19.7,PUBG: 배틀그라운드,11.8,9,true,multi_game,,sample_1_peak_10_50
+쬬호호,naverchzzk,8f52a7daca1c72330f80b92babd2f560,550,2.7,15,11,30,980,10-15,로스트아크,56.9,메이플스토리 월드,8.8,talk,8.6,17,false,single_game_or_non_game,,sample_1_peak_10_50
+피아노캣 PianoCat,naverchzzk,3fdc985be3bad369225118e6d8dc496b,551,5.8,15,5,30,979,10-15,미나 더 할로워,34.3,종합 게임,31.1,젠레스 존 제로,10.6,8,true,multi_game,,sample_1_peak_10_50
+서아윤,naverchzzk,e2f91d088c9bbcd1fce2924ff3f58226,553,1.5,25,20,30,1698,21-30,PUBG: 배틀그라운드,31.0,서브노티카 2,15.3,리그 오브 레전드,14.6,13,true,multi_game,,sample_1_peak_10_50
+김렝지,naverchzzk,59e6772077fff1d814c53c95985245a5,554,4.5,12,7,30,1816,10-15,마인크래프트,30.3,PUBG: 배틀그라운드,28.0,리그 오브 레전드,12.5,13,true,multi_game,,sample_1_peak_10_50
+렛도호도,naverchzzk,520707ca325f88e232932cf638223f00,557,1.7,22,17,30,565,21-30,talk,56.4,음악/노래,15.8,종합 게임,14.3,4,false,talk_primary,,sample_1_peak_10_50
+2roo,naverchzzk,7d842772eb66fb20f402f233d3ce8e46,558,4.6,11,6,30,235,10-15,히어로즈 오브 더 스톰,81.0,talk,9.0,몬스터 헌터 와일즈,5.8,7,false,single_game_dominant,,sample_1_peak_10_50
+당당구리1220,naverchzzk,be5d181903ee47f221720ce3647ab0d1,561,3.3,12,9,29,187,10-15,히어로즈 오브 더 스톰,82.4,P의 거짓,3.1,멧챠 카멜레온,3.0,13,false,single_game_dominant,,sample_1_peak_10_50
+정묘린,naverchzzk,18d0068dc0c847327191d84e86c20180,562,4.2,12,7,29,259,10-15,종합 게임,73.0,귀귀살전,7.9,백룸컴퍼니,7.1,5,true,gg_primary,,sample_1_peak_10_50
+자양화,naverchzzk,7d82cfea7545107e3dd0379c885cb0e0,563,4,12,7,29,1030,10-15,로스트아크,35.9,마인크래프트,25.2,오버워치,12.3,13,true,multi_game,,sample_1_peak_10_50
+프라즈냐,naverchzzk,42956fe0a0af5cea4fce3fa5721fe2f9,566,1.8,21,16,29,6431,21-30,발로란트,69.9,talk,20.3,종합 게임,4.4,6,false,single_game_or_non_game,,sample_1_peak_10_50
+눈잔비,naverchzzk,3415c51b7ef2ff82bcc19e924d29d5aa,568,1.6,24,18,29,271,21-30,발로란트,70.0,종합 게임,30.0,,,2,true,multi_game,,sample_1_peak_10_50
+커플레이 류빗,naverchzzk,cd92bff8bd1af1aac48e2e0a11250b2f,569,2.1,18,14,29,1047,16-20,미나 더 할로워,29.0,코어 키퍼,23.1,음악/노래,10.3,11,true,multi_game,,sample_1_peak_10_50
+아리엘 본즈,naverchzzk,9b471d9f5b4de4eae9b06074b6214119,571,3.5,12,8,28,329,10-15,델타포스,79.9,포르자 호라이즌 6,9.4,종합 게임,3.5,9,false,single_game_or_non_game,,sample_1_peak_10_50
+지타에몽,naverchzzk,ac91a25f9d7751d4c61863f2f837f792,572,0.6,50,47,28,3369,41-50,블루 아카이브,40.4,talk,32.9,종합 게임,9.1,8,false,single_game_or_non_game,,sample_1_peak_10_50
+리나앤타냐,naverchzzk,c55f440fe8ac3f9adff6f2a27ec9876e,576,4.1,10,7,28,220,10-15,talk,57.3,그림/아트,18.2,종합 게임,12.9,6,false,talk_primary,,sample_1_peak_10_50
+조민훈,naverchzzk,1c7b7019482efba3abfdc88aa6139f8f,577,5.6,10,5,28,2121,10-15,톰 클랜시의 더 디비전 2,51.8,마인크래프트,14.0,Grand Theft Auto V,6.2,24,false,single_game_or_non_game,,sample_1_peak_10_50
+강혜니,naverchzzk,3de450db9060f3d8636dc8b7c7ae9ab5,580,4.4,10,6,28,181,10-15,로스트아크,67.2,종합 게임,15.2,talk,10.0,5,true,multi_game,,sample_1_peak_10_50
+하이칼,naverchzzk,3081b4db8cb8b6c1de194b66a5b81a67,581,2,16,14,27,3097,16-20,PUBG: 배틀그라운드,34.9,talk,18.2,에코,13.1,12,false,single_game_or_non_game,,sample_1_peak_10_50
+뮤이,naverchzzk,3b9aa1ea2394359ab8b291ea25525225,586,3.1,12,9,27,212,10-15,다크 소울 2,19.8,몬스터 헌터 와일즈,18.5,talk,14.3,16,true,multi_game,,sample_1_peak_10_50
+감주하,naverchzzk,98a220ce7dfa57ccc453ec92740eeee8,587,4,10,7,27,1162,10-15,talk,51.0,발로란트,21.9,마인크래프트,10.5,10,false,talk_primary,,sample_1_peak_10_50
+Curve7,naverchzzk,a6edb860c8527ec3e68839e59f554c99,588,4.1,10,7,27,230,10-15,talk,72.4,마인크래프트,9.5,그림/아트,5.9,14,false,talk_primary,,sample_1_peak_10_50
+송도앞바다,naverchzzk,18f8f19e3088db449f8e8fbf25b9fb5f,590,4.6,10,6,27,116,10-15,종합 게임,100.0,,,,,1,true,gg_primary,,sample_1_peak_10_50
+사늑SaNuk,naverchzzk,8527d2b16d1b86e983a1f8edae36b537,592,2.1,17,13,27,874,16-20,talk,55.0,마인크래프트,21.5,종합 게임,7.5,13,false,talk_primary,,sample_1_peak_10_50
+권조이,naverchzzk,c5427d9794d1220ba073c5ad5c0c7b5a,595,1.2,24,22,26,599,21-30,ELDEN RING 밤의 통치자,75.4,P의 거짓,14.6,talk,4.8,5,false,single_game_or_non_game,,sample_1_peak_10_50
+네오리 Neori,naverchzzk,07665c7c871c47714c926e1aca7164ae,596,1.4,25,19,26,1362,21-30,메이플스토리 월드,54.1,talk,16.6,영화,13.1,9,false,single_game_or_non_game,,sample_1_peak_10_50
+천수천수,naverchzzk,4231e028f04298354be53fd1e764f010,597,3.7,12,7,26,1214,10-15,리그 오브 레전드,54.1,마인크래프트,20.9,talk,15.5,6,true,multi_game,,sample_1_peak_10_50
+unknown,naverchzzk,b4404637ad1effb360c24f507ea9bd77,599,1.3,25,20,26,777,21-30,그림/아트,76.4,친구모아 아일랜드 두근두근 라이프,12.7,talk,5.3,7,false,single_game_or_non_game,,sample_1_peak_10_50
+unknown,naverchzzk,b41d0c5c107a68c4811a0b4671994fae,600,3,10,9,26,183,10-15,talk,68.6,슬레이 더 스파이어 2,6.5,리그 오브 레전드,5.2,14,false,talk_primary,,sample_1_peak_10_50
+송이SongYi,naverchzzk,42dbca3dcdba361abf7a1217fa0b5e70,604,3.9,10,7,26,298,10-15,포르자 호라이즌 6,47.9,talk,36.3,피크,6.8,6,false,single_game_or_non_game,,sample_1_peak_10_50
+티쿠고,naverchzzk,9284b042b06da94f435a6d20819d079b,607,4,10,6,26,113,10-15,종합 게임,30.4,프로젝트 좀보이드,20.2,윈드로즈,14.1,10,true,gg_primary,,sample_1_peak_10_50
+갱생 이고르,naverchzzk,a570149e06db3475e563413716ce822c,608,2.7,14,9,25,253,10-15,명일방주,76.7,종합 게임,4.4,명조:워더링 웨이브,4.0,12,false,single_game_or_non_game,,sample_1_peak_10_50
+냅도TV,naverchzzk,746cf36edf555daaffba15eb3d64e4d5,609,2.3,13,11,25,241,10-15,종합 게임,74.0,스트레이,7.6,백룸: 이스케이프 투게더,7.4,7,true,gg_primary,,sample_1_peak_10_50
+별 별,naverchzzk,719af47454124e81195e4ec5b954941e,612,5.8,12,4,25,881,10-15,로스트아크,59.8,발로란트,21.8,마인크래프트,14.9,5,true,multi_game,,sample_1_peak_10_50
+쿠뽀미,naverchzzk,73fc52c403eb3485524c02e1a0f2e623,614,1.2,25,21,25,2209,21-30,명조:워더링 웨이브,85.9,talk,7.1,리그 오브 레전드,4.5,6,false,single_game_dominant,,sample_1_peak_10_50
+해찬 HAECHAN,naverchzzk,ce4d00f2541765740b3dc4fceb6727ae,615,2.1,15,12,25,158,10-15,리그 오브 레전드,92.2,마인크래프트,5.5,talk,1.5,5,false,single_game_dominant,,sample_1_peak_10_50
+담쥬,naverchzzk,9c4d6af375e79095271e69b2b9942774,618,4.1,10,6,24,1397,10-15,철권 8,36.9,talk,20.0,PUBG: 배틀그라운드,17.9,11,true,multi_game,,sample_1_peak_10_50
+셰 리 Sherry,naverchzzk,34d7bfe15a60b9aac81636863de9efd0,622,2.9,12,8,24,262,10-15,음악/노래,51.1,talk,19.9,산나비,19.3,4,true,multi_game,,sample_1_peak_10_50
+미나ㅣMeeNa,naverchzzk,b03f799de762c83b0d96ca392136ac24,623,2.1,15,12,24,923,10-15,던전앤파이터,48.4,이터널 리턴,27.4,스타크래프트 : 리마스터,8.6,7,true,multi_game,,sample_1_peak_10_50
+솔다미,naverchzzk,665f2eb596f838d9d5ab59c0a88ba6e8,624,2.3,15,10,24,454,10-15,PUBG: 배틀그라운드,90.4,종합 게임,4.9,오버워치,4.7,3,false,single_game_dominant,,sample_1_peak_10_50
+델라 유니크,naverchzzk,14eab8ecbff32e5aa75252e4a54b560e,625,2.3,15,10,24,339,10-15,talk,26.7,음악/노래,25.0,그림/아트,14.9,9,false,single_game_or_non_game,,sample_1_peak_10_50
+청예솔,naverchzzk,4052512f2144699acc25cabaa6780b1e,626,0.9,32,27,24,5123,31-40,talk,23.6,림월드,16.9,커맨드 앤 컨커: 레드 얼럿 3,11.0,19,false,single_game_or_non_game,,sample_1_peak_10_50
+임달복,naverchzzk,10403144db4155d1de80b24a8e7e4c8b,629,4.1,10,6,24,115,10-15,리그 오브 레전드,50.6,talk,29.9,종합 게임,14.0,5,false,single_game_or_non_game,,sample_1_peak_10_50
+카신,naverchzzk,fde2deb9f3be7f495d72f204d8b8f41a,630,4.9,10,5,23,96,10-15,로스트아크,39.0,GTFO,22.0,이스케이프 프롬 타르코프,12.4,9,true,multi_game,,sample_1_peak_10_50
+적소체고다,naverchzzk,bd1dcaadbc663f732577a18d949cd3f8,631,2.6,12,9,23,257,10-15,종합 게임,29.1,talk,26.7,블루 프린스,14.2,9,true,gg_primary,,sample_1_peak_10_50
+키령,naverchzzk,0cb2bbf24eec52ce0eca32a69215a106,632,2.4,15,10,23,561,10-15,로스트아크,95.4,림버스 컴퍼니,2.6,종합 게임,1.9,4,false,single_game_dominant,,sample_1_peak_10_50
+세 희,naverchzzk,9882fe6092959ff9f29bd6c9e6e1c396,633,1.1,28,21,23,1792,21-30,메이플스토리 월드,49.2,talk,26.6,서브노티카 2,13.4,9,false,single_game_or_non_game,,sample_1_peak_10_50
+엘핀 Elfin,naverchzzk,da0eb3b7f9e60f8a8db2ecdd9b2e47a3,634,3,12,8,23,413,10-15,로스트아크,40.4,메이플스토리,17.2,메이플스토리 월드,13.9,12,true,multi_game,,sample_1_peak_10_50
+뿌닛 PPUNIT,naverchzzk,d19b09a7ae53b27342a3b504878b4bd0,636,5.5,10,4,23,870,10-15,패스 오브 엑자일 2,40.2,아이온2,21.1,에이펙스 레전드,14.2,12,true,multi_game,,sample_1_peak_10_50
+동면쥐,naverchzzk,02d9ac209d66cce5966281d9659cea7a,638,2.3,15,10,23,615,10-15,talk,59.5,림월드,16.6,종합 게임,10.8,6,false,talk_primary,,sample_1_peak_10_50
+킹코도,naverchzzk,08d50d8b580de6b3c53e93224765a706,639,1.6,20,14,23,1936,16-20,에코,29.9,스타크래프트 II : 공허의 유산,14.9,이터널 리턴,13.5,13,false,single_game_or_non_game,,sample_1_peak_10_50
+최윤주,naverchzzk,beb86ff995f8e03eb2e24b49f2a30e8b,644,1.8,19,12,22,2058,16-20,오버워치,71.8,talk,18.4,종합 게임,6.9,6,false,single_game_or_non_game,,sample_1_peak_10_50
+요이 YOE,naverchzzk,bee55f2cbeea57d3ec290e0eff90b5bf,649,1.2,22,18,22,1207,21-30,talk,48.2,마인크래프트,13.6,PUBG: 배틀그라운드,9.8,10,false,single_game_or_non_game,,sample_1_peak_10_50
+비올레티,naverchzzk,07e0de57edd07350c8fca9c944513271,650,2.6,13,8,22,517,10-15,음악/노래,46.0,talk,11.0,종합 게임,8.7,14,false,single_game_or_non_game,,sample_1_peak_10_50
+오별콩,naverchzzk,c55085778e35bb35c9d3a0ab472177f3,652,1.6,15,14,22,1171,10-15,로스트아크,54.0,명조:워더링 웨이브,15.5,talk,11.6,11,true,multi_game,,sample_1_peak_10_50
+도르도누,naverchzzk,768fab1137737b25c8b2e3d2dcb3b065,653,2.3,13,9,22,648,10-15,마비노기 모바일,42.9,리그 오브 레전드,24.3,talk,5.9,10,true,multi_game,,sample_1_peak_10_50
+김루아 KimLuA,naverchzzk,56bba50a0f6295935920863b5f4ccb9c,655,2.3,12,9,22,1283,10-15,talk,72.6,서브노티카 2,8.8,오버워치,6.9,7,false,talk_primary,,sample_1_peak_10_50
+서 리아,naverchzzk,abcf5c832694ad4fd6547210ba317b3f,656,2.8,11,8,22,1644,10-15,리그 오브 레전드,36.0,talk,26.5,프랫폴,5.3,16,false,single_game_or_non_game,,sample_1_peak_10_50
+김하린,naverchzzk,819880c16643e6d60b782c17dd3cae2d,661,2.1,13,10,21,114,10-15,talk,12.4,코어 키퍼,12.4,슈퍼 단간론파 2: 안녕히 절망학원,10.1,18,false,single_game_or_non_game,,sample_1_peak_10_50
+해인 Haein,naverchzzk,a6ff44bbcd14bc5586e1e3ca70ebc279,662,1,28,21,21,3826,21-30,검은사막,84.3,talk,10.9,블루 아카이브,4.4,4,false,single_game_dominant,,sample_1_peak_10_50
+삐 뇽,naverchzzk,ad9343966483268339b3c9958f0f1dc2,665,1.8,15,12,21,1562,10-15,발로란트,98.7,종합 게임,0.9,메이플스토리 월드,0.4,3,false,single_game_dominant,,sample_1_peak_10_50
+리안S2,naverchzzk,e372b51ef071098df2a84598831ef926,666,2.5,11,8,21,401,10-15,talk,36.3,마인크래프트,28.9,래프트,11.0,12,false,single_game_or_non_game,,sample_1_peak_10_50
+미아냥,naverchzzk,8c78750fd1445ec57a4cf6bdff5a4d5f,668,3,11,7,21,184,10-15,슬레이 더 스파이어 2,21.3,딩컴,19.7,이스케이프 프롬 타르코프,14.3,13,true,multi_game,,sample_1_peak_10_50
+루나에 에리시아,naverchzzk,a1e8a76d16710cae478f14924373b893,670,2,13,11,21,170,10-15,종합 게임,53.3,talk,19.7,리그 오브 레전드,18.6,5,true,gg_primary,,sample_1_peak_10_50
+리게뷰,naverchzzk,22d8826e1ca8d7c6ebece3f811e30c00,671,2.5,10,8,21,564,10-15,talk,42.9,이터널 리턴,14.3,서브노티카 2,10.4,11,false,single_game_or_non_game,,sample_1_peak_10_50
+2판다,naverchzzk,ff7099c82e23867a8a4b67d5bbcea466,675,1.2,20,17,21,2540,16-20,talk,61.6,음악/노래,31.7,종합 게임,6.7,3,false,talk_primary,,sample_1_peak_10_50
+화로활활,naverchzzk,f19e5e31f13e83d79bf1870e85c7df4d,676,3.1,10,7,21,125,10-15,음악/노래,45.3,talk,25.2,플래닛 주,23.4,4,true,multi_game,,sample_1_peak_10_50
+도둑꾼,naverchzzk,dd4eee47b162f6dfbe64d72edd93cc83,678,1.8,14,12,21,169,10-15,오버워치,36.0,종합 게임,27.5,서브노티카 2,8.3,9,true,multi_game,,sample_1_peak_10_50
+빵뚜씨,naverchzzk,71373a2a23bbcc45c0c27db60fd1e0a1,680,3.2,10,6,21,204,10-15,테일즈런너,53.6,카트라이더,16.0,이환,9.9,6,true,multi_game,,sample_1_peak_10_50
+쭉쭉이0,naverchzzk,2e8bf74c2f666827d87cd5603ed46e3e,681,3.2,10,6,20,579,10-15,talk,42.3,윈드로즈,26.8,종합 게임,16.4,5,true,multi_game,,sample_1_peak_10_50
+시언찡,naverchzzk,70d4c17a7420222f5a249b9e943e2ea8,683,1.4,17,15,20,991,16-20,talk,55.3,데드 바이 데이라이트,11.8,PUBG: 배틀그라운드,10.1,11,false,talk_primary,,sample_1_peak_10_50
+파라쏠,naverchzzk,68daca14bebc804d56b3dc601c8e7aff,685,0.8,28,25,20,1898,21-30,마인크래프트,20.2,talk,16.1,림월드,13.5,16,false,single_game_or_non_game,,sample_1_peak_10_50
+행복한코코,naverchzzk,104c9acbf30756945e1b387bd1c6f5b7,686,3.4,10,6,20,608,10-15,그림/아트,32.2,종합 게임,23.2,PUBG: 배틀그라운드,13.2,17,true,gg_secondary,,sample_1_peak_10_50
+고양이맹이,naverchzzk,de5c3eee67bcb6ba96ab0e7e384536dd,692,2.4,11,8,20,332,10-15,몬스터 헌터 월드: 아이스본,47.5,talk,33.9,음악/노래,10.7,7,false,single_game_or_non_game,,sample_1_peak_10_50
+unknown,naverchzzk,1b7b08d40ed9db3b19f620ff5a3d3eaf,699,2.6,11,8,20,114,10-15,talk,18.1,프랫폴,14.8,발로란트,12.2,18,false,single_game_or_non_game,,sample_1_peak_10_50
+다빙o,naverchzzk,814f71fab319e4b88eb2d8c0aa0badd5,701,2.5,10,8,20,903,10-15,명조:워더링 웨이브,43.4,승리의 여신: 니케,34.7,talk,9.8,8,true,multi_game,,sample_1_peak_10_50
+마신멜로우,naverchzzk,d95118d58cf993ba7d2628a5f646077d,704,1.7,13,11,20,1173,10-15,그림/아트,77.0,트릭컬 리바이브,9.8,오버워치,5.7,7,false,single_game_or_non_game,,sample_1_peak_10_50
+도해랑,naverchzzk,75c544666af54a6a92527a3ef3bd9af3,707,2.3,14,8,19,301,10-15,talk,88.9,종합 게임,8.4,매드 파더,2.7,3,false,talk_primary,,sample_1_peak_10_50
+단송아,naverchzzk,9e90a323cc7d81012681dbcbad274ed9,710,2.6,11,7,19,443,10-15,talk,23.3,언젠가는 도착해,19.9,그림/아트,14.4,9,false,single_game_or_non_game,,sample_1_peak_10_50
+주니 JuNi,naverchzzk,93b746e8ecabded6cdb4409a609beab1,711,2.6,11,7,19,94,10-15,리그 오브 레전드,86.8,PUBG: 배틀그라운드,6.8,전략적 팀 전투 : 우주의 신들,4.7,4,false,single_game_dominant,,sample_1_peak_10_50
+미운,naverchzzk,cd492960a4f11816a0b011986be4fad8,712,4.3,10,4,19,12,10-15,종합 게임,98.9,리그 오브 레전드,1.1,,,2,true,gg_primary,,sample_1_peak_10_50
+꼬리리꼬,naverchzzk,3c724f4c7d74dcbdd6b8804c356bb39a,716,2.7,11,7,19,128,10-15,종합 게임,86.9,PUBG: 배틀그라운드,10.7,마블 라이벌즈,1.2,4,true,gg_primary,,sample_1_peak_10_50
+노는팥쥐,naverchzzk,1ee28c67a43b944603f02dc87b5b1931,718,2.4,12,8,19,120,10-15,그림/아트,76.0,종합 게임,24.0,,,2,true,gg_secondary,,sample_1_peak_10_50
+잠꾸,naverchzzk,c61d9af7263c4d436e5a682c8da4d706,725,2.4,10,8,18,1220,10-15,talk,31.3,종합 게임,17.1,발로란트,15.3,11,true,multi_game,,sample_1_peak_10_50
+록시 스윗랜드,naverchzzk,1309200594b756a46edaab8a8c7bdc21,726,1.3,16,14,18,2097,16-20,talk,47.8,음악/노래,17.3,승리의 여신: 니케,8.3,12,false,single_game_or_non_game,,sample_1_peak_10_50
+쿠요 Qou,naverchzzk,33acc575f515150fceaef1fa4524114b,728,2.8,11,7,18,359,10-15,발로란트,51.5,talk,29.4,종합 게임,10.7,4,false,single_game_or_non_game,,sample_1_peak_10_50
+사사에,naverchzzk,7340387668327f7da29f0b7308fa76f6,729,1.5,15,12,18,518,10-15,talk,66.2,종합 게임,9.6,음악/노래,8.9,10,false,talk_primary,,sample_1_peak_10_50
+엘제뉴비,naverchzzk,310181f562cafae105ae73a1b54ecf39,731,2,13,9,18,1067,10-15,로스트아크,52.9,talk,17.7,왕좌의 게임: 킹스로드,15.4,9,true,multi_game,,sample_1_peak_10_50
+동호형방송,naverchzzk,7f14cb1fbbf50fa62cce90321faf57e9,732,0.8,24,23,18,2999,21-30,카트라이더,73.7,PUBG: 배틀그라운드,21.9,종합 게임,2.2,5,true,multi_game,,sample_1_peak_10_50
+야마모조,naverchzzk,179009932790836bff9b1dc19e696397,733,9.3,17,2,18,29,16-20,왕좌의 게임: 킹스로드,84.3,로스트아크,5.3,종합 게임,4.8,6,false,single_game_dominant,,sample_1_peak_10_50
+아야린 Ayarin,naverchzzk,7a3b0817ebf0028cb47e12c0d5a07eef,735,1.7,12,11,18,338,10-15,talk,66.3,마인크래프트,22.5,음악/노래,4.0,6,false,talk_primary,,sample_1_peak_10_50
+잡학다식,naverchzzk,69d34ec0999f2ef4dad07e429f0b7dd9,736,1.7,14,11,18,838,10-15,마블 퓨처파이트,93.3,종합 게임,3.4,마블 라이벌즈,3.4,3,false,single_game_dominant,,sample_1_peak_10_50
+윤요 YoonYo,naverchzzk,fccc3de223cf5c5d7778efb9901b1a93,737,2.7,11,7,18,5884,10-15,PUBG: 배틀그라운드,49.0,마인크래프트,21.4,talk,12.3,9,true,multi_game,,sample_1_peak_10_50
+베타 시스테인,naverchzzk,ae2e38949bb60c7e47d0c88c9cf270a8,739,0.8,33,22,18,347,31-40,talk,77.2,성세천하: 여제의 탄생 Ⅱ,10.8,명조:워더링 웨이브,9.6,5,false,talk_primary,,sample_1_peak_10_50
+반해유,naverchzzk,ecd43744d4377e904f086503393459da,743,2.9,10,6,18,478,10-15,로스트아크,84.5,talk,7.9,종합 게임,3.2,7,false,single_game_dominant,,sample_1_peak_10_50
+오달희,naverchzzk,4a34d69c8258052c1da1068ffcb471d2,745,1.7,13,10,17,458,10-15,데드 바이 데이라이트,17.2,talk,12.7,인투 더 데드: 아워 다키스트 데이즈,11.1,17,false,single_game_or_non_game,,sample_1_peak_10_50
+리츠나루,naverchzzk,f358380ad1e1611e9025edec166439dc,747,0.7,30,25,17,658,21-30,Once Human,73.8,붉은사막,12.2,서브노티카 2,4.6,17,false,single_game_or_non_game,,sample_1_peak_10_50
+사야 세리카,naverchzzk,4a372ebe1371e867cf160dcd4deeaf2c,750,0.4,47,43,17,1366,41-50,명조:워더링 웨이브,42.0,talk,23.9,이환,19.5,15,true,multi_game,,sample_1_peak_10_50
+이호범,naverchzzk,47ab1f2678dec0287d366593cdfe881e,751,0.7,28,25,17,1058,21-30,talk,67.6,종합 게임,25.2,오버워치,4.4,4,false,talk_primary,,sample_1_peak_10_50
+팬굴,naverchzzk,c980fa4fa9201bc47c89ac0ded3e0345,752,2.8,10,6,17,327,10-15,종합 게임,35.8,talk,33.9,마인크래프트,19.3,8,true,gg_primary,,sample_1_peak_10_50
+나는 범이요,naverchzzk,0f6af517c66a6ce1f5049172eab608f8,762,1.7,13,10,17,714,10-15,talk,55.7,이터널 리턴,22.7,종합 게임,16.5,4,false,talk_primary,,sample_1_peak_10_50
+백은하,naverchzzk,85eb67daa4822df8a31f1cdbd74c34da,765,1.2,17,14,17,2496,16-20,talk,50.7,이환,32.1,종합 게임,6.6,8,false,talk_primary,,sample_1_peak_10_50
+개씨유,naverchzzk,cc64019fefa379cf48732a00420102b1,767,2.7,11,6,17,1012,10-15,그랜드체이스 클래식,66.7,종합 게임,4.8,테일즈런너,4.6,19,false,single_game_or_non_game,,sample_1_peak_10_50
+두나리,naverchzzk,5aaebd33ed301dbcaa09ebcb515a59cb,771,1.7,13,10,17,413,10-15,FC온라인,30.6,명조:워더링 웨이브,23.1,이환,10.4,13,true,multi_game,,sample_1_peak_10_50
+물랑임,naverchzzk,852e70e68d191be3e194ed3b625cb199,772,1.9,11,9,16,225,10-15,talk,21.8,성세천하: 여제의 탄생 Ⅱ,19.5,종합 게임,19.1,10,true,multi_game,,sample_1_peak_10_50
+클로비야,naverchzzk,c45f38431306650d33361c601badd441,773,1,20,16,16,474,16-20,마비노기 모바일,64.5,P의 거짓,5.4,리그 오브 레전드,5.2,15,false,single_game_or_non_game,,sample_1_peak_10_50
+진짜진진,naverchzzk,d81bf028fb03ae5998831b60c5bc9fd1,775,1,22,16,16,566,21-30,talk,65.5,명조:워더링 웨이브,18.8,이스케이프 더 백룸,6.2,6,false,talk_primary,,sample_1_peak_10_50
+이나흘,naverchzzk,5fb0b40bc619e217c0445efb084e90c7,776,2,10,8,16,1130,10-15,PUBG: 배틀그라운드,54.0,전략적 팀 전투 : 우주의 신들,16.2,리그 오브 레전드,11.1,12,true,multi_game,,sample_1_peak_10_50
+귤임,naverchzzk,0ba32dd6ef3da7bef60d8a49a98156e3,778,1.5,16,11,16,104,16-20,오버워치,68.0,talk,25.1,다크 소울 3,5.2,4,false,single_game_or_non_game,,sample_1_peak_10_50
+카네인,naverchzzk,d0ea1db4982bfc23c7dde89d04c521dd,779,0.4,45,41,16,2586,41-50,전략적 팀 전투 : 우주의 신들,90.7,talk,5.0,종합 게임,1.9,6,false,single_game_dominant,,sample_1_peak_10_50
+김이딴,naverchzzk,1e2555cbdf56ff1add40e5c9a5b59851,786,1.5,12,11,16,486,10-15,음악/노래,39.3,talk,25.9,PUBG: 배틀그라운드,21.0,7,true,multi_game,,sample_1_peak_10_50
+키블라,naverchzzk,3793eb7c46b59693dea0b835956a8513,787,1.6,12,10,16,295,10-15,종합 게임,37.5,리그 오브 레전드,30.1,마비노기 모바일,21.6,4,true,gg_primary,,sample_1_peak_10_50
+깟불,naverchzzk,8777e93c041da7b9f1152fd1e903c90b,795,2.3,14,7,16,1369,10-15,에픽세븐,89.5,talk,4.4,종합 게임,1.5,7,false,single_game_dominant,,sample_1_peak_10_50
+unknown,naverchzzk,4b1de0a13ad02355c2813c1386ffa646,799,2.4,14,6,15,180,10-15,종합 게임,42.1,talk,37.0,음악/노래,12.7,5,true,gg_primary,,sample_1_peak_10_50
+꽃게대장,naverchzzk,43e3c57feed0478ff9812109a40f9fe8,801,2.5,10,6,15,1187,10-15,마인크래프트,44.8,talk,27.7,PUBG: 배틀그라운드,14.3,7,false,single_game_or_non_game,,sample_1_peak_10_50
+비로소 BROSO,naverchzzk,f002947016149ca64d36ad4a9eb3aef8,803,2.2,10,7,15,758,10-15,데스 스트랜딩 2: 온 더 비치,34.8,talk,33.8,친구모아 아일랜드 두근두근 라이프,8.6,8,false,single_game_or_non_game,,sample_1_peak_10_50
+곰다람쥐,naverchzzk,6833c245297f782437805f185a24ac85,805,1.7,12,9,15,747,10-15,007 퍼스트 라이트,23.1,포르자 호라이즌 6,14.9,서브노티카 2,11.9,11,false,single_game_or_non_game,,sample_1_peak_10_50
+호시아메,naverchzzk,ad7534d94d264703c0af8cd33e9dd5fa,806,1.6,12,9,15,653,10-15,talk,66.2,그림/아트,27.7,종합 게임,5.5,4,false,talk_primary,,sample_1_peak_10_50
+루가루가룽,naverchzzk,3750ddc158e88d8971bb19a3581c0028,807,1.4,13,11,15,451,10-15,리그 오브 레전드,40.4,팰월드,35.7,PUBG: 배틀그라운드,8.6,7,true,multi_game,,sample_1_peak_10_50
+푸름별,naverchzzk,94eac6fe5c79969435a564108cb9ad14,809,1.8,11,8,15,3285,10-15,이환,34.4,발로란트,14.5,명조:워더링 웨이브,14.4,12,false,single_game_or_non_game,,sample_1_peak_10_50
+퐁수,naverchzzk,e4088a77e922643e2a1794850305d2c6,812,1.1,19,14,15,670,16-20,데드 바이 데이라이트,48.0,이스케이프 더 백룸,43.8,종합 게임,8.2,3,true,multi_game,,sample_1_peak_10_50
+타리v,naverchzzk,c9e99d7384961f06f26a12165a85a522,815,1,17,15,15,786,16-20,talk,72.4,마인크래프트,20.5,종합 게임,7.1,3,false,talk_primary,,sample_1_peak_10_50
+이웃집펭긴,naverchzzk,c1fff7c09364995853a887468cace330,818,1.2,17,12,15,666,16-20,로스트아크,74.2,철권 8,15.5,마인크래프트,5.6,8,true,multi_game,,sample_1_peak_10_50
+감미녀,naverchzzk,8dd5492b082069793dba0ab30f580fc8,821,1.6,12,9,15,610,10-15,음악/노래,50.0,종합 게임,21.8,talk,20.8,5,true,multi_game,,sample_1_peak_10_50
+딩딩e,naverchzzk,dc98d46f115a4922d438204afd824642,825,1.1,15,13,14,145,10-15,이환,74.9,종합 게임,9.5,하스스톤,4.2,9,false,single_game_or_non_game,,sample_1_peak_10_50
+닌자의길,naverchzzk,9a0161b470a681fb2922fcee6b7637e3,831,2,15,7,14,360,10-15,사이퍼즈,30.1,철권 8,20.6,마비노기 모바일,20.4,8,true,multi_game,,sample_1_peak_10_50
+무 진,naverchzzk,5ed3eb41cadbd8cdb053a96cf4b200fb,833,2.1,12,7,14,863,10-15,talk,41.7,007 퍼스트 라이트,19.8,붉은사막,13.1,9,false,single_game_or_non_game,,sample_1_peak_10_50
+마쉬멜로기록보관소,naverchzzk,60494e4774ed0bbac45f47cfcbbcd8be,846,1.7,10,8,14,2291,10-15,로스트아크,75.2,마인크래프트,9.3,종합 게임,5.6,8,false,single_game_or_non_game,,sample_1_peak_10_50
+Vulpera,naverchzzk,3979fdba8be365f53a3ea57a41df4b79,857,0.5,28,27,13,3098,21-30,talk,39.7,스타크래프트 : 리마스터,18.2,007 퍼스트 라이트,11.1,13,false,single_game_or_non_game,,sample_1_peak_10_50
+소코로,naverchzzk,d319cb8491dfd75979d47ca1b19fc083,862,1.4,14,9,13,1230,10-15,talk,51.4,R.E.P.O.,7.2,시크릿 커리큘럼,6.8,13,false,talk_primary,,sample_1_peak_10_50
+귀여워쟝,naverchzzk,6997b304782479cc2d3f2afa024bc7e2,866,1.2,12,11,13,790,10-15,오버워치,96.4,종합 게임,3.6,,,2,false,single_game_dominant,,sample_1_peak_10_50
+퍼인우,naverchzzk,e2ad4ff3044d7872279e1cdf09230094,867,1.7,12,8,13,589,10-15,Once Human,27.9,이환,26.9,종합 게임,22.8,11,true,multi_game,,sample_1_peak_10_50
+로그09,naverchzzk,d535a1226df778a3a75fdf6f60800afd,873,1.4,12,9,13,157,10-15,로스트아크,99.3,종합 게임,0.7,,,2,false,single_game_dominant,,sample_1_peak_10_50
+양별,naverchzzk,aa6fd11803339726bad71855f8c8aee9,874,0.9,18,14,13,1179,16-20,로스트아크,86.8,이터널 리턴,6.1,리그 오브 레전드,2.0,10,false,single_game_dominant,,sample_1_peak_10_50
+햄부기쟝,naverchzzk,2fb827ed0157b15e28d1c5f50df5a8c8,878,1.5,11,9,13,598,10-15,서브노티카 2,23.7,포장마차 : 한국 길거리 음식 경영시뮬레이터,15.9,종합 게임,11.7,11,true,multi_game,,sample_1_peak_10_50
+포르킨,naverchzzk,8131c92832957e2d83287c90af8e6932,879,0.8,18,16,13,1742,16-20,명일방주,16.1,종합 게임,16.1,talk,15.7,15,true,multi_game,,sample_1_peak_10_50
+누룽지차,naverchzzk,830d3552c7d6acea5b77cb688e58ba68,880,0.5,28,25,13,531,21-30,디제이맥스 리스펙트 V,36.5,리그 오브 레전드,30.0,바이오하자드 RE:2,10.0,16,true,multi_game,,sample_1_peak_10_50
+낚마임,naverchzzk,262c2a0ee76b9fb7b48a12e5674ae04e,886,1.4,13,9,13,221,10-15,엘든 링,76.1,서브노티카 2,7.5,talk,5.0,13,false,single_game_or_non_game,,sample_1_peak_10_50
+unknown,naverchzzk,44293d748d1b9a264823b0abce615f76,899,2.5,10,5,12,2190,10-15,철권 8,91.6,마인크래프트,3.4,종합 게임,1.8,7,false,single_game_dominant,,sample_1_peak_10_50
+강하여,naverchzzk,03bf220d9788b834ac7671385e2934a4,908,1.7,10,7,12,840,10-15,talk,33.4,명일방주: 엔드필드,32.3,림버스 컴퍼니,22.0,8,true,multi_game,,sample_1_peak_10_50
+박민서리,naverchzzk,0d541377f947c7439f414e0b5179b140,910,0.8,16,15,12,347,16-20,talk,90.4,PUBG: 배틀그라운드,6.8,종합 게임,1.5,6,false,talk_primary,,sample_1_peak_10_50
+유마짱,naverchzzk,35f84e0a1db5855e48b4c44403c2735c,912,2.2,10,5,12,552,10-15,talk,52.7,마인크래프트,18.7,몬스터 헌터: 월드,10.7,10,false,talk_primary,,sample_1_peak_10_50
+민네,naverchzzk,dd3f969930648997b95c222776e38172,914,0.4,34,29,12,10715,31-40,talk,39.4,ASMR,20.0,루인드 너스,6.6,13,false,single_game_or_non_game,,sample_1_peak_10_50
+오잉S2,naverchzzk,331dde398f0b0ba76382d1fc66bc925e,920,1.5,11,8,11,176,10-15,talk,56.7,종합 게임,16.3,음악/노래,13.9,8,false,talk_primary,,sample_1_peak_10_50
+추 추,naverchzzk,ef54939e06aecdb3442306464f741426,925,1.7,10,7,11,422,10-15,talk,63.6,종합 게임,12.7,아이온2,11.2,8,false,talk_primary,,sample_1_peak_10_50
+리듬이유튜브,naverchzzk,93282fa44e0f5e3ae03f17591583169b,928,1.5,10,8,11,376,10-15,디제이맥스 리스펙트 V,77.4,이지투온 리부트: R,4.4,블루 아카이브,2.7,13,false,single_game_or_non_game,,sample_1_peak_10_50
+이웃집 솜솜,naverchzzk,2866d53b3eef6917ff1aed7533e61f31,934,1.3,12,9,11,29,10-15,talk,92.1,종합 게임,4.6,언패킹,3.3,3,false,talk_primary,,sample_1_peak_10_50
+답지,naverchzzk,eba2a7b99318378a98c5f7c380b0ae5d,936,1.8,10,6,11,700,10-15,talk,47.5,파스모포비아,26.3,PUBG: 배틀그라운드,6.9,9,false,single_game_or_non_game,,sample_1_peak_10_50
+힌이0103,naverchzzk,d0092fe47ef420f73a8d851166256a38,942,1.2,12,9,11,105,10-15,발로란트,36.8,talk,28.5,오버워치,14.8,12,false,single_game_or_non_game,,sample_1_peak_10_50
+퀸유랑,naverchzzk,d20ec8d214348b4360dfcc7c8ad23a8f,945,0.8,18,14,11,2676,16-20,talk,72.3,카운터 스트라이크 2,7.5,오버워치,7.1,8,false,talk_primary,,sample_1_peak_10_50
+앙수0su,naverchzzk,95db70a18862fb00b210e5e8c02cac5e,950,0.4,32,27,11,359,31-40,이터널 리턴,90.2,종합 게임,4.8,두근두근타운,4.5,4,false,single_game_dominant,,sample_1_peak_10_50
+범식 sick tiger,naverchzzk,04cc2c37e1c3cbf7e163129c86931ae2,951,1.9,10,6,11,297,10-15,오버워치,77.7,talk,9.2,에브리씽 이즈 크랩: 동물 진화 로그라이트,3.4,9,false,single_game_or_non_game,,sample_1_peak_10_50
+이 다올,naverchzzk,fac8bc3bb9b211649012e5b0ba3478bb,953,1,12,11,11,328,10-15,talk,89.4,종합 게임,5.3,서브노티카,5.3,3,false,talk_primary,,sample_1_peak_10_50
+냥스루,naverchzzk,37bb845b6709ba25a36ec04f100a29e7,955,1.1,11,10,11,100,10-15,talk,91.5,디콜레이트 데코레이션,4.4,음악/노래,2.6,4,false,talk_primary,,sample_1_peak_10_50
+곰학,naverchzzk,29ade613ebee5f2593f6352e13e40154,962,0.6,21,17,10,1459,21-30,원신,83.0,이환,13.4,2026 FIFA 북중미 월드컵,3.5,4,false,single_game_dominant,,sample_1_peak_10_50
+o뱁새랑o,naverchzzk,1761e3c1478391dfe94cdce450d6fa03,970,1.1,13,9,10,355,10-15,talk,97.3,마인크래프트,2.2,종합 게임,0.5,3,false,talk_primary,,sample_1_peak_10_50
+시안쨔마,naverchzzk,7ed5d5815896cf7122904b47e3187d84,974,1,12,10,10,941,10-15,talk,64.7,종합 게임,19.7,Grand Theft Auto V,10.7,6,false,talk_primary,,sample_1_peak_10_50
+김마메,naverchzzk,cd94f8f4b13e8c195e551bc9f42b2646,986,0.7,20,14,10,1493,16-20,종합 게임,83.2,33 이모탈스,8.3,엠버 나이트,3.5,6,true,gg_primary,,sample_1_peak_10_50
+폰루루 ㅣ PON RuRu,naverchzzk,051a3090c9566bdfd6af01cb1f463c16,987,0.4,40,24,10,3021,31-40,talk,63.2,매디슨,14.4,서브노티카 2,9.3,7,false,talk_primary,,sample_1_peak_10_50
+리모 RIMO,naverchzzk,4a0493dd6f3542b99943c39848ad1045,988,0.8,14,12,10,3032,10-15,음악/노래,65.1,talk,23.5,성세천하: 여제의 탄생 Ⅱ,6.4,7,false,single_game_or_non_game,,sample_1_peak_10_50
+하로1181,naverchzzk,e5d166b4b3fd5c0572867b507ed93a8f,990,0.8,20,12,10,615,16-20,돈 스타브 투게더,85.7,종합 게임,5.6,배터리노트,3.7,5,false,single_game_dominant,,sample_1_peak_10_50
+그렐 GREL,naverchzzk,1a18db778111594ca2967f9307ef5b25,991,1.1,12,9,10,1069,10-15,마인크래프트,34.9,음악/노래,27.0,발로란트,9.9,10,true,multi_game,,sample_1_peak_10_50
+서챤,naverchzzk,91f8de75d9d993c236b6be83b1857689,994,1.2,11,8,10,313,10-15,원신,41.9,로스트아크,25.6,talk,22.2,6,true,multi_game,,sample_1_peak_10_50
+임수영,naverchzzk,096d333c07d10915cd65862affa7d9ef,1004,0.3,34,31,9,810,31-40,던전앤파이터,68.4,이환,13.4,명조:워더링 웨이브,7.3,8,false,single_game_or_non_game,,sample_1_peak_10_50
+하모시달,naverchzzk,7867d6ae0b65fd2db0158d030d320404,1013,0.9,12,10,9,767,10-15,마비노기 영웅전,64.6,명조:워더링 웨이브,12.2,데드 아일랜드 2,7.8,10,false,single_game_or_non_game,,sample_1_peak_10_50
+야쌤,naverchzzk,c4e7acdbed24d3643d88218c6ec66f00,1018,1.2,11,8,9,453,10-15,종합 게임,68.3,서브노티카 2,31.7,,,2,true,gg_primary,,sample_1_peak_10_50
+MMir 망밀,naverchzzk,a224d921895c2271e61922cdf141b722,1019,1,10,9,9,296,10-15,두근두근타운,76.0,헬다이버즈 2,17.9,종합 게임,3.5,7,true,multi_game,,sample_1_peak_10_50
+귤탱이몽,naverchzzk,8d5ed2dcfde122205a547a5dc6f0671d,1026,0.7,14,13,9,943,10-15,에이펙스 레전드,24.4,붉은사막,17.2,헬다이버즈 2,12.8,17,true,multi_game,,sample_1_peak_10_50
+배꽃송이,naverchzzk,c3f273ae00265f7371aa1995d7805f48,1035,0.9,12,10,9,170,10-15,talk,39.7,발로란트,23.4,두근두근타운,14.0,16,false,single_game_or_non_game,,sample_1_peak_10_50
+낙원 exe,naverchzzk,dd586db451c8c0e1723f5293dd4afc77,1038,0.9,12,10,9,453,10-15,talk,49.2,마인크래프트,40.8,VR챗,4.0,8,false,single_game_or_non_game,,sample_1_peak_10_50
+246 이사육,naverchzzk,bafe147dd43514c312fac24e64935cf2,1046,1.1,10,8,8,368,10-15,리그 오브 레전드,63.7,스타크래프트 : 리마스터,12.8,PUBG: 배틀그라운드,8.4,13,false,single_game_or_non_game,,sample_1_peak_10_50
+진 댕,naverchzzk,a21428140e156d43e0acd3959b6ba70f,1049,0.8,11,10,8,216,10-15,talk,91.1,오베이 더 보이스,2.6,이스케이프 더 백룸,2.2,7,false,talk_primary,,sample_1_peak_10_50
+작은달,naverchzzk,140e22e5bc2ee023dcceaa231a0f61e9,1053,0.9,10,9,8,282,10-15,이터널 리턴,39.8,이스케이프 프롬 타르코프,16.0,서브노티카 2,9.1,21,true,multi_game,,sample_1_peak_10_50
+김 도디,naverchzzk,6c36d176628dfb9787342423be202ed3,1054,0.6,15,14,8,430,10-15,talk,45.2,엘든 링,16.7,종합 게임,10.8,8,false,single_game_or_non_game,,sample_1_peak_10_50
+하성진,naverchzzk,ae1125535af7912a92dee6e15a896f29,1074,0.8,11,10,8,375,10-15,이터널 리턴,77.8,메이플스토리 월드,8.4,마인크래프트,5.9,8,false,single_game_or_non_game,,sample_1_peak_10_50
+말구9,naverchzzk,498171cef4c29e76b39c27a197be03f7,1088,0.9,10,8,8,228,10-15,메이플스토리,34.0,리그 오브 레전드,33.3,talk,18.8,5,true,multi_game,,sample_1_peak_10_50
+unknown,naverchzzk,37d4ff6bb18c1f5891afc141b52c1d2f,1099,0.8,11,9,7,225,10-15,리그 오브 레전드,65.4,talk,24.2,하숙생이 전부 미녀입니다만? 시즌2,4.7,6,false,single_game_or_non_game,,sample_1_peak_10_50
+다니DANI,naverchzzk,79f9e243ae642bffacf38bf1e7d5e1fd,1104,0.9,10,8,7,211,10-15,활협전,35.7,talk,24.8,D1AL-ogue,8.4,13,false,single_game_or_non_game,,sample_1_peak_10_50
+Anotherkyo,naverchzzk,311c2a9ef8537f267eea9963c81d7532,1109,0.8,10,9,7,257,10-15,랑그릿사,74.5,카오스 제로 나이트메어,6.8,파이어 엠블렘 풍화설월,5.6,10,false,single_game_or_non_game,,sample_1_peak_10_50
+키쭈 CISMIA,naverchzzk,acd91583f35aeecfda1f624baaa05a4a,1113,0.9,10,8,7,651,10-15,승리의 여신: 니케,22.5,음악/노래,19.8,이환,16.5,8,true,multi_game,,sample_1_peak_10_50
+용구슬이,naverchzzk,c83de84df9cac08c6ae6dd5c5f1ac5b7,1129,0.8,12,8,7,326,10-15,talk,84.6,마인크래프트,6.1,스타크래프트 : 리마스터,2.6,10,false,talk_primary,,sample_1_peak_10_50
+초메론,naverchzzk,f38e91db7f6fe3bae0e32b751b5874e7,1134,0.7,11,9,7,113,10-15,talk,22.2,종합 게임,22.0,음악/노래,18.7,7,true,multi_game,,sample_1_peak_10_50
+윤모명,naverchzzk,47d03d30f0f344b6797f4620b1ae68ec,1152,0.8,10,8,6,395,10-15,talk,59.6,종합 게임,21.1,블루 아카이브,8.2,7,false,talk_primary,,sample_1_peak_10_50
+킴파드,naverchzzk,323320490bc502419d509bc32678f385,1158,0.2,35,31,6,4013,31-40,talk,96.1,리그 오브 레전드,3.8,종합 게임,0.1,3,false,talk_primary,,sample_1_peak_10_50
+안찡,naverchzzk,c935bfe5ce48cc463db905131c08fb0d,1159,0.7,10,9,6,901,10-15,Once Human,25.3,발로란트,19.0,오버워치,15.0,10,true,multi_game,,sample_1_peak_10_50
+주거니 GUNNY,naverchzzk,a8e93f52d4791e8d2e9a57218e98d262,1167,0.5,13,12,6,385,10-15,talk,68.1,수저린,12.9,오버워치,10.9,6,false,talk_primary,,sample_1_peak_10_50
+배고판,naverchzzk,6774730c6448ba261ac72f3cda1d7b3b,1188,0.2,30,29,6,6044,21-30,talk,92.4,PUBG: 배틀그라운드,5.1,종합 게임,1.1,5,false,talk_primary,,sample_1_peak_10_50
+유희 YUHEE,naverchzzk,c84a64182c888aea021aa689a75f9d1e,1197,0.3,20,19,6,500,16-20,로스트아크,31.9,마인크래프트,28.8,talk,9.8,12,true,multi_game,,sample_1_peak_10_50
+달은월,naverchzzk,d8f9cfab91b27abb7b3f7f2c1a186e29,1215,0.3,19,18,5,2032,16-20,음악/노래,38.9,talk,34.3,엘든 링,16.1,10,true,multi_game,,sample_1_peak_10_50
+아이텔 시즈 Aitel Siz,naverchzzk,2629ef26d6abd8cf1fa7d52e83ba3542,1217,0.6,13,9,5,1970,10-15,마인크래프트,46.4,talk,35.5,이터널 리턴,7.8,5,false,single_game_or_non_game,,sample_1_peak_10_50
+모노 맥거핀,naverchzzk,aa4e4434b4b9ca335011a8c61b9531d3,1235,0.4,14,13,5,755,10-15,talk,48.3,음악/노래,17.0,아쿠아리움은 춤추지 않아,10.9,9,false,single_game_or_non_game,,sample_1_peak_10_50
+산호Blue,naverchzzk,adeaafc6b493e9869bd34a0a3dc3dc33,1237,0.5,12,10,5,200,10-15,포켓로그,54.4,그림/아트,13.2,talk,12.6,7,false,single_game_or_non_game,,sample_1_peak_10_50
+네쿠 necu,naverchzzk,ffbe327e81274c81bd6f8007c863f996,1244,1.6,10,3,5,536,10-15,오버워치,89.5,마인크래프트,3.7,PUBG: 배틀그라운드,2.4,11,false,single_game_dominant,,sample_1_peak_10_50
+하늘뇽,naverchzzk,01239a69c5df36278eb37707ed629d54,1254,0.3,17,16,5,2343,16-20,로스트아크,79.7,talk,9.7,오버워치,3.3,8,false,single_game_or_non_game,,sample_1_peak_10_50
+유딩채널,naverchzzk,fd1ba01789a218cf3500bdcf1d0d55bb,1259,0.2,25,24,5,6172,21-30,메이플스토리,32.6,마인크래프트,30.8,PUBG: 배틀그라운드,18.9,12,true,multi_game,,sample_1_peak_10_50
+전선비,naverchzzk,93a0b78b40bee56629ec4bee904aa0f1,1264,0.5,11,9,5,1510,10-15,하스스톤,77.3,이터널 리턴,6.1,리그 오브 레전드,5.1,7,false,single_game_or_non_game,,sample_1_peak_10_50
+볼펜맨,naverchzzk,d7797e0cef83ce47fb1df50901e8c433,1275,0.4,12,11,5,770,10-15,talk,35.7,PUBG: 배틀그라운드,29.8,스톰 스트라이커,21.0,9,true,multi_game,,sample_1_peak_10_50
+민곰이에요,naverchzzk,cdd3895ac20cc4d39c5105d4b2d9f30b,1276,0.5,10,9,5,201,10-15,이터널 리턴,52.0,메이플스토리 월드,24.2,에이펙스 레전드,12.7,6,true,multi_game,,sample_1_peak_10_50
+로피 Rofi,naverchzzk,e561270da12df448ea379cac3cd0558f,1364,0.4,15,9,3,1406,10-15,talk,67.7,아가사 나이프,15.3,멧챠 카멜레온,7.5,5,false,talk_primary,,sample_1_peak_10_50
+그라우스graus,naverchzzk,08664d465126e0e7248dbafe7818dfd5,1370,0.4,10,8,3,72,10-15,종합 게임,15.7,더 클래스룸,9.1,talk,7.5,26,true,gg_primary,,sample_1_peak_10_50
+캣시티,naverchzzk,cc3e3251abaf1466434849bc0955cb4e,1419,0.1,29,29,3,569,21-30,talk,48.4,스컬: 더 히어로 슬레이어,14.8,성세천하: 여제의 탄생 Ⅱ,7.7,12,false,single_game_or_non_game,,sample_1_peak_10_50
+삼덕이,naverchzzk,f67d51b43d3c43a8f2e4e091521d961d,1425,0.2,14,14,3,3312,10-15,오버워치,41.1,talk,21.0,사이퍼즈,8.8,21,false,single_game_or_non_game,,sample_1_peak_10_50
+레 레 이,naverchzzk,86d3d8d5997609df783949d107fbde24,1426,0.2,15,14,3,1144,10-15,철권 8,32.5,메이플스토리 월드,25.2,talk,16.6,11,true,multi_game,,sample_1_peak_10_50
+아자아자아자젤,naverchzzk,3e058dcfbb022dfdaa1a9b7d9eefe45a,1430,0.1,28,28,3,1189,21-30,던전앤파이터,59.2,종합 게임,17.0,고전 게임,10.1,8,true,multi_game,,sample_1_peak_10_50
+장트러블,naverchzzk,d38ce1b7f5ce1cc386c69dcb63d5827c,1438,0.3,11,9,3,476,10-15,로스트아크,58.4,발로란트,15.1,마인크래프트,10.5,13,true,multi_game,,sample_1_peak_10_50
+인벌1,naverchzzk,72daeda32bb15f58ae6c6f1866c35492,1439,0.2,15,14,3,1631,10-15,레프트 4 데드 2,70.1,메이플스토리 월드,20.0,던전앤파이터,5.2,6,true,multi_game,,sample_1_peak_10_50
+차가냥이,naverchzzk,694a4e3ac4406e1989f85cdde291999c,1511,0.1,21,21,2,1691,21-30,talk,41.6,종합 게임,19.6,성세천하: 여제의 탄생 Ⅱ,14.0,8,true,gg_secondary,,sample_1_peak_10_50
+한 잼,naverchzzk,1bcbd33a87905d258191f87eba3a6001,1541,0.2,10,10,2,569,10-15,이터널 리턴,83.4,이스케이프 더 백룸,7.2,림버스 컴퍼니,2.6,8,false,single_game_dominant,,sample_1_peak_10_50
+욘짱입니다,naverchzzk,881f5b83ead2350fa1f19a83ac924230,1567,0.1,17,17,2,595,16-20,작혼: 리치 마작,22.8,talk,20.8,림버스 컴퍼니,12.8,13,false,single_game_or_non_game,,sample_1_peak_10_50
+밀티삐,naverchzzk,eb152ef44173f30044667f56ea4d9f11,1587,0.1,16,16,2,535,16-20,철권 8,63.3,바이오하자드7 골드 에디션,10.0,종합 게임,9.8,7,false,single_game_or_non_game,,sample_1_peak_10_50
+김랄라씌,naverchzzk,26cb88136894b2a4d1bb02d5e0dabe47,1638,0.1,12,12,1,184,10-15,마비노기 모바일,89.8,종합 게임,8.5,멧챠 카멜레온,1.4,4,false,single_game_dominant,,sample_1_peak_10_50
+뽀록맨,naverchzzk,c5cb367d1aa0e9beb966f9c8ae75483f,1649,0.1,10,10,1,1538,10-15,발로란트,42.5,오버워치,26.3,talk,19.0,10,true,multi_game,,sample_1_peak_10_50
