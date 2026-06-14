@@ -1,5 +1,5 @@
 /**
- * 구비바 §4 — 30-Day Collection Script v2
+ * 구비바 §4 — Collection Script v3 (full-history support)
  *
  * I/O Architecture:
  *   수집 = 브라우저 fetch (인증 세션)
@@ -10,7 +10,8 @@
  * 브라우저 메모리에 80KB 쌓은 뒤 JS tool output(1.2KB 제한)으로
  * 빼려 해서 막힘. 이번엔 Blob download = 화물차 출입구.
  *
- * Phase 1: scanCurrentPage()     — ranking DOM 추출 (Cowork 구동)
+ * Phase 1: scanFromRSC()         — RSC 직접 파싱 (primary)
+ *          scanCurrentPage()     — ranking DOM 추출 (fallback)
  * Phase 2: startEnrichment()     — detail fetch + classify (자율)
  * Phase 3: downloadAll/Chunks()  — Blob download (primary)
  *          getNext()             — micro-chunk fallback
@@ -32,12 +33,23 @@
     maxRetries: 2,
     backoffMs: 30000,
     baseUrl: 'https://viewership.softc.one',
+    dateRange: { start: null, end: null },
     downloadPrefix: 'gubiba_30d'
   };
+
+  function getDownloadPrefix() {
+    if (CONFIG.dateRange.start && CONFIG.dateRange.end) {
+      var s = CONFIG.dateRange.start.replace(/-/g, '').substring(0, 8);
+      var e = CONFIG.dateRange.end.replace(/-/g, '').substring(0, 8);
+      return 'gubiba_' + s + '_' + e;
+    }
+    return CONFIG.downloadPrefix;
+  }
 
   // ===== STATE =====
   var state = {
     phase: 'idle',
+    aborted: false,
     rankingChannels: [],
     filteredChannels: [],
     enrichedRecords: [],
@@ -52,7 +64,7 @@
   var CSV_COLS = ['name','platform','channelId','rank','stream_hours','peak_viewers',
     'avg_viewers','viewership','follower','band','category_1','category_1_share',
     'category_2','category_2_share','category_3','category_3_share',
-    'total_categories','is_general_game','gg_reason','exclude_reason'];
+    'total_categories','is_general_game','gg_reason','exclude_reason','collected_at'];
 
   function recordToCSVRow(r) {
     return CSV_COLS.map(function(c) {
@@ -188,19 +200,105 @@
 
 
   // =========================================================
+  //  PHASE 1-B: RSC DIRECT PARSE
+  //  2,000ch/load — DOM scan의 20배 효율
+  //  RSC 필드명 이원화: preset(peakViewers) vs custom(maxLiveViews)
+  // =========================================================
+
+  function scanFromRSC() {
+    var html = document.documentElement.innerHTML;
+    var added = 0;
+    var seen = new Set(state.rankingChannels.map(function(c) { return c.channelId; }));
+
+    // 채널 URL 패턴으로 channelId 추출 — 이건 모든 모드에서 동일
+    var linkPattern = /\/channel\/(naverchzzk|soop)\/([a-f0-9]{20,})/g;
+    var channelIds = [];
+    var linkMatch;
+    while ((linkMatch = linkPattern.exec(html)) !== null) {
+      var platform = linkMatch[1];
+      var cid = linkMatch[2];
+      if (!seen.has(cid)) {
+        channelIds.push({ platform: platform, channelId: cid, index: linkMatch.index });
+        seen.add(cid);
+      }
+    }
+
+    // hydration dedup: RSC payload가 서버/클라이언트 2회 반복
+    channelIds = channelIds.slice(0, Math.ceil(channelIds.length / 2));
+
+    // 각 채널 주변 텍스트에서 뷰어십 데이터 추출
+    channelIds.forEach(function(entry) {
+      var start = Math.max(0, entry.index - 300);
+      var end = Math.min(html.length, entry.index + 600);
+      var block = html.substring(start, end);
+
+      // 이원화 대응: peakViewers (프리셋) || maxLiveViews (custom)
+      var peakMatch = block.match(/\\"(?:peakViewers|maxLiveViews)\\":(\d+)/);
+      var avgMatch = block.match(/\\"(?:avgViewers|avgLiveViews)\\":(\d+)/);
+      var viewershipMatch = block.match(/\\"viewership\\":(\d+)/);
+      var hoursMatch = block.match(/\\"(?:streamHours|airTime|totalStreamHours)\\":([\d.]+)/);
+      var nameMatch = block.match(/\\"(?:name|channelName)\\":\\"([^\\]+)\\"/);
+
+      var peak = peakMatch ? parseInt(peakMatch[1]) : null;
+      var ch = {
+        name: nameMatch ? nameMatch[1] : '',
+        platform: entry.platform,
+        channelId: entry.channelId,
+        rank: null,
+        stream_hours: hoursMatch ? parseFloat(hoursMatch[1]) : null,
+        peak_viewers: peak,
+        avg_viewers: avgMatch ? parseInt(avgMatch[1]) : null,
+        viewership: viewershipMatch ? parseInt(viewershipMatch[1]) : null,
+        band: bandLabel(peak),
+        _source: 'rsc'
+      };
+
+      state.rankingChannels.push(ch);
+      added++;
+    });
+
+    state.stats.scanned = state.rankingChannels.length;
+    log('RSC scan: +' + added + ' channels (total ' + state.stats.scanned + ')');
+    return {
+      added: added,
+      total: state.stats.scanned,
+      method: 'rsc',
+      note: added === 0 ? 'RSC에서 채널 미발견. scanCurrentPage()로 fallback.' : null
+    };
+  }
+
+
+  // =========================================================
   //  PHASE 2: DETAIL ENRICHMENT
   //  RSC payload → follower + category shares + classify
   // =========================================================
 
-  function parseDetailRSC(text) {
-    var followerMatches = text.match(/FollowerCount\\":(\d+)/g);
-    var follower = null;
-    if (followerMatches && followerMatches.length > 0) {
-      var last = followerMatches[followerMatches.length - 1];
-      var fm = last.match(/(\d+)/);
-      follower = fm ? parseInt(fm[1]) : null;
+  // RSC payload에서 시계열 배열 추출 + hydration 중복 제거
+  function extractTimeSeries(text, fieldName) {
+    var pattern = new RegExp('\\\\"' + fieldName + '\\\\":(\\d+)', 'g');
+    var values = [];
+    var m;
+    while ((m = pattern.exec(text)) !== null) {
+      values.push(parseInt(m[1]));
     }
+    // hydration 중복: 서버/클라이언트 데이터가 2번 반복됨
+    if (values.length > 0) {
+      values = values.slice(0, Math.ceil(values.length / 2));
+    }
+    return values;
+  }
 
+  function parseDetailRSC(text) {
+    // followerCount: lowercase f (Cowork 실측 보정). 마지막 매치 = 최신값.
+    var folMatches = [];
+    var folPattern = /\\"followerCount\\":(\d+)/g;
+    var fm;
+    while ((fm = folPattern.exec(text)) !== null) {
+      folMatches.push(parseInt(fm[1]));
+    }
+    var follower = folMatches.length > 0 ? folMatches[folMatches.length - 1] : null;
+
+    // 카테고리별 viewership (핸드오프 regex, Cowork 검증 완료)
     var catPattern = /\\"category\\":\\"([^\\]+)\\",\\"sumLiveViews\\":\d+,\\"viewership\\":(\d+)/g;
     var categories = [];
     var cm;
@@ -208,11 +306,18 @@
       categories.push({ name: cm[1], viewership: parseInt(cm[2]) });
     }
     categories.sort(function(a, b) { return b.viewership - a.viewership; });
-    var total = categories.reduce(function(s, c) { return s + c.viewership; }, 0);
+    var totalVS = categories.reduce(function(s, c) { return s + c.viewership; }, 0);
     function shareOf(idx) {
-      if (!categories[idx] || !total) return 0;
-      return Math.round(categories[idx].viewership / total * 1000) / 10;
+      if (!categories[idx] || !totalVS) return 0;
+      return Math.round(categories[idx].viewership / totalVS * 1000) / 10;
     }
+
+    // 시계열 (24 data points = 6개월 주간, hydration dedup 적용)
+    var timeSeries = {
+      maxLiveViews: extractTimeSeries(text, 'maxLiveViews'),
+      avgLiveViews: extractTimeSeries(text, 'avgLiveViews'),
+      airTime: extractTimeSeries(text, 'airTime')
+    };
 
     return {
       follower: follower,
@@ -222,7 +327,8 @@
       category_2_share: shareOf(1),
       category_3: categories[2] ? categories[2].name : '',
       category_3_share: shareOf(2),
-      total_categories: categories.length
+      total_categories: categories.length,
+      _timeSeries: timeSeries
     };
   }
 
@@ -254,6 +360,7 @@
 
     async function worker(wid) {
       while (queue.length > 0) {
+        if (state.aborted) { log('Worker ' + wid + ' aborted'); return; }
         var ch = queue.shift();
         if (!ch) break;
         processed++;
@@ -264,6 +371,7 @@
           enriched.gg_reason = gg.reason;
           enriched.exclude_reason = '';
           enriched.band = bandLabel(enriched.peak_viewers);
+          enriched.collected_at = new Date().toISOString();
           state.enrichedRecords.push(enriched);
           state.stats.enriched++;
           state.stats.classified++;
@@ -286,10 +394,10 @@
     }
     await Promise.all(workers);
 
-    state.phase = 'done';
-    log('Done. ' + state.stats.enriched + ' enriched, ' + state.errors.length + ' errors.');
-    log('Export: downloadAll() or downloadChunks() or getNext()');
-    return { enriched: state.stats.enriched, errors: state.errors.length };
+    state.phase = state.aborted ? 'aborted' : 'done';
+    log(state.phase + '. ' + state.stats.enriched + '/' + total + ' enriched, ' + state.errors.length + ' errors.');
+    if (!state.aborted) log('Export: downloadAll() or downloadChunks() or getNext()');
+    return { phase: state.phase, enriched: state.stats.enriched, total: total, errors: state.errors.length };
   }
 
 
@@ -331,7 +439,7 @@
   function downloadAll() {
     if (state.enrichedRecords.length === 0) return { error: 'no records' };
     var csv = recordsToCSV(state.enrichedRecords, true);
-    var filename = CONFIG.downloadPrefix + '_full.csv';
+    var filename = getDownloadPrefix() + '_full.csv';
     triggerDownload(csv, filename);
     state.stats.downloaded = state.enrichedRecords.length;
     return { filename: filename, records: state.enrichedRecords.length, bytes: csv.length };
@@ -345,7 +453,7 @@
       var end = Math.min(i + CONFIG.chunkSize, total);
       var chunk = state.enrichedRecords.slice(i, end);
       var idx = String(Math.floor(i / CONFIG.chunkSize) + 1).padStart(3, '0');
-      var filename = CONFIG.downloadPrefix + '_chunk_' + idx + '.csv';
+      var filename = getDownloadPrefix() + '_chunk_' + idx + '.csv';
       var csv = recordsToCSV(chunk, i === 0);
       triggerDownload(csv, filename);
       results.push({ filename: filename, records: chunk.length });
@@ -359,7 +467,7 @@
   // Compact array format: ~80 bytes/record → 10 records/chunk
 
   var _cursor = 0;
-  var MICRO_SIZE = 10;
+  var MICRO_SIZE = 8;
 
   function getNext() {
     if (_cursor >= state.enrichedRecords.length) {
@@ -368,11 +476,11 @@
     var batch = state.enrichedRecords.slice(_cursor, _cursor + MICRO_SIZE);
     _cursor += batch.length;
 
-    // compact: [name, id(8), peak, follower, c1, c1%, gg, reason]
+    // compact: [name, channelId(full), peak, follower, c1, c1%, gg, reason]
     var d = batch.map(function(r) {
       return [
         r.name,
-        r.channelId.substring(0, 8),
+        r.channelId,
         r.peak_viewers,
         r.follower,
         r.category_1,
@@ -396,6 +504,112 @@
   function resetCursor() { _cursor = 0; log('Cursor reset'); }
 
 
+  // --- 시계열 반출 (§5 진단용, JSONL) ---
+
+  function triggerDownloadRaw(text, filename, mimeType) {
+    var blob = new Blob([text], { type: mimeType || 'application/octet-stream' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function() { document.body.removeChild(a); URL.revokeObjectURL(url); }, 1000);
+    log('Download: ' + filename + ' (' + text.length + ' bytes)');
+  }
+
+  function downloadTimeSeries() {
+    var records = state.enrichedRecords.filter(function(r) { return r._timeSeries; });
+    if (records.length === 0) return { error: 'no timeseries data' };
+    var lines = records.map(function(r) {
+      return JSON.stringify({
+        channelId: r.channelId,
+        name: r.name,
+        platform: r.platform,
+        maxLiveViews: r._timeSeries.maxLiveViews,
+        avgLiveViews: r._timeSeries.avgLiveViews,
+        airTime: r._timeSeries.airTime
+      });
+    });
+    var jsonl = lines.join('\n');
+    triggerDownloadRaw(jsonl, getDownloadPrefix() + '_timeseries.jsonl', 'application/jsonl');
+    return { records: records.length, bytes: jsonl.length };
+  }
+
+  // --- Abort ---
+
+  function abort() {
+    state.aborted = true;
+    log('Abort requested. Workers will stop after current request.');
+    return { enrichedSoFar: state.stats.enriched, errors: state.errors.length };
+  }
+
+  function resume() {
+    if (!state.aborted && state.phase !== 'aborted') {
+      return { error: 'not aborted. use startEnrichment() for first run.' };
+    }
+    var enrichedIds = new Set(state.enrichedRecords.map(function(r) { return r.channelId; }));
+    var remaining = state.filteredChannels.filter(function(ch) {
+      return !enrichedIds.has(ch.channelId);
+    });
+    if (remaining.length === 0) {
+      return { error: 'all filtered channels already enriched', enriched: state.enrichedRecords.length };
+    }
+
+    // 재개 준비: abort 플래그 리셋, 잔여 큐만 재실행
+    state.aborted = false;
+    state.phase = 'enriching';
+    var total = remaining.length;
+    log('Resume: ' + total + ' remaining (' + state.stats.enriched + ' already done)');
+
+    var queue = remaining.slice();
+    var processed = 0;
+
+    async function worker(wid) {
+      while (queue.length > 0) {
+        if (state.aborted) { log('Worker ' + wid + ' aborted'); return; }
+        var ch = queue.shift();
+        if (!ch) break;
+        processed++;
+        try {
+          var enriched = await enrichChannel(ch);
+          var gg = classifyGG(enriched);
+          enriched.is_general_game = gg.is_gg;
+          enriched.gg_reason = gg.reason;
+          enriched.exclude_reason = '';
+          enriched.band = bandLabel(enriched.peak_viewers);
+          enriched.collected_at = new Date().toISOString();
+          state.enrichedRecords.push(enriched);
+          state.stats.enriched++;
+          state.stats.classified++;
+        } catch (e) {
+          state.errors.push({ channelId: ch.channelId, error: e.message });
+        }
+        if (processed % 20 === 0 || processed === total) {
+          log('Resume ' + processed + '/' + total + ' (total ok=' + state.stats.enriched + ')');
+        }
+        await delay(CONFIG.enrichDelayMs);
+      }
+    }
+
+    var stagger = Math.round(CONFIG.enrichDelayMs / CONFIG.workers);
+    var workers = [];
+    for (var w = 0; w < CONFIG.workers; w++) {
+      (function(wid) {
+        workers.push(delay(wid * stagger).then(function() { return worker(wid); }));
+      })(w);
+    }
+
+    Promise.all(workers).then(function() {
+      state.phase = state.aborted ? 'aborted' : 'done';
+      log(state.phase + '. total enriched=' + state.stats.enriched + ', errors=' + state.errors.length);
+    });
+
+    return { resuming: total, alreadyDone: state.stats.enriched };
+  }
+
+
   // =========================================================
   //  DIAGNOSTICS
   // =========================================================
@@ -407,6 +621,41 @@
     var row = sample.closest('tr') || sample.closest('[class*="ranking"]') ||
       sample.closest('[class*="item"]') || (sample.parentElement && sample.parentElement.parentElement);
     var cells = row ? row.querySelectorAll('td, [class*="cell"], [class*="col"]') : [];
+
+    // 집계 윈도우 감지: "지난 7일" / "지난 30일" / "지난 90일" 버튼
+    var windowButtons = document.querySelectorAll('button, [role="tab"], [class*="tab"]');
+    var activeWindow = null;
+    var windowOptions = [];
+    windowButtons.forEach(function(btn) {
+      var txt = btn.textContent.trim();
+      if (/지난\s*\d+일/.test(txt) || /\d+\s*days?/i.test(txt)) {
+        var isActive = btn.classList.contains('active') ||
+          btn.getAttribute('aria-selected') === 'true' ||
+          btn.getAttribute('data-state') === 'active' ||
+          getComputedStyle(btn).fontWeight > 500;
+        windowOptions.push(txt + (isActive ? ' [ACTIVE]' : ''));
+        if (isActive) activeWindow = txt;
+      }
+    });
+
+    // custom date range 감지: URL 파라미터 또는 날짜 텍스트
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlStart = urlParams.get('startDateTime');
+    var urlEnd = urlParams.get('endDateTime');
+    if (urlStart && urlEnd) {
+      activeWindow = 'custom:' + urlStart.substring(0, 10) + '~' + urlEnd.substring(0, 10);
+    }
+
+    // 날짜 범위 텍스트 감지 (달력 UI 표시)
+    if (!activeWindow || activeWindow === 'unknown') {
+      var allText = document.body.innerText;
+      var dateRangeMatch = allText.match(/(\d{4})\.\s*(\d{2})\.\s*(\d{2})\s*[–-]\s*(\d{4})\.\s*(\d{2})\.\s*(\d{2})/);
+      if (dateRangeMatch) {
+        activeWindow = 'custom:' + dateRangeMatch[1] + '-' + dateRangeMatch[2] + '-' + dateRangeMatch[3] +
+          '~' + dateRangeMatch[4] + '-' + dateRangeMatch[5] + '-' + dateRangeMatch[6];
+      }
+    }
+
     return {
       links: links.length,
       href: sample.getAttribute('href'),
@@ -415,7 +664,10 @@
       cells: cells.length,
       cellTexts: Array.from(cells).slice(0, 8).map(function(c) {
         return c.textContent.trim().substring(0, 30);
-      })
+      }),
+      aggregationWindow: activeWindow || 'unknown',
+      windowOptions: windowOptions,
+      urlDateRange: urlStart ? { start: urlStart, end: urlEnd } : null
     };
   }
 
@@ -431,12 +683,23 @@
   function getStatus() {
     return {
       phase: state.phase,
+      aborted: state.aborted,
       stats: state.stats,
       errors: state.errors.length,
       records: state.enrichedRecords.length,
       cursor: _cursor,
-      config: { peakBand: CONFIG.peakBand, workers: CONFIG.workers, chunkSize: CONFIG.chunkSize }
+      config: {
+        peakBand: CONFIG.peakBand,
+        workers: CONFIG.workers,
+        chunkSize: CONFIG.chunkSize,
+        dateRange: CONFIG.dateRange,
+        downloadPrefix: getDownloadPrefix()
+      }
     };
+  }
+
+  function getErrors() {
+    return state.errors.slice(-20);
   }
 
   // ===== EXPOSE API =====
@@ -444,14 +707,18 @@
   window.__GUBIBA_API = {
     // Phase 1: Ranking
     scanCurrentPage: scanCurrentPage,
+    scanFromRSC: scanFromRSC,
     applyPeakFilter: applyPeakFilter,
 
     // Phase 2: Enrichment
     startEnrichment: startEnrichment,
+    abort: abort,
+    resume: resume,
 
-    // Phase 3: Export (primary = download, fallback = micro-chunk)
+    // Phase 3: Export
     downloadAll: downloadAll,
     downloadChunks: downloadChunks,
+    downloadTimeSeries: downloadTimeSeries,
     getNext: getNext,
     getNextCSV: getNextCSV,
     resetCursor: resetCursor,
@@ -460,25 +727,39 @@
     diagnoseDOM: diagnoseDOM,
     getBandDistribution: getBandDistribution,
     getStatus: getStatus,
+    getErrors: getErrors,
 
     // Config
     setConfig: function(k, v) { CONFIG[k] = v; log(k + '=' + JSON.stringify(v)); },
     getConfig: function() { return Object.assign({}, CONFIG); }
   };
 
-  log('v2 loaded. API: window.__GUBIBA_API');
+  log('v3 loaded. API: window.__GUBIBA_API');
   log('');
   log('=== Workflow ===');
-  log('1. 종합 게임 ranking 페이지, "지난 30일" 선택');
-  log('2. diagnoseDOM()       → DOM 셀렉터 확인');
-  log('3. scanCurrentPage()   → 채널 추출 (페이지마다 반복)');
-  log('4. applyPeakFilter()   → peak band 필터');
-  log('5. startEnrichment()   → detail fetch + classify');
-  log('6. downloadAll()       → Blob download (primary)');
-  log('   getNext()           → micro-chunk fallback');
+  log('0. 종합 게임 ranking 페이지, custom date range 또는 "지난 30일" 선택');
+  log('1. diagnoseDOM()            → DOM + 집계 윈도우 + URL 파라미터 확인');
+  log('2. scanFromRSC()            → RSC 직접 파싱 (2,000ch/load, primary)');
+  log('   scanCurrentPage()        → DOM 추출 (100ch/page, fallback)');
+  log('3. applyPeakFilter()        → peak band 필터');
+  log('4. startEnrichment()        → detail fetch + classify');
+  log('   abort()                  → 진행 중 중단');
+  log('   resume()                 → abort 후 재개');
+  log('5. downloadAll()            → CSV Blob download (primary)');
+  log('   downloadTimeSeries()     → 시계열 JSONL download');
+  log('   getNext()                → micro-chunk fallback');
+  log('');
+  log('=== Config ===');
+  log('setConfig("dateRange", {start:"2024-01-01", end:"2026-06-15"})');
+  log('  → downloadPrefix가 "gubiba_20240101_20260615"로 자동 전환');
+  log('');
+  log('=== Diagnostics ===');
+  log('getStatus()    → phase, stats, aborted, config');
+  log('getErrors()    → 최근 에러 20건');
   log('');
   log('=== I/O Path ===');
-  log('Primary:  downloadAll() → Downloads 폴더 → CLI pickup');
-  log('Fallback: getNext() × N → JS output 10건씩 → Cowork append');
+  log('Primary:  downloadAll() → Downloads → CLI pickup_downloads.ps1');
+  log('TimeSeries: downloadTimeSeries() → JSONL (§5 진단용)');
+  log('Fallback: getNext() × N → JS output ~8건씩 → Cowork append');
 
 })();
