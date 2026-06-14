@@ -66,7 +66,7 @@ Cowork 공통: 추천은 하되 승인은 인간만. CollectDirective.approved=t
 | Codex_Workspace | git → GitHub. 코드, 스펙, 테스트, 정책, 케이스 패키지 | 100MB 초과 파일 금지. 크롬 프로필/영상/대형 덤프 저장 안 함. |
 | Claude_Code_Workspace | 로컬 전용. 대용량 리소스, Hosea 수집 원본, memory | GitHub 백업 없음. git 추적 안 함. 코드/스펙 저장 안 함. |
 
-Workspace 공통: 저장 규칙만 정의. 실행 로직 없음. Codex_Workspace에서 Claude_Code_Workspace 자산은 경로 참조(포인터)만. git 커밋 권한은 CLI 계층(Codex/Claude Code)만. Cowork 산출물은 Mailbox 경유 → CLI가 프로젝트 폴더에 배치 후 커밋.
+Workspace 공통: 저장 규칙만 정의. 실행 로직 없음. Codex_Workspace에서 Claude_Code_Workspace 자산은 경로 참조(포인터)만. git 커밋 권한은 CLI 계층(Codex/Claude Code)만. Cowork 산출물은 Mailbox/Box에 임시 저장 → CLI가 Codex_Workspace 내 해당 프로젝트 경로에 배치 후 커밋. 대용량 리소스는 Claude_Code_Workspace에 배치 (git 미추적).
 
 ### 3. 전 표면 불변 규칙
 
