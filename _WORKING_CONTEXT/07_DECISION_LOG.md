@@ -1,5 +1,185 @@
 # Decision Log
 
+## 2026-06-14 - Hosea 운용 아키텍처 정의: 표면 재구조화 + Workspace 이원화
+
+decision_id: `DL_INFRA_20260614_035`
+
+scope:
+
+- `D:\Codex_Workspace\IsaacInfra\Hosea\current\SPEC_hosea_operational.md`
+- `D:\Codex_Workspace\Instruction\INFRA_ARCHITECTURE_PLAN_v3_1.md`
+- `D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\01_SOURCE_MAP.md`
+- `D:\Codex_Workspace\_CODEX_SESSION_START.md`
+
+what_changed:
+
+### 1. Hosea 운용 표면 재구조화 (5표면 나열 → 3계층)
+
+기존: CLI, Codex, Cowork(Mailbox), Cowork(Box), Claude 채팅 — 역할 겹침, 확장 시 표면 수 증가.
+
+변경:
+
+```
+Hosea = 인간 + 표면 3개
+
+├─ CLI (코드)
+│    ├─ Codex      → 구현/실행 (코드 생성, 테스트, git push)
+│    └─ Claude Code → 리뷰/설계/위임 명세
+│
+├─ Cowork (메인 오케스트레이터)
+│    ├─ Mailbox / Box       → 범용 작업 경로 (프로젝트 귀속 후 이동)
+│    ├─ Claude in Chrome    → 브라우저 인터랙티브 (DOM 수집, 프로토콜 생성)
+│    └─ Claude 채팅         → 리서치, 전략, 해석
+│
+└─ Workspace (저장)
+     ├─ Codex_Workspace         → git → GitHub (코드/스펙/케이스)
+     └─ Claude_Code_Workspace   → 로컬 전용 (대용량 리소스, memory)
+```
+
+새 표면 추가 시 하위 노드로 편입. 최상위 3계층 불변.
+
+### 2. 표면별 역할 및 바운더리
+
+#### CLI (코드)
+
+| 노드 | 역할 | 바운더리 |
+|---|---|---|
+| Codex | 구현, 테스트 실행, git push, 패키지 빌드 | 명세 받은 것만 구현. 스스로 scope 확장 안 함. 승인 권한 없음. |
+| Claude Code | 리뷰, 설계, 위임 명세 작성, 상태 진단 | 읽기 중심. Codex_Workspace 직접 쓰기는 문서/정책만. 코드 구현은 Codex에 위임. |
+
+CLI 공통: 전략 결정 안 함 (Cowork 소관). 데이터 수집 안 함. approved=true, canonical mutation, disclosure decision 권한 없음.
+
+#### Cowork (메인 오케스트레이터)
+
+| 노드 | 역할 | 바운더리 |
+|---|---|---|
+| Mailbox / Box | 범용 작업 경로, 다중 세션 종합, 인계 | 임시 저장소. 프로젝트 귀속 산출물은 해당 폴더로 이동. 장기 보관 안 함. |
+| Claude in Chrome | 브라우저 DOM 직접 접근, 단건 수집, 사이트 구조 탐색, 프로토콜 생성 | 인터랙티브 단건만. 배치/스케줄 수집 안 함. 로그인/인증 페이지 접근 시 operator 판단. |
+| Claude 채팅 | 리서치, 전략 논의, 해석, 설계, 문서 초안 | 파일시스템 직접 접근 없음. 산출물 반영 시 CLI를 거침. |
+
+Cowork 공통: 추천은 하되 승인은 인간만. CollectDirective.approved=true 자동 생성 안 함. not_verifiable → pass/success 전환 안 함. CaseResult/DisclosureLog/PublicDemoRow 자동 승격 안 함. 수집 결과는 CollectionResult 스키마 준수.
+
+#### Workspace (저장)
+
+| 노드 | 역할 | 바운더리 |
+|---|---|---|
+| Codex_Workspace | git → GitHub. 코드, 스펙, 테스트, 정책, 케이스 패키지 | 100MB 초과 파일 금지. 크롬 프로필/영상/대형 덤프 저장 안 함. |
+| Claude_Code_Workspace | 로컬 전용. 대용량 리소스, Hosea 수집 원본, memory | GitHub 백업 없음. git 추적 안 함. 코드/스펙 저장 안 함. |
+
+Workspace 공통: 저장 규칙만 정의. 실행 로직 없음. Codex_Workspace에서 Claude_Code_Workspace 자산은 경로 참조(포인터)만.
+
+### 3. 전 표면 불변 규칙
+
+```
+어떤 표면을 쓰든:
+  - 최종 판단 권한은 인간
+  - operator 승인 없이 canonical mutation 없음
+  - not_verifiable 세탁 금지
+  - Charles/Arthur 내부 오케스트레이션에 외부 개입 안 함
+  - 수집 방식(인터랙티브/배치) 무관하게 후단 스키마 계약 동일
+```
+
+### 4. 수집 이원화
+
+| 방식 | 도구 | 용도 |
+|---|---|---|
+| 인터랙티브 | Claude in Chrome (Cowork) | 단건 분석, 사이트 구조 탐색, 프로토콜 생성 |
+| 배치 | Arthur (CLI) | 무인 정기 수집, 대량 처리 |
+
+인터랙티브 수집 결과 → ExecutionProtocol 스키마 변환 → Arthur 배치 입력. 후단 파이프라인(Pearson → Susan → Bridge) 불변.
+
+### 5. Hosea 수집 산출물 저장 규칙
+
+Gunsmith_Mailbox / Orchestrator_Box는 범용 작업 경로. 프로젝트 귀속 산출물은 해당 프로젝트 폴더로 이동.
+
+```
+Hosea 작업 산출물
+  ├─ 스트리머 컨설팅 귀속 → Codex_Workspace\Streamer Consulting Project\
+  ├─ 대용량 리소스        → Claude_Code_Workspace\(프로젝트별 하위 구조)
+  ├─ 다른 프로젝트 귀속   → 해당 프로젝트 폴더
+  └─ 프로젝트 무관        → Mailbox/Box 잔류 또는 정리
+```
+
+### 6. Workspace 이원화 정책
+
+| 항목 | Codex_Workspace | Claude_Code_Workspace |
+|---|---|---|
+| 백업 | GitHub (remote) | 로컬 only (필요시 외장) |
+| 내용 | 코드, 스펙, 테스트, 정책, 케이스 패키지 | 대용량 리소스, Hosea 수집 원본, memory |
+| git | 추적 | 미추적 |
+| 소유자 | CodexSandboxOffline | faust |
+| 접근 | Codex + Claude Code(읽기) | Claude Code + 수동 |
+
+why:
+
+기존 표면 나열은 Claude in Chrome, 신규 workspace 등 추가될 때마다 목록이 늘어나는 구조였다. 역할 기준 3계층(CLI/Cowork/Workspace)으로 재구조화하면 확장에 안정적이고, workspace 이원화로 git 추적 자산과 대용량 로컬 자산의 경계가 명확해진다.
+
+authority:
+
+operator 2026-06-14.
+
+boundary:
+
+문서 구조 변경만. 코드, 런타임 동작, 파이프라인 스키마, 승인/게이트 규칙 미변경. Pearson/Susan/Bridge 계약 불변. Charles/Arthur 내부 오케스트레이션 불변.
+
+status: active
+
+## 2026-06-14 - I3 Full Chain End-to-End Integration Test
+
+decision_id: `DL_TOOLING_20260614_034`
+
+scope:
+
+- `D:\Codex_Workspace\IsaacInfra\integration\pearson_susan_v0_1\tests\test_i3_full_chain_smoke.py`
+
+what_changed:
+
+Added I3 full chain integration test: CollectionResult → Pearson store → StorageReceipt → Susan QA → QAReport → PatchCandidate Adapter → Bridge plan (dry-run). 12 tests covering schema compatibility at each handoff, source immutability, and not_verifiable preservation through the entire chain.
+
+why:
+
+Individual tools (Pearson P0-P8, Susan S0-S8, Adapter, Bridge) were implemented and unit-tested, but no test verified that their schemas actually connect end-to-end. I3 closes the integration gap and confirms canonical lifecycle wiring readiness.
+
+authority:
+
+operator 2026-06-14.
+
+boundary:
+
+Offline synthetic fixtures only. Bridge apply not executed (plan/dry-run only). No canonical case package mutation. No live access.
+
+status: active
+
+## 2026-06-14 - Natural Interaction v2: WindMouse + Fitts (DLG-012)
+
+decision_id: `DL_TOOLING_20260614_033`
+
+scope:
+
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\arthur\natural_mouse.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\arthur\inspect.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\tests\test_natural_interaction_v2.py`
+- `D:\Codex_Workspace\IsaacInfra\Arthur\current\Arthur_v0.6_pipeline_contract\SPEC_Arthur_v0_6_1.md`
+- `D:\Codex_Workspace\Instruction\delegation\reports\DELEGATION_REPORT_DLG_012_NATURAL_INTERACTION_V2_20260614.md`
+
+what_changed:
+
+Replaced DLG-010's fixed-coordinate `_natural_interaction_step` with WindMouse curved path generation + Fitts's Law timing + seeded variable scroll/poll intervals. New module `natural_mouse.py` (128 lines, pure Python, no external dependencies). Seeded via `random.Random`, deterministic for testing, variable across seeds. Interaction cap 8 and navigation==1 unchanged. SPEC updated.
+
+why:
+
+DLG-010 구현은 고정 좌표 4개 순환 + 고정 스크롤 + 고정 타이밍으로 패턴 fingerprinting에 즉시 식별 가능했다. WindMouse 물리 모델로 곡선 경로와 자연 가감속을 확보하면서 seed 결정론으로 테스트 재현성을 유지했다.
+
+authority:
+
+operator 2026-06-14.
+
+boundary:
+
+Offline implementation/tests only. No navigation/reload/retry added. No external packages. No live access. No canonical case/package mutation.
+
+status: active
+
 ## 2026-06-13 - Session Behavior Contract Added
 
 decision_id: `DL_CONTEXT_20260613_032`

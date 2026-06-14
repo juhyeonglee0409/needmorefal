@@ -1,10 +1,8 @@
 # Open Tasks And Gates
 
-## Current Infrastructure Task
+## Current Infrastructure Status
 
-Set up efficient context scaffolding for future Codex sessions.
-
-Status:
+Offline pipeline functionally complete. All tools implemented, unit-tested, and integration-tested (I3).
 
 ```text
 root bootstrap: created
@@ -12,7 +10,24 @@ custom instruction draft: created
 project _WORKING_CONTEXT: created
 Gunsmith spec package imported: 2026-06-13
 IsaacInfra canonical spec paths documented: 2026-06-13
+Pearson v0.1 implemented (P0-P8): 2026-06-13
+Susan v0.1 implemented (S0-S8): 2026-06-13
+PatchCandidate Adapter (R2.5) implemented: 2026-06-13
+Bridge v0.1 implemented (plan/apply): 2026-06-13
+Arthur natural interaction v2 (WindMouse): 2026-06-14
+I3 full chain integration test (12 PASS): 2026-06-14
 ```
+
+## Next Milestone
+
+Live pipeline first run: Charles → Arthur → Pearson → Susan → Adapter → Bridge on real target data.
+
+Blockers before live run:
+
+- define TargetBatchPlan for the active case
+- Charles protocol exists for target
+- operator approval for CollectDirective
+- decide whether chrome_profile route is needed for first run
 
 ## Generic Case Gates
 
@@ -51,13 +66,13 @@ For any other streamer, derive gates from that streamer's own README/dossier/mac
 
 ## Orchestrator Gates
 
-Before implementation:
+Hosea is a human-operated MCP/CLI surface, not a code orchestrator. There is no automated orchestrator implementation. The orchestrator spec package (runbook, templates, prompts) exists as a zip but is not codified.
 
-- choose location for orchestrator source
-- spec package has been unzipped into versioned docs under `D:\Codex_Workspace\IsaacInfra`
+Before live run:
+
 - choose run output location
 - define TargetBatchPlan for the active case; do not reuse another case's targets blindly
-- decide whether profile support is needed in first implementation
+- decide whether profile support is needed in first run
 
 Current spec documents:
 

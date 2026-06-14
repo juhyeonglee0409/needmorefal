@@ -69,6 +69,15 @@ pipeline_orchestrator_spec_20260611/CollectDirective_template_gubiba_cohort_v3.j
 pipeline_orchestrator_spec_20260611/MANIFEST.json
 ```
 
+## Workspace 이원화 (DL_INFRA_20260614_035)
+
+| 폴더 | 용도 | git |
+|---|---|---|
+| `D:\Codex_Workspace` | 코드, 스펙, 테스트, 정책, 케이스 패키지 | 추적 → GitHub |
+| `D:\Claude_Code_Workspace` | 대용량 리소스, Hosea 수집 원본, memory | 미추적 (로컬 전용) |
+
+Codex_Workspace에서 Claude_Code_Workspace 자산은 경로 참조(포인터)만. 코드/스펙은 Codex_Workspace에만 저장.
+
 ## Case Neutrality Rule
 
 KimDalsu and Gubiba files are examples/reference cases. For a new streamer, first locate that streamer's package and machine objects, then apply `03_STREAMER_CASE_GENERIC_PROTOCOL.md`.
