@@ -27,7 +27,7 @@ Hosea = 인간 + 표면 3개
 │    └─ Claude Code → 리뷰/설계/위임 명세
 │
 ├─ Cowork (메인 오케스트레이터)
-│    ├─ Mailbox / Box       → 범용 작업 경로 (프로젝트 귀속 후 이동)
+│    ├─ Gunsmith_Mailbox       → 프로젝트 스테이징 (산출물 임시 → CLI가 배치)
 │    ├─ Claude in Chrome    → 브라우저 인터랙티브 (DOM 수집, 프로토콜 생성)
 │    └─ Claude 채팅         → 리서치, 전략, 해석
 │
@@ -53,7 +53,7 @@ CLI 공통: 전략 결정 안 함 (Cowork 소관). 데이터 수집 안 함. app
 
 | 노드 | 역할 | 바운더리 |
 |---|---|---|
-| Mailbox / Box | 범용 작업 경로, 다중 세션 종합, 인계 | 임시 저장소. 프로젝트 귀속 산출물은 해당 폴더로 이동. 장기 보관 안 함. |
+| Gunsmith_Mailbox | 프로젝트 산출물 스테이징, 다중 세션 종합, 인계 | 임시 저장소. CLI가 Codex_Workspace 내 프로젝트 경로에 배치 후 커밋. 장기 보관 안 함. |
 | Claude in Chrome | 브라우저 DOM 직접 접근, 단건 수집, 사이트 구조 탐색, 프로토콜 생성 | 인터랙티브 단건만. 배치/스케줄 수집 안 함. 로그인/인증 페이지 접근 시 operator 판단. |
 | Claude 채팅 | 리서치, 전략 논의, 해석, 설계, 문서 초안 | 파일시스템 직접 접근 없음. 산출물 반영 시 CLI를 거침. |
 
@@ -66,7 +66,7 @@ Cowork 공통: 추천은 하되 승인은 인간만. CollectDirective.approved=t
 | Codex_Workspace | git → GitHub. 코드, 스펙, 테스트, 정책, 케이스 패키지 | 100MB 초과 파일 금지. 크롬 프로필/영상/대형 덤프 저장 안 함. |
 | Claude_Code_Workspace | 로컬 전용. 대용량 리소스, Hosea 수집 원본, memory | GitHub 백업 없음. git 추적 안 함. 코드/스펙 저장 안 함. |
 
-Workspace 공통: 저장 규칙만 정의. 실행 로직 없음. Codex_Workspace에서 Claude_Code_Workspace 자산은 경로 참조(포인터)만. git 커밋 권한은 CLI 계층(Codex/Claude Code)만. Cowork 산출물은 Mailbox/Box에 임시 저장 → CLI가 Codex_Workspace 내 해당 프로젝트 경로에 배치 후 커밋. 대용량 리소스는 Claude_Code_Workspace에 배치 (git 미추적).
+Workspace 공통: 저장 규칙만 정의. 실행 로직 없음. Codex_Workspace에서 Claude_Code_Workspace 자산은 경로 참조(포인터)만. git 커밋 권한은 CLI 계층(Codex/Claude Code)만. Cowork 산출물은 Gunsmith_Mailbox에 임시 저장 → CLI가 Codex_Workspace 내 해당 프로젝트 경로에 배치 후 커밋. 대용량 리소스는 Claude_Code_Workspace에 배치 (git 미추적).
 
 ### 3. 전 표면 불변 규칙
 
@@ -90,14 +90,14 @@ Workspace 공통: 저장 규칙만 정의. 실행 로직 없음. Codex_Workspace
 
 ### 5. Hosea 수집 산출물 저장 규칙
 
-Gunsmith_Mailbox / Orchestrator_Box는 범용 작업 경로. 프로젝트 귀속 산출물은 해당 프로젝트 폴더로 이동.
+Gunsmith_Mailbox는 프로젝트 산출물 스테이징. Orchestrator_Box는 비프로젝트성 퍼스널 산출물 보관.
 
 ```
-Hosea 작업 산출물
-  ├─ 스트리머 컨설팅 귀속 → Codex_Workspace\Streamer Consulting Project\
-  ├─ 대용량 리소스        → Claude_Code_Workspace\(프로젝트별 하위 구조)
-  ├─ 다른 프로젝트 귀속   → 해당 프로젝트 폴더
-  └─ 프로젝트 무관        → Mailbox/Box 잔류 또는 정리
+Cowork 산출물 흐름:
+  프로젝트 산출물 → Gunsmith_Mailbox (임시)
+    → CLI가 Codex_Workspace 내 해당 프로젝트 경로에 배치 후 커밋
+    → 대용량 리소스는 Claude_Code_Workspace에 배치 (git 미추적)
+  비프로젝트 퍼스널 산출물 → Orchestrator_Box (보관)
 ```
 
 ### 6. Workspace 이원화 정책
