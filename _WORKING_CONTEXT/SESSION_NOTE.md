@@ -40,7 +40,7 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 
 ### [Codex] Pearson v0.2 구현
 - 신규 모듈 5개 + 기존 수정 7개 + 테스트 6개 = 20 files, +1,146 lines
-- 144 tests 전부 PASS (직접 실행 러너, pytest 미설치)
+- 145 tests 전부 PASS (직접 실행 러너, pytest 미설치; P6 code_commit follow-up 포함)
 - CLI smoke: `--version` → 0.2.0, store/scrub/verify-tail PASS
 
 ### [CC] 파이프라인 연결
@@ -62,7 +62,7 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 ### 이번 세션 산출물 (Pearson v0.2 + 파이프라인 연결)
 - `IsaacInfra/Pearson/current/Pearson_v0.2_storage_contract/SPEC_pearson_v0_2.md` — v0.2 정본 스펙 (CHART v4 163 facts → 6 defense lines)
 - `IsaacInfra/Pearson/current/Pearson_v0.2_storage_contract/IMPL_PROMPT_v0_2.md` — Codex 구현 의뢰 프롬프트
-- `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/pearson/` — v0.2 구현 (5 신규 모듈 + 6 수정 모듈, 144 tests PASS)
+- `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/pearson/` — v0.2 구현 (5 신규 모듈 + 6 수정 모듈, 145 tests PASS after P6)
   - 신규: `source_id.py`, `presence.py`, `durability.py`, `writer_lock.py`, `integrity.py`
 - `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/contrib/gubiba_csv_to_cr.py` — CSV→CollectionResult 컨버터
 - `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/contrib/gubiba_cr_field_mapping.md` — 24필드 매핑 테이블
@@ -104,7 +104,7 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
      - Generated card extraction: WHITE 10 cards (100-rank bands, 1–1000) + BLACK 10 cards (1000-rank bands, 1001–11000) = 20 cards total, random 1 per band (seed 42).
      - Step 2 (SOFTC.ONE enrichment for peak/avgViewers/chart) deferred by operator.
    - Pearson v0.2 spec review: reviewed CC's SPEC_pearson_v0_2.md against CHART v4 163 facts. Verdict: sound, proceed to implementation. 6 issues found (P1–P6), all refinement-level.
-   - Pearson v0.2 implementation review: CC completed implementation (5 new modules, 144 tests pass). Reviewed against spec + P1–P6. P1–P3 addressed. P4/P5 low priority. P6 (code_commit dead code) noted as medium. Recommended push — operator pushed.
+   - Pearson v0.2 implementation review: CC completed implementation (5 new modules, 144 tests pass at review time). Reviewed against spec + P1–P6. P1–P3 addressed. P4/P5 low priority. P6 (code_commit dead code) noted as medium; superseded by Codex P6 follow-up below.
    - CHART Phase 3 research results explained to operator in simplified form.
 
 2. Files produced
@@ -125,10 +125,66 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 4. Next surface actions
    - **Cowork**: needmorefal Step 2 — SOFTC.ONE enrichment for 20 cards (peak/avgViewers/chart). Operator deferred, resume when instructed.
    - **Codex**: commit `12_CONTINUITY_CONTRACT.md` + README.md pointer update. Review DECISION_LOG DL_INFRA_20260615_044.
-   - **CC**: P6 (code_commit wiring in store.py) is a one-line fix if desired before next Pearson work.
+   - **Codex**: P6 code_commit wiring completed in the 2026-06-15T18:41+09:00 block below. Pearson remaining follow-ups are P4/P5 low-priority.
 
 5. Boundaries and warnings
    - Sandbox proxy blocks auro.live (403 Tunnel Forbidden). All auro.live API access must go through Chrome browser JS fetch, not sandbox bash.
    - auro.live API: 50 entries/page, SvelteKit devalue format. 1.5s delay between requests was stable. Charles confirmed: no gate, Cloudflare, robots allowed.
    - Operator has not yet updated Gunsmith_Mailbox project instruction from bootstrap_v0_6.md → Cowork.md.
    - `auro_rank_1_10000.json` is superseded by `auro_rank_1_11000.json` — operator may delete the former.
+
+---
+
+## [Codex] 2026-06-15T18:41+09:00
+
+1. What was done
+   - Pearson v0.2 implementation P6 follow-up completed.
+   - Added best-effort `code_commit` wiring in `pearson/store.py`.
+   - `store_collection_result()` now calls `git rev-parse HEAD` from the workspace root and passes a 40-char commit hash into `lineage.activity.code_commit` when available.
+   - Non-git or git-failure environments remain supported: `code_commit` stays `None`.
+   - `tests/test_store_v02_integration.py` now verifies `code_commit is None or 40-char hex`.
+
+2. Verification
+   - `tests/test_store_v02_integration.py`: 19 PASS / 0 FAIL.
+   - Pearson direct-run test suite: 145 PASS / 0 FAIL.
+   - `py_compile` for `pearson/*.py` and `tests/*.py`: PASS.
+   - `git diff --check` for P6 files: PASS.
+   - Smoke confirmed receipt `lineage.activity.code_commit` was populated with current git commit `753ec3ea5b0803911cecf915cebd340c481350f6`.
+   - `pytest tests` still not run because bundled Python has no `pytest` module.
+
+3. Commit candidates
+   - Pearson v0.2 implementation under `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/`.
+   - Includes modified core modules, new v0.2 modules, test updates, and `pyproject.toml`.
+   - P6-specific modified files:
+     - `pearson/store.py`
+     - `tests/test_store_v02_integration.py`
+
+4. Hold / excluded
+   - P4 `ALLOWED_CR_VERSIONS` hardcoding remains accepted low-priority follow-up.
+   - P5 typed `source_id` reproduction CLI remains accepted low-priority follow-up.
+   - Non-Pearson dirty files in workspace are unrelated to this Pearson commit and must not be mixed unless explicitly reviewed.
+
+5. Next action
+   - Codex: stage only Pearson v0.2 implementation files when committing.
+   - Do not include unrelated Instruction, Streamer, Crashpad, or Gubiba data artifacts in the Pearson commit.
+   - After commit, run/report targeted Pearson test command summary before push.
+
+---
+
+## [Codex] 2026-06-15 - SOFTC.ONE Step5 browser-bound collection note
+
+1. What was learned
+   - SOFTC.ONE §5 broadcast records are browser-session-bound and checkpoint-gated.
+   - Current stable route is a user-approved Chrome/CDP session after the operator passes the checkpoint.
+   - Confirmed streams URL shape: `/channel/{platform}/{channelId}/streams`.
+   - `CSV 다운로드` exists in the UI but is not automation-stable in current observations.
+   - No stable separate JSON/CSV endpoint was confirmed for this path; DOM row extraction is the current primary collection path.
+
+2. Boundary
+   - Do not export or persist cookies, localStorage, session tokens, auth headers, or account secrets.
+   - CDP/persistent browser context is only an execution transport inside the approved scope.
+   - Stop on 429 loops, repeated challenge loops, scope expansion, private/account data, or secret persistence uncertainty.
+
+3. Protocol update
+   - Added the reusable browser-bound collection failure matrix to `_WORKING_CONTEXT/03_STREAMER_CASE_GENERIC_PROTOCOL.md`.
+   - SOFTC.ONE Step5 is now recorded as: user-approved browser session, canonical streams URL, DOM row extraction primary, UI CSV download opportunistic only.

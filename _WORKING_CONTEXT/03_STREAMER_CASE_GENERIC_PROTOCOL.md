@@ -132,6 +132,29 @@ TargetBatchPlan
 
 Case-specific target plans may be named after a case, but the protocol remains case-agnostic.
 
+## Browser-Bound Collection Failure Matrix
+
+When a source is checkpoint-gated or browser-session-bound, separate the policy boundary from the technical execution path.
+
+Reusable handling:
+
+- Do not export or persist cookies, localStorage, session tokens, auth headers, or account secrets.
+- Use only an operator-approved browser session for bounded observation/collection.
+- CDP or persistent browser context is an execution transport, not a permission grant.
+- Record the confirmed canonical URL pattern once discovered; do not keep retrying dead URL variants.
+- Prefer structured API/RSC extraction when it is visible without secret persistence.
+- If no stable API exists and rows are rendered in the browser, DOM row extraction is an acceptable primary path when verified by downstream schema checks.
+- Treat UI download buttons as opportunistic. If framework/user-gesture/visibility handling makes them automation-unstable, use DOM extraction rather than repeated clicking.
+- Stop and preserve the boundary on 429 loops, repeated challenge loops, scope expansion, private/account data, or secret persistence uncertainty.
+
+Observed SOFTC.ONE Step5 route:
+
+- Source is checkpoint-gated and requires a user-approved browser session.
+- Canonical streams path: `/channel/{platform}/{channelId}/streams`.
+- `CSV 다운로드` is not automation-stable in current observations.
+- DOM row extraction is the primary §5 broadcast-record path unless later verification shows data loss.
+- Cookie/localStorage/session export remains prohibited.
+
 ## Output Discipline
 
 When Codex provides judgment support, write it as:
