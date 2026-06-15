@@ -1,0 +1,2676 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>needmorefal.gg — 제 채널, 성장 중인거 맞죠?</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== TOKENS ===== */
+:root {
+  --bg-base: #1a1a20;
+  --bg-elevated: #212128;
+  --bg-card: #24242b;
+  --bg-card-hover: #2c2c34;
+  --border: #32323c;
+  --border-subtle: #28282f;
+
+  --text-primary: #f0f0f4;
+  --text-secondary: #b8b8c4;
+  --text-muted: #7a7a88;
+  --text-dim: #555560;
+  --text-inverse: #0b0b0e;
+
+  --accent-green: #00FFA3;
+  --accent-green-dim: #064e36;
+  --neon-green: #00FFA3;
+  --neon-glow: 0 0 8px rgba(0, 255, 163, 0.3), 0 0 24px rgba(0, 255, 163, 0.12), 0 0 48px rgba(0, 255, 163, 0.06);
+  --accent-amber: #fbbf24;
+  --accent-red: #f87171;
+
+  /* 흑백 테마 */
+  --white-bg: #eeeef2;
+  --white-border: #d4d4dc;
+  --white-accent: #1a1a22;
+  --white-stat: #5a5a66;
+  --white-rank: #444450;
+  --white-glow: rgba(255, 255, 255, 0.15);
+  --black-bg: #08080b;
+  --black-border: #18181e;
+  --black-text: #e0e0e6;
+  --black-stat: #b8b8c2;
+  --black-rank: #d0d0d8;
+  --black-glow: rgba(0, 0, 0, 0.5);
+
+  --font-body: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --nav-h: 56px;
+  --sidebar-w: 380px;
+  --content-max: 640px;
+  --gap: 36px;
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* ===== GREEN NEON AMBIENT GLOW ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 50%, rgba(0, 255, 163, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 15% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(0, 255, 163, 0.04) 0%, transparent 60%);
+}
+
+/* ===== NAV ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: rgba(26, 26, 32, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  position: relative;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  position: absolute;
+  left: calc(50% - var(--content-max) / 2 - var(--gap) - 8px);
+  transform: translateX(-100%);
+}
+
+.logo span {
+  color: var(--accent-green);
+}
+
+.nav-cats {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-cat {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  transition: all 0.15s;
+  letter-spacing: 0.3px;
+}
+
+.nav-cat:hover {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-cat.active {
+  color: var(--neon-green);
+  background: rgba(0, 255, 163, 0.08);
+}
+
+.nav-cta {
+  position: absolute;
+  right: 32px;
+  font-size: 0.72rem;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font-body);
+}
+
+.nav-cta:hover {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  box-shadow: 0 0 8px rgba(0, 255, 163, 0.15);
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 80px 16px 64px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent-green);
+}
+
+.hero p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.hero-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green-dim);
+  background: rgba(52, 211, 153, 0.06);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr var(--sidebar-w);
+  gap: var(--gap);
+  max-width: calc(var(--sidebar-w) * 2 + var(--content-max) + var(--gap) * 2 + 80px);
+  margin: 0 auto;
+  padding: 0 32px;
+  height: calc(100vh - var(--nav-h));
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SCROLL COLUMNS ===== */
+.sidebar, .content {
+  overflow-y: auto;
+  height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a32 transparent;
+}
+
+.sidebar::-webkit-scrollbar,
+.content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.content::-webkit-scrollbar-thumb {
+  background: #2a2a32;
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.content::-webkit-scrollbar-thumb:hover {
+  background: #3a3a44;
+}
+
+/* ===== SIDEBARS ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 24px 0 80px;
+}
+
+/* Team header — typographic, not card */
+.team-header {
+  padding: 32px 8px 20px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+  text-align: center;
+  position: relative;
+  cursor: default;
+}
+
+.team-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.team-header:hover .team-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.team-white .team-tooltip {
+  background: #e4e4ea;
+  color: #2a2a34;
+  border: 1px solid #c8c8d0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.team-black .team-tooltip {
+  background: rgba(8, 8, 11, 0.92);
+  border: 1px solid rgba(0, 255, 163, 0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 255, 163, 0.08);
+}
+
+.team-tooltip strong {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.team-white .team-tooltip strong {
+  color: #1a1a22;
+}
+
+.team-black .team-tooltip strong {
+  color: var(--neon-green);
+}
+
+.team-header .team-label {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  line-height: 1;
+  display: block;
+  padding: 8px 0;
+}
+
+.team-header .team-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 6px;
+  color: var(--text-secondary);
+}
+
+.team-header .team-range {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  display: inline-block;
+}
+
+.team-white {
+  color: #a0a0ac;
+}
+
+.team-white .team-label {
+  color: #e8e8f0;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.team-white .team-range {
+  border-color: #3a3a44;
+}
+
+.team-black {
+  color: #a0a0ac;
+}
+
+.team-black .team-label {
+  color: var(--bg-base);
+  -webkit-text-stroke: 0.5px rgba(0, 255, 163, 0.6);
+  text-shadow: 0 0 6px rgba(0, 255, 163, 0.15);
+}
+
+.team-black .team-sub {
+  color: rgba(0, 255, 163, 0.5);
+}
+
+.team-black .team-range {
+  border-color: rgba(0, 255, 163, 0.15);
+  color: rgba(0, 255, 163, 0.35);
+}
+
+/* ===== STREAMER CARD — LCK STRIP STYLE ===== */
+.s-card {
+  position: relative;
+  overflow: hidden;
+  padding: 23px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+  cursor: default;
+  min-height: 72px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.s-card.flip-out {
+  animation: flipOut 0.75s ease-in forwards;
+}
+
+.s-card.flip-in {
+  animation: flipIn 0.75s ease-out forwards;
+}
+
+.s-card.flip-out-fast {
+  animation: flipOut 0.15s ease-in forwards;
+}
+
+.s-card.flip-in-fast {
+  animation: flipIn 0.15s ease-out forwards;
+}
+
+@keyframes flipOut {
+  0% { transform: rotateX(0); opacity: 1; }
+  100% { transform: rotateX(90deg); opacity: 0; }
+}
+
+@keyframes flipIn {
+  0% { transform: rotateX(-90deg); opacity: 0; box-shadow: 0 0 16px rgba(0,255,163,0.4); }
+  60% { box-shadow: 0 0 12px rgba(0,255,163,0.25); }
+  100% { transform: rotateX(0); opacity: 1; box-shadow: none; }
+}
+
+.s-card:last-child { border-bottom: none; }
+
+.s-card:hover { background: rgba(255,255,255,0.03); }
+
+/* 프로필 이미지 — 블러 페이드 블리딩 */
+.s-card[style*="--img"]::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 0;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+.s-rank {
+  display: none;
+}
+
+.s-rank-inline {
+  color: var(--text-dim);
+  margin-right: 2px;
+}
+
+.s-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.s-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+}
+
+.s-stat {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  margin-top: 3px;
+  color: var(--text-muted);
+}
+
+
+.s-trend {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.s-trend.up { color: var(--accent-green); }
+.s-trend.down { color: var(--accent-red); }
+.s-trend.flat { color: var(--text-muted); }
+
+/* ===== 백스트리머 (LEFT) — 밝은 스트립, 좌정렬 ===== */
+.sidebar-white .s-card {
+  background: var(--white-bg);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 26px 20px 24px 96px;
+  min-height: 77px;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.sidebar-white .s-card:hover {
+  background: #e4e4ea;
+}
+
+.sidebar-white .s-card[style*="--img"]::after {
+  left: 4px;
+  opacity: 0.9;
+}
+
+.sidebar-white .s-rank {
+  display: none;
+}
+
+.sidebar-white .s-name {
+  color: var(--white-accent);
+}
+
+.sidebar-white .s-stat {
+  color: var(--white-stat);
+}
+
+.sidebar-white .s-trend.up { color: #1a8a5a; }
+.sidebar-white .s-trend.down { color: #c44040; }
+.sidebar-white .s-trend.flat { color: #7a7a88; }
+
+/* ===== 흑스트리머 (RIGHT) — 투명 + 그린 네온 글로우 ===== */
+.sidebar-black .s-card {
+  background: rgba(8, 8, 11, 0.3);
+  border: 1px solid rgba(0, 255, 163, 0.15);
+  border-bottom-color: rgba(0, 255, 163, 0.15);
+  box-shadow: inset 0 0 12px rgba(0, 255, 163, 0.03), 0 0 8px rgba(0, 255, 163, 0.06);
+  flex-direction: row-reverse;
+  padding: 26px 96px 24px 20px;
+  min-height: 77px;
+  justify-content: flex-end;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.sidebar-black .s-card:hover {
+  background: rgba(0, 255, 163, 0.05);
+  border-color: rgba(0, 255, 163, 0.35);
+  box-shadow: inset 0 0 16px rgba(0, 255, 163, 0.06), 0 0 12px rgba(0, 255, 163, 0.15), 0 0 32px rgba(0, 255, 163, 0.08);
+}
+
+.sidebar-black .s-card[style*="--img"]::after {
+  right: 4px;
+  left: auto;
+  opacity: 0.9;
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+.sidebar-black .s-rank {
+  display: none;
+}
+
+.sidebar-black .s-name {
+  color: #e8fff4;
+}
+
+.sidebar-black .s-stat {
+  color: var(--black-stat);
+}
+
+.sidebar-black .s-trend {
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+.sidebar-black .s-trend.up { color: var(--neon-green); }
+.sidebar-black .s-trend.flat { color: #6a6a78; }
+
+/* ===== CENTER CONTENT ===== */
+.content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 8px 0;
+}
+
+.content-intro {
+  padding: 0 0 48px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 48px;
+}
+
+.content-intro h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.content-intro p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* ===== LESSON BLOCK ===== */
+.lesson {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.lesson:last-of-type {
+  border-bottom: none;
+}
+
+.lesson-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.lesson-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-green);
+  min-width: 24px;
+}
+
+.lesson-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.lesson-concept {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  padding-left: 36px;
+}
+
+.lesson-body {
+  padding-left: 36px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.lesson-body strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.lesson-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+  padding-left: 36px;
+}
+
+.lesson-toggle-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  padding: 5px 14px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.lesson-toggle-btn:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.lesson-toggle-btn:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.lesson-toggle-btn.active {
+  background: rgba(248, 113, 113, 0.08);
+  border-color: rgba(248, 113, 113, 0.3);
+  color: var(--accent-red);
+}
+
+.lesson-toggle-btn.active-neon {
+  background: rgba(0, 255, 163, 0.08);
+  border-color: rgba(0, 255, 163, 0.3);
+  color: var(--neon-green);
+}
+
+.lesson-view {
+  display: none;
+  padding-left: 36px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.lesson-view.active {
+  display: block;
+}
+
+.lesson-view strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.lesson-view.reading strong {
+  color: var(--neon-green);
+}
+
+.lesson-example {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--bg-elevated);
+  border-left: 2px solid var(--accent-green-dim);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.lesson-example .num {
+  font-family: var(--font-mono);
+  color: var(--accent-amber);
+}
+
+/* ===== DEMO POPUP ===== */
+.demo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-popup {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 40px 36px 32px;
+  max-width: 440px;
+  width: 90vw;
+  text-align: center;
+}
+.demo-popup h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.demo-popup p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.demo-popup button {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--accent-green);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 32px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.demo-popup button:hover { opacity: 0.85; }
+
+/* ===== SEARCH ===== */
+.nav-search {
+  position: relative;
+  margin-left: 12px;
+}
+.nav-search input {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px 12px 6px 28px;
+  width: 160px;
+  outline: none;
+  transition: border-color 0.2s, width 0.2s;
+}
+.nav-search input:focus {
+  border-color: var(--accent-green);
+  width: 220px;
+}
+.nav-search::before {
+  content: '⌕';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+/* search dropdown */
+.search-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 420px;
+  max-height: 52vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  z-index: 1000;
+  padding: 8px 0;
+}
+.search-dropdown.open { display: block; }
+.search-dropdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+}
+.search-dropdown thead th {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.35);
+  text-align: left;
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  background: var(--bg-card);
+}
+.search-dropdown tbody tr {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.search-dropdown tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+.search-dropdown td {
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  white-space: nowrap;
+}
+.search-dropdown td:first-child {
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+}
+.search-dropdown .sr-name { font-weight: 700; }
+.search-dropdown .sr-trend.up { color: var(--neon-green); }
+.search-dropdown .sr-trend.down { color: #f87171; }
+.search-dropdown .sr-trend.flat { color: rgba(255,255,255,0.3); }
+.search-dropdown-hint {
+  padding: 6px 12px;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.25);
+  text-align: right;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-family: var(--font-mono);
+}
+/* search page table */
+.search-page-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.search-page-header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.search-page-header span {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  font-family: var(--font-mono);
+}
+.search-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.search-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.35);
+  text-align: left;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+}
+.search-table tbody tr {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.search-table tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+.search-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.search-table td:first-child {
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+.search-table .sr-name { font-weight: 700; }
+.search-table .sr-side-w { color: rgba(255,255,255,0.5); }
+.search-table .sr-side-b { color: rgba(255,255,255,0.25); }
+.search-table .sr-trend.up { color: var(--neon-green); }
+.search-table .sr-trend.down { color: #f87171; }
+.search-table .sr-trend.flat { color: rgba(255,255,255,0.3); }
+.search-no-result {
+  padding: 48px 16px;
+  text-align: center;
+  color: rgba(255,255,255,0.25);
+  font-size: 0.85rem;
+}
+
+/* ===== PAGE SECTIONS ===== */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+/* 카테고리 페이지: 기존 사이드바 숨기고 카테고리 카드 표시 */
+.main-layout.cat-view .team-header,
+.main-layout.cat-view .s-card { display: none; }
+.cat-sidebar { display: none; }
+.main-layout.cat-view .cat-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 10px;
+}
+.cat-sidebar-card {
+  width: 50%;
+  height: calc(50vh - 56px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+/* 좌측 카드 → 왼쪽으로 빠짐 */
+.sidebar-left .cat-sidebar-card {
+  align-self: flex-start;
+  animation: slideOutLeft 0.6s ease-out both;
+}
+.sidebar-left .cat-sidebar-card:nth-child(2) { animation-delay: 0.1s; }
+/* 우측 카드 → 오른쪽으로 빠짐 */
+.sidebar-right .cat-sidebar-card {
+  align-self: flex-end;
+  animation: slideOutRight 0.6s ease-out both;
+}
+.sidebar-right .cat-sidebar-card:nth-child(2) { animation-delay: 0.1s; }
+
+@keyframes slideOutLeft {
+  from { transform: translateX(80%); opacity: 0; }
+  to   { transform: translateX(0);   opacity: 1; }
+}
+@keyframes slideOutRight {
+  from { transform: translateX(-80%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+.cat-sidebar-card .cat-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-green);
+  margin-bottom: 12px;
+}
+.cat-sidebar-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.cat-sidebar-card p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+.cat-sidebar-card .cat-card-stat {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--neon-green);
+  margin-top: 16px;
+}
+
+/* ===== MARKET INSIGHT (카테고리 페이지) ===== */
+.market-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 32px 0;
+}
+.market-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 20px 16px;
+}
+.market-value {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--neon-green);
+  margin-bottom: 4px;
+}
+.market-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.market-note {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+}
+.market-trend {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.market-trend h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.market-trend p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+
+/* ===== CATEGORY DIVIDER ===== */
+.category {
+  padding: 56px 0 8px;
+  margin-bottom: 0;
+}
+
+.category-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-green);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--accent-green-dim);
+}
+
+/* ===== PRICING ===== */
+.pricing-section {
+  padding: 16px 0 0;
+}
+
+.pricing-card {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.pricing-card:last-child {
+  border-bottom: none;
+}
+
+.pricing-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pricing-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.pricing-tag.entry { background: var(--bg-elevated); color: var(--text-secondary); }
+.pricing-tag.main { background: rgba(0, 255, 163, 0.12); color: var(--neon-green); }
+.pricing-tag.addon { background: var(--bg-elevated); color: var(--text-secondary); }
+.pricing-tag.subscribe { background: rgba(0, 255, 163, 0.06); color: var(--accent-green); }
+
+.pricing-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.pricing-price {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.pricing-card.featured .pricing-name {
+  color: var(--neon-green);
+}
+.sample-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  margin-left: 8px;
+  background: transparent;
+  border: 1px solid rgba(0, 255, 163, 0.35);
+  color: var(--neon-green);
+  border-radius: 4px;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background 0.2s, border-color 0.2s;
+  letter-spacing: 0.5px;
+}
+.sample-btn:hover {
+  background: rgba(0, 255, 163, 0.1);
+  border-color: var(--neon-green);
+}
+
+.pricing-card.featured .pricing-price {
+  color: var(--text-primary);
+}
+
+.pricing-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  text-align: center;
+  padding: 80px 32px 100px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+
+.cta-section p {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  font-size: 0.85rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: var(--neon-green);
+  color: #0a0a0e;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+  box-shadow: 0 0 12px rgba(0, 255, 163, 0.25), 0 0 32px rgba(0, 255, 163, 0.1);
+}
+
+.cta-btn:hover {
+  background: #33ffb5;
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px rgba(0, 255, 163, 0.4), 0 0 48px rgba(0, 255, 163, 0.15);
+}
+
+.cta-sub {
+  margin-top: 16px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ===== SCROLL ARROWS ===== */
+.scroll-arrows {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  display: flex;
+  gap: 6px;
+  z-index: 90;
+}
+.scroll-arrow {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(26, 26, 32, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.scroll-arrow:hover {
+  border-color: rgba(0, 255, 163, 0.3);
+  color: var(--neon-green);
+  background: rgba(0, 255, 163, 0.06);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 32px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--text-secondary);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1560px) {
+  :root {
+    --sidebar-w: 300px;
+  }
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --sidebar-w: 240px;
+  }
+  /* trend is now inline in s-stat */
+}
+
+@media (max-width: 860px) {
+  body {
+    overflow: auto;
+    height: auto;
+  }
+
+  /* NAV */
+  nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 16px;
+    gap: 8px;
+    justify-content: space-between;
+  }
+  .logo {
+    position: static;
+    transform: none;
+    font-size: 0.85rem;
+  }
+  .nav-cats {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 2px;
+  }
+  .nav-cats::-webkit-scrollbar { display: none; }
+  .nav-cat { font-size: 0.6rem; padding: 4px 8px; white-space: nowrap; }
+  .nav-search {
+    order: 2;
+    margin-left: auto;
+  }
+  .nav-search input { width: 120px; font-size: 0.6rem; padding: 5px 10px 5px 24px; }
+  .nav-search input:focus { width: 150px; }
+  .nav-search::before { font-size: 0.72rem; left: 8px; }
+  .nav-cta {
+    position: static;
+    font-size: 0.6rem;
+    padding: 5px 10px;
+    order: 2;
+  }
+  .search-dropdown { width: 90vw; left: auto; right: 0; }
+
+  /* LAYOUT */
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 0 16px 80px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .sidebar, .content {
+    overflow-y: visible;
+    height: auto;
+  }
+
+  /* SIDEBAR → SWIPER */
+  .sidebar {
+    position: relative;
+    display: block;
+    padding: 12px 0;
+    overflow: hidden;
+  }
+  .team-header { display: none; }
+
+  .sidebar-left { order: -1; }  /* 백 먼저 */
+  .content { order: 1; }
+  .sidebar-right { order: 0; } /* 흑 두번째 */
+
+  .s-card {
+    display: none;
+    min-width: 0;
+    padding: 14px 44px;
+  }
+  .s-card.mob-active { display: flex; }
+  .s-card[style*="--img"]::after { display: none; }
+  .s-name { font-size: 0.85rem; }
+  .s-stat { font-size: 0.6rem; }
+
+  /* 스와이프 화살표 */
+  .mob-arrow {
+    position: absolute;
+    top: calc(50% + 8px);  /* 팀 라벨 높이 보정 */
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+  }
+  .mob-arrow:active { background: rgba(255,255,255,0.12); }
+  .mob-arrow-prev { left: 8px; }
+  .mob-arrow-next { right: 8px; }
+
+  /* 팀 라벨 (모바일 전용) */
+  .mob-team-label {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  /* HERO */
+  .hero { padding: 48px 16px 36px; }
+  .hero h1 { font-size: 1.4rem; }
+  .hero-label { font-size: 0.6rem; }
+  .hero p { font-size: 0.72rem; }
+
+  /* LESSONS */
+  .lesson-body,
+  .lesson-concept { padding-left: 0; }
+  .lesson-header { gap: 8px; }
+  .lesson-step { padding: 20px 0; }
+  .lesson-num { font-size: 1rem; }
+  .lesson-header h3 { font-size: 1rem; }
+  .lesson-cols { flex-direction: column; gap: 16px; }
+  .lesson-col { padding: 16px; }
+  .lesson-col-title { font-size: 0.6rem; }
+
+  /* PRICING */
+  .pricing-card { padding: 20px 0; }
+  .pricing-name { font-size: 1rem; }
+  .pricing-price { font-size: 1.2rem; }
+  .pricing-desc { font-size: 0.72rem; }
+
+  /* CTA */
+  .cta-section { padding: 48px 16px; }
+  .cta-section h2 { font-size: 1.4rem; }
+  .cta-section p { font-size: 0.72rem; }
+  .cta-actions { flex-direction: column; gap: 12px; align-items: stretch; }
+  .cta-actions .cta-primary,
+  .cta-actions .cta-secondary { text-align: center; }
+
+  /* MODAL */
+  .modal-panel {
+    width: 92vw;
+    padding: 24px 18px 20px;
+    max-height: 85vh;
+  }
+  .modal-metrics { grid-template-columns: 1fr 1fr; }
+  .modal-name { font-size: 1.2rem; }
+
+  /* DEMO POPUP */
+  .demo-popup { padding: 28px 20px 24px; }
+  .demo-popup h3 { font-size: 1rem; }
+  .demo-popup p { font-size: 0.72rem; }
+
+  /* CATEGORY PAGES */
+  .cat-sidebar { display: none !important; }
+  .main-layout.cat-view .content { width: 100%; }
+  .market-metrics { grid-template-columns: 1fr; }
+  .market-value { font-size: 1.2rem; }
+
+  /* SEARCH PAGE */
+  .search-table { font-size: 0.72rem; }
+  .search-table th,
+  .search-table td { padding: 8px 10px; }
+  .search-page-header h2 { font-size: 1rem; }
+
+  /* FOOTER */
+  footer { padding: 20px 16px; font-size: 0.6rem; }
+}
+
+/* global scrollbar removed — each column has its own */
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 10, 14, 0.75);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.96);
+  z-index: 201;
+  width: 520px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 32px 28px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a32 transparent;
+}
+
+.modal-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-panel.team-black {
+  border-color: rgba(0, 255, 163, 0.2);
+  box-shadow: 0 0 40px rgba(0, 255, 163, 0.08);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+.modal-close:hover { color: var(--text-primary); }
+
+.modal-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.modal-panel.team-black .modal-avatar {
+  box-shadow: 0 0 12px rgba(0, 255, 163, 0.2);
+}
+
+.modal-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.modal-rank {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* 지표 그리드 */
+.modal-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.modal-metric {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.modal-metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.modal-metric-value {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modal-metric-value.up { color: var(--neon-green); }
+.modal-metric-value.down { color: var(--accent-red); }
+
+/* 더미 차트 */
+.modal-chart {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-chart canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* 해석 */
+.modal-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.modal-interpretation {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.modal-interpretation strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.modal-cta {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  background: rgba(0, 255, 163, 0.08);
+  border: 1px solid rgba(0, 255, 163, 0.2);
+  border-radius: 8px;
+  color: var(--neon-green);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  text-decoration: none;
+  transition: all 0.15s;
+  letter-spacing: 0.5px;
+}
+
+.modal-cta:hover {
+  background: rgba(0, 255, 163, 0.14);
+  border-color: rgba(0, 255, 163, 0.4);
+}
+
+</style>
+</head>
+<body>
+
+<!-- DEMO DISCLAIMER POPUP -->
+<div class="demo-overlay" id="demoOverlay">
+  <div class="demo-popup">
+    <h3>데모 페이지 안내</h3>
+    <p>본 사이트는 현재 데모 페이지입니다.<br>
+    표시된 데이터는 공개 데이터 기반의 샘플이며,<br>
+    실제 분석 결과와 다를 수 있습니다.</p>
+    <button onclick="document.getElementById('demoOverlay').style.display='none'">확인</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">needmorefal<span>.gg</span></div>
+  <div class="nav-cats">
+    <a href="#" class="nav-cat active" data-target="main">메인</a>
+    <a href="#" class="nav-cat" data-target="lol">롤</a>
+    <a href="#" class="nav-cat" data-target="general">종합게임</a>
+    <a href="#" class="nav-cat" data-target="chat">저챗</a>
+    <a href="#" class="nav-cat" data-target="vtuber">버튜버</a>
+  </div>
+  <div class="nav-search">
+    <input type="text" id="streamer-search" placeholder="스트리머 검색" autocomplete="off">
+    <div class="search-dropdown" id="search-dropdown">
+      <table>
+        <thead><tr><th>#</th><th>이름</th><th>팔로워</th><th>평청</th><th>추세</th></tr></thead>
+        <tbody id="dropdown-tbody"></tbody>
+      </table>
+      <div class="search-dropdown-hint">Enter ↵ 전체 보기</div>
+    </div>
+  </div>
+  <button class="nav-cta">내 채널 진단받기</button>
+</nav>
+
+<!-- MAIN 3-COL LAYOUT -->
+<div class="main-layout">
+
+  <!-- LEFT SIDEBAR: 백스트리머 -->
+  <aside class="sidebar sidebar-left sidebar-white">
+    <div class="team-header team-white">
+      <div class="team-label">WHITE</div>
+      <div class="team-sub">streamer team</div>
+      <div class="team-range">RANK 1 – 1,000</div>
+      <div class="team-tooltip">
+        <strong>상위 1,000위</strong>
+        이미 시청자 기반이 형성된 채널. 성장보다 유지·최적화가 과제인 구간. 데이터 오독이 치명적 비용으로 이어지는 레벨.
+      </div>
+    </div>
+
+    <!-- cards rendered by JS -->
+
+    <!-- 카테고리 페이지 전용 사이드바 -->
+    <div class="cat-sidebar">
+      <div class="cat-sidebar-card">
+        <div>
+          <div class="cat-card-tag">broadcast rights</div>
+          <h4>중계권 지각변동</h4>
+          <p>2026~2030 LCK 국내 생중계 치지직+SOOP 독점. 유튜브 국내 생중계 탈락. 실시간 유입 경로가 근본적으로 바뀜.</p>
+        </div>
+        <div class="cat-card-stat">2플랫폼</div>
+      </div>
+      <div class="cat-sidebar-card">
+        <div>
+          <div class="cat-card-tag">player base</div>
+          <h4>유저풀 안정화</h4>
+          <p>MAU 152M(2022 피크) → 130M(2026). 하락이 아니라 고원. 15년차 게임의 자연 궤적.</p>
+        </div>
+        <div class="cat-card-stat">~130M</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CENTER CONTENT -->
+  <main class="content">
+
+    <!-- ===== 메인 페이지 ===== -->
+    <div class="page-section active" data-page="main">
+
+    <section class="hero">
+      <div class="hero-label">DATA READING & CONSULTING SERVICE</div>
+      <h1>제 채널,<br><em>성장 중</em>인거 맞죠?</h1>
+      <p>플랫폼이 보여주는 숫자를 그대로 믿으면 착각한다. 스트리머 데이터를 진짜로 읽는 법.</p>
+    </section>
+
+    <div class="content-intro">
+      <h2>대시보드 숫자, 그대로 믿고 있다면</h2>
+      <p>같은 데이터도 읽는 방식에 따라 정반대 결론이 나온다. 우리가 자주 보는 착각 패턴 몇 가지.</p>
+    </div>
+
+    <!-- ===== 축소 에세이: 4개 ===== -->
+    <div class="category">
+      <div class="category-label">SAMPLE — 이런 걸 잡아냅니다</div>
+    </div>
+
+    <div class="lesson">
+      <div class="lesson-header">
+        <span class="lesson-num">01</span>
+        <h3 class="lesson-title">평균의 함정</h3>
+      </div>
+      <div class="lesson-concept">Mean vs Median</div>
+      <div class="lesson-toggle">
+        <button class="lesson-toggle-btn active" data-view="misread">오독</button>
+        <button class="lesson-toggle-btn" data-view="reading">해석</button>
+      </div>
+      <div class="lesson-view misread active">
+        "평균 동접 1,200이면 상위 30%니까 잘 가고 있는 거 아닌가요?" 대시보드가 보여주는 평균을 <strong>그대로 자기 채널의 '보통'이라고 믿는다.</strong>
+      </div>
+      <div class="lesson-view reading">
+        평균 1,200인데 중간값은 400. 특정 방송 1회가 평균을 끌어올리고 있고, 일상 방송 기반은 400 수준. <strong>성장이 아니라 이벤트 의존 구조.</strong> 중간값과 분포를 같이 봐야 실제 체력이 보인다.
+      </div>
+    </div>
+
+    <div class="lesson">
+      <div class="lesson-header">
+        <span class="lesson-num">02</span>
+        <h3 class="lesson-title">퍼센트의 마법</h3>
+      </div>
+      <div class="lesson-concept">Relative vs Absolute Change</div>
+      <div class="lesson-toggle">
+        <button class="lesson-toggle-btn active" data-view="misread">오독</button>
+        <button class="lesson-toggle-btn" data-view="reading">해석</button>
+      </div>
+      <div class="lesson-view misread active">
+        "동접이 +100% 올랐어요! 폭발 성장 중입니다!" 대시보드의 퍼센트를 보고 <strong>채널이 두 배로 컸다고 판단한다.</strong>
+      </div>
+      <div class="lesson-view reading">
+        동접 50→100은 +100%. 동접 5,000→5,050도 똑같이 50명. 작은 채널의 퍼센트는 과장되고, 큰 채널은 축소된다. <strong>절대값과 상대값을 분리해야 진짜 규모가 보인다.</strong>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <div class="lesson-header">
+        <span class="lesson-num">03</span>
+        <h3 class="lesson-title">생존자 편향</h3>
+      </div>
+      <div class="lesson-concept">Survivorship Bias</div>
+      <div class="lesson-toggle">
+        <button class="lesson-toggle-btn active" data-view="misread">오독</button>
+        <button class="lesson-toggle-btn" data-view="reading">해석</button>
+      </div>
+      <div class="lesson-view misread active">
+        "저 스트리머는 매일 10시간 해서 떴으니까 나도 그렇게 하면 되겠지." <strong>성공한 채널의 방법만 보고 따라한다.</strong>
+      </div>
+      <div class="lesson-view reading">
+        같은 방법으로 실패한 수천 명은 안 보인다. 우리가 보는 건 살아남은 쪽뿐. <strong>실패 데이터 없이 성공 공식을 뽑으면 동전 던지기와 같다.</strong> 비교군이 있어야 원인이 분리된다.
+      </div>
+    </div>
+
+    <div class="lesson">
+      <div class="lesson-header">
+        <span class="lesson-num">04</span>
+        <h3 class="lesson-title">허영 지표</h3>
+      </div>
+      <div class="lesson-concept">Vanity Metrics</div>
+      <div class="lesson-toggle">
+        <button class="lesson-toggle-btn active" data-view="misread">오독</button>
+        <button class="lesson-toggle-btn" data-view="reading">해석</button>
+      </div>
+      <div class="lesson-view misread active">
+        "팔로워 10만이면 괜찮은 채널 아닌가요?" <strong>큰 숫자를 건강한 채널의 증거로 읽는다.</strong>
+      </div>
+      <div class="lesson-view reading">
+        팔로워 10만, 실 시청자 200. 전환율 0.2%. 팔로워는 과거 최대 노출이지 현재 건강이 아니다. <strong>시청 시간, 채팅 참여율, 리텐션이 진짜 지표.</strong> 큰 숫자가 좋은 숫자는 아니다.
+      </div>
+    </div>
+
+    <div style="text-align:center; padding:32px 0 8px; color:var(--text-muted); font-family:var(--font-mono); font-size:0.72rem; letter-spacing:1px;">
+      ...외 16가지 패턴은 진단 보고서에서 채널별로 맞춤 적용됩니다.
+    </div>
+
+    <!-- ===== 상품 사다리 ===== -->
+    <section class="pricing-section">
+      <div class="category">
+        <div class="category-label">SERVICE — 상품 안내</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <span class="pricing-tag entry">진입</span>
+          <h3 class="pricing-name">채널 건강검진</h3>
+        </div>
+        <div class="pricing-price">15만원~</div>
+        <div class="pricing-desc">
+          현재 채널 상태를 빠르게 진단합니다. 핵심 지표 점검, 동급 채널 비교, 즉시 개선 가능한 포인트 도출. 보고서로 이어질 경우 건강검진 비용은 전액 공제됩니다.
+        </div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-header">
+          <span class="pricing-tag main">주력</span>
+          <h3 class="pricing-name">성장 진단 보고서 <button class="sample-btn" onclick="document.getElementById('sampleModal').style.display='flex'">샘플보기</button></h3>
+        </div>
+        <div class="pricing-price"><span style="color:var(--neon-green);"><s style="opacity:0.4;">80만원</s> → 20만원 <span style="font-size:0.72rem; font-weight:600;">(파일럿 10명 선착순)</span></span></div>
+        <div class="pricing-desc">
+          채널 데이터 심층 분석. 성장 구간 식별, 이탈 원인 분석, 카테고리 내 포지션 진단, 구체적인 다음 액션까지. 채널 하나에 대한 완전한 해석.
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <span class="pricing-tag addon">부가</span>
+          <h3 class="pricing-name">외부 전달용 패키지</h3>
+        </div>
+        <div class="pricing-price">+5만원</div>
+        <div class="pricing-desc">
+          MCN, 광고주, 매니저에게 전달할 수 있는 포맷으로 재구성. 성장 진단 보고서에 추가하는 옵션입니다.
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <span class="pricing-tag subscribe">구독</span>
+          <h3 class="pricing-name">월간 모니터</h3>
+        </div>
+        <div class="pricing-price">월 12만원 <span style="font-size:0.72rem; color:var(--text-muted);">(분기 약정)</span></div>
+        <div class="pricing-desc">
+          매월 채널 변화를 추적하고 해석합니다. 전략 방향이 맞는지 지속 검증. 숫자가 아니라 방향을 봅니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2>내 채널 진단 받고싶다면,</h2>
+      <p>채널 주소만 보내주시면 됩니다. 간단한 건강검진부터 시작합니다.</p>
+      <p style="color:var(--neon-green); margin:18px 0 24px; font-weight:600; letter-spacing:1px;">STREAM YOUR DREAM</p>
+      <a href="mailto:faust.12108@gmail.com?subject=채널 진단 문의&body=채널 주소:%0A궁금한 점:" class="cta-btn">문의하기</a>
+      <div class="cta-sub">faust.12108@gmail.com · 건강검진 비용은 보고서 진행 시 전액 공제</div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>needmorefal.gg · <a href="mailto:faust.12108@gmail.com">faust.12108@gmail.com</a></p>
+      <p style="margin-top:6px;">&copy; 2026</p>
+    </footer>
+
+    </div><!-- /page-section main -->
+
+    <!-- ===== 롤 페이지 ===== -->
+    <div class="page-section" data-page="lol">
+
+      <section class="hero">
+        <div class="hero-label">MARKET INSIGHT — LEAGUE OF LEGENDS</div>
+        <h1>롤 스트리밍,<br><em>정점 이후</em>의 전략</h1>
+        <p>MAU 1.3억, 트위치 시청 1위. 그런데 개인 스트리머의 체감은 다르다.</p>
+      </section>
+
+      <div class="market-metrics">
+        <div class="market-card">
+          <div class="market-value">~130M</div>
+          <div class="market-label">월간 활성 유저</div>
+          <div class="market-note">2022년 피크(152M) 대비 -14% 안정화</div>
+        </div>
+        <div class="market-card">
+          <div class="market-value">16.7억</div>
+          <div class="market-label">2025 트위치 총 뷰</div>
+          <div class="market-note">전체 게임 카테고리 1위</div>
+        </div>
+        <div class="market-card">
+          <div class="market-value">86%</div>
+          <div class="market-label">상위 5% 시청 점유</div>
+          <div class="market-note">2019년 98%에서 하락 — 중소 공간 확대</div>
+        </div>
+        <div class="market-card">
+          <div class="market-value">60 : 40</div>
+          <div class="market-label">치지직 : SOOP</div>
+          <div class="market-note">2026 LCK 국내 시청 점유율</div>
+        </div>
+      </div>
+
+      <div class="market-trend">
+        <h3>중계권 지각변동</h3>
+        <p>2026~2030 LCK 국내 생중계가 치지직+SOOP 독점으로 전환됐다. 유튜브는 국내 생중계에서 빠졌고, 재방·클립만 남았다. 실시간 시청자 유입 경로가 근본적으로 바뀌면서, 치지직 기반 채널에겐 기회가 열리고 유튜브 의존도 높던 채널에겐 전환 압박이 생겼다.</p>
+      </div>
+
+      <div class="market-trend">
+        <h3>파이는 크고, 개인 몫은 줄었다</h3>
+        <p>롤은 여전히 트위치 시청 1위 게임이다. 그런데 전체 시청량은 YoY -17%(Q2 2024 기준). 상위 5%의 점유율이 98%→86%로 내려와 중소 스트리머에게 틈이 생겼지만, 그 틈에서 살아남으려면 범용 롤 방송이 아니라 니치가 필요하다.</p>
+      </div>
+
+      <div class="market-trend">
+        <h3>니치 전략이 생존 전략</h3>
+        <p>코칭, 챔피언 원트릭, 특정 티어 공략, 패치 분석, 캐릭터성 기반 엔터테인먼트. 프로·전직 프로와 정면 경쟁하는 대신, 그들이 안 건드리는 영역을 잡는 게 성장 경로다. 우리가 잡아내는 건 — 당신의 채널이 어떤 니치에서 실제로 작동하고 있는지, 데이터로.</p>
+      </div>
+
+      <div class="cta-section">
+        <h2>롤 채널, 지금 어디 서 있는지 아세요?</h2>
+        <p>채널 주소만 보내주시면 됩니다. 롤 시장 맥락 위에서 당신의 채널을 읽어드립니다.</p>
+        <p style="color:var(--neon-green); margin:18px 0 24px; font-weight:600; letter-spacing:1px;">STREAM YOUR DREAM</p>
+        <a href="mailto:faust.12108@gmail.com?subject=롤 채널 진단 문의&body=채널 주소:%0A궁금한 점:" class="cta-btn">문의하기</a>
+      </div>
+
+      <footer>
+        <p>needmorefal.gg · <a href="mailto:faust.12108@gmail.com">faust.12108@gmail.com</a></p>
+        <p style="margin-top:6px;">&copy; 2026</p>
+      </footer>
+
+    </div><!-- /page-section lol -->
+
+    <!-- ===== 종합게임 페이지 (placeholder) ===== -->
+    <div class="page-section" data-page="general">
+      <section class="hero">
+        <div class="hero-label">MARKET INSIGHT — MULTI-GAME</div>
+        <h1>종합게임,<br><em>신작 사이클</em>을 타는 법</h1>
+        <p>준비 중입니다.</p>
+      </section>
+    </div>
+
+    <!-- ===== 저챗 페이지 (placeholder) ===== -->
+    <div class="page-section" data-page="chat">
+      <section class="hero">
+        <div class="hero-label">MARKET INSIGHT — JUST CHATTING</div>
+        <h1>저챗,<br><em>커뮤니티</em>가 곧 콘텐츠</h1>
+        <p>준비 중입니다.</p>
+      </section>
+    </div>
+
+    <!-- ===== 버튜버 페이지 (placeholder) ===== -->
+    <div class="page-section" data-page="vtuber">
+      <section class="hero">
+        <div class="hero-label">MARKET INSIGHT — VTUBER</div>
+        <h1>버튜버,<br><em>아바타 너머</em>의 성장</h1>
+        <p>준비 중입니다.</p>
+      </section>
+    </div>
+
+    <!-- SEARCH PAGE -->
+    <div class="page-section" data-page="search">
+      <section style="padding:48px 0;">
+        <div class="search-page-header">
+          <h2>스트리머 리스트</h2>
+          <span id="search-count"></span>
+        </div>
+        <table class="search-table">
+          <thead><tr><th>#</th><th>이름</th><th>팔로워</th><th>평청</th><th>사이드</th><th>추세</th></tr></thead>
+          <tbody id="search-page-tbody"></tbody>
+        </table>
+        <div class="search-no-result" id="search-no-result" style="display:none">일치하는 스트리머가 없습니다</div>
+      </section>
+    </div>
+
+    <!-- SAMPLE REPORT MODAL -->
+    <div id="sampleModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+      <div style="position:relative;width:90vw;max-width:900px;height:88vh;border-radius:12px;overflow:hidden;box-shadow:0 0 40px rgba(0,255,163,0.15);">
+        <button onclick="document.getElementById('sampleModal').style.display='none'" style="position:absolute;top:12px;right:14px;z-index:10;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">&times;</button>
+        <iframe src="sample_report.pdf" style="width:100%;height:100%;border:none;border-radius:12px;"></iframe>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- RIGHT SIDEBAR: 흑스트리머 -->
+  <aside class="sidebar sidebar-right sidebar-black">
+    <div class="team-header team-black">
+      <div class="team-label">BLACK</div>
+      <div class="team-sub">streamer team</div>
+      <div class="team-range">RANK 1,000 – 10,000++</div>
+      <div class="team-tooltip">
+        <strong>1,000 – 10,000++위</strong>
+        성장 잠재력은 있지만 방향이 안 잡힌 채널. 숫자가 작아서 오히려 데이터 해석이 더 까다로운 구간. 여기서 패턴을 제대로 읽으면 티어 점프가 가능.
+      </div>
+    </div>
+
+    <!-- cards rendered by JS -->
+
+    <!-- 카테고리 페이지 전용 사이드바 -->
+    <div class="cat-sidebar">
+      <div class="cat-sidebar-card">
+        <div>
+          <div class="cat-card-tag">market share</div>
+          <h4>상위 집중도 완화</h4>
+          <p>상위 5% 스트리머의 시청 점유가 98%(2019) → 86%(2024)로 하락. 중소형 채널에 공간이 열리고 있다.</p>
+        </div>
+        <div class="cat-card-stat">86%</div>
+      </div>
+      <div class="cat-sidebar-card">
+        <div>
+          <div class="cat-card-tag">niche strategy</div>
+          <h4>범용에서 니치로</h4>
+          <p>코칭, 원트릭, 티어 공략, 패치 분석. 프로와 정면 경쟁 대신 빈 영역을 잡는 게 성장 경로.</p>
+        </div>
+        <div class="cat-card-stat">니치</div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- SCROLL ARROWS -->
+<div class="scroll-arrows">
+  <button class="scroll-arrow" id="scrollUp" title="맨 위로">↑</button>
+  <button class="scroll-arrow" id="scrollDown" title="맨 아래로">↓</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="modal-panel" id="modalPanel">
+  <button class="modal-close" id="modalClose">&times;</button>
+  <div class="modal-top">
+    <img class="modal-avatar" id="modalAvatar" src="" alt="">
+    <div>
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-rank" id="modalRank"></div>
+    </div>
+  </div>
+  <div class="modal-metrics" id="modalMetrics"></div>
+  <div class="modal-chart"><canvas id="modalChart"></canvas></div>
+  <div class="modal-section-label">interpretation — 왜?</div>
+  <div class="modal-interpretation" id="modalInterp"></div>
+  <a href="/consult" class="modal-cta" id="modalCta">내 채널과 비교해보기 →</a>
+</div>
+
+<script>
+// ===== 실데이터 + 더미데이터 =====
+const streamerData = {
+  "얍얍":{"side":"WHITE","rank":7,"followers":115849,"peak":19331,"avgViewers":3348,"cat1":null,"cat2":null,"chart":[3274,3670,1670,3635,1776,4107,3183,5337,3464,3080,3117,3694,5021,4102,4264,4266,2803,2821,3162,2976,3357,2306,2421,3150],"img":"https://nng-phinf.pstatic.net/MjAyMzEyMjFfMjYy/MDAxNzAzMTE0MjY0MzEw.4HN2-Prah0mvcdg91VweUfHaVWReJvn4GfnNLoXild4g.uMLiWaqHAhnsVnUozRdWca8fNhNsPlDK1q0bbyIxDeQg.PNG/dbb514f1-469b-479e-b5ba-3ac0f09a2776-profile_image-300x300.png?type=f120_120_na"},
+  "빙하유":{"side":"WHITE","rank":112,"followers":52929,"peak":4132,"avgViewers":555,"cat1":"talk","cat1_share":"50.0","cat2":"림버스 컴퍼니","cat2_share":"13.5","chart":[1047,329,285,315,541,541,650,514,485,524,508,449,429,615,470,551,530,343,513,458,631,663,385,275],"img":"https://nng-phinf.pstatic.net/MjAyMzEyMDZfMzEg/MDAxNzAxODcyODIxNDg0.4ouHV__srwjrJ5ECQ18gXcPi0Jf6LWYeri573h2vcc4g.Bci_M3Dmxs3Q7g7AJnSErIsGvzdBu1TWbAwlnsWhnlgg.PNG/vts-2023-07-17_20h47_56.png?type=f120_120_na"},
+  "나짬타수아아니다":{"side":"WHITE","rank":238,"followers":0,"peak":1358,"avgViewers":874,"cat1":null,"cat2":null,"chart":[987,817],"img":"https://nng-phinf.pstatic.net/MjAyMzEyMTlfMjI1/MDAxNzAyOTYyNDU1NTI3.4WKdNK4BcTDFSvX_gjdJsAfH3ynWZZZ8C5sen73eRYwg._-F1A9Z2kziTLnDDULVPqqlP6q3NwHMF8RyYmETuwN4g.JPEG/KakaoTalk_20221210_134249371.jpg?type=f120_120_na"},
+  "아랏쏘":{"side":"WHITE","rank":342,"followers":20485,"peak":669,"avgViewers":207,"cat1":null,"cat2":null,"chart":[464,464,201,167,130,285,183,168,140,238,138,108,130,142,111,99,123,139,247,215,297,369],"img":"https://nng-phinf.pstatic.net/MjAyNDA1MDNfMTI1/MDAxNzE0NzIyMzE5NDQ5.-SiM9CseME0VJdL6fbu6oYmrVc_cJoaoj4LV3wnGCP8g.EHwvVukPLhTfl-eBN3-fiJSZrqLIbD5cYWZT36DQaxwg.JPEG/%EC%9A%B0%EB%8A%94%EA%B3%A0%EC%96%91%EC%9D%B4.jpg?type=f120_120_na"},
+  "광말구짱":{"side":"WHITE","rank":458,"followers":14927,"peak":1620,"avgViewers":266,"cat1":"천하제일상거상","cat1_share":"67.1","cat2":"로스트아크","cat2_share":"13.9","chart":[399,314,137,274,311,204,280,266,198,214,218,250,182,220,258,239,213,170,258,224,236,239,241,214],"img":"https://nng-phinf.pstatic.net/MjAyNjAzMDJfNDMg/MDAxNzcyNDMwNTQyMjEy.yy7rL0zzDDnnb3Lab_xduIv1UkZQORGq0NdS-RlzqPog.PIr8ihCtLya7iSz0UOpWrf-ouGdHOWugTjWDHBtmDC8g.PNG/image.png?type=f120_120_na"},
+  "김갑주":{"side":"WHITE","rank":523,"followers":13212,"peak":562,"avgViewers":80,"cat1":null,"cat2":null,"chart":[66,40,189,54,45],"img":"https://nng-phinf.pstatic.net/MjAyNDEyMjVfMjkx/MDAxNzM1MDYxMjU0MTEy.KXXk7EpuQPLvRx4Y7wo-h5Hyb0LC8-1t_lgR233IuzQg.pudv4pxewQicA9-Q2yTSRL7llqgPganUYqLR8jRnHBQg.PNG/05FB2972-81F6-465D-AEE3-67C6CF8D0A76-1735061253.png?type=f120_120_na"},
+  "메기 간다효":{"side":"WHITE","rank":601,"followers":11589,"peak":1292,"avgViewers":224,"cat1":"talk","cat1_share":"100.0","cat2":null,"chart":[230,234,132,231,212,137,195,199,127,196,159,237,265,378,258,214,211,211,185,169,235,221,246,258],"img":"https://nng-phinf.pstatic.net/MjAyNTAxMDhfODcg/MDAxNzM2MjY2NTA4NDU5.otTuslKGL4MZhJAw77B3u2n_4QiRxxtgMrFnwu6tjVwg.pHwUhlhNwpOjxuDB8WPAMC12tnG5Cd3SELmyAjJ0uP0g.JPEG/%E3%85%81%E3%85%87%EB%A1%AC%EB%A1%B1%E3%85%87%EB%A1%9C.jpg?type=f120_120_na"},
+  "순이":{"side":"WHITE","rank":761,"followers":537,"peak":130,"avgViewers":24,"cat1":"월드 오브 워크래프트 클래식","cat1_share":"100.0","cat2":null,"chart":[15,27,25,27,17,38,4,7,18,21,7,6,25,17,37,33,33,45,52,41,37,33,32,26],"img":"https://nng-phinf.pstatic.net/MjAyNDAyMjdfMjIz/MDAxNzA4OTc1NzIwMzk0.Mj9PXniy2hyj5GRXyVFnGngwONWN_cK8nJjrhrzmAYcg.cXZtANBp7wCtyyG-l1s-o7I65VdhhzJtGfk98vvjOMYg.JPEG/%ED%94%84%EC%82%AC.jpg?type=f120_120_na"},
+  "시니42 그림선생":{"side":"WHITE","rank":875,"followers":7430,"peak":171,"avgViewers":87,"cat1":"그림/아트","cat1_share":"100.0","cat2":null,"chart":[90,74,74,83,68,87,113,90,97,64,77,75,76,100,81,95,66,80,106,89,79,113,84,85],"img":"https://nng-phinf.pstatic.net/MjAyNTA3MjlfMTEy/MDAxNzUzNzU2NDcwMTk4.8DTkU3IP8yRJEmFhQ4FkiO44cVAXNsyR89cgiEY9rPQg.N1bSxXlTIPdmuj49xTTF6SiKeHFYCvXZJjPbmUHVw5Mg.JPEG/%EB%A7%88%EB%9D%BC_%ED%8F%AC%EC%B9%B4%EC%96%BC%EA%B5%B4.jpg?type=f120_120_na"},
+  "9 호":{"side":"WHITE","rank":952,"followers":56,"peak":9,"avgViewers":2,"cat1":null,"cat2":null,"chart":[3,0,1,0,2,5,3,3,0],"img":"https://nng-phinf.pstatic.net/MjAyMzEyMjBfMjQy/MDAxNzAzMDQ5OTk5MTg3.Nplty6lWcdGruRB2qGT2dn8aEP5eVeAi32WbY70yHW0g.l1SMOf_9dLMYfk4NkiflaxlDnuEq0kLWULl4TGYU6oQg.PNG/sb.png?type=f120_120_na"},
+  "애플3203":{"side":"BLACK","rank":1003,"followers":6333,"peak":280,"avgViewers":93,"cat1":"마인크래프트","cat1_share":"40.5","cat2":"메이플스토리 월드","cat2_share":"17.7","chart":[89,83,65,77,77,71,76,72,89,66,104,69,91,78,86,106,84,74,67,69,80,81,68,68],"img":"https://nng-phinf.pstatic.net/MjAyNTA3MDNfOTcg/MDAxNzUxNTI5Njc0MTM5.pitTlS49elXJdasPXZf-mu6YmxUPwHffrBOEoQnPNZAg.lvqLrLtfzkb5SHpKIdoHv0AZRgU2YIrhlpIxu02qxW8g.PNG/%EB%8A%90%EC%95%B5%EF%BC%8D1.png?type=f120_120_na"},
+  "구라티비":{"side":"BLACK","rank":2002,"followers":2738,"peak":479,"avgViewers":41,"cat1":"철권 8","cat1_share":"99.8","cat2":"더 킹 오브 파이터즈 XV","cat2_share":"0.2","chart":[92,21,116,91,12,18,18,13,11,15,13,101,16,11,5,15,6,4,8,10,13,18,8,13],"img":"https://nng-phinf.pstatic.net/MjAyNTEwMjNfMTE3/MDAxNzYxMjA0NzU2MDM5.ykGkvZQytTug8MZfTn0PQnt02NPwSpxDowqzWxJM95cg.5xnsdN8rj5n__X1wF255FIEUy7Jd9SQuvAPYdNo_DCgg.PNG/image.png?type=f120_120_na"},
+  "톡식맨":{"side":"BLACK","rank":3002,"followers":1649,"peak":148,"avgViewers":32,"cat1":"패스 오브 엑자일 2","cat1_share":"100.0","cat2":null,"chart":[51,26,33,20,32,42,16,11,8,20,16,16,13,22,68,41,50,23,8,27,14,3,11,19],"img":"https://nng-phinf.pstatic.net/MjAyMzEyMjFfMjc5/MDAxNzAzMDkxMjM4NTY2.Jk4dkjgI3pFf5VJFljyEpI-UwpnWJa0BolbebfEpw6Ag.O34yOV6nO4XTYUcR8TjihDrgJ2Sfl-43-H5v6kQkYXQg.PNG/%ED%86%A1%EC%8B%9D%EB%A7%A8.PNG?type=f120_120_na"},
+  "헤레":{"side":"BLACK","rank":4000,"followers":1434,"peak":33,"avgViewers":26,"cat1":null,"cat2":null,"chart":[26],"img":"https://nng-phinf.pstatic.net/MjAyNDA3MzBfMjkg/MDAxNzIyMjc1Njk2Nzg0.5QV2RiOuCclG2MZRihImFSSOq4xQf2FJKEYYeSaQ6_4g.eltVKjyrshAiNNpEW-HU1HgmqrExVosL3nyZmEJu_ckg.JPEG/NNG-17222756965067099493120646616646.jpg?type=f120_120_na"},
+  "아마네 라네":{"side":"BLACK","rank":5002,"followers":956,"peak":149,"avgViewers":16,"cat1":"talk","cat1_share":"85.0","cat2":"음악/노래","cat2_share":"6.3","chart":[29,23,22,21,11,14,12,16,10,12,12,12,11,18,31,12,19,28,17,14,15,17,12,15],"img":"https://nng-phinf.pstatic.net/MjAyNTEwMTJfOTUg/MDAxNzYwMjE3MTkyNTQx.U4yp2bmPBnzzm3yKZDfFX5sjyH65OJ4u-jJeNs0tiCQg.sZob3mqOyBiSlv_-cWAdixCO9zKfbSclHFKLwutmUSkg.PNG/image.png?type=f120_120_na"},
+  "이 치 치":{"side":"BLACK","rank":6000,"followers":787,"peak":70,"avgViewers":18,"cat1":"talk","cat1_share":"88.8","cat2":"오버워치","cat2_share":"6.5","chart":[13,11,13,24,17,20,29,23,24,29,23,22,29,28,22,22,26,25,27,31,26,25,20,26],"img":"https://nng-phinf.pstatic.net/MjAyNjAxMDlfMzIg/MDAxNzY3ODg4NjEwMTE4.oFkvmLBZoZg0X_mGdYsLsQTcgR8XzosFWluSdA9OkIUg.KFOTUZq7Qx3IjHc8dYoGDrKn2ozfNnrhjbbS4p3D-hIg.PNG/image.png?type=f120_120_na"},
+  "롤팬티쉬":{"side":"BLACK","rank":7002,"followers":668,"peak":22,"avgViewers":8,"cat1":"리그 오브 레전드","cat1_share":"35.6","cat2":"talk","cat2_share":"26.5","chart":[8,7,6,7,3,8,7,5,7,12,10,7,9,7,6,5,6,9,10,8,10,8,13,11],"img":"https://nng-phinf.pstatic.net/MjAyNTAxMjZfNTQg/MDAxNzM3ODczNDMyODMz.XSbJwlMIViawoeeYgjH4JFuAkskiUTdg0mM30ciwI-Mg.bL3zY5_CJu0IKap7m7P525Ep0ZrZH5M0WHngiPR-Q-sg.GIF/%ED%8C%AC%ED%8B%B0%EC%89%AC%EB%8B%98-%ED%95%A0%EC%A7%9D.gif?type=f120_120_na"},
+  "넨네":{"side":"BLACK","rank":8000,"followers":754,"peak":12,"avgViewers":8,"cat1":null,"cat2":null,"chart":[8,8],"img":"https://nng-phinf.pstatic.net/MjAyNDAxMjBfMzYg/MDAxNzA1NzM0OTkzNjI3.LhbSm5mq0vFRttn7n4tn9daT_YI4REyZXfRXrSlMcW4g.ERzKAwjjXTtt-IUEIXNjPygLIYwK1PiE6voaXXdggGkg.PNG/nenne.png?type=f120_120_na"},
+  "치즈냥이S2":{"side":"BLACK","rank":9001,"followers":507,"peak":6,"avgViewers":1,"cat1":"음악/노래","cat1_share":"100.0","cat2":null,"chart":[1,0,1,1,1,0,0,0,0,1,0,1,0,0,0,1,1,0,0,1,1,1,1,1],"img":"https://nng-phinf.pstatic.net/MjAyNjA2MTJfNzkg/MDAxNzgxMjYwNDk4NDI1.g_QQnukDuafXdsCIDBmyRG2CMy6P-qGEDWas0zhoez4g.DgrRV3e09f6_DQBVpHUxXnBLgFGiMixQMB9y7Nd8oIIg.PNG/image.png?type=f120_120_na"},
+  "한지카":{"side":"BLACK","rank":9950,"followers":451,"peak":33,"avgViewers":5,"cat1":"PUBG: 배틀그라운드","cat1_share":"18.6","cat2":"먹방/쿡방","cat2_share":"16.6","chart":[4,7,4,4,4,4,4,3,3,3,4,1,5,8,8,5,5,7,6,6,7,6,8,7],"img":"https://nng-phinf.pstatic.net/MjAyNTA0MjJfMTMz/MDAxNzQ1Mjg1NzMyNDM0.9nAWqO7MPUwDzRhlJrqASQU8stdJ9-YoQh-QV0VhsCsg.GaZqnbpY3SAJn5LzUVeI7J0pwzAKXBhg_SAbRecU598g.JPEG/NNG-17452857283983891944382604396677.jpg?type=f120_120_na"},
+  // ===== WHITE 더미 스트리머 =====
+  "달빛소년":{"side":"WHITE","rank":15,"followers":98200,"peak":12400,"avgViewers":4200,"cat1":"리그 오브 레전드","cat1_share":"72.3","cat2":"talk","cat2_share":"18.1","chart":[3800,4100,4500,4300,4000,3900,4200,4600,4100,3700,4400,4800,4200,3900,4100,4500],"img":null},
+  "프로즌캣":{"side":"WHITE","rank":34,"followers":87500,"peak":9800,"avgViewers":2890,"cat1":"발로란트","cat1_share":"85.0","cat2":"오버워치","cat2_share":"10.2","chart":[2600,2900,3100,2800,2700,3000,3200,2900,2800,3100,2700,2500,2900,3300,3000,2800,2600,3100],"img":null},
+  "xR4nk":{"side":"WHITE","rank":56,"followers":72300,"peak":8100,"avgViewers":1950,"cat1":"리그 오브 레전드","cat1_share":"92.4","cat2":null,"chart":[1800,2000,2100,1900,1700,2200,2000,1800,1950,2100,1900,1750,2000,2200,1850,1900],"img":null},
+  "밤하늘별":{"side":"WHITE","rank":89,"followers":61200,"peak":6700,"avgViewers":1420,"cat1":"talk","cat1_share":"65.0","cat2":"음악/노래","cat2_share":"25.3","chart":[1200,1350,1500,1400,1300,1450,1600,1380,1250,1400,1550,1420,1300,1480,1600,1350,1200,1500],"img":null},
+  "쿨냥이":{"side":"WHITE","rank":145,"followers":45600,"peak":5200,"avgViewers":980,"cat1":"메이플스토리","cat1_share":"78.9","cat2":"talk","cat2_share":"15.4","chart":[850,920,1050,980,900,1020,1100,950,880,1000,1080,970,920,1050,980,900],"img":null},
+  "하이텐션":{"side":"WHITE","rank":178,"followers":38900,"peak":4300,"avgViewers":760,"cat1":"PUBG","cat1_share":"60.5","cat2":"발로란트","cat2_share":"28.7","chart":[700,750,820,780,690,810,850,730,700,780,820,750,690,810,760,720],"img":null},
+  "별빛마녀":{"side":"WHITE","rank":210,"followers":33400,"peak":3800,"avgViewers":620,"cat1":"그림/아트","cat1_share":"90.2","cat2":null,"chart":[580,610,650,620,590,640,670,600,580,630,660,610,590,640,620,600],"img":null},
+  "겜돌이TV":{"side":"WHITE","rank":267,"followers":28100,"peak":3200,"avgViewers":480,"cat1":"로스트아크","cat1_share":"55.8","cat2":"메이플스토리","cat2_share":"30.1","chart":[420,460,510,480,440,500,530,470,430,490,520,480,450,510,480,460],"img":null},
+  "민트초코":{"side":"WHITE","rank":315,"followers":24500,"peak":2700,"avgViewers":390,"cat1":"먹방/쿡방","cat1_share":"100.0","cat2":null,"chart":[350,380,410,390,360,400,420,380,350,390,410,380,360,400,390,370],"img":null},
+  "은하수드림":{"side":"WHITE","rank":389,"followers":19800,"peak":2200,"avgViewers":310,"cat1":"talk","cat1_share":"80.0","cat2":"그림/아트","cat2_share":"14.6","chart":[280,300,330,310,290,320,340,300,280,310,330,300,290,320,310,290],"img":null},
+  "캡틴루키":{"side":"WHITE","rank":421,"followers":17200,"peak":1900,"avgViewers":270,"cat1":"오버워치","cat1_share":"70.3","cat2":"발로란트","cat2_share":"22.1","chart":[240,260,290,270,250,280,300,260,240,270,290,260,250,280,270,250],"img":null},
+  "소울메이커":{"side":"WHITE","rank":476,"followers":15300,"peak":1700,"avgViewers":230,"cat1":"음악/노래","cat1_share":"95.0","cat2":null,"chart":[200,220,250,230,210,240,260,220,200,230,250,220,210,240,230,210],"img":null},
+  "태양열정":{"side":"WHITE","rank":534,"followers":13100,"peak":1500,"avgViewers":195,"cat1":"리그 오브 레전드","cat1_share":"45.0","cat2":"talk","cat2_share":"40.2","chart":[175,190,210,195,180,200,220,190,175,195,210,190,180,200,195,180],"img":null},
+  "불꽃소녀":{"side":"WHITE","rank":587,"followers":11800,"peak":1350,"avgViewers":170,"cat1":"발로란트","cat1_share":"88.5","cat2":null,"chart":[150,165,180,170,155,175,190,165,150,170,180,165,155,175,170,155],"img":null},
+  "게으른판다":{"side":"WHITE","rank":622,"followers":10500,"peak":1200,"avgViewers":150,"cat1":"talk","cat1_share":"100.0","cat2":null,"chart":[130,145,160,150,135,155,170,145,130,150,160,145,135,155,150,135],"img":null},
+  "하늘구름":{"side":"WHITE","rank":668,"followers":9800,"peak":1100,"avgViewers":135,"cat1":"그림/아트","cat1_share":"75.0","cat2":"talk","cat2_share":"20.5","chart":[120,130,145,135,125,140,150,130,120,135,145,130,125,140,135,125],"img":null},
+  "진격의패드":{"side":"WHITE","rank":712,"followers":8700,"peak":980,"avgViewers":115,"cat1":"PUBG","cat1_share":"100.0","cat2":null,"chart":[100,110,125,115,105,120,130,110,100,115,125,110,105,120,115,105],"img":null},
+  "아이스크림뇽":{"side":"WHITE","rank":745,"followers":8200,"peak":920,"avgViewers":105,"cat1":"먹방/쿡방","cat1_share":"60.0","cat2":"talk","cat2_share":"35.2","chart":[90,100,115,105,95,110,120,100,90,105,115,100,95,110,105,95],"img":null},
+  "루나티코":{"side":"WHITE","rank":798,"followers":7600,"peak":850,"avgViewers":90,"cat1":"메이플스토리","cat1_share":"82.3","cat2":"로스트아크","cat2_share":"12.8","chart":[80,88,95,90,82,92,100,88,80,90,95,88,82,92,90,82],"img":null},
+  "무한도전러":{"side":"WHITE","rank":834,"followers":6900,"peak":780,"avgViewers":78,"cat1":"talk","cat1_share":"50.0","cat2":"리그 오브 레전드","cat2_share":"42.0","chart":[70,76,84,78,72,80,86,76,70,78,84,76,72,80,78,72],"img":null},
+  "코스모스Z":{"side":"WHITE","rank":867,"followers":6400,"peak":720,"avgViewers":68,"cat1":"오버워치","cat1_share":"100.0","cat2":null,"chart":[60,66,74,68,62,70,76,66,60,68,74,66,62,70,68,62],"img":null},
+  "노을빛사냥꾼":{"side":"WHITE","rank":901,"followers":5900,"peak":660,"avgViewers":58,"cat1":"리그 오브 레전드","cat1_share":"65.0","cat2":"발로란트","cat2_share":"28.0","chart":[52,56,62,58,54,60,65,56,52,58,62,56,54,60,58,54],"img":null},
+  "큐브마스터":{"side":"WHITE","rank":925,"followers":5500,"peak":610,"avgViewers":48,"cat1":"talk","cat1_share":"100.0","cat2":null,"chart":[42,46,52,48,44,50,55,46,42,48,52,46,44,50,48,44],"img":null},
+  "시크릿폭스":{"side":"WHITE","rank":948,"followers":5100,"peak":570,"avgViewers":38,"cat1":"그림/아트","cat1_share":"70.0","cat2":"음악/노래","cat2_share":"25.0","chart":[34,37,41,38,35,40,43,37,34,38,41,37,35,40,38,35],"img":null},
+  "번개소년":{"side":"WHITE","rank":963,"followers":4800,"peak":530,"avgViewers":32,"cat1":"PUBG","cat1_share":"55.0","cat2":"오버워치","cat2_share":"35.5","chart":[28,31,35,32,29,33,37,31,28,32,35,31,29,33,32,29],"img":null},
+  "고양이발자국":{"side":"WHITE","rank":978,"followers":4500,"peak":500,"avgViewers":25,"cat1":"먹방/쿡방","cat1_share":"85.0","cat2":"talk","cat2_share":"12.0","chart":[22,24,27,25,23,26,29,24,22,25,27,24,23,26,25,23],"img":null},
+  "스타더스트":{"side":"WHITE","rank":985,"followers":4200,"peak":470,"avgViewers":20,"cat1":"음악/노래","cat1_share":"100.0","cat2":null,"chart":[17,19,22,20,18,21,24,19,17,20,22,19,18,21,20,18],"img":null},
+  "라면킹":{"side":"WHITE","rank":991,"followers":3800,"peak":420,"avgViewers":15,"cat1":"먹방/쿡방","cat1_share":"100.0","cat2":null,"chart":[13,14,16,15,13,15,17,14,13,15,16,14,13,15,15,13],"img":null},
+  "꿈의정원":{"side":"WHITE","rank":996,"followers":3500,"peak":390,"avgViewers":12,"cat1":"talk","cat1_share":"60.0","cat2":"그림/아트","cat2_share":"30.5","chart":[10,11,13,12,11,12,14,11,10,12,13,11,11,12,12,10],"img":null},
+  "블루문라이트":{"side":"WHITE","rank":999,"followers":3200,"peak":360,"avgViewers":10,"cat1":"리그 오브 레전드","cat1_share":"100.0","cat2":null,"chart":[9,10,11,10,9,10,12,10,9,10,11,10,9,10,10,9],"img":null},
+  // ===== BLACK 더미 스트리머 =====
+  "섀도우런":{"side":"BLACK","rank":1050,"followers":6100,"peak":400,"avgViewers":85,"cat1":"리그 오브 레전드","cat1_share":"80.0","cat2":"talk","cat2_share":"15.0","chart":[75,82,90,85,78,88,95,82,75,85,90,82,78,88,85,78],"img":null},
+  "별밤고양이":{"side":"BLACK","rank":1200,"followers":5600,"peak":350,"avgViewers":72,"cat1":"talk","cat1_share":"100.0","cat2":null,"chart":[65,70,78,72,67,75,80,70,65,72,78,70,67,75,72,67],"img":null},
+  "오렌지펀치":{"side":"BLACK","rank":1450,"followers":5100,"peak":310,"avgViewers":60,"cat1":"발로란트","cat1_share":"90.0","cat2":null,"chart":[54,58,65,60,55,62,68,58,54,60,65,58,55,62,60,55],"img":null},
+  "댄싱폭스":{"side":"BLACK","rank":1700,"followers":4500,"peak":270,"avgViewers":50,"cat1":"음악/노래","cat1_share":"75.0","cat2":"talk","cat2_share":"20.0","chart":[45,48,54,50,46,52,56,48,45,50,54,48,46,52,50,46],"img":null},
+  "닌자고스트":{"side":"BLACK","rank":1900,"followers":4000,"peak":240,"avgViewers":42,"cat1":"메이플스토리","cat1_share":"85.0","cat2":"로스트아크","cat2_share":"10.0","chart":[38,40,45,42,39,44,47,40,38,42,45,40,39,44,42,39],"img":null},
+  "자정의요리사":{"side":"BLACK","rank":2200,"followers":3600,"peak":210,"avgViewers":35,"cat1":"먹방/쿡방","cat1_share":"100.0","cat2":null,"chart":[31,34,38,35,32,36,40,34,31,35,38,34,32,36,35,32],"img":null},
+  "실버헌터":{"side":"BLACK","rank":2500,"followers":3200,"peak":190,"avgViewers":28,"cat1":"PUBG","cat1_share":"65.0","cat2":"오버워치","cat2_share":"25.0","chart":[25,27,30,28,26,29,32,27,25,28,30,27,26,29,28,26],"img":null},
+  "미스틱무드":{"side":"BLACK","rank":2800,"followers":2800,"peak":160,"avgViewers":22,"cat1":"그림/아트","cat1_share":"95.0","cat2":null,"chart":[20,21,24,22,20,23,25,21,20,22,24,21,20,23,22,20],"img":null},
+  "스카이폴":{"side":"BLACK","rank":3200,"followers":2400,"peak":140,"avgViewers":18,"cat1":"리그 오브 레전드","cat1_share":"55.0","cat2":"talk","cat2_share":"35.0","chart":[16,17,20,18,16,19,21,17,16,18,20,17,16,19,18,16],"img":null},
+  "러키세븐":{"side":"BLACK","rank":3500,"followers":2100,"peak":120,"avgViewers":15,"cat1":"talk","cat1_share":"70.0","cat2":"발로란트","cat2_share":"22.0","chart":[13,14,16,15,13,15,17,14,13,15,16,14,13,15,15,13],"img":null},
+  "코코넛맨":{"side":"BLACK","rank":3800,"followers":1800,"peak":100,"avgViewers":12,"cat1":"먹방/쿡방","cat1_share":"80.0","cat2":"talk","cat2_share":"15.0","chart":[10,11,13,12,11,12,14,11,10,12,13,11,11,12,12,10],"img":null},
+  "블랙로즈":{"side":"BLACK","rank":4200,"followers":1500,"peak":85,"avgViewers":10,"cat1":"음악/노래","cat1_share":"100.0","cat2":null,"chart":[9,10,11,10,9,10,12,10,9,10,11,10,9,10,10,9],"img":null},
+  "드래곤아이":{"side":"BLACK","rank":4500,"followers":1300,"peak":75,"avgViewers":9,"cat1":"리그 오브 레전드","cat1_share":"100.0","cat2":null,"chart":[8,9,10,9,8,9,11,9,8,9,10,9,8,9,9,8],"img":null},
+  "엔젤위스퍼":{"side":"BLACK","rank":4800,"followers":1100,"peak":65,"avgViewers":8,"cat1":"talk","cat1_share":"60.0","cat2":"그림/아트","cat2_share":"30.0","chart":[7,8,9,8,7,8,10,8,7,8,9,8,7,8,8,7],"img":null},
+  "폭풍전야":{"side":"BLACK","rank":5200,"followers":950,"peak":55,"avgViewers":7,"cat1":"발로란트","cat1_share":"75.0","cat2":"PUBG","cat2_share":"18.0","chart":[6,7,8,7,6,7,9,7,6,7,8,7,6,7,7,6],"img":null},
+  "썬더볼트":{"side":"BLACK","rank":5500,"followers":820,"peak":48,"avgViewers":6,"cat1":"오버워치","cat1_share":"100.0","cat2":null,"chart":[5,6,7,6,5,6,8,6,5,6,7,6,5,6,6,5],"img":null},
+  "다크초콜릿":{"side":"BLACK","rank":5800,"followers":750,"peak":42,"avgViewers":5,"cat1":"메이플스토리","cat1_share":"55.0","cat2":"talk","cat2_share":"35.0","chart":[4,5,6,5,4,5,7,5,4,5,6,5,4,5,5,4],"img":null},
+  "네온사인":{"side":"BLACK","rank":6200,"followers":680,"peak":38,"avgViewers":5,"cat1":"talk","cat1_share":"100.0","cat2":null,"chart":[4,5,5,5,4,5,6,5,4,5,5,5,4,5,5,4],"img":null},
+  "스모키마운틴":{"side":"BLACK","rank":6500,"followers":620,"peak":34,"avgViewers":4,"cat1":"먹방/쿡방","cat1_share":"80.0","cat2":"talk","cat2_share":"15.0","chart":[3,4,5,4,3,4,5,4,3,4,5,4,3,4,4,3],"img":null},
+  "밤도깨비":{"side":"BLACK","rank":6800,"followers":560,"peak":30,"avgViewers":4,"cat1":"리그 오브 레전드","cat1_share":"60.0","cat2":"발로란트","cat2_share":"30.0","chart":[3,4,4,4,3,4,5,4,3,4,4,4,3,4,4,3],"img":null},
+  "크림소다":{"side":"BLACK","rank":7200,"followers":500,"peak":26,"avgViewers":3,"cat1":"그림/아트","cat1_share":"90.0","cat2":null,"chart":[2,3,4,3,2,3,4,3,2,3,4,3,2,3,3,2],"img":null},
+  "빈티지로봇":{"side":"BLACK","rank":7500,"followers":440,"peak":22,"avgViewers":3,"cat1":"음악/노래","cat1_share":"70.0","cat2":"talk","cat2_share":"25.0","chart":[2,3,3,3,2,3,4,3,2,3,3,3,2,3,3,2],"img":null},
+  "파이어스톰":{"side":"BLACK","rank":7800,"followers":380,"peak":18,"avgViewers":2,"cat1":"PUBG","cat1_share":"100.0","cat2":null,"chart":[2,2,3,2,2,2,3,2,2,2,3,2,2,2,2,2],"img":null},
+  "새벽이슬":{"side":"BLACK","rank":8200,"followers":330,"peak":15,"avgViewers":2,"cat1":"talk","cat1_share":"85.0","cat2":"음악/노래","cat2_share":"10.0","chart":[1,2,2,2,1,2,3,2,1,2,2,2,1,2,2,1],"img":null},
+  "미드나잇":{"side":"BLACK","rank":8500,"followers":280,"peak":12,"avgViewers":2,"cat1":"리그 오브 레전드","cat1_share":"100.0","cat2":null,"chart":[1,2,2,2,1,2,2,2,1,2,2,2,1,2,2,1],"img":null},
+  "캔디팝":{"side":"BLACK","rank":8800,"followers":240,"peak":10,"avgViewers":1,"cat1":"talk","cat1_share":"100.0","cat2":null,"chart":[1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1],"img":null},
+  "로켓보이":{"side":"BLACK","rank":9200,"followers":200,"peak":8,"avgViewers":1,"cat1":"발로란트","cat1_share":"65.0","cat2":"오버워치","cat2_share":"30.0","chart":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"img":null},
+  "아쿠아블루":{"side":"BLACK","rank":9400,"followers":170,"peak":7,"avgViewers":1,"cat1":"먹방/쿡방","cat1_share":"100.0","cat2":null,"chart":[1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1],"img":null},
+  "골든이글":{"side":"BLACK","rank":9600,"followers":140,"peak":6,"avgViewers":1,"cat1":"오버워치","cat1_share":"100.0","cat2":null,"chart":[1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1],"img":null},
+  "제로그래비티":{"side":"BLACK","rank":9800,"followers":110,"peak":5,"avgViewers":1,"cat1":"그림/아트","cat1_share":"80.0","cat2":"talk","cat2_share":"15.0","chart":[1,0,1,1,0,1,1,0,1,1,0,1,0,1,1,0],"img":null}
+};
+
+// ===== 유틸 함수 =====
+function fmtFol(n) {
+  if (n >= 10000) return (n/10000).toFixed(2).replace(/\.?0+$/,'') + '만';
+  if (n === 0) return '비공개';
+  return n.toLocaleString();
+}
+
+function calcTrend(chart) {
+  if (chart.length < 4) return { pct: 0, dir: 'flat', label: '—' };
+  const half = Math.floor(chart.length / 2);
+  const recent = chart.slice(half), older = chart.slice(0, half);
+  const avgR = recent.reduce((a,b)=>a+b,0)/recent.length;
+  const avgO = older.reduce((a,b)=>a+b,0)/older.length;
+  const pct = avgO > 0 ? Math.round((avgR-avgO)/avgO*100) : 0;
+  const dir = pct > 2 ? 'up' : pct < -2 ? 'down' : 'flat';
+  return { pct, dir, label: (pct > 0 ? '+' : '') + pct + '%' };
+}
+
+function getStreamerModal(name) {
+  const d = streamerData[name];
+  if (!d) return null;
+  const t = calcTrend(d.chart);
+  const cat = d.cat1 ? (d.cat1 + (d.cat1_share ? ' ' + d.cat1_share + '%' : '')) : '—';
+  // 수집 기간 계산 (주간 데이터, 마지막 날 2026-06-15)
+  const endDate = new Date('2026-06-15');
+  const startDate = new Date(endDate);
+  startDate.setDate(startDate.getDate() - (d.chart.length - 1) * 7);
+  const fmt = (dt) => dt.getFullYear().toString().slice(2) + '년 ' + String(dt.getMonth()+1).padStart(2,'0') + '월 ' + String(dt.getDate()).padStart(2,'0') + '일';
+  const dateRange = fmt(startDate) + ' ~ ' + fmt(endDate);
+  return {
+    metrics: {
+      followers: fmtFol(d.followers),
+      avgViewers: d.avgViewers.toLocaleString(),
+      peak: d.peak.toLocaleString(),
+      category: cat,
+      trend: t.label,
+      trendDir: t.dir
+    },
+    dateRange: dateRange,
+    chart: d.chart,
+    interp: '이 채널의 상세 분석 데이터는 <strong>채널 건강검진</strong>을 통해 확인할 수 있습니다. 현재 보이는 지표만으로도 몇 가지 패턴이 감지되지만, 정확한 해석을 위해서는 시청 시간 분포, 카테고리별 성과, 시간대별 리텐션 데이터가 필요합니다.'
+  };
+}
+
+// ===== 티어 분할: 랭크순 정렬 → 10덱 =====
+function getTiers(side) {
+  const pool = Object.entries(streamerData)
+    .filter(([, d]) => d.side === side)
+    .sort((a, b) => a[1].rank - b[1].rank);
+  const tiers = [];
+  const size = Math.ceil(pool.length / 10);
+  for (let i = 0; i < 10; i++) {
+    tiers.push(pool.slice(i * size, (i + 1) * size));
+  }
+  return tiers;
+}
+
+// ===== 카드 내용 채우기 (DOM 위치 불변) =====
+function fillCard(cardEl, name, entry) {
+  const imgAttr = entry.img ? `--img:url('${entry.img}')` : '';
+  cardEl.setAttribute('style', imgAttr);
+  cardEl.querySelector('.s-name').textContent = name;
+  const t = calcTrend(entry.chart);
+  const rankText = '#' + entry.rank.toLocaleString();
+  cardEl.querySelector('.s-rank').textContent = rankText;
+  cardEl.querySelector('.s-stat').innerHTML =
+    '<span class="s-rank-inline">' + rankText + '</span> 팔로워 ' + fmtFol(entry.followers)
+    + ' · 평청 ' + entry.avgViewers.toLocaleString()
+    + ' <span class="s-trend ' + t.dir + '">' + t.label + '</span>';
+}
+
+// ===== 카드 렌더링 =====
+function renderCards() {
+  const whiteTiers = getTiers('WHITE');
+  const blackTiers = getTiers('BLACK');
+
+  function buildCards(tiers) {
+    return tiers.map((tier, i) => {
+      const [name, entry] = tier[Math.floor(Math.random() * tier.length)];
+      const imgAttr = entry.img ? ` style="--img:url('${entry.img}')"` : '';
+      const t = calcTrend(entry.chart);
+      const rankText = '#' + entry.rank.toLocaleString();
+      const stat = '<span class="s-rank-inline">' + rankText + '</span> 팔로워 ' + fmtFol(entry.followers)
+        + ' · 평청 ' + entry.avgViewers.toLocaleString()
+        + ' <span class="s-trend ' + t.dir + '">' + t.label + '</span>';
+      return `<div class="s-card" data-tier="${i}"${imgAttr}>
+        <div class="s-rank">${rankText}</div>
+        <div class="s-info">
+          <div class="s-name">${name}</div>
+          <div class="s-stat">${stat}</div>
+        </div>
+      </div>`;
+    }).join('\n    ');
+  }
+
+  const whiteContainer = document.querySelector('.sidebar-left.sidebar-white') || document.querySelector('.sidebar-left');
+  const blackContainer = document.querySelector('.sidebar-right.sidebar-black') || document.querySelector('.sidebar-right');
+
+  whiteContainer.querySelectorAll('.s-card').forEach(c => c.remove());
+  whiteContainer.querySelector('.team-header').insertAdjacentHTML('afterend', buildCards(whiteTiers));
+
+  blackContainer.querySelectorAll('.s-card').forEach(c => c.remove());
+  blackContainer.querySelector('.team-header').insertAdjacentHTML('afterend', buildCards(blackTiers));
+}
+
+// ===== 이벤트 위임 (클릭 — 재바인딩 불필요) =====
+(document.querySelector('.sidebar-white') || document.querySelector('.sidebar-left'))
+  .addEventListener('click', e => {
+    const card = e.target.closest('.s-card');
+    if (card) openModal(card, 'white');
+  });
+(document.querySelector('.sidebar-black') || document.querySelector('.sidebar-right'))
+  .addEventListener('click', e => {
+    const card = e.target.closest('.s-card');
+    if (card) openModal(card, 'black');
+  });
+
+// ===== 모달 로직 =====
+const overlay = document.getElementById('modalOverlay');
+const panel = document.getElementById('modalPanel');
+
+function openModal(card, team) {
+  const name = card.querySelector('.s-name').textContent;
+  const rank = card.querySelector('.s-rank').textContent;
+  const style = card.getAttribute('style') || '';
+  const imgMatch = style.match(/url\('([^']+)'\)/);
+  const imgSrc = imgMatch ? imgMatch[1] : '';
+
+  const data = getStreamerModal(name);
+  if (!data) return;
+
+  panel.className = 'modal-panel open' + (team === 'black' ? ' team-black' : '');
+  document.getElementById('modalAvatar').src = imgSrc;
+  document.getElementById('modalName').textContent = name;
+  document.getElementById('modalRank').textContent = rank + ' · 팔로워 ' + data.metrics.followers;
+  document.getElementById('modalInterp').innerHTML = data.interp;
+
+  const m = data.metrics;
+  document.getElementById('modalMetrics').innerHTML = `
+    <div class="modal-metric">
+      <div class="modal-metric-label">Avg Viewers</div>
+      <div class="modal-metric-value">${m.avgViewers}</div>
+    </div>
+    <div class="modal-metric">
+      <div class="modal-metric-label">Peak</div>
+      <div class="modal-metric-value">${m.peak}</div>
+    </div>
+    <div class="modal-metric">
+      <div class="modal-metric-label">Followers</div>
+      <div class="modal-metric-value">${m.followers}</div>
+    </div>
+    <div class="modal-metric">
+      <div class="modal-metric-label">Trend</div>
+      <div class="modal-metric-value ${m.trendDir}">${m.trend}</div>
+    </div>
+    <div class="modal-metric">
+      <div class="modal-metric-label">Category</div>
+      <div class="modal-metric-value">${m.category}</div>
+    </div>
+    <div class="modal-metric">
+      <div class="modal-metric-label">Period</div>
+      <div class="modal-metric-value" style="font-size:0.6rem;">${data.dateRange}</div>
+    </div>
+  `;
+
+  drawChart(data.chart, team === 'black');
+  overlay.classList.add('open');
+}
+
+function closeModal() {
+  overlay.classList.remove('open');
+  panel.classList.remove('open');
+}
+
+overlay.addEventListener('click', closeModal);
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+renderCards();
+
+// ===== 단일 카드 교체 (10초마다) =====
+let isAnimating = false;
+
+function swapOneCard() {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  const isWhite = Math.random() < 0.5;
+  const sideClass = isWhite ? '.sidebar-white' : '.sidebar-black';
+  const cards = Array.from(document.querySelectorAll(sideClass + ' .s-card'));
+  if (!cards.length) { isAnimating = false; return; }
+
+  // 랜덤 슬롯 → data-tier로 해당 덱 특정
+  const idx = Math.floor(Math.random() * cards.length);
+  const cardEl = cards[idx];
+  const tierIdx = parseInt(cardEl.dataset.tier);
+
+  const tiers = getTiers(isWhite ? 'WHITE' : 'BLACK');
+  const tier = tiers[tierIdx];
+  if (!tier || !tier.length) { isAnimating = false; return; }
+
+  // 현재 표시중 제외
+  const displayed = new Set();
+  document.querySelectorAll('.s-card .s-name').forEach(el => displayed.add(el.textContent));
+  const candidates = tier.filter(([name]) => !displayed.has(name));
+  if (!candidates.length) { isAnimating = false; return; }
+  const [name, entry] = candidates[Math.floor(Math.random() * candidates.length)];
+
+  // 플립 (DOM 위치 불변 — fillCard만 호출)
+  cardEl.classList.add('flip-out');
+  setTimeout(() => {
+    fillCard(cardEl, name, entry);
+    cardEl.classList.remove('flip-out');
+    cardEl.classList.add('flip-in');
+    setTimeout(() => {
+      cardEl.classList.remove('flip-in');
+      isAnimating = false;
+    }, 750);
+  }, 750);
+}
+
+// ===== 전체 순환 (5분마다) =====
+function cycleCards() {
+  const whiteTiers = getTiers('WHITE');
+  const blackTiers = getTiers('BLACK');
+  const newWhite = whiteTiers.map(t => t[Math.floor(Math.random() * t.length)]);
+  const newBlack = blackTiers.map(t => t[Math.floor(Math.random() * t.length)]);
+
+  const whiteCards = document.querySelectorAll('.sidebar-white .s-card');
+  const blackCards = document.querySelectorAll('.sidebar-black .s-card');
+
+  function flipCard(cardEl, [name, entry], delay) {
+    setTimeout(() => {
+      cardEl.classList.add('flip-out-fast');
+      setTimeout(() => {
+        fillCard(cardEl, name, entry);
+        cardEl.classList.remove('flip-out-fast');
+        cardEl.classList.add('flip-in-fast');
+        setTimeout(() => cardEl.classList.remove('flip-in-fast'), 150);
+      }, 150);
+    }, delay);
+  }
+
+  const stagger = 100;
+  whiteCards.forEach((card, i) => flipCard(card, newWhite[i], i * stagger));
+  blackCards.forEach((card, i) => flipCard(card, newBlack[i], i * stagger));
+}
+
+setInterval(() => {
+  if (isAnimating) return;
+  isAnimating = true;
+  cycleCards();
+  setTimeout(() => { isAnimating = false; }, 10 * 100 + 300);
+}, 300000);
+
+setInterval(swapOneCard, 10000);
+
+// ===== 모바일 카드 스와이퍼 =====
+(function initMobileSwiper() {
+  const MQ = 860;
+  let abortController = null;
+
+  function cleanup() {
+    document.querySelectorAll('.mob-active').forEach(c => c.classList.remove('mob-active'));
+    document.querySelectorAll('.mob-arrow, .mob-team-label').forEach(el => el.remove());
+    if (abortController) { abortController.abort(); abortController = null; }
+  }
+
+  function setup() {
+    cleanup();
+    if (window.innerWidth > MQ) return;
+
+    abortController = new AbortController();
+    const signal = abortController.signal;
+
+    ['.sidebar-white', '.sidebar-black'].forEach(sel => {
+      const sidebar = document.querySelector(sel);
+      if (!sidebar) return;
+      const cards = sidebar.querySelectorAll('.s-card');
+      if (!cards.length) return;
+
+      // 팀 라벨
+      const label = document.createElement('div');
+      label.className = 'mob-team-label';
+      label.textContent = sel.includes('white') ? 'WHITE' : 'BLACK';
+      sidebar.prepend(label);
+
+      // 첫 카드 활성화
+      let idx = 0;
+      cards[0].classList.add('mob-active');
+
+      // 화살표 (카드 래퍼 기준 배치)
+      const prev = document.createElement('button');
+      prev.className = 'mob-arrow mob-arrow-prev';
+      prev.textContent = '‹';
+      const next = document.createElement('button');
+      next.className = 'mob-arrow mob-arrow-next';
+      next.textContent = '›';
+      sidebar.appendChild(prev);
+      sidebar.appendChild(next);
+
+      function show(newIdx) {
+        cards[idx].classList.remove('mob-active');
+        idx = ((newIdx % cards.length) + cards.length) % cards.length;
+        cards[idx].classList.add('mob-active');
+      }
+
+      prev.addEventListener('click', e => { e.stopPropagation(); show(idx - 1); }, { signal });
+      next.addEventListener('click', e => { e.stopPropagation(); show(idx + 1); }, { signal });
+
+      // 터치 스와이프
+      let startX = 0;
+      sidebar.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true, signal });
+      sidebar.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) show(dx < 0 ? idx + 1 : idx - 1);
+      }, { passive: true, signal });
+    });
+  }
+
+  // renderCards 이후 실행
+  setTimeout(setup, 100);
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setup, 150);
+  });
+})();
+
+// ===== 네비 페이지 전환 =====
+document.querySelectorAll('.nav-cat').forEach(tab => {
+  tab.addEventListener('click', e => {
+    e.preventDefault();
+    const target = tab.dataset.target;
+    document.querySelectorAll('.nav-cat').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+    const page = document.querySelector(`.page-section[data-page="${target}"]`);
+    if (page) page.classList.add('active');
+    // 카테고리 페이지면 사이드바 축소
+    const layout = document.querySelector('.main-layout');
+    if (target === 'main') layout.classList.remove('cat-view');
+    else layout.classList.add('cat-view');
+    document.querySelector('.content').scrollTop = 0;
+  });
+});
+
+// ===== 스트리머 검색 =====
+(function() {
+  const input = document.getElementById('streamer-search');
+  const dropdown = document.getElementById('search-dropdown');
+  const ddTbody = document.getElementById('dropdown-tbody');
+  const pageTbody = document.getElementById('search-page-tbody');
+  const pageCount = document.getElementById('search-count');
+  const pageNoResult = document.getElementById('search-no-result');
+
+  const sideLabel = { WHITE: '백', BLACK: '흑' };
+
+  function getMatches(q) {
+    q = q.trim().toLowerCase();
+    if (!q) return Object.entries(streamerData).sort((a, b) => a[1].rank - b[1].rank);
+    return Object.entries(streamerData)
+      .filter(([name]) => name.toLowerCase().includes(q))
+      .sort((a, b) => a[1].rank - b[1].rank);
+  }
+
+  function makeRow(name, d) {
+    const t = calcTrend(d.chart);
+    return `<tr data-name="${name}">
+      <td>${d.rank}</td>
+      <td class="sr-name">${name}</td>
+      <td>${fmtFol(d.followers)}</td>
+      <td>${d.avgViewers.toLocaleString()}</td>
+      <td class="sr-side-${d.side === 'WHITE' ? 'w' : 'b'}">${sideLabel[d.side]}</td>
+      <td class="sr-trend ${t.dir}">${t.label}</td>
+    </tr>`;
+  }
+
+  // 드롭다운 — 입력 중 미리보기 (최대 8개)
+  function showDropdown(q) {
+    q = q.trim().toLowerCase();
+    if (!q) { dropdown.classList.remove('open'); return; }
+    const matches = getMatches(q).slice(0, 8);
+    if (!matches.length) { dropdown.classList.remove('open'); return; }
+    ddTbody.innerHTML = matches.map(([n, d]) => {
+      const t = calcTrend(d.chart);
+      return `<tr data-name="${n}">
+        <td>${d.rank}</td>
+        <td class="sr-name">${n}</td>
+        <td>${fmtFol(d.followers)}</td>
+        <td>${d.avgViewers.toLocaleString()}</td>
+        <td class="sr-trend ${t.dir}">${t.label}</td>
+      </tr>`;
+    }).join('');
+    dropdown.classList.add('open');
+  }
+
+  // 페이지 — 전체 결과 테이블
+  function showSearchPage(q) {
+    const matches = getMatches(q);
+    dropdown.classList.remove('open');
+    // 네비 active 해제
+    document.querySelectorAll('.nav-cat').forEach(t => t.classList.remove('active'));
+    // 페이지 전환
+    document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+    const page = document.querySelector('.page-section[data-page="search"]');
+    if (page) page.classList.add('active');
+    document.querySelector('.main-layout').classList.add('cat-view');
+    // 테이블 채우기
+    if (matches.length) {
+      pageNoResult.style.display = 'none';
+      pageTbody.innerHTML = matches.map(([n, d]) => makeRow(n, d)).join('');
+    } else {
+      pageTbody.innerHTML = '';
+      pageNoResult.style.display = '';
+    }
+    pageCount.textContent = matches.length + '명';
+    document.querySelector('.content').scrollTop = 0;
+  }
+
+  input.addEventListener('input', () => showDropdown(input.value));
+  input.addEventListener('focus', () => { if (input.value.trim()) showDropdown(input.value); });
+  input.addEventListener('blur', () => { setTimeout(() => dropdown.classList.remove('open'), 150); });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      showSearchPage(input.value);
+      input.blur();
+    }
+  });
+
+  // 드롭다운 행 클릭 → 모달
+  ddTbody.addEventListener('click', e => {
+    const row = e.target.closest('tr');
+    if (!row) return;
+    const name = row.dataset.name;
+    const entry = streamerData[name];
+    if (!entry) return;
+    const side = entry.side === 'WHITE' ? 'white' : 'black';
+    const tmp = document.createElement('div');
+    tmp.className = 's-card';
+    tmp.innerHTML = `<div class="s-name">${name}</div>
+      <div class="s-stat"><span class="s-rank-inline">#${entry.rank}</span> 팔로워 ${fmtFol(entry.followers)} · 평청 ${entry.avgViewers.toLocaleString()}</div>`;
+    openModal(tmp, side);
+    dropdown.classList.remove('open');
+    input.blur();
+  });
+
+  // 페이지 테이블 행 클릭 → 모달
+  pageTbody.addEventListener('click', e => {
+    const row = e.target.closest('tr');
+    if (!row) return;
+    const name = row.dataset.name;
+    const entry = streamerData[name];
+    if (!entry) return;
+    const side = entry.side === 'WHITE' ? 'white' : 'black';
+    const tmp = document.createElement('div');
+    tmp.className = 's-card';
+    tmp.innerHTML = `<div class="s-name">${name}</div>
+      <div class="s-stat"><span class="s-rank-inline">#${entry.rank}</span> 팔로워 ${fmtFol(entry.followers)} · 평청 ${entry.avgViewers.toLocaleString()}</div>`;
+    openModal(tmp, side);
+  });
+
+  // 외부 클릭 시 드롭다운 닫기
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-search')) dropdown.classList.remove('open');
+  });
+})();
+
+// ===== 미니 차트 (Canvas) =====
+function drawChart(data, isNeon) {
+  const canvas = document.getElementById('modalChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  const w = rect.width, h = rect.height;
+  ctx.clearRect(0, 0, w, h);
+
+  const pad = { top: 16, right: 12, bottom: 16, left: 12 };
+  const pw = w - pad.left - pad.right;
+  const ph = h - pad.top - pad.bottom;
+  const min = Math.min(...data) * 0.9;
+  const max = Math.max(...data) * 1.1;
+
+  const pts = data.map((v, i) => ({
+    x: pad.left + (i / (data.length - 1)) * pw,
+    y: pad.top + ph - ((v - min) / (max - min)) * ph
+  }));
+
+  // 영역 fill
+  const color = isNeon ? '0, 255, 163' : '200, 200, 220';
+  const grad = ctx.createLinearGradient(0, pad.top, 0, h - pad.bottom);
+  grad.addColorStop(0, `rgba(${color}, 0.15)`);
+  grad.addColorStop(1, `rgba(${color}, 0)`);
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  pts.forEach(p => ctx.lineTo(p.x, p.y));
+  ctx.lineTo(pts[pts.length-1].x, h - pad.bottom);
+  ctx.lineTo(pts[0].x, h - pad.bottom);
+  ctx.closePath();
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // 라인
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  for (let i = 1; i < pts.length; i++) {
+    const prev = pts[i-1], curr = pts[i];
+    const cpx = (prev.x + curr.x) / 2;
+    ctx.bezierCurveTo(cpx, prev.y, cpx, curr.y, curr.x, curr.y);
+  }
+  ctx.strokeStyle = isNeon ? 'rgba(0, 255, 163, 0.8)' : 'rgba(220, 220, 230, 0.6)';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // 끝점
+  const last = pts[pts.length - 1];
+  ctx.beginPath();
+  ctx.arc(last.x, last.y, 3, 0, Math.PI * 2);
+  ctx.fillStyle = isNeon ? '#00FFA3' : '#e0e0ea';
+  ctx.fill();
+}
+
+// ===== 레슨 토글 =====
+document.querySelectorAll('.lesson-toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lesson = btn.closest('.lesson');
+    const view = btn.dataset.view;
+    lesson.querySelectorAll('.lesson-toggle-btn').forEach(b => b.className = 'lesson-toggle-btn');
+    btn.classList.add(view === 'reading' ? 'active-neon' : 'active');
+    lesson.querySelectorAll('.lesson-view').forEach(v => v.classList.remove('active'));
+    lesson.querySelector('.lesson-view.' + view).classList.add('active');
+  });
+});
+
+// ===== 스크롤 화살표 =====
+document.getElementById('scrollUp').addEventListener('click', () => {
+  document.querySelectorAll('.sidebar, .content').forEach(el => el.scrollTo({top: 0, behavior: 'smooth'}));
+});
+document.getElementById('scrollDown').addEventListener('click', () => {
+  document.querySelectorAll('.sidebar, .content').forEach(el => el.scrollTo({top: el.scrollHeight, behavior: 'smooth'}));
+});
+</script>
+
+</body>
+</html>
