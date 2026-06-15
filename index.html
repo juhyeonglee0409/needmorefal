@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MX7LWRWF');</script>
+<!-- End Google Tag Manager -->
 <title>needmorefal.gg — 제 채널, 성장 중인거 맞죠?</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -12,6 +19,10 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX7LWRWF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- NAV -->
 <nav id="top">
@@ -219,6 +230,7 @@
           <li>`auro_rank_1_11000.json` 기반 11,000명 랭킹 데이터를 별도 JS 데이터 파일로 분리 적용.</li>
           <li>정적 사이트 표준 구조에 맞춰 메인 CSS/JS와 샘플 리포트 CSS를 별도 파일로 분리.</li>
           <li>모바일에서 WHITE/BLACK 사이드 카드를 좌우 고정 핸들로 여는 레이어 패널 구조로 복구.</li>
+          <li>Google Tag Manager 컨테이너 `GTM-MX7LWRWF`를 메인 페이지에 삽입.</li>
         </ul>
         <pre>index.html
 + nav: absolute-only desktop layout -> responsive wrapped mobile layout
@@ -229,6 +241,7 @@
 + footer: added collapsible developer change log tab
 + data: replaced placeholder streamer set with AURO rank 1-11000 loader
 + split inline styles/scripts into css/style.css and js/main.js
++ analytics: added Google Tag Manager container GTM-MX7LWRWF
 
 css/style.css
 + moved index.html inline CSS into a dedicated stylesheet
