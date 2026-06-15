@@ -198,6 +198,89 @@
     return { filtered: state.stats.filtered, total: state.stats.scanned };
   }
 
+  // =========================================================
+  //  ID LOADING — 사전 스캔된 채널 ID를 직접 로드
+  //  Cowork 멀티페이지 RSC 스캔 결과를 브라우저에 주입
+  // =========================================================
+
+  function loadIds(input) {
+    var channels = [];
+
+    // 포맷 자동 감지
+    if (Array.isArray(input)) {
+      // [{channelId, platform}, ...] 또는 ["id,platform", ...]
+      input.forEach(function(item) {
+        if (typeof item === 'string') {
+          var parts = item.split(',');
+          if (parts.length >= 2) {
+            channels.push({ channelId: parts[0].trim(), platform: parts[1].trim() });
+          }
+        } else if (item && item.channelId) {
+          channels.push({ channelId: item.channelId, platform: item.platform || CONFIG.platform });
+        } else if (item && item.id) {
+          // "id" 필드에 "hexstring,platform" 형식일 수 있음
+          var idParts = String(item.id).split(',');
+          if (idParts.length >= 2) {
+            channels.push({ channelId: idParts[0].trim(), platform: idParts[1].trim() });
+          } else {
+            channels.push({ channelId: idParts[0].trim(), platform: CONFIG.platform });
+          }
+        }
+      });
+    } else if (input && input.channels) {
+      // { channels: [...] } wrapper
+      return loadIds(input.channels);
+    } else if (input && input.ids) {
+      // { ids: [...] } wrapper
+      return loadIds(input.ids);
+    }
+
+    if (channels.length === 0) {
+      return { error: 'no channels parsed from input' };
+    }
+
+    // 중복 제거 (이미 rankingChannels에 있는 것 포함)
+    var seen = new Set(state.rankingChannels.map(function(c) { return c.channelId; }));
+    var added = 0;
+    channels.forEach(function(ch) {
+      if (seen.has(ch.channelId)) return;
+      seen.add(ch.channelId);
+      state.rankingChannels.push({
+        name: '',
+        platform: ch.platform,
+        channelId: ch.channelId,
+        rank: null,
+        stream_hours: null,
+        peak_viewers: null,
+        avg_viewers: null,
+        viewership: null,
+        band: '',
+        _source: 'loaded'
+      });
+      added++;
+    });
+
+    state.stats.scanned = state.rankingChannels.length;
+    log('loadIds: +' + added + ' channels (total ' + state.stats.scanned + ', skipped ' + (channels.length - added) + ' dupes)');
+    return { added: added, total: state.stats.scanned, parsed: channels.length };
+  }
+
+  function loadIdsFromUrl(url) {
+    log('Fetching IDs from ' + url + '...');
+    return fetch(url)
+      .then(function(r) { return r.json(); })
+      .then(function(data) { return loadIds(data); })
+      .catch(function(e) { return { error: e.message }; });
+  }
+
+  function skipFilter() {
+    // loadIds로 로드한 채널은 peak 필터를 건너뜀 (이미 필터링됨)
+    state.filteredChannels = state.rankingChannels.slice();
+    state.stats.filtered = state.filteredChannels.length;
+    log('skipFilter: all ' + state.stats.filtered + ' channels passed to enrichment');
+    return { filtered: state.stats.filtered };
+  }
+
 
   // =========================================================
   //  PHASE 1-B: RSC DIRECT PARSE
@@ -334,6 +417,13 @@
 
   async function enrichChannel(ch) {
     var url = CONFIG.baseUrl + '/channel/' + ch.platform + '/' + ch.channelId;
+    if (CONFIG.dateRange.start && CONFIG.dateRange.end) {
+      var ds = new Date(CONFIG.dateRange.start + 'T00:00:00+09:00');
+      var de = new Date(CONFIG.dateRange.end + 'T23:59:59+09:00');
+      url += '?start=' + CONFIG.dateRange.start + '&end=' + CONFIG.dateRange.end +
+        '&startDateTime=' + ds.toISOString().replace('.000Z', '.000Z') +
+        '&endDateTime=' + de.toISOString().replace('.000Z', '.000Z');
+    }
     var text = await fetchSafe(url);
     if (!text) {
       state.errors.push({ channelId: ch.channelId, error: 'fetch_failed' });
@@ -708,7 +798,10 @@
     // Phase 1: Ranking
     scanCurrentPage: scanCurrentPage,
     scanFromRSC: scanFromRSC,
+    loadIds: loadIds,
+    loadIdsFromUrl: loadIdsFromUrl,
     applyPeakFilter: applyPeakFilter,
+    skipFilter: skipFilter,
 
     // Phase 2: Enrichment
     startEnrichment: startEnrichment,
@@ -761,5 +854,18 @@
   log('Primary:  downloadAll() → Downloads → CLI pickup_downloads.ps1');
   log('TimeSeries: downloadTimeSeries() → JSONL (§5 진단용)');
   log('Fallback: getNext() × N → JS output ~8건씩 → Cowork append');
+  log('');
+  log('=== ID Loading (멀티페이지 스캔 결과 주입) ===');
+  log('loadIds([...])            → 채널 ID 배열 직접 로드');
+  log('loadIdsFromUrl(url)       → URL에서 JSON 파일 로드');
+  log('skipFilter()              → 이미 필터링된 ID는 peak 필터 건너뛰기');
+  log('');
+  log('=== Multi-Page Enrichment Workflow ===');
+  log('1. setConfig("dateRange", {start:"2024-01-01", end:"2026-06-15"})');
+  log('2. setConfig("workers", 2); setConfig("enrichDelayMs", 3000)');
+  log('3. loadIds(data) 또는 loadIdsFromUrl("http://localhost:8080/ids.json")');
+  log('4. skipFilter()');
+  log('5. startEnrichment()');
+  log('6. downloadAll()');
 
 })();
