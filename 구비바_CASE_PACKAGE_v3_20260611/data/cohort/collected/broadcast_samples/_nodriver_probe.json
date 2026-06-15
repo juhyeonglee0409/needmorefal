@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-06-15T22:52:31+0900",
+  "method": "nodriver",
+  "channel_id": "269edc95873a1ec9fc534851c0783d1f",
+  "tests": [
+    {
+      "name": "channel_page_load",
+      "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+      "title": "구비바 | 치지직 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+      "is_checkpoint": false,
+      "body_snippet_length": 799,
+      "passed": true
+    },
+    {
+      "name": "streams_tab_load",
+      "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams",
+      "title": "구비바 | 치지직 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+      "stream_link_count": 24,
+      "has_csv_button": false,
+      "passed": true
+    },
+    {
+      "name": "dom_row_extraction",
+      "sample_rows": [
+        {
+          "type": "object",
+          "value": [
+            [
+              "href",
+              {
+                "type": "string",
+                "value": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19456393"
+              }
+            ],
+            [
+              "text",
+              {
+                "type": "string",
+                "value": "카테고리 / 제목 젤다의 전설 티어스 오브 더 킹덤, talk 오늘 진짜 덥다이.. 🐵 기간 06.15 (월) 14:59 ~ 06.15 (월) 21:36 방송시간 6.6 h 최고 시청자 28 평균 시청자 23 전체 채팅 멤버십 팔로워 증감 멤버십"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "object",
+          "value": [
+            [
+              "href",
+              {
+                "type": "string",
+                "value": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19437936"
+              }
+            ],
+            [
+              "text",
+              {
+                "type": "string",
+                "value": "카테고리 / 제목 사이버펑크 2077, talk 연령제한일요일이야~! 🐵 기간 06.14 (일) 12:58 ~ 06.14 (일) 20:36 방송시간 7.6 h 최고 시청자 22 평균 시청자 16 전체 채팅 멤버십 팔로워 증감 멤버십"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "object",
+          "value": [
+            [
+              "href",
+              {
+                "type": "string",
+                "value": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19419533"
+              }
+            ],
+            [
+              "text",
+              {
+                "type": "string",
+                "value": "카테고리 / 제목 사이버펑크 2077, talk 연령제한늦게 일어난 꾸숭이.. 🐵 기간 06.13 (토) 12:59 ~ 06.13 (토) 19:36 방송시간 6.6 h 최고 시청자 22 평균 시청자 17 전체 채팅 멤버십 팔로워 증감 멤버십"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "object",
+          "value": [
+            [
+              "href",
+              {
+                "type": "string",
+                "value": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19402714"
+              }
+            ],
+            [
+              "text",
+              {
+                "type": "string",
+                "value": "카테고리 / 제목 다크 소울 2, talk 히히히🐵 기간 06.12 (금) 14:57 ~ 06.12 (금) 22:00 방송시간 7 h 최고 시청자 27 평균 시청자 20 전체 채팅 멤버십 팔로워 증감 멤버십"
+              }
+            ]
+          ]
+        },
+        {
+          "type": "object",
+          "value": [
+            [
+              "href",
+              {
+                "type": "string",
+                "value": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19366386"
+              }
+            ],
+            [
+              "text",
+              {
+                "type": "string",
+                "value": "카테고리 / 제목 사이버펑크 2077, talk 연령제한닌다 기대된다! 🐵 기간 06.10 (수) 14:57 ~ 06.10 (수) 21:42 방송시간 6.7 h 최고 시청자 23 평균 시청자 15 전체 채팅 멤버십 팔로워 증감 멤버십"
+              }
+            ]
+          ]
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "secret_values_logged": false,
+  "cookie_values_read": false,
+  "raw_html_saved": false
+}

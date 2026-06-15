@@ -1,0 +1,1987 @@
+{
+  "generatedAt": "2026-06-15T12:47:42.986Z",
+  "method": "attach_existing_cdp_after_user_checkpoint_fallback",
+  "port": 9222,
+  "targetUrl": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+  "rawHtmlSaved": false,
+  "secretValuesLogged": false,
+  "cookieValuesRead": false,
+  "state": {
+    "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+    "title": "구비바 | 치지직 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+    "textSnippet": "채널\n치지직\n요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석\n소프트콘 뷰어십\n2.3.3\n이메일\n디스코드\n링크드인\nGithub\nVelog\n나이스페이 에스크로\n이용약관\n개인정보처리방침\n제휴\n팬심 FANCIM\n헛삯 SSAPI\n도움\n아르고\n오로라이브 auro.live\n오픈소스\nReact\nNext.js\nshadcn/ui\nMagic UI\nnivo\ntailwind\n© 2026, 스튜디오 소프트콘 | 정연진\n사업자 등록번호 : 586-56-00743 | 경기도 남양주시 화도읍 마석중앙로37번길 45 504호 22827 | 대표전화 : 010-9728-9622 | 스튜디오 소프트콘은 간이과세자입니다.\n수집 안내\n소프트콘 뷰어십에 표시된 모든 브랜드, 상표는 제3자의 소유이며 소프트콘 뷰어십에선 정보 제공의 목적으로만 사용되며, 수집되는 정보는 오직 누구나 자유로이 접근이 가능한 데이터만을 수집합니다.\n로그인 전, 베이직 요금제로 제공하는 데이터 : [ CC : BY-ND 4.0 ] 라이센스로 개인/단체/기업의 모든 사용자가 ( 출처 표기 - 변경 금지 )를 지킬시 상업적, 비상업적인 용도로 자유롭게 사용할 수 있습니다.\n플러스, 프로, 엔터프라이즈 요금제로 추가 제공하는 데이터 : 이용약관에 따라 재배포 및 상업적 이용을 금지하며, 소프트콘 뷰어십의 데이터를 컨텐츠 및 서비스로 제공하는 행위를 금지합니다.",
+    "visible": [
+      {
+        "i": 1,
+        "text": "채널\n치지직\n요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석\n소프트콘 뷰어십\n2.3.3\n이메일\n디스코드\n링크드인\nGithub\nVelog\n나이스페이 에스크로\n이용약관\n개인정보처리방침\n제휴\n팬심 FANCIM\n헛삯 SSAPI\n도움\n아르고\n오로라이브 auro.live\n오픈소스\nReact\nNext.j",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex sm:flex-row flex-col"
+      },
+      {
+        "i": 2,
+        "text": "소프트콘 뷰어십",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex h-full items-center gap-2"
+      },
+      {
+        "i": 3,
+        "text": "소프트콘 뷰어십",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 4,
+        "text": "소프트콘 뷰어십",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-1 items-center gap-2"
+      },
+      {
+        "i": 6,
+        "text": "소프트콘 뷰어십",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col justify-center gap-1"
+      },
+      {
+        "i": 7,
+        "text": "소프트콘 뷰어십",
+        "href": null,
+        "tag": "DIV",
+        "cls": "font-bold text-md leading-none"
+      },
+      {
+        "i": 9,
+        "text": "",
+        "href": "https://viewership.softc.one/search",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 12,
+        "text": "소프트콘뷰어십",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 14,
+        "text": "소프트콘뷰어십",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex flex-col xl:flex flex-1 gap-[6px]"
+      },
+      {
+        "i": 15,
+        "text": "소프트콘뷰어십",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-md font-bold leading-none"
+      },
+      {
+        "i": 16,
+        "text": "뷰어십",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "opacity-80 ml-[2px]"
+      },
+      {
+        "i": 19,
+        "text": "소프트콘 멤버십",
+        "href": "https://viewership.softc.one/pricing",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 20,
+        "text": "소프트콘 멤버십",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "mb-1 rounded-md h-9 text-sm font-bold text-center px-3 flex gap-2 items-center w"
+      },
+      {
+        "i": 21,
+        "text": "소프트콘 멤버십",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex"
+      },
+      {
+        "i": 22,
+        "text": "대시보드",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 23,
+        "text": "대시보드",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 25,
+        "text": "대시보드",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 27,
+        "text": "스탠드",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 28,
+        "text": "스탠드",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 30,
+        "text": "스탠드",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 32,
+        "text": "방송 현황LIVE",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 33,
+        "text": "방송 현황LIVE",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 35,
+        "text": "방송 현황LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 36,
+        "text": "방송 현황LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-1"
+      },
+      {
+        "i": 37,
+        "text": "LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[10px] leading-none bg-red-600 h-fit p-[2px] px-1 rounded-sm font-bold text"
+      },
+      {
+        "i": 39,
+        "text": "스트리머 랭킹",
+        "href": "https://viewership.softc.one/streams",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 40,
+        "text": "스트리머 랭킹",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 42,
+        "text": "스트리머 랭킹",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 44,
+        "text": "방송 그룹",
+        "href": "https://viewership.softc.one/streamergroups",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 45,
+        "text": "방송 그룹",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 47,
+        "text": "방송 그룹",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 49,
+        "text": "플랫폼",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 50,
+        "text": "플랫폼",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 52,
+        "text": "플랫폼",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 54,
+        "text": "카테고리 랭킹",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 55,
+        "text": "카테고리 랭킹",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 57,
+        "text": "카테고리 랭킹",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 59,
+        "text": "이스포츠NEW",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 60,
+        "text": "이스포츠NEW",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "rounded-md"
+      },
+      {
+        "i": 62,
+        "text": "이스포츠NEW",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex flex-1 text-left leading-none"
+      },
+      {
+        "i": 63,
+        "text": "이스포츠NEW",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-1"
+      },
+      {
+        "i": 64,
+        "text": "NEW",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[10px] leading-none bg-red-600 h-fit p-[2px] px-1 rounded-sm font-bold text"
+      },
+      {
+        "i": 66,
+        "text": "채널\n치지직\n요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석",
+        "href": null,
+        "tag": "DIV",
+        "cls": "mt-2 w-full min-h-[calc(100dvh-100px)]"
+      },
+      {
+        "i": 67,
+        "text": "채널\n치지직",
+        "href": null,
+        "tag": "DIV",
+        "cls": "container mx-auto max-w-(--breakpoint-xl) px-4"
+      },
+      {
+        "i": 68,
+        "text": "채널\n치지직",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col py-3 mx-auto gap-1"
+      },
+      {
+        "i": 69,
+        "text": "채널\n치지직",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-0 text-xs/4 font-medium"
+      },
+      {
+        "i": 70,
+        "text": "채널",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 71,
+        "text": "채널",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground-40)]"
+      },
+      {
+        "i": 72,
+        "text": "치지직",
+        "href": "https://viewership.softc.one/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 73,
+        "text": "치지직",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground-70)]"
+      },
+      {
+        "i": 78,
+        "text": "요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석",
+        "href": null,
+        "tag": "DIV",
+        "cls": "container mx-auto max-w-(--breakpoint-xl) px-4"
+      },
+      {
+        "i": 79,
+        "text": "요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex gap-2 overflow-x-auto"
+      },
+      {
+        "i": 80,
+        "text": "요약",
+        "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 81,
+        "text": "요약",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "p-[10px] px-6 w-fit rounded-full text-sm font-bold flex-nowrap whitespace-nowrap"
+      },
+      {
+        "i": 82,
+        "text": "요약",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-2"
+      },
+      {
+        "i": 83,
+        "text": "통계",
+        "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/statistics",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 84,
+        "text": "통계",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "bg-[var(--foreground-3)] p-[10px] px-6 w-fit rounded-full text-sm font-bold text"
+      },
+      {
+        "i": 85,
+        "text": "통계",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-2"
+      },
+      {
+        "i": 86,
+        "text": "카테고리",
+        "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/categories",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 87,
+        "text": "카테고리",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "bg-[var(--foreground-3)] p-[10px] px-6 w-fit rounded-full text-sm font-bold text"
+      },
+      {
+        "i": 88,
+        "text": "카테고리",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-2"
+      },
+      {
+        "i": 89,
+        "text": "랭킹",
+        "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/ranking",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 90,
+        "text": "랭킹",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "bg-[var(--foreground-3)] p-[10px] px-6 w-fit rounded-full text-sm font-bold text"
+      },
+      {
+        "i": 91,
+        "text": "랭킹",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-2"
+      },
+      {
+        "i": 92,
+        "text": "방송기록",
+        "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 93,
+        "text": "방송기록",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "bg-[var(--foreground-3)] p-[10px] px-6 w-fit rounded-full text-sm font-bold text"
+      },
+      {
+        "i": 94,
+        "text": "방송기록",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-2"
+      },
+      {
+        "i": 95,
+        "text": "구간분석",
+        "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/interval",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 96,
+        "text": "구간분석",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "bg-[var(--foreground-3)] p-[10px] px-6 w-fit rounded-full text-sm font-bold text"
+      },
+      {
+        "i": 97,
+        "text": "구간분석",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-2"
+      },
+      {
+        "i": 195,
+        "text": "소프트콘 뷰어십\n2.3.3\n이메일\n디스코드\n링크드인\nGithub\nVelog\n나이스페이 에스크로\n이용약관\n개인정보처리방침\n제휴\n팬심 FANCIM\n헛삯 SSAPI\n도움\n아르고\n오로라이브 auro.live\n오픈소스\nReact\nNext.j \n hadcn/ui\nMagic UI\nnivo\ntailw",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col gap-6 border-t-[1px] border-[var(--border-color)] p-8 bg-[var(--fo"
+      },
+      {
+        "i": 196,
+        "text": "소프트콘 뷰어십\n2.3.3\n이메일\n디스코드\n링크드인\nGithub\nVelog\n나이스페이 에스크로\n이용약관\n개인정보처리방침",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex leading-none gap-6 justify-between flex-wrap items-center"
+      },
+      {
+        "i": 197,
+        "text": "소프트콘 뷰어십\n2.3.3",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center justify-center gap-2 sticky top-0"
+      },
+      {
+        "i": 198,
+        "text": "소프트콘 뷰어십\n2.3.3",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col xl:flex flex-1 gap-1"
+      },
+      {
+        "i": 199,
+        "text": "소프트콘 뷰어십\n2.3.3",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-sm font-bold leading-none flex gap-2 items-center"
+      },
+      {
+        "i": 200,
+        "text": "2.3.3",
+        "href": null,
+        "tag": "DIV",
+        "cls": "opacity-50 leading-none text-xs font-bold"
+      },
+      {
+        "i": 201,
+        "text": "이메일\n디스코드\n링크드인\nGithub\nVelog\n나이스페이 에스크로\n이용약관\n개인정보처리방침",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-xs text-[var(--foreground-60)] flex sm:gap-6 gap-2 flex-wrap"
+      },
+      {
+        "i": 202,
+        "text": "이메일",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "h-fit flex gap-2"
+      },
+      {
+        "i": 203,
+        "text": "디스코드",
+        "href": "https://discord.gg/CfJjBmKPSE",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 204,
+        "text": "디스코드",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 205,
+        "text": "링크드인",
+        "href": "https://www.linkedin.com/in/%EC%97%B0%EC%A7%84-%EC%A0%95-197065201",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 206,
+        "text": "링크드인",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 207,
+        "text": "Github",
+        "href": "https://github.com/dus532",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 208,
+        "text": "Github",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 209,
+        "text": "Velog",
+        "href": "[redacted_account_indicator]",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 210,
+        "text": "Velog",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 212,
+        "text": "나이스페이 에스크로",
+        "href": "https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?CoNo=5865600743",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 213,
+        "text": "나이스페이 에스크로",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 214,
+        "text": "이용약관",
+        "href": "https://geode-garment-0ae.notion.site/22373aeff2c681849e9ed02386e8232b",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 215,
+        "text": "이용약관",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 216,
+        "text": "개인정보처리방침",
+        "href": "https://geode-garment-0ae.notion.site/22373aeff2c681e7a32bc0f01d4e525b",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 217,
+        "text": "개인정보처리방침",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 218,
+        "text": "제휴\n팬심 FANCIM\n헛삯 SSAPI\n도움\n아르고\n오로라이브 auro.live\n오픈소스\nReact\nNext.j \n hadcn/ui\nMagic UI\nnivo\ntailwind",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-xs text-[var(--foreground-60)] leading-none gap-2 font-medium flex-wra"
+      },
+      {
+        "i": 219,
+        "text": "제휴",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground)]"
+      },
+      {
+        "i": 220,
+        "text": "팬심 FANCIM",
+        "href": "https://fancimm.com/illioCorp/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 221,
+        "text": "팬심 FANCIM",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 222,
+        "text": "헛삯 SSAPI",
+        "href": "https://ssapi.kr/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 223,
+        "text": "헛삯 SSAPI",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 224,
+        "text": "도움",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground)]"
+      },
+      {
+        "i": 225,
+        "text": "아르고",
+        "href": "https://www.chz.app/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 226,
+        "text": "아르고",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 227,
+        "text": "오로라이브 auro.live",
+        "href": "https://auro.live/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 228,
+        "text": "오로라이브 auro.live",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 229,
+        "text": "오픈소스",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground)]"
+      },
+      {
+        "i": 230,
+        "text": "React",
+        "href": "https://react.dev/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 231,
+        "text": "React",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 232,
+        "text": "Next.j ",
+        "href": "https://nextjs.org/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 233,
+        "text": "Next.j ",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 234,
+        "text": " hadcn/ui",
+        "href": "https://ui.shadcn.com/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 235,
+        "text": " hadcn/ui",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 236,
+        "text": "Magic UI",
+        "href": "https://magicui.design/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 237,
+        "text": "Magic UI",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 238,
+        "text": "nivo",
+        "href": "https://nivo.rocks/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 239,
+        "text": "nivo",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 240,
+        "text": "tailwind",
+        "href": "https://tailwindcss.com/",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 241,
+        "text": "tailwind",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 242,
+        "text": "© 2026, 스튜디오 소프트콘 | 정연진\n사업자 등록번호 : 586-56-00743 | 경기도 남양주시 화도읍 마석중앙로37번길 45 504호 22827 | 대표전화 : 010-9728-9622 | 스튜디오 소프트콘은 간이과세자입니다.",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-[11px] text-[var(--foreground-60)]  leading-none gap-2 justify-between"
+      },
+      {
+        "i": 243,
+        "text": "© 2026, 스튜디오 소프트콘 | 정연진\n사업자 등록번호 : 586-56-00743 | 경기도 남양주시 화도읍 마석중앙로37번길 45 504호 22827 | 대표전화 : 010-9728-9622 | 스튜디오 소프트콘은 간이과세자입니다.",
+        "href": null,
+        "tag": "DIV",
+        "cls": "leading-relaxed"
+      },
+      {
+        "i": 244,
+        "text": "© 2026, 스튜디오 소프트콘 | 정연진",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground)] text-xs mb-1 font-semibold"
+      },
+      {
+        "i": 245,
+        "text": "수집 안내\n소프트콘 뷰어십에 표시된 모든 브랜드, 상표는 제3자의 소유이며 소프트콘 뷰어십에선 정보 제공의 목적으로만 사용되며, 수집되는 정보는 오직 누구나 자유로이 접근이 가능한 데이터만을 수집합니다.\n로그인 전, 베이직 요금제로 제공하는 데이터 : [ CC : BY-ND 4.0 ] ",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-[11px] text-[var(--foreground-60)]  leading-none gap-2 justify-between"
+      },
+      {
+        "i": 246,
+        "text": "수집 안내\n소프트콘 뷰어십에 표시된 모든 브랜드, 상표는 제3자의 소유이며 소프트콘 뷰어십에선 정보 제공의 목적으로만 사용되며, 수집되는 정보는 오직 누구나 자유로이 접근이 가능한 데이터만을 수집합니다.\n로그인 전, 베이직 요금제로 제공하는 데이터 : [ CC : BY-ND 4.0 ] ",
+        "href": null,
+        "tag": "DIV",
+        "cls": "leading-relaxed"
+      },
+      {
+        "i": 247,
+        "text": "수집 안내",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground)] text-xs mb-1 font-semibold"
+      },
+      {
+        "i": 251,
+        "text": "",
+        "href": "https://viewership.softc.one/search?q=",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 252,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 254,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": "sm:max-xl:group-hover:flex xl:flex sticky flex-col gap-4 bottom-0 pt-4 border-t-"
+      },
+      {
+        "i": 255,
+        "text": "[redacted_account_indicator]",
+        "href": "[redacted_account_indicator]",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 256,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex gap-2 items-center justify-center xl:justify-start sm:max-xl:group-hover:ju"
+      },
+      {
+        "i": 257,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden sm:max-xl:group-hover:flex xl:flex leading-none flex-col gap-[6px]"
+      },
+      {
+        "i": 258,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": "leading-none text-xs font-medium text-[var(--foreground)]"
+      },
+      {
+        "i": 259,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex gap-1 leading-none text-xs font-bold items-center overflow-hidden w-[160px]"
+      },
+      {
+        "i": 260,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[10px] leading-none h-fit p-[2px] px-1 rounded-sm font-bold text-white"
+      },
+      {
+        "i": 261,
+        "text": "[redacted_account_indicator]",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[var(--foreground-60)] overflow-hidden text-ellipsis whitespace-nowrap"
+      },
+      {
+        "i": 262,
+        "text": "구비바LIVE269edc95873a1ec9fc534851c0783d1f | 젤다의 전설 왕국의 눈물 처음부터! 재밌겠따잉 🐵 버츄얼",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 263,
+        "text": "구비바LIVE269edc95873a1ec9fc534851c0783d1f | 젤다의 전설 왕국의 눈물 처음부터! 재밌겠따잉 🐵 버츄얼",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col gap-[10px]"
+      },
+      {
+        "i": 264,
+        "text": "구비바LIVE269edc95873a1ec9fc534851c0783d1f | 젤다의 전설 왕국의 눈물 처음부터! 재밌겠따잉 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex gap-3"
+      },
+      {
+        "i": 265,
+        "text": "구비바LIVE269edc95873a1ec9fc534851c0783d1f | 젤다의 전설 왕국의 눈물 처음부터! 재밌겠따잉 🐵",
+        "href": "https://chzzk.naver.com/269edc95873a1ec9fc534851c0783d1f",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 266,
+        "text": "구비바LIVE269edc95873a1ec9fc534851c0783d1f | 젤다의 전설 왕국의 눈물 처음부터! 재밌겠따잉 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col gap-[10px] justify-center overflow-hidden"
+      },
+      {
+        "i": 267,
+        "text": "구비바LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-[6px] text-xl font-bold leading-none"
+      },
+      {
+        "i": 269,
+        "text": "LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-1 font-bold bg-[var(--foreground-10)] rounded-full px-[6px"
+      },
+      {
+        "i": 271,
+        "text": "LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] leading-none"
+      },
+      {
+        "i": 272,
+        "text": "269edc95873a1ec9fc534851c0783d1f | 젤다의 전설 왕국의 눈물 처음부터! 재밌겠따잉 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-xs text-[var(--foreground-50)] whitespace-nowrap overflow-hidden text-ellip"
+      },
+      {
+        "i": 273,
+        "text": "버츄얼",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex gap-1 whitespace-nowrap overflow-auto text-ellipsis"
+      },
+      {
+        "i": 274,
+        "text": "버츄얼",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "text-[11px] font-normal text-[var(--foreground-80)] bg-[var(--foreground-5)] rou"
+      },
+      {
+        "i": 275,
+        "text": "버츄얼",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-1"
+      },
+      {
+        "i": 277,
+        "text": "팔로워2026.06.15 (월) 12:36 업데이트726명",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 278,
+        "text": "팔로워2026.06.15 (월) 12:36 업데이트",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex justify-between flex-col gap-2 sm:flex-row flex-wrap"
+      },
+      {
+        "i": 279,
+        "text": "팔로워2026.06.15 (월) 12:36 업데이트",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 280,
+        "text": "팔로워",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex gap-2 font-semibold items-center mb-1 whitespace-nowrap"
+      },
+      {
+        "i": 282,
+        "text": "2026.06.15 (월) 12:36 업데이트",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-xs text-[var(--foreground-70)]"
+      },
+      {
+        "i": 283,
+        "text": "726명",
+        "href": null,
+        "tag": "DIV",
+        "cls": "mt-2 text-3xl font-bold"
+      },
+      {
+        "i": 284,
+        "text": "명",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "text-sm font-normal opacity-50 ml-1"
+      },
+      {
+        "i": 285,
+        "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 286,
+        "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col gap-1"
+      },
+      {
+        "i": 287,
+        "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col flex-1 lg:gap-1 gap-4"
+      },
+      {
+        "i": 288,
+        "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+        "href": null,
+        "tag": "DIV",
+        "cls": "hidden lg:flex sticky top-2 items-center gap-4 text-[11px] leading-none bg-[var("
+      },
+      {
+        "i": 289,
+        "text": "카테고리 / 제목",
+        "href": null,
+        "tag": "DIV",
+        "cls": "py-2 flex items-center w-16 flex-1 cursor-pointer font-medium"
+      },
+      {
+        "i": 290,
+        "text": "기간",
+        "href": null,
+        "tag": "DIV",
+        "cls": "py-2 flex items-center w-28 cursor-pointer font-medium"
+      },
+      {
+        "i": 291,
+        "text": "방송시간",
+        "href": null,
+        "tag": "DIV",
+        "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium"
+      },
+      {
+        "i": 292,
+        "text": "최고 시청자",
+        "href": null,
+        "tag": "DIV",
+        "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium"
+      },
+      {
+        "i": 293,
+        "text": "평균 시청자",
+        "href": null,
+        "tag": "DIV",
+        "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium"
+      },
+      {
+        "i": 294,
+        "text": "전체 채팅",
+        "href": null,
+        "tag": "DIV",
+        "cls": "py-2 flex items-center w-20 justify-end cursor-pointer font-medium"
+      },
+      {
+        "i": 295,
+        "text": "팔로워 증감",
+        "href": null,
+        "tag": "DIV",
+        "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium"
+      },
+      {
+        "i": 296,
+        "text": "정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+        "href": null,
+        "tag": "DIV",
+        "cls": "lg:hidden relative mt-1 block"
+      },
+      {
+        "i": 297,
+        "text": "정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+        "href": null,
+        "tag": "DIV",
+        "cls": "relative flex flex-col gap-2"
+      },
+      {
+        "i": 298,
+        "text": "기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex gap-2 overflow-auto"
+      },
+      {
+        "i": 299,
+        "text": "기간",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-"
+      },
+      {
+        "i": 300,
+        "text": "방송시간",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-"
+      },
+      {
+        "i": 301,
+        "text": "최고 시청자",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-"
+      },
+      {
+        "i": 302,
+        "text": "평균 시청자",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-"
+      },
+      {
+        "i": 303,
+        "text": "전체 채팅",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-"
+      },
+      {
+        "i": 304,
+        "text": "팔로워 증감",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-"
+      },
+      {
+        "i": 309,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6",
+        "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19456393",
+        "tag": "A",
+        "cls": ""
+      },
+      {
+        "i": 310,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "min-h-11 py-2 hidden lg:flex gap-4 text-xs items-center font-medium leading-none"
+      },
+      {
+        "i": 311,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center ${cell.className} flex-wrap text-[var(--foreground-90)] w-16 f"
+      },
+      {
+        "i": 312,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col justify-center sm:gap-1 overflow-hidden"
+      },
+      {
+        "i": 313,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-1 text-[var(--foreground-40)] text-[11px] whitespace-nowra"
+      },
+      {
+        "i": 314,
+        "text": "LIVE",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "flex w-fit items-center gap-1 font-bold text-[var(--foreground)] bg-[var(--foreg"
+      },
+      {
+        "i": 316,
+        "text": "LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] leading-none"
+      },
+      {
+        "i": 317,
+        "text": "오늘 진짜 덥다이.. 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "gap-1 sm:whitespace-nowrap text-ellipsis overflow-hidden text-xs"
+      },
+      {
+        "i": 318,
+        "text": "06.15 (월) 05:59 ~LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center ${cell.className} flex-wrap text-[var(--foreground-90)] w-28 u"
+      },
+      {
+        "i": 319,
+        "text": "06.15 (월) 05:59 ~LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col justify-center sm:gap-1 py-[2px] text-xs"
+      },
+      {
+        "i": 320,
+        "text": "06.15 (월) 05:59 ~",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 321,
+        "text": "LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 322,
+        "text": "6.6h",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center ${cell.className} flex-wrap text-[var(--foreground-90)] w-16 j"
+      },
+      {
+        "i": 323,
+        "text": "6.6",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font"
+      },
+      {
+        "i": 324,
+        "text": "h",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font ml-1 text-[11px] text-[var(--foreground-50)]"
+      },
+      {
+        "i": 327,
+        "text": "28",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center ${cell.className} flex-wrap text-[var(--foreground-90)] w-16 j"
+      },
+      {
+        "i": 328,
+        "text": "28",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font"
+      },
+      {
+        "i": 331,
+        "text": "23",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center ${cell.className} flex-wrap text-[var(--foreground-90)] w-16 j"
+      },
+      {
+        "i": 332,
+        "text": "23",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font"
+      },
+      {
+        "i": 335,
+        "text": "2,558",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center ${cell.className} flex-wrap text-[var(--foreground-90)] w-20 j"
+      },
+      {
+        "i": 336,
+        "text": "2,558",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font"
+      },
+      {
+        "i": 339,
+        "text": "2",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center ${cell.className} flex-wrap text-[var(--foreground-90)] w-16 j"
+      },
+      {
+        "i": 340,
+        "text": "2",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font"
+      },
+      {
+        "i": 343,
+        "text": "카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2",
+        "href": null,
+        "tag": "BUTTON",
+        "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap"
+      },
+      {
+        "i": 344,
+        "text": "카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-full"
+      },
+      {
+        "i": 345,
+        "text": "카테고리 / 제목",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var"
+      },
+      {
+        "i": 346,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-sm leading-normal flex items-center flex-wrap"
+      },
+      {
+        "i": 347,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col justify-center sm:gap-1 overflow-hidden"
+      },
+      {
+        "i": 348,
+        "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex items-center gap-1 text-[var(--foreground-40)] text-[11px] whitespace-nowra"
+      },
+      {
+        "i": 349,
+        "text": "LIVE",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "flex w-fit items-center gap-1 font-bold text-[var(--foreground)] bg-[var(--foreg"
+      },
+      {
+        "i": 351,
+        "text": "LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] leading-none"
+      },
+      {
+        "i": 352,
+        "text": "오늘 진짜 덥다이.. 🐵",
+        "href": null,
+        "tag": "DIV",
+        "cls": "gap-1 sm:whitespace-nowrap text-ellipsis overflow-hidden text-xs"
+      },
+      {
+        "i": 353,
+        "text": "기간06.15 (월) 05:59 ~LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32"
+      },
+      {
+        "i": 354,
+        "text": "기간",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var"
+      },
+      {
+        "i": 355,
+        "text": "06.15 (월) 05:59 ~LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-sm leading-normal flex items-center flex-wrap"
+      },
+      {
+        "i": 356,
+        "text": "06.15 (월) 05:59 ~LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": "flex flex-col justify-center sm:gap-1 py-[2px] text-xs"
+      },
+      {
+        "i": 357,
+        "text": "06.15 (월) 05:59 ~",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 358,
+        "text": "LIVE",
+        "href": null,
+        "tag": "DIV",
+        "cls": ""
+      },
+      {
+        "i": 359,
+        "text": "방송시간6.6h",
+        "href": null,
+        "tag": "DIV",
+        "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32"
+      },
+      {
+        "i": 360,
+        "text": "방송시간",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var"
+      },
+      {
+        "i": 361,
+        "text": "6.6h",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-sm leading-normal flex items-center flex-wrap"
+      },
+      {
+        "i": 362,
+        "text": "6.6",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font"
+      },
+      {
+        "i": 363,
+        "text": "h",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font ml-1 text-[11px] text-[var(--foreground-50)]"
+      },
+      {
+        "i": 366,
+        "text": "최고 시청자28",
+        "href": null,
+        "tag": "DIV",
+        "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32"
+      },
+      {
+        "i": 367,
+        "text": "최고 시청자",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var"
+      },
+      {
+        "i": 368,
+        "text": "28",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-sm leading-normal flex items-center flex-wrap"
+      },
+      {
+        "i": 369,
+        "text": "28",
+        "href": null,
+        "tag": "SPAN",
+        "cls": "mono-font"
+      },
+      {
+        "i": 372,
+        "text": "평균 시청자23",
+        "href": null,
+        "tag": "DIV",
+        "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32"
+      },
+      {
+        "i": 373,
+        "text": "평균 시청자",
+        "href": null,
+        "tag": "DIV",
+        "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var"
+      }
+    ],
+    "tables": []
+  },
+  "labels": [
+    "채널\n치지직\n요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석\n소프트콘 뷰어십\n2.3.3\n이메일\n디스코드\n링크드인\nGithub\nVelog\n나이스페이 에스크로\n이용약관\n개인정보처리방침\n제휴\n팬심 FANCIM\n헛삯 SSAPI\n도움\n아르고\n오로라이브 auro.live\n오픈소스\nReact\nNext.j",
+    "방송 현황LIVE",
+    "방송 그룹",
+    "채널\n치지직\n요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석",
+    "요약\n통계\n카테고리\n랭킹\n방송기록\n구간분석",
+    "통계",
+    "방송기록",
+    "팔로워2026.06.15 (월) 12:36 업데이트726명",
+    "팔로워2026.06.15 (월) 12:36 업데이트",
+    "팔로워",
+    "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE",
+    "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+    "방송시간",
+    "최고 시청자",
+    "평균 시청자",
+    "전체 채팅",
+    "팔로워 증감",
+    "정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+    "기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+    "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6",
+    "카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2",
+    "방송시간6.6h",
+    "최고 시청자28",
+    "평균 시청자23"
+  ],
+  "network": [
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+      "method": "GET",
+      "resourceType": "Document"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+      "status": 200,
+      "mimeType": "text/html",
+      "resourceType": "Document"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Font"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "font/woff2",
+      "resourceType": "Font"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0ffxzy7r8nvha.css?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Stylesheet"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0ffxzy7r8nvha.css?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "text/css",
+      "resourceType": "Stylesheet"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0wdy_._w6snn4.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0wdy_._w6snn4.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0yv6if6s3zqwv.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0yv6if6s3zqwv.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0h_a8vslbue5g.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0h_a8vslbue5g.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/01dsziqqqtp_f.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/01dsziqqqtp_f.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0y1byjyujbcmf.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0y1byjyujbcmf.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/turbopack-0~oh_wp715qe9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/turbopack-0~oh_wp715qe9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0029_60gqcldj.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0029_60gqcldj.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0cb73~hreyns5.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0cb73~hreyns5.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0~f71.ef2_5jj.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0~f71.ef2_5jj.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0~y267-hpzg0s.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0~y267-hpzg0s.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/16ikv5g21n.kp.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/16ikv5g21n.kp.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0gs-wq78t.ykh.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0gs-wq78t.ykh.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0..c1uqxm.79y.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0..c1uqxm.79y.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0.u7j_fjduart.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/16ewpuivtx2aa.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0wc3fllqge.e9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0wc3fllqge.e9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0hvtu8xc9vod7.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/10orq~i.dztb..js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/06b97avpfusk9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/06b97avpfusk9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0ztp7_x0zypqu.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0ztp7_x0zypqu.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0rlbo8b28396d.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0rlbo8b28396d.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0x5h4cvqobdww.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0x5h4cvqobdww.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0.u7j_fjduart.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/16ewpuivtx2aa.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/10orq~i.dztb..js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0hvtu8xc9vod7.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_vercel/insights/script.js",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_vercel/insights/script.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_vercel/insights/view",
+      "method": "POST",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_vercel/insights/view",
+      "status": 200,
+      "mimeType": "text/plain",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.googleadservices.com/pagead/conversion/11342740860/?random=1781527650251&cv=11&fst=1781527650251&fmt=7&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~119456239~119456247~119527586&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&rcb=17&evjid=YvRLUktSYUK1pliDyA&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_m=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick*DIV%3Afalse%3A26%3Atrue*1&ec_sel=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick&ec_meta=DIV%3Afalse%3A26%3Atrue&ec_lat=2&ec_s=1&ec_mode=a&gcl_ctr=5~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1~em.DjbNmv2b9EMKNmY1Dm6uk5R-IY994-qAnqEI5opGfYc&emd=tvd.1~i1.fem.ma.r26.n26.lDIV&ept=5",
+      "method": "GET",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://www.googleadservices.com/pagead/conversion/11342740860/?random=1781527650251&cv=11&fst=1781527650251&fmt=7&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~119456239~119456247~119527586&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&rcb=17&evjid=YvRLUktSYUK1pliDyA&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_m=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick*DIV%3Afalse%3A26%3Atrue*1&ec_sel=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick&ec_meta=DIV%3Afalse%3A26%3Atrue&ec_lat=2&ec_s=1&ec_mode=a&gcl_ctr=5~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1~em.DjbNmv2b9EMKNmY1Dm6uk5R-IY994-qAnqEI5opGfYc&emd=tvd.1~i1.fem.ma.r26.n26.lDIV&ept=5",
+      "status": 200,
+      "mimeType": "application/json",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/11342740860/?random=1837913151&cv=11&fst=1781527650251&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~119456239~119456247~119527586&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&rcb=17&evjid=YvRLUktSYUK1pliDyA&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_m=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick*DIV%3Afalse%3A26%3Atrue*1&ec_sel=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick&ec_meta=DIV%3Afalse%3A26%3Atrue&ec_lat=2&ec_s=1&ec_mode=a&gcl_ctr=5~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1~em.DjbNmv2b9EMKNmY1Dm6uk5R-IY994-qAnqEI5opGfYc&emd=tvd.1~i1.fem.ma.r26.n26.lDIV&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKK3RyaWdnZXI9bmF2aWdhdGlvbi1zb3VyY2UsIG5vdC1ldmVudC1zb3VyY2VaAwoBAWIDCgED&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI1tNQJdLxtTims1EsI063i2DNqbKx84ABkHcXwj32qANFfNXjT00NxoCaog&pscrd=IhMIjvuB1qOJlQMV6nnDBh3BYg6gOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyV3NWRXJNMmYxZVVmTEZnYnRHeEZpSEdVcGs5bDhCdjJmX3ItazhQLWhGbXJSemFCLXFXR1F6DAgJYggIABAAGAAgAA",
+      "method": "POST",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.google.com/pagead/1p-conversion/11342740860/?random=1837913151&cv=11&fst=1781527650251&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~119456239~119456247~119527586&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&rcb=17&evjid=YvRLUktSYUK1pliDyA&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_m=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick*DIV%3Afalse%3A26%3Atrue*1&ec_sel=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick&ec_meta=DIV%3Afalse%3A26%3Atrue&ec_lat=2&ec_s=1&ec_mode=a&gcl_ctr=5~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1~em.DjbNmv2b9EMKNmY1Dm6uk5R-IY994-qAnqEI5opGfYc&emd=tvd.1~i1.fem.ma.r26.n26.lDIV&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKK3RyaWdnZXI9bmF2aWdhdGlvbi1zb3VyY2UsIG5vdC1ldmVudC1zb3VyY2VaAwoBAWIDCgED&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI1tNQJdLxtTims1EsI063i2DNqbKx84ABkHcXwj32qANFfNXjT00NxoCaog&pscrd=IhMIjvuB1qOJlQMV6nnDBh3BYg6gOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyV3NWRXJNMmYxZVVmTEZnYnRHeEZpSEdVcGs5bDhCdjJmX3ItazhQLWhGbXJSemFCLXFXR1F6DAgJYggIABAAGAAgAA&is_vtc=1&cid=CAQS1AEAEQoqgdPHyC2dwZ5VMP7o9BRs9jcz-H3zJKqWWZYON5rOG5DSLMyDA-7hPbCWCPlSyQHl5dGmWqBJB9ioMZpm4ABLyOWY1PrsOnGT6aBwIPPMu-S82cQIIkywTGbUYyCXnR_3uDGwAsAltVKiVmxBIAVffU7zoEOwUERkZdiPGBpSAb_CZmzJ8f-54mlBCFF7DRWnRAKZxUaBM1jNexyPC92TcEoASjbiF6hrrHuUiw5v-fMP7EHcb9FeZpsD1gClAhx__UgZ3CO0wpj8N7gjng4s-Q&random=2441996851",
+      "method": "GET",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.google.co.kr/pagead/1p-conversion/11342740860/?random=1837913151&cv=11&fst=1781527650251&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~119456239~119456247~119527586&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&rcb=17&evjid=YvRLUktSYUK1pliDyA&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_m=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick*DIV%3Afalse%3A26%3Atrue*1&ec_sel=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick&ec_meta=DIV%3Afalse%3A26%3Atrue&ec_lat=2&ec_s=1&ec_mode=a&gcl_ctr=5~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1~em.DjbNmv2b9EMKNmY1Dm6uk5R-IY994-qAnqEI5opGfYc&emd=tvd.1~i1.fem.ma.r26.n26.lDIV&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKK3RyaWdnZXI9bmF2aWdhdGlvbi1zb3VyY2UsIG5vdC1ldmVudC1zb3VyY2VaAwoBAWIDCgED&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI1tNQJdLxtTims1EsI063i2DNqbKx84ABkHcXwj32qANFfNXjT00NxoCaog&is_vtc=1&cid=CAQS1AEAEQoqgdPHyC2dwZ5VMP7o9BRs9jcz-H3zJKqWWZYON5rOG5DSLMyDA-7hPbCWCPlSyQHl5dGmWqBJB9ioMZpm4ABLyOWY1PrsOnGT6aBwIPPMu-S82cQIIkywTGbUYyCXnR_3uDGwAsAltVKiVmxBIAVffU7zoEOwUERkZdiPGBpSAb_CZmzJ8f-54mlBCFF7DRWnRAKZxUaBM1jNexyPC92TcEoASjbiF6hrrHuUiw5v-fMP7EHcb9FeZpsD1gClAhx__UgZ3CO0wpj8N7gjng4s-Q&random=2441996851&ipr=y&pscrd=IhMIjvuB1qOJlQMV6nnDBh3BYg6gOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyV3NWRXJNMmYxZVVmTEZnYnRHeEZpSEdVcGs5bDhCdjJmX3ItazhQLWhGbXJSemFCLXFXR1FiAiABegwICWIICAAQABgAIAGCAQVwAYgBAQ&ezwbk=AZuM4hD8BJDfLV3pqijvAMNcg9oUrsq0GYosSSCGcdt17HOXiVuaWDk2AuDQOT9yqZDK3nY8-L7uAM7NvjKd2JSkuCSs",
+      "method": "GET",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://www.google.co.kr/pagead/1p-conversion/11342740860/?random=1837913151&cv=11&fst=1781527650251&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~119456239~119456247~119527586&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&rcb=17&evjid=YvRLUktSYUK1pliDyA&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_m=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick*DIV%3Afalse%3A26%3Atrue*1&ec_sel=%23S%3A1%3E.sm%5C%3Amax-xl%5C%3Agroup-hover%5C%3Aflex.xl%5C%3Aflex.stick&ec_meta=DIV%3Afalse%3A26%3Atrue&ec_lat=2&ec_s=1&ec_mode=a&gcl_ctr=5~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1~em.DjbNmv2b9EMKNmY1Dm6uk5R-IY994-qAnqEI5opGfYc&emd=tvd.1~i1.fem.ma.r26.n26.lDIV&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKK3RyaWdnZXI9bmF2aWdhdGlvbi1zb3VyY2UsIG5vdC1ldmVudC1zb3VyY2VaAwoBAWIDCgED&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI1tNQJdLxtTims1EsI063i2DNqbKx84ABkHcXwj32qANFfNXjT00NxoCaog&is_vtc=1&cid=CAQS1AEAEQoqgdPHyC2dwZ5VMP7o9BRs9jcz-H3zJKqWWZYON5rOG5DSLMyDA-7hPbCWCPlSyQHl5dGmWqBJB9ioMZpm4ABLyOWY1PrsOnGT6aBwIPPMu-S82cQIIkywTGbUYyCXnR_3uDGwAsAltVKiVmxBIAVffU7zoEOwUERkZdiPGBpSAb_CZmzJ8f-54mlBCFF7DRWnRAKZxUaBM1jNexyPC92TcEoASjbiF6hrrHuUiw5v-fMP7EHcb9FeZpsD1gClAhx__UgZ3CO0wpj8N7gjng4s-Q&random=2441996851&ipr=y&pscrd=IhMIjvuB1qOJlQMV6nnDBh3BYg6gOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyV3NWRXJNMmYxZVVmTEZnYnRHeEZpSEdVcGs5bDhCdjJmX3ItazhQLWhGbXJSemFCLXFXR1FiAiABegwICWIICAAQABgAIAGCAQVwAYgBAQ&ezwbk=AZuM4hD8BJDfLV3pqijvAMNcg9oUrsq0GYosSSCGcdt17HOXiVuaWDk2AuDQOT9yqZDK3nY8-L7uAM7NvjKd2JSkuCSs",
+      "status": 200,
+      "mimeType": "text/html",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-NPL5QH6N77&gtm=45je66a1v9206804378za200zd9206804378&_p=1781527648077&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=240818224.1781527416&frm=0&pscdl=noapi&rcb=4&sr=1920x1080&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=ko-kr&_s=1&tag_exp=115938466~115938469~119400893~119400897~119456239~119456247~119527586&sid=1781527416&sct=1&seg=1&dl=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&dt=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&en=page_view&_ee=1&tfd=6190",
+      "method": "POST",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-NPL5QH6N77&gtm=45je66a1v9206804378za200zd9206804378&_p=1781527648077&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=240818224.1781527416&frm=0&pscdl=noapi&rcb=4&sr=1920x1080&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=ko-kr&_s=1&tag_exp=115938466~115938469~119400893~119400897~119456239~119456247~119527586&sid=1781527416&sct=1&seg=1&dl=https%3A%2F%2Fviewership.softc.one%2Fchannel%2Fnaverchzzk%2F269edc95873a1ec9fc534851c0783d1f&dt=%EA%B5%AC%EB%B9%84%EB%B0%94%20%7C%20%EC%B9%98%EC%A7%80%EC%A7%81%20%3A%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP&en=page_view&_ee=1&tfd=6190",
+      "status": 204,
+      "mimeType": "text/plain",
+      "resourceType": "Fetch"
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+{
+  "generated_at": "2026-06-15T13:54:17.324Z",
+  "mode": "full",
+  "method": "cdp_dom_browser_parallel",
+  "cdp_port": 9222,
+  "concurrency": 2,
+  "output_dir": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples",
+  "raw_html_saved": false,
+  "secret_values_logged": false,
+  "cookie_values_read": false,
+  "url_pattern": "https://viewership.softc.one/channel/naverchzzk/{channelId}/streams",
+  "target_summary": {
+    "candidate_rows_before_dedupe": 380,
+    "unique_targets_after_dedupe": 323,
+    "offset": 0,
+    "limit": null,
+    "attempted_in_this_run": 235,
+    "skipped_existing": true
+  },
+  "success_count": 0,
+  "short_rows_count": 0,
+  "error_count": 2,
+  "boundary_signal": "checkpoint_or_rate_boundary",
+  "deduped_memberships": [
+    {
+      "channel_id": "1fd54afbec396b332cf2883561f48a0e",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "8968e548991e09739da81e75c7dc75c0",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "cbfa98548ac10dc499d489fe50f61dc3",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "3ecbcdcd5c780344d396c93c61ea2595",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "3e058dcfbb022dfdaa1a9b7d9eefe45a",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "63d1d26a9dbf5ade38d4fb51b960064d",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "3d24cb2450ec17e17f79e964d32a23e3",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "1d19dc348fdf699e63885944b49ff60c",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "b6a1a1b3e7bd6a8860d61c09a6b79df5",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "1bb5d04f49dace3bad16515215a4f7ad",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "ab504d770e36bf59aaf155be434952d8",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "ff38fdec85167efa94405c328e8e8c6e",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "7dd6f0927c18f4acc3f40b8d31a80f0f",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "42d9e35fdeee6c2163494eb12961e9da",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "cf882ca21960c190dd6af5c8332d3876",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "52b2f7d78f07b3b175dbaaa3cb9abc85",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "8895df5b7733f26ccc6b4f54aeaa1072",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "aaab8f4e08ca394e4012936c8d445b6c",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "f9f5fda096ff44d36127036cd18b0db2",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "652abc4f57f73627fd3b63c1acb46735",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "6fdb2087d2d7d0349d0c194cfe1be0d9",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "694a4e3ac4406e1989f85cdde291999c",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "6e872ef76e61aee6fd9aed66077a9f4c",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "37a5b413b2360b6b449e061ed4057693",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "7839037e2c05af7473df365aab79fbaa",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "3c756c71b2c4a1bda8ee7a398e626f17",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "9e8a6e8919730f4b06af6a4c5cca165f",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "7f148028d1b8b3feab3a5442badded46",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "adeb7ab9d551519ccfae37b3788c40f1",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "d8f9cfab91b27abb7b3f7f2c1a186e29",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "8410e08fd6359ed491b5ad366994fa0d",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "ee279ba91e254d53bce40b7a1b323bda",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "d82829566190e566da4d8e97308d5993",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "4a62ee4e2d30ac11709453faf4583f1a",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "c60605305243b0234e4cd0d10a675b05",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "aca36e99198a7587de9dd1bbe324fd87",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "66630781c437e465edf43de3cfd19b3b",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "aa26e59c91a22bd430ec1d5d6d965dac",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "8d2a6539c9b0570f9d69c8539eebeb69",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "1c4cbafbd49aa741d272bea73b67aa2c",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "acf6dd771e87a5ac8199f3850cbce994",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "4cd76d9219e872fb80681d13308025c6",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "5992c0c83aaec4f64199fb265e0285ec",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "827cf700086734c7b700e138eaf9f57e",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "69996ac83db681049e110c5883f05f39",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "3ea47d1b635b154d30f20ce0e6ce6b13",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "0cfb40c68e56441c3e0ca58231e3523b",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "a9e9faf32d32f089b07eb6213e9f4254",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "4d93eaefb9387f2245e36634890d4c28",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "2626f1dee4cedd89ecc8c4c313e37ecc",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "78c9480053d17ccd049a5700d3a3062a",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "8b8697840179cb5269bfc244b7881ea1",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "c9a7a8a4006fa8ed4cefbf97b398abf2",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "58eaedccbc58e733a233005ee04eecda",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "1abdd12d26d0bdd140274d854165133d",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "5aaebd33ed301dbcaa09ebcb515a59cb",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    },
+    {
+      "channel_id": "d61bbf21d161b6436f8993038cc1a989",
+      "dropped_group": "T2",
+      "kept_group": "T1",
+      "reason": "duplicate_channel_id_t1_priority"
+    }
+  ],
+  "successes": [],
+  "errors": [
+    {
+      "worker_id": 1,
+      "progress": "1/323",
+      "group": "T1",
+      "channel_id": "652abc4f57f73627fd3b63c1acb46735",
+      "error": "429",
+      "network_rate_limited": true,
+      "status_codes": [
+        429,
+        429
+      ]
+    },
+    {
+      "worker_id": 2,
+      "progress": "2/323",
+      "group": "T1",
+      "channel_id": "e2f91d088c9bbcd1fce2924ff3f58226",
+      "error": "429",
+      "network_rate_limited": true,
+      "status_codes": [
+        429,
+        429,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    }
+  ]
+}

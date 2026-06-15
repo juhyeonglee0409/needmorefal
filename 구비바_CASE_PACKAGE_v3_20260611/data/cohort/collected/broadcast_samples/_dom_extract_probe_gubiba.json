@@ -1,0 +1,1524 @@
+{
+  "generatedAt": "2026-06-15T12:48:58.470Z",
+  "rawHtmlSaved": false,
+  "secretValuesLogged": false,
+  "cookieValuesRead": false,
+  "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+  "title": "구비바 | 치지직 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+  "candidateRows": [
+    {
+      "i": 307,
+      "tag": "A",
+      "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19456393",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 334,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 349,
+      "tag": "DIV",
+      "text": "방송시간6.6h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 354,
+      "tag": "DIV",
+      "text": "최고 시청자28",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 359,
+      "tag": "DIV",
+      "text": "평균 시청자23",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 364,
+      "tag": "DIV",
+      "text": "전체 채팅2,558",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 369,
+      "tag": "DIV",
+      "text": "팔로워 증감2",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 374,
+      "tag": "A",
+      "text": "사이버펑크 2077, talk연령제한일요일이야~! 🐵 06.14 (일) 03:58 ~06.14 (일) 11:367.6h22163681카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19437936",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 399,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 412,
+      "tag": "DIV",
+      "text": "방송시간7.6h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 417,
+      "tag": "DIV",
+      "text": "최고 시청자22",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 422,
+      "tag": "DIV",
+      "text": "평균 시청자16",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 427,
+      "tag": "DIV",
+      "text": "전체 채팅368",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 432,
+      "tag": "DIV",
+      "text": "팔로워 증감1",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 437,
+      "tag": "A",
+      "text": "사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 06.13 (토) 03:59 ~06.13 (토) 10:366.6h22175330카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19419533",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 462,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 475,
+      "tag": "DIV",
+      "text": "방송시간6.6h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 480,
+      "tag": "DIV",
+      "text": "최고 시청자22",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 485,
+      "tag": "DIV",
+      "text": "평균 시청자17",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 490,
+      "tag": "DIV",
+      "text": "전체 채팅533",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 495,
+      "tag": "DIV",
+      "text": "팔로워 증감0",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 500,
+      "tag": "A",
+      "text": "다크 소울 2, talk히히히🐵 06.12 (금) 05:57 ~06.12 (금) 13:007h27203,1160카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19402714",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 525,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 538,
+      "tag": "DIV",
+      "text": "방송시간7h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 543,
+      "tag": "DIV",
+      "text": "최고 시청자27",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 548,
+      "tag": "DIV",
+      "text": "평균 시청자20",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 553,
+      "tag": "DIV",
+      "text": "전체 채팅3,116",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 558,
+      "tag": "DIV",
+      "text": "팔로워 증감0",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 563,
+      "tag": "A",
+      "text": "사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 06.10 (수) 05:57 ~06.10 (수) 12:426.7h23159932카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19366386",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 588,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 601,
+      "tag": "DIV",
+      "text": "방송시간6.7h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 606,
+      "tag": "DIV",
+      "text": "최고 시청자23",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 611,
+      "tag": "DIV",
+      "text": "평균 시청자15",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 616,
+      "tag": "DIV",
+      "text": "전체 채팅993",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 621,
+      "tag": "DIV",
+      "text": "팔로워 증감2",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 656,
+      "tag": "DIV",
+      "text": "스트리머 요약 데이터기간 내 전체 요약 데이터동시 최고 시청자28명24 ( -46.2 % )평균 시청자17명1 ( -5.6 % )뷰어십 ( 평균 시청자 * 방송시간 )753명31.6 ( +4.4 % )방송 시간42.1시간3.9 ( +10.2 % )최고 순위271위57최고 팔로워726명36분 최고 채팅88명8 ( -8.3 % )6분 평균 채팅22명8 ( +57.1 % )",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 663,
+      "tag": "DIV",
+      "text": "동시 최고 시청자28명24 ( -46.2 % )평균 시청자17명1 ( -5.6 % )뷰어십 ( 평균 시청자 * 방송시간 )753명31.6 ( +4.4 % )방송 시간42.1시간3.9 ( +10.2 % )최고 순위271위57최고 팔로워726명36분 최고 채팅88명8 ( -8.3 % )6분 평균 채팅22명8 ( +57.1 % )",
+      "href": null,
+      "cls": "flex mt-4 gap-2 sm:flex-row flex-col flex-wrap",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 664,
+      "tag": "DIV",
+      "text": "동시 최고 시청자28명24 ( -46.2 % )",
+      "href": null,
+      "cls": "min-w-52 flex-1 flex flex-col bg-[var(--foreground-7)] gap-1 rounded-lg p-3",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 668,
+      "tag": "DIV",
+      "text": "평균 시청자17명1 ( -5.6 % )",
+      "href": null,
+      "cls": "min-w-52 flex-1 flex flex-col bg-[var(--foreground-7)] gap-1 rounded-lg p-3",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 672,
+      "tag": "DIV",
+      "text": "뷰어십 ( 평균 시청자 * 방송시간 )753명31.6 ( +4.4 % )",
+      "href": null,
+      "cls": "min-w-52 flex-1 flex flex-col bg-[var(--foreground-7)] gap-1 rounded-lg p-3",
+      "aria": null,
+      "role": null
+    }
+  ],
+  "links": [
+    {
+      "i": 6,
+      "href": "https://viewership.softc.one/",
+      "text": "방송 현황LIVE"
+    },
+    {
+      "i": 8,
+      "href": "https://viewership.softc.one/streamergroups",
+      "text": "방송 그룹"
+    },
+    {
+      "i": 14,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+      "text": "요약"
+    },
+    {
+      "i": 15,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/statistics",
+      "text": "통계"
+    },
+    {
+      "i": 16,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/categories",
+      "text": "카테고리"
+    },
+    {
+      "i": 17,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/ranking",
+      "text": "랭킹"
+    },
+    {
+      "i": 18,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams",
+      "text": "방송기록"
+    },
+    {
+      "i": 19,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/interval",
+      "text": "구간분석"
+    },
+    {
+      "i": 40,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19456393",
+      "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2"
+    },
+    {
+      "i": 41,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19437936",
+      "text": "사이버펑크 2077, talk연령제한일요일이야~! 🐵 06.14 (일) 03:58 ~06.14 (일) 11:367.6h22163681카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1"
+    },
+    {
+      "i": 42,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19419533",
+      "text": "사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 06.13 (토) 03:59 ~06.13 (토) 10:366.6h22175330카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0"
+    },
+    {
+      "i": 43,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19402714",
+      "text": "다크 소울 2, talk히히히🐵 06.12 (금) 05:57 ~06.12 (금) 13:007h27203,1160카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0"
+    },
+    {
+      "i": 44,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19366386",
+      "text": "사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 06.10 (수) 05:57 ~06.10 (수) 12:426.7h23159932카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2"
+    },
+    {
+      "i": 45,
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams",
+      "text": "방송기록 더보기"
+    }
+  ],
+  "headings": [
+    {
+      "i": 283,
+      "tag": "DIV",
+      "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2사이버펑크 2077, talk연령제한일요일이야~! 🐵 06.14 (일) 03:58 ~06.14 (일) 11:367.6h22163681카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 06.13 (토) 03:59 ~06.13 (토) 10:366.6h22175330카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0다크 소울 2, talk히히히🐵 06.12 (금) 05:57 ~06.12 (금) 13:007h27203,1160카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 06.10 (수) 05:57 ~06.10 (수) 12:426.7h23159932카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2방송기록 더보기",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 284,
+      "tag": "DIV",
+      "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2사이버펑크 2077, talk연령제한일요일이야~! 🐵 06.14 (일) 03:58 ~06.14 (일) 11:367.6h22163681카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 06.13 (토) 03:59 ~06.13 (토) 10:366.6h22175330카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0다크 소울 2, talk히히히🐵 06.12 (금) 05:57 ~06.12 (금) 13:007h27203,1160카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 06.10 (수) 05:57 ~06.10 (수) 12:426.7h23159932카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2방송기록 더보기",
+      "href": null,
+      "cls": "flex flex-col gap-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 285,
+      "tag": "DIV",
+      "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2사이버펑크 2077, talk연령제한일요일이야~! 🐵 06.14 (일) 03:58 ~06.14 (일) 11:367.6h22163681카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 06.13 (토) 03:59 ~06.13 (토) 10:366.6h22175330카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0다크 소울 2, talk히히히🐵 06.12 (금) 05:57 ~06.12 (금) 13:007h27203,1160카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 06.10 (수) 05:57 ~06.10 (수) 12:426.7h23159932카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2",
+      "href": null,
+      "cls": "flex flex-col flex-1 lg:gap-1 gap-4",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 286,
+      "tag": "DIV",
+      "text": "카테고리 / 제목기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+      "href": null,
+      "cls": "hidden lg:flex sticky top-2 items-center gap-4 text-[11px] leading-none bg-[var(--menu-background)] rounded-lg px-6 bord",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 287,
+      "tag": "DIV",
+      "text": "카테고리 / 제목",
+      "href": null,
+      "cls": "py-2 flex items-center w-16 flex-1 cursor-pointer font-medium",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 288,
+      "tag": "DIV",
+      "text": "기간",
+      "href": null,
+      "cls": "py-2 flex items-center w-28 cursor-pointer font-medium",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 289,
+      "tag": "DIV",
+      "text": "방송시간",
+      "href": null,
+      "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 290,
+      "tag": "DIV",
+      "text": "최고 시청자",
+      "href": null,
+      "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 291,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 292,
+      "tag": "DIV",
+      "text": "전체 채팅",
+      "href": null,
+      "cls": "py-2 flex items-center w-20 justify-end cursor-pointer font-medium",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 293,
+      "tag": "DIV",
+      "text": "팔로워 증감",
+      "href": null,
+      "cls": "py-2 flex items-center w-16 justify-end cursor-pointer font-medium",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 294,
+      "tag": "DIV",
+      "text": "정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+      "href": null,
+      "cls": "lg:hidden relative mt-1 block",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 295,
+      "tag": "DIV",
+      "text": "정렬기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+      "href": null,
+      "cls": "relative flex flex-col gap-2",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 296,
+      "tag": "DIV",
+      "text": "기간방송시간최고 시청자평균 시청자전체 채팅팔로워 증감",
+      "href": null,
+      "cls": "flex gap-2 overflow-auto",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 297,
+      "tag": "DIV",
+      "text": "기간",
+      "href": null,
+      "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-3 p",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 298,
+      "tag": "DIV",
+      "text": "방송시간",
+      "href": null,
+      "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-3 p",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 299,
+      "tag": "DIV",
+      "text": "최고 시청자",
+      "href": null,
+      "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-3 p",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 300,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-3 p",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 301,
+      "tag": "DIV",
+      "text": "전체 채팅",
+      "href": null,
+      "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-3 p",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 302,
+      "tag": "DIV",
+      "text": "팔로워 증감",
+      "href": null,
+      "cls": "flex text-xs shrink-0 leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-3 p",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 307,
+      "tag": "A",
+      "text": "LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 06.15 (월) 05:59 ~LIVE6.6h28232,5582카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19456393",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 334,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵 기간06.15 (월) 05:59 ~LIVE방송시간6.6h최고 시청자28평균 시청자23전체 채팅2,558팔로워 증감2",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 335,
+      "tag": "DIV",
+      "text": "카테고리 / 제목LIVE젤다의 전설 티어스 오브 더 킹덤, talk오늘 진짜 덥다이.. 🐵",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-full",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 336,
+      "tag": "DIV",
+      "text": "카테고리 / 제목",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 343,
+      "tag": "DIV",
+      "text": "기간06.15 (월) 05:59 ~LIVE",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 344,
+      "tag": "DIV",
+      "text": "기간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 349,
+      "tag": "DIV",
+      "text": "방송시간6.6h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 350,
+      "tag": "DIV",
+      "text": "방송시간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 354,
+      "tag": "DIV",
+      "text": "최고 시청자28",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 355,
+      "tag": "DIV",
+      "text": "최고 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 359,
+      "tag": "DIV",
+      "text": "평균 시청자23",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 360,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 364,
+      "tag": "DIV",
+      "text": "전체 채팅2,558",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 365,
+      "tag": "DIV",
+      "text": "전체 채팅",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 369,
+      "tag": "DIV",
+      "text": "팔로워 증감2",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 370,
+      "tag": "DIV",
+      "text": "팔로워 증감",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 374,
+      "tag": "A",
+      "text": "사이버펑크 2077, talk연령제한일요일이야~! 🐵 06.14 (일) 03:58 ~06.14 (일) 11:367.6h22163681카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19437936",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 399,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵 기간06.14 (일) 03:58 ~06.14 (일) 11:36방송시간7.6h최고 시청자22평균 시청자16전체 채팅368팔로워 증감1",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 400,
+      "tag": "DIV",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한일요일이야~! 🐵",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-full",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 401,
+      "tag": "DIV",
+      "text": "카테고리 / 제목",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 406,
+      "tag": "DIV",
+      "text": "기간06.14 (일) 03:58 ~06.14 (일) 11:36",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 407,
+      "tag": "DIV",
+      "text": "기간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 412,
+      "tag": "DIV",
+      "text": "방송시간7.6h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 413,
+      "tag": "DIV",
+      "text": "방송시간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 417,
+      "tag": "DIV",
+      "text": "최고 시청자22",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 418,
+      "tag": "DIV",
+      "text": "최고 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 422,
+      "tag": "DIV",
+      "text": "평균 시청자16",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 423,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 427,
+      "tag": "DIV",
+      "text": "전체 채팅368",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 428,
+      "tag": "DIV",
+      "text": "전체 채팅",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 432,
+      "tag": "DIV",
+      "text": "팔로워 증감1",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 433,
+      "tag": "DIV",
+      "text": "팔로워 증감",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 437,
+      "tag": "A",
+      "text": "사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 06.13 (토) 03:59 ~06.13 (토) 10:366.6h22175330카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19419533",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 462,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵 기간06.13 (토) 03:59 ~06.13 (토) 10:36방송시간6.6h최고 시청자22평균 시청자17전체 채팅533팔로워 증감0",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 463,
+      "tag": "DIV",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한늦게 일어난 꾸숭이.. 🐵",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-full",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 464,
+      "tag": "DIV",
+      "text": "카테고리 / 제목",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 469,
+      "tag": "DIV",
+      "text": "기간06.13 (토) 03:59 ~06.13 (토) 10:36",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 470,
+      "tag": "DIV",
+      "text": "기간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 475,
+      "tag": "DIV",
+      "text": "방송시간6.6h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 476,
+      "tag": "DIV",
+      "text": "방송시간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 480,
+      "tag": "DIV",
+      "text": "최고 시청자22",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 481,
+      "tag": "DIV",
+      "text": "최고 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 485,
+      "tag": "DIV",
+      "text": "평균 시청자17",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 486,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 490,
+      "tag": "DIV",
+      "text": "전체 채팅533",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 491,
+      "tag": "DIV",
+      "text": "전체 채팅",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 495,
+      "tag": "DIV",
+      "text": "팔로워 증감0",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 496,
+      "tag": "DIV",
+      "text": "팔로워 증감",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 500,
+      "tag": "A",
+      "text": "다크 소울 2, talk히히히🐵 06.12 (금) 05:57 ~06.12 (금) 13:007h27203,1160카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19402714",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 525,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목다크 소울 2, talk히히히🐵 기간06.12 (금) 05:57 ~06.12 (금) 13:00방송시간7h최고 시청자27평균 시청자20전체 채팅3,116팔로워 증감0",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 526,
+      "tag": "DIV",
+      "text": "카테고리 / 제목다크 소울 2, talk히히히🐵",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-full",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 527,
+      "tag": "DIV",
+      "text": "카테고리 / 제목",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 532,
+      "tag": "DIV",
+      "text": "기간06.12 (금) 05:57 ~06.12 (금) 13:00",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 533,
+      "tag": "DIV",
+      "text": "기간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 538,
+      "tag": "DIV",
+      "text": "방송시간7h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 539,
+      "tag": "DIV",
+      "text": "방송시간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 543,
+      "tag": "DIV",
+      "text": "최고 시청자27",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 544,
+      "tag": "DIV",
+      "text": "최고 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 548,
+      "tag": "DIV",
+      "text": "평균 시청자20",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 549,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 553,
+      "tag": "DIV",
+      "text": "전체 채팅3,116",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 554,
+      "tag": "DIV",
+      "text": "전체 채팅",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 558,
+      "tag": "DIV",
+      "text": "팔로워 증감0",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 559,
+      "tag": "DIV",
+      "text": "팔로워 증감",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 563,
+      "tag": "A",
+      "text": "사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 06.10 (수) 05:57 ~06.10 (수) 12:426.7h23159932카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2",
+      "href": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f/streams/19366386",
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 588,
+      "tag": "BUTTON",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵 기간06.10 (수) 05:57 ~06.10 (수) 12:42방송시간6.7h최고 시청자23평균 시청자15전체 채팅993팔로워 증감2",
+      "href": null,
+      "cls": "lg:hidden flex gap-[2px] border-[1px] border-[var(--border-color)] p-2 flex-wrap rounded-lg",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 589,
+      "tag": "DIV",
+      "text": "카테고리 / 제목사이버펑크 2077, talk연령제한닌다 기대된다! 🐵",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-full",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 590,
+      "tag": "DIV",
+      "text": "카테고리 / 제목",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 595,
+      "tag": "DIV",
+      "text": "기간06.10 (수) 05:57 ~06.10 (수) 12:42",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 596,
+      "tag": "DIV",
+      "text": "기간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 601,
+      "tag": "DIV",
+      "text": "방송시간6.7h",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 602,
+      "tag": "DIV",
+      "text": "방송시간",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 606,
+      "tag": "DIV",
+      "text": "최고 시청자23",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 607,
+      "tag": "DIV",
+      "text": "최고 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 611,
+      "tag": "DIV",
+      "text": "평균 시청자15",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 612,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 616,
+      "tag": "DIV",
+      "text": "전체 채팅993",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 617,
+      "tag": "DIV",
+      "text": "전체 채팅",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 621,
+      "tag": "DIV",
+      "text": "팔로워 증감2",
+      "href": null,
+      "cls": "p-1 gap-[4px] flex flex-col flex-1 min-w-32",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 622,
+      "tag": "DIV",
+      "text": "팔로워 증감",
+      "href": null,
+      "cls": "text-[11px] w-fit leading-none font-semibold text-[var(--foreground-70)] bg-[var(--foreground-6)] rounded-2xl px-2 py-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 637,
+      "tag": "DIV",
+      "text": "주별 평균 시청자 그래프주별 평균 시청자 데이터",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 638,
+      "tag": "DIV",
+      "text": "주별 평균 시청자 그래프주별 평균 시청자 데이터",
+      "href": null,
+      "cls": "flex justify-between flex-col gap-2 sm:flex-row flex-wrap",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 639,
+      "tag": "DIV",
+      "text": "주별 평균 시청자 그래프주별 평균 시청자 데이터",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 640,
+      "tag": "DIV",
+      "text": "주별 평균 시청자 그래프",
+      "href": null,
+      "cls": "flex gap-2 font-semibold items-center mb-1 whitespace-nowrap",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 642,
+      "tag": "DIV",
+      "text": "주별 평균 시청자 데이터",
+      "href": null,
+      "cls": "text-xs text-[var(--foreground-70)]",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 647,
+      "tag": "DIV",
+      "text": "주별 최고 시청자 그래프주별 동시 최고 시청자 데이터",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 648,
+      "tag": "DIV",
+      "text": "주별 최고 시청자 그래프주별 동시 최고 시청자 데이터",
+      "href": null,
+      "cls": "flex justify-between flex-col gap-2 sm:flex-row flex-wrap",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 649,
+      "tag": "DIV",
+      "text": "주별 최고 시청자 그래프주별 동시 최고 시청자 데이터",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 650,
+      "tag": "DIV",
+      "text": "주별 최고 시청자 그래프",
+      "href": null,
+      "cls": "flex gap-2 font-semibold items-center mb-1 whitespace-nowrap",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 652,
+      "tag": "DIV",
+      "text": "주별 동시 최고 시청자 데이터",
+      "href": null,
+      "cls": "text-xs text-[var(--foreground-70)]",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 656,
+      "tag": "DIV",
+      "text": "스트리머 요약 데이터기간 내 전체 요약 데이터동시 최고 시청자28명24 ( -46.2 % )평균 시청자17명1 ( -5.6 % )뷰어십 ( 평균 시청자 * 방송시간 )753명31.6 ( +4.4 % )방송 시간42.1시간3.9 ( +10.2 % )최고 순위271위57최고 팔로워726명36분 최고 채팅88명8 ( -8.3 % )6분 평균 채팅22명8 ( +57.1 % )",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 657,
+      "tag": "DIV",
+      "text": "스트리머 요약 데이터기간 내 전체 요약 데이터",
+      "href": null,
+      "cls": "flex justify-between flex-col gap-2 sm:flex-row flex-wrap",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 658,
+      "tag": "DIV",
+      "text": "스트리머 요약 데이터기간 내 전체 요약 데이터",
+      "href": null,
+      "cls": "",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 661,
+      "tag": "DIV",
+      "text": "기간 내 전체 요약 데이터",
+      "href": null,
+      "cls": "text-xs text-[var(--foreground-70)]",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 663,
+      "tag": "DIV",
+      "text": "동시 최고 시청자28명24 ( -46.2 % )평균 시청자17명1 ( -5.6 % )뷰어십 ( 평균 시청자 * 방송시간 )753명31.6 ( +4.4 % )방송 시간42.1시간3.9 ( +10.2 % )최고 순위271위57최고 팔로워726명36분 최고 채팅88명8 ( -8.3 % )6분 평균 채팅22명8 ( +57.1 % )",
+      "href": null,
+      "cls": "flex mt-4 gap-2 sm:flex-row flex-col flex-wrap",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 664,
+      "tag": "DIV",
+      "text": "동시 최고 시청자28명24 ( -46.2 % )",
+      "href": null,
+      "cls": "min-w-52 flex-1 flex flex-col bg-[var(--foreground-7)] gap-1 rounded-lg p-3",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 665,
+      "tag": "DIV",
+      "text": "동시 최고 시청자",
+      "href": null,
+      "cls": "font-semibold text-xs text-[var(--foreground-70)] mb-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 668,
+      "tag": "DIV",
+      "text": "평균 시청자17명1 ( -5.6 % )",
+      "href": null,
+      "cls": "min-w-52 flex-1 flex flex-col bg-[var(--foreground-7)] gap-1 rounded-lg p-3",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 669,
+      "tag": "DIV",
+      "text": "평균 시청자",
+      "href": null,
+      "cls": "font-semibold text-xs text-[var(--foreground-70)] mb-1",
+      "aria": null,
+      "role": null
+    },
+    {
+      "i": 672,
+      "tag": "DIV",
+      "text": "뷰어십 ( 평균 시청자 * 방송시간 )753명31.6 ( +4.4 % )",
+      "href": null,
+      "cls": "min-w-52 flex-1 flex flex-col bg-[var(--foreground-7)] gap-1 rounded-lg p-3",
+      "aria": null,
+      "role": null
+    }
+  ]
+}

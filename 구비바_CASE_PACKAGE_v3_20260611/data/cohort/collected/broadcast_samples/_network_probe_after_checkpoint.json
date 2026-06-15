@@ -1,0 +1,323 @@
+{
+  "generatedAt": "2026-06-15T12:46:43.462Z",
+  "method": "attach_existing_cdp_after_user_checkpoint",
+  "port": 9222,
+  "targetUrl": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+  "rawHtmlSaved": false,
+  "secretValuesLogged": false,
+  "cookieValuesRead": false,
+  "beforeClick": {
+    "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+    "title": "소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP : 트위치, 치지직, 유튜브, SOOP 뷰어십, 랭킹",
+    "textSnippet": "404 | 존재하지 않는 페이지입니다\n메인으로 이동",
+    "buttons": [
+      {
+        "i": 0,
+        "text": "메인으로 이동",
+        "href": "https://viewership.softc.one/",
+        "tag": "A"
+      },
+      {
+        "i": 1,
+        "text": "메인으로 이동",
+        "href": null,
+        "tag": "BUTTON"
+      }
+    ],
+    "tables": []
+  },
+  "clickResults": [
+    {
+      "label": "방송기록",
+      "clicked": false
+    },
+    {
+      "label": "방송 기록",
+      "clicked": false
+    },
+    {
+      "label": "방송",
+      "clicked": false
+    },
+    {
+      "label": "상세",
+      "clicked": false
+    },
+    {
+      "label": "CSV",
+      "clicked": false
+    },
+    {
+      "label": "다운로드",
+      "clicked": false
+    }
+  ],
+  "afterClick": {
+    "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+    "title": "소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP : 트위치, 치지직, 유튜브, SOOP 뷰어십, 랭킹",
+    "textSnippet": "404 | 존재하지 않는 페이지입니다\n메인으로 이동",
+    "buttons": [
+      {
+        "i": 0,
+        "text": "메인으로 이동",
+        "href": "https://viewership.softc.one/",
+        "tag": "A"
+      },
+      {
+        "i": 1,
+        "text": "메인으로 이동",
+        "href": null,
+        "tag": "BUTTON"
+      }
+    ],
+    "tables": []
+  },
+  "network": [
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+      "method": "GET",
+      "resourceType": "Document"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+      "status": 404,
+      "mimeType": "text/html",
+      "resourceType": "Document"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0ffxzy7r8nvha.css?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Stylesheet"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0ffxzy7r8nvha.css?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "text/css",
+      "resourceType": "Stylesheet"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0wdy_._w6snn4.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0wdy_._w6snn4.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0yv6if6s3zqwv.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0yv6if6s3zqwv.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0h_a8vslbue5g.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0h_a8vslbue5g.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/01dsziqqqtp_f.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/01dsziqqqtp_f.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0y1byjyujbcmf.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0y1byjyujbcmf.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/turbopack-0~oh_wp715qe9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/turbopack-0~oh_wp715qe9.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0029_60gqcldj.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0029_60gqcldj.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0cb73~hreyns5.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0cb73~hreyns5.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/chunks/0oxqdyw297~e4.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "method": "GET",
+      "resourceType": "Font"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "font/woff2",
+      "resourceType": "Font"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_next/static/chunks/0oxqdyw297~e4.js?dpl=dpl_Fsr3suVtdjMbfzkGsgUq8GSXeAw4",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_vercel/insights/script.js",
+      "method": "GET",
+      "resourceType": "Script"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_vercel/insights/script.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "resourceType": "Script"
+    },
+    {
+      "type": "request",
+      "url": "https://viewership.softc.one/_vercel/insights/view",
+      "method": "POST",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-NPL5QH6N77&gtm=45je66a1v9206804378za200zd9206804378&_p=1781527591497&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=240818224.1781527416&frm=0&pscdl=noapi&rcb=0&sr=1920x1080&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=ko-kr&_s=1&tag_exp=115938466~115938469~119400893~119400897~119456239~119456247&sid=1781527416&sct=1&seg=1&dl=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&dt=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD%ED%82%B9&en=page_view&_ee=1&tfd=289",
+      "method": "POST",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.googleadservices.com/pagead/conversion/11342740860/?random=1781527591724&cv=11&fst=1781527591724&fmt=7&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~119349418~119456239~119456247&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&rcb=0&evjid=J_RLUktSlLTprgErfw&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_mode=a&gcl_ctr=4~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5",
+      "method": "GET",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-NPL5QH6N77&gtm=45je66a1v9206804378za200zd9206804378&_p=1781527591497&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAAAQ&are=1&cid=240818224.1781527416&frm=0&pscdl=noapi&rcb=0&sr=1920x1080&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=ko-kr&_s=1&tag_exp=115938466~115938469~119400893~119400897~119456239~119456247&sid=1781527416&sct=1&seg=1&dl=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&dt=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD%ED%82%B9&en=page_view&_ee=1&tfd=289",
+      "status": 204,
+      "mimeType": "text/plain",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://www.googleadservices.com/pagead/conversion/11342740860/?random=1781527591724&cv=11&fst=1781527591724&fmt=7&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~119349418~119456239~119456247&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&rcb=0&evjid=J_RLUktSlLTprgErfw&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_mode=a&gcl_ctr=4~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5",
+      "status": 200,
+      "mimeType": "application/json",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/11342740860/?random=663109205&cv=11&fst=1781527591724&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~119349418~119456239~119456247&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&rcb=0&evjid=J_RLUktSlLTprgErfw&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_mode=a&gcl_ctr=4~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKHnRyaWdnZXIsIG5vdC1uYXZpZ2F0aW9uLXNvdXJjZVoDCgEBYgMKAQM&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI00wcgtXqj7EqgaOkW2BaATYUuhe4CcK8sgVjLM4me6oicNDXyPN_BoCIr0&pscrd=IhMI0ruNuqOJlQMVVUbDBh2kbBvHOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyWlJ0dGw2VU5wbTRueU9sWmY2ZmpUOUdLQnRkY3RJX0NvUHFSRnU1UGRzNFZqR3pCemhlZXd6DAgJYggIABAAGAAgAA",
+      "method": "POST",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://viewership.softc.one/_vercel/insights/view",
+      "status": 200,
+      "mimeType": "text/plain",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.google.com/pagead/1p-conversion/11342740860/?random=663109205&cv=11&fst=1781527591724&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~119349418~119456239~119456247&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&rcb=0&evjid=J_RLUktSlLTprgErfw&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_mode=a&gcl_ctr=4~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKHnRyaWdnZXIsIG5vdC1uYXZpZ2F0aW9uLXNvdXJjZVoDCgEBYgMKAQM&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI00wcgtXqj7EqgaOkW2BaATYUuhe4CcK8sgVjLM4me6oicNDXyPN_BoCIr0&pscrd=IhMI0ruNuqOJlQMVVUbDBh2kbBvHOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyWlJ0dGw2VU5wbTRueU9sWmY2ZmpUOUdLQnRkY3RJX0NvUHFSRnU1UGRzNFZqR3pCemhlZXd6DAgJYggIABAAGAAgAA&is_vtc=1&cid=CAQS1AEAEQoqgRHZsDBOWvAjdqgn1TWHEw-uFFkMaQ_gHVTlti61unKhjNTvmLl6kDY_L5e3SRR_tmu3_H78zdsID1soAQKOfWP45XrB2pV1-o17-LuDmmtnn7ZYoTj2FH8UW99NdNkl4PH7zRZxshjsX2jcmqRk3fG-_Q5f11YI8YRSNRLaAa_fAgQwSzdgmztGdGLHz48X725T1iR8Yk3QjTl7Jr9mfwqW2AGog7IyOUoR_Flx64gqDT6beRvrzhQCloBu6wrt9ybrhFt8NfHGLnuzezyhSg&random=2034371367",
+      "method": "GET",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.google.co.kr/pagead/1p-conversion/11342740860/?random=663109205&cv=11&fst=1781527591724&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~119349418~119456239~119456247&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&rcb=0&evjid=J_RLUktSlLTprgErfw&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_mode=a&gcl_ctr=4~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKHnRyaWdnZXIsIG5vdC1uYXZpZ2F0aW9uLXNvdXJjZVoDCgEBYgMKAQM&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI00wcgtXqj7EqgaOkW2BaATYUuhe4CcK8sgVjLM4me6oicNDXyPN_BoCIr0&is_vtc=1&cid=CAQS1AEAEQoqgRHZsDBOWvAjdqgn1TWHEw-uFFkMaQ_gHVTlti61unKhjNTvmLl6kDY_L5e3SRR_tmu3_H78zdsID1soAQKOfWP45XrB2pV1-o17-LuDmmtnn7ZYoTj2FH8UW99NdNkl4PH7zRZxshjsX2jcmqRk3fG-_Q5f11YI8YRSNRLaAa_fAgQwSzdgmztGdGLHz48X725T1iR8Yk3QjTl7Jr9mfwqW2AGog7IyOUoR_Flx64gqDT6beRvrzhQCloBu6wrt9ybrhFt8NfHGLnuzezyhSg&random=2034371367&ipr=y&pscrd=IhMI0ruNuqOJlQMVVUbDBh2kbBvHOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyWlJ0dGw2VU5wbTRueU9sWmY2ZmpUOUdLQnRkY3RJX0NvUHFSRnU1UGRzNFZqR3pCemhlZXdiAiABegwICWIICAAQABgAIAGCAQVwAYgBAQ&ezwbk=AZuM4hBLFoZJQDDlP36-E6DlrZEaFfp7b-VndKTwakLi464R6BIDrliHJSmoiNNi5OnbjoxkaiFI8b9iiEODEf5RKg7k",
+      "method": "GET",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://www.google.co.kr/pagead/1p-conversion/11342740860/?random=663109205&cv=11&fst=1781527591724&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45He66a1v9165569229za200zd9165569229xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~119349418~119456239~119456247&u_w=1920&u_h=1080&url=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&rcb=0&evjid=J_RLUktSlLTprgErfw&label=IWROCOaMyfgYEPz60aAq&capi=1&gtm_ee=1&frm=0&tiba=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1402574588.1781527416&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uamb=0&uam=&uap=Windows&uapv=19.0.0&uaw=0&ec_mode=a&gcl_ctr=4~0~0~0&data=event%3Dconversion&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQIItMaxAgiT2rECCNvcsQIIh9uxAgjTxbECCOvMsQII7c6xAgjVz7ECCPTasQIIy-OxAgiu5bECCJfUsQIIyduxAgix4bECCLPhsQIIpt2xAgiw3rECCIDbsQJKHnRyaWdnZXIsIG5vdC1uYXZpZ2F0aW9uLXNvdXJjZVoDCgEBYgMKAQM&cerd=CgEA&fsk=ChAI8MW-0QYQ6pCm8pP9i4QDEiwA7HJTI00wcgtXqj7EqgaOkW2BaATYUuhe4CcK8sgVjLM4me6oicNDXyPN_BoCIr0&is_vtc=1&cid=CAQS1AEAEQoqgRHZsDBOWvAjdqgn1TWHEw-uFFkMaQ_gHVTlti61unKhjNTvmLl6kDY_L5e3SRR_tmu3_H78zdsID1soAQKOfWP45XrB2pV1-o17-LuDmmtnn7ZYoTj2FH8UW99NdNkl4PH7zRZxshjsX2jcmqRk3fG-_Q5f11YI8YRSNRLaAa_fAgQwSzdgmztGdGLHz48X725T1iR8Yk3QjTl7Jr9mfwqW2AGog7IyOUoR_Flx64gqDT6beRvrzhQCloBu6wrt9ybrhFt8NfHGLnuzezyhSg&random=2034371367&ipr=y&pscrd=IhMI0ruNuqOJlQMVVUbDBh2kbBvHOh1odHRwczovL3ZpZXdlcnNoaXAuc29mdGMub25lL0JWQ2hBSThNVy0wUVlROGZYOXpPek16XzF0RWl3QXFrdWYyWlJ0dGw2VU5wbTRueU9sWmY2ZmpUOUdLQnRkY3RJX0NvUHFSRnU1UGRzNFZqR3pCemhlZXdiAiABegwICWIICAAQABgAIAGCAQVwAYgBAQ&ezwbk=AZuM4hBLFoZJQDDlP36-E6DlrZEaFfp7b-VndKTwakLi464R6BIDrliHJSmoiNNi5OnbjoxkaiFI8b9iiEODEf5RKg7k",
+      "status": 200,
+      "mimeType": "text/html",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "request",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-NPL5QH6N77&gtm=45je66a1v9206804378za200zd9206804378&_p=1781527591497&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&are=1&cid=240818224.1781527416&frm=0&pscdl=noapi&rcb=0&sr=1920x1080&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=ko-kr&_s=2&tag_exp=115938466~115938469~119400893~119400897~119456239~119456247&sid=1781527416&sct=1&seg=1&dl=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&dt=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD%ED%82%B9&en=scroll&epn.percent_scrolled=90&tfd=5545",
+      "method": "POST",
+      "resourceType": "Fetch"
+    },
+    {
+      "type": "response",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-NPL5QH6N77&gtm=45je66a1v9206804378za200zd9206804378&_p=1781527591497&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&are=1&cid=240818224.1781527416&frm=0&pscdl=noapi&rcb=0&sr=1920x1080&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B147.0.7727.117%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.117&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=ko-kr&_s=2&tag_exp=115938466~115938469~119400893~119400897~119456239~119456247&sid=1781527416&sct=1&seg=1&dl=https%3A%2F%2Fviewership.softc.one%2Fchannel%2F269edc95873a1ec9fc534851c0783d1f%2Cnaverchzzk&dt=%EC%86%8C%ED%94%84%ED%8A%B8%EC%BD%98%20%EB%B7%B0%EC%96%B4%EC%8B%AD%20SOFTC.ONE%20VIEWERSHIP%20%3A%20%ED%8A%B8%EC%9C%84%EC%B9%98%2C%20%EC%B9%98%EC%A7%80%EC%A7%81%2C%20%EC%9C%A0%ED%8A%9C%EB%B8%8C%2C%20SOOP%20%EB%B7%B0%EC%96%B4%EC%8B%AD%2C%20%EB%9E%AD%ED%82%B9&en=scroll&epn.percent_scrolled=90&tfd=5545",
+      "status": 204,
+      "mimeType": "text/plain",
+      "resourceType": "Fetch"
+    }
+  ]
+}
