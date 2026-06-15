@@ -1295,13 +1295,13 @@ footer a:hover {
   .nav-search::before { font-size: 0.72rem; left: 8px; }
   .nav-cta {
     position: static;
-    font-size: 0.6rem;
-    padding: 5px 10px;
+    font-size: 0.7rem;
+    padding: 8px 14px;
     order: 2;
   }
   .search-dropdown { width: 90vw; left: auto; right: 0; }
 
-  /* LAYOUT */
+  /* LAYOUT — content only in flow */
   .main-layout {
     grid-template-columns: 1fr;
     padding: 0 16px 80px;
@@ -1309,67 +1309,194 @@ footer a:hover {
     overflow: visible;
   }
 
-  .sidebar, .content {
+  .content {
     overflow-y: visible;
     height: auto;
   }
 
-  /* SIDEBAR → SWIPER */
+  /* ===== LAYER MODEL: sidebars → slide-over panels ===== */
   .sidebar {
-    position: relative;
-    display: block;
-    padding: 12px 0;
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 80vw;
+    z-index: 99;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    height: 100%;
+    padding: calc(var(--nav-h) + 20px) 12px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    scrollbar-width: none;
   }
+  .sidebar::-webkit-scrollbar { display: none; }
+
+  .sidebar-left {
+    left: 0;
+    transform: translateX(-100%);
+    background: #e8e8ec;
+    border-right: 1px solid var(--white-border);
+  }
+
+  .sidebar-right {
+    right: 0;
+    transform: translateX(100%);
+    background: var(--bg-base);
+    border-left: 1px solid rgba(0, 255, 163, 0.15);
+  }
+
+  .sidebar.panel-open {
+    transform: translateX(0);
+    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+  }
+
+  .sidebar-right.panel-open {
+    box-shadow: 0 0 40px rgba(0,0,0,0.4), 0 0 60px rgba(0, 255, 163, 0.06);
+  }
+
+  /* Team headers — hidden by default, visible in open panel */
   .team-header { display: none; }
+  .sidebar.panel-open .team-header {
+    display: block;
+    text-align: center;
+    padding: 16px 8px 20px;
+  }
+  .sidebar.panel-open .team-header .team-tooltip { display: none; }
 
-  .sidebar-left { order: -1; }  /* 백 먼저 */
-  .content { order: 1; }
-  .sidebar-right { order: 0; } /* 흑 두번째 */
-
+  /* Cards — hidden by default, list in open panel */
   .s-card {
     display: none;
     min-width: 0;
-    padding: 14px 44px;
   }
-  .s-card.mob-active { display: flex; }
+  .sidebar.panel-open .s-card {
+    display: flex;
+    padding: 16px 14px;
+  }
+  .sidebar-left.panel-open .s-card {
+    padding: 16px 14px 16px 14px;
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row;
+    background: rgba(255,255,255,0.5);
+    border-color: rgba(0,0,0,0.06);
+  }
+  .sidebar-right.panel-open .s-card {
+    padding: 16px 14px;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
   .s-card[style*="--img"]::after { display: none; }
-  .s-name { font-size: 0.85rem; }
+  .s-name { font-size: 0.9rem; }
   .s-stat { font-size: 0.6rem; }
 
-  /* 스와이프 화살표 */
-  .mob-arrow {
-    position: absolute;
-    top: calc(50% + 8px);  /* 팀 라벨 높이 보정 */
+  /* ===== PEEK HANDLES ===== */
+  .peek-handle {
+    position: fixed;
+    top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 0.85rem;
+    z-index: 90;
+    width: 32px;
+    padding: 24px 4px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: background 0.15s;
-  }
-  .mob-arrow:active { background: rgba(255,255,255,0.12); }
-  .mob-arrow-prev { left: 8px; }
-  .mob-arrow-next { right: 8px; }
-
-  /* 팀 라벨 (모바일 전용) */
-  .mob-team-label {
+    gap: 10px;
+    cursor: pointer;
     font-family: var(--font-mono);
-    font-size: 0.5rem;
+    font-size: 0.45rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-    text-align: center;
-    margin-bottom: 4px;
+    writing-mode: vertical-lr;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: transform 0.15s, opacity 0.25s;
   }
+
+  .peek-handle:active {
+    transform: translateY(-50%) scale(0.92);
+  }
+
+  .peek-handle-left {
+    left: 0;
+    background: var(--white-bg);
+    color: var(--white-accent);
+    border-radius: 0 6px 6px 0;
+    border: 1px solid var(--white-border);
+    border-left: none;
+  }
+
+  .peek-handle-right {
+    right: 0;
+    background: rgba(8, 8, 11, 0.92);
+    color: var(--neon-green);
+    border-radius: 6px 0 0 6px;
+    border: 1px solid rgba(0, 255, 163, 0.25);
+    border-right: none;
+    text-shadow: 0 0 8px rgba(0, 255, 163, 0.3);
+  }
+
+  .peek-handle .peek-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    writing-mode: horizontal-tb;
+    animation: peekPulse 2.5s ease-in-out infinite;
+  }
+
+  .peek-handle-left .peek-dot {
+    background: var(--white-accent);
+  }
+
+  .peek-handle-right .peek-dot {
+    background: var(--neon-green);
+    box-shadow: 0 0 6px rgba(0, 255, 163, 0.5);
+    animation-delay: 1.2s;
+  }
+
+  .peek-handle .peek-count {
+    writing-mode: horizontal-tb;
+    font-size: 0.55rem;
+    font-weight: 700;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+
+  @keyframes peekPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  /* ===== PANEL BACKDROP ===== */
+  .panel-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 98;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .panel-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.panel-active .peek-handle {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Scroll arrows 불필요 */
+  .scroll-arrows { display: none; }
+
+  /* Lesson toggle 터치 타겟 확대 */
+  .lesson-toggle { padding-left: 0; }
+  .lesson-toggle-btn { padding: 10px 18px; font-size: 0.75rem; }
 
   /* HERO */
   .hero { padding: 48px 16px 36px; }
@@ -2309,6 +2436,7 @@ let isAnimating = false;
 
 function swapOneCard() {
   if (isAnimating) return;
+  if (window.innerWidth <= 860) return;
   isAnimating = true;
 
   const isWhite = Math.random() < 0.5;
@@ -2374,6 +2502,7 @@ function cycleCards() {
 
 setInterval(() => {
   if (isAnimating) return;
+  if (window.innerWidth <= 860) return;
   isAnimating = true;
   cycleCards();
   setTimeout(() => { isAnimating = false; }, 10 * 100 + 300);
@@ -2381,75 +2510,119 @@ setInterval(() => {
 
 setInterval(swapOneCard, 10000);
 
-// ===== 모바일 카드 스와이퍼 =====
-(function initMobileSwiper() {
+// ===== 모바일 레이어 모델 =====
+(function initMobileLayerModel() {
   const MQ = 860;
-  let abortController = null;
 
-  function cleanup() {
-    document.querySelectorAll('.mob-active').forEach(c => c.classList.remove('mob-active'));
-    document.querySelectorAll('.mob-arrow, .mob-team-label').forEach(el => el.remove());
-    if (abortController) { abortController.abort(); abortController = null; }
+  // DOM 생성
+  const backdrop = document.createElement('div');
+  backdrop.className = 'panel-backdrop';
+  document.body.appendChild(backdrop);
+
+  const peekLeft = document.createElement('div');
+  peekLeft.className = 'peek-handle peek-handle-left';
+  peekLeft.innerHTML = '<span class="peek-dot"></span><span>WHITE</span><span class="peek-count"></span>';
+  document.body.appendChild(peekLeft);
+
+  const peekRight = document.createElement('div');
+  peekRight.className = 'peek-handle peek-handle-right';
+  peekRight.innerHTML = '<span class="peek-dot"></span><span>BLACK</span><span class="peek-count"></span>';
+  document.body.appendChild(peekRight);
+
+  const sidebarLeft = document.querySelector('.sidebar-left');
+  const sidebarRight = document.querySelector('.sidebar-right');
+
+  // 패널 열기/닫기
+  function openPanel(sidebar) {
+    sidebar.classList.add('panel-open');
+    backdrop.classList.add('active');
+    document.body.classList.add('panel-active');
+    document.body.style.overflow = 'hidden';
   }
 
-  function setup() {
-    cleanup();
+  function closePanel() {
+    sidebarLeft.classList.remove('panel-open');
+    sidebarRight.classList.remove('panel-open');
+    backdrop.classList.remove('active');
+    document.body.classList.remove('panel-active');
+    document.body.style.overflow = '';
+  }
+
+  peekLeft.addEventListener('click', () => openPanel(sidebarLeft));
+  peekRight.addEventListener('click', () => openPanel(sidebarRight));
+  backdrop.addEventListener('click', closePanel);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+
+  // 터치 피드백
+  [peekLeft, peekRight].forEach(handle => {
+    handle.addEventListener('touchstart', () => {
+      handle.style.transform = 'translateY(-50%) scale(1.1)';
+      handle.style.transition = 'transform 0.1s';
+    }, { passive: true });
+    handle.addEventListener('touchend', () => {
+      setTimeout(() => {
+        handle.style.transform = '';
+        handle.style.transition = '';
+      }, 100);
+    }, { passive: true });
+  });
+
+  // 패널 내 스와이프 닫기
+  [sidebarLeft, sidebarRight].forEach(sidebar => {
+    let startX = 0;
+    const isLeft = sidebar.classList.contains('sidebar-left');
+    sidebar.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+    sidebar.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      // 왼쪽 패널은 왼쪽으로, 오른쪽 패널은 오른쪽으로 스와이프하면 닫기
+      if (isLeft && dx < -60) closePanel();
+      if (!isLeft && dx > 60) closePanel();
+    }, { passive: true });
+  });
+
+  // 핸들 숫자 업데이트 (살아있는 느낌)
+  function updatePeekCounts() {
     if (window.innerWidth > MQ) return;
-
-    abortController = new AbortController();
-    const signal = abortController.signal;
-
-    ['.sidebar-white', '.sidebar-black'].forEach(sel => {
-      const sidebar = document.querySelector(sel);
-      if (!sidebar) return;
-      const cards = sidebar.querySelectorAll('.s-card');
-      if (!cards.length) return;
-
-      // 팀 라벨
-      const label = document.createElement('div');
-      label.className = 'mob-team-label';
-      label.textContent = sel.includes('white') ? 'WHITE' : 'BLACK';
-      sidebar.prepend(label);
-
-      // 첫 카드 활성화
-      let idx = 0;
-      cards[0].classList.add('mob-active');
-
-      // 화살표 (카드 래퍼 기준 배치)
-      const prev = document.createElement('button');
-      prev.className = 'mob-arrow mob-arrow-prev';
-      prev.textContent = '‹';
-      const next = document.createElement('button');
-      next.className = 'mob-arrow mob-arrow-next';
-      next.textContent = '›';
-      sidebar.appendChild(prev);
-      sidebar.appendChild(next);
-
-      function show(newIdx) {
-        cards[idx].classList.remove('mob-active');
-        idx = ((newIdx % cards.length) + cards.length) % cards.length;
-        cards[idx].classList.add('mob-active');
-      }
-
-      prev.addEventListener('click', e => { e.stopPropagation(); show(idx - 1); }, { signal });
-      next.addEventListener('click', e => { e.stopPropagation(); show(idx + 1); }, { signal });
-
-      // 터치 스와이프
-      let startX = 0;
-      sidebar.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true, signal });
-      sidebar.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) show(dx < 0 ? idx + 1 : idx - 1);
-      }, { passive: true, signal });
-    });
+    const whiteCards = sidebarLeft.querySelectorAll('.s-card');
+    const blackCards = sidebarRight.querySelectorAll('.s-card');
+    const wCount = peekLeft.querySelector('.peek-count');
+    const bCount = peekRight.querySelector('.peek-count');
+    if (whiteCards.length) {
+      const randomW = whiteCards[Math.floor(Math.random() * whiteCards.length)];
+      const rank = randomW.querySelector('.s-rank')?.textContent || '';
+      wCount.textContent = rank;
+      wCount.style.opacity = '0';
+      requestAnimationFrame(() => { wCount.style.opacity = '0.6'; });
+    }
+    if (blackCards.length) {
+      const randomB = blackCards[Math.floor(Math.random() * blackCards.length)];
+      const rank = randomB.querySelector('.s-rank')?.textContent || '';
+      bCount.textContent = rank;
+      bCount.style.opacity = '0';
+      requestAnimationFrame(() => { bCount.style.opacity = '0.6'; });
+    }
   }
 
-  // renderCards 이후 실행
-  setTimeout(setup, 100);
+  // 뷰포트 체크
+  function checkViewport() {
+    const isMobile = window.innerWidth <= MQ;
+    const display = isMobile ? '' : 'none';
+    peekLeft.style.display = display;
+    peekRight.style.display = display;
+    backdrop.style.display = display;
+    if (!isMobile) closePanel();
+  }
+
+  checkViewport();
+  updatePeekCounts();
+  setInterval(updatePeekCounts, 8000);
+
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(setup, 150);
+    resizeTimer = setTimeout(checkViewport, 150);
   });
 })();
 
