@@ -211,7 +211,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>채널 주소만 보내주시면 됩니다. 간단한 건강검진부터 시작합니다.</p>
       <p style="color:var(--neon-green); margin:18px 0 24px; font-weight:600; letter-spacing:1px;">STREAM YOUR DREAM</p>
       <a href="mailto:contact@needmorefal.com?subject=채널 진단 문의&body=채널 주소:%0A궁금한 점:" class="cta-btn">문의하기</a>
-      <div class="cta-sub">contact@needmorefal.com · 건강검진 비용은 보고서 진행 시 전액 공제</div>
     </section>
 
     <!-- FOOTER -->
@@ -297,19 +296,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <details class="dev-change-log">
       <summary>개발자용 변경이력</summary>
       <div class="dev-change-log-panel">
-        <h3>2026-06-15 주요 수정 diff</h3>
+        <h3>2026-06-15 v2 diff</h3>
+        <ul>
+          <li>nav position: relative 제거 → sticky 복원 (B1)</li>
+          <li>860px 미디어쿼리 word-break: break-all → keep-all (B2)</li>
+          <li>카테고리 페이지 전환 구현: page-section[data-page] + nav-cat[data-target] (B3)</li>
+          <li>5개 카테고리 더미 페이지 추가 (main, lol, general, chat, vtuber)</li>
+          <li>샘플 리포트: iframe → WebP 이미지 뷰어 교체 (복제 방지)</li>
+          <li>2버전 탭: 디자인 버전(6p) + 분석 보고서(11p)</li>
+          <li>sample_report.html, css/sample_report.css 삭제</li>
+          <li>mailto: faust.12108@gmail.com → contact@needmorefal.com</li>
+          <li>브랜드: needmorefal.gg → needmorefal, 네온 포인트 .gg → fal</li>
+          <li>메인 CTA 하단 cta-sub (이메일+건강검진 안내) 소거</li>
+        </ul>
+
+        <h3>2026-06-15 v1 diff</h3>
         <ul>
           <li>모바일 nav 절대 배치를 해제하고 로고, 카테고리, CTA가 줄바꿈되도록 수정.</li>
           <li>상단 CTA와 모달 CTA를 존재하지 않는 `/consult` 대신 `#contact` 흐름으로 연결.</li>
           <li>스트리머 카드를 `button` 기반 인터랙션으로 바꿔 키보드 포커스와 실행 가능성 확보.</li>
           <li>샘플 리포트 모달을 클래스 기반 dialog 구조로 정리하고 모바일 크기 제한 추가.</li>
-          <li>`sample_report.html`에 모바일 전용 grid, chart, typography 보정 추가.</li>
           <li>`auro_rank_1_11000.json` 기반 11,000명 랭킹 데이터를 별도 JS 데이터 파일로 분리 적용.</li>
-          <li>정적 사이트 표준 구조에 맞춰 메인 CSS/JS와 샘플 리포트 CSS를 별도 파일로 분리.</li>
+          <li>정적 사이트 표준 구조에 맞춰 메인 CSS/JS를 별도 파일로 분리.</li>
           <li>모바일에서 WHITE/BLACK 사이드 카드를 좌우 고정 핸들로 여는 레이어 패널 구조로 복구.</li>
           <li>Google Tag Manager 컨테이너 `GTM-MX7LWRWF`를 메인 페이지에 삽입.</li>
         </ul>
-        <pre>index.html
+        <pre>v2:
+index.html
++ fix: nav position:relative removed, sticky restored
++ fix: word-break: break-all -> keep-all (860px)
++ feat: page-section structure for category pages
++ feat: 5 category dummy pages (main, lol, general, chat, vtuber)
++ feat: sample report image viewer (tab + WebP gallery)
+- removed: iframe sample_report.html reference
++ chore: mailto -> contact@needmorefal.com
++ chore: branding .gg removed, neon accent on "fal"
+
+css/style.css
++ page-section show/hide rules
++ sample-tab-bar, sample-viewer, sample-page-info styles
+- removed: .sample-modal-frame (iframe style)
+
+js/main.js
++ loadSampleReport(), sampleReports config, tab switching
++ page-section toggle in nav-cat handler
++ scroll reset: mobile window.scrollTo / desktop .content.scrollTop
+
+samples/
++ report1/r1_p1~6.webp (디자인 버전, 724KB)
++ report2/r2_p01~11.webp (텍스트 버전, 1.3MB)
+
+- deleted: sample_report.html
+- deleted: css/sample_report.css
+
+v1:
+index.html
 + nav: absolute-only desktop layout -> responsive wrapped mobile layout
 + nav CTA: inert button -> anchor to #contact
 + modal CTA: /consult -> #contact
@@ -329,15 +370,8 @@ js/main.js
 + mobile: added handle tap, backdrop close, ESC close, panel swipe close, and live rank count
 
 data/auro_rank_1_11000.js
-+ generated 11,000 rank records from D:/Gunsmith_Mailbox/reports/auro_rank_1_11000.json
-+ split rank 1-1,000 into WHITE and rank 1,001-11,000 into BLACK
-
-sample_report.html
-+ added mobile media query for hero, stat grid, bars, cards, and action blocks
-+ prevented horizontal overflow in report iframe/mobile viewport
-
-css/sample_report.css
-+ moved sample_report.html inline CSS into a dedicated stylesheet</pre>
++ generated 11,000 rank records
++ split rank 1-1,000 into WHITE and rank 1,001-11,000 into BLACK</pre>
       </div>
     </details>
 
