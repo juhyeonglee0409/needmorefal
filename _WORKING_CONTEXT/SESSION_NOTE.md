@@ -2,86 +2,133 @@
 
 ## Date
 
-2026-06-12
+2026-06-15
 
 ## Case
 
-project working context
+구비바 §4 CC Handoff — Pearson v0.2 + Pipeline Integration
 
 ## Scenario
 
-Scenario 5 - Context/package maintenance
+Scenario 3 - Storage infrastructure + data pipeline integration
 
 ## Goal
 
-Maintain the lightweight solo user + CLI/Codex workflow and active Charles/Arthur operating policy.
+Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pearson 입고 완료
 
 ## Loaded Context
 
-- `_WORKING_CONTEXT/README.md`
-- `_WORKING_CONTEXT/10_EXTERNAL_AUDIT_PROCESS.md`
-- user-provided review attachment
+- `IsaacInfra/researches/pearson 리서치_v_4_ claude p12.md` — CHART v4 Phase 1+2 (163 facts)
+- `IsaacInfra/researches/pearson_v4_source_lookup_table.md` — source lookup table
+- `IsaacInfra/researches/pearson 리서치_v_4_ GPT p3.md` — CHART v4 Phase 3 결과
+- `IsaacInfra/Pearson/current/Pearson_v0.2_storage_contract/SPEC_pearson_v0_2.md` — v0.2 정본 스펙
+- `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/` — v0.1→v0.2 코드베이스
+- `구비바_CASE_PACKAGE_v3_20260611/machine/구비바_§4_case_params_v1.json` — 수집 프로토콜
 
 ## Actions
 
-- Deleted `10_EXTERNAL_AUDIT_PROCESS.md`.
-- Added `10_USER_CLI_WORKFLOW.md`.
-- Updated `README.md` to point to `10_USER_CLI_WORKFLOW.md`.
-- Updated `07_DECISION_LOG.md` with `DL_CONTEXT_20260611_009`.
-- Marked the previous external-audit framing decisions as superseded.
-- Applied final User-CLI workflow stability patch from follow-up review.
-- Added reference role exclusivity, session note location rules, patch candidate status, and intent-alignment gate definition.
-- Updated `07_DECISION_LOG.md` with `DL_CONTEXT_20260611_010`.
-- Added Korean translation `10_USER_CLI_WORKFLOW.ko.md`.
-- Updated `README.md` and `07_DECISION_LOG.md` with the translation reference.
-- Synced Korean and English workflow headers by removing external-audit contrast and named reference-case examples.
-- Promoted guest/session token handling into project policy.
-- Reviewed external v1.1 workflow revision and prepared a merged `proposed` patch candidate without replacing canonical workflow files.
-- Corrected the proposed decision log path to `_WORKING_CONTEXT/07_DECISION_LOG.md`, preserved the guest/session token policy, and added `AGENTS.md` to the protected-file list in the candidate.
-- Applied the v1.1 workflow candidate by explicit user approval.
-- Replaced the active English workflow with v1.1 `Status: active`.
-- Rebuilt the Korean translation to match v1.1.
-- Marked the v1.1 patch candidate as `applied`.
-- Updated `07_DECISION_LOG.md` with `DL_CONTEXT_20260611_015`.
-- Promoted the Arthur ephemeral cookie bridge policy into active operating policy by explicit user instruction.
-- Added an applied policy record in `_WORKING_CONTEXT/PATCH_CANDIDATES/`.
-- Updated `10_USER_CLI_WORKFLOW.md`, `10_USER_CLI_WORKFLOW.ko.md`, `02_TOOL_CONTRACTS_Charles_Arthur.md`, `AGENTS.md`, and `07_DECISION_LOG.md`.
+### [이전 세션] 수집 파이프라인
+- Cookie Bridge 4경로 전부 실패 → Playwright persistent context 유일 경로
+- `pw_enrich.py` 멀티탭 async 파이프라인 구축 → 수집 완료 (965/965, 조인 5,679)
+
+### [CC] Pearson v0.2 CHART → SPEC → IMPL
+- CHART v4 Phase 1+2 리서치 (163 facts) 확인
+- CHART v4 Phase 3 프롬프트 생성 → GPT 세션에서 실행 → 오염검사 clean pass
+- CHART → SPEC_pearson_v0_2.md 변환 (6 defense lines, §0–§12)
+- Codex P1-P2 + Cowork P1-P6 리뷰 10건 반영
+- IMPL_PROMPT_v0_2.md 생성 → Codex 구현 의뢰
+
+### [Codex] Pearson v0.2 구현
+- 신규 모듈 5개 + 기존 수정 7개 + 테스트 6개 = 20 files, +1,146 lines
+- 144 tests 전부 PASS (직접 실행 러너, pytest 미설치)
+- CLI smoke: `--version` → 0.2.0, store/scrub/verify-tail PASS
+
+### [CC] 파이프라인 연결
+- CSV 컬럼 분석 → 24필드 매핑 테이블 작성
+- `gubiba_csv_to_cr.py` 컨버터 작성 (CSV + JSONL → CollectionResult 0.6.1)
+- `pearson validate` → valid (965 items, 6 absences)
+- `pearson store --durability fsynced` → receipt v0.2 생성
+- `pearson scrub` → 0 corrupted
+- `pearson verify-tail` → valid
+- git push 완료 (7 commits, rebase on 3 remote commits)
 
 ## Outputs
 
-- `10_USER_CLI_WORKFLOW.md`
-- `10_USER_CLI_WORKFLOW.ko.md`
-- `README.md`
-- `07_DECISION_LOG.md`
-- `SESSION_NOTE.md`
-- `PATCH_CANDIDATES/10_USER_CLI_WORKFLOW_v1_1_proposed_20260611.md`
-- `PATCH_CANDIDATES/arthur_ephemeral_cookie_bridge_policy_applied_20260612.md`
+### 이전 세션 산출물 (수집 파이프라인)
+- `work/step4_cohort_collect_prep/scripts/pw_enrich.py` — 멀티탭 async 수집 스크립트
+- `data/cohort/collected/gubiba_20240101_20260615_enriched_965.csv` — 수집 완료 (965행)
+- `data/cohort/collected/gubiba_20240101_20260615_pw_enriched.jsonl` — 시계열 enrichment (5,679건)
+
+### 이번 세션 산출물 (Pearson v0.2 + 파이프라인 연결)
+- `IsaacInfra/Pearson/current/Pearson_v0.2_storage_contract/SPEC_pearson_v0_2.md` — v0.2 정본 스펙 (CHART v4 163 facts → 6 defense lines)
+- `IsaacInfra/Pearson/current/Pearson_v0.2_storage_contract/IMPL_PROMPT_v0_2.md` — Codex 구현 의뢰 프롬프트
+- `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/pearson/` — v0.2 구현 (5 신규 모듈 + 6 수정 모듈, 144 tests PASS)
+  - 신규: `source_id.py`, `presence.py`, `durability.py`, `writer_lock.py`, `integrity.py`
+- `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/contrib/gubiba_csv_to_cr.py` — CSV→CollectionResult 컨버터
+- `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/contrib/gubiba_cr_field_mapping.md` — 24필드 매핑 테이블
+- `data/cohort/collected/gubiba_CollectionResult.json` — 변환된 CR (v0.6.1, 965 items, 4.9MB)
+- `data/cohort/pearson_store/` — Pearson 저장소 (version 000001)
+  - `CollectionResult.json` (원재료 보존)
+  - `StorageReceipt.json` (v0.2 영수증: source_id, presence_map, lineage_v2, durability=fsynced)
+  - `checksums.json`
+  - `artifacts/` (normalized_items.csv, field_coverage.csv, absence_summary.csv, item_index.jsonl)
 
 ## Decisions
 
-- Default document frame is workflow efficiency, not external audit.
-- Hosea remains modeled as CLI/Codex session plus working-context documents.
-- External audit bundle/logging is optional, not part of default operation.
-- `SESSION_NOTE.md` is the default handoff artifact for meaningful sessions.
-- `SESSION_NOTE.md` locations are now fixed by session type.
-- Patch candidates require explicit state and do not mutate packages unless marked `applied` by user instruction.
-- Each session should load at most one active reference per role.
-- Korean workflow translation exists for operator readability; the source workflow file remains `10_USER_CLI_WORKFLOW.md`.
-- Workflow headers now state operating purpose and case-neutrality directly.
-- Operator-approved guest/session profiles may be used, but token values must not be pasted, logged, stored in artifacts, committed, or preserved in raw outputs by default.
-- External v1.1 workflow revision should not be copied verbatim; it must preserve current token policy, use `07_DECISION_LOG.md`, and protect project-wide `AGENTS.md`.
-- User explicitly approved applying the v1.1 workflow candidate.
-- `10_USER_CLI_WORKFLOW.md` is now active v1.1.
-- `10_USER_CLI_WORKFLOW.ko.md` is synced to active v1.1.
-- Arthur ephemeral cookie bridge is active operating policy only as same-origin, memory-only session delegation.
-- Direct Chrome cookie database reads, bulk cookie export, cross-origin forwarding, and durable token/cookie value storage remain forbidden by default.
-- The policy does not approve live collect or `CollectDirective.approved=true`; those still require separate operator approval and intent alignment.
+- Vercel WAF는 TLS/H2 fingerprint + JS challenge로 HTTP 클라이언트를 차단함. 진짜 브라우저만 통과.
+- Playwright persistent context가 현재 유일한 작동 경로.
+- 수집 속도는 SOFTC.ONE 제휴 가능성 고려하여 보수적 유지 (~1 req/s).
+- Pearson v0.2: CHART v4 리서치(163 facts) 기반 6개 방어선 설계. Codex+Cowork 리뷰 10건 반영 후 구현 의뢰.
+- CSV→CR 컨버터: full spec 불필요, 필드 매핑 테이블로 충분 (입출력 양쪽 스키마 이미 확정).
+- stream_hours 등 소수점 값 발견 → float 변환 적용.
+- case_params_v1.json 잘림 복원 (`membership_restricted_fields.missing_reason` 미완성 → 닫음).
 
 ## Blockers
 
-- None.
+- 없음
 
 ## Next Step
 
-Use `10_USER_CLI_WORKFLOW.md` as the operating workflow for future sessions.
-For future sessions, treat the ephemeral cookie bridge policy as active only when exact origin scope, explicit directive enablement, no secret persistence, and normal collect approval gates are all satisfied.
+- Susan QA (저장 품질 검수)
+- §5 진단 진입: cohort_final_main_general_game.csv, cohort_robustness_table.csv 생성
+- tls-client WAF 우회 테스트런 (수집 완료됨, 미진행)
+
+---
+
+## [Cowork/Hosea] 2026-06-15T09:27
+
+1. What was done
+   - Cross-surface infrastructure: created `Gunsmith_Mailbox/instructions/Cowork.md` (Cowork entry point) and `_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md` (SESSION_NOTE + DECISION_LOG cross-surface writing rules). README.md updated with pointer, DECISION_LOG entry DL_INFRA_20260615_044 recorded.
+   - needmorefal card game — auro.live ranking data collection (Step 1 only):
+     - Collected full follower ranking from auro.live API (SvelteKit `__data.json` endpoint), pages 0–219, ranks 1–11,000. 11,000 entries, 0 errors, 0 duplicates.
+     - Generated card extraction: WHITE 10 cards (100-rank bands, 1–1000) + BLACK 10 cards (1000-rank bands, 1001–11000) = 20 cards total, random 1 per band (seed 42).
+     - Step 2 (SOFTC.ONE enrichment for peak/avgViewers/chart) deferred by operator.
+   - Pearson v0.2 spec review: reviewed CC's SPEC_pearson_v0_2.md against CHART v4 163 facts. Verdict: sound, proceed to implementation. 6 issues found (P1–P6), all refinement-level.
+   - Pearson v0.2 implementation review: CC completed implementation (5 new modules, 144 tests pass). Reviewed against spec + P1–P6. P1–P3 addressed. P4/P5 low priority. P6 (code_commit dead code) noted as medium. Recommended push — operator pushed.
+   - CHART Phase 3 research results explained to operator in simplified form.
+
+2. Files produced
+   - `Gunsmith_Mailbox/instructions/Cowork.md` — Cowork surface entry point
+   - `_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md` — cross-surface continuity spec
+   - `Gunsmith_Mailbox/reports/auro_rank_1_11000.json` — auro.live rank 1–11000 raw data (11,000 entries)
+   - `Gunsmith_Mailbox/reports/auro_rank_1_10000.json` — superseded by above, can be removed
+   - `Gunsmith_Mailbox/reports/needmorefal_streamerData_COMBINED_v2.json` — 20 card extraction (peak/avgViewers/chart = null, pending Step 2)
+   - `Gunsmith_Mailbox/reports/pearson_v0_2_spec_review_20260615.md` — spec review report
+
+3. File status
+   - `Cowork.md`: reviewed — operator must manually update Gunsmith_Mailbox project instruction to point here instead of bootstrap_v0_6.md
+   - `12_CONTINUITY_CONTRACT.md`: commit-candidate
+   - `auro_rank_1_11000.json`: raw — unverified against SOFTC.ONE, auro.live-only fields
+   - `needmorefal_streamerData_COMBINED_v2.json`: hold — incomplete, waiting Step 2 enrichment
+   - `pearson_v0_2_spec_review_20260615.md`: reviewed
+
+4. Next surface actions
+   - **Cowork**: needmorefal Step 2 — SOFTC.ONE enrichment for 20 cards (peak/avgViewers/chart). Operator deferred, resume when instructed.
+   - **Codex**: commit `12_CONTINUITY_CONTRACT.md` + README.md pointer update. Review DECISION_LOG DL_INFRA_20260615_044.
+   - **CC**: P6 (code_commit wiring in store.py) is a one-line fix if desired before next Pearson work.
+
+5. Boundaries and warnings
+   - Sandbox proxy blocks auro.live (403 Tunnel Forbidden). All auro.live API access must go through Chrome browser JS fetch, not sandbox bash.
+   - auro.live API: 50 entries/page, SvelteKit devalue format. 1.5s delay between requests was stable. Charles confirmed: no gate, Cloudflare, robots allowed.
+   - Operator has not yet updated Gunsmith_Mailbox project instruction from bootstrap_v0_6.md → Cowork.md.
+   - `auro_rank_1_10000.json` is superseded by `auro_rank_1_11000.json` — operator may delete the former.
