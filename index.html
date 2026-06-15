@@ -100,7 +100,6 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 0 32px;
-  position: relative;
 }
 
 .logo {
@@ -813,6 +812,7 @@ nav {
   top: calc(100% + 8px);
   left: 0;
   width: 420px;
+  max-width: 90vw;
   max-height: 52vh;
   overflow-y: auto;
   background: var(--bg-card);
@@ -901,7 +901,7 @@ nav {
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background: var(--bg-base);
 }
 .search-table tbody tr {
   cursor: pointer;
@@ -2467,7 +2467,8 @@ document.querySelectorAll('.nav-cat').forEach(tab => {
     const layout = document.querySelector('.main-layout');
     if (target === 'main') layout.classList.remove('cat-view');
     else layout.classList.add('cat-view');
-    document.querySelector('.content').scrollTop = 0;
+    if (window.innerWidth <= 860) window.scrollTo(0, 0);
+    else document.querySelector('.content').scrollTop = 0;
   });
 });
 
@@ -2541,7 +2542,8 @@ document.querySelectorAll('.nav-cat').forEach(tab => {
       pageNoResult.style.display = '';
     }
     pageCount.textContent = matches.length + '명';
-    document.querySelector('.content').scrollTop = 0;
+    if (window.innerWidth <= 860) window.scrollTo(0, 0);
+    else document.querySelector('.content').scrollTop = 0;
   }
 
   input.addEventListener('input', () => showDropdown(input.value));
@@ -2566,7 +2568,7 @@ document.querySelectorAll('.nav-cat').forEach(tab => {
     const side = entry.side === 'WHITE' ? 'white' : 'black';
     const tmp = document.createElement('div');
     tmp.className = 's-card';
-    tmp.innerHTML = `<div class="s-name">${name}</div>
+    tmp.innerHTML = `<div class="s-rank">#${entry.rank}</div><div class="s-name">${name}</div>
       <div class="s-stat"><span class="s-rank-inline">#${entry.rank}</span> 팔로워 ${fmtFol(entry.followers)} · 평청 ${entry.avgViewers.toLocaleString()}</div>`;
     openModal(tmp, side);
     dropdown.classList.remove('open');
@@ -2583,7 +2585,7 @@ document.querySelectorAll('.nav-cat').forEach(tab => {
     const side = entry.side === 'WHITE' ? 'white' : 'black';
     const tmp = document.createElement('div');
     tmp.className = 's-card';
-    tmp.innerHTML = `<div class="s-name">${name}</div>
+    tmp.innerHTML = `<div class="s-rank">#${entry.rank}</div><div class="s-name">${name}</div>
       <div class="s-stat"><span class="s-rank-inline">#${entry.rank}</span> 팔로워 ${fmtFol(entry.followers)} · 평청 ${entry.avgViewers.toLocaleString()}</div>`;
     openModal(tmp, side);
   });
