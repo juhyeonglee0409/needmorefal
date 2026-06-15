@@ -221,7 +221,48 @@ modalCta.addEventListener('click', e => {
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
+// ===== 샘플 리포트 이미지 뷰어 =====
+const sampleReports = {
+  report1: { title: '채널 성장 진단 보고서', pages: 6, prefix: 'samples/report1/r1_p', ext: '.webp' },
+  report2: { title: '채널 성장 분석 및 전략 제언', pages: 11, prefix: 'samples/report2/r2_p', ext: '.webp' }
+};
+
+function loadSampleReport(reportKey) {
+  const report = sampleReports[reportKey];
+  const viewer = document.getElementById('sampleViewer');
+  const pageInfo = document.getElementById('samplePageInfo');
+  viewer.innerHTML = '';
+  for (let i = 1; i <= report.pages; i++) {
+    const num = report.pages > 9 ? String(i).padStart(2, '0') : String(i);
+    const img = document.createElement('img');
+    img.src = report.prefix + num + report.ext;
+    img.alt = report.title + ' ' + i + '페이지';
+    img.loading = i <= 2 ? 'eager' : 'lazy';
+    img.draggable = false;
+    img.addEventListener('contextmenu', e => e.preventDefault());
+    viewer.appendChild(img);
+  }
+  document.querySelectorAll('.sample-tab').forEach(t => t.classList.toggle('active', t.dataset.report === reportKey));
+  pageInfo.textContent = '1 / ' + report.pages;
+  viewer.scrollTop = 0;
+
+  // 스크롤 시 페이지 인디케이터 업데이트
+  viewer.onscroll = () => {
+    const imgs = viewer.querySelectorAll('img');
+    let current = 1;
+    imgs.forEach((img, idx) => {
+      if (img.offsetTop <= viewer.scrollTop + viewer.clientHeight / 3) current = idx + 1;
+    });
+    pageInfo.textContent = current + ' / ' + report.pages;
+  };
+}
+
+document.querySelectorAll('.sample-tab').forEach(tab => {
+  tab.addEventListener('click', () => loadSampleReport(tab.dataset.report));
+});
+
 function openSampleModal() {
+  loadSampleReport('report1');
   sampleModal.classList.add('open');
   sampleModal.setAttribute('aria-hidden', 'false');
   sampleModalClose.focus({ preventScroll: true });
@@ -248,12 +289,21 @@ renderCards();
 
 document.querySelectorAll('.nav-cat').forEach(btn => {
   btn.addEventListener('click', () => {
+    const target = btn.dataset.target;
+    // 탭 상태
     document.querySelectorAll('.nav-cat').forEach(item => {
       item.classList.remove('active');
       item.setAttribute('aria-pressed', 'false');
     });
     btn.classList.add('active');
     btn.setAttribute('aria-pressed', 'true');
+    // 페이지 전환
+    document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+    const page = document.querySelector(`.page-section[data-page="${target}"]`);
+    if (page) page.classList.add('active');
+    // 스크롤 초기화
+    if (window.innerWidth <= 860) window.scrollTo(0, 0);
+    else document.querySelector('.content').scrollTop = 0;
   });
 });
 
