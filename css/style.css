@@ -1049,6 +1049,12 @@ footer a:hover {
   border-top: 1px solid var(--border-subtle);
   padding: 18px 32px 40px;
   color: var(--text-muted);
+  opacity: 0.05;
+  transition: opacity 0.3s;
+}
+.dev-change-log:hover,
+.dev-change-log[open] {
+  opacity: 1;
 }
 
 .dev-change-log summary {
