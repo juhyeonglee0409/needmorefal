@@ -2,11 +2,11 @@
 
 ## Date
 
-2026-06-15
+2026-06-16
 
 ## Case
 
-구비바 §4 CC Handoff — Pearson v0.2 + Pipeline Integration
+구비바 §4-§6 CC Handoff — Pearson v0.2 + Pipeline + Arthur async fix + site_runbooks
 
 ## Scenario
 
@@ -91,7 +91,9 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 
 - Susan QA (저장 품질 검수)
 - §5 진단 진입: cohort_final_main_general_game.csv, cohort_robustness_table.csv 생성
+- §6 목표 트레이드오프 분석 (upper reference band 271행 수집 완료)
 - tls-client WAF 우회 테스트런 (수집 완료됨, 미진행)
+- AURO_LIVE DL 엔트리 작성 검토 (반복 발견 trigger 시)
 
 ---
 
@@ -188,3 +190,165 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 3. Protocol update
    - Added the reusable browser-bound collection failure matrix to `_WORKING_CONTEXT/03_STREAMER_CASE_GENERIC_PROTOCOL.md`.
    - SOFTC.ONE Step5 is now recorded as: user-approved browser session, canonical streams URL, DOM row extraction primary, UI CSV download opportunistic only.
+
+---
+
+## [Codex] 2026-06-15T23:28+09:00
+
+1. What was done
+   - 구비바 §5 SOFTC.ONE broadcast full-range collection run documented.
+   - Verified that the default `/streams` page was not full-history (`2026. 05. 15 - 2026. 06. 15`, 24 links on probe).
+   - Verified full/max range by query parameters: `startDateTime=2023-10-01T15:00:00.000Z`, `endDateTime=2026-06-15T14:59:59.999Z`; probe UI showed `2023. 10. 02 - 2026. 06. 15` and 100 stream links.
+   - Patched the Step5 CDP parallel collector to use full-range query bounds, `delay-ms`/`jitter-ms`, and resume-safe `skipExisting` before `limit`.
+   - Scaled collection gradually: 1 worker/12s limit2, 2 workers/12s limit6, 3 workers/12s limit12, 3 workers/6s limit12, 6 workers/6s limit18; all scale manifests reported `boundary_signal: null`.
+   - Full remaining run used 6 workers, 6s delay, 2s jitter, existing-file resume.
+
+2. What files were produced
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/구비바_§5_SOFTCONE_full_range_collection_run_20260615.md`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_date_query_probe.json`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_manifest_full_6c6s.json`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_progress_full_6c6s.ndjson`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_errors_full_6c6s.csv`
+
+3. File status
+   - Run note: reviewed; current handoff source for the Step5 full-range collection run.
+   - Full-run manifest/progress/errors: reviewed operational artifacts; not final analytical judgment.
+   - Broadcast CSV files under `broadcast_samples/T1` and `broadcast_samples/T2`: raw collection outputs.
+   - Top-level failed `resume` artifact with 429/checkpoint boundary is excluded for current-run status; keep only as history of the pre-delay/pre-full-range attempt.
+
+4. What the next surface should do
+   - Codex or CC: use the full-run manifest as the run ledger, not ad hoc folder counts.
+   - Codex or CC: reconcile 14 `not_found` channels separately before treating them as true absence.
+   - Codex or CC: before §5.6/§5.7 analysis, decide whether the visible DOM 100-row cap is acceptable or whether CSV/API/pagination extraction is needed.
+
+5. Boundaries and warnings
+   - Full run summary: 380 candidate rows -> 323 unique targets; 190 attempted in this resume; 175 normal successes, 1 `short_rows`, 14 `not_found`, `boundary_signal: null`.
+   - Current local data CSV count: T1 178 + T2 139 = 317 files; target-matched coverage is 309/323 because earlier sample/smoke files are mixed in the folder.
+   - No cookies, localStorage, session tokens, auth headers, raw HTML dumps, or screenshots were persisted.
+   - Full date range is verified, but DOM extraction exposed up to 100 visible stream rows on the probe. Treat that as a residual extraction-cap risk.
+
+---
+
+## [Codex] 2026-06-16T13:40+09:00
+
+1. What was done
+   - 구비바 §6 upper reference band collection completed as a separate reference dataset, not part of the §4 peer cohort.
+   - Direct HTTP fetch to SOFTC.ONE follower ranking returned 429/checkpoint; fresh nodriver profile also reached checkpoint.
+   - Working route was nodriver with the existing approved `.pw_profile` from §4/§5.
+   - Candidate scan produced 687 CHZZK candidates from follower ranking pages 1-25 and virtual ranking pages 1-4.
+   - Detail collection completed in two effective passes: balanced 80 candidates, then append-focused 10k-20k 60 candidates.
+   - Collector was hardened with existing-candidate reuse, detail `fetch` timeout, progress NDJSON, per-candidate CSV/notes flush, append mode, and band filter.
+
+2. Outputs
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band.csv` — final upper reference band, 67 rows.
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band_notes.csv` — exclusion notes, 73 rows.
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/_upper_band_candidates.json` — 687-candidate pool.
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/_upper_band_detail_progress.ndjson` — per-candidate progress log.
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step6_tradeoff/구비바_§6_upper_reference_band_collection_run_20260616.md` — run note and caveats.
+
+3. Verification
+   - Final CSV schema matches requested columns exactly.
+   - Final rows: 67 total; 10k-20k = 21, 20k-50k = 21, 50k+ = 25.
+   - Duplicates: 0. Required metrics missing: 0.
+   - Notes: 69 `not_general_game_or_virtual`, 2 `too_new_under_8_weeks`, 2 `excluded_org_or_team_heuristic`.
+   - Quick descriptive read: `avg_median >= 200` appears in 12/21 of 10k-20k, 19/21 of 20k-50k, 25/25 of 50k+.
+
+4. Boundaries and warnings
+   - No cookies, localStorage, session tokens, auth headers, raw HTML dumps, or screenshots were persisted.
+   - Dataset is reference-band evidence only; it does not finalize §6 interpretation or mutate canonical case state.
+   - Final manifest was written by the append run, so candidate provenance is documented in the run note: candidates came from follower pages 1-25 plus virtual pages 1-4.
+
+---
+
+## [Codex] 2026-06-16T14:10+09:00
+
+1. What was done
+   - Reflected the working-context file-count and role-duplication concern as an operating policy.
+   - Added `Working Context Hygiene` to `_WORKING_CONTEXT/README.md`.
+   - Added `Part 4: Working Context Hygiene` to `_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md`.
+   - Prepended decision log entry `DL_INFRA_20260616_047`.
+
+2. What files were produced
+   - No new files.
+   - Modified: `_WORKING_CONTEXT/README.md`, `_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md`, `_WORKING_CONTEXT/07_DECISION_LOG.md`, `_WORKING_CONTEXT/SESSION_NOTE.md`.
+
+3. File status
+   - Working-context hygiene policy: reviewed; commit-candidate with the surrounding CC/Cowork working-context updates.
+
+4. What the next surface should do
+   - Codex or CC: keep future site-specific operational findings in `site_runbooks/` and link to run notes rather than copying long details into generic protocol.
+   - Codex or CC: if top-level `_WORKING_CONTEXT` count exceeds 25, propose grouping/archive instead of adding more top-level files.
+
+5. Boundaries and warnings
+   - Documentation policy only. No context entries were deleted, compacted, archived, or relocated.
+   - No canonical case state, pipeline behavior, code, schema, approval gate, disclosure, or promotion status changed.
+
+---
+
+## [Codex] 2026-06-16T15:50+09:00
+
+1. What was done
+   - 구비바 §6 upper reference band detail collection was extended from the earlier sample to the full 687-candidate pool.
+   - Collection used SOFTC.ONE through nodriver + the existing approved `.pw_profile`.
+   - A mid-run local CSV write interruption was handled by adding retry writes and output-based skip logic; the one output-missing candidate was retried.
+   - `_upper_band_detail_records.json` was backfilled records-only for 53 records after the interruption, without changing CSV/notes rows.
+
+2. Final state
+   - Candidate detail coverage: 687/687.
+   - Final accepted CSV rows: 271.
+   - Band distribution: 10k-20k = 88, 20k-50k = 94, 50k+ = 89.
+   - Notes: 416 total — 349 `not_general_game_or_virtual`, 54 `follower_below_10k`, 7 `excluded_org_or_team_heuristic`, 6 `too_new_under_8_weeks`.
+   - `avg_median >= 200`: 10k-20k = 28/88, 20k-50k = 63/94, 50k+ = 87/89.
+   - Duplicates: 0. Required metric missing cells: 0. Detail records: 687/687.
+
+3. Files
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band.csv`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band_notes.csv`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/collection_logs/_upper_band_detail_progress.ndjson`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/collection_logs/_upper_band_detail_records.json`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/collection_logs/_upper_band_collection_manifest.json`
+   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step6_tradeoff/구비바_§6_upper_reference_band_collection_run_20260616.md`
+
+4. Boundaries and warnings
+   - No 429/checkpoint/rate-limit boundary was observed during the extension chunks.
+   - No cookies, localStorage, sessionStorage, auth headers, raw HTML, or screenshots were persisted.
+   - Dataset remains reference-band evidence only; it does not mutate canonical case state or finalize §6 interpretation.
+
+---
+
+## [CC] 2026-06-16T22:30+09:00
+
+1. What was done
+   - **Arthur MCP async fix (ARTHUR-MCP-001)**: Playwright sync→async API 전환 3파일 완료.
+     - `arthur/collect_playwright.py`: sync_api → async_api, 전 함수 async, 전 page 조작 await.
+     - `arthur/cli.py`: `collect()` async화, `inspect.iscoroutinefunction()` 분기, CLI `main()`에서 `asyncio.run()`.
+     - `arthur/mcp.py`: `collect_data()` async화, `result = await collect()`.
+     - py_compile 3파일 PASS. 커밋 `25ee7ba`.
+   - **site_runbooks 신설 (DL_046)**: `_WORKING_CONTEXT/site_runbooks/` 디렉터리 생성.
+     - 5파일: README.md, TEMPLATE_SITE_RUNBOOK.md, SOFTC_ONE_RUNBOOK.md(active), AURO_LIVE_RUNBOOK.md(partial), CHZZK_RUNBOOK.md(partial).
+     - CC 자체 검수 6건(교정 2 + 경고 1 + 누락 3) 반영.
+     - Cowork 독립 검수 5건(결함 2 + 추가 발견 3) 반영: DL_037/DL_020/DL_016 Related Decisions 추가, §6 nodriver proven run 반영, Last verified 갱신.
+     - 기존 파일 수정: README.md(File Roles), 03_GENERIC_PROTOCOL(포인터), 07_DECISION_LOG(DL_046).
+     - 커밋 `a1ae0d64`.
+
+2. Files produced
+   - `_WORKING_CONTEXT/site_runbooks/README.md` — 디렉터리 목적, staleness 관리 프로세스
+   - `_WORKING_CONTEXT/site_runbooks/TEMPLATE_SITE_RUNBOOK.md` — runbook 고정 구조 (Related Decisions 포함)
+   - `_WORKING_CONTEXT/site_runbooks/SOFTC_ONE_RUNBOOK.md` — SOFTC.ONE 운영 지식 (DL 8건 역추적, proven run 4건)
+   - `_WORKING_CONTEXT/site_runbooks/AURO_LIVE_RUNBOOK.md` — auro.live 최소 운영 정보
+   - `_WORKING_CONTEXT/site_runbooks/CHZZK_RUNBOOK.md` — chzzk 최소 운영 정보
+
+3. File status
+   - Arthur async fix 3파일: commit-candidate (커밋 완료, 미푸시)
+   - site_runbooks 5파일 + 기존 수정 3파일: commit-candidate (커밋 완료, 미푸시)
+
+4. What the next surface should do
+   - Arthur async fix 실테스트: CLI 경로(`arthur collect`) + MCP 경로(`collect_data` tool)에서 Playwright 처방 실행 검증.
+   - git push 대기 (operator 지시 시).
+   - Susan QA 진입.
+   - §6 목표 트레이드오프 분석 시작 (upper reference band 271행 준비됨).
+
+5. Boundaries and warnings
+   - Arthur async fix는 py_compile만 통과. 실제 Playwright 실행 테스트 미진행.
+   - site_runbooks는 문서 구조 변경만. 코드/파이프라인/canonical 상태 미변경.
+   - 03_GENERIC_PROTOCOL lines 150-167의 SOFTC.ONE 구체 내용은 현행 유지. 향후 정비 시 runbook으로 이전 권장 (SOFTC_ONE_RUNBOOK Open Risks에 기록됨).
