@@ -1,6 +1,6 @@
 # 구비바 CASE DOSSIER v3
 
-**패키지 생성일:** 2026-06-11  
+**패키지 생성일:** 2026-06-11 (최종 갱신: 2026-06-16)  
 **위상:** private validation case / Deep-Dive in progress  
 **기준 체계:** MASTER v2 M7.1 + 스트리머 채널진단 방법론 v3 draft  
 **공개경계 기본값:** 🔴 red/private
@@ -30,21 +30,21 @@
 | §1 정체성 추출 | 완료 | 5차 디스코드 면담 기반, 본인 발화·본인 확인 자료 |
 | §2 데이터 정합성 | 통과 | 1년 일별 방송 통계 존재 |
 | §3 측정 보정 | 통과 | 노방종 0일, 보정 미적용 통과 |
-| §4 코호트 구축 | 대기/다음 단계 | 주 코호트=종합게임, 보조 코호트=버추얼 |
-| §5 6단계 진단 | 대기 | §4 final cohort 이후 진행 |
+| §4 코호트 구축 | **완료** | T1 종합게임 184ch, T2 버추얼 196ch, 유니크 323ch, robustness R1-R7 |
+| §5 6단계 진단 | **완료 (정본 v3)** | 코호트 방송기록 309ch/24,056건 수집, 6건 리뷰 반영 |
 | §6 목표 트레이드오프 | 진입자료 있음 | 본 분석 전 |
 | §7 콘텐츠 채널 효과 | 진입자료 있음 | O17 쇼츠 결과 확인 필요 |
-| §8 XGPS | 미진행 | §5 이후 입력 패키지 필요 |
+| §8 XGPS | 미진행 | §5 완료, 입력 패키지 구성 가능 |
 | §9 산출물 설계 | 진입자료 있음 | 최종 리포트 작성 금지, 전달설계 우선 |
-| CaseResult | stub | `machine/구비바_CaseResult_v3_stub.json` |
-| PortfolioRow | not_ready | §4/§5 미완료 |
+| CaseResult | stub | `machine/구비바_CaseResult_v3_stub.json` → partial 승격 가능 |
+| PortfolioRow | not_ready | §6~§8 미완료 |
 | PublicDemoRow | blocked | 실제 발화·도네·자기정의·MCN 정보 식별/민감 |
 
 ---
 
 ## 2. 케이스 한 줄 현재 정의
 
-구비바 케이스는 **정체성은 강하게 잡혔지만, 코호트 위치와 성장 병목 진단은 아직 닫히지 않은 private Deep-Dive 케이스**다.
+구비바 케이스는 **정체성과 채널 위치·성장 진단(§1~§5)이 닫혔고, 목표 설계·콘텐츠 효과·XGPS(§6~§8)가 열려 있는 private Deep-Dive 케이스**다.
 
 핵심 정체성은 다음 축으로 요약된다.
 
@@ -88,49 +88,68 @@ canonical 값:
 - 본인 자발 어휘가 풍부하고, 정체성 표지로 활용 가능함.
 - 노방종/장시간 보정은 구비바 케이스에서 큰 왜곡 요인으로 보이지 않음.
 
-### 4.2 강한 통합해석이지만 전달 후 반응 확인이 필요한 Claim
+### 4.2 §5 진단에서 확정된 Claim
+
+- 코호트 대비 현재 위치 우위: peak +26~28%, avg +28~40% (정적 비교, 동적 판단 불가).
+- 잔류율 우위: avg 격차 > peak 격차 → 시청자가 머무르면서 성장.
+- 4축 균형 성장: peak_median +18%, avg +16%, chat +18%, follower +51%.
+- 효율 백분위(상위 25~30%)는 실력이 아닌 체급 소형에서 오는 구간 효과 — 통계적 착시.
+- 저녁 시간대 성과 저조 확인, 단 카테고리 교란 미분리로 원인 미확정.
+
+### 4.3 강한 통합해석이지만 전달 후 반응 확인이 필요한 Claim
 
 - 매력 의심, 도네 자기검열, “전업 같은 취미” 자기정의 격차는 동일한 자기 가치 평가 낮춤 구조에서 나오는 것으로 보임.
 - 이 통합해석은 핵심 O13이며, 최종 리포트 본문에서 단정형으로 던지기보다 토론 배틀/반응 검증형으로 설계해야 함.
 
-### 4.3 Open
+### 4.4 Open
 
-- O4: §4 코호트 finalization 필요.
 - O13: 통합진단 전달설계 및 산출물 전달 후 반응 확인 필요.
 - O17: 쇼츠 1개 수행 여부 확인 필요.
-- §5: 6단계 진단 미완료.
-- §8: XGPS 미진행.
+- §6~§8: 목표 트레이드오프, 콘텐츠 효과, XGPS 미진행.
 
-### 4.4 다음 Action
+### 4.5 다음 Action
 
-1. §4 Charles 진단 재개
-2. Arthur ExecutionProtocol 보강
-3. 종합게임 주 코호트 + 버추얼 보조 코호트 수집
-4. cohort_final.csv / robustness table 생성
-5. §5 6단계 진단
-6. CaseResult를 stub → partial로 승격
+1. CaseResult를 stub → partial로 승격 (§5 결과 반영)
+2. §6 목표 트레이드오프 분석
+3. §7 콘텐츠·채널 효과 분석 (O17 쇼츠 확인 포함)
+4. §8 XGPS 입력 패키지 구성 및 실행
+5. O13 전달설계 작성
+6. 클라이언트 전달물 초안
 
 ---
 
-## 5. §4 코호트 구축 상태
+## 5. §4 코호트 구축 — 완료
 
-결정:
+| 항목 | 값 |
+|---|---|
+| T1 main_general_game | 184ch (final_include) |
+| T2 aux_virtual | 196ch (final_include) |
+| 유니크 합계 | 323ch (57ch 중복) |
+| robustness | R1-R7 완료 |
 
-- 주 코호트: 치지직 종합게임 스트리머
-- 보조 코호트: 치지직 버추얼 스트리머
-
-현재 포함된 spec:
+spec 파일:
 
 - `data/cohort/specs/구비바_§4_cohort_spec_v2_20260610.json`
 - `data/cohort/specs/구비바_§4_코호트_방법론_v2_20260610.md`
 - `data/cohort/specs/구비바_§4_column_contract_v2_20260610.csv`
-- `data/cohort/specs/구비바_§4_Charles_진단요청_v2_20260610.md`
-- `data/cohort/specs/구비바_§4_Arthur_ExecutionProtocol_v2_TEMPLATE_20260610.json`
 
-아직 없음:
+final 데이터:
 
-- `cohort_final.csv`
-- `cohort_robustness_table.csv`
+- `data/cohort/collected/cohort_final_main_general_game.csv`
+- `data/cohort/collected/cohort_final_aux_virtual.csv`
+- `data/cohort/collected/cohort_robustness_table.csv`
+
+## 5-2. §5 6단계 진단 — 완료 (정본 v3)
+
+| 항목 | 값 |
+|---|---|
+| 코호트 방송기록 | 309ch (T1=178, T2=139), 317 CSV, 24,056 broadcasts |
+| 수집 도구 | nodriver (Vercel WAF 통과), 95.7% success rate |
+| 구비바 데이터 | 585건 (2023.10~2026.06) |
+| 14h+ 제외 | 코호트 603건, 구비바 0건 |
+| 리뷰 | 6건 반영 완료 (효율구간효과, dip서술, 저녁미확정, 정적동적구분, chat품질주의, 수집실패패턴) |
+
+정본 파일: `work/step5_diagnosis/구비바_§5_정본진단_20260615.md`
 
 ---
 
@@ -187,20 +206,24 @@ canonical 값:
 | 원자료 | `source_inputs/original_raw/` |
 | 현재 분석자료 | `source_inputs/current_analysis/` |
 | 코호트 spec | `data/cohort/specs/` |
+| 코호트 final | `data/cohort/collected/cohort_final_*.csv` |
+| 코호트 robustness | `data/cohort/collected/cohort_robustness_table.csv` |
+| 코호트 방송기록 | `data/cohort/collected/broadcast_samples/T1/, T2/` (317 CSV) |
+| §5 정본진단 | `work/step5_diagnosis/구비바_§5_정본진단_20260615.md` (v3) |
+| 구비바 방송요약 | `data/daily_stats/구비바_방송별_요약_586건_20260615.csv` |
 
 ---
 
 ## 9. 다음 작업 체크리스트
 
-- [ ] O17 쇼츠 결과 확인
-- [ ] §4 Charles 공개 데이터 경로 진단
-- [ ] Arthur ExecutionProtocol 실제 source URL로 보강
-- [ ] 주/보조 코호트 수집
-- [ ] 팔로워 매칭
-- [ ] cohort_final.csv 생성
-- [ ] robustness table 생성
-- [ ] §5 6단계 진단
-- [ ] O13 전달 설계 작성
+- [x] §4 코호트 구축 (T1 184ch, T2 196ch, robustness R1-R7)
+- [x] 코호트 방송기록 수집 (nodriver 309/323ch, 24,056건)
+- [x] §5 6단계 정본 진단 (v3, 6건 리뷰 반영)
 - [ ] CaseResult partial 승격
+- [ ] O17 쇼츠 결과 확인
+- [ ] §6 목표 트레이드오프 분석
+- [ ] §7 콘텐츠·채널 효과 분석
+- [ ] §8 XGPS
+- [ ] O13 전달설계 작성
 - [ ] 클라이언트 전달물 초안 작성
 
