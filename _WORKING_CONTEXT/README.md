@@ -13,7 +13,7 @@ D:\Codex_Workspace\_CODEX_SESSION_START.md
 D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\README.md
 ```
 
-This file is the canonical project entrypoint. `00_READ_FIRST.md` is a compatibility pointer only.
+This file is the canonical project entrypoint.
 
 Then read the session behavior contract:
 
@@ -34,7 +34,6 @@ Read only the focused context files needed for that scenario.
 | File | Role |
 |---|---|
 | `README.md` | canonical entrypoint and operating standard |
-| `00_READ_FIRST.md` | compatibility pointer to this README |
 | `01_SOURCE_MAP.md` | source router |
 | `02_TOOL_CONTRACTS_Charles_Arthur.md` | Charles/Arthur contract summary |
 | `03_STREAMER_CASE_GENERIC_PROTOCOL.md` | generic streamer case protocol |
@@ -47,6 +46,8 @@ Read only the focused context files needed for that scenario.
 | `10_USER_CLI_WORKFLOW.md` | solo user + CLI/Codex workflow and session handoff rules |
 | `10_USER_CLI_WORKFLOW.ko.md` | Korean translation of the User-CLI workflow |
 | `11_SESSION_BEHAVIOR_CONTRACT.md` | implementation session behavior contract |
+| `12_CONTINUITY_CONTRACT.md` | cross-surface SESSION_NOTE and DECISION_LOG writing rules |
+| `site_runbooks/` | site-specific operational runbooks (routes, failures, proven runs) |
 | `SESSION_NOTE.md` | current handoff note; read only when resuming active context work |
 
 ## Source Loading Rule
@@ -131,6 +132,23 @@ When operating policy changes, update:
 ```
 
 When a case-specific pattern becomes reusable, move the reusable part into the generic protocol and leave the case-specific remainder in a reference file.
+
+## Working Context Hygiene
+
+`_WORKING_CONTEXT` is a routing layer, not an archive.
+
+- Keep top-level files near 20 or fewer. If the top-level count exceeds 25, review whether related files should move into a subdirectory.
+- If one topic needs 3 or more files, create a named subdirectory with its own `README.md` instead of adding more top-level files.
+- Every top-level file or directory must appear in the File Roles table above.
+- `README.md` remains the canonical entrypoint. Do not make a second master index inside this folder.
+- Keep roles separated:
+  - `SESSION_NOTE.md`: current handoff and recent state.
+  - `07_DECISION_LOG.md`: durable decisions and policy.
+  - case run notes: detailed execution evidence for a specific run.
+  - `site_runbooks/`: site-specific routes, failures, collection defaults, and proven-run pointers.
+  - `03_STREAMER_CASE_GENERIC_PROTOCOL.md`: cross-site reusable rules only.
+- Do not duplicate the same operational finding across all documents. Put the summary in the right role document and link to the evidence.
+- If `SESSION_NOTE.md` or `07_DECISION_LOG.md` becomes hard to scan, create an archive/index plan first. Do not silently delete, compact, or move active entries.
 
 ## Session Workflow
 

@@ -134,6 +134,8 @@ Case-specific target plans may be named after a case, but the protocol remains c
 
 ## Browser-Bound Collection Failure Matrix
 
+Site-specific working routes, failure patterns, and proven runs are maintained in `_WORKING_CONTEXT/site_runbooks/`. Below are the generic principles.
+
 When a source is checkpoint-gated or browser-session-bound, separate the policy boundary from the technical execution path.
 
 Reusable handling:
@@ -155,9 +157,19 @@ Observed SOFTC.ONE Step5 route:
 - DOM row extraction is the primary §5 broadcast-record path unless later verification shows data loss.
 - Cookie/localStorage/session export remains prohibited.
 
+SOFTC.ONE Step5 full-range guard:
+
+- Do not assume the default date window is the requested collection window. Verify the UI/input/query state before batch collection.
+- For full-history collection, record the exact UTC query bounds and the visible UI range label in the run artifact.
+- Current verified full-range query shape: `?startDateTime={iso_utc}&endDateTime={iso_utc}` on `/streams`.
+- Use a scale ladder before full batch: small single-worker smoke, then gradual concurrency/delay changes, with a separate manifest/progress/error file for each rung.
+- Apply `skipExisting` before `limit` in resume smoke tests so the smoke covers the next missing targets, not already collected files.
+- Distinguish `not_found`/source path errors from rate-limit or challenge boundaries. Do not treat `not_found` as a 429/checkpoint signal.
+- If the visible DOM exposes a fixed row cap, record it as an extraction cap/residual risk, not as evidence that older broadcasts are absent.
+
 ## Output Discipline
 
-When Codex provides judgment support, write it as:
+When the session provides judgment support, write it as:
 
 ```text
 operator_recommendation

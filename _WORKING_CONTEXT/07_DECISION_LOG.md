@@ -1,5 +1,316 @@
 # Decision Log
 
+## 2026-06-16 - Working Context hygiene policy
+
+decision_id: `DL_INFRA_20260616_047`
+
+scope:
+
+- `_WORKING_CONTEXT/README.md`
+- `_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md`
+- `_WORKING_CONTEXT/07_DECISION_LOG.md`
+
+what_changed:
+
+Established a working-context hygiene policy: `_WORKING_CONTEXT` is a routing layer, not an archive; top-level files should stay near 20 or fewer, with review required beyond 25; topics that require 3 or more files should move into a named subdirectory with its own README; every top-level file or directory must be listed in `_WORKING_CONTEXT/README.md`; `SESSION_NOTE`, `DECISION_LOG`, site runbooks, generic protocol, and case-local run notes each have separate canonical roles.
+
+Archive review rules were added: if `SESSION_NOTE.md` grows beyond roughly 30 handoff entries or becomes hard to scan, propose an archive split while preserving current active state and recent handoffs; if `07_DECISION_LOG.md` grows hard to scan, add or update an index before moving active decisions. No surface may silently compact, delete, or relocate active context entries.
+
+why:
+
+The working context layer has reached a healthy but non-trivial size: top-level files, continuity policy, decision log, session note, patch candidates, and site runbooks now coexist. The risk is no longer file count alone, but role duplication: the same operational finding can spread across `SESSION_NOTE`, `DECISION_LOG`, generic protocol, case run notes, and site runbooks. A hygiene policy prevents future sessions from turning the context layer into another archive.
+
+authority:
+
+operator 2026-06-16.
+
+boundary:
+
+Documentation policy only. No existing context entries were deleted, compacted, archived, or relocated. No canonical case state, pipeline behavior, code, schema, approval gate, disclosure, or promotion status changed.
+
+status: active
+
+---
+
+## 2026-06-16 - site_runbooks 디렉터리 신설
+
+decision_id: `DL_INFRA_20260616_046`
+
+scope:
+
+- `_WORKING_CONTEXT/site_runbooks/` (신규 디렉터리)
+- `_WORKING_CONTEXT/site_runbooks/README.md`
+- `_WORKING_CONTEXT/site_runbooks/TEMPLATE_SITE_RUNBOOK.md`
+- `_WORKING_CONTEXT/site_runbooks/SOFTC_ONE_RUNBOOK.md`
+- `_WORKING_CONTEXT/site_runbooks/AURO_LIVE_RUNBOOK.md`
+- `_WORKING_CONTEXT/site_runbooks/CHZZK_RUNBOOK.md`
+- `_WORKING_CONTEXT/README.md` (File Roles 테이블에 포인터 추가)
+- `_WORKING_CONTEXT/03_STREAMER_CASE_GENERIC_PROTOCOL.md` (Browser-Bound 섹션에 포인터 추가)
+
+what_changed:
+
+사이트별 실전 운영 지식(working routes, failure modes, proven runs, collection defaults)을 모으는 site_runbooks 디렉터리를 _WORKING_CONTEXT 하위에 신설. 초기 대상 3개 사이트: SOFTC.ONE(active), AURO.LIVE(partial), CHZZK(partial). 템플릿에 Related Decisions 섹션을 포함하여 decision log 역추적 경로를 확보. staleness 관리 프로세스를 README에 정의.
+
+기존 session note, decision log, run note는 삭제/병합하지 않음. runbook은 요약 + 포인터만 가짐. 03_GENERIC_PROTOCOL의 기존 SOFTC.ONE 구체 내용(lines 150-167)은 현행 유지, 향후 generic protocol 정비 시 이전 검토.
+
+why:
+
+protocol, decision log, session note, run note에 흩어진 사이트별 운영 경험(실패 경로, 안정 경로, rate limit, 검증된 실행)을 찾는 데 매번 전체 decision log를 순회해야 했음. 특히 SOFTC.ONE은 관련 DL 엔트리만 7건(DL_016~045)이고, 실패 경로 4개 + 안정 경로 1개 + rate limit 실측 + full-range protocol이 각각 다른 문서에 분산됨.
+
+authority:
+
+operator 2026-06-16.
+
+boundary:
+
+문서 구조 변경만. 코드, 파이프라인 동작, 스키마, 승인/게이트 규칙 미변경. canonical 판단 상태(CaseResult, disclosure, promotion) 미변경. 쿠키/token/localStorage/auth header/raw HTML/screenshot 내용 미포함.
+
+status: active
+
+---
+
+## 2026-06-15 - SOFTC.ONE Step5 full-range browser collection protocol
+
+decision_id: `DL_TOOLING_20260615_045`
+
+scope:
+
+- `_WORKING_CONTEXT/03_STREAMER_CASE_GENERIC_PROTOCOL.md`
+- `_WORKING_CONTEXT/SESSION_NOTE.md`
+- `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/구비바_§5_SOFTCONE_full_range_collection_run_20260615.md`
+- `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs`
+
+what_changed:
+
+SOFTC.ONE Step5 broadcast collection must not assume the default `/streams` date window. For full-history collection, the run must verify and record explicit UTC `startDateTime`/`endDateTime` query bounds, use a gradual scale ladder before full batch, keep separate manifest/progress/error ledgers per rung, apply `skipExisting` before `limit` for resume smoke tests, and distinguish `not_found` from 429/checkpoint boundaries. DOM 100-row exposure is recorded as an extraction-cap residual risk, not as proof of source absence.
+
+why:
+
+The 2026-06-15 구비바 §5 collection run showed the default `/streams` page only exposed a recent monthly window, while explicit full-range query parameters produced the intended `2023. 10. 02 - 2026. 06. 15` UI range. Progressive scale-up reached 6 workers with 6s delay plus jitter without a rate/checkpoint boundary, but the DOM still exposed up to 100 stream links on the probe channel. This pattern is likely reusable for future SOFTC.ONE Step5 browser-bound runs.
+
+authority:
+
+operator 2026-06-15.
+
+boundary:
+
+This is an operational collection protocol only. It does not approve future collection outside the operator-approved scope, canonical CaseResult mutation, disclosure decision, PublicDemo readiness, or final absence classification. It does not permit cookie/localStorage/session-token/header persistence.
+
+status: active
+
+---
+
+## 2026-06-15 - Continuity Contract: cross-surface SESSION_NOTE + DECISION_LOG spec
+
+decision_id: `DL_INFRA_20260615_044`
+
+scope:
+
+- `_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md` (new)
+- `_WORKING_CONTEXT/README.md` (pointer added)
+- `Gunsmith_Mailbox/instructions/Cowork.md` (new, references this contract)
+
+what_changed:
+
+Created `12_CONTINUITY_CONTRACT.md` as the canonical cross-surface spec for SESSION_NOTE and DECISION_LOG writing. Defines: mandatory 5-point handoff format with timestamp and surface tag, file status vocabulary (raw/reviewed/commit-candidate/hold/excluded), DECISION_LOG trigger criteria and retroactive recording protocol, scope prefix table, authority levels, cross-surface obligations, and conflict resolution (DECISION_LOG > SESSION_NOTE). Also created `Cowork.md` as the Cowork/Hosea entry point with project routing, surface identity, tool usage patterns, and report conventions.
+
+why:
+
+Three surfaces (Codex, CC, Cowork) write to the same SESSION_NOTE and DECISION_LOG but had no shared spec for when, how, and in what format. Each surface followed implicit conventions that diverged over time. Without a contract: handoff entries were skipped, provenance was unknown (no surface tag), chronological ordering was ambiguous (no timestamp), and DECISION_LOG entries were inconsistently formatted. The Cowork surface additionally lacked a session entry point and had no chain to the Streamer project context.
+
+authority:
+
+operator 2026-06-15.
+
+boundary:
+
+Documentation and protocol only. No code, pipeline, or tool behavior changed. Existing SESSION_NOTE and DECISION_LOG content not modified. Existing DECISION_LOG format preserved (new entries follow the same structure). Cowork.md is a new file in Gunsmith_Mailbox/instructions/ — project instruction setting (app config) must be updated by operator manually.
+
+status: active
+
+---
+
+## 2026-06-15 - Claude Code 세션 진입점 체인 연결
+
+decision_id: `DL_INFRA_20260615_043`
+
+scope:
+
+- `D:\Claude_Code_Workspace\CLAUDE.md` (신규)
+
+what_changed:
+
+Claude Code에 `CLAUDE.md` 세션 진입점 생성. `_CODEX_SESSION_START.md` → `_WORKING_CONTEXT/README.md` → 시나리오/계약/의사결정 로그 체인으로 연결. Codex와 동일한 세션 시작 프로토콜 공유.
+
+why:
+
+Claude Code가 Codex와 같은 워크플로우 문서를 공유하지만, 진입 메커니즘이 없어서 매 세션마다 의사결정을 빈 상태에서 재도출하고 있었음. `_CODEX_SESSION_START.md` 체인이 Codex에서는 강제되지만 Claude Code에서는 누락. 이번 세션에서 DL_032(Session Behavior Contract), DL_027(Challenge Routing), DL_037(preflight) 등 기존 의사결정이 전혀 참조되지 않은 근본 원인.
+
+authority:
+
+operator 2026-06-15.
+
+boundary:
+
+CLAUDE.md 파일 생성만. Codex 동작, 기존 워크플로우, 의사결정 로그 구조 미변경.
+
+status: active
+
+---
+
+## 2026-06-15 - 대안 루트 선제시 운영 피드백
+
+decision_id: `DL_CONTEXT_20260615_042`
+
+scope:
+
+- `C:\Users\faust\.claude\projects\D--Claude-Code-Workspace\memory\feedback-present-alternative-routes.md`
+
+what_changed:
+
+LLM 응답 피드백 신규 등록: 작업 실패 또는 병목 발생 시, 사용자가 묻기 전에 가능한 대안 루트를 먼저 나열할 것. 구체적 설계(시점, 개수, 형식)는 케이스 축적 후 정교화 예정.
+
+why:
+
+이번 세션에서 curl_cffi 실패 후 tls-client 등 대안이 있었으나 사용자가 먼저 물어서야 제시됨. 멀티탭, 속도 조정도 사용자 주도. "LLM은 내가 모르는 걸 먼저 말해주는 게 어렵다"는 사용자 지적 — 실패/병목 시점에서 자동 대안 제시가 필요.
+
+authority:
+
+operator 2026-06-15.
+
+boundary:
+
+메모리 피드백 등록만. 구체적 구현은 케이스 10-20건 축적 후 패턴 기반 설계.
+
+status: active
+
+---
+
+## 2026-06-15 - SOFTC.ONE 제휴 고려 수집 정책
+
+decision_id: `DL_CONTEXT_20260615_041`
+
+scope:
+
+- `C:\Users\faust\.claude\projects\D--Claude-Code-Workspace\memory\project-softcone-partnership.md`
+
+what_changed:
+
+SOFTC.ONE 수집 시 향후 제휴 가능성을 고려하여 서버 로그에 공격적 패턴이 남지 않도록 보수적 속도 유지. tls-client 등 고속 스택 전환 시에도 로그 패턴 변화를 사전 안내.
+
+why:
+
+사용자: "나중에 softcone하고 제휴 맺을수도 있으니까 조심하는거. 흔적 남기면 나중에 껄끄러워지니까."
+
+authority:
+
+operator 2026-06-15.
+
+boundary:
+
+운영 정책만. 수집 속도 ~1 req/s 유지. 기존 수집 파이프라인 코드 미변경.
+
+status: active
+
+---
+
+## 2026-06-15 - Rate Limit 경계 발견 및 속도 튜닝
+
+decision_id: `DL_TOOLING_20260615_040`
+
+scope:
+
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\pw_enrich.py`
+
+what_changed:
+
+SOFTC.ONE rate limit 경계 실측: ~1.5 req/s 이상에서 429 발생 확인. 4탭×1초 → 429. 3탭×3초 → 안정. 6탭×6초 → 안정. 9탭×6초 → 테스트 중. 탭 수와 딜레이 조합으로 총 요청률을 ~1 req/s로 유지하는 것이 안전 기준.
+
+why:
+
+멀티탭 전환 후 속도를 올리는 과정에서 429가 발생. 탭 수를 늘려도 총 요청률이 서버 임계값을 넘지 않도록 딜레이를 비례 조정해야 함을 실측으로 확인.
+
+authority:
+
+operator 2026-06-15.
+
+boundary:
+
+pw_enrich.py 딜레이/탭 파라미터 조정만. 수집 로직, 파싱, 저장 구조 미변경.
+
+status: active
+
+---
+
+## 2026-06-15 - pw_enrich.py 멀티탭 async 병렬화
+
+decision_id: `DL_TOOLING_20260615_039`
+
+scope:
+
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\pw_enrich.py`
+
+what_changed:
+
+pw_enrich.py를 sync_playwright 단일탭에서 async_playwright 멀티탭으로 전환. asyncio.Queue 기반 워커 패턴 — N개 탭이 공유 큐에서 채널을 뽑아 동시 처리. `--tabs` 인자 추가(기본 4). Vercel challenge는 scout 페이지에서 1회 해결 후 scout 닫고 워커 탭 생성.
+
+why:
+
+단일탭 ~7초/건에서 사용자가 "사람 속도도 그것보다 빠르지않아?"로 지적. 멀티탭으로 전환하여 유효 처리량 ~1건/초로 개선.
+
+authority:
+
+operator 2026-06-15 ("멀티탭으로 바꾸고 건당 1초로 바꿔").
+
+boundary:
+
+pw_enrich.py 내부 구조 변경만. 수집 대상, 파싱 로직, CSV/JSONL 스키마, 프로필 디렉토리 미변경. collect_30d_browser.js 원본 미변경.
+
+status: active
+
+---
+
+## 2026-06-15 - Vercel WAF 우회 경로 확정: Playwright 유일 작동
+
+decision_id: `DL_TOOLING_20260615_038`
+
+scope:
+
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\pw_enrich.py` (최종 작동)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\test_cookie_bridge.py` (실패 기록)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\read_chrome_cookies.py` (실패 기록)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\cdp_cookie_bridge.py` (실패 기록)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\playwright_cookie_bridge.py` (실패 기록)
+
+what_changed:
+
+SOFTC.ONE Vercel WAF 우회 4경로 실측 후 Playwright persistent context만 작동 확인:
+
+1. curl_cffi + document.cookie → Vercel 429 (x-vercel-mitigated: challenge)
+2. Chrome DB cookie 읽기 → v20 App Bound Encryption 복호화 불가
+3. CDP headless Chrome → Vercel code 29 탐지 (headless 감지)
+4. Playwright cookies → curl_cffi → 여전히 429 (TLS/H2 fingerprint 불일치)
+
+Vercel은 TLS handshake fingerprint(JA3/JA4), HTTP/2 SETTINGS 프레임 순서, JS 실행 환경을 복합 검증. 쿠키만으로는 통과 불가. 진짜 브라우저(Playwright stealth)만 통과.
+
+다음 단계: tls-client(Go 기반 TLS fingerprint spoofing) 테스트로 HTTP 클라이언트 레벨 우회 가능 여부 검증 예정.
+
+why:
+
+구비바 §4 cohort enrichment에서 5,679건 SOFTC.ONE 상세 데이터 수집 필요. Cookie bridge(DL_017)가 Vercel WAF에 의해 모든 HTTP 클라이언트 경로에서 차단됨을 실측으로 확인.
+
+authority:
+
+operator 2026-06-15.
+
+boundary:
+
+수집 전송 계층 결정만. 파싱 로직(RSC, classifyGG, timeSeries), CSV 스키마, 의사결정 게이트 미변경. 실패 스크립트 4개는 기록용으로 보존.
+
+status: active
+
+---
+
 ## 2026-06-14 - Arthur ExecutionProtocol 범용/케이스 분리 + preflight 단계 신설
 
 decision_id: `DL_INFRA_20260614_037`
