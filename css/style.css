@@ -40,6 +40,15 @@
   --font-body: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
+  /* Typography scale */
+  --fs-display:   2.25rem;   /* 36px */
+  --fs-heading-l: 1.5rem;    /* 24px */
+  --fs-heading:   1.25rem;   /* 20px */
+  --fs-body:      1rem;      /* 16px */
+  --fs-ui:        1rem;      /* 16px */
+  --fs-label:     0.875rem;  /* 14px */
+  --fs-micro:     0.75rem;   /* 12px */
+
   --nav-h: 56px;
   --sidebar-w: 380px;
   --content-max: 640px;
@@ -47,7 +56,7 @@
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
   scroll-behavior: smooth;
   background: var(--bg-base);
   color: var(--text-primary);
@@ -117,10 +126,10 @@ nav {
 
 .nav-cat {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   color: var(--text-muted);
   text-decoration: none;
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 4px;
   border: 0;
   background: transparent;
@@ -145,8 +154,8 @@ nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.72rem;
-  padding: 7px 16px;
+  font-size: var(--fs-label);
+  padding: 8px 20px;
   border: 1px solid var(--border);
   border-radius: 6px;
   color: var(--text-secondary);
@@ -173,7 +182,7 @@ nav {
 }
 
 .hero h1 {
-  font-size: 2.4rem;
+  font-size: var(--fs-display);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 0;
@@ -187,7 +196,7 @@ nav {
 }
 
 .hero p {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   color: var(--text-secondary);
   line-height: 1.7;
   max-width: 480px;
@@ -197,7 +206,7 @@ nav {
 .hero-label {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   color: var(--accent-green);
   border: 1px solid var(--accent-green-dim);
   background: rgba(52, 211, 153, 0.06);
@@ -280,7 +289,7 @@ nav {
   padding: 16px 18px;
   border-radius: 8px;
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   line-height: 1.65;
   color: var(--text-secondary);
   z-index: 80;
@@ -309,7 +318,7 @@ nav {
 
 .team-tooltip strong {
   display: block;
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   margin-bottom: 6px;
   color: var(--text-primary);
 }
@@ -335,7 +344,7 @@ nav {
 
 .team-header .team-sub {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -345,7 +354,7 @@ nav {
 
 .team-header .team-range {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   letter-spacing: 2px;
   margin-top: 12px;
   padding-top: 12px;
@@ -483,7 +492,7 @@ nav {
 }
 
 .s-name {
-  font-size: 1.2rem;
+  font-size: var(--fs-heading);
   font-weight: 800;
   letter-spacing: 0;
   white-space: nowrap;
@@ -494,7 +503,7 @@ nav {
 
 .s-stat {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   margin-top: 3px;
   color: var(--text-muted);
 }
@@ -502,7 +511,7 @@ nav {
 
 .s-trend {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-micro);
   font-weight: 600;
   margin-left: 4px;
 }
@@ -608,7 +617,7 @@ nav {
 }
 
 .content-intro h2 {
-  font-size: 1.2rem;
+  font-size: var(--fs-heading);
   font-weight: 600;
   margin-bottom: 12px;
   letter-spacing: 0;
@@ -616,7 +625,7 @@ nav {
 
 .content-intro p {
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
 }
 
 /* ===== LESSON BLOCK ===== */
@@ -638,20 +647,20 @@ nav {
 
 .lesson-num {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   color: var(--accent-green);
   min-width: 24px;
 }
 
 .lesson-title {
-  font-size: 1rem;
+  font-size: var(--fs-heading);
   font-weight: 600;
   letter-spacing: 0;
 }
 
 .lesson-concept {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   color: var(--text-muted);
   margin-bottom: 16px;
   padding-left: 36px;
@@ -660,7 +669,7 @@ nav {
 .lesson-body {
   padding-left: 36px;
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   line-height: 1.75;
 }
 
@@ -678,7 +687,7 @@ nav {
 
 .lesson-toggle-btn {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   letter-spacing: 0.5px;
   padding: 5px 14px;
   border: 1px solid var(--border);
@@ -713,7 +722,7 @@ nav {
   display: none;
   padding-left: 36px;
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   line-height: 1.75;
 }
 
@@ -736,7 +745,7 @@ nav {
   background: var(--bg-elevated);
   border-left: 2px solid var(--accent-green-dim);
   border-radius: 0 6px 6px 0;
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   color: var(--text-secondary);
   line-height: 1.7;
 }
@@ -754,7 +763,7 @@ nav {
 
 .category-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--accent-green);
@@ -785,7 +794,7 @@ nav {
 
 .pricing-tag {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-micro);
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 3px 8px;
@@ -799,14 +808,14 @@ nav {
 .pricing-tag.subscribe { background: rgba(0, 255, 163, 0.06); color: var(--accent-green); }
 
 .pricing-name {
-  font-size: 1rem;
+  font-size: var(--fs-heading);
   font-weight: 600;
   letter-spacing: 0;
 }
 
 .pricing-price {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--fs-heading);
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 10px;
@@ -817,7 +826,7 @@ nav {
 }
 .sample-btn {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   padding: 3px 10px;
   margin-left: 8px;
   background: transparent;
@@ -839,7 +848,7 @@ nav {
 }
 
 .pricing-desc {
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   color: var(--text-secondary);
   line-height: 1.7;
 }
@@ -853,7 +862,7 @@ nav {
 }
 
 .cta-section h2 {
-  font-size: 1.6rem;
+  font-size: var(--fs-heading-l);
   font-weight: 600;
   letter-spacing: 0;
   margin-bottom: 14px;
@@ -862,7 +871,7 @@ nav {
 .cta-section p {
   color: var(--text-secondary);
   margin-bottom: 32px;
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
 }
 
 .cta-btn {
@@ -870,7 +879,7 @@ nav {
   padding: 14px 40px;
   background: var(--neon-green);
   color: #0a0a0e;
-  font-size: 0.85rem;
+  font-size: var(--fs-ui);
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
@@ -887,7 +896,7 @@ nav {
 
 .cta-sub {
   margin-top: 16px;
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   color: var(--text-muted);
 }
 
@@ -927,7 +936,7 @@ footer {
   border-top: 1px solid var(--border-subtle);
   padding: 32px;
   text-align: center;
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   color: var(--text-dim);
 }
 
@@ -998,7 +1007,7 @@ footer a:hover {
 
 .sample-tab {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   padding: 12px 16px;
   border: none;
   background: none;
@@ -1037,7 +1046,7 @@ footer a:hover {
 .sample-page-info {
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-micro);
   color: var(--text-muted);
   padding: 8px;
   flex-shrink: 0;
@@ -1062,7 +1071,7 @@ footer a:hover {
   list-style: none;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   letter-spacing: 1px;
   color: var(--text-muted);
   border: 1px solid var(--border);
@@ -1089,13 +1098,13 @@ footer a:hover {
 
 .dev-change-log h3 {
   margin-bottom: 12px;
-  font-size: 0.9rem;
+  font-size: var(--fs-body);
   color: var(--text-secondary);
 }
 
 .dev-change-log ul {
   margin: 0 0 16px 18px;
-  font-size: 0.78rem;
+  font-size: var(--fs-label);
   line-height: 1.8;
 }
 
@@ -1104,7 +1113,7 @@ footer a:hover {
   white-space: pre-wrap;
   word-break: break-word;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: var(--fs-micro);
   line-height: 1.7;
   color: var(--text-dim);
 }
@@ -1169,8 +1178,8 @@ footer a:hover {
     order: 2;
     width: 100%;
     flex: 0 0 100%;
-    padding: 6px 10px;
-    font-size: 0.68rem;
+    padding: 8px 12px;
+    font-size: var(--fs-label);
   }
 
   .main-layout {
@@ -1282,10 +1291,10 @@ footer a:hover {
     display: none;
   }
 
-  .s-name { font-size: 0.92rem; }
+  .s-name { font-size: 1.125rem; }
 
   .s-stat {
-    font-size: 0.6rem;
+    font-size: var(--fs-micro);
     white-space: normal;
     overflow-wrap: anywhere;
   }
@@ -1398,7 +1407,7 @@ footer a:hover {
   }
 
   .hero { padding: 60px 20px 48px; }
-  .hero h1 { font-size: 1.6rem; }
+  .hero h1 { font-size: var(--fs-heading-l); }
   .hero p,
   .content-intro p,
   .lesson-view,
@@ -1520,14 +1529,14 @@ footer a:hover {
 }
 
 .modal-name {
-  font-size: 1.2rem;
+  font-size: var(--fs-heading);
   font-weight: 800;
   letter-spacing: 0;
 }
 
 .modal-rank {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   color: var(--text-muted);
   margin-top: 2px;
 }
@@ -1549,7 +1558,7 @@ footer a:hover {
 
 .modal-metric-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-micro);
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1585,7 +1594,7 @@ footer a:hover {
 /* 해석 */
 .modal-section-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: var(--fs-micro);
   color: var(--accent-green);
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -1593,7 +1602,7 @@ footer a:hover {
 }
 
 .modal-interpretation {
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   color: var(--text-secondary);
   line-height: 1.75;
   margin-bottom: 20px;
@@ -1612,7 +1621,7 @@ footer a:hover {
   border: 1px solid rgba(0, 255, 163, 0.2);
   border-radius: 8px;
   color: var(--neon-green);
-  font-size: 0.72rem;
+  font-size: var(--fs-label);
   font-family: var(--font-mono);
   text-decoration: none;
   transition: all 0.15s;
@@ -1642,7 +1651,7 @@ footer a:hover {
   .hero p,
   .content-intro p {
     max-width: 34ch;
-    font-size: 0.94rem;
+    font-size: var(--fs-body);
     word-break: keep-all;
     overflow-wrap: anywhere;
   }
