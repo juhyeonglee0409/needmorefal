@@ -1,6 +1,6 @@
 # Decision Support Protocol
 
-This file defines how Codex should help because the implemented Pearson/Susan are not yet wired to canonical mutation, and ND/BEARING remain unimplemented; final judgment, disclosure, promotion, and collection approval stay with the operator.
+This file defines how the session (any surface: Codex, Claude Code, Cowork) should help because the implemented Pearson/Susan are not yet wired to canonical mutation, and ND/BEARING remain unimplemented; final judgment, disclosure, promotion, and collection approval stay with the operator.
 
 Canonical escalation fence for delegated Code-to-Codex work orders:
 `D:\Codex_Workspace\Instruction\delegation\DELEGATION_FENCE_v0_1.md`.
@@ -8,7 +8,7 @@ On delegation-specific conflicts, preserve this file's judgment boundaries and s
 
 ## Role
 
-Codex may act as temporary judgment support, not final judgment authority.
+The session may act as temporary judgment support, not final judgment authority.
 
 Use these labels:
 

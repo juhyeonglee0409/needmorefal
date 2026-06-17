@@ -352,3 +352,90 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - Arthur async fix는 py_compile만 통과. 실제 Playwright 실행 테스트 미진행.
    - site_runbooks는 문서 구조 변경만. 코드/파이프라인/canonical 상태 미변경.
    - 03_GENERIC_PROTOCOL lines 150-167의 SOFTC.ONE 구체 내용은 현행 유지. 향후 정비 시 runbook으로 이전 권장 (SOFTC_ONE_RUNBOOK Open Risks에 기록됨).
+
+---
+
+## [Codex] 2026-06-16T20:35+09:00
+
+1. What was done
+   - 김달수 재수집 run `kimdalsu_recollect_20260616_01`을 표준 `runs/kimdalsu_20260601/` 아래 생성하고 legacy seed 3개 + 작업명세서를 복사했다.
+   - Softcon P1 profile preflight 후 수집 시작: subject current stats 1건 수집, LoL population은 `enterprise_membership_required`, follower ranking은 확장 중 `http_429_or_rate_limit`로 중단.
+   - 공개 교차검증 수집: CHZZK profile 1건, Semorank public parse 60건, YouTube Atom feed 180일 창 15건 수집. Auro는 current Codex route에서 Chrome JS fetch + devalue parser 필요로 boundary 처리.
+   - `softcon_cohort_member_profile_enrichment`는 population dependency blocked로 실행하지 않았다.
+   - Evidence/Absence/Disclosure/Cohort/ContentFunnel patch 후보와 RUN_MANIFEST/TargetReviewSummary 작성. CaseResult/Disclosure/PublicDemo/canonical package 승격 없음.
+
+2. What files were produced
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/RUN_MANIFEST.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/TargetReviewSummary.md`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/10_charles/`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/20_review/collect_directives/`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/30_arthur_inspect/`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/40_arthur_collect/`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/EvidencePackage_patch.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/AbsenceInventory_patch.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/DisclosureLog_patch.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/CohortBenchmark_candidate.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/ContentFunnelAnalysis_candidate.csv`
+
+3. File status
+   - New run artifacts: raw/reviewed hybrid; usable for Cowork/Hosea patch review, not canonical promotion.
+   - `TargetReviewSummary.md` and `RUN_MANIFEST.json`: reviewed run ledger.
+   - `50_ingest_candidates/*`: patch-candidate only.
+   - `scripts/*.py`: local run helpers, not canonical framework code.
+
+4. What the next surface should do
+   - [Cowork/Hosea] Review patch candidates and decide whether any evidence can be promoted after human analysis.
+   - [Cowork/Hosea] Decide whether Softcon enterprise login/session should be refreshed before retrying LoL population and follower ranking. Do not retry automatically after the recorded 429.
+   - [Cowork/Hosea] If Auro is still needed, use Chrome JS fetch + devalue parser route; CLI/http route is not sufficient in this run.
+
+5. Boundaries and warnings
+   - Softcon subject stats are partial: visible current metrics parsed, but member-gated chat metrics remain unavailable.
+   - Softcon LoL population produced 0 rows due `enterprise_membership_required`; enrichment dependency therefore blocked.
+   - Softcon follower ranking initially observed rows, but final extension hit `http_429_or_rate_limit`; final artifact is boundary-only and no repeated retry was attempted.
+   - YouTube collection used Atom feed metadata only; engagement counts and CTA/link details remain not collected.
+   - No cookie/token/session/csrf/password values, raw HTML, or screenshots were persisted. No CaseResult, disclosure final state, PublicDemoRow, or canonical package mutation was performed.
+
+---
+
+## [Codex] 2026-06-16T22:00+09:00
+
+1. What was done
+   - SOFTC.ONE runbook 기준으로 P1 재수집을 이어서 마무리했다. 기존 `enterprise_membership_required` / `http_429_or_rate_limit` 판정은 coarse regex false positive였음을 preflight로 확인했고, approved `.pw_profile` + browser route로 다시 수집했다.
+   - `softcon_subject_channel_current_stats`를 line-based parser로 repair하여 `follower_count=3760`, `stream_hours=31.4`, `peak_viewers=165`, `avg_viewers=78`, `viewership=2449`, `max_chat_6m=168`, `avg_chat_6m=38`, `category_1=리그 오브 레전드`를 정상 채웠다.
+   - `softcon_chzzk_lol_population_monthly`는 repaired 100행 상태를 유지했다. 현재 route는 `category_route_visible_cap_100_rows` residual risk가 있다.
+   - `softcon_chzzk_follower_ranking_enterprise`는 parser/hydration 문제를 고쳐 pages 1..40 재수집을 완료했고, corrected artifact는 `3987` unique rows / boundary 없음이다. `_progress.ndjson`가 per-page ledger로 남아 있다.
+   - `softcon_cohort_member_profile_enrichment` 전용 collector를 추가해 population 100행 전체를 channel page 기준으로 재수집했다. `follower_count`와 `recent_category`는 100/100 채워졌고, `profile_text`는 2/100만 확보되어 target parse_status는 `partial`로 낮췄다.
+   - `finalize_run.py`를 현재 상태에 맞게 보정하고 `RUN_MANIFEST.json`, `TargetReviewSummary.md`, `50_ingest_candidates/*`를 다시 생성했다.
+
+2. What files were produced
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/40_arthur_collect/softcon_subject_channel_current_stats/*`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/40_arthur_collect/softcon_chzzk_lol_population_monthly/*`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/40_arthur_collect/softcon_chzzk_follower_ranking_enterprise/*`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/40_arthur_collect/softcon_cohort_member_profile_enrichment/*`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/RUN_MANIFEST.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/TargetReviewSummary.md`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/EvidencePackage_patch.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/AbsenceInventory_patch.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/DisclosureLog_patch.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/50_ingest_candidates/CohortBenchmark_candidate.json`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/scripts/probe_softcon_subject_metrics.py`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/scripts/probe_softcon_follower_rows.py`
+   - `Streamer Consulting Project/runs/kimdalsu_20260601/kimdalsu_recollect_20260616_01/scripts/enrich_softcon_cohort_members.py`
+
+3. File status
+   - P1 artifacts are now materially usable for human review: subject `ok`, population `below_expected_min_rows` with residual cap, follower `ok`, enrichment `partial`.
+   - `softcon_chzzk_follower_ranking_enterprise/normalized.csv`: corrected 3987 unique rows, source route `?type=naverchzzk&page=1..40`.
+   - `softcon_cohort_member_profile_enrichment/normalized.csv`: 100 rows, but `profile_text` missing on 98 rows and flags remain blank; do not treat as fully complete enrichment.
+   - `RUN_MANIFEST.json`, `TargetReviewSummary.md`, `50_ingest_candidates/*`: refreshed to match the corrected P1 state. Still patch-candidate only, not canonical promotion.
+
+4. What the next surface should do
+   - [Cowork/Hosea] Review whether the current 100-row LoL population surface is acceptable as a partial benchmark or whether an alternate route is needed to break the `category_route_visible_cap_100_rows` residual risk.
+   - [Cowork/Hosea] Decide whether `softcon_cohort_member_profile_enrichment` needs a second pass focused on recovering `profile_text` and/or adding explicit corporate/team/tournament/virtual classification logic.
+   - [Cowork/Hosea] Use the refreshed patch candidates for human analysis only. Do not promote CaseResult, Disclosure final state, PublicDemoRow, or canonical package rows automatically.
+
+5. Boundaries and warnings
+   - SOFTC.ONE direct fetch / fresh profile routes remain non-working or untrusted for this case. The working route here was browser automation with the existing approved `.pw_profile`.
+   - `softcon_chzzk_lol_population_monthly` is still capped at 100 visible filtered rows on the accessed route; this is a surface limitation, not confirmed source absence.
+   - `softcon_cohort_member_profile_enrichment` is only partial: `follower_count` and `recent_category` are present, but `profile_text` is missing on 98/100 rows and classification flags are blank.
+   - `auro_live_chzzk_follower_public_crosscheck` remains blocked by route requirements (`Chrome JS fetch + devalue parser`).
+   - No cookie/token/session/csrf/password values, raw HTML, or screenshots were persisted. No CaseResult, disclosure final state, PublicDemoRow, or canonical package mutation was performed.

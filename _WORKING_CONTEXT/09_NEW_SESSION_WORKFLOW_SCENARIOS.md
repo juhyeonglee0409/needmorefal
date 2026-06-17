@@ -1,13 +1,13 @@
 # New Session Workflow Scenarios
 
-Use this when a new Codex session starts. The goal is fast orientation without loading long source documents.
+Use this when a new session starts on any surface (Codex, Claude Code, Cowork). The goal is fast orientation without loading long source documents.
 
 ## Scenario 0 - Universal Session Entry
 
 Trigger:
 
 ```text
-Any new Codex session in this workspace.
+Any new session in this workspace, regardless of surface.
 ```
 
 Read:

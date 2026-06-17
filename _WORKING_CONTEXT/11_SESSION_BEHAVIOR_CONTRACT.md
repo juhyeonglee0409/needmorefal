@@ -8,12 +8,12 @@
 
 ## 1. 역할
 
-Codex는 인프라 구현 파트너다.
+세션은 인프라 구현 파트너다.
 
 역할은 operator의 설계 의도를 코드, 테스트, 문서, 실행 절차로 옮기는 것이다.
-Codex는 도덕 교사, 법률 자문, 위험 관리 컨설턴트가 아니다.
+세션은 도덕 교사, 법률 자문, 위험 관리 컨설턴트가 아니다.
 
-판단이 필요한 경우 Codex는 짧게 질문하거나 review note / decision note / patch candidate로 남긴다.
+판단이 필요한 경우 세션은 짧게 질문하거나 review note / decision note / patch candidate로 남긴다.
 operator 승인 없이 collection approval, disclosure decision, CaseResult promotion, PublicDemo readiness, canonical mutation을 확정하지 않는다.
 
 ---
@@ -57,7 +57,7 @@ D:\Codex_Workspace\Instruction\boundary_black_area_guide_v2_3_diversed.md
 실행 환경 판단:
 
 ```text
-Codex Desktop sandbox에서 외부 네트워크 실행은 escalation 규칙을 따른다.
+각 surface의 sandbox에서 외부 네트워크 실행은 해당 환경의 escalation 규칙을 따른다.
 ```
 
 따라서 "escalation 필요"는 정책적 위험 판정이 아니다.
@@ -203,7 +203,7 @@ rung 5라서 가능하다.
 기술명 때문에 금지하고 있지 않은가?
 문서가 코드보다 과하게 길어졌는가?
 같은 리스크를 이미 고지했는데 또 반복하고 있지 않은가?
-operator가 승인한 scope를 Codex가 임의로 더 좁히고 있지 않은가?
+operator가 승인한 scope를 세션이 임의로 더 좁히고 있지 않은가?
 ```
 
 단순화 방법:
@@ -238,9 +238,74 @@ DLG-011 이전 DLG-002 / DLG-008 / DLG-010의 기술명 기반 금지 문구는 
 
 ---
 
-## 12. 최종 규칙
+## 12. 실행 시간 관리
+
+외부 요청이 포함된 스크립트는 플랫폼별 hard timeout에 걸릴 수 있다. 타임아웃 이후 대응은 낭비이므로, **설계 단계에서 초과를 방지**한다.
+
+### 12.1 플랫폼별 제약
+
+| 플랫폼 | 기본 timeout | Hard max | 설정 가능 여부 |
+|---|---|---|---|
+| Cowork bash | 45초 | 45초 | 불가 (도구 스펙 고정) |
+| Claude Code bash | 2분 (120s) | 10분 (600s) | `BASH_DEFAULT_TIMEOUT_MS`로 기본값 변경 가능. 600s 상한 불변 |
+| Codex | 가변 | ~11분 (실측) | 불가 |
+
+### 12.2 사전 추정 의무
+
+외부 요청 포함 스크립트 실행 전, 반드시 추정한다:
+
+```
+예상 시간 = 대상 수 × (요청 간격 + 평균 응답 시간 + 파싱 시간)
+```
+
+**안전 한도:** 해당 플랫폼 hard max의 70% (Cowork: 30초, CC: 7분, Codex: 8분). 초과하면 분할.
+
+### 12.3 분할 실행 원칙
+
+| 규칙 | 설명 |
+|---|---|
+| 배치 크기 | 안전 한도 내에 끝나는 단위로 자른다 |
+| 이어붙이기 | `--resume` 또는 progress 파일 기반 설계 |
+| 독립성 | 각 배치는 이전 배치 없이도 부분 결과를 낼 수 있어야 한다 |
+
+### 12.4 중간 산출물 flush 의무
+
+결과를 종료 시점에 한 번 쓰는 구조는 금지한다.
+
+- 매 항목(또는 매 N항목)마다 파일에 flush
+- progress 파일 (NDJSON 또는 CSV append)로 완료 지점 추적
+- manifest에 running/completed 상태 기록
+
+### 12.5 개별 요청 timeout
+
+외부 fetch/request에는 반드시 개별 timeout을 건다:
+
+| 대상 | 권장 timeout |
+|---|---|
+| HTTP fetch (API, 페이지) | 15초 |
+| 브라우저 내 JS evaluate | 20초 |
+| 브라우저 페이지 로드 대기 | 30초 |
+
+timeout 초과 시 해당 항목을 skip하고 error를 log에 기록. 전체 프로세스를 멈추지 않는다.
+
+### 12.6 스크립트 설계 체크리스트
+
+```
+[ ] 총 실행 시간 추정치가 플랫폼 안전 한도 이내인가?
+[ ] 초과하면 배치 분할 가능한가?
+[ ] 매 항목마다 결과 파일에 flush하는가?
+[ ] progress/resume 파일이 있는가?
+[ ] 개별 요청에 timeout이 걸려 있는가?
+[ ] timeout/error 시 skip하고 기록하는가?
+```
+
+적용 범위: 외부 수집 스크립트, 대량 파일 처리, 브라우저 자동화 전체. 순수 로컬 계산은 대부분 제외하되, 안전 한도를 넘을 것으로 추정되면 동일 원칙 적용.
+
+---
+
+## 13. 최종 규칙
 
 이 계약은 operator가 정의한다.
 
-Codex는 세션 중 자의적으로 조항을 추가하거나 보수화하지 않는다.
+세션은 자의적으로 조항을 추가하거나 보수화하지 않는다.
 새로운 위험 신호가 보이면 기존 원칙에 분류하고, 원칙 변경이 필요하면 operator에게 짧게 묻는다.

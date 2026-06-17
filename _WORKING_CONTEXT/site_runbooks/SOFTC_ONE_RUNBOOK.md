@@ -17,7 +17,7 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 |---|---|---|---|
 | Playwright persistent context (async, multi-tab) | **working** | §4 enrichment, §5 broadcast | pw_enrich.py — 965/965 완료 실적. asyncio.Queue 기반 워커 패턴. |
 | Browser DOM row extraction | **working** | §5 broadcast records | canonical streams path에서 DOM 직접 추출. CSV 다운로드보다 안정적. |
-| nodriver + existing approved profile | **working** | §6 upper reference band | collect_upper_band_reference_nodriver.py — 67행 수집 완료. fresh profile은 checkpoint 도달(실패). |
+| nodriver + existing approved profile | **working** | §6 upper reference band | collect_upper_band_reference_nodriver.py — 687/687 후보 detail 완료, 271행 채택. fresh profile은 checkpoint 도달(실패). |
 | UI CSV 다운로드 버튼 | **opportunistic** | — | framework/user-gesture 이슈로 자동화 불안정. DOM extraction 우선. |
 
 ## URL / Data Surfaces
@@ -69,11 +69,11 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 | 2026-06-15 | 구비바 §4 enrichment | 965/965 완료, 5679 JSONL join | `data/cohort/collected/gubiba_*_enriched_965.csv`, `*_pw_enriched.jsonl` |
 | 2026-06-15 | 구비바 §5 full-range probe | full-range query 검증, DOM 100-row cap 확인 | `data/cohort/collected/broadcast_samples/_date_query_probe.json` |
 | 2026-06-15 | 구비바 §5 scale ladder | 6 workers, 6s delay — checkpoint/rate boundary 미발생 | `구비바_§5_SOFTCONE_full_range_collection_run_20260615.md` |
-| 2026-06-16 | 구비바 §6 upper reference band | nodriver + existing profile, 67행 수집 (10k-20k/20k-50k/50k+) | `cohort_ref_upper_band.csv`, `구비바_§6_upper_reference_band_collection_run_20260616.md` |
+| 2026-06-16 | 구비바 §6 upper reference band | nodriver + existing profile, 687/687 후보 detail 완료, 271행 채택 | `cohort_ref_upper_band.csv`, `구비바_§6_upper_reference_band_collection_run_20260616.md` |
 
 ## Open Risks
 
 - **DOM 100-row extraction cap**: `/streams` 페이지에서 한 번에 100개만 표시. 100건 초과 방송 기록 수집 시 pagination 또는 date windowing 필요. 현재 미검증.
 - **tls-client WAF 우회 미테스트**: tls-client, got-scraping, patchright, botright, camoufox 5개 스택 테스트 예정이나 미진행. 성공 시 Playwright 대체 가능. 검증된 실패 경로 4개는 DL_038 참조.
-- **nodriver fresh profile 실패**: nodriver + fresh profile은 checkpoint 도달(§6 실측). nodriver + existing approved profile(.pw_profile)은 §6에서 67행 수집 성공. fresh profile 경로는 사용하지 말 것.
+- **nodriver fresh profile 실패**: nodriver + fresh profile은 checkpoint 도달(§6 실측). nodriver + existing approved profile(.pw_profile)은 §6에서 687/687 후보 detail 완료. fresh profile 경로는 사용하지 말 것.
 - **03_GENERIC_PROTOCOL 내용 중복**: `03_STREAMER_CASE_GENERIC_PROTOCOL.md` lines 150-167에 SOFTC.ONE Step5 구체 내용이 있음. 향후 generic protocol 정비 시 사이트 특화 내용을 이 runbook으로 이전하고 원칙만 남기는 것 권장.
