@@ -165,13 +165,15 @@ def load_ids(path):
         data = json.load(f)
 
     channels = []
-    items = data if isinstance(data, list) else data.get("channels") or data.get("ids") or []
+    items = data if isinstance(data, list) else data.get("channels") or data.get("ids") or data.get("channel_ids") or []
 
     for item in items:
         if isinstance(item, str):
             parts = item.split(",")
             if len(parts) >= 2:
                 channels.append({"channelId": parts[0].strip(), "platform": parts[1].strip()})
+            else:
+                channels.append({"channelId": item.strip(), "platform": "naverchzzk"})
         elif isinstance(item, dict):
             cid = item.get("channelId") or item.get("id", "")
             if "," in str(cid):
@@ -256,7 +258,8 @@ def do_login():
 
 
 def do_enrich(args):
-    from playwright.sync_api import sync_playwright
+    import asyncio
+    from playwright.async_api import async_playwright
 
     profile = os.path.abspath(PROFILE_DIR)
     if not os.path.exists(profile):
@@ -278,7 +281,6 @@ def do_enrich(args):
         print("[enrich] Nothing to do.")
         return
 
-    # Output file
     out_path = args.output or args.resume
     if not out_path:
         prefix = "gubiba"
@@ -287,150 +289,169 @@ def do_enrich(args):
         out_path = f"{prefix}_enriched_{len(channels)}.csv"
 
     ts_path = out_path.replace("_enriched_", "_timeseries_").replace(".csv", ".jsonl")
-
-    write_header = not os.path.exists(out_path) or os.path.getsize(out_path) == 0
-    csv_out = open(out_path, "a", newline="", encoding="utf-8")
-    writer = csv.DictWriter(csv_out, fieldnames=CSV_FIELDS, extrasaction="ignore")
-    if write_header:
-        writer.writeheader()
-
-    ts_out = open(ts_path, "a", encoding="utf-8")
-
-    delay_ms = args.delay
-    errors = []
-    enriched_count = len(resume_set)
+    n_tabs = args.tabs
+    delay_s = args.delay / 1000
     total = len(channels)
 
-    with sync_playwright() as p:
-        print("[enrich] Launching browser...")
-        context = p.chromium.launch_persistent_context(
-            profile,
-            headless=False,
-            args=["--disable-blink-features=AutomationControlled"],
-        )
-        page = context.new_page()
-        page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    async def run():
+        write_header = not os.path.exists(out_path) or os.path.getsize(out_path) == 0
+        csv_out = open(out_path, "a", newline="", encoding="utf-8")
+        writer = csv.DictWriter(csv_out, fieldnames=CSV_FIELDS, extrasaction="ignore")
+        if write_header:
+            writer.writeheader()
+        ts_out = open(ts_path, "a", encoding="utf-8")
 
-        # Vercel challenge solve on first navigation
-        print("[enrich] Solving Vercel challenge...")
-        try:
-            page.goto(BASE_URL, wait_until="domcontentloaded", timeout=60000)
-        except Exception:
-            pass
-        time.sleep(5)
-        title = page.title()
-        if "Vercel" in title:
-            print("[enrich] Challenge detected, waiting...")
-            time.sleep(15)
+        errors = []
+        enriched_count = len(resume_set)
+        queue = asyncio.Queue()
+        for ch in pending:
+            await queue.put(ch)
+
+        async with async_playwright() as p:
+            print(f"[enrich] Launching browser ({n_tabs} tabs, {args.delay}ms delay)...")
+            context = await p.chromium.launch_persistent_context(
+                profile,
+                headless=False,
+                args=["--disable-blink-features=AutomationControlled"],
+            )
+
+            # Solve Vercel challenge on first page
+            scout = await context.new_page()
+            await scout.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+            print("[enrich] Solving Vercel challenge...")
             try:
-                page.reload(wait_until="domcontentloaded", timeout=60000)
+                await scout.goto(BASE_URL, wait_until="domcontentloaded", timeout=60000)
             except Exception:
                 pass
-
-        print(f"[enrich] Ready. Delay={delay_ms}ms")
-        print()
-
-        for i, ch in enumerate(pending):
-            url = build_detail_url(ch["channelId"], ch["platform"], args.start, args.end)
-
-            try:
+            await asyncio.sleep(5)
+            title = await scout.title()
+            if "Vercel" in title:
+                print("[enrich] Challenge detected, waiting...")
+                await asyncio.sleep(15)
                 try:
-                    resp = page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                    await scout.reload(wait_until="domcontentloaded", timeout=60000)
                 except Exception:
-                    resp = None
-                time.sleep(2)
+                    pass
+            await scout.close()
 
-                if resp and resp.status == 429:
-                    print(f"  [{enriched_count+1}/{total}] 429 - backing off 30s")
-                    errors.append({"channelId": ch["channelId"], "error": "429"})
-                    time.sleep(30)
+            # Create worker tabs
+            pages = []
+            for i in range(n_tabs):
+                pg = await context.new_page()
+                await pg.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+                pages.append(pg)
+
+            print(f"[enrich] Ready. {n_tabs} tabs, delay={args.delay}ms")
+            print()
+
+            async def worker(wid, page):
+                nonlocal enriched_count
+                while not queue.empty():
                     try:
-                        resp = page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                    except Exception:
-                        resp = None
-                    time.sleep(2)
+                        ch = queue.get_nowait()
+                    except asyncio.QueueEmpty:
+                        break
 
-                content = page.content()
-
-                if "Vercel Security Checkpoint" in content:
-                    print(f"  [{enriched_count+1}/{total}] Vercel challenge - waiting 15s")
-                    time.sleep(15)
+                    url = build_detail_url(ch["channelId"], ch["platform"], args.start, args.end)
                     try:
-                        page.reload(wait_until="domcontentloaded", timeout=30000)
-                    except Exception:
-                        pass
-                    time.sleep(3)
-                    content = page.content()
+                        try:
+                            resp = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                        except Exception:
+                            resp = None
+                        await asyncio.sleep(0.3)
 
-                detail = parse_detail_rsc(content)
+                        if resp and resp.status == 429:
+                            errors.append({"channelId": ch["channelId"], "error": "429"})
+                            print(f"  [T{wid}] 429 - backing off 30s")
+                            await asyncio.sleep(30)
+                            try:
+                                resp = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                            except Exception:
+                                resp = None
+                            await asyncio.sleep(0.3)
 
-                is_gg, gg_reason = classify_gg(detail)
+                        content = await page.content()
 
-                row = {
-                    "channelId": ch["channelId"],
-                    "platform": ch["platform"],
-                    "name": "",
-                    "rank": None,
-                    "stream_hours": None,
-                    "peak_viewers": ch.get("peak_viewers"),
-                    "avg_viewers": ch.get("avg_viewers"),
-                    "viewership": ch.get("viewership"),
-                    "band": band_label(ch.get("peak_viewers")),
-                    "follower": detail["follower"],
-                    "category_1": detail["category_1"],
-                    "category_1_share": detail["category_1_share"],
-                    "category_2": detail["category_2"],
-                    "category_2_share": detail["category_2_share"],
-                    "category_3": detail["category_3"],
-                    "category_3_share": detail["category_3_share"],
-                    "total_categories": detail["total_categories"],
-                    "is_general_game": is_gg,
-                    "gg_reason": gg_reason,
-                    "exclude_reason": "",
-                    "collected_at": datetime.now().isoformat(),
-                }
+                        if "Vercel Security Checkpoint" in content:
+                            print(f"  [T{wid}] Vercel challenge - waiting 15s")
+                            await asyncio.sleep(15)
+                            try:
+                                await page.reload(wait_until="domcontentloaded", timeout=30000)
+                            except Exception:
+                                pass
+                            await asyncio.sleep(3)
+                            content = await page.content()
 
-                writer.writerow(row)
-                csv_out.flush()
+                        detail = parse_detail_rsc(content)
+                        is_gg, gg_reason = classify_gg(detail)
 
-                if detail.get("_timeSeries"):
-                    ts_record = {
-                        "channelId": ch["channelId"],
-                        "platform": ch["platform"],
-                        **detail["_timeSeries"],
-                    }
-                    ts_out.write(json.dumps(ts_record, ensure_ascii=False) + "\n")
-                    ts_out.flush()
+                        row = {
+                            "channelId": ch["channelId"],
+                            "platform": ch["platform"],
+                            "name": "",
+                            "rank": None,
+                            "stream_hours": None,
+                            "peak_viewers": ch.get("peak_viewers"),
+                            "avg_viewers": ch.get("avg_viewers"),
+                            "viewership": ch.get("viewership"),
+                            "band": band_label(ch.get("peak_viewers")),
+                            "follower": detail["follower"],
+                            "category_1": detail["category_1"],
+                            "category_1_share": detail["category_1_share"],
+                            "category_2": detail["category_2"],
+                            "category_2_share": detail["category_2_share"],
+                            "category_3": detail["category_3"],
+                            "category_3_share": detail["category_3_share"],
+                            "total_categories": detail["total_categories"],
+                            "is_general_game": is_gg,
+                            "gg_reason": gg_reason,
+                            "exclude_reason": "",
+                            "collected_at": datetime.now().isoformat(),
+                        }
 
-                enriched_count += 1
-                cat_info = detail["category_1"] or "(none)"
-                fol_info = detail["follower"] or "?"
-                print(f"  [{enriched_count}/{total}] {ch['channelId'][:8]}.. fol={fol_info} cat={cat_info} gg={is_gg}")
+                        writer.writerow(row)
+                        csv_out.flush()
 
-            except Exception as e:
-                errors.append({"channelId": ch["channelId"], "error": str(e)})
-                enriched_count += 1
-                print(f"  [{enriched_count}/{total}] {ch['channelId'][:8]}.. ERROR: {e}")
+                        if detail.get("_timeSeries"):
+                            ts_record = {
+                                "channelId": ch["channelId"],
+                                "platform": ch["platform"],
+                                **detail["_timeSeries"],
+                            }
+                            ts_out.write(json.dumps(ts_record, ensure_ascii=False) + "\n")
+                            ts_out.flush()
 
-            if i < len(pending) - 1:
-                time.sleep(delay_ms / 1000)
+                        enriched_count += 1
+                        cat_info = detail["category_1"] or "(none)"
+                        fol_info = detail["follower"] or "?"
+                        print(f"  [{enriched_count}/{total}] T{wid} {ch['channelId'][:8]}.. fol={fol_info} cat={cat_info} gg={is_gg}")
 
-        context.close()
+                    except Exception as e:
+                        errors.append({"channelId": ch["channelId"], "error": str(e)})
+                        enriched_count += 1
+                        print(f"  [{enriched_count}/{total}] T{wid} {ch['channelId'][:8]}.. ERROR: {e}")
 
-    csv_out.close()
-    ts_out.close()
+                    await asyncio.sleep(delay_s)
 
-    print()
-    print(f"[done] Enriched: {enriched_count}/{total}")
-    print(f"[done] Errors: {len(errors)}")
-    print(f"[done] Output: {out_path}")
-    print(f"[done] TimeSeries: {ts_path}")
+            await asyncio.gather(*[worker(i, pages[i]) for i in range(n_tabs)])
+            await context.close()
 
-    if errors:
-        err_path = out_path.replace(".csv", "_errors.json")
-        with open(err_path, "w", encoding="utf-8") as f:
-            json.dump(errors, f, ensure_ascii=False, indent=2)
-        print(f"[done] Errors saved: {err_path}")
+        csv_out.close()
+        ts_out.close()
+
+        print()
+        print(f"[done] Enriched: {enriched_count}/{total}")
+        print(f"[done] Errors: {len(errors)}")
+        print(f"[done] Output: {out_path}")
+        print(f"[done] TimeSeries: {ts_path}")
+
+        if errors:
+            err_path = out_path.replace(".csv", "_errors.json")
+            with open(err_path, "w", encoding="utf-8") as f:
+                json.dump(errors, f, ensure_ascii=False, indent=2)
+            print(f"[done] Errors saved: {err_path}")
+
+    asyncio.run(run())
 
 
 def main():
@@ -441,7 +462,8 @@ def main():
     parser.add_argument("--output", "-o", type=str, help="Output CSV path")
     parser.add_argument("--start", type=str, help="Date range start (YYYY-MM-DD)")
     parser.add_argument("--end", type=str, help="Date range end (YYYY-MM-DD)")
-    parser.add_argument("--delay", type=int, default=2000, help="Delay between requests in ms (default: 2000)")
+    parser.add_argument("--delay", type=int, default=1000, help="Delay between requests in ms per tab (default: 1000)")
+    parser.add_argument("--tabs", type=int, default=4, help="Number of parallel browser tabs (default: 4)")
     args = parser.parse_args()
 
     if args.login:

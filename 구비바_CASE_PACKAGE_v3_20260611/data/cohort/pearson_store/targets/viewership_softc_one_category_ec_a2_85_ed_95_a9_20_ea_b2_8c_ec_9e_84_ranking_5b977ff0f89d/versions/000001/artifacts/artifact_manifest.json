@@ -1,0 +1,99 @@
+{
+  "version": "0.2",
+  "manifest_version": "0.2",
+  "generated_at": "2026-06-15T08:44:35Z",
+  "source_collection_result": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\CollectionResult.json",
+  "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+  "raw_source_id": "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d",
+  "polars_available": false,
+  "polars_used": false,
+  "raw_source_of_truth": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\CollectionResult.json",
+  "artifacts": [
+    {
+      "artifact_id": "ea29a73073b8b354e10e23b8e73afd094ee30ee221a791ec5ccc0dc894a5bc60",
+      "kind": "normalized_items",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\normalized_items.csv",
+      "sha256": "ea29a73073b8b354e10e23b8e73afd094ee30ee221a791ec5ccc0dc894a5bc60",
+      "bytes": 1433264,
+      "row_count": 965,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "normalize_items",
+        "version": "0.2.0",
+        "parameters": {
+          "dedup_key": null
+        }
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "58a3c366a01cf760db18570090577d3a2e5c103d75073a6b6dc93b8a6db8eab3",
+      "kind": "field_coverage",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\field_coverage.csv",
+      "sha256": "58a3c366a01cf760db18570090577d3a2e5c103d75073a6b6dc93b8a6db8eab3",
+      "bytes": 2101,
+      "row_count": 24,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "field_coverage_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "6cf7d8b78e99fbe42cd43d14c676d6ff7caeae097ffcd360cc9f417ab0501d6f",
+      "kind": "absence_summary",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\absence_summary.csv",
+      "sha256": "6cf7d8b78e99fbe42cd43d14c676d6ff7caeae097ffcd360cc9f417ab0501d6f",
+      "bytes": 389,
+      "row_count": 4,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "absence_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "3597aef03c6481def363449fe4655224b000ea3bd212ad76a2f6a1b2ee29e6af",
+      "kind": "item_index",
+      "format": "jsonl",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\item_index.jsonl",
+      "sha256": "3597aef03c6481def363449fe4655224b000ea3bd212ad76a2f6a1b2ee29e6af",
+      "bytes": 641615,
+      "row_count": 965,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "item_index",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    }
+  ]
+}

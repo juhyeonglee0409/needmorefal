@@ -208,12 +208,15 @@
 
     // 포맷 자동 감지
     if (Array.isArray(input)) {
-      // [{channelId, platform}, ...] 또는 ["id,platform", ...]
+      // [{channelId, platform}, ...] 또는 ["id,platform", ...] 또는 ["hexid", ...]
       input.forEach(function(item) {
         if (typeof item === 'string') {
           var parts = item.split(',');
           if (parts.length >= 2) {
             channels.push({ channelId: parts[0].trim(), platform: parts[1].trim() });
+          } else if (/^[a-f0-9]{20,}$/.test(item.trim())) {
+            // 순수 hex 문자열 — default platform 적용
+            channels.push({ channelId: item.trim(), platform: CONFIG.platform });
           }
         } else if (item && item.channelId) {
           channels.push({ channelId: item.channelId, platform: item.platform || CONFIG.platform });
@@ -227,6 +230,9 @@
           }
         }
       });
+    } else if (input && input.channel_ids) {
+      // { channel_ids: [...] } wrapper (Cowork multi-page scan format)
+      return loadIds(input.channel_ids);
     } else if (input && input.channels) {
       // { channels: [...] } wrapper
       return loadIds(input.channels);
