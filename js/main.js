@@ -646,6 +646,122 @@ function drawChart(data, isNeon) {
   ctx.fill();
 }
 
+// ===== 시그널 카드 (떡상/떡락) =====
+const mockCards = window.mockCards || [];
+
+const categoryMap = {
+  main: null,
+  lol: '롤',
+  general: '종합게임',
+  chat: '저챗',
+  vtuber: '버튜버'
+};
+
+function sparkSVG(trend, direction) {
+  if (!trend || trend.length < 2) return '';
+  const w = 80, h = 24, pad = 2;
+  const min = Math.min(...trend);
+  const max = Math.max(...trend);
+  const range = max - min || 1;
+  const pts = trend.map((v, i) => {
+    const x = pad + (i / (trend.length - 1)) * (w - pad * 2);
+    const y = pad + (h - pad * 2) - ((v - min) / range) * (h - pad * 2);
+    return x.toFixed(1) + ',' + y.toFixed(1);
+  });
+  const color = direction === 'rise' ? 'var(--neon-green)' : 'var(--accent-red)';
+  const fillColor = direction === 'rise' ? 'rgba(0,255,163,0.08)' : 'rgba(248,113,113,0.08)';
+  const last = pts[pts.length - 1];
+  const polyFill = pts.join(' ') + ' ' + (w - pad) + ',' + (h - pad) + ' ' + pad + ',' + (h - pad);
+  return '<svg class="signal-spark" viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg">'
+    + '<polygon points="' + polyFill + '" fill="' + fillColor + '"/>'
+    + '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + color + '" stroke-width="1.5" stroke-linejoin="round"/>'
+    + '<circle cx="' + last.split(',')[0] + '" cy="' + last.split(',')[1] + '" r="2" fill="' + color + '"/>'
+    + '</svg>';
+}
+
+function renderSignalCards(containerId, cards) {
+  const container = document.getElementById(containerId);
+  if (!container || !cards.length) return;
+
+  const whiteTier = cards.filter(c => c.tier <= 1000);
+  const blackTier = cards.filter(c => c.tier > 1000);
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const leftCards = shuffle(whiteTier).slice(0, 5).sort((a, b) => a.tier - b.tier);
+  const rightCards = shuffle(blackTier).slice(0, 5).sort((a, b) => a.tier - b.tier);
+
+  function buildCard(card, idx) {
+    const dirClass = card.direction === 'rise' ? 'rise' : 'fall';
+    return '<div class="signal-item">'
+      + '<button type="button" class="signal-card" aria-expanded="false" data-signal-idx="' + idx + '">'
+      + '<div class="signal-head">'
+      + '<span class="signal-name">' + escapeHtml(card.name) + '</span>'
+      + '<span class="signal-badge">' + escapeHtml(card.platform) + '</span>'
+      + '</div>'
+      + '<div class="signal-stats">'
+      + '<span class="signal-tier">#' + card.tier.toLocaleString() + '</span>'
+      + '<span class="signal-viewers">' + card.viewers.toLocaleString() + '명</span>'
+      + '<span class="signal-delta ' + dirClass + '">' + escapeHtml(card.delta) + '</span>'
+      + '</div>'
+      + '<div class="signal-caption">' + escapeHtml(card.caption) + '</div>'
+      + sparkSVG(card.trend, card.direction)
+      + '</button>'
+      + '<div class="signal-why" data-signal-idx="' + idx + '">'
+      + '<div class="signal-why-label">interpretation</div>'
+      + '<div class="signal-why-text">' + escapeHtml(card.why) + '</div>'
+      + '</div>'
+      + '</div>';
+  }
+
+  let html = '<div class="signal-col"><div class="signal-col-label">TOP 1 – 1,000</div>';
+  leftCards.forEach((c, i) => { html += buildCard(c, 'L' + i); });
+  html += '</div><div class="signal-col"><div class="signal-col-label">TOP 1,000 – 10,000++</div>';
+  rightCards.forEach((c, i) => { html += buildCard(c, 'R' + i); });
+  html += '</div>';
+
+  container.innerHTML = html;
+
+  // Click-to-expand handlers
+  container.querySelectorAll('.signal-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = btn.dataset.signalIdx;
+      const whyEl = container.querySelector('.signal-why[data-signal-idx="' + idx + '"]');
+      const isOpen = whyEl.classList.contains('open');
+
+      // Close all others in this container
+      container.querySelectorAll('.signal-why.open').forEach(el => el.classList.remove('open'));
+      container.querySelectorAll('.signal-card[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
+
+      if (!isOpen) {
+        whyEl.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
+function initSignalCards() {
+  // Main page: mixed from all categories
+  renderSignalCards('signalGrid-main', mockCards);
+
+  // Category pages
+  Object.entries(categoryMap).forEach(([page, cat]) => {
+    if (!cat) return;
+    const filtered = mockCards.filter(c => c.category === cat);
+    renderSignalCards('signalGrid-' + page, filtered);
+  });
+}
+
+initSignalCards();
+
 // ===== 레슨 토글 =====
 document.querySelectorAll('.lesson-toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
