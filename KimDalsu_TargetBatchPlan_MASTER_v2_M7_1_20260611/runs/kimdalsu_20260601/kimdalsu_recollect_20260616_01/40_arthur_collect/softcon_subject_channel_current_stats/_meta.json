@@ -1,0 +1,17 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "softcon_subject_channel_current_stats",
+  "collection_method": "browser_dom_extraction",
+  "transport": "chrome_browser_manual",
+  "profile_used": true,
+  "profile_type": "enterprise_session",
+  "source_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "collected_at": "2026-06-16T19:25+09:00",
+  "disclosure_tag": "red",
+  "items_collected": 1,
+  "pages_fetched": 1,
+  "requests_made": 1,
+  "errors": [],
+  "boundary_signals": ["vercel_waf_http_blocked_browser_only"],
+  "notes": "Arthur MCP inspect confirmed HTTP 429 (Vercel WAF). Data extracted via Chrome browser DOM. Two period snapshots captured: recent_7d and last_1month."
+}

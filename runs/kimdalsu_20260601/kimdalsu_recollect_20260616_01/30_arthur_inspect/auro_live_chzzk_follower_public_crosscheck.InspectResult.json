@@ -1,0 +1,17 @@
+{
+  "version": "operator-orchestrated-public-inspect-v1",
+  "generated_at": "2026-06-16T20:28:54+09:00",
+  "target_id": "auro_live_chzzk_follower_public_crosscheck",
+  "target_url": "https://auro.live/rank/chzzk/0",
+  "boundary_signals": [
+    {
+      "source": "http",
+      "signal": "not_collected_route_requires_chrome_js_fetch_devalue_parser",
+      "severity": "stop",
+      "action": "stopped"
+    }
+  ],
+  "sample_records": [],
+  "row_count_observed": 0,
+  "inspect_recommendation": "do_not_collect"
+}

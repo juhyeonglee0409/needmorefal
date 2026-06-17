@@ -1,0 +1,18 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "softcon_chzzk_lol_population_monthly",
+  "collection_method": "browser_dom_anchor_repair",
+  "transport": "nodriver_existing_approved_profile_visible_chrome",
+  "profile_used": true,
+  "source_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking",
+  "collected_at": "2026-06-16T21:13:52+09:00",
+  "disclosure_tag": "red",
+  "items_collected": 100,
+  "pages_fetched": 1,
+  "requests_made": 1,
+  "boundary_signals": [],
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false,
+  "residual_risk": "category_route_visible_cap_100_rows"
+}

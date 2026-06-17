@@ -1,0 +1,79 @@
+{
+  "case_id": "kimdalsu_20260601",
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "generated_at": "2026-06-16T22:00:17+09:00",
+  "items": [
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_subject_channel_current_stats",
+      "disclosure_tag": "red",
+      "reason": "Softcon profile/member route",
+      "boundary_signal": null,
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_chzzk_lol_population_monthly",
+      "disclosure_tag": "red",
+      "reason": "Softcon profile/member route",
+      "boundary_signal": null,
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_chzzk_follower_ranking_enterprise",
+      "disclosure_tag": "red",
+      "reason": "Softcon profile/member route",
+      "boundary_signal": null,
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "semorank_chzzk_follower_public_crosscheck",
+      "disclosure_tag": "green",
+      "reason": "public source",
+      "boundary_signal": null,
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "chzzk_subject_channel_public_profile",
+      "disclosure_tag": "green",
+      "reason": "public source",
+      "boundary_signal": null,
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "youtube_dalsooisfree_content_funnel",
+      "disclosure_tag": "green",
+      "reason": "public source",
+      "boundary_signal": null,
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_cohort_member_profile_enrichment",
+      "disclosure_tag": "red",
+      "reason": "Softcon profile/member route",
+      "boundary_signal": null,
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "auro_live_chzzk_follower_public_crosscheck",
+      "disclosure_tag": "green",
+      "reason": "public source",
+      "boundary_signal": "not_collected_route_requires_chrome_js_fetch_devalue_parser",
+      "promotion_status": "patch_candidate_only"
+    }
+  ]
+}

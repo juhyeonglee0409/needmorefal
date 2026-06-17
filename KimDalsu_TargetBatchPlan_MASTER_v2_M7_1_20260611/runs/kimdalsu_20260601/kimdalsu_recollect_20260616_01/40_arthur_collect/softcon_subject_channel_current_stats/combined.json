@@ -1,0 +1,124 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "softcon_subject_channel_current_stats",
+  "case_id": "kimdalsu_20260601",
+  "collected_at": "2026-06-16T19:25+09:00",
+  "collection_method": "browser_dom_extraction",
+  "transport": "chrome_browser_manual",
+  "source_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "disclosure_tag": "red",
+
+  "channel_identity": {
+    "channel_name": "김달수 Dalsu",
+    "platform": "chzzk",
+    "platform_channel_id": "dcbccbf2d8e2a1b095244c5856d3613a",
+    "channel_url": "https://chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "channel_hash": "dcbccbf2d8e2a1b095244c5856d3613a",
+    "profile_text": "조용히 롤함",
+    "status": "offline"
+  },
+
+  "follower": {
+    "follower_count": 3760,
+    "follower_updated_at": "2026-06-16T18:06+09:00"
+  },
+
+  "category": {
+    "category_1": "리그 오브 레전드",
+    "category_1_share": 92.7,
+    "category_source": "최근 한달간의 카테고리 뷰어십 데이터"
+  },
+
+  "cumulative_2026": {
+    "viewership": 78683,
+    "period": "2026-01-01 ~ 2026-06-16"
+  },
+
+  "summary_recent_7d": {
+    "period": "최근 7일 | 2026-06-09 ~",
+    "peak_viewers": 165,
+    "peak_viewers_delta": "+64 (+63.4%)",
+    "avg_viewers": 78,
+    "avg_viewers_delta": "+15 (+23.8%)",
+    "viewership": 2449,
+    "viewership_delta": "-203.8 (-7.7%)",
+    "stream_hours": 31.4,
+    "stream_hours_delta": "-10.7 (-25.4%)",
+    "peak_rank": 60,
+    "peak_rank_delta": "+1",
+    "max_follower": 3760,
+    "max_follower_delta": "+38",
+    "max_chat_6min": 168,
+    "max_chat_6min_delta": "+77 (+84.6%)",
+    "avg_chat_6min": 38,
+    "avg_chat_6min_delta": "+9 (+31.0%)"
+  },
+
+  "summary_last_1month": {
+    "period": "최근 한달 | 2026-05-16 ~ 2026-06-16",
+    "peak_viewers": 165,
+    "peak_viewers_delta": "+45 (+37.5%)",
+    "avg_viewers": 67,
+    "avg_viewers_delta": "+15 (+28.8%)",
+    "viewership": 11879,
+    "viewership_delta": "-3821.8 (-24.3%)",
+    "stream_hours": 175.1,
+    "stream_hours_delta": "-122.1 (-41.1%)",
+    "peak_rank": 48,
+    "peak_rank_delta": "-13",
+    "max_follower": 3760,
+    "max_follower_delta": "+200",
+    "max_chat_6min": 176,
+    "max_chat_6min_delta": "+24 (+15.8%)",
+    "avg_chat_6min": 37,
+    "avg_chat_6min_delta": "+12 (+48.0%)"
+  },
+
+  "recent_streams": [
+    {
+      "date": "2026-06-16",
+      "start": "09:48",
+      "end": "18:06",
+      "category": "리그 오브 레전드",
+      "title": "조용히 롤함",
+      "stream_hours": 8.3,
+      "peak_viewers": 134,
+      "total_chat": 4166
+    },
+    {
+      "date": "2026-06-12",
+      "start": "10:10",
+      "end": "18:12",
+      "category": "리그 오브 레전드, talk",
+      "title": "유나라 장인 후보생",
+      "peak_viewers": 165,
+      "total_chat": 2967
+    },
+    {
+      "date": "2026-06-11",
+      "start": "10:11",
+      "end": "17:00",
+      "category": "리그 오브 레전드",
+      "title": "안정형 롤 스트리머(지향)",
+      "stream_hours": 6.8,
+      "total_chat": 2035
+    },
+    {
+      "date": "2026-06-09",
+      "start": "10:33",
+      "end": "18:36",
+      "category": "리그 오브 레전드",
+      "title": "멘헤라(반복)",
+      "total_chat": 261
+    }
+  ],
+
+  "verification": {
+    "expected_channel_hash": "dcbccbf2d8e2a1b095244c5856d3613a",
+    "expected_name_contains": ["김달수", "Dalsu"],
+    "name_match": true,
+    "hash_match": true,
+    "parse_status": "ok",
+    "boundary_signal": "vercel_waf_http_blocked_browser_only"
+  }
+}

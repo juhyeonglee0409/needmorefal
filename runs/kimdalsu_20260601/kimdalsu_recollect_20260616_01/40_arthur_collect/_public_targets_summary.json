@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-06-16T20:28:54+09:00",
+  "results": [
+    {
+      "target_id": "chzzk_subject_channel_public_profile",
+      "rows": 1,
+      "boundary": null
+    },
+    {
+      "target_id": "semorank_chzzk_follower_public_crosscheck",
+      "rows": 60,
+      "boundary": null
+    },
+    {
+      "target_id": "youtube_dalsooisfree_content_funnel",
+      "rows": 0,
+      "boundary": "no_in_range_videos_parseable_from_initial_page",
+      "metadata_counts": {
+        "seen": 0,
+        "included_180d": 0,
+        "outside_180d": 0,
+        "date_unknown": 0
+      }
+    },
+    {
+      "target_id": "auro_live_chzzk_follower_public_crosscheck",
+      "rows": 0,
+      "boundary": "not_collected_route_requires_chrome_js_fetch_devalue_parser"
+    }
+  ],
+  "youtube_window": {
+    "start": "2025-12-18",
+    "end": "2026-06-16"
+  }
+}

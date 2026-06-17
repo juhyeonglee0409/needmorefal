@@ -1,0 +1,18 @@
+{
+  "target_id": "youtube_dalsooisfree_content_funnel",
+  "target_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvkwM7BIrqqEq7I_9UiCY6w",
+  "best_path": "public_rss_parse",
+  "pre_check": {
+    "gate_status": "public_cleared",
+    "boundary_signal": null,
+    "profile_required": false
+  },
+  "collection_plan": {
+    "source": "youtube_atom_feed",
+    "window_start": "2025-12-18",
+    "window_end": "2026-06-16"
+  },
+  "verification": {
+    "preserve_not_verifiable": true
+  }
+}

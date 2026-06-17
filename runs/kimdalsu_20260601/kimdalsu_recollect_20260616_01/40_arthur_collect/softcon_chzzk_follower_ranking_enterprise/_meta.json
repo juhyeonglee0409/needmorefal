@@ -1,0 +1,18 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "softcon_chzzk_follower_ranking_enterprise",
+  "collection_method": "browser_dom_page_number_extraction",
+  "transport": "nodriver_existing_approved_profile_visible_chrome",
+  "profile_used": true,
+  "source_url": "https://viewership.softc.one/ranking/followers?type=naverchzzk&page=1..40",
+  "collected_at": "2026-06-16T21:41:11+09:00",
+  "disclosure_tag": "red",
+  "items_collected": 3987,
+  "pages_fetched": 40,
+  "requests_made": 40,
+  "boundary_signals": [],
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false,
+  "final_snapshot": true
+}

@@ -1,0 +1,24 @@
+{
+  "target_id": "softcon_subject_channel_current_stats",
+  "url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "scout_date": "2026-06-16T19:20:25+09:00",
+  "agent": "CharlesSmith/0.8.1",
+  "status": 429,
+  "status_label": "Vercel Security Checkpoint",
+  "gate": "phase2_error",
+  "gate_detail": "Browser verification attempt failed",
+  "provider": "Vercel",
+  "rendering_type": "verification_gate",
+  "best_path": "manual_review",
+  "reason": "Phase 1 rendering=verification_gate",
+  "next_steps": [
+    "Open the page in a normal browser session and confirm access.",
+    "Ask for an approved session, official API, sitemap, or export path.",
+    "Rerun Scouter after access conditions are clarified."
+  ],
+  "known_working_routes": [
+    "Playwright persistent context (async, multi-tab) — pw_enrich.py",
+    "nodriver + existing approved profile (.pw_profile)"
+  ],
+  "runbook_ref": "site_runbooks/SOFTC_ONE_RUNBOOK.md"
+}

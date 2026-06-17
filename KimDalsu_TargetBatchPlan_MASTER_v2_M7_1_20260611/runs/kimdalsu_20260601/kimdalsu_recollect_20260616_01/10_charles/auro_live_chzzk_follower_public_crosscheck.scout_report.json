@@ -1,0 +1,23 @@
+{
+  "target_id": "auro_live_chzzk_follower_public_crosscheck",
+  "url": "https://auro.live/rank/chzzk/0",
+  "scout_date": "2026-06-16T19:24:33+09:00",
+  "agent": "CharlesSmith/0.8.1",
+  "status": 200,
+  "status_label": "치지직(CHZZK) 크리에이터 팔로워 랭킹 - 오로라이브 Aurolive",
+  "gate": "none",
+  "provider": "Cloudflare",
+  "rendering_type": "SSR hydrated",
+  "framework": "SvelteKit",
+  "robots": "allowed",
+  "sitemap": "found (1 valid candidate)",
+  "data_signal": "html.div.flex_flex-col_pt-2_h-fit; 11 items; keys: name, text",
+  "best_path": "sitemap_first",
+  "reason": "valid sitemap candidate available",
+  "caveat": "AURO_LIVE_RUNBOOK: Codex sandbox proxy 403 차단 가능. __data.json devalue format.",
+  "next_steps": [
+    "Validate the sitemap response as XML before collecting URLs.",
+    "Extract detail-page URLs and run a small sample fetch.",
+    "Apply the site delay and verify row counts after collection."
+  ]
+}

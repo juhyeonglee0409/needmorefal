@@ -1,0 +1,41 @@
+{
+  "target_id": "softcon_chzzk_follower_ranking_enterprise",
+  "target_url": "https://viewership.softc.one/ranking/followers?type=naverchzzk",
+  "best_path": "browser_dom_extraction",
+  "pre_check": {
+    "gate_status": "profile_cleared",
+    "boundary_signal": null,
+    "profile_required": true,
+    "profile_type": "browser_profile",
+    "secret_values_logged": false
+  },
+  "diagnostic_findings": {
+    "title": "스트리머 랭킹 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+    "final_url": "https://viewership.softc.one/ranking/followers?type=naverchzzk",
+    "content_signals": {
+      "has_kimdalsu": false,
+      "has_softcon": true,
+      "has_lol": false,
+      "has_follower": true,
+      "has_ranking": true
+    },
+    "boundary": {
+      "checkpoint_detected": false,
+      "rate_limited_detected": false,
+      "login_required_likely": false,
+      "enterprise_required_likely": false
+    }
+  },
+  "profile_required": true,
+  "collection_plan": {
+    "max_items": 120,
+    "source": "follower_ranking_dom_scroll"
+  },
+  "verification": {
+    "preserve_not_verifiable": true
+  },
+  "source_paths": {
+    "scout_report": "10_charles/softcon_chzzk_follower_ranking_enterprise.scout_report.json",
+    "protocol": "10_charles/softcon_chzzk_follower_ranking_enterprise.protocol.json"
+  }
+}

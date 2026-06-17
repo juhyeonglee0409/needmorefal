@@ -1,0 +1,119 @@
+{
+  "case_id": "kimdalsu_20260601",
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "generated_at": "2026-06-16T22:00:17+09:00",
+  "items": [
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_subject_channel_current_stats",
+      "status": "collected",
+      "items": 1,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "artifact_paths": [
+        "40_arthur_collect/softcon_subject_channel_current_stats/combined.json",
+        "40_arthur_collect/softcon_subject_channel_current_stats/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_chzzk_lol_population_monthly",
+      "status": "collected",
+      "items": 100,
+      "parse_status": "below_expected_min_rows",
+      "boundary_signal": null,
+      "artifact_paths": [
+        "40_arthur_collect/softcon_chzzk_lol_population_monthly/combined.json",
+        "40_arthur_collect/softcon_chzzk_lol_population_monthly/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_chzzk_follower_ranking_enterprise",
+      "status": "collected",
+      "items": 3987,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "artifact_paths": [
+        "40_arthur_collect/softcon_chzzk_follower_ranking_enterprise/combined.json",
+        "40_arthur_collect/softcon_chzzk_follower_ranking_enterprise/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "semorank_chzzk_follower_public_crosscheck",
+      "status": "collected",
+      "items": 60,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "artifact_paths": [
+        "40_arthur_collect/semorank_chzzk_follower_public_crosscheck/combined.json",
+        "40_arthur_collect/semorank_chzzk_follower_public_crosscheck/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "chzzk_subject_channel_public_profile",
+      "status": "collected",
+      "items": 1,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "artifact_paths": [
+        "40_arthur_collect/chzzk_subject_channel_public_profile/combined.json",
+        "40_arthur_collect/chzzk_subject_channel_public_profile/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "youtube_dalsooisfree_content_funnel",
+      "status": "collected",
+      "items": 15,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "artifact_paths": [
+        "40_arthur_collect/youtube_dalsooisfree_content_funnel/combined.json",
+        "40_arthur_collect/youtube_dalsooisfree_content_funnel/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "softcon_cohort_member_profile_enrichment",
+      "status": "collected",
+      "items": 100,
+      "parse_status": "partial",
+      "boundary_signal": null,
+      "artifact_paths": [
+        "40_arthur_collect/softcon_cohort_member_profile_enrichment/combined.json",
+        "40_arthur_collect/softcon_cohort_member_profile_enrichment/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    },
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "auro_live_chzzk_follower_public_crosscheck",
+      "status": "boundary",
+      "items": 0,
+      "parse_status": "blocked",
+      "boundary_signal": "not_collected_route_requires_chrome_js_fetch_devalue_parser",
+      "artifact_paths": [
+        "40_arthur_collect/auro_live_chzzk_follower_public_crosscheck/combined.json",
+        "40_arthur_collect/auro_live_chzzk_follower_public_crosscheck/_meta.json"
+      ],
+      "promotion_status": "patch_candidate_only"
+    }
+  ]
+}

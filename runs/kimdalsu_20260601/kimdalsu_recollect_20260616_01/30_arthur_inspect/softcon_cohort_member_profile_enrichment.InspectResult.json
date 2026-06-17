@@ -1,0 +1,16 @@
+{
+  "version": "dependency-gate-v1",
+  "generated_at": "2026-06-16T20:33:09+09:00",
+  "target_id": "softcon_cohort_member_profile_enrichment",
+  "boundary_signals": [
+    {
+      "source": "dependency",
+      "signal": "not_run_population_dependency_blocked",
+      "severity": "stop",
+      "action": "stopped"
+    }
+  ],
+  "sample_records": [],
+  "row_count_observed": 0,
+  "inspect_recommendation": "do_not_collect"
+}

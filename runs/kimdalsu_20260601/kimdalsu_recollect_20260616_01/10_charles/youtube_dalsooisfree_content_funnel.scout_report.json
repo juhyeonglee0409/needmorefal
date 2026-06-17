@@ -1,0 +1,13 @@
+{
+  "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvkwM7BIrqqEq7I_9UiCY6w",
+  "target_id": "youtube_dalsooisfree_content_funnel",
+  "generated_at": "2026-06-16T20:31:10+09:00",
+  "tool": "codex_public_youtube_rss_summary",
+  "save_raw": false,
+  "secret_values_logged": false,
+  "status_code": 200,
+  "final_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvkwM7BIrqqEq7I_9UiCY6w",
+  "response_hash": "9410cf60d18a89457526e948316184f107da7fcbaef67505ef8504221bed3908",
+  "response_bytes": 21017,
+  "boundary_signal": null
+}

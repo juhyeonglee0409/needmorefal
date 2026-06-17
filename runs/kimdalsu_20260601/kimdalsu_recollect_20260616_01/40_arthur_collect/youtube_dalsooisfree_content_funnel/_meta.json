@@ -1,0 +1,14 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "youtube_dalsooisfree_content_funnel",
+  "collection_method": "youtube_atom_feed",
+  "source_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvkwM7BIrqqEq7I_9UiCY6w",
+  "collected_at": "2026-06-16T20:31:10+09:00",
+  "items_collected": 15,
+  "boundary_signals": [],
+  "collection_window_start": "2025-12-18",
+  "collection_window_end": "2026-06-16",
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false
+}

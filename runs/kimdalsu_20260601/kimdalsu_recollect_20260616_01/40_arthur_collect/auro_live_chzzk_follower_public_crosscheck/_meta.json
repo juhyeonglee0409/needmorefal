@@ -1,0 +1,14 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "auro_live_chzzk_follower_public_crosscheck",
+  "collection_method": "public_http_parse",
+  "source_url": "https://auro.live/rank/chzzk/0",
+  "collected_at": "2026-06-16T20:28:54+09:00",
+  "items_collected": 0,
+  "boundary_signals": [
+    "not_collected_route_requires_chrome_js_fetch_devalue_parser"
+  ],
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false
+}

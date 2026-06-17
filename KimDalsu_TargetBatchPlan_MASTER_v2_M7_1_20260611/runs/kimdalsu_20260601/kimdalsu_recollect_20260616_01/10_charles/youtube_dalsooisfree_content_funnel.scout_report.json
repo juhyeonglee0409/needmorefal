@@ -1,0 +1,20 @@
+{
+  "target_id": "youtube_dalsooisfree_content_funnel",
+  "url": "https://www.youtube.com/@dalsooisfree/videos",
+  "scout_date": "2026-06-16T19:24:08+09:00",
+  "agent": "CharlesSmith/0.8.1",
+  "status": 200,
+  "status_label": "김달수 - YouTube",
+  "gate": "none",
+  "provider": "none",
+  "rendering_type": "Static HTML",
+  "robots": "allowed",
+  "sitemap": "found (2 valid candidates)",
+  "best_path": "sitemap_first",
+  "reason": "valid sitemap candidate available",
+  "next_steps": [
+    "Validate the sitemap response as XML before collecting URLs.",
+    "Extract detail-page URLs and run a small sample fetch.",
+    "Apply the site delay and verify row counts after collection."
+  ]
+}

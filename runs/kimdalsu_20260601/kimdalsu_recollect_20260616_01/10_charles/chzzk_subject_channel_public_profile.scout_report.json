@@ -1,0 +1,13 @@
+{
+  "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+  "target_id": "chzzk_subject_channel_public_profile",
+  "generated_at": "2026-06-16T20:28:44+09:00",
+  "tool": "codex_public_http_summary",
+  "save_raw": false,
+  "secret_values_logged": false,
+  "status_code": 200,
+  "final_url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+  "response_hash": "7985578b9df1a9224d4b1770a99111b9af02a02133e062e668c06889bb7f81d1",
+  "response_bytes": 655,
+  "boundary_signal": null
+}

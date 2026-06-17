@@ -1,0 +1,41 @@
+{
+  "target_id": "softcon_subject_channel_current_stats",
+  "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "best_path": "browser_dom_extraction",
+  "pre_check": {
+    "gate_status": "profile_cleared",
+    "boundary_signal": null,
+    "profile_required": true,
+    "profile_type": "browser_profile",
+    "secret_values_logged": false
+  },
+  "diagnostic_findings": {
+    "title": "김달수 Dalsu | 치지직 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+    "final_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "content_signals": {
+      "has_kimdalsu": true,
+      "has_softcon": true,
+      "has_lol": true,
+      "has_follower": true,
+      "has_ranking": true
+    },
+    "boundary": {
+      "checkpoint_detected": false,
+      "rate_limited_detected": false,
+      "login_required_likely": false,
+      "enterprise_required_likely": false
+    }
+  },
+  "profile_required": true,
+  "collection_plan": {
+    "items": 1,
+    "source": "visible_dom_metrics"
+  },
+  "verification": {
+    "preserve_not_verifiable": true
+  },
+  "source_paths": {
+    "scout_report": "10_charles/softcon_subject_channel_current_stats.scout_report.json",
+    "protocol": "10_charles/softcon_subject_channel_current_stats.protocol.json"
+  }
+}

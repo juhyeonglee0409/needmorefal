@@ -1,0 +1,20 @@
+{
+  "target_id": "chzzk_subject_channel_public_profile",
+  "url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+  "scout_date": "2026-06-16T19:23:31+09:00",
+  "agent": "CharlesSmith/0.8.1",
+  "status": 200,
+  "status_label": "치지직 CHZZK",
+  "gate": "none",
+  "provider": "none",
+  "rendering_type": "CSR",
+  "robots": "allowed",
+  "best_path": "playwright",
+  "reason": "rendering=csr",
+  "alt_path": "CHZZK public API (chzzk.naver.com/api/channels/{channelId})",
+  "next_steps": [
+    "Render the page in a browser and wait for the data container.",
+    "Capture same-origin JSON calls during rendering.",
+    "Use DOM extraction only if no stable API appears."
+  ]
+}

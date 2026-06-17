@@ -1,0 +1,22 @@
+{
+  "target_id": "semorank_chzzk_follower_public_crosscheck",
+  "url": "https://www.semorank.kr/ranking/chzzk",
+  "scout_date": "2026-06-16T19:23:08+09:00",
+  "agent": "CharlesSmith/0.8.1",
+  "status": 200,
+  "status_label": "치지직 랭킹 | 팔로워 Top 500 스트리머 순위 | 세모랭크",
+  "gate": "none",
+  "provider": "none",
+  "rendering_type": "SSR hydrated",
+  "framework": "Next.js Server Components",
+  "robots": "allowed",
+  "sitemap": "found (1 valid candidate)",
+  "data_signal": "html.div.group_relative_min-h-[92px]; 50 items; keys: name, text",
+  "best_path": "sitemap_first",
+  "reason": "valid sitemap candidate available",
+  "next_steps": [
+    "Validate the sitemap response as XML before collecting URLs.",
+    "Extract detail-page URLs and run a small sample fetch.",
+    "Apply the site delay and verify row counts after collection."
+  ]
+}

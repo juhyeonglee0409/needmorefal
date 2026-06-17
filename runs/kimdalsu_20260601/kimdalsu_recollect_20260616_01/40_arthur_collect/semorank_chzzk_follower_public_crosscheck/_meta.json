@@ -1,0 +1,12 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "semorank_chzzk_follower_public_crosscheck",
+  "collection_method": "public_http_parse",
+  "source_url": "https://www.semorank.kr/ranking/chzzk",
+  "collected_at": "2026-06-16T20:28:53+09:00",
+  "items_collected": 60,
+  "boundary_signals": [],
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false
+}
