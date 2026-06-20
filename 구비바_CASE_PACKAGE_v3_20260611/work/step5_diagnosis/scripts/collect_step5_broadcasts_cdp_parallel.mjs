@@ -55,6 +55,7 @@ function parseArgs() {
     errorsName: args.get('errors-name') || '_collection_errors.csv',
     progressName: args.get('progress-name') || '_collection_progress.ndjson',
     skipExisting: args.get('skip-existing') === 'true',
+    targetFile: args.get('target-file') || null,
   };
 }
 
@@ -124,6 +125,20 @@ function loadSampleTargets() {
   return { targets, beforeDedupe: targets.length };
 }
 
+function loadTargetsFromFile(targetFile) {
+  const resolved = resolve(targetFile);
+  const spec = JSON.parse(readFileSync(resolved, 'utf8'));
+  const targets = (spec.targets || []).map(row => ({
+    group: row.group,
+    channelId: row.channelId,
+    name: row.name,
+    layer: row.layer || row.group,
+    avg: row.avg ?? null,
+    follower: row.follower ?? null,
+  }));
+  return { targets, beforeDedupe: targets.length };
+}
+
 function dedupeTargets(targets) {
   const chosen = new Map();
   const dedupedMemberships = [];
@@ -143,7 +158,8 @@ function dedupeTargets(targets) {
   return { targets: [...chosen.values()], dedupedMemberships };
 }
 
-function loadTargetsForMode(mode) {
+function loadTargetsForMode(mode, targetFile = null) {
+  if (targetFile) return loadTargetsFromFile(targetFile);
   if (mode === 'full') return loadFullTargets();
   if (mode === 'sample') return loadSampleTargets();
   throw new Error(`Unsupported mode: ${mode}`);
@@ -380,11 +396,12 @@ async function workerLoop({ workerId, port, queue, args, successes, errors, prog
 
 async function main() {
   const args = parseArgs();
-  mkdirSync(join(outputDir, 'T1'), { recursive: true });
-  mkdirSync(join(outputDir, 'T2'), { recursive: true });
 
-  const loaded = loadTargetsForMode(args.mode);
+  const loaded = loadTargetsForMode(args.mode, args.targetFile);
   const deduped = dedupeTargets(loaded.targets);
+  for (const group of new Set(deduped.targets.map(target => target.group))) {
+    mkdirSync(join(outputDir, group), { recursive: true });
+  }
   let runTargets = deduped.targets.slice(args.offset);
   if (args.skipExisting) {
     runTargets = runTargets.filter(target => !existsSync(outPathFor(target)));

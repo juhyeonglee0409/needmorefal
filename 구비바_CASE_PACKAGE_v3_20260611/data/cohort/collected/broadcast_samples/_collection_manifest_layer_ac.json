@@ -1,0 +1,453 @@
+{
+  "generated_at": "2026-06-20T01:45:33+0900",
+  "case_id": "gubiba",
+  "purpose": "Layer A/C broadcast record collection for category/length effect cross-tier validation",
+  "method": "nodriver_dom_browser",
+  "target_file": "work\\step8_layer_ac_broadcasts\\layer_ac_broadcast_targets_20260620.json",
+  "output_dir": "data\\cohort\\collected\\broadcast_samples",
+  "raw_html_saved": false,
+  "secret_values_logged": false,
+  "cookie_values_read": false,
+  "screenshot_saved": false,
+  "url_pattern": "https://viewership.softc.one/channel/naverchzzk/{channelId}/streams",
+  "query": {
+    "full_range": true,
+    "startDateTime": "2023-10-01T15:00:00.000Z",
+    "endDateTime": "2026-06-15T14:59:59.999Z"
+  },
+  "target_summary": {
+    "total_targets": 44,
+    "by_group": {
+      "LA": 20,
+      "LC": 24
+    }
+  },
+  "csv_summary": {
+    "csv_count": 42,
+    "by_group": {
+      "LA": 19,
+      "LC": 23
+    },
+    "rows_total": 4038,
+    "csv_min_row_count": 18,
+    "csv_max_row_count": 100
+  },
+  "completion_summary": {
+    "terminal_channel_count": 44,
+    "success_csv_count": 42,
+    "csv_count_with_min_20_rows": 41,
+    "short_csv_count": 1,
+    "error_count": 2,
+    "unprocessed_count": 0,
+    "met_40_csv_threshold": true,
+    "met_40_csv_with_min_20_rows_threshold": true
+  },
+  "boundary_signal": null,
+  "preflight_notes": [
+    {
+      "file": "_collection_manifest_layer_ac_smoke.json",
+      "method": "cdp_dom_browser_parallel",
+      "result": "429 boundary; not repeated"
+    },
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_smoke.json",
+      "method": "nodriver_dom_browser",
+      "result": "checkpoint boundary; manual-wait route used next"
+    }
+  ],
+  "chunk_summaries": [
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_chunk1.json",
+      "method": "nodriver_dom_browser",
+      "attempted_in_this_run": 10,
+      "success_count": 8,
+      "short_rows_count": 1,
+      "error_count": 1,
+      "boundary_signal": null,
+      "checkpoint_wait_ms": 90000
+    },
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_chunk2.json",
+      "method": "nodriver_dom_browser",
+      "attempted_in_this_run": 10,
+      "success_count": 9,
+      "short_rows_count": 0,
+      "error_count": 1,
+      "boundary_signal": null,
+      "checkpoint_wait_ms": 90000
+    },
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_chunk3.json",
+      "method": "nodriver_dom_browser",
+      "attempted_in_this_run": 10,
+      "success_count": 9,
+      "short_rows_count": 0,
+      "error_count": 1,
+      "boundary_signal": null,
+      "checkpoint_wait_ms": 90000
+    },
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_chunk4.json",
+      "method": "nodriver_dom_browser",
+      "attempted_in_this_run": 10,
+      "success_count": 10,
+      "short_rows_count": 0,
+      "error_count": 0,
+      "boundary_signal": null,
+      "checkpoint_wait_ms": 90000
+    },
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_chunk5.json",
+      "method": "nodriver_dom_browser",
+      "attempted_in_this_run": 4,
+      "success_count": 4,
+      "short_rows_count": 0,
+      "error_count": 0,
+      "boundary_signal": null,
+      "checkpoint_wait_ms": 90000
+    },
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_manual_wait_smoke.json",
+      "method": "nodriver_dom_browser",
+      "attempted_in_this_run": 1,
+      "success_count": 1,
+      "short_rows_count": 0,
+      "error_count": 0,
+      "boundary_signal": null,
+      "checkpoint_wait_ms": 90000
+    },
+    {
+      "file": "_collection_manifest_layer_ac_nodriver_smoke.json",
+      "method": "nodriver_dom_browser",
+      "attempted_in_this_run": 1,
+      "success_count": 0,
+      "short_rows_count": 0,
+      "error_count": 1,
+      "boundary_signal": "checkpoint_or_rate_boundary",
+      "checkpoint_wait_ms": null
+    }
+  ],
+  "csv_files": [
+    {
+      "group": "LA",
+      "channel_id": "17d8605fc37fb5ef49f5f67ae786fe4e",
+      "name": "에리스",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\17d8605fc37fb5ef49f5f67ae786fe4e_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "219d8e65810a77d6e42c7df018d9632b",
+      "name": "마뫄",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\219d8e65810a77d6e42c7df018d9632b_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "32fb866e323242b770cdc790f991a6f6",
+      "name": "카린",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\32fb866e323242b770cdc790f991a6f6_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "36ddb9bb4f17593b60f1b63cec86611d",
+      "name": "사키하네 후야",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\36ddb9bb4f17593b60f1b63cec86611d_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "3e825479d71ead63b76de0d6f6b5dc83",
+      "name": "양아지",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\3e825479d71ead63b76de0d6f6b5dc83_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "475313e6c26639d5763628313b4c130e",
+      "name": "엘리",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\475313e6c26639d5763628313b4c130e_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "59aa824e4c4a56dd51e7a5e2e9172648",
+      "name": "쿠온 레이 Planeta",
+      "row_count": 18,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\59aa824e4c4a56dd51e7a5e2e9172648_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "65a53076fe1a39636082dd6dba8b8a4b",
+      "name": "오화요 Ohwayo",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\65a53076fe1a39636082dd6dba8b8a4b_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "798e100206987b59805cfb75f927e965",
+      "name": "디디디용",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\798e100206987b59805cfb75f927e965_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "8a933cb3a86c52aadb2483aa4eed72aa",
+      "name": "라코코 RAKOKO",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\8a933cb3a86c52aadb2483aa4eed72aa_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "93fe884808459fb4e4a3c7d64f0eef03",
+      "name": "고차비",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\93fe884808459fb4e4a3c7d64f0eef03_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "941ea3807ba8b9b7dddb1670e3e7e5af",
+      "name": "아마네 나기 Planeta",
+      "row_count": 20,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\941ea3807ba8b9b7dddb1670e3e7e5af_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "b5ed5db484d04faf4d150aedd362f34b",
+      "name": "강지",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\b5ed5db484d04faf4d150aedd362f34b_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "c7d3b49d29be2d2b1d74ba8403f5851a",
+      "name": "미녕이데려오깨",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\c7d3b49d29be2d2b1d74ba8403f5851a_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "d2fb83a5db130bf4d273c981b82ca41f",
+      "name": "이오몽",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\d2fb83a5db130bf4d273c981b82ca41f_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "dae2de8eaa005a59163f2e4c045e1aa1",
+      "name": "블레어 로즈",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\dae2de8eaa005a59163f2e4c045e1aa1_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "e9ff6a0d42f604ac57fcd53f1c3b9bc0",
+      "name": "늦잠",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\e9ff6a0d42f604ac57fcd53f1c3b9bc0_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "eaf7b569c9992d0e57db0059eb5c0eeb",
+      "name": "이글콥",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\eaf7b569c9992d0e57db0059eb5c0eeb_방송별_요약.csv"
+    },
+    {
+      "group": "LA",
+      "channel_id": "ed21d36a44d1956520189a784afc27ed",
+      "name": "이초홍",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\ed21d36a44d1956520189a784afc27ed_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "051a3090c9566bdfd6af01cb1f463c16",
+      "name": "폰루루 ㅣ PON RuRu",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\051a3090c9566bdfd6af01cb1f463c16_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "07d0b756965acfb5fee4042f7ec180d0",
+      "name": "플로라 코튼",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\07d0b756965acfb5fee4042f7ec180d0_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "0feaf00a7322954b2da161d401e09dc8",
+      "name": "한 유 월",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\0feaf00a7322954b2da161d401e09dc8_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "182d27a710b9dd25fa20172999184ec8",
+      "name": "나나링 Nanaring",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\182d27a710b9dd25fa20172999184ec8_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "19f9ece522b9155b4e577d7b9b46103a",
+      "name": "고순해",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\19f9ece522b9155b4e577d7b9b46103a_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "2dccdac2998bce6a95ab428179e9db48",
+      "name": "루나냥",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\2dccdac2998bce6a95ab428179e9db48_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "425366ceabbd175f051db2e87c3db139",
+      "name": "멜삐",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\425366ceabbd175f051db2e87c3db139_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "44424fa93fae1f5b03a0479cac94f39c",
+      "name": "요루야",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\44424fa93fae1f5b03a0479cac94f39c_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "5fb53f10e2fe2dfe77cb2cc007d63c42",
+      "name": "이운비",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\5fb53f10e2fe2dfe77cb2cc007d63c42_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "6090bbd23b8dab8ffd1844ba71219104",
+      "name": "지새기",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\6090bbd23b8dab8ffd1844ba71219104_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "6ddd2ff1d43ae1e23e04e72409e40d84",
+      "name": "이 렌",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\6ddd2ff1d43ae1e23e04e72409e40d84_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "73d006ad5ed12000547433ed33a68247",
+      "name": "옥우",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\73d006ad5ed12000547433ed33a68247_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "8714050e915c2e7cd5d551756fd3dbb5",
+      "name": "슬히찡",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\8714050e915c2e7cd5d551756fd3dbb5_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "8cfb2bdebc91dabb9d54ac44714a9b48",
+      "name": "아리랑털기",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\8cfb2bdebc91dabb9d54ac44714a9b48_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "91caa53fc6cf5ee3cdbc802bd23bf155",
+      "name": "온하얀 ONHAYAN",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\91caa53fc6cf5ee3cdbc802bd23bf155_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "99b6020d619b9aac132920604cee8ca1",
+      "name": "루루카 RURUKA",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\99b6020d619b9aac132920604cee8ca1_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "a57df5bebba78db17189b24b54d5a2e4",
+      "name": "모다해",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\a57df5bebba78db17189b24b54d5a2e4_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "be059789e19ac3e46198e15911a80122",
+      "name": "모이 M0I",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\be059789e19ac3e46198e15911a80122_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "d7fcdd7413c90d58e81f4720273795b2",
+      "name": "로쥬마리",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\d7fcdd7413c90d58e81f4720273795b2_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "d906aed58ea1c8e82fbf6ab4c6110649",
+      "name": "여 링",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\d906aed58ea1c8e82fbf6ab4c6110649_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "e9591b517df39ffae2b9912cffa10e62",
+      "name": "해옥 HAEOK",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\e9591b517df39ffae2b9912cffa10e62_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "eef3f5d5d6b7fd4c7ee36b13c330fec0",
+      "name": "닝냉뇽",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\eef3f5d5d6b7fd4c7ee36b13c330fec0_방송별_요약.csv"
+    },
+    {
+      "group": "LC",
+      "channel_id": "f4c2ff0be58895c211652674f2f19ffa",
+      "name": "그나로",
+      "row_count": 100,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LC\\f4c2ff0be58895c211652674f2f19ffa_방송별_요약.csv"
+    }
+  ],
+  "short_csv": [
+    {
+      "group": "LA",
+      "channel_id": "59aa824e4c4a56dd51e7a5e2e9172648",
+      "name": "쿠온 레이 Planeta",
+      "row_count": 18,
+      "path": "data\\cohort\\collected\\broadcast_samples\\LA\\59aa824e4c4a56dd51e7a5e2e9172648_방송별_요약.csv"
+    }
+  ],
+  "errors": [
+    {
+      "group": "LA",
+      "channel_id": "f2fd35b4bce38e375cd77b6a6904b4a4",
+      "name": "부쿠키",
+      "error": "not_found",
+      "source_progress_file": "_collection_progress_layer_ac_nodriver_chunk2.ndjson"
+    },
+    {
+      "group": "LC",
+      "channel_id": "107b9e4102fb92e546a3aff932babea0",
+      "name": "김네네",
+      "error": "not_found",
+      "source_progress_file": "_collection_progress_layer_ac_nodriver_chunk3.ndjson"
+    }
+  ],
+  "schema_mismatches": [],
+  "unprocessed": []
+}

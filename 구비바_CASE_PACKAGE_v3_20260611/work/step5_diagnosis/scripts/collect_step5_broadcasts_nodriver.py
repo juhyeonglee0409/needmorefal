@@ -16,12 +16,16 @@ import sys
 import time
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlencode
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PACKAGE_ROOT = SCRIPT_DIR.parent.parent.parent
 COHORT_DIR = PACKAGE_ROOT / "data" / "cohort" / "collected"
 OUTPUT_DIR = COHORT_DIR / "broadcast_samples"
+DEFAULT_PROFILE_DIR = PACKAGE_ROOT / "work" / "step4_cohort_collect_prep" / ".pw_profile"
+DEFAULT_DATE_START_UTC = "2023-10-01T15:00:00.000Z"
+DEFAULT_DATE_END_UTC = "2026-06-15T14:59:59.999Z"
 EXPECTED_COLUMNS = [
     "시작 시간",
     "종료 시간",
@@ -71,6 +75,29 @@ def load_sample_targets() -> tuple[list[dict[str, str]], int]:
     return targets, len(targets)
 
 
+def load_targets_from_file(target_file: str) -> tuple[list[dict[str, str]], int]:
+    path = Path(target_file).resolve()
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    rows = payload.get("targets") if isinstance(payload, dict) else payload
+    if not isinstance(rows, list):
+        raise ValueError("target file must contain a list or a top-level targets list")
+    targets: list[dict[str, str]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("target rows must be objects")
+        channel_id = str(row.get("channelId") or "").strip()
+        if not channel_id:
+            raise ValueError("target row missing channelId")
+        targets.append(
+            {
+                "group": str(row.get("group") or "custom"),
+                "channelId": channel_id,
+                "name": str(row.get("name") or row.get("channel_name") or ""),
+            }
+        )
+    return targets, len(targets)
+
+
 def dedupe_targets(targets: list[dict[str, str]]) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     chosen: dict[str, dict[str, str]] = {}
     memberships: list[dict[str, str]] = []
@@ -104,8 +131,10 @@ def dedupe_targets(targets: list[dict[str, str]]) -> tuple[list[dict[str, str]],
     return list(chosen.values()), memberships
 
 
-def load_targets(mode: str) -> tuple[list[dict[str, str]], int, list[dict[str, str]]]:
-    if mode == "full":
+def load_targets(mode: str, target_file: str | None = None) -> tuple[list[dict[str, str]], int, list[dict[str, str]]]:
+    if target_file:
+        targets, before = load_targets_from_file(target_file)
+    elif mode == "full":
         targets, before = load_full_targets()
     elif mode == "sample":
         targets, before = load_sample_targets()
@@ -136,10 +165,46 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
             writer.writerow(csv_escape_row(row))
 
 
+def target_url(target: dict[str, str], args: argparse.Namespace) -> str:
+    channel_id = target["channelId"]
+    base = f"https://viewership.softc.one/channel/naverchzzk/{channel_id}/streams"
+    if not args.full_range:
+        return base
+    params = urlencode(
+        {
+            "startDateTime": args.date_start_utc,
+            "endDateTime": args.date_end_utc,
+        }
+    )
+    return f"{base}?{params}"
+
+
 def append_progress(path: Path, event: dict[str, Any]) -> None:
     record = {"generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), **event}
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
+
+
+def read_progress_channel_ids(pattern: str) -> set[str]:
+    ids: set[str] = set()
+    for path in OUTPUT_DIR.glob(pattern):
+        try:
+            lines = path.read_text(encoding="utf-8").splitlines()
+        except OSError:
+            continue
+        for line in lines:
+            if not line.strip():
+                continue
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if event.get("event") not in {"collected", "error"}:
+                continue
+            channel_id = str(event.get("channel_id") or "").strip()
+            if channel_id:
+                ids.add(channel_id)
+    return ids
 
 
 def extraction_expression(channel_id: str) -> str:
@@ -221,17 +286,26 @@ async def evaluate_json(page: Any, expression: str) -> dict[str, Any]:
     return json.loads(str(value))
 
 
-async def collect_one(page: Any, target: dict[str, str], wait_ms: int) -> dict[str, Any]:
+async def collect_one(browser: Any, target: dict[str, str], args: argparse.Namespace) -> dict[str, Any]:
     channel_id = target["channelId"]
-    url = f"https://viewership.softc.one/channel/naverchzzk/{channel_id}/streams"
-    page = await page.browser.get(url)
+    url = target_url(target, args)
+    page = await browser.get(url)
     started = time.monotonic()
+    deadline = started + (args.wait_ms / 1000)
+    checkpoint_started: float | None = None
     state: dict[str, Any] | None = None
-    while (time.monotonic() - started) * 1000 < wait_ms:
+    while time.monotonic() < deadline:
         await asyncio.sleep(2)
         state = await evaluate_json(page, extraction_expression(channel_id))
         if state.get("checkpoint"):
+            if args.checkpoint_wait_ms > 0:
+                if checkpoint_started is None:
+                    checkpoint_started = time.monotonic()
+                    deadline = max(deadline, checkpoint_started + (args.checkpoint_wait_ms / 1000))
+                if time.monotonic() < checkpoint_started + (args.checkpoint_wait_ms / 1000):
+                    continue
             raise RuntimeError("checkpoint")
+        checkpoint_started = None
         if state.get("rateLimited"):
             raise RuntimeError("429")
         if state.get("notFound"):
@@ -250,18 +324,22 @@ async def run(args: argparse.Namespace) -> int:
         print("ERROR: nodriver is not installed", file=sys.stderr)
         return 2
 
+    targets, before_dedupe, memberships = load_targets(args.mode, args.target_file)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    (OUTPUT_DIR / "T1").mkdir(exist_ok=True)
-    (OUTPUT_DIR / "T2").mkdir(exist_ok=True)
+    for group in sorted({target["group"] for target in targets} | {"T1", "T2"}):
+        (OUTPUT_DIR / group).mkdir(exist_ok=True)
     progress_path = OUTPUT_DIR / args.progress_name
     manifest_path = OUTPUT_DIR / args.manifest_name
     errors_path = OUTPUT_DIR / args.errors_name
     progress_path.write_text("", encoding="utf-8")
 
-    targets, before_dedupe, memberships = load_targets(args.mode)
     window = targets[args.offset :]
     if args.skip_existing:
         window = [target for target in window if not out_path_for(target).exists()]
+    progress_existing_ids: set[str] = set()
+    if args.skip_progress_existing:
+        progress_existing_ids = read_progress_channel_ids(args.skip_progress_glob)
+        window = [target for target in window if target["channelId"] not in progress_existing_ids]
     if args.limit is not None:
         window = window[: args.limit]
 
@@ -271,10 +349,19 @@ async def run(args: argparse.Namespace) -> int:
             "event": "start",
             "mode": args.mode,
             "method": "nodriver_dom_browser",
+            "target_file": args.target_file,
+            "profile_dir": args.profile_dir,
+            "full_range": args.full_range,
+            "date_start_utc": args.date_start_utc if args.full_range else None,
+            "date_end_utc": args.date_end_utc if args.full_range else None,
+            "checkpoint_wait_ms": args.checkpoint_wait_ms,
             "candidate_rows_before_dedupe": before_dedupe,
             "unique_targets_after_dedupe": len(targets),
             "attempted_in_this_run": len(window),
             "skip_existing": args.skip_existing,
+            "skip_progress_existing": args.skip_progress_existing,
+            "skip_progress_glob": args.skip_progress_glob if args.skip_progress_existing else None,
+            "progress_existing_count": len(progress_existing_ids),
             "raw_html_saved": False,
             "secret_values_logged": False,
             "cookie_values_read": False,
@@ -288,15 +375,13 @@ async def run(args: argparse.Namespace) -> int:
     browser = None
 
     try:
-        browser = await uc.start(headless=False, lang="ko-KR")
-        page = await browser.get("about:blank")
-        setattr(page, "browser", browser)
+        browser = await uc.start(headless=False, lang="ko-KR", user_data_dir=Path(args.profile_dir).resolve())
         total = len(targets)
         for local_index, target in enumerate(window, start=1):
             ordinal = args.offset + local_index
             progress = f"{ordinal}/{total}"
             try:
-                state = await collect_one(page, target, args.wait_ms)
+                state = await collect_one(browser, target, args)
                 rows = [row.get("values", {}) for row in state.get("rows", [])]
                 output_path = out_path_for(target)
                 if rows:
@@ -345,17 +430,28 @@ async def run(args: argparse.Namespace) -> int:
         "mode": args.mode,
         "method": "nodriver_dom_browser",
         "output_dir": str(OUTPUT_DIR),
+        "profile_dir": args.profile_dir,
         "raw_html_saved": False,
         "secret_values_logged": False,
         "cookie_values_read": False,
         "url_pattern": "https://viewership.softc.one/channel/naverchzzk/{channelId}/streams",
+        "query": {
+            "full_range": args.full_range,
+            "startDateTime": args.date_start_utc if args.full_range else None,
+            "endDateTime": args.date_end_utc if args.full_range else None,
+        },
+        "checkpoint_wait_ms": args.checkpoint_wait_ms,
         "target_summary": {
+            "target_file": args.target_file,
             "candidate_rows_before_dedupe": before_dedupe,
             "unique_targets_after_dedupe": len(targets),
             "offset": args.offset,
             "limit": args.limit,
             "attempted_in_this_run": len(window),
             "skipped_existing": args.skip_existing,
+            "skipped_progress_existing": args.skip_progress_existing,
+            "skip_progress_glob": args.skip_progress_glob if args.skip_progress_existing else None,
+            "progress_existing_count": len(progress_existing_ids),
         },
         "success_count": sum(1 for item in successes if item["status"] == "success"),
         "short_rows_count": sum(1 for item in successes if item["status"] == "short_rows"),
@@ -395,6 +491,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--min-rows", type=int, default=10)
     parser.add_argument("--skip-existing", action="store_true")
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--target-file")
+    parser.add_argument("--profile-dir", default=str(DEFAULT_PROFILE_DIR))
+    parser.add_argument("--date-start-utc", default=DEFAULT_DATE_START_UTC)
+    parser.add_argument("--date-end-utc", default=DEFAULT_DATE_END_UTC)
+    parser.add_argument("--full-range", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--checkpoint-wait-ms", type=int, default=0)
+    parser.add_argument("--skip-progress-existing", action="store_true")
+    parser.add_argument("--skip-progress-glob", default="_collection_progress_layer_ac_nodriver*.ndjson")
     parser.add_argument("--manifest-name", default="_collection_manifest_nodriver.json")
     parser.add_argument("--errors-name", default="_collection_errors_nodriver.csv")
     parser.add_argument("--progress-name", default="_collection_progress_nodriver.ndjson")

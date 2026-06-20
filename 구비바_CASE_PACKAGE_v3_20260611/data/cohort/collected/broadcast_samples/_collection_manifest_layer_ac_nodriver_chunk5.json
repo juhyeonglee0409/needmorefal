@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-06-20T01:43:59+0900",
+  "mode": "full",
+  "method": "nodriver_dom_browser",
+  "output_dir": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples",
+  "profile_dir": "work\\step4_cohort_collect_prep\\.pw_profile",
+  "raw_html_saved": false,
+  "secret_values_logged": false,
+  "cookie_values_read": false,
+  "url_pattern": "https://viewership.softc.one/channel/naverchzzk/{channelId}/streams",
+  "query": {
+    "full_range": true,
+    "startDateTime": "2023-10-01T15:00:00.000Z",
+    "endDateTime": "2026-06-15T14:59:59.999Z"
+  },
+  "checkpoint_wait_ms": 90000,
+  "target_summary": {
+    "target_file": "work\\step8_layer_ac_broadcasts\\layer_ac_broadcast_targets_20260620.json",
+    "candidate_rows_before_dedupe": 44,
+    "unique_targets_after_dedupe": 44,
+    "offset": 0,
+    "limit": 10,
+    "attempted_in_this_run": 4,
+    "skipped_existing": true,
+    "skipped_progress_existing": true,
+    "skip_progress_glob": "_collection_progress_layer_ac_nodriver*.ndjson",
+    "progress_existing_count": 40
+  },
+  "success_count": 4,
+  "short_rows_count": 0,
+  "error_count": 0,
+  "boundary_signal": null,
+  "deduped_memberships": [],
+  "successes": [
+    {
+      "progress": "1/44",
+      "group": "LC",
+      "channel_id": "44424fa93fae1f5b03a0479cac94f39c",
+      "name": "요루야",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples\\LC\\44424fa93fae1f5b03a0479cac94f39c_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/44424fa93fae1f5b03a0479cac94f39c/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "2/44",
+      "group": "LC",
+      "channel_id": "eef3f5d5d6b7fd4c7ee36b13c330fec0",
+      "name": "닝냉뇽",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples\\LC\\eef3f5d5d6b7fd4c7ee36b13c330fec0_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/eef3f5d5d6b7fd4c7ee36b13c330fec0/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "3/44",
+      "group": "LC",
+      "channel_id": "0feaf00a7322954b2da161d401e09dc8",
+      "name": "한 유 월",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples\\LC\\0feaf00a7322954b2da161d401e09dc8_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/0feaf00a7322954b2da161d401e09dc8/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "4/44",
+      "group": "LC",
+      "channel_id": "99b6020d619b9aac132920604cee8ca1",
+      "name": "루루카 RURUKA",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples\\LC\\99b6020d619b9aac132920604cee8ca1_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/99b6020d619b9aac132920604cee8ca1/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    }
+  ],
+  "errors": []
+}
