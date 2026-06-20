@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Streamer Channel Diagnosis Methodology v3 — Advisor Review</title>
+<style>
+  :root {
+    --subject: #3A5F78;
+    --subject-deep: #2D4A5E;
+    --cohort-mid: #9B9590;
+    --cohort-fill: #E8E4DF;
+    --positive: #01682D;
+    --negative: #A8292F;
+    --warning: #A43112;
+    --highlight: #C4834D;
+    --neutral: #6B6560;
+    --bg-white: #FFFFFF;
+    --bg-warm: #FBF7F1;
+    --text-dark: #1B1711;
+    --text-muted: #9B9590;
+    --text-label: #6B6560;
+    --border: #D4D0C8;
+    --grid: #E8E4DF;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 20mm 25mm 20mm;
+    @bottom-center {
+      content: counter(page) " / " counter(pages);
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+      font-size: 8pt;
+      color: #9B9590;
+    }
+  }
+  @page :first { margin-top: 15mm; @bottom-center { content: none; } }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 10pt; }
+  body {
+    font-family: 'Pretendard', 'Noto Sans KR', 'Segoe UI', sans-serif;
+    color: var(--text-dark);
+    background: var(--bg-white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm 20mm;
+  }
+
+  .cover {
+    background: var(--subject-deep);
+    color: #fff;
+    padding: 36pt 28pt 28pt;
+    margin: -15mm -20mm 0 -20mm;
+    page-break-after: avoid;
+  }
+  .cover h1 { font-size: 18pt; font-weight: 700; letter-spacing: -0.3pt; margin-bottom: 8pt; line-height: 1.3; }
+  .cover .subtitle { font-size: 9.5pt; opacity: 0.85; line-height: 1.5; }
+  .cover .meta-row { display: flex; gap: 20pt; margin-top: 14pt; font-size: 8.5pt; opacity: 0.7; }
+
+  h2 {
+    font-size: 13pt; font-weight: 700; color: var(--subject);
+    border-bottom: 1.5pt solid var(--subject);
+    padding-bottom: 4pt; margin: 24pt 0 10pt;
+    page-break-after: avoid;
+  }
+  h3 { font-size: 11pt; font-weight: 600; color: var(--text-dark); margin: 16pt 0 6pt; page-break-after: avoid; }
+  h4 { font-size: 10pt; font-weight: 600; color: var(--text-label); margin: 10pt 0 4pt; }
+
+  p { margin-bottom: 7pt; font-size: 9.5pt; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+  code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 8.5pt; background: var(--bg-warm); padding: 1pt 3pt; border-radius: 2pt; }
+
+  ul, ol { margin: 6pt 0 10pt 18pt; font-size: 9.5pt; }
+  li { margin-bottom: 4pt; }
+
+  .conclusion-card {
+    background: var(--bg-warm);
+    border-left: 3pt solid var(--subject);
+    padding: 12pt 16pt; margin: 10pt 0 14pt;
+    border-radius: 0 4pt 4pt 0;
+    font-size: 9.5pt; line-height: 1.65;
+    page-break-inside: avoid;
+  }
+  .conclusion-card .label {
+    font-size: 7.5pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8pt; color: var(--subject); margin-bottom: 4pt;
+  }
+
+  .q-card {
+    background: var(--bg-warm);
+    border: 0.75pt solid var(--border);
+    border-radius: 4pt;
+    padding: 12pt 14pt;
+    margin-bottom: 8pt;
+    page-break-inside: avoid;
+  }
+  .q-card .q-num {
+    display: inline-block; background: var(--subject); color: #fff;
+    font-size: 8pt; font-weight: 700; width: 18pt; height: 18pt;
+    line-height: 18pt; text-align: center; border-radius: 50%;
+    margin-right: 6pt; vertical-align: middle;
+  }
+  .q-card .q-title { font-size: 9.5pt; font-weight: 600; color: var(--text-dark); display: inline; vertical-align: middle; }
+  .q-card .q-context { font-size: 8.5pt; color: var(--text-label); margin-top: 5pt; padding-left: 24pt; }
+  .q-card .q-stakes { font-size: 8.5pt; color: var(--text-label); margin-top: 3pt; padding-left: 24pt; }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 8.5pt; margin: 8pt 0 12pt;
+    page-break-inside: avoid;
+  }
+  thead th {
+    background: var(--subject-deep); color: #fff;
+    font-weight: 600; padding: 6pt 8pt; text-align: left; font-size: 8pt;
+  }
+  tbody td { padding: 5pt 8pt; border-bottom: 0.5pt solid var(--grid); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--bg-warm); }
+  td.num { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; }
+
+  .trap-box {
+    background: #FFF8F0;
+    border-left: 3pt solid var(--warning);
+    padding: 10pt 14pt; margin: 8pt 0 12pt;
+    border-radius: 0 4pt 4pt 0;
+    font-size: 9pt; page-break-inside: avoid;
+  }
+  .trap-box .trap-label {
+    font-size: 7.5pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8pt; color: var(--warning); margin-bottom: 4pt;
+  }
+
+  .scope-note {
+    background: #F0F4F8;
+    border: 0.75pt solid #C8D5E0;
+    border-radius: 4pt;
+    padding: 10pt 14pt; margin: 10pt 0;
+    font-size: 8.5pt; color: var(--text-label);
+  }
+
+  .redacted { color: var(--text-muted); font-style: italic; }
+
+  .toc { margin: 16pt 0; padding: 16pt 20pt; background: var(--bg-warm); border-radius: 6pt; }
+  .toc-title { font-size: 10pt; font-weight: 700; color: var(--subject); margin-bottom: 8pt; }
+  .toc-item { font-size: 9pt; margin-bottom: 3pt; color: var(--text-dark); }
+  .toc-item.sub { padding-left: 14pt; color: var(--text-label); }
+
+  .tag { display: inline-block; padding: 1pt 6pt; border-radius: 3pt; font-size: 7pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; vertical-align: middle; }
+  .tag-critical { background: #FFEBEE; color: var(--negative); }
+  .tag-high { background: #FFF3E0; color: var(--warning); }
+  .tag-normal { background: #E8F5E9; color: var(--positive); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <h1>Streamer Channel Diagnosis Methodology v3<br>Advisor Review Request</h1>
+  <div class="subtitle">
+    Statistical and analytical methodology review — core diagnostic framework (§1–§8).<br>
+    Operational infrastructure, execution design, and portfolio bridge sections are excluded from this review scope.
+  </div>
+  <div class="meta-row">
+    <span>Version: v3 draft START · 2026-06-10</span>
+    <span>Review prepared: 2026-06-18</span>
+    <span>Scope: §0–§8 + Appendices A/B/D/E/F</span>
+    <span>Pages excluded: §9–§15, Appendix G–L</span>
+  </div>
+</div>
+<h2>Reviewer Guide</h2>
+
+<div class="conclusion-card">
+  <div class="label">What This Document Is</div>
+  <p>This is the core analytical methodology for diagnosing individual streamer channels on CHZZK (South Korea's primary live-streaming platform). It covers identity extraction, data collection, measurement correction, cohort construction, multi-axis diagnosis, tradeoff quantification, content channel analysis, and cross-validation.</p>
+  <p>The methodology has been applied to 2 cases so far (one LoL single-game non-virtual channel, one multi-game virtual channel). Both cases used cohorts of 130–320 channels with peak viewers in the 12–45 range.</p>
+</div>
+
+<div class="scope-note">
+  <strong>Scope of this review:</strong> You are reviewing the <em>statistical and analytical methodology</em> — whether the diagnostic framework is sound, whether thresholds are justified, whether biases are accounted for, whether the cohort design is robust. You are NOT reviewing client management, deliverable design, execution coaching, or portfolio infrastructure — those sections are excluded.<br><br>
+  <strong>What we want from you:</strong> Critique the methodology as if reviewing a pre-print's methods section. Flag unjustified assumptions, suggest alternative approaches, identify missing safeguards. If a threshold (e.g., 14h for long-stream detection) looks arbitrary, say so and propose a data-driven alternative.
+</div>
+
+<div class="toc">
+  <div class="toc-title">Table of Contents</div>
+  <div class="toc-item">§0. Prerequisites (scope, data requirements, outputs)</div>
+  <div class="toc-item">§1. Identity Extraction (3-layer validation)</div>
+  <div class="toc-item">§2. Data Collection &amp; Integrity Verification</div>
+  <div class="toc-item">§3. Measurement Correction — Long-Stream Effects</div>
+  <div class="toc-item">§4. Cohort Construction</div>
+  <div class="toc-item">§5. 6-Stage Diagnostic Analysis</div>
+  <div class="toc-item">§6. Target Tradeoff Quantification</div>
+  <div class="toc-item">§7. Content Channel Effect Analysis</div>
+  <div class="toc-item">§8. External Cross-Validation (XGPS)</div>
+  <div class="toc-item">Appendix A. Risk Awareness Checklist (abridged)</div>
+  <div class="toc-item">Appendix B/D. Trap Case Studies (anonymized)</div>
+  <div class="toc-item">Appendix E. Cross-Case Comparison (anonymized)</div>
+  <div class="toc-item">Appendix F. Data Schema Summary</div>
+  <div class="toc-item" style="font-weight:600; color:var(--subject);">Review Questions (10 questions)</div>
+</div>
+<h2>§0. Prerequisites</h2>
+
+<h3>0.1 Scope</h3>
+<p>This methodology applies to streamer channels meeting the following conditions:</p>
+<ul>
+  <li><strong>Platform:</strong> CHZZK (Twitch/AfreecaTV/YouTube Live applicable after cohort data availability check)</li>
+  <li><strong>Scale:</strong> 1,000–30,000 followers (above: cohort ceiling; below: data matching difficulty)</li>
+  <li><strong>Data:</strong> Access to 1 year of daily channel statistics</li>
+  <li><strong>Category:</strong> Categories where a cohort population of 200+ can be assembled</li>
+</ul>
+
+<h3>0.2 Required Data</h3>
+<table>
+  <thead><tr><th>Data</th><th>Minimum</th><th>Recommended</th><th>Ideal</th></tr></thead>
+  <tbody>
+    <tr><td>Own daily stats</td><td>6 months</td><td><strong>1 year</strong></td><td>1 year+</td></tr>
+    <tr><td>Cohort population</td><td>Top 500 in category</td><td><strong>2,000</strong></td><td>Full</td></tr>
+    <tr><td>Follower data</td><td>For cohort matching</td><td>Top 6,000+</td><td>Full</td></tr>
+    <tr><td>Self-report</td><td>Channel intro / 1 interview</td><td>+ Viewer reaction sample</td><td>+ 1:1 interview</td></tr>
+    <tr><td>Content sample</td><td>1 recent broadcast</td><td>3–5 recent + shorts</td><td>Periodic samples</td></tr>
+    <tr><td>Collection provenance</td><td>source_url + date</td><td>raw snapshot + hash</td><td>Reproducible run package</td></tr>
+    <tr><td>Category basis</td><td>1 primary category</td><td>+ top category shares</td><td>90-day/1-year distribution</td></tr>
+    <tr><td>Peak basis</td><td>raw max</td><td>max + p95 + median + recent_median</td><td>Spike/regular tier separation</td></tr>
+  </tbody>
+</table>
+<p><strong>Below minimum = do not start.</strong> 6-month data misidentifies trends (see §3 traps). "No data" is classified as <code>absent / unknown / not_collected</code>, never treated as a conclusion.</p>
+
+<h3>0.3 Outputs</h3>
+<p>A single case produces 10 standard outputs. For this review, the relevant analytical outputs are: cohort data + methodology document (§4), 6-stage diagnosis summary (§5), tradeoff analysis (§6), content channel effect table (§7), and XGPS verification results (§8).</p>
+<p class="redacted">[Operational outputs — project registry, execution manual, tracking sheets, client deliverables — excluded from review scope]</p>
+<h2>§1. Identity Extraction</h2>
+
+<h3>1.1 Input Sources</h3>
+<p>Three layers are collected in balance:</p>
+<table>
+  <thead><tr><th>Layer</th><th>Source</th><th>Question</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Self-perception</strong></td><td>Channel intro, interview, self-statements</td><td>"How does the streamer define themselves?"</td></tr>
+    <tr><td><strong>Content reality</strong></td><td>Recent broadcast/short-form samples</td><td>"What are they actually doing?"</td></tr>
+    <tr><td><strong>Viewer reception</strong></td><td>Chat/comment/reaction patterns</td><td>"Why do viewers watch?"</td></tr>
+  </tbody>
+</table>
+
+<h3>1.2 Extraction Principle — 3-Layer Convergence</h3>
+<p>The <em>intersection</em> of all three layers is the true identity:</p>
+<ul>
+  <li>Self says it but content doesn't show it → <strong>Aspiration</strong> (not identity)</li>
+  <li>Content shows it but self is unaware → <strong>Latent potential</strong> (unconfirmed)</li>
+  <li>Only viewers see it → <strong>Misperception</strong> (not identity)</li>
+  <li><strong>All three present → Identity confirmed</strong></li>
+</ul>
+
+<h3>1.3 One-Line Positioning</h3>
+<p>The 3-layer convergence is compressed into a single sentence. Format varies by case — <em>"contrast appeal + relationship metaphor"</em> or <em>"intent-reception alignment"</em> — whichever captures the case's essence.</p>
+
+<h3>1.4 Entry/Retention Separation</h3>
+<p>On top of identity, two content functions are made explicit:</p>
+<ul>
+  <li><strong>Entry (inflow) driver:</strong> Why a viewer <em>first clicks</em> — surface-level, functional</li>
+  <li><strong>Retention (stay) driver:</strong> Why a viewer <em>stays</em> — emotional, relational</li>
+</ul>
+<p>Confusing these two derails content strategy.</p>
+
+<h3>1.5 Vocabulary Handling</h3>
+<p>Streamer's own spontaneous vocabulary is treated as an <em>identity marker</em>. In analytical documents, it's preserved in quotes; in anonymized outputs, it's replaced with functional equivalents.</p>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li>Mistaking broadcast titles/surface expressions for identity without data confirmation.</li>
+    <li>Accepting only self-report. Streamers tend to describe their <em>aspirational</em> self. Cross-validate with viewer reception and content reality.</li>
+    <li>Confirming an integrated interpretation without the streamer's explicit validation.</li>
+  </ul>
+</div>
+<h2>§2. Data Collection &amp; Integrity Verification</h2>
+
+<h3>2.1 Channel Data</h3>
+<p><strong>Collect 1 year of daily statistics.</strong> 6 months = do not start (see traps).</p>
+<p>Required columns: date, followers (cumulative), broadcast hours, peak viewers, average viewers, chat (6-min average or cumulative), viewership (if available).</p>
+
+<h3>2.2 Cohort Population Data</h3>
+<p>Obtain <strong>top 2,000 channel rankings</strong> in the subject's category from external statistics services. Minimum columns: channel name, broadcast hours, peak viewers, average viewers, viewership.</p>
+
+<h3>2.3 Follower Matching Data</h3>
+<p>Cohort channels' follower counts may not appear in the population ranking. <strong>Separately match follower rankings</strong> (top 6,000+).</p>
+
+<h3>2.4 Verification Procedure</h3>
+<p>Check all 5 immediately upon receipt. <strong>If any fails, do not proceed.</strong></p>
+<ol>
+  <li><strong>Period completeness</strong> — No missing days? End date is current?</li>
+  <li><strong>Outliers</strong> — Peak < average? Impossible values?</li>
+  <li><strong>Broadcast hour distribution</strong> — Frequency of <0.1h or >24h entries?</li>
+  <li><strong>Category consistency</strong> — Does the subject actually belong to this population's category?</li>
+  <li><strong>Cross-source match</strong> — Same channel's numbers match between own data and population data?</li>
+</ol>
+
+<h3>2.5 Collection Provenance Schema</h3>
+<p>Every collected value must be traceable. Required metadata columns:</p>
+<p><code>run_id, source_name, source_url, request_url, platform, cohort_type, aggregation_window_start, aggregation_window_end, fetched_at, http_status, content_type, raw_path, response_hash, parse_status, missing_reason, boundary_signal, collector_version</code></p>
+<ul>
+  <li>Without <code>raw_path</code>, structured values are <em>notes</em>, not <em>canonical records</em>.</li>
+  <li>Without <code>missing_reason</code>, blank cells are ambiguous between absence and parse failure.</li>
+  <li>Without <code>aggregation_window</code>, ranking numbers risk cross-period contamination.</li>
+</ul>
+
+<h3>2.6 Absence Inventory</h3>
+<p>"Missing" is not discarded — it's stored as data in four states:</p>
+<table>
+  <thead><tr><th>State</th><th>Meaning</th><th>Treatment</th></tr></thead>
+  <tbody>
+    <tr><td><code>present</code></td><td>Confirmed to exist</td><td>Preserve source URL/raw path</td></tr>
+    <tr><td><code>absent</code></td><td>Checked, actually doesn't exist</td><td>Record absence source + confidence</td></tr>
+    <tr><td><code>unknown</code></td><td>Cannot determine yet</td><td>Leave open</td></tr>
+    <tr><td><code>not_collected</code></td><td>Not collected</td><td>Mark as out of collection scope</td></tr>
+  </tbody>
+</table>
+
+<h3>2.7 Privacy Minimization</h3>
+<p>Streamer diagnosis is public-channel-level analysis. No individual viewer/donor/account tracking. Chat/comments are anonymized by reaction type and vocabulary, never by individual user.</p>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li><strong>6-month trend judgment.</strong> 6 months cannot control for seasonality. Always use 1 year.</li>
+    <li><strong>Single-broadcast category assignment.</strong> One recent broadcast ≠ category. Check distribution.</li>
+    <li><strong>Population misidentification.</strong> "Top 2,000 in category" ≠ "all streamers". No extrapolation.</li>
+  </ul>
+</div>
+<h2>§3. Measurement Correction — Long-Stream / No-Sign-Off Effects</h2>
+
+<h3>3.1 Average Viewer Distortion Mechanism</h3>
+<p><strong>Average viewers = total viewership ÷ broadcast hours.</strong> When broadcast hours increase (including low-viewer late-night/dawn hours), the denominator inflates and the average is <em>mechanically</em> depressed. <em>This is a measurement effect, not a demand decrease.</em></p>
+
+<h3>3.2 Long-Stream (No-Sign-Off) Identification Criteria</h3>
+<ul>
+  <li><strong>Threshold:</strong> Daily broadcast time ≥ 14 hours</li>
+  <li><strong>Habitual classification:</strong> 5+ days/year at 14h+ OR par (broadcast hours / avg viewers) > 4</li>
+</ul>
+<p>Days and channels meeting these criteria are flagged separately.</p>
+
+<h3>3.3 Correction Methods (choose 1 or combine)</h3>
+<table>
+  <thead><tr><th>Method</th><th>Calculation</th><th>Strength</th><th>Weakness</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A. Peak ratio</strong></td><td>Corrected avg = peak × 0.62 (normal-channel median ratio)</td><td>Simple, long-stream robust</td><td>Vulnerable to single spikes</td></tr>
+    <tr><td><strong>B. Time-weighted avg</strong></td><td>Σ(avg×hours) ÷ Σ(hours)</td><td>Precise, strong for quarterly comparison</td><td>At channel level, denominator skews</td></tr>
+    <tr><td><strong>C. Exclude long-stream days</strong></td><td>Simple average excluding 14h+ days</td><td>Intuitive</td><td>Data loss</td></tr>
+  </tbody>
+</table>
+<p><strong>Recommended:</strong> Channel-level comparison (cohort) → A. Time series → B. Visualization → C.</p>
+
+<h3>3.4 Recommended Metric Hierarchy</h3>
+<table>
+  <thead><tr><th>Priority</th><th>Metric</th><th>Use</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Peak viewers</td><td>Long-stream robust scale metric</td></tr>
+    <tr><td>2</td><td>Chat (6-min avg)</td><td>Core engagement</td></tr>
+    <tr><td>3</td><td>Corrected average viewers</td><td>Ratio calculations</td></tr>
+    <tr><td>Auxiliary</td><td>Raw average viewers</td><td><strong>Never use alone</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>3.5 Zero Long-Stream Days Case</h3>
+<p>When the subject has 0 long-stream days in a year, §3 correction is <em>pass-through</em>. The output is the confirmation itself: "0 long-stream days confirmed, no correction applied." The metric hierarchy still applies; raw average can be used as-is.</p>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li><strong>Accepting a sudden avg-viewer drop as diagnosis.</strong> Avg drop → first check broadcast-hour distribution for that period.</li>
+    <li><strong>Uncritically accepting long-streaming as "strategy".</strong> Whether it actually works must be measured.</li>
+    <li><strong>Using only one corrected value.</strong> Present both raw and corrected; verify the conclusion holds without correction.</li>
+    <li><strong>Skipping §3 for zero-long-stream cases.</strong> §3 is not "skipped" but "pass confirmed". Output must state "0 long-stream days confirmed."</li>
+  </ul>
+</div>
+<h2>§4. Cohort Construction</h2>
+
+<h3>4.1 Peer Definition</h3>
+<p><strong>Peak-based is default.</strong> Followers include cumulative/dormant accounts and misrepresent current live scale. Peak is a direct measurement of real-time scale.</p>
+<ul>
+  <li><strong>Peer range:</strong> Subject's peak × 0.5 to × 2.0</li>
+</ul>
+
+<h3>4.2 Filter Pipeline</h3>
+<table>
+  <thead><tr><th>Stage</th><th>Filter</th><th>Typical Size</th></tr></thead>
+  <tbody>
+    <tr><td>Population</td><td>Top 2,000 in category</td><td>2,000</td></tr>
+    <tr><td>1st pass</td><td>Peak 0.5–2.0× filter</td><td>~200</td></tr>
+    <tr><td>2nd pass</td><td>Remove esports teams / tournament / corporate accounts</td><td>~190</td></tr>
+    <tr><td>3rd pass</td><td>Follower matching (separate data)</td><td>~150</td></tr>
+    <tr><td>Final</td><td>Remove clear outliers (dormant, <2 months active)</td><td>~130</td></tr>
+  </tbody>
+</table>
+
+<h3>4.3 Boundary Cases — Do Not Exclude by Surface</h3>
+<table>
+  <thead><tr><th>Boundary Case</th><th>Check Method</th><th>Decision</th></tr></thead>
+  <tbody>
+    <tr><td>Virtual channels</td><td>Compare ratio/loyalty distributions vs non-virtual</td><td>If distributions overlap → include; clearly different → separate</td></tr>
+    <tr><td>Different game (secondary)</td><td>Category distribution (broadcast days)</td><td>If primary matches → include</td></tr>
+    <tr><td>Very small channels</td><td>Below peak floor</td><td>Separate pool</td></tr>
+  </tbody>
+</table>
+
+<h3>4.4 Robustness Verification (Required)</h3>
+<p>Before finalizing cohort conclusions, verify that <strong>the subject's position holds across filter variants:</strong></p>
+<table>
+  <thead><tr><th>Additional Filter</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td>Broadcast hours 10h+ / 20h+ / 30h+ only</td><td>Address short-broadcast ratio inflation</td></tr>
+    <tr><td>Single category only (subject's category)</td><td>Remove cross-game noise</td></tr>
+    <tr><td>Non-virtual only</td><td>Address virtual/non-virtual difference</td></tr>
+    <tr><td>Non-long-stream only</td><td>Check correction dependency</td></tr>
+  </tbody>
+</table>
+<p><strong>Subject holds top position across all filters → Robust.</strong> Any filter causes significant position shift → Investigate that factor deeply.</p>
+
+<h3>4.5 Category Confidence</h3>
+<p>Categories are not determined from a single recent broadcast. Use 90-day or 1-year category distribution when possible.</p>
+<table>
+  <thead><tr><th>Confidence</th><th>Condition</th></tr></thead>
+  <tbody>
+    <tr><td>high</td><td>Primary category share is dominant; profile/history/ranking align</td></tr>
+    <tr><td>medium</td><td>Primary visible but mixed; auxiliary cohort needed</td></tr>
+    <tr><td>low</td><td>Recent broadcast, profile, ranking disagree; manual review needed</td></tr>
+  </tbody>
+</table>
+
+<h3>4.6 Peak Basis Multiplexing</h3>
+<p>The 0.5–2.0× band uses peak as default, but <code>raw max peak</code> alone is vulnerable to raids/events/one-time spikes. Preserve multiple peak measures:</p>
+<table>
+  <thead><tr><th>Basis</th><th>Use</th></tr></thead>
+  <tbody>
+    <tr><td><code>peak_max</code></td><td>External ranking, maximum mobilization</td></tr>
+    <tr><td><code>peak_p95</code></td><td>Extreme spike mitigation</td></tr>
+    <tr><td><code>peak_median</code></td><td>Regular tier</td></tr>
+    <tr><td><code>peak_recent_median</code></td><td>Current tier</td></tr>
+    <tr><td><code>peak_recent_p95</code></td><td>Current tier including recent spikes</td></tr>
+  </tbody>
+</table>
+
+<h3>4.7 Primary / Auxiliary Cohort Operation</h3>
+<p>Boundary channels are not forced into a single cohort. <strong>Primary cohort</strong> = main-text conclusions. <strong>Auxiliary cohort</strong> = robustness verification. If the auxiliary cohort significantly changes conclusions, the report states "conclusion depends on market definition."</p>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li><strong>Excluding categories/virtual by intuition.</strong> Check distributions first, then decide.</li>
+    <li><strong>Population misidentification.</strong> Is the population "LoL category" or "all CHZZK"? No extrapolation across boundaries.</li>
+    <li><strong>Peak ceiling bias.</strong> If peak 240 ceiling is used, large-channel ratios are lost. Verify conclusion impact.</li>
+  </ul>
+</div>
+<h2>§5. 6-Stage Diagnostic Analysis</h2>
+
+<h3>5.1 Descriptive Statistics</h3>
+<p>Look at the <em>cohort distribution first</em>. Understand the population before locating a single channel.</p>
+<ul>
+  <li>Ratio distribution (histogram, quantiles)</li>
+  <li>Follower distribution</li>
+  <li>Peak distribution</li>
+  <li>Broadcast hour distribution</li>
+</ul>
+
+<h3>5.2 Multi-Axis Subject Positioning</h3>
+<p>At least 3 axes:</p>
+<table>
+  <thead><tr><th>Axis</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>Ratio (loyalty) rank</td><td>Efficiency — high engagement per follower?</td></tr>
+    <tr><td>Peak rank</td><td>Absolute scale</td></tr>
+    <tr><td>Follower rank (ascending)</td><td>Tier / weight class</td></tr>
+    <tr><td>Broadcast hour rank</td><td>Activity intensity</td></tr>
+  </tbody>
+</table>
+
+<h3>5.3 Homogeneity Check</h3>
+<p>Is the cohort actually a <em>homogeneous group</em>? Proxy measures for cohesion:</p>
+<ul>
+  <li><strong>par (broadcast hours / avg viewers):</strong> ≥4 = long-stream type, check distribution</li>
+  <li><strong>Loyalty (peak / avg viewers):</strong> 1.5–3 normal; above = one-time spike pattern</li>
+</ul>
+
+<h3>5.4 Key Relationship Quantification</h3>
+<p>Quantify the relationship between the subject's goal (e.g., 10K followers) and current strength (e.g., ratio) <em>using cohort data:</em></p>
+<ul>
+  <li>Follower vs ratio correlation (log-log)</li>
+  <li>Median ratio by follower band</li>
+  <li>Regression or quantile estimation</li>
+</ul>
+
+<h3>5.5 Correction Robustness</h3>
+<p>Check §3 correction dependency:</p>
+<ul>
+  <li>Does the conclusion hold with raw metrics? (If not → conclusion depends on correction assumptions)</li>
+  <li>What happens to the cohort when long-stream channels are removed?</li>
+</ul>
+
+<h3>5.6 Time Series Trend</h3>
+<p>Subject's 1-year quarterly trends using normal-day (non-long-stream) data:</p>
+<ul>
+  <li>Quarterly peak viewers</li>
+  <li>Quarterly chat</li>
+  <li>Quarterly follower growth rate</li>
+  <li>Relative speed of the three (which is fastest?)</li>
+</ul>
+
+<h3>5.7 Scheduling Effect Analysis</h3>
+<p>Performance is affected by broadcast time and day-of-week. Where possible, attach scheduling columns to daily data and analyze:</p>
+<ul>
+  <li>Is growth from content change or scheduling change?</li>
+  <li>Weekday/weekend and evening/late-night performance gaps?</li>
+  <li>Do long broadcasts depress average viewers, or do they function as retention assets?</li>
+</ul>
+
+<h3>5.8 Spike vs Regular Tier Separation</h3>
+<table>
+  <thead><tr><th>Metric Movement</th><th>Interpretation</th></tr></thead>
+  <tbody>
+    <tr><td><code>peak_max</code> only rises</td><td>Event/raid/special content possible</td></tr>
+    <tr><td><code>peak_median</code> rises</td><td>Regular-tier growth</td></tr>
+    <tr><td><code>avg_viewers</code> rises</td><td>Retention/scheduling stability possible</td></tr>
+    <tr><td><code>chat</code> rises</td><td>Core engagement strengthening</td></tr>
+    <tr><td><code>followers</code> only rises</td><td>External inflow present, but live conversion may be weak</td></tr>
+  </tbody>
+</table>
+<p>In §5 summaries, do not close with a single "growing/stagnating." Separate: <strong>spike growth / regular-tier growth / follower growth / core-reaction growth.</strong></p>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li>Diagnosing a sudden avg-viewer drop before checking broadcast-hour distribution for that period.</li>
+    <li>Claiming "growth" from peak_max alone when peak_median is flat.</li>
+  </ul>
+</div>
+<h2>§6. Target Tradeoff Quantification</h2>
+
+<h3>6.1 Conflict Identification</h3>
+<p>Is there a conflict between the subject's <em>goal</em> (e.g., 10K followers, avg 100) and <em>current strength metric</em> (e.g., ratio)? Verify with cohort data.</p>
+
+<h3>6.2 Achievable Range Estimation</h3>
+<p>Estimate how far the strength metric drops when the goal is reached:</p>
+<table>
+  <thead><tr><th>Method</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>A. Cohort band median</td><td>Apply median of cohort's follower-band values</td></tr>
+    <tr><td>B. Log-log regression extrapolation</td><td>Extrapolate from fitted regression</td></tr>
+  </tbody>
+</table>
+<p>When the two methods diverge significantly, present both as an <em>uncertainty range.</em></p>
+
+<h3>6.3 Recommended Target + Alert Floor</h3>
+<ul>
+  <li><strong>Recommended target:</strong> "Realistic upper tier" within cohort peers</li>
+  <li><strong>Alert floor:</strong> Below this → "Growth is not converting to genuine retention"</li>
+</ul>
+
+<h3>6.4 Perpetual-Intent Cases</h3>
+<p>When the streamer explicitly states <em>no intention to graduate</em> and <em>will continue even if shrinking</em>, the recommended target becomes a <em>waypoint</em> rather than a <em>destination.</em> Two additional questions:</p>
+<ol>
+  <li><strong>Threshold vs sub-threshold structure:</strong> Aim for income threshold? Or build a sustainable sub-threshold structure?</li>
+  <li><strong>Deadline vs perpetual absorption:</strong> Set a deadline for the target? Or absorb it as a waypoint in a perpetual flow?</li>
+</ol>
+<p>Perpetual-intent is identified from interview signals: "no graduation plan," "will continue even if smaller," "no deadline."</p>
+
+<h3>6.5 Monetization Acceptance: Barriers Over Amounts</h3>
+<p>For revenue/donation analysis, record <em>whether the streamer can accept/request support</em> rather than exact amounts. Privacy-first: amounts are categorized, not stored precisely. Individual donor identification is never stored.</p>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li><strong>Assuming fixed-ratio growth.</strong> "Maintaining current ratio at 10K" is nearly impossible. Acknowledge tier-up cost.</li>
+    <li><strong>Binary framing.</strong> Not "ratio vs scale, pick one" — the real question is "which ratio band to defend."</li>
+    <li><strong>Ignoring perpetual intent.</strong> Standard deadline-type targets can misalign with a perpetual-intent streamer.</li>
+  </ul>
+</div>
+<h2>§7. Content Channel Effect Analysis</h2>
+
+<h3>7.1 External Content Conversion Measurement</h3>
+<p>Measure whether the subject's external channels (YouTube shorts, Instagram, Twitter, etc.) <em>convert</em> to main-channel growth.</p>
+<p><strong>Core question:</strong> Does reach (views) on external content convert to main-channel followers/viewers?</p>
+<p><strong>Method:</strong></p>
+<ol>
+  <li>Identify external content posting dates</li>
+  <li>Compare main-channel follower growth rate in N days before vs after posting</li>
+  <li>Difference from baseline growth rate = conversion effect</li>
+</ol>
+
+<h3>7.2 Identity Alignment Assessment</h3>
+<p>Even if conversion happens, verify whether incoming viewers <em>match the streamer's identity.</em> Misaligned inflow doesn't retain.</p>
+<table>
+  <thead><tr><th>Classification</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Aligned</strong></td><td>Content matches main category</td></tr>
+    <tr><td><strong>Partial</strong></td><td>Identity adapted to trend</td></tr>
+    <tr><td><strong>Misaligned</strong></td><td>Pure trend-chasing (high reach, no identity connection)</td></tr>
+  </tbody>
+</table>
+
+<h3>7.3 Recommended Direction</h3>
+<ul>
+  <li>Aligned content → <strong>Main lever</strong></li>
+  <li>Partial → Supplementary, requires identity integration</li>
+  <li>Misaligned → Non-priority (reach/refresh use only)</li>
+</ul>
+
+<h3>7.4 Content Segment Sampling</h3>
+<p>A broadcast is not one monolithic content piece. Actual appeal and conversion candidates emerge from specific segments within a broadcast. Sample segments with:</p>
+<p><code>content_mode, identity_marker, entry_hook, residue_hook, chat_spike, shorts_candidate</code></p>
+
+<h3>7.5 External Channel Conversion Funnel</h3>
+<p>Separate reach from conversion. External content may have high views but zero main-channel inflow.</p>
+<ul>
+  <li><strong>Reach metrics:</strong> views, likes, comments, shares</li>
+  <li><strong>Conversion metrics:</strong> follower_delta, next_stream_peak_delta, next_stream_avg_delta</li>
+  <li><strong>Alignment metrics:</strong> identity_fit, CTA presence, main-channel link presence</li>
+</ul>
+
+<h3>7.6 Viewer Reception Vocabulary Sampling</h3>
+<p>Why viewers stay cannot be measured by numbers alone. From public reactions, record <strong>reaction types and reception vocabulary</strong> (anonymized — no individual tracking).</p>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li><strong>Judging effect by views alone.</strong> Reach ≠ conversion. 50K views with zero main-channel inflow = weak effect.</li>
+    <li><strong>Ignoring external channel as standalone asset.</strong> Even without main-channel conversion, the external channel (e.g., YouTube subscribers) may be an asset on its own.</li>
+  </ul>
+</div>
+<h2>§8. External Cross-Validation (XGPS)</h2>
+
+<h3>8.1 Validation Target Selection</h3>
+<p>Submit the <em>most reversible</em> or <em>most important</em> conclusions to external validation. Recommended targets (~3):</p>
+<ul>
+  <li>The conclusion with the largest prior correction</li>
+  <li>The core correction assumption (e.g., long-stream correction)</li>
+  <li>The core strategic conclusion</li>
+</ul>
+
+<h3>8.2 Prompt Design — Hide Our Conclusions</h3>
+<p>The core XGPS principle: <strong>prevent the external model from inferring our conclusion.</strong></p>
+<table>
+  <thead><tr><th>Forbidden</th><th>Recommended</th></tr></thead>
+  <tbody>
+    <tr><td>"Is our analysis that this channel is growing correct?"</td><td>"From the attached data, determine whether this channel is growing or stagnating."</td></tr>
+    <tr><td>"There's a long-stream artifact in this data, confirm it"</td><td>"Evaluate whether the average viewer metric can be used as the primary metric for this data."</td></tr>
+  </tbody>
+</table>
+<p>Attach raw data only. Remove all our corrections and interpretations.</p>
+
+<h3>8.3 Convergence / Divergence Handling</h3>
+<table>
+  <thead><tr><th>Result</th><th>Interpretation</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Convergence</strong></td><td>Confidence increase — but if it's common-knowledge convergence, weak validation</td></tr>
+    <tr><td><strong>Divergence</strong></td><td><strong>XGPS's real harvest.</strong> Possible blind spot. Re-verify with data.</td></tr>
+    <tr><td><strong>Convergence with refinement</strong></td><td>External provides sharper framing — accept it</td></tr>
+  </tbody>
+</table>
+<p><strong>Most common mistake:</strong> Reinterpreting divergence to defend our conclusion. Don't. Either settle it with data, or leave it as unresolved-open.</p>
+
+<h3>8.4 Same-Species Limitation</h3>
+<ul>
+  <li>If the external model is also an LLM, shared biases may exist</li>
+  <li>Statistical-common-knowledge convergence is "common sense reconfirmation," not "independent validation"</li>
+  <li>Real value is in <em>divergence</em> and <em>refinement</em></li>
+</ul>
+
+<h3>8.5 Verification Input Package</h3>
+<table>
+  <thead><tr><th>Include</th><th>Exclude</th></tr></thead>
+  <tbody>
+    <tr><td>Raw daily statistics</td><td>Our conclusion statements</td></tr>
+    <tr><td>Final cohort CSV</td><td>Correction interpretation statements</td></tr>
+    <tr><td>Cohort methodology summary</td><td>Client sensitive information</td></tr>
+    <tr><td>Content segment sample (partial)</td><td>Individually identifiable viewer reactions</td></tr>
+    <tr><td>Unresolved-open list</td><td>"Is this conclusion correct?" style leading questions</td></tr>
+  </tbody>
+</table>
+
+<div class="trap-box">
+  <div class="trap-label">Traps</div>
+  <ul>
+    <li><strong>Defensive reinterpretation of divergence.</strong> The impulse to rationalize unfavorable signals grows proportionally to their severity. Be aware.</li>
+    <li><strong>Claiming convergence = "validation complete."</strong> Convergence increases confidence but is not validation completion.</li>
+  </ul>
+</div>
+<h2>Appendix A. Risk Awareness Checklist (Abridged)</h2>
+<p class="redacted">[Operational items A.6–A.9 removed from review scope]</p>
+
+<h3>A.1 Editor Overreach</h3>
+<ul>
+  <li>Did I assert a conclusion without team consensus?</li>
+  <li>Did I designate a separate adjudicator for key judgments?</li>
+  <li>Is quick consensus a signal that no real conflict was generated?</li>
+</ul>
+
+<h3>A.2 Self-Defense Bias</h3>
+<ul>
+  <li>Did I reinterpret external counter-evidence to defend our conclusion?</li>
+  <li>Did I suppress unfavorable signals?</li>
+  <li>Did I close something prematurely with "that's just [obvious reason]"?</li>
+  <li>Did I assert an integrated interpretation without the subject's explicit confirmation?</li>
+</ul>
+
+<h3>A.3 Surface Judgment</h3>
+<ul>
+  <li>Did I exclude categories/types without data verification?</li>
+  <li>Did I mistake broadcast titles/expressions for identity?</li>
+  <li>Did I assert a trend from short-term (6-month) data?</li>
+</ul>
+
+<h3>A.4 Same-Species Dependency</h3>
+<ul>
+  <li>Did I over-interpret XGPS convergence as "independent validation"?</li>
+  <li>Did I challenge the core conclusion with at least one different model?</li>
+</ul>
+
+<h3>A.5 Silent Domains</h3>
+<ul>
+  <li>Did I distinguish "truly absent" from "we didn't look"?</li>
+  <li>Did I separate blank cells into <code>absent / unknown / not_collected</code>?</li>
+  <li>Did I record the original source of each absence (<code>absence_source</code>)?</li>
+</ul>
+<h2>Appendix B/D. Trap Case Studies (Anonymized)</h2>
+<p>Two cases applied so far. Case identifiers preserved; client identity removed.</p>
+
+<h3>Case 1: Single-Game, Non-Virtual</h3>
+<table>
+  <thead><tr><th>ID</th><th>Trap</th><th>Correction</th></tr></thead>
+  <tbody>
+    <tr><td>K7</td><td>Nearly locked in a catchphrase-style broadcast title as identity</td><td>Demoted to "broadcast title" after data check; identity extracted separately</td></tr>
+    <tr><td>K8</td><td>Accepted a sudden avg-viewer drop as a real diagnostic finding</td><td>Corrected: measurement artifact from a 24h+ long-stream day</td></tr>
+    <tr><td>K11</td><td>Judged "stagnation" from 6-month data</td><td>1-year view showed trend reversal — short-term stagnation masking long-term rapid growth</td></tr>
+    <tr><td>O14</td><td>Nearly classified long-streaming as a "strategy"</td><td>Measurement showed it was non-recommended; reclassified</td></tr>
+    <tr><td>O16</td><td>Attempted to close XGPS divergence (engagement rate) as "scale effect"</td><td>Adjudicator flagged self-defense suspicion; retracted to unresolved-open</td></tr>
+  </tbody>
+</table>
+
+<h3>Case 2: Multi-Game, Virtual, Boundary Channel</h3>
+<table>
+  <thead><tr><th>ID</th><th>Trap</th><th>Correction</th></tr></thead>
+  <tbody>
+    <tr><td>K1</td><td>Asserted "two-face integration" as identity from editor interpretation</td><td>Subject's explicit statement: "I perceive the two faces as separate" → partial separation</td></tr>
+    <tr><td>—</td><td>§1 extraction naturally triggered §6/§7/§9 statements</td><td>Separated §1 input from §6/§7/§9 entry data; linked to subsequent analysis</td></tr>
+    <tr><td>—</td><td>Jumped from §1 to §9 deliverable stage</td><td>Corrected by owner check; must pass §2–§8 first</td></tr>
+    <tr><td>—</td><td>Standardized subject's spontaneous vocabulary, killing the texture</td><td>Established vocabulary handling principle (§1.5)</td></tr>
+    <tr><td>—</td><td>Applied deadline-type standard target to perpetual-intent subject</td><td>Added perpetual-intent case handling (§6.4)</td></tr>
+    <tr><td>—</td><td>Zero long-stream days → tried to skip §3 entirely</td><td>Added zero-long-stream case handling (§3.5): "pass confirmed," not skipped</td></tr>
+  </tbody>
+</table>
+
+<h2>Appendix E. Cross-Case Comparison (Anonymized)</h2>
+<table>
+  <thead><tr><th>Axis</th><th>Case 1</th><th>Case 2</th></tr></thead>
+  <tbody>
+    <tr><td>Category</td><td>Single game</td><td>Multi-game</td></tr>
+    <tr><td>Platform texture</td><td>Non-virtual</td><td>Virtual</td></tr>
+    <tr><td>Identity formation</td><td>Temperamental (natural expression)</td><td>Learned (multi-axis synthesis)</td></tr>
+    <tr><td>Self-doubt</td><td>Weak</td><td>Strong</td></tr>
+    <tr><td>Perpetual intent</td><td>Not stated</td><td>Strong</td></tr>
+    <tr><td>Long-stream</td><td>Correction applied</td><td>Correction not needed (zero days)</td></tr>
+    <tr><td>Data trend</td><td>1-year trend reversal (short-term stagnation → long-term rapid growth)</td><td>1-year gradual growth with possible spikes</td></tr>
+    <tr><td>Key finding</td><td>Diagnosis reversal via 1-year trend</td><td>Integrated low self-assessment diagnosis (pending validation)</td></tr>
+    <tr><td>One-line positioning format</td><td>Contrast appeal + relationship metaphor</td><td>Intent-reception alignment</td></tr>
+  </tbody>
+</table>
+<p>Despite opposite starting textures, the methodology applied to both. With 3+ cases, type classification can be generalized.</p>
+<h2>Appendix F. Data Schema Summary</h2>
+<p>Full schemas are adapted per case. Core traceability columns (<code>source_*</code>, <code>raw_path</code>, <code>missing_reason</code>, <code>absence_source</code>) are preserved whenever possible.</p>
+
+<h3>F.1 Collection Provenance — <code>fetch_log.jsonl</code></h3>
+<p><code>run_id, source_name, source_url, request_url, platform, cohort_type, aggregation_window_start, aggregation_window_end, fetched_at, http_status, content_type, raw_path, response_hash, parse_status, missing_reason, boundary_signal, collector_version</code></p>
+
+<h3>F.2 Normalized Cohort — <code>cohort_population_normalized.csv</code></h3>
+<p><code>run_id, cohort_type, source_name, channel_id, channel_name, primary_category, category_basis, category_confidence, is_general_game, is_virtual, total_stream_hours, stream_days, peak_max, peak_p95, peak_median, peak_recent_median, avg_viewers, viewership, follower_count, is_esports_team, is_tournament, is_corporate, is_inactive, is_too_new, exclude_reason, collected_at</code></p>
+
+<h3>F.3 Final Cohort Derived — <code>cohort_final.csv</code></h3>
+<p><code>channel_id, channel_name, final_cohort_group, peak_basis, peak_ratio_to_target, within_peak_band, peak_to_followers, avg_to_followers, viewership_per_hour, chat_per_avg_viewer, peak_avg_ratio, par_hours_per_avg, nobangjong_flag, long_stream_flag, final_include, final_exclude_reason</code></p>
+
+<h3>F.4 Content Segments — <code>content_segment_sample.csv</code></h3>
+<p><code>vod_id, stream_date, segment_id, segment_start, segment_end, content_mode, game_title, topic, identity_marker, entry_hook, residue_hook, chat_spike, viewer_reaction_type, clip_candidate, shorts_candidate</code></p>
+
+<h3>F.5 External Funnel — <code>external_content_funnel.csv</code></h3>
+<p><code>platform, content_id, posted_at, content_type, identity_fit, views, likes, comments, shares, cta_present, follower_delta_1d, follower_delta_3d, follower_delta_7d, stream_peak_delta_next_stream, conversion_assessment</code></p>
+
+<h3>F.6 Absence Inventory — <code>absence_inventory.csv</code></h3>
+<p><code>absence_id, target_area, expected_asset, present_status, checked_source, checked_at, absence_source, absence_type, confidence, impact, next_check, notes</code></p>
+<h2 style="color: var(--highlight); border-color: var(--highlight);">Review Questions</h2>
+<p>These are the specific points where we seek your critique. For each, we value: (a) whether the current approach is defensible, (b) specific alternatives you'd recommend, (c) any biases or failure modes we haven't accounted for.</p>
+
+<div class="q-card">
+  <span class="q-num">1</span>
+  <span class="q-title">§3 — The 14-hour threshold for long-stream detection: is this cutoff justified, or is it arbitrary? Would you use a data-driven method (e.g., distribution inflection point, mixture model) instead?</span>
+  <div class="q-context">Context: The 14h threshold was set empirically from Case 1, where a 24h+ broadcast day caused a visible avg-viewer artifact. The par > 4 secondary criterion was added as a ratio-based backstop.</div>
+  <div class="q-stakes"><span class="tag tag-high">High</span> &nbsp;If the threshold is wrong, measurement correction either misses distorted channels or over-corrects normal ones. Every downstream percentile is affected.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">2</span>
+  <span class="q-title">§3 — The peak ratio method uses 0.62 (normal-channel median ratio) as the correction factor. How robust is a single population median as a correction basis? Should channel-specific or band-specific ratios be used instead?</span>
+  <div class="q-context">Context: 0.62 is the median of peak/avg ratio across non-long-stream channels in the cohort. It's applied uniformly to all corrected channels.</div>
+  <div class="q-stakes"><span class="tag tag-normal">Normal</span> &nbsp;Affects corrected avg-viewer values, but §3.5 robustness check verifies conclusions hold without correction.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">3</span>
+  <span class="q-title">§4 — The peak 0.5×–2.0× band for peer definition: is this range too wide, too narrow, or should it be adaptive (e.g., based on peak distribution density)?</span>
+  <div class="q-context">Context: In practice, this produces ~200 channels from a 2,000 population. The band was chosen for balance between sample size and homogeneity.</div>
+  <div class="q-stakes"><span class="tag tag-high">High</span> &nbsp;Cohort definition is foundational. If the band systematically includes non-peers or excludes true peers, all §5 percentiles and §6 projections are biased.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">4</span>
+  <span class="q-title">§4 — Robustness verification uses 4 filter variants. Are these sufficient? Are there confounders (e.g., streaming schedule, content freshness, platform algorithm changes) that the current variants don't test?</span>
+  <div class="q-context">Context: Current 4 variants test broadcast hours, category purity, virtual/non-virtual split, and long-stream inclusion. All applied to the same population.</div>
+  <div class="q-stakes"><span class="tag tag-normal">Normal</span> &nbsp;More variants increase confidence but also analysis cost. The question is whether 4 is the right cost-confidence tradeoff.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">5</span>
+  <span class="q-title">§4 — When the subject sits at the boundary between two cohorts (e.g., primary cohort percentile 72%, auxiliary cohort 45%), how should the gap be reported? Our current approach is to note it as a known limitation. Your earlier comment suggested follower-adjusted percentile or regression residual. We agree — which would you prioritize for this specific use case?</span>
+  <div class="q-context">Context: This is the T1/T2 gap you flagged in the prior review. T1 (general game, n=184) and T2 (virtual, n=196) have different follower distributions, which we believe explains the gap but haven't formally proven.</div>
+  <div class="q-stakes"><span class="tag tag-high">High</span> &nbsp;If we can't explain the gap rigorously, the choice of "which cohort's percentile to trust" becomes a judgment call rather than a data-driven decision.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">6</span>
+  <span class="q-title">§5 — The efficiency percentile is adjusted via log-log regression (log(efficiency) ~ log(follower)). In Case 1, this yielded R² = 0.788 (T1) and 0.749 (T2). Is the log-log specification appropriate here, or would you test alternatives (e.g., quantile regression, polynomial, GAM)?</span>
+  <div class="q-context">Context: We chose log-log because efficiency = peak/follower follows a power-law relationship with follower count. The residual positions the subject relative to the regression line.</div>
+  <div class="q-stakes"><span class="tag tag-normal">Normal</span> &nbsp;The R² is high enough that specification choice may not matter much, but we want to know if we're leaving signal on the table.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">7</span>
+  <span class="q-title">§6 — Growth target estimation uses log-log regression extrapolation or cohort-band medians. Both extrapolate beyond the current cohort's range. What guardrails would you add to prevent over-extrapolation?</span>
+  <div class="q-context">Context: The subject sits at ~700 followers with a growth target around 10K. The core cohort has peak 12–45, but 10K-follower channels are in the upper reference band (n=271), not the core cohort.</div>
+  <div class="q-stakes"><span class="tag tag-high">High</span> &nbsp;Over-extrapolation could produce unrealistic growth projections that damage client trust.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">8</span>
+  <span class="q-title">§7 — Conversion measurement uses a pre/post comparison (follower growth rate before vs after external content posting). What confounders should we control for? Would a difference-in-differences or synthetic control approach be more appropriate?</span>
+  <div class="q-context">Context: Current method is simple: posting date identified → N-day pre vs post growth rate comparison. No seasonal or platform-level controls applied.</div>
+  <div class="q-stakes"><span class="tag tag-normal">Normal</span> &nbsp;The conversion measurement doesn't drive the core diagnosis but informs §10 execution recommendations (excluded from this review).</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">9</span>
+  <span class="q-title">§8 — XGPS is designed to detect our blind spots by feeding raw data to external models without our conclusions. But if the external model is also an LLM, shared training biases may produce false convergence. How would you strengthen the cross-validation design?</span>
+  <div class="q-context">Context: We acknowledge the same-species limitation (§8.4) and prioritize divergence over convergence. But we haven't implemented structural safeguards beyond awareness.</div>
+  <div class="q-stakes"><span class="tag tag-normal">Normal</span> &nbsp;XGPS is a supplementary check, not the primary validation. But its design determines whether it's genuinely useful or theater.</div>
+</div>
+
+<div class="q-card">
+  <span class="q-num">10</span>
+  <span class="q-title">Overall — What statistical safeguards, biases, or failure modes are missing from this methodology that you would expect in a rigorous analytical framework? What's the single weakest link?</span>
+  <div class="q-context">Context: The methodology was built incrementally across 2 cases. We suspect there are blind spots that only emerge at case 5+ or when applied to a different platform/scale.</div>
+  <div class="q-stakes"><span class="tag tag-critical">Critical</span> &nbsp;This is the open-ended question. Everything else can be patched; structural blind spots can't be fixed if we don't see them.</div>
+</div>
+<div class="conclusion-card" style="margin-top: 24pt;">
+  <div class="label">Note to Reviewer</div>
+  <p>This methodology is a working draft (v3) with 2 completed cases. We are actively seeking critique before applying it to case 3+. Your review of the prior Part 1 channel diagnosis (T1/T2 percentile gap, regression residual suggestion) was exactly the kind of feedback we need — specific, method-level, with concrete alternatives. More of that, please.</p>
+  <p>Operational sections (§9–§15: deliverable design, execution coaching, portfolio bridge, disclosure management) are excluded from this review. If you have questions about how the analytical outputs are used downstream, we can discuss separately.</p>
+</div>
+
+<div style="margin-top: 20pt; padding-top: 12pt; border-top: 0.5pt solid var(--grid); font-size: 8pt; color: var(--text-muted);">
+  <p>Document: methodology_review_danny_v3_20260618 · Prepared for advisor review · Sections §9–§15 and Appendices G–L excluded</p>
+</div>
+
+</body>
+</html>
