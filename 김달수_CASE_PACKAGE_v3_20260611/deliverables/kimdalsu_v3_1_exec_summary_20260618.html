@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채널 진단 Executive Summary — v3.1</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-hover: #1c2129;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --text-dim: #484f58;
+    --accent-blue: #58a6ff;
+    --accent-green: #3fb950;
+    --accent-orange: #d29922;
+    --accent-red: #f85149;
+    --accent-purple: #bc8cff;
+    --accent-coral: #f0883e;
+    --accent-teal: #39d353;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+
+  .section {
+    min-height: 100vh;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 720px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .kpi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .kpi-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .kpi-value {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .kpi-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+
+  .kpi-value.blue { color: var(--accent-blue); }
+  .kpi-value.green { color: var(--accent-green); }
+  .kpi-value.orange { color: var(--accent-orange); }
+  .kpi-value.red { color: var(--accent-red); }
+  .kpi-value.purple { color: var(--accent-purple); }
+  .kpi-value.coral { color: var(--accent-coral); }
+
+  .chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 24px 0;
+  }
+
+  .chart-container canvas {
+    width: 100% !important;
+  }
+
+  .insight-box {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+    max-width: 720px;
+  }
+
+  .insight-box.warn {
+    border-left-color: var(--accent-orange);
+  }
+
+  .insight-box.danger {
+    border-left-color: var(--accent-red);
+  }
+
+  .insight-box.success {
+    border-left-color: var(--accent-green);
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-right: 6px;
+  }
+
+  .tag.blue { background: rgba(88,166,255,0.15); color: var(--accent-blue); }
+  .tag.green { background: rgba(63,185,80,0.15); color: var(--accent-green); }
+  .tag.orange { background: rgba(210,153,34,0.15); color: var(--accent-orange); }
+  .tag.red { background: rgba(248,81,73,0.15); color: var(--accent-red); }
+  .tag.purple { background: rgba(188,140,255,0.15); color: var(--accent-purple); }
+
+  .priority-list {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .priority-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .priority-list li:last-child {
+    border-bottom: none;
+  }
+
+  .p-badge {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .p-badge.p1 { background: rgba(248,81,73,0.15); color: var(--accent-red); }
+  .p-badge.p2 { background: rgba(210,153,34,0.15); color: var(--accent-orange); }
+  .p-badge.p3 { background: rgba(88,166,255,0.15); color: var(--accent-blue); }
+  .p-badge.p4 { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+
+  .p-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .p-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .timeline {
+    display: flex;
+    gap: 0;
+    margin: 32px 0;
+  }
+
+  .timeline-step {
+    flex: 1;
+    position: relative;
+    padding: 24px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+
+  .timeline-step:first-child {
+    border-radius: 12px 0 0 12px;
+  }
+
+  .timeline-step:last-child {
+    border-radius: 0 12px 12px 0;
+  }
+
+  .timeline-step .step-num {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .timeline-step .step-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .timeline-step .step-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .milestone-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .ms-node {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ms-dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 auto 12px;
+  }
+
+  .ms-line {
+    flex: 1;
+    height: 3px;
+    background: var(--border);
+    position: relative;
+    top: -20px;
+  }
+
+  .ms-label {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .ms-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .funnel-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 12px 0;
+  }
+
+  .funnel-bar .bar {
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .funnel-bar .bar-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    min-width: 140px;
+    text-align: right;
+  }
+
+  .footer {
+    padding: 40px 80px;
+    color: var(--text-dim);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent-blue);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .comparison-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+
+  .comparison-row .axis-label {
+    width: 100px;
+    font-size: 14px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .comparison-row .bar-track {
+    flex: 1;
+    height: 28px;
+    background: rgba(48,54,61,0.5);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comparison-row .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .comparison-row .bar-ref {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: rgba(255,255,255,0.3);
+  }
+
+  .comparison-row .value-label {
+    width: 80px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: HERO -->
+<div class="section" style="justify-content: flex-end; padding-bottom: 100px;">
+  <div class="section-label">채널 진단 보고서 v3.1 Executive Summary</div>
+  <h1>극단적으로 오래 돌리는<br><span style="color: var(--accent-blue);">상위권 엔진</span></h1>
+  <p class="subtitle">
+    치지직 팔로워 3,760명 채널의 종합 진단. 코호트 1,544채널 + YouTube 718개 영상 분석 기반.
+  </p>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <span class="tag blue">코호트 v3 1,544채널</span>
+    <span class="tag purple">YouTube 718영상</span>
+    <span class="tag green">§2~§11 전체 진단</span>
+    <span class="tag orange">2026.06.18 기준</span>
+  </div>
+</div>
+
+<!-- SECTION 2: KPI OVERVIEW -->
+<div class="section">
+  <div class="section-label">핵심 지표</div>
+  <h2>현재 위치</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">팔로워</div>
+      <div class="kpi-value blue">3,760</div>
+      <div class="kpi-sub">치지직 전체 #1,269 / 상위 32%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">평균 시청자 (월간)</div>
+      <div class="kpi-value blue">69명</div>
+      <div class="kpi-sub">동급생 중앙값과 동일</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">최고 시청자</div>
+      <div class="kpi-value blue">165명</div>
+      <div class="kpi-sub">이전 대비 +230%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">방송시간 (월간)</div>
+      <div class="kpi-value coral">162.7h</div>
+      <div class="kpi-sub">코호트 중앙값 71.2h의 2.3배</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">잔류율</div>
+      <div class="kpi-value red">0.418</div>
+      <div class="kpi-sub">동급생 중앙 0.645의 65%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">전환율 (avg/팔로워)</div>
+      <div class="kpi-value green">1.84%</div>
+      <div class="kpi-sub">대형 채널(1.47~1.56%) 대비 우수</div>
+    </div>
+  </div>
+  <div class="insight-box">
+    작은 팔로워 풀을 상위권 효율(2.994)과 극단적 방송시간(162.7h)으로 돌려 중앙 체급까지 끌어올리고 있다. 그러나 들어온 시청자의 절반 이상이 방송 중 떠난다.
+  </div>
+</div>
+
+<!-- SECTION 3: 4축 포지셔닝 -->
+<div class="section">
+  <div class="section-label">포지셔닝</div>
+  <h2>4축 진단</h2>
+  <div class="two-col">
+    <div>
+      <div style="margin-bottom: 32px;">
+        <div class="comparison-row">
+          <div class="axis-label">시청자 규모</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 50%; background: var(--accent-blue);">중앙</div>
+            <div class="bar-ref" style="left: 50%;" title="동급생 중앙값"></div>
+          </div>
+          <div class="value-label" style="color: var(--accent-blue);">69명</div>
+        </div>
+        <div class="comparison-row">
+          <div class="axis-label">잔류율</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 35%; background: var(--accent-red);">하위</div>
+            <div class="bar-ref" style="left: 53%;" title="동급생 중앙 0.645"></div>
+          </div>
+          <div class="value-label" style="color: var(--accent-red);">0.418</div>
+        </div>
+        <div class="comparison-row">
+          <div class="axis-label">팔로워 규모</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 9%; background: var(--accent-red);">하위 9%</div>
+          </div>
+          <div class="value-label" style="color: var(--accent-red);">3,760</div>
+        </div>
+        <div class="comparison-row">
+          <div class="axis-label">효율</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 75%; background: var(--accent-green);">상위 25%</div>
+            <div class="bar-ref" style="left: 50%;" title="코호트 중앙 1.351"></div>
+          </div>
+          <div class="value-label" style="color: var(--accent-green);">2.994</div>
+        </div>
+        <div class="comparison-row">
+          <div class="axis-label">전환율</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 80%; background: var(--accent-green);">대형 대비 우수</div>
+          </div>
+          <div class="value-label" style="color: var(--accent-green);">1.84%</div>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted);">
+        <span style="display:inline-block; width:10px; height:10px; border-radius:2px; background:rgba(255,255,255,0.3); vertical-align:middle; margin-right:4px;"></span> 동급생 중앙값 기준선
+      </div>
+    </div>
+    <div>
+      <div class="insight-box warn">
+        <strong>프로파일 요약</strong><br><br>
+        극단적 방송시간 + 상위권 효율 + 최저 잔류율.<br><br>
+        효율(2.994)은 방송시간에 비례하는 구조. 방송시간을 코호트 중앙(71.2h)으로 조정하면 효율은 중앙과 비슷해진다.<br><br>
+        <strong style="color: var(--accent-green);">전환율(1.84%)이 방송시간과 무관한 순수 채널 역량 지표.</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: 효율-체급 커브 -->
+<div class="section">
+  <div class="section-label">심층 진단</div>
+  <h2>효율-체급 커브: U자형 계곡</h2>
+  <p class="subtitle">체급이 올라가면 효율이 선형으로 떨어지는 게 아니다. 2,000~5,000명 구간에 "효율 계곡"이 있고, 대형 채널에서 효율이 다시 올라간다.</p>
+  <div class="two-col">
+    <div class="chart-container" style="height: 350px;">
+      <canvas id="efficiencyChart"></canvas>
+    </div>
+    <div>
+      <div class="insight-box success">
+        <strong>계곡의 정체</strong><br><br>
+        2,000~5,000명 구간(효율 1.081)에는 과거 유명했으나 현재 비활성인 채널이 집중. 은퇴 프로게이머, 전직 유명 스트리머 등이 팔로워는 크지만 시청자가 적다.<br><br>
+        유기적으로 성장하는 채널은 이 계곡을 같은 방식으로 통과할 가능성이 낮다.
+      </div>
+      <div style="margin-top: 16px; font-size: 13px; color: var(--text-dim);">단정 등급: 관찰됨</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: YouTube 엔진 -->
+<div class="section">
+  <div class="section-label">YouTube 자산</div>
+  <h2>밖에서는 크고, 안에서는 작다</h2>
+  <p class="subtitle">치지직에서는 팔로워 3,760의 소형 채널. 유튜브에서는 911만 조회의 Shorts 도달 엔진. 문제는 이 두 엔진이 연결되어 있지 않다.</p>
+  <div class="two-col">
+    <div>
+      <div class="kpi-grid" style="grid-template-columns: 1fr 1fr; margin-top: 0;">
+        <div class="kpi-card">
+          <div class="kpi-label">YouTube 총 조회수</div>
+          <div class="kpi-value purple">924만</div>
+          <div class="kpi-sub">영상 718개</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Shorts 비중</div>
+          <div class="kpi-value purple">98.6%</div>
+          <div class="kpi-sub">672개 / 911만 조회</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">YouTube 구독자</div>
+          <div class="kpi-value purple">7,190</div>
+          <div class="kpi-sub">치지직 팔로워의 1.9배</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">전환 프록시</div>
+          <div class="kpi-value red">0.04%</div>
+          <div class="kpi-sub">1,000회 조회당 0.41명</div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-container" style="height: 300px;">
+      <canvas id="contentTypeChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: 전환 퍼널 -->
+<div class="section">
+  <div class="section-label">전환 퍼널</div>
+  <h2>도달은 있다. 배관이 없다.</h2>
+  <div style="max-width: 700px;">
+    <div class="funnel-bar">
+      <div class="bar-label">YouTube 조회</div>
+      <div class="bar" style="width: 100%; background: rgba(188,140,255,0.3); color: var(--accent-purple);">924만</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="bar-label">YouTube 구독</div>
+      <div class="bar" style="width: 12%; background: rgba(188,140,255,0.2); color: var(--accent-purple);">7,190</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="bar-label">Chzzk 팔로워</div>
+      <div class="bar" style="width: 6%; background: rgba(88,166,255,0.3); color: var(--accent-blue);">3,760</div>
+    </div>
+    <div style="margin-top: 40px;">
+      <div class="insight-box danger">
+        <strong>Shorts description 링크 현황</strong><br><br>
+        <span style="font-size: 32px; font-weight: 700; color: var(--accent-red);">6 / 672</span>
+        <span style="font-size: 18px; color: var(--text-muted); margin-left: 12px;">(0.9%)</span><br><br>
+        672개 Shorts 중 다음 행동으로 이어지는 링크가 있는 영상은 6개뿐. 나머지 666개는 개별 클립으로 소비되고 끝난다.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: 우선순위 -->
+<div class="section">
+  <div class="section-label">전략</div>
+  <h2>우선순위</h2>
+  <p class="subtitle">P1은 변하지 않았다. 잔류율이 낮은 상태에서 유입을 늘려봐야 "들어오고 떠나는" 패턴이 반복된다.</p>
+  <ul class="priority-list" style="max-width: 720px;">
+    <li>
+      <div class="p-badge p1">P1</div>
+      <div>
+        <div class="p-title">잔류율 개선</div>
+        <div class="p-desc">0.418 → 0.55~0.65. 방송 편성 조정으로 그릇을 키운다. <span class="tag red">거의 확실</span></div>
+      </div>
+    </li>
+    <li>
+      <div class="p-badge p2">P2</div>
+      <div>
+        <div class="p-title">YouTube 전환 퍼널 설계</div>
+        <div class="p-desc">도달(911만)은 있다. 배관을 만든다. Description 링크 표준화부터. <span class="tag orange">관찰됨</span></div>
+      </div>
+    </li>
+    <li>
+      <div class="p-badge p3">P3</div>
+      <div>
+        <div class="p-title">유입 경로 다각화</div>
+        <div class="p-desc">레이드, 콜라보, 디스커버리. 유튜브 외 유입 경로 확보. <span class="tag blue">추정</span></div>
+      </div>
+    </li>
+    <li>
+      <div class="p-badge p4">P4</div>
+      <div>
+        <div class="p-title">팔로워 풀 확대</div>
+        <div class="p-desc">3,760 → 5,300+. P1~P3 선행 시 자연히 따라올 가능성. <span class="tag blue">추정</span></div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- SECTION 8: 실행 4단계 -->
+<div class="section">
+  <div class="section-label">실행 설계</div>
+  <h2>4단계 실행 순서</h2>
+  <p class="subtitle">가장 쉬운 것부터 시작해서 작은 성공을 만들고, 가장 어려운 것은 단계적으로 접근한다.</p>
+  <div class="timeline">
+    <div class="timeline-step" style="border-left: 3px solid var(--accent-green);">
+      <div class="step-num" style="color: var(--accent-green);">1단계 — 즉시</div>
+      <div class="step-title">전환 퍼널 설계</div>
+      <div class="step-desc">Shorts description 템플릿 표준화. 착수 조건 없음.</div>
+      <div style="margin-top: 8px;"><span class="tag green">난이도 낮음</span></div>
+    </div>
+    <div class="timeline-step" style="border-left: 3px solid var(--accent-orange);">
+      <div class="step-num" style="color: var(--accent-orange);">2단계 — 병행</div>
+      <div class="step-title">세션 분할</div>
+      <div class="step-desc">총 시간 유지 + 세션 길이 축소. "줄이기"가 아닌 "나누기".</div>
+      <div style="margin-top: 8px;"><span class="tag orange">난이도 중간</span></div>
+    </div>
+    <div class="timeline-step" style="border-left: 3px solid var(--accent-red);">
+      <div class="step-num" style="color: var(--accent-red);">3단계 — 2단계 결과 후</div>
+      <div class="step-title">총시간 축소</div>
+      <div class="step-desc">162h → 120h → 80~100h. 잔류율 확인 후에만 진행.</div>
+      <div style="margin-top: 8px;"><span class="tag red">난이도 높음</span></div>
+    </div>
+    <div class="timeline-step" style="border-left: 3px solid var(--accent-blue);">
+      <div class="step-num" style="color: var(--accent-blue);">4단계 — 여력 시</div>
+      <div class="step-title">인접 콘텐츠 실험</div>
+      <div class="step-desc">LoL 생태계 인접 게임 확장. TFT 잔류율 0.725 근거.</div>
+      <div style="margin-top: 8px;"><span class="tag blue">난이도 중간</span></div>
+    </div>
+  </div>
+  <div class="insight-box" style="margin-top: 32px;">
+    <strong>안전장치:</strong> 잘 되면 다음 단계, 안 되면 멈추고 재검토. 3단계 착수 조건: 잔류율 ≥ 0.45 + 뷰어십 ≥ 10,000 (4주 평균).
+  </div>
+</div>
+
+<!-- SECTION 9: 마일스톤 -->
+<div class="section">
+  <div class="section-label">마일스톤</div>
+  <h2>성장 경로</h2>
+  <div class="milestone-track" style="max-width: 800px;">
+    <div class="ms-node">
+      <div class="ms-dot" style="background: var(--accent-blue); color: #fff;">현재</div>
+      <div class="ms-label">avg 69</div>
+      <div class="ms-sub">fol 3,760</div>
+      <div class="ms-sub" style="color: var(--text-dim);">LoL 100위 밖</div>
+    </div>
+    <div class="ms-line"></div>
+    <div class="ms-node">
+      <div class="ms-dot" style="background: rgba(63,185,80,0.2); color: var(--accent-green); border: 2px solid var(--accent-green);">MS1</div>
+      <div class="ms-label">avg 120</div>
+      <div class="ms-sub">fol ~8,000</div>
+      <div class="ms-sub" style="color: var(--text-dim);">전체 상위 ~900위</div>
+    </div>
+    <div class="ms-line"></div>
+    <div class="ms-node">
+      <div class="ms-dot" style="background: rgba(210,153,34,0.2); color: var(--accent-orange); border: 2px solid var(--accent-orange);">MS2</div>
+      <div class="ms-label">avg 200</div>
+      <div class="ms-sub">fol ~13,300</div>
+      <div class="ms-sub" style="color: var(--text-dim);">LoL ~80위</div>
+    </div>
+    <div class="ms-line"></div>
+    <div class="ms-node">
+      <div class="ms-dot" style="background: rgba(188,140,255,0.2); color: var(--accent-purple); border: 2px solid var(--accent-purple);">MS3</div>
+      <div class="ms-label">avg 500</div>
+      <div class="ms-sub">fol ~33,300</div>
+      <div class="ms-sub" style="color: var(--text-dim);">LoL ~30위</div>
+    </div>
+  </div>
+  <div class="two-col" style="margin-top: 40px; max-width: 800px;">
+    <div class="insight-box">
+      <strong>MS1까지의 거리</strong><br><br>
+      팔로워 순증 필요: +4,240명<br>
+      현재 유튜브 전환율(0.04%): ~65개월<br>
+      전환율 0.1%로 개선 시: ~27개월<br>
+      전환율 0.2%로 개선 시: ~13개월
+    </div>
+    <div class="insight-box warn">
+      <strong>핵심 조건</strong><br><br>
+      팔로워 증가 속도가 시청자 증가 속도를 크게 앞서지 않을 것. 전환율 급락(1% 이하) 방지.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 10: 방송시간-잔류율 -->
+<div class="section">
+  <div class="section-label">근거 데이터</div>
+  <h2>방송시간 vs 잔류율</h2>
+  <p class="subtitle">방송시간이 길수록 잔류율이 급감한다. 코호트 전체에서 확인되는 구조적 패턴이다.</p>
+  <div class="two-col">
+    <div class="chart-container" style="height: 350px;">
+      <canvas id="retentionChart"></canvas>
+    </div>
+    <div>
+      <div class="insight-box success">
+        <strong>본 채널은 잘 버티고 있다</strong><br><br>
+        150시간+ 그룹 중앙값(0.245) 대비 본 채널(0.418)은 1.7배. 극단적 방송시간 대비 선전.<br><br>
+        그러나 동급생 중앙(0.645)과의 격차는 크다.
+      </div>
+      <div class="insight-box" style="margin-top: 16px;">
+        <strong>참고 사례</strong><br><br>
+        동급생 중 avg 79명, fol 3,918, LoL 주력 채널의 잔류율 = <strong style="color: var(--accent-green);">0.908</strong> (본 채널의 2.2배)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 11: 경보 하한 -->
+<div class="section">
+  <div class="section-label">트래킹</div>
+  <h2>경보 하한 & 체크포인트</h2>
+  <div class="two-col" style="max-width: 800px;">
+    <div>
+      <h3>경보 조건</h3>
+      <div style="margin: 16px 0;">
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+          <span>효율 (뷰어십/팔로워)</span>
+          <span style="color: var(--accent-red); font-weight: 500;">< 0.7이면 중단</span>
+        </div>
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+          <span>잔류율</span>
+          <span style="color: var(--accent-red); font-weight: 500;">< 0.30이면 재검토</span>
+        </div>
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between;">
+          <span>전환율 (avg/팔로워)</span>
+          <span style="color: var(--accent-orange); font-weight: 500;">< 1.0%이면 점검</span>
+        </div>
+        <div style="padding: 12px 0; display: flex; justify-content: space-between;">
+          <span>유튜브 업로드</span>
+          <span style="color: var(--accent-orange); font-weight: 500;">< 3건/월 2개월 연속</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>리포트 체크포인트</h3>
+      <div style="margin: 16px 0;">
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+          <span style="color: var(--accent-blue); font-weight: 500;">W4</span> — 1단계 적용률 100% 확인
+        </div>
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+          <span style="color: var(--accent-blue); font-weight: 500;">W8</span> — 잔류율 변화 방향 확인
+        </div>
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+          <span style="color: var(--accent-orange); font-weight: 500;">W12</span> — 3단계 착수 조건 판단
+        </div>
+        <div style="padding: 12px 0;">
+          <span style="color: var(--accent-red); font-weight: 500;">W24</span> — MS1 진입 경로 종합 평가
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  채널 진단 보고서 v3.1 종합본 Executive Summary | 2026.06.18<br>
+  코호트 v3 (A=100 LoL Top, B=126 Legacy, C=1,317 Scale) 1,544채널 + YouTube @dalsooisfree 718영상<br>
+  치지직 데이터: Softcon 기반 (플랫폼 공식 API 아님) | 유튜브 데이터: YouTube Data API v3 공개 조회수 기반<br>
+  산문 시스템 v0.2 적용
+</div>
+
+<script>
+// 효율-체급 커브
+new Chart(document.getElementById('efficiencyChart'), {
+  type: 'bar',
+  data: {
+    labels: ['500 미만', '500~2K', '2K~5K', '5K~15K', '15K+', '본 채널'],
+    datasets: [{
+      label: '효율 중앙값',
+      data: [3.321, 1.321, 1.081, 2.989, 8.430, 2.994],
+      backgroundColor: [
+        'rgba(88,166,255,0.6)',
+        'rgba(88,166,255,0.6)',
+        'rgba(248,81,73,0.6)',
+        'rgba(88,166,255,0.6)',
+        'rgba(88,166,255,0.6)',
+        'rgba(63,185,80,0.8)'
+      ],
+      borderColor: [
+        'rgba(88,166,255,0.8)',
+        'rgba(88,166,255,0.8)',
+        'rgba(248,81,73,0.8)',
+        'rgba(88,166,255,0.8)',
+        'rgba(88,166,255,0.8)',
+        'rgba(63,185,80,1)'
+      ],
+      borderWidth: 1,
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return '효율: ' + ctx.parsed.y.toFixed(3); }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#8b949e', font: { size: 12 } },
+        grid: { display: false }
+      },
+      y: {
+        ticks: { color: '#8b949e', font: { size: 12 } },
+        grid: { color: 'rgba(48,54,61,0.5)' },
+        title: { display: true, text: '효율 (뷰어십/팔로워)', color: '#8b949e', font: { size: 12 } }
+      }
+    }
+  }
+});
+
+// 콘텐츠 유형별 도달
+new Chart(document.getElementById('contentTypeChart'), {
+  type: 'bar',
+  data: {
+    labels: ['하이라이트', '내전', '솔로랭크', '듀오', '토크'],
+    datasets: [{
+      label: '영상당 조회수',
+      data: [30144, 20061, 11212, 9618, 5813],
+      backgroundColor: [
+        'rgba(188,140,255,0.7)',
+        'rgba(188,140,255,0.55)',
+        'rgba(188,140,255,0.4)',
+        'rgba(188,140,255,0.3)',
+        'rgba(188,140,255,0.2)'
+      ],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return ctx.parsed.x.toLocaleString() + ' 조회/영상'; }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#8b949e',
+          font: { size: 12 },
+          callback: function(v) { return (v/1000).toFixed(0) + 'K'; }
+        },
+        grid: { color: 'rgba(48,54,61,0.5)' },
+        title: { display: true, text: '영상당 평균 조회수', color: '#8b949e', font: { size: 12 } }
+      },
+      y: {
+        ticks: { color: '#8b949e', font: { size: 13 } },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// 방송시간-잔류율
+new Chart(document.getElementById('retentionChart'), {
+  type: 'bar',
+  data: {
+    labels: ['30h 미만', '30~80h', '80~150h', '150h+', '본 채널\n(162.7h)'],
+    datasets: [{
+      label: '잔류율 중앙값',
+      data: [0.626, 0.362, 0.299, 0.245, 0.418],
+      backgroundColor: [
+        'rgba(63,185,80,0.6)',
+        'rgba(210,153,34,0.6)',
+        'rgba(240,136,62,0.6)',
+        'rgba(248,81,73,0.6)',
+        'rgba(88,166,255,0.8)'
+      ],
+      borderColor: [
+        'rgba(63,185,80,0.8)',
+        'rgba(210,153,34,0.8)',
+        'rgba(240,136,62,0.8)',
+        'rgba(248,81,73,0.8)',
+        'rgba(88,166,255,1)'
+      ],
+      borderWidth: 1,
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return '잔류율: ' + ctx.parsed.y.toFixed(3); }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#8b949e', font: { size: 12 }, maxRotation: 0 },
+        grid: { display: false }
+      },
+      y: {
+        ticks: { color: '#8b949e', font: { size: 12 } },
+        grid: { color: 'rgba(48,54,61,0.5)' },
+        title: { display: true, text: '잔류율', color: '#8b949e', font: { size: 12 } },
+        max: 0.8
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채널 진단 보고서 — 요약본</title>
+<style>
+@page { size: A4; margin: 20mm 18mm 24mm 18mm; }
+@media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-break { page-break-before: always; }
+    .no-break { page-break-inside: avoid; }
+}
+:root {
+    --teal-800: #2D4A5E; --teal-600: #3A5F78; --teal-400: #708DA1;
+    --amber-500: #C4834D; --amber-600: #A8693A;
+    --neutral-900: #1B1711; --neutral-700: #3D3833; --neutral-500: #6B6560;
+    --neutral-400: #9B9590; --neutral-300: #D4D0C8; --neutral-200: #E8E4DF;
+    --neutral-100: #F5F2ED; --neutral-50: #FBF7F1;
+    --success-700: #01682D; --error-700: #A8292F; --warning-700: #A43112;
+    --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+body {
+    font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    color: var(--neutral-900); background: var(--white);
+    font-size: 10.5pt; line-height: 1.7;
+    max-width: 210mm; margin: 0 auto; padding: 24px 28px;
+}
+.cover { padding: 60px 0 40px 0; }
+.cover h1 { font-size: 28pt; font-weight: 800; color: var(--teal-800); margin: 0 0 12px 0; line-height: 1.3; }
+.cover .subtitle { font-size: 14pt; color: var(--teal-600); margin: 0 0 20px 0; }
+.cover .divider { width: 80px; height: 3px; background: var(--amber-500); border: none; margin: 20px 0; }
+.cover-meta { width: 100%; border-collapse: collapse; margin: 16px 0 32px 0; }
+.cover-meta td { padding: 5px 12px; font-size: 9.5pt; border-bottom: 1px solid var(--neutral-200); vertical-align: top; }
+.cover-meta td:first-child { font-weight: 700; color: var(--teal-600); white-space: nowrap; width: 120px; }
+h2 { font-size: 16pt; font-weight: 800; color: var(--teal-800); border-bottom: 2px solid var(--teal-600); margin: 48px 0 12px 0; padding-bottom: 8px; }
+h3 { font-size: 12pt; font-weight: 700; color: var(--teal-600); margin: 28px 0 8px 0; }
+.conclusion-card { border: 2px solid var(--amber-500); border-radius: 8px; padding: 20px 24px; background: var(--neutral-50); margin: 20px 0; page-break-inside: avoid; }
+.conclusion-card .card-label { font-size: 9pt; font-weight: 700; color: var(--amber-500); text-transform: uppercase; margin-bottom: 8px; display: block; }
+.certainty { display: inline-flex; align-items: center; gap: 6px; font-size: 9pt; margin: 8px 0; padding: 6px 12px; border-radius: 4px; background: var(--neutral-100); }
+.certainty .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-weight: 700; font-size: 9pt; }
+.certainty .badge.sure { background: #E8F5E9; color: var(--success-700); }
+.certainty .badge.almost { background: #E3EDF3; color: var(--teal-600); }
+.certainty .badge.observed { background: var(--neutral-100); color: var(--neutral-500); }
+.certainty .badge.inferred { background: #FFF3E0; color: var(--warning-700); }
+.action-title { border-left: 4px solid var(--teal-600); padding: 10px 16px; margin: 16px 0 20px 0; background: var(--neutral-50); font-weight: 700; color: var(--teal-800); }
+.action-title .normal-weight { font-weight: 400; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 9.5pt; page-break-inside: avoid; }
+th { background: var(--teal-800); color: var(--white); font-size: 9pt; font-weight: 700; padding: 8px 12px; text-align: left; }
+td { padding: 7px 12px; border-bottom: 1px solid var(--neutral-200); }
+tr:nth-child(even) td { background: var(--neutral-50); }
+.highlight { color: var(--amber-500); font-weight: 700; }
+.positive { color: var(--success-700); font-weight: 600; }
+.negative { color: var(--error-700); font-weight: 600; }
+.warning { color: var(--warning-700); font-weight: 600; }
+.bold-lead { font-weight: 700; color: var(--teal-800); }
+ul, ol { margin: 8px 0 8px 24px; padding: 0; }
+li { margin: 4px 0; }
+blockquote { border-left: 3px solid var(--neutral-300); padding: 8px 16px; margin: 12px 0; color: var(--neutral-700); background: var(--neutral-100); border-radius: 0 4px 4px 0; }
+hr { border: none; border-top: 1px solid var(--neutral-300); margin: 32px 0; }
+.page-break { page-break-before: always; height: 0; margin: 0; padding: 0; }
+.no-break { page-break-inside: avoid; }
+pre { background: var(--neutral-100); padding: 14px 18px; border-radius: 6px; font-size: 8.5pt; line-height: 1.5; overflow-x: auto; font-family: 'Consolas', 'Menlo', monospace; white-space: pre-wrap; margin: 16px 0; }
+.chart-container { margin: 20px 0; page-break-inside: avoid; }
+.chart-container svg { width: 100%; height: auto; }
+.chart-title { font-size: 10pt; font-weight: 700; color: var(--teal-800); margin-bottom: 8px; }
+.chart-caption { font-size: 8.5pt; color: var(--neutral-500); margin-top: 6px; }
+.flow-box { display: inline-block; padding: 10px 16px; border-radius: 6px; font-size: 9.5pt; font-weight: 600; text-align: center; }
+.stage-card { border: 1px solid var(--neutral-200); border-radius: 8px; padding: 16px 20px; margin: 12px 0; background: var(--neutral-50); page-break-inside: avoid; }
+.stage-card h4 { font-size: 11pt; font-weight: 700; color: var(--teal-800); margin: 0 0 8px 0; }
+.stage-card .difficulty { font-size: 8.5pt; padding: 2px 8px; border-radius: 3px; font-weight: 600; display: inline-block; margin-bottom: 8px; }
+.stage-card .difficulty.low { background: #E8F5E9; color: var(--success-700); }
+.stage-card .difficulty.mid { background: #FFF3E0; color: var(--warning-700); }
+.stage-card .difficulty.high { background: #FFEBEE; color: var(--error-700); }
+.toc { margin: 24px 0; padding: 20px 24px; background: var(--neutral-50); border-radius: 8px; }
+.toc p { margin: 4px 0; font-size: 10pt; }
+.toc .toc-label { font-weight: 700; color: var(--teal-800); font-size: 11pt; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover">
+    <h1>채널 진단 보고서 — 요약본</h1>
+    <p class="subtitle">v3.1 종합본 압축 (클라이언트 보고용)</p>
+    <hr class="divider">
+    <table class="cover-meta">
+        <tr><td>분석 대상</td><td>치지직 채널 (팔로워 3,760명, 리그 오브 레전드 주력)</td></tr>
+        <tr><td>분석 기준일</td><td>2026년 6월 18일</td></tr>
+        <tr><td>데이터 범위</td><td>코호트 v3 1,544채널 + YouTube @dalsooisfree 718영상</td></tr>
+        <tr><td>원본</td><td>종합본 v3.1, 53p</td></tr>
+    </table>
+
+    <div class="toc">
+        <p class="toc-label">CONTENTS</p>
+        <p><strong>BLOCK 1.</strong> 지금 어디에 있는가 — 현재 위치와 외부 자산</p>
+        <p><strong>BLOCK 2.</strong> 뭐가 문제인가 — 잔류율, 전환 퍼널, 실행 장벽</p>
+        <p><strong>BLOCK 3.</strong> 뭘 해야 하는가 — 4단계 실행 설계</p>
+        <p><strong>BLOCK 4.</strong> 어디까지 갈 수 있는가 — 마일스톤과 타임라인</p>
+    </div>
+</div>
+
+<!-- ==================== BLOCK 1: 지금 어디에 있는가 ==================== -->
+<div class="page-break"></div>
+
+<h2>BLOCK 1. 지금 어디에 있는가</h2>
+
+<div class="conclusion-card">
+    <span class="card-label">CONCLUSION</span>
+    본 채널은 '극단적으로 오래 돌리는 상위권 엔진'이다. 월간 방송시간(162.7시간)은 LoL 상위 100채널 중 극단적 수준이며, 팔로워 대비 시청 효율은 상위 25%(Q3 경계)에 해당한다. 그러나 잔류율이 동급 채널의 65%에 그치며, LoL 카테고리 100위 밖이어서 카테고리 내 자연 발견이 구조적으로 어렵다.
+</div>
+
+<h3>핵심 수치 (최근 1개월)</h3>
+
+<table>
+    <thead>
+        <tr><th>지표</th><th>값</th><th>코호트 대비</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>팔로워</td><td>3,760명</td><td>치지직 전체 #1,269 (상위 32%)</td></tr>
+        <tr><td>평균 시청자</td><td>69명</td><td>동급생 중앙값과 동일</td></tr>
+        <tr><td>최고 시청자</td><td>165명</td><td>—</td></tr>
+        <tr><td>뷰어십</td><td>11,253</td><td>평균 시청자 x 방송시간</td></tr>
+        <tr><td>방송시간</td><td class="highlight">162.7시간/월</td><td>코호트 중앙값(71.2h)의 2.3배</td></tr>
+        <tr><td>잔류율</td><td class="negative">0.418</td><td>동급생 중앙(0.645)의 65% — 하위권</td></tr>
+        <tr><td>효율</td><td class="positive">2.994</td><td>LoL 상위 100 중앙(1.351)의 2.2배 — 상위 25% (Q3 경계)</td></tr>
+        <tr><td>전환율</td><td>1.84%</td><td>대형 채널(1.47~1.56%)보다 높음</td></tr>
+        <tr><td>LoL 카테고리 순위</td><td class="negative">100위 밖</td><td>100위 최저 평균=346명</td></tr>
+    </tbody>
+</table>
+
+<h3>4축 포지셔닝</h3>
+
+<table>
+    <thead>
+        <tr><th>축</th><th>본 채널</th><th>동급생 기준</th><th>상대 위치</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>시청자 규모</td><td>avg 69</td><td>중앙값 동일</td><td>중앙</td></tr>
+        <tr><td>잔류율</td><td class="negative">0.418</td><td>0.645</td><td>하위권 (65%)</td></tr>
+        <tr><td>팔로워 규모</td><td>3,760</td><td>—</td><td>하위 9%</td></tr>
+        <tr><td>효율</td><td class="positive">2.994</td><td>1.351</td><td>상위 25%</td></tr>
+    </tbody>
+</table>
+
+<!-- CHART 1: Radar Chart — 4축 포지셔닝 -->
+<div class="chart-container no-break">
+    <p class="chart-title">4축 포지셔닝 레이더 차트</p>
+    <svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <style>
+                .radar-label { font-family: sans-serif; font-size: 11px; fill: #1B1711; }
+                .radar-value { font-family: sans-serif; font-size: 9px; fill: #6B6560; }
+            </style>
+        </defs>
+        <g transform="translate(280,190)">
+            <polygon points="0,-140 140,0 0,140 -140,0" fill="none" stroke="#D4D0C8" stroke-width="0.5"/>
+            <polygon points="0,-105 105,0 0,105 -105,0" fill="none" stroke="#D4D0C8" stroke-width="0.5"/>
+            <polygon points="0,-70 70,0 0,70 -70,0" fill="none" stroke="#D4D0C8" stroke-width="0.5"/>
+            <polygon points="0,-35 35,0 0,35 -35,0" fill="none" stroke="#D4D0C8" stroke-width="0.5"/>
+            <line x1="0" y1="-140" x2="0" y2="0" stroke="#D4D0C8" stroke-width="0.5"/>
+            <line x1="140" y1="0" x2="0" y2="0" stroke="#D4D0C8" stroke-width="0.5"/>
+            <line x1="0" y1="140" x2="0" y2="0" stroke="#D4D0C8" stroke-width="0.5"/>
+            <line x1="-140" y1="0" x2="0" y2="0" stroke="#D4D0C8" stroke-width="0.5"/>
+            <!-- 동급생 shape -->
+            <polygon points="0,-70 140,0 0,70 -63,0" fill="#C4834D" fill-opacity="0.15" stroke="#C4834D" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <!-- 본 채널 shape -->
+            <polygon points="0,-70 91,0 0,12.6 -140,0" fill="#2D4A5E" fill-opacity="0.2" stroke="#2D4A5E" stroke-width="2"/>
+            <circle cx="0" cy="-70" r="4" fill="#2D4A5E"/>
+            <circle cx="91" cy="0" r="4" fill="#2D4A5E"/>
+            <circle cx="0" cy="12.6" r="4" fill="#2D4A5E"/>
+            <circle cx="-140" cy="0" r="4" fill="#2D4A5E"/>
+            <circle cx="0" cy="-70" r="3" fill="#C4834D"/>
+            <circle cx="140" cy="0" r="3" fill="#C4834D"/>
+            <circle cx="0" cy="70" r="3" fill="#C4834D"/>
+            <circle cx="-63" cy="0" r="3" fill="#C4834D"/>
+        </g>
+        <text x="280" y="30" text-anchor="middle" class="radar-label" font-weight="700">시청자 규모</text>
+        <text x="280" y="44" text-anchor="middle" class="radar-value">avg 69 (중앙)</text>
+        <text x="440" y="194" text-anchor="start" class="radar-label" font-weight="700">잔류율</text>
+        <text x="440" y="208" text-anchor="start" class="radar-value">0.418 (하위 65%)</text>
+        <text x="280" y="360" text-anchor="middle" class="radar-label" font-weight="700">팔로워 규모</text>
+        <text x="280" y="374" text-anchor="middle" class="radar-value">3,760 (하위 9%)</text>
+        <text x="120" y="194" text-anchor="end" class="radar-label" font-weight="700">효율</text>
+        <text x="120" y="208" text-anchor="end" class="radar-value">2.994 (상위 25%)</text>
+        <rect x="170" y="2" width="12" height="12" fill="#2D4A5E" fill-opacity="0.6" rx="2"/>
+        <text x="186" y="12" font-family="sans-serif" font-size="9" fill="#2D4A5E">본 채널</text>
+        <rect x="240" y="2" width="12" height="12" fill="#C4834D" fill-opacity="0.4" rx="2"/>
+        <text x="256" y="12" font-family="sans-serif" font-size="9" fill="#C4834D">동급생 중앙</text>
+    </svg>
+    <p class="chart-caption">본 채널(teal)은 효율 축에서 동급생(amber)을 크게 상회하나, 잔류율과 팔로워 규모에서 현저히 뒤처진다. 시청자 규모는 중앙 수준.</p>
+</div>
+
+<div class="action-title">프로파일 요약: 극단적 방송시간 + 상위권 효율 + 최저 잔류율</div>
+
+<p>팔로워 풀이 동급생 중 가장 작은데도, 효율과 방송량으로 시청자 규모를 중앙까지 끌어올리고 있다. 방송시간과 무관한 전환율(1.84%)이 대형 채널(1.47~1.56%)보다 높다는 점이 진정한 강점이다. 그러나 들어온 시청자의 절반 이상이 방송 중 떠난다.</p>
+
+<h3>이전 분석 대비 변화</h3>
+
+<table>
+    <thead>
+        <tr><th>지표</th><th>이전</th><th>현재</th><th>변화</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>팔로워</td><td>~1,843</td><td>3,760</td><td class="positive">+104%</td></tr>
+        <tr><td>평균 시청자</td><td>~46</td><td>69</td><td class="positive">+50%</td></tr>
+        <tr><td>최고 시청자</td><td>~50</td><td>165</td><td class="positive">+230%</td></tr>
+    </tbody>
+</table>
+
+<!-- CHART 2: Horizontal Bar Chart — Growth Comparison -->
+<div class="chart-container no-break">
+    <p class="chart-title">이전 분석 대비 성장률 비교</p>
+    <svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg">
+        <text x="95" y="42" text-anchor="end" font-family="sans-serif" font-size="11" fill="#1B1711">팔로워</text>
+        <text x="95" y="87" text-anchor="end" font-family="sans-serif" font-size="11" fill="#1B1711">평균 시청자</text>
+        <text x="95" y="132" text-anchor="end" font-family="sans-serif" font-size="11" fill="#1B1711">최고 시청자</text>
+        <rect x="105" y="28" width="172" height="24" rx="3" fill="#C4834D"/>
+        <text x="283" y="45" font-family="sans-serif" font-size="11" fill="#1B1711" font-weight="700">+104%</text>
+        <text x="110" y="45" font-family="sans-serif" font-size="9" fill="#FFFFFF">1,843 -> 3,760</text>
+        <rect x="105" y="73" width="83" height="24" rx="3" fill="#C4834D"/>
+        <text x="194" y="90" font-family="sans-serif" font-size="11" fill="#1B1711" font-weight="700">+50%</text>
+        <text x="110" y="90" font-family="sans-serif" font-size="9" fill="#FFFFFF">46 -> 69</text>
+        <rect x="105" y="118" width="380" height="24" rx="3" fill="#C4834D"/>
+        <text x="491" y="135" font-family="sans-serif" font-size="11" fill="#1B1711" font-weight="700">+230%</text>
+        <text x="110" y="135" font-family="sans-serif" font-size="9" fill="#FFFFFF">50 -> 165</text>
+        <line x1="105" y1="20" x2="105" y2="150" stroke="#D4D0C8" stroke-width="1"/>
+    </svg>
+    <p class="chart-caption">세 핵심 지표 모두 유의미한 성장. 최고 시청자의 +230% 증가가 가장 두드러진다.</p>
+</div>
+
+<h3>YouTube 외부 자산</h3>
+
+<table>
+    <thead>
+        <tr><th>지표</th><th>값</th><th>해석</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>총 영상</td><td>718개</td><td>Shorts 672 + 일반 46</td></tr>
+        <tr><td>Shorts 조회수</td><td class="highlight">9,113,707</td><td>전체 조회수의 98.6%</td></tr>
+        <tr><td>구독자</td><td>7,190명</td><td>치지직 팔로워의 1.9배</td></tr>
+        <tr><td>하이라이트 영상당 조회수</td><td class="positive">30,144</td><td>도달 효율 최상위 유형</td></tr>
+        <tr><td>전환 프록시</td><td>0.0407%</td><td>조회수 1,000회당 0.41명 (상한 추정)</td></tr>
+    </tbody>
+</table>
+
+<!-- CHART 3: Donut Chart — YouTube Shorts vs Regular -->
+<div class="chart-container no-break">
+    <p class="chart-title">YouTube 영상 유형별 조회수 비중</p>
+    <svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(200,140)">
+            <!-- Shorts: 98.6% = 355 degrees -->
+            <circle cx="0" cy="0" r="100" fill="none" stroke="#2D4A5E" stroke-width="40" stroke-dasharray="619.9 1" stroke-dashoffset="0" transform="rotate(-90)"/>
+            <!-- Regular: 1.4% = 5 degrees — draw full then overlay -->
+            <circle cx="0" cy="0" r="100" fill="none" stroke="#C4834D" stroke-width="40" stroke-dasharray="8.8 619.9" stroke-dashoffset="-619.9" transform="rotate(-90)"/>
+            <!-- Center text -->
+            <text x="0" y="-8" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#2D4A5E" font-weight="800">98.6%</text>
+            <text x="0" y="12" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#6B6560">Shorts</text>
+        </g>
+        <!-- Legend -->
+        <g transform="translate(340,80)">
+            <rect x="0" y="0" width="14" height="14" rx="3" fill="#2D4A5E"/>
+            <text x="20" y="12" font-family="sans-serif" font-size="11" fill="#1B1711" font-weight="600">Shorts</text>
+            <text x="20" y="28" font-family="sans-serif" font-size="9" fill="#6B6560">672개 / 9,113,707 조회</text>
+            <text x="20" y="42" font-family="sans-serif" font-size="9" fill="#6B6560">영상당 13,562 조회</text>
+
+            <rect x="0" y="60" width="14" height="14" rx="3" fill="#C4834D"/>
+            <text x="20" y="72" font-family="sans-serif" font-size="11" fill="#1B1711" font-weight="600">일반 영상</text>
+            <text x="20" y="88" font-family="sans-serif" font-size="9" fill="#6B6560">46개 / 131,060 조회</text>
+            <text x="20" y="102" font-family="sans-serif" font-size="9" fill="#6B6560">영상당 2,849 조회</text>
+
+            <rect x="0" y="130" width="180" height="1" fill="#E8E4DF"/>
+            <text x="0" y="148" font-family="sans-serif" font-size="10" fill="#3D3833" font-weight="600">총 9,244,767 조회</text>
+        </g>
+    </svg>
+    <p class="chart-caption">전체 조회수의 98.6%가 Shorts에서 발생. 일반 영상(46개)은 좋아요율이 더 높지만(1.17% vs 0.94%), 도달 규모에서 비교 불가.</p>
+</div>
+
+<h3>콘텐츠 유형별 도달</h3>
+
+<!-- CHART 4: Horizontal Bar Chart — Content Type Reach -->
+<div class="chart-container no-break">
+    <p class="chart-title">콘텐츠 유형별 영상당 조회수</p>
+    <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg">
+        <text x="90" y="42" text-anchor="end" font-family="sans-serif" font-size="10" fill="#1B1711">하이라이트 (68개)</text>
+        <text x="90" y="87" text-anchor="end" font-family="sans-serif" font-size="10" fill="#1B1711">내전 (4개)</text>
+        <text x="90" y="132" text-anchor="end" font-family="sans-serif" font-size="10" fill="#1B1711">솔로랭크 (598개)</text>
+        <text x="90" y="177" text-anchor="end" font-family="sans-serif" font-size="10" fill="#1B1711">듀오 (23개)</text>
+        <text x="90" y="222" text-anchor="end" font-family="sans-serif" font-size="10" fill="#1B1711">토크 (18개)</text>
+        <rect x="100" y="28" width="380" height="24" rx="3" fill="#2D4A5E"/>
+        <text x="486" y="45" font-family="sans-serif" font-size="10" fill="#1B1711" font-weight="700">30,144</text>
+        <rect x="100" y="73" width="253" height="24" rx="3" fill="#3A5F78"/>
+        <text x="359" y="90" font-family="sans-serif" font-size="10" fill="#1B1711" font-weight="700">20,061</text>
+        <rect x="100" y="118" width="141" height="24" rx="3" fill="#3A5F78"/>
+        <text x="247" y="135" font-family="sans-serif" font-size="10" fill="#1B1711" font-weight="700">11,212</text>
+        <rect x="100" y="163" width="121" height="24" rx="3" fill="#708DA1"/>
+        <text x="227" y="180" font-family="sans-serif" font-size="10" fill="#1B1711" font-weight="700">9,618</text>
+        <rect x="100" y="208" width="73" height="24" rx="3" fill="#708DA1"/>
+        <text x="179" y="225" font-family="sans-serif" font-size="10" fill="#1B1711" font-weight="700">5,813</text>
+        <line x1="100" y1="20" x2="100" y2="240" stroke="#D4D0C8" stroke-width="1"/>
+    </svg>
+    <p class="chart-caption">영상당 조회수 기준. 하이라이트 유형이 솔로랭크 대비 2.7배 높은 도달 효율을 보인다.</p>
+</div>
+
+<div class="action-title">치지직에서는 작지만 효율적인 엔진, 유튜브에서는 911만 조회의 Shorts 도달 엔진. 문제는 두 엔진이 연결되어 있지 않다.</div>
+
+<p>유튜브 구독자(7,190)가 치지직 팔로워(3,760)의 1.9배라는 점도 주목할 만하다. 유튜브에서 본 채널을 아는 사람이 치지직보다 많지만, 두 플랫폼 시청자가 얼마나 겹치는지는 현재 데이터로 확인할 수 없다.</p>
+
+<!-- ==================== BLOCK 2: 뭐가 문제인가 ==================== -->
+<div class="page-break"></div>
+
+<h2>BLOCK 2. 뭐가 문제인가</h2>
+
+<div class="conclusion-card">
+    <span class="card-label">CONCLUSION</span>
+    성장 과제는 '더 많이 돌리는 것'이 아니라 '같은 시간을 더 효과적으로 쓰는 것'이다. 현재의 상위권 효율은 극단적 방송량에 상당 부분 의존하며, 유튜브 도달이 치지직 유입으로 이어지는 배관이 거의 없다.
+</div>
+
+<h3>진단 1 — 잔류율과 방송시간의 구조</h3>
+
+<div class="action-title">방송시간이 길수록 잔류율이 급감한다. 코호트 전체에서 확인되는 구조적 패턴.</div>
+
+<!-- CHART 5: Vertical Bar Chart — Retention by Broadcast Hours Band -->
+<div class="chart-container no-break">
+    <p class="chart-title">방송시간 밴드별 잔류율 분포</p>
+    <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="40" x2="530" y2="40" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="60" y1="90" x2="530" y2="90" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="60" y1="140" x2="530" y2="140" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="60" y1="190" x2="530" y2="190" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="60" y1="240" x2="530" y2="240" stroke="#E8E4DF" stroke-width="0.5"/>
+        <text x="55" y="44" text-anchor="end" font-family="sans-serif" font-size="9" fill="#6B6560">0.70</text>
+        <text x="55" y="94" text-anchor="end" font-family="sans-serif" font-size="9" fill="#6B6560">0.53</text>
+        <text x="55" y="144" text-anchor="end" font-family="sans-serif" font-size="9" fill="#6B6560">0.35</text>
+        <text x="55" y="194" text-anchor="end" font-family="sans-serif" font-size="9" fill="#6B6560">0.18</text>
+        <text x="55" y="254" text-anchor="end" font-family="sans-serif" font-size="9" fill="#6B6560">0.00</text>
+        <line x1="60" y1="40" x2="60" y2="250" stroke="#D4D0C8" stroke-width="1"/>
+        <line x1="60" y1="250" x2="530" y2="250" stroke="#D4D0C8" stroke-width="1"/>
+        <!-- 30h미만: 0.626 -->
+        <rect x="85" y="62" width="70" height="188" rx="3" fill="#2D4A5E"/>
+        <text x="120" y="56" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#2D4A5E" font-weight="700">0.626</text>
+        <text x="120" y="268" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#3D3833">30h 미만</text>
+        <text x="120" y="280" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#6B6560">(30채널)</text>
+        <!-- 30~80h: 0.362 -->
+        <rect x="175" y="141" width="70" height="109" rx="3" fill="#3A5F78"/>
+        <text x="210" y="135" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#3A5F78" font-weight="700">0.362</text>
+        <text x="210" y="268" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#3D3833">30~80h</text>
+        <text x="210" y="280" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#6B6560">(23채널)</text>
+        <!-- 80~150h: 0.299 -->
+        <rect x="265" y="160" width="70" height="90" rx="3" fill="#708DA1"/>
+        <text x="300" y="154" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#708DA1" font-weight="700">0.299</text>
+        <text x="300" y="268" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#3D3833">80~150h</text>
+        <text x="300" y="280" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#6B6560">(33채널)</text>
+        <!-- 150h+: 0.245 -->
+        <rect x="355" y="176" width="70" height="74" rx="3" fill="#708DA1"/>
+        <text x="390" y="170" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#708DA1" font-weight="700">0.245</text>
+        <text x="390" y="268" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#3D3833">150h+</text>
+        <text x="390" y="280" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#6B6560">(14채널)</text>
+        <!-- 본 채널: 0.418 — amber highlight -->
+        <rect x="445" y="125" width="70" height="125" rx="3" fill="#C4834D"/>
+        <text x="480" y="119" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#C4834D" font-weight="700">0.418</text>
+        <text x="480" y="268" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#A8693A" font-weight="700">본 채널</text>
+        <text x="480" y="280" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#A8693A">(162.7h)</text>
+        <text x="15" y="150" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B6560" transform="rotate(-90,15,150)">잔류율</text>
+    </svg>
+    <p class="chart-caption">방송시간이 길수록 잔류율이 감소하는 구조적 패턴. 본 채널(amber)은 150h+ 그룹 중앙보다 높지만, 30h 미만 그룹과는 큰 격차.</p>
+</div>
+
+<table>
+    <thead>
+        <tr><th>방송시간 밴드</th><th style="text-align:right">채널 수</th><th style="text-align:right">잔류율 중앙값</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>30시간 미만</td><td style="text-align:right">30</td><td style="text-align:right">0.626</td></tr>
+        <tr><td>30~80시간</td><td style="text-align:right">23</td><td style="text-align:right">0.362</td></tr>
+        <tr><td>80~150시간</td><td style="text-align:right">33</td><td style="text-align:right">0.299</td></tr>
+        <tr><td>150시간 이상</td><td style="text-align:right">14</td><td style="text-align:right">0.245</td></tr>
+        <tr><td class="highlight">본 채널 (162.7시간)</td><td style="text-align:right">--</td><td style="text-align:right" class="highlight">0.418</td></tr>
+    </tbody>
+</table>
+
+<p>본 채널(0.418)은 150시간+ 그룹 중앙(0.245)보다 1.7배 높아 같은 극단적 방송시간 대비 잘 버티고 있다. 그러나 동급생 중앙(0.645)과의 격차는 크다. 참고 사례: 비슷한 규모(평균 79명, 팔로워 3,918) 채널이 잔류율 0.908로 본 채널의 2.2배.</p>
+
+<div class="certainty"><span class="badge almost">거의 확실</span> 코호트 100채널 전체에서 관찰된 일관된 음의 상관 패턴</div>
+
+<p style="margin-top: 16px;"><strong>카테고리별 잔류율 비교 (LoL vs TFT2)</strong></p>
+
+<table>
+    <thead>
+        <tr><th>카테고리</th><th style="text-align:right">방송시간</th><th style="text-align:right">평균 시청자</th><th style="text-align:right">잔류율</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>LoL</td><td style="text-align:right">158.2h (90%)</td><td style="text-align:right">70</td><td style="text-align:right">0.424</td></tr>
+        <tr><td>TFT2</td><td style="text-align:right">16.6h (10%)</td><td style="text-align:right">50</td><td style="text-align:right" class="positive">0.725</td></tr>
+    </tbody>
+</table>
+
+<p>TFT2의 잔류율(0.725)이 LoL(0.424)의 1.7배. TFT2 시청자(50명)는 LoL(70명)의 71% -- "사람을 보러 오는" 코어 시청자가 약 50명 존재한다는 간접 증거. 단, TFT2 방송시간(16.6h)이 짧아 표본 제한적.</p>
+
+<div class="certainty"><span class="badge observed">관찰됨</span> 같은 스트리머의 다른 카테고리에서 잔류율 차이 확인. 인과 판단 보류</div>
+
+<h3>진단 2 — 유튜브 전환 퍼널의 부재</h3>
+
+<div class="action-title">유튜브는 도달을 만들고 있지만, 전환은 만들지 못하고 있다. "도달이 없어서 안 큰다"가 아니라 "도달을 쓰지 못해서 안 큰다".</div>
+
+<!-- CHART 6: Flow Diagram — YouTube Conversion Funnel -->
+<div class="chart-container no-break">
+    <p class="chart-title">YouTube -> 치지직 전환 퍼널 현황</p>
+    <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stage 1: Shorts -->
+        <rect x="30" y="30" width="140" height="70" rx="8" fill="#2D4A5E"/>
+        <text x="100" y="58" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="700">Shorts 672개</text>
+        <text x="100" y="78" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#E8E4DF">911만 조회수</text>
+        <!-- Arrow 1 -->
+        <line x1="170" y1="65" x2="210" y2="65" stroke="#D4D0C8" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4D0C8"/></marker></defs>
+        <!-- Bottleneck: Description Link -->
+        <rect x="210" y="30" width="140" height="70" rx="8" fill="#FFFFFF" stroke="#A8292F" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="280" y="52" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#A8292F" font-weight="700">Description 링크</text>
+        <text x="280" y="68" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#A8292F">6/672 = 0.9%</text>
+        <text x="280" y="84" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B6560">병목 지점</text>
+        <!-- Arrow 2 -->
+        <line x1="350" y1="65" x2="390" y2="65" stroke="#D4D0C8" stroke-width="2" marker-end="url(#arrowhead)"/>
+        <!-- Stage 3: Chzzk -->
+        <rect x="390" y="30" width="140" height="70" rx="8" fill="#3A5F78"/>
+        <text x="460" y="58" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="700">치지직 유입</text>
+        <text x="460" y="78" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#E8E4DF">전환 프록시 0.04%</text>
+
+        <!-- Bottom detail boxes -->
+        <!-- Mapped types -->
+        <rect x="30" y="140" width="230" height="90" rx="6" fill="#F5F2ED" stroke="#E8E4DF"/>
+        <text x="145" y="162" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#2D4A5E" font-weight="700">Shorts-일반 영상 매핑</text>
+        <text x="40" y="182" font-family="sans-serif" font-size="9" fill="#3D3833">풀버전 링크 직접 연결: 6건 (0.9%)</text>
+        <text x="40" y="198" font-family="sans-serif" font-size="9" fill="#3D3833">키워드 겹침 (설계 아님): 363건 (54.0%)</text>
+        <text x="40" y="214" font-family="sans-serif" font-size="9" fill="#3D3833">매핑 불가 (독립 소비): 291건 (43.3%)</text>
+
+        <!-- Conversion proxy -->
+        <rect x="290" y="140" width="240" height="90" rx="6" fill="#F5F2ED" stroke="#E8E4DF"/>
+        <text x="410" y="162" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#2D4A5E" font-weight="700">전환 프록시 산출</text>
+        <text x="300" y="182" font-family="sans-serif" font-size="9" fill="#3D3833">치지직 팔로워: 3,760</text>
+        <text x="300" y="198" font-family="sans-serif" font-size="9" fill="#3D3833">YouTube 총 조회수: 9,241,534</text>
+        <text x="300" y="214" font-family="sans-serif" font-size="9" fill="#C4834D" font-weight="700">상한 프록시: 0.0407%</text>
+
+        <!-- Bottom note -->
+        <text x="280" y="265" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#A8292F" font-weight="600">= 조회수 1,000회당 치지직 팔로워 최대 0.41명</text>
+        <rect x="100" y="280" width="360" height="28" rx="4" fill="#FFF3E0"/>
+        <text x="280" y="299" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#A43112" font-weight="600">핵심 병목: Shorts description에 다음 행동 링크가 없다 (99.1%)</text>
+    </svg>
+    <p class="chart-caption">672개 Shorts 중 6개(0.9%)에만 풀버전/라이브 링크 존재. 나머지 666개는 개별 클립으로 소비되고 다음 행동으로 이어질 장치가 없다.</p>
+</div>
+
+<p>유튜브 총 조회수(924만) 대비 치지직 팔로워(3,760)의 비율은 0.0407%이다. 조회수 1,000회당 치지직 팔로워 최대 0.41명. 같은 사람의 반복 조회, 유튜브 외 유입 경로가 분리되지 않았으므로 실제 전환율은 이보다 낮다.</p>
+
+<div class="certainty"><span class="badge observed">관찰됨</span> Shorts description 링크 부재는 확인된 사실. 전환 프록시는 상한 추정치</div>
+
+<h3>진단 3 — 업로드 빈도 하락</h3>
+
+<table>
+    <thead>
+        <tr><th>월</th><th style="text-align:right">업로드</th><th style="text-align:right">총 조회수</th><th>추세</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>2026-01</td><td style="text-align:right">24</td><td style="text-align:right">301,670</td><td>--</td></tr>
+        <tr><td>2026-02</td><td style="text-align:right">21</td><td style="text-align:right">265,099</td><td>--</td></tr>
+        <tr><td>2026-03</td><td style="text-align:right">22</td><td style="text-align:right">285,815</td><td>--</td></tr>
+        <tr><td>2026-04</td><td style="text-align:right" class="negative">9</td><td style="text-align:right">76,620</td><td class="negative">-59%</td></tr>
+        <tr><td>2026-05</td><td style="text-align:right" class="negative">10</td><td style="text-align:right">142,856</td><td class="negative">-55%</td></tr>
+        <tr><td>2026-06</td><td style="text-align:right" class="negative">6</td><td style="text-align:right">35,432</td><td class="negative">-73%</td></tr>
+    </tbody>
+</table>
+
+<p>2026년 1~3월 평균 22.3건에서 4~6월 평균 8.3건으로 <span class="negative">63% 감소</span>. 이 추세가 지속되면 P2(유튜브 전환 퍼널)의 전제 자체가 무너진다. 원인은 현재 데이터로 미확인 -- 방송시간 과다로 편집 여력이 줄었을 가능성, 동기 저하, 외부 사정 등 모두 가능.</p>
+
+<div class="certainty"><span class="badge sure">확실</span> 업로드 빈도 하락은 데이터에서 직접 확인된 사실. 원인은 미확인</div>
+
+<h3>우선순위 정리</h3>
+
+<table>
+    <thead>
+        <tr><th>순위</th><th>과제</th><th>단정 등급</th></tr>
+    </thead>
+    <tbody>
+        <tr><td class="highlight">P1</td><td>잔류율 개선 (0.418 -> 0.55~0.65). 방송시간-잔류율 음의 상관은 코호트 입증</td><td><span class="badge almost">거의 확실</span></td></tr>
+        <tr><td class="highlight">P2</td><td>유튜브 전환 퍼널 설계. 도달은 이미 있다(911만). 부족한 것은 배관</td><td><span class="badge observed">관찰됨</span></td></tr>
+        <tr><td>P3</td><td>유입 경로 다각화 (레이드, 콜라보, 디스커버리)</td><td><span class="badge inferred">추정</span></td></tr>
+        <tr><td>P4</td><td>팔로워 풀 확대 (3,760 -> 5,300+). P1~P3 선행 시 자연 따라올 가능성</td><td><span class="badge inferred">추정</span></td></tr>
+    </tbody>
+</table>
+
+<p><strong>P1이 P2보다 먼저인 이유:</strong> 잔류율이 낮은 상태에서 유입을 늘려봐야 "들어오고 떠나는" 패턴이 반복된다. 동급생 비교 채널(평균 79명, 팔로워 3,918)은 잔류율 0.908로 본 채널의 2.2배. 잔류율이 0.55 이상으로 올라가면, 같은 유입량에서도 평균 시청자가 상승한다.</p>
+
+<h3>실행 장벽 요약</h3>
+
+<table>
+    <thead>
+        <tr><th>장벽</th><th>핵심 내용</th><th>난이도</th><th>관련 우선순위</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>노방종 관성</td><td>162.7h 축소 저항. "잘 되고 있는 것을 멈추는" 감각</td><td class="negative">높음</td><td>P1</td></tr>
+        <tr><td>정붙음 천장</td><td>소규모 밀착이 체급 확대와 충돌. avg 200+에서 전환 필요</td><td class="warning">중~높</td><td>전체</td></tr>
+        <tr><td>단일 소재</td><td>LoL 100%. 비LoL 콘텐츠 시도 자체가 없음</td><td class="warning">중간</td><td>P3</td></tr>
+        <tr><td>전환 파이프라인</td><td>Shorts 전환 장치 부재. Description 링크 0.9%</td><td class="positive">낮음</td><td>P2</td></tr>
+        <tr><td>업로드 하락</td><td>4~6월 63% 감소. P2 전제 위협</td><td class="warning">낮~중</td><td>P2</td></tr>
+    </tbody>
+</table>
+
+<div class="conclusion-card">
+    <span class="card-label">CONCLUSION</span>
+    다섯 장벽 중 넷은 "현재 돌아가고 있는 것을 바꿔야 한다"는 구조이고, 하나(전환 파이프라인)는 "없는 것을 새로 만들어야 한다"는 구조이다. 가장 쉬운 것(전환 파이프라인)부터 시작해서 작은 성공을 만들고, 가장 어려운 것(노방종)은 단계적으로 접근하는 것이 실행의 기본 순서이다.
+</div>
+
+<!-- ==================== BLOCK 3: 뭘 해야 하는가 ==================== -->
+<div class="page-break"></div>
+
+<h2>BLOCK 3. 뭘 해야 하는가</h2>
+
+<div class="conclusion-card">
+    <span class="card-label">CONCLUSION</span>
+    가장 쉬운 것부터 시작한다 -- 전환 파이프라인(P2)은 description 템플릿 하나로 착수할 수 있다. 가장 어려운 것은 단계적으로 접근한다 -- 방송시간 축소(P1)는 세션 분할로 시작해서 총량 조정으로 이행한다.
+</div>
+
+<h3>실행 로드맵: 4단계 구조</h3>
+
+<!-- CHART 7: Flow Diagram — 4-Stage Execution Roadmap -->
+<div class="chart-container no-break">
+    <p class="chart-title">실행 4단계 흐름도</p>
+    <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stage 1 -->
+        <rect x="20" y="20" width="240" height="55" rx="8" fill="#01682D" fill-opacity="0.12" stroke="#01682D" stroke-width="1.5"/>
+        <text x="140" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#01682D" font-weight="700">1단계: 전환 퍼널 설계</text>
+        <text x="140" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#01682D">난이도 낮음 | 즉시 착수 | P2</text>
+        <!-- Stage 2 (parallel with 1) -->
+        <rect x="290" y="20" width="240" height="55" rx="8" fill="#3A5F78" fill-opacity="0.15" stroke="#3A5F78" stroke-width="1.5"/>
+        <text x="410" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#3A5F78" font-weight="700">2단계: 세션 분할</text>
+        <text x="410" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3A5F78">난이도 중간 | 병행 | P1 전반</text>
+        <!-- Parallel marker -->
+        <text x="270" y="52" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#6B6560">+</text>
+        <!-- Arrow down from both to gate -->
+        <line x1="140" y1="75" x2="140" y2="110" stroke="#D4D0C8" stroke-width="1.5"/>
+        <line x1="410" y1="75" x2="410" y2="110" stroke="#D4D0C8" stroke-width="1.5"/>
+        <!-- Gate -->
+        <polygon points="275,110 325,130 275,150 225,130" fill="#FFF3E0" stroke="#C4834D" stroke-width="1.5"/>
+        <text x="275" y="134" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#A8693A" font-weight="700">조건 확인</text>
+        <line x1="140" y1="110" x2="225" y2="130" stroke="#D4D0C8" stroke-width="1"/>
+        <line x1="410" y1="110" x2="325" y2="130" stroke="#D4D0C8" stroke-width="1"/>
+        <!-- Gate conditions text -->
+        <text x="275" y="170" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#A8693A">잔류율 >= 0.45 AND 뷰어십 >= 10,000</text>
+        <!-- Arrow down to Stage 3 -->
+        <line x1="275" y1="150" x2="275" y2="190" stroke="#C4834D" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+        <defs><marker id="arrowAmber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#C4834D"/></marker></defs>
+        <!-- Stage 3 -->
+        <rect x="155" y="190" width="240" height="55" rx="8" fill="#A8292F" fill-opacity="0.1" stroke="#A8292F" stroke-width="1.5"/>
+        <text x="275" y="212" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#A8292F" font-weight="700">3단계: 총시간 축소</text>
+        <text x="275" y="230" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#A8292F">난이도 높음 | 2단계 결과 후 | P1 후반</text>
+        <!-- Stage 4 (independent, side) -->
+        <rect x="20" y="190" width="120" height="55" rx="8" fill="#708DA1" fill-opacity="0.15" stroke="#708DA1" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <text x="80" y="212" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#708DA1" font-weight="700">4단계</text>
+        <text x="80" y="228" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#708DA1">인접 콘텐츠</text>
+        <text x="80" y="240" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#708DA1">여력 시 | P3</text>
+        <!-- Timeline -->
+        <rect x="20" y="270" width="520" height="22" rx="4" fill="#F5F2ED"/>
+        <rect x="20" y="270" width="130" height="22" rx="4" fill="#01682D" fill-opacity="0.2"/>
+        <rect x="150" y="270" width="130" height="22" rx="4" fill="#3A5F78" fill-opacity="0.2"/>
+        <rect x="280" y="270" width="130" height="22" rx="4" fill="#A8292F" fill-opacity="0.15"/>
+        <text x="85" y="285" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#01682D" font-weight="600">W1~W4</text>
+        <text x="215" y="285" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3A5F78" font-weight="600">W5~W12</text>
+        <text x="345" y="285" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#A8292F" font-weight="600">W13~W24</text>
+        <text x="475" y="285" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B6560">종합 리뷰</text>
+    </svg>
+    <p class="chart-caption">1단계와 2단계는 병행. 3단계는 2단계 결과 확인 후 조건부 착수. 4단계는 독립적으로 여력 시 시작.</p>
+</div>
+
+<div class="stage-card">
+    <h4>1단계: 유튜브 전환 퍼널 설계</h4>
+    <span class="difficulty low">난이도 낮음 | 즉시 착수</span>
+
+    <table>
+        <thead>
+            <tr><th>항목</th><th>동사</th><th>대상</th><th>시간/횟수</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>A</td><td>작성한다</td><td>Shorts description 표준 템플릿</td><td>1회</td></tr>
+            <tr><td>B</td><td>적용한다</td><td>신규 업로드 모든 Shorts</td><td>매 업로드</td></tr>
+            <tr><td>C</td><td>기록한다</td><td>일별 치지직 팔로워 수</td><td>매일 1회</td></tr>
+            <tr><td>D</td><td>비교한다</td><td>Shorts 업로드일 전후 팔로워 변화</td><td>주 1회</td></tr>
+        </tbody>
+    </table>
+
+    <p>Description 템플릿에는 치지직 라이브 링크와 풀버전 영상 연결(해당 시)을 포함한다. 4주 후 팔로워 변화량이 유의미하지 않더라도 실패가 아니다 -- 4주는 기준선 확보 기간이다.</p>
+
+    <table>
+        <thead>
+            <tr><th>지표</th><th>현재</th><th>4주 후 목표</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>신규 Shorts 링크 적용률</td><td class="negative">0.9%</td><td class="positive">100%</td></tr>
+            <tr><td>일별 팔로워 스냅샷</td><td class="negative">미수집</td><td class="positive">28일 연속</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="stage-card">
+    <h4>2단계: 방송 세션 분할</h4>
+    <span class="difficulty mid">난이도 중간 | 1단계와 병행</span>
+
+    <p>총 방송시간을 유지한 채 세션 길이를 줄이고 방송 일수를 늘린다. "줄이는" 것이 아니라 "나누는" 것이 이 단계의 프레이밍이다. 현재 월 162.7시간을 30일로 나누면 일 평균 5.4시간이며, 노방종 패턴이라면 특정 일에 10시간 이상 방송하고 쉬는 날이 있을 가능성이 높다.</p>
+
+    <table>
+        <thead>
+            <tr><th>항목</th><th>동사</th><th>대상</th><th>시간/횟수</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>A</td><td>설정한다</td><td>세션 종료 시각</td><td>시작 후 4~5시간</td></tr>
+            <tr><td>B</td><td>늘린다</td><td>주간 방송 일수</td><td>주 5일 이상</td></tr>
+            <tr><td>C</td><td>기록한다</td><td>세션별 시작/종료/평균/피크</td><td>매 방송</td></tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr><th>지표</th><th>현재</th><th>8주 후 목표</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>세션 평균 길이</td><td>~5.4h (추정)</td><td>3~4h</td></tr>
+            <tr><td>잔류율</td><td class="negative">0.418</td><td>0.45~0.50</td></tr>
+            <tr><td>뷰어십</td><td>11,253</td><td>11,000 이상 유지</td></tr>
+        </tbody>
+    </table>
+
+    <p>TFT2에서 잔류율 0.725가 관찰된 것은 짧은 세션에서 잔류율이 달라진다는 간접 증거이다. 같은 스트리머의 다른 조건에서 잔류율이 올라간 사례가 이미 있다.</p>
+</div>
+
+<div class="stage-card">
+    <h4>3단계: 방송 총시간 축소</h4>
+    <span class="difficulty high">난이도 높음 | 2단계 결과 확인 후 조건부 착수</span>
+
+    <p>2단계에서 세션 분할의 잔류율 효과를 확인한 후, 총 방송시간을 162.7시간에서 80~100시간으로 줄인다.</p>
+
+    <p><strong>착수 조건 (모두 충족 시):</strong></p>
+    <table>
+        <thead>
+            <tr><th>조건</th><th>기준</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>잔류율 개선 확인</td><td>잔류율 >= 0.45 (4주 평균)</td></tr>
+            <tr><td>뷰어십 유지 확인</td><td>뷰어십 >= 10,000 (4주 평균)</td></tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr><th>지표</th><th>2단계 종료 시</th><th>3단계 완료 목표</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>방송시간</td><td>~162h</td><td>80~100h</td></tr>
+            <tr><td>잔류율</td><td>0.45~0.50</td><td class="positive">0.55~0.65</td></tr>
+            <tr><td>평균 시청자</td><td>~69</td><td class="positive">90~120</td></tr>
+        </tbody>
+    </table>
+
+    <p>축소는 2회에 걸쳐 진행한다: 162h -> 120h (1차, 4주 유지) -> 80~100h (2차). 조건 미충족 시 강행하지 않고 2단계를 유지한다.</p>
+</div>
+
+<div class="stage-card">
+    <h4>4단계: 인접 콘텐츠 실험</h4>
+    <span class="difficulty mid">난이도 중간 | 독립적, 여력 시 착수</span>
+
+    <p>LoL 100% 의존에서 벗어나기 위한 소규모 실험. LoL을 떠나는 것이 아니라, LoL 생태계 인접 게임(TFT, 발로란트 등)으로 확장한다. 주 1회, 2~3시간 비LoL 세션을 배정하고 잔류율을 비교한다.</p>
+
+    <table>
+        <thead>
+            <tr><th>비LoL 세션 잔류율</th><th>해석</th><th>조치</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="positive">>= 0.40</td><td>LoL 세션과 동등</td><td>다각화 실행 가능</td></tr>
+            <tr><td class="negative">&lt; 0.30</td><td>유의미한 하락</td><td>해당 게임 중단, 다른 게임 시도</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ==================== BLOCK 4: 어디까지 갈 수 있는가 ==================== -->
+<div class="page-break"></div>
+
+<h2>BLOCK 4. 어디까지 갈 수 있는가</h2>
+
+<div class="conclusion-card">
+    <span class="card-label">CONCLUSION</span>
+    핵심 질문은 "효율을 유지하면서 체급을 3배로 키울 수 있는가"이다. 코호트 데이터의 답은 <strong>조건부 가능</strong>이다. 효율 하락은 피할 수 없지만, 비활성 채널이 만드는 "효율 계곡"은 유기적으로 성장하는 채널에게 해당하지 않는다.
+</div>
+
+<h3>마일스톤 시뮬레이션</h3>
+
+<!-- CHART 8: Milestone Roadmap -->
+<div class="chart-container no-break">
+    <p class="chart-title">성장 마일스톤 로드맵</p>
+    <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background track -->
+        <rect x="40" y="85" width="480" height="6" rx="3" fill="#E8E4DF"/>
+        <!-- Progress segments -->
+        <rect x="40" y="85" width="50" height="6" rx="3" fill="#C4834D"/>
+
+        <!-- Current position marker -->
+        <circle cx="90" cy="88" r="10" fill="#C4834D" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="90" y="92" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFFFFF" font-weight="700">NOW</text>
+        <text x="90" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#C4834D" font-weight="700">avg 69</text>
+        <text x="90" y="118" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B6560">fol 3,760</text>
+
+        <!-- MS1 -->
+        <circle cx="220" cy="88" r="10" fill="#3A5F78" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="220" y="92" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#FFFFFF" font-weight="700">MS1</text>
+        <text x="220" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3A5F78" font-weight="700">avg 120</text>
+        <text x="220" y="118" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B6560">fol ~8,000</text>
+        <text x="220" y="132" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#6B6560">전체 상위 ~900위</text>
+
+        <!-- MS2 -->
+        <circle cx="360" cy="88" r="12" fill="#2D4A5E" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="360" y="92" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#FFFFFF" font-weight="700">MS2</text>
+        <text x="360" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2D4A5E" font-weight="700">avg 200</text>
+        <text x="360" y="118" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B6560">fol ~13,300</text>
+        <text x="360" y="132" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#01682D" font-weight="600">LoL ~80위 진입</text>
+        <text x="360" y="146" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#01682D">디스커버리 작동</text>
+
+        <!-- MS3 -->
+        <circle cx="480" cy="88" r="12" fill="#2D4A5E" stroke="#C4834D" stroke-width="2"/>
+        <text x="480" y="92" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#FFFFFF" font-weight="700">MS3</text>
+        <text x="480" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2D4A5E" font-weight="700">avg 500</text>
+        <text x="480" y="118" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B6560">fol ~33,300</text>
+        <text x="480" y="132" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#6B6560">LoL ~30위</text>
+
+        <!-- Transition point annotation -->
+        <rect x="300" y="165" width="120" height="32" rx="4" fill="#FFF3E0" stroke="#C4834D" stroke-width="1"/>
+        <text x="360" y="180" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#A8693A" font-weight="700">MS2 = 전환점</text>
+        <text x="360" y="192" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#A8693A">외부 유입 -> 자체 발견</text>
+        <line x1="360" y1="148" x2="360" y2="165" stroke="#C4834D" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- Key metrics bottom -->
+        <rect x="40" y="210" width="480" height="40" rx="6" fill="#F5F2ED"/>
+        <text x="50" y="228" font-family="sans-serif" font-size="8" fill="#6B6560">전환율 가정: 1.84% -> 1.5% 희석 (보수 추정)</text>
+        <text x="50" y="242" font-family="sans-serif" font-size="8" fill="#6B6560">LoL 100위 진입 최저: avg 346명. MS2(avg 200)는 하위 노출 구간 진입 가능성.</text>
+    </svg>
+    <p class="chart-caption">MS2(avg 200)가 실질적 전환점. 카테고리 디스커버리가 작동하기 시작해 "외부에서 끌어와야만 크는" 구조에서 "안에서도 발견되는" 구조로 전환.</p>
+</div>
+
+<table>
+    <thead>
+        <tr><th>단계</th><th style="text-align:right">평균 시청자</th><th style="text-align:right">필요 팔로워 (전환 1.5%)</th><th>핵심 의미</th></tr>
+    </thead>
+    <tbody>
+        <tr><td class="highlight">현재</td><td style="text-align:right">69</td><td style="text-align:right">3,760 (실측)</td><td>LoL 100위 밖. 디스커버리 불가</td></tr>
+        <tr><td>MS1</td><td style="text-align:right">120</td><td style="text-align:right">~8,000</td><td>치지직 전체 상위 ~900위. 외부 유입 의존 지속</td></tr>
+        <tr><td>MS2</td><td style="text-align:right" class="positive">200</td><td style="text-align:right">~13,300</td><td class="positive">LoL ~80위 진입권. 디스커버리 작동 시작</td></tr>
+        <tr><td>MS3</td><td style="text-align:right">500</td><td style="text-align:right">~33,300</td><td>LoL ~30위. 자기강화 루프 가능</td></tr>
+    </tbody>
+</table>
+
+<h3>효율 하락 변곡점 -- "계곡"은 누구에게 해당하는가</h3>
+
+<!-- CHART 9: Dual-Axis Bar+Line — Efficiency by Viewer Band -->
+<div class="chart-container no-break">
+    <p class="chart-title">시청자 밴드별 효율-잔류율 분포 (LoL 상위 100)</p>
+    <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid -->
+        <line x1="80" y1="40" x2="500" y2="40" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="80" y1="90" x2="500" y2="90" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="80" y1="140" x2="500" y2="140" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="80" y1="190" x2="500" y2="190" stroke="#E8E4DF" stroke-width="0.5"/>
+        <line x1="80" y1="240" x2="500" y2="240" stroke="#E8E4DF" stroke-width="0.5"/>
+
+        <!-- Y-axis left: Efficiency (0~10) -->
+        <text x="75" y="44" text-anchor="end" font-family="sans-serif" font-size="8" fill="#2D4A5E">10.0</text>
+        <text x="75" y="94" text-anchor="end" font-family="sans-serif" font-size="8" fill="#2D4A5E">7.5</text>
+        <text x="75" y="144" text-anchor="end" font-family="sans-serif" font-size="8" fill="#2D4A5E">5.0</text>
+        <text x="75" y="194" text-anchor="end" font-family="sans-serif" font-size="8" fill="#2D4A5E">2.5</text>
+        <text x="75" y="244" text-anchor="end" font-family="sans-serif" font-size="8" fill="#2D4A5E">0.0</text>
+        <text x="15" y="145" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2D4A5E" transform="rotate(-90,15,145)">효율</text>
+
+        <!-- Y-axis right: Retention (0~0.5) -->
+        <text x="505" y="44" text-anchor="start" font-family="sans-serif" font-size="8" fill="#C4834D">0.50</text>
+        <text x="505" y="144" text-anchor="start" font-family="sans-serif" font-size="8" fill="#C4834D">0.25</text>
+        <text x="505" y="244" text-anchor="start" font-family="sans-serif" font-size="8" fill="#C4834D">0.00</text>
+        <text x="545" y="145" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#C4834D" transform="rotate(90,545,145)">잔류율</text>
+
+        <!-- Axes -->
+        <line x1="80" y1="40" x2="80" y2="240" stroke="#D4D0C8" stroke-width="1"/>
+        <line x1="80" y1="240" x2="500" y2="240" stroke="#D4D0C8" stroke-width="1"/>
+        <line x1="500" y1="40" x2="500" y2="240" stroke="#D4D0C8" stroke-width="1"/>
+
+        <!-- Bars: Efficiency (height = val/10 * 200) -->
+        <!-- 500미만: 3.321 -> 66.4 -->
+        <rect x="100" y="174" width="55" height="66" rx="2" fill="#2D4A5E"/>
+        <text x="127" y="168" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2D4A5E" font-weight="700">3.32</text>
+        <!-- 500~2K: 1.321 -> 26.4 -->
+        <rect x="180" y="214" width="55" height="26" rx="2" fill="#3A5F78"/>
+        <text x="207" y="208" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3A5F78" font-weight="700">1.32</text>
+        <!-- 2K~5K: 1.081 -> 21.6 (valley!) -->
+        <rect x="260" y="218" width="55" height="22" rx="2" fill="#708DA1"/>
+        <text x="287" y="212" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#A8292F" font-weight="700">1.08</text>
+        <!-- 5K~15K: 2.989 -> 59.8 -->
+        <rect x="340" y="180" width="55" height="60" rx="2" fill="#3A5F78"/>
+        <text x="367" y="174" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3A5F78" font-weight="700">2.99</text>
+        <!-- 15K+: 8.430 -> 168.6 -->
+        <rect x="420" y="71" width="55" height="169" rx="2" fill="#2D4A5E"/>
+        <text x="447" y="65" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#2D4A5E" font-weight="700">8.43</text>
+
+        <!-- Line: Retention (height = val/0.5 * 200) -->
+        <!-- 500미만: 0.171 -> y=240-68.4=171.6 -->
+        <!-- 500~2K: 0.331 -> y=240-132.4=107.6 -->
+        <!-- 2K~5K: 0.422 -> y=240-168.8=71.2 -->
+        <!-- 5K~15K: 0.476 -> y=240-190.4=49.6 -->
+        <!-- 15K+: 0.320 -> y=240-128=112 -->
+        <polyline points="127,172 207,108 287,71 367,50 447,112" fill="none" stroke="#C4834D" stroke-width="2.5"/>
+        <circle cx="127" cy="172" r="4" fill="#C4834D"/>
+        <circle cx="207" cy="108" r="4" fill="#C4834D"/>
+        <circle cx="287" cy="71" r="4" fill="#C4834D"/>
+        <circle cx="367" cy="50" r="4" fill="#C4834D"/>
+        <circle cx="447" cy="112" r="4" fill="#C4834D"/>
+        <!-- Retention values -->
+        <text x="127" y="186" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#C4834D">0.17</text>
+        <text x="207" y="102" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#C4834D">0.33</text>
+        <text x="287" y="65" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#C4834D">0.42</text>
+        <text x="367" y="44" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#C4834D">0.48</text>
+        <text x="447" y="126" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#C4834D">0.32</text>
+
+        <!-- Valley annotation -->
+        <rect x="248" y="245" width="80" height="16" rx="3" fill="#FFEBEE"/>
+        <text x="288" y="256" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#A8292F" font-weight="700">효율 계곡</text>
+
+        <!-- X-axis labels -->
+        <text x="127" y="260" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3D3833">500 미만</text>
+        <text x="207" y="260" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3D3833">500~2K</text>
+        <text x="287" y="260" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3D3833">2K~5K</text>
+        <text x="367" y="260" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3D3833">5K~15K</text>
+        <text x="447" y="260" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3D3833">15K+</text>
+        <text x="290" y="278" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B6560">월간 평균 시청자 밴드</text>
+
+        <!-- Legend -->
+        <rect x="100" y="290" width="12" height="12" rx="2" fill="#2D4A5E"/>
+        <text x="116" y="300" font-family="sans-serif" font-size="8" fill="#2D4A5E">효율 (뷰어십/팔로워)</text>
+        <line x1="200" y1="296" x2="220" y2="296" stroke="#C4834D" stroke-width="2.5"/>
+        <circle cx="210" cy="296" r="3" fill="#C4834D"/>
+        <text x="226" y="300" font-family="sans-serif" font-size="8" fill="#C4834D">잔류율 (avg/peak)</text>
+    </svg>
+    <p class="chart-caption">2K~5K 시청자 구간에서 효율이 최저(1.08)를 기록하는 "효율 계곡". 이 계곡은 비활성 대형 채널(은퇴 프로게이머 등)이 만든 것이다. 유기적으로 성장하는 채널에게는 해당하지 않을 가능성이 높다.</p>
+</div>
+
+<p>2,000~5,000 시청자 구간(31채널)에서 효율 최저점(1.081)이 관찰되는 이유는, 이 구간에 과거 유명했으나 현재 비활성인 채널(은퇴 프로게이머, 전직 유명 스트리머 등)이 집중되어 있기 때문이다. 본 채널처럼 팔로워가 시청자 성장과 함께 유기적으로 늘어나는 경우, 이 "효율 계곡"을 같은 방식으로 통과할 가능성은 낮다.</p>
+
+<div class="certainty"><span class="badge inferred">추정</span> 단면 데이터에서 관찰된 패턴. 동일 채널의 종단 분석이 아님</div>
+
+<h3>본 채널에 실제로 중요한 변곡점</h3>
+
+<table>
+    <thead>
+        <tr><th>변곡점</th><th>기준</th><th>리스크</th></tr>
+    </thead>
+    <tbody>
+        <tr><td class="bold-lead">전환율 급락</td><td>1.84% -> 1.0% 이하</td><td>같은 팔로워 수에서 평균 시청자 급감. 1.5%까지는 정상 희석</td></tr>
+        <tr><td class="bold-lead">잔류율 바닥</td><td>0.418 -> 0.30 이하</td><td>방송시간을 유지한 채 팔로워만 늘리면 "커지는데 비어지는" 패턴</td></tr>
+    </tbody>
+</table>
+
+<p>효율 하락 자체보다 경계해야 할 것은 "방송시간을 유지한 채 팔로워만 늘리는 경로"이다. 잔류율이 더 빠져 들어오고 나가는 통로만 커지는 구조에 진입하면 체급 성장이 지표 성장으로 이어지지 않는다.</p>
+
+<h3>유튜브 전환 시뮬레이션</h3>
+
+<p>MS1까지 필요한 팔로워 순증은 약 4,240명이다. 유튜브가 유일한 유입원이라면:</p>
+
+<table>
+    <thead>
+        <tr><th>전환 프록시</th><th>필요 조회수</th><th>필요 기간 (16만/월)</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>0.0407% (현재)</td><td style="text-align:right">~1,042만</td><td class="negative">~65개월</td></tr>
+        <tr><td>0.1% (퍼널 설계 후)</td><td style="text-align:right">~424만</td><td class="warning">~27개월</td></tr>
+        <tr><td>0.2% (최적화 시)</td><td style="text-align:right">~212만</td><td class="positive">~13개월</td></tr>
+    </tbody>
+</table>
+
+<p>전환 프록시가 0.0407%에서 0.2%로 올라가면 MS1 도달 기간이 65개월에서 13개월로 5배 단축된다. 실제로는 치지직 내 디스커버리, 레이드, 커뮤니티 유입이 병행되므로 보조 참고용으로 취급한다.</p>
+
+<div class="certainty"><span class="badge inferred">추정</span> 전환 프록시 자체가 상한 추정치. 이 위에 쌓는 시뮬레이션은 시나리오 수준</div>
+
+<h3>타임라인과 체크포인트</h3>
+
+<table>
+    <thead>
+        <tr><th>주차</th><th>1단계 (전환 퍼널)</th><th>2단계 (세션 분할)</th><th>3단계 (총시간 축소)</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>W1~W2</td><td>템플릿 작성/적용 시작</td><td>세션 길이 목표 협의</td><td>--</td></tr>
+        <tr><td>W3~W4</td><td>신규 업로드 100% 적용</td><td>세션 분할 시작</td><td>--</td></tr>
+        <tr><td>W5~W8</td><td>팔로워 기준선 확보</td><td>세션 분할 지속</td><td>--</td></tr>
+        <tr><td>W9~W12</td><td>전환 프록시 변화 평가</td><td>잔류율 변화 평가</td><td>착수 조건 판단</td></tr>
+        <tr><td>W13~W16</td><td>유지</td><td>유지</td><td>1차 축소 (162->120h)</td></tr>
+        <tr><td>W17~W24</td><td>유지</td><td>--</td><td>2차 축소 (120->80~100h)</td></tr>
+    </tbody>
+</table>
+
+<h3>경보 조건</h3>
+
+<table>
+    <thead>
+        <tr><th>지표</th><th>경보 기준</th><th>조치</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>효율</td><td class="negative">&lt; 0.7</td><td>실행 중단, 원인 분석</td></tr>
+        <tr><td>잔류율</td><td class="negative">&lt; 0.30</td><td>방송시간 추가 축소 또는 편성 재검토</td></tr>
+        <tr><td>전환율</td><td class="negative">&lt; 1.0%</td><td>팔로워 비활성화 점검</td></tr>
+        <tr><td>유튜브 업로드</td><td class="negative">&lt; 3건, 2개월 연속</td><td>P2 파이프라인 점검</td></tr>
+    </tbody>
+</table>
+
+<div class="conclusion-card">
+    <span class="card-label">CONCLUSION</span>
+    실행 설계의 핵심은 순서와 조건이다. 1단계(전환 퍼널)는 조건 없이 즉시 시작한다. 2단계(세션 분할)는 1단계와 병행한다. 3단계(총시간 축소)는 2단계의 결과를 확인한 후에만 시작한다. <strong>"잘 되면 다음 단계, 안 되면 멈추고 재검토"가 이 설계의 안전장치이다.</strong> W24 종합 리뷰 시점에 MS1(avg 120) 진입 경로가 보이지 않으면, 우선순위와 마일스톤 자체를 재검토한다.
+</div>
+
+<hr>
+
+<p style="font-size: 8.5pt; color: var(--neutral-500); margin-top: 32px;"><strong>외부 데이터 고지:</strong> 치지직 뷰어십/팔로워/카테고리 데이터는 Softcon 기반이며 플랫폼 공식 API 원자료가 아니다. 유튜브 데이터는 YouTube Data API v3 공개 조회수 기반이며, YouTube Analytics의 시청 지속시간/유입 경로/구독 전환 데이터가 아니다. 절대 수치보다 추세와 상대 위치 중심으로 해석했다.</p>
+
+<p style="font-size: 8.5pt; color: var(--neutral-500);">본 보고서는 종합본 v3.1(53p)의 압축 요약본이다. 코호트 설계 근거, 용어 정의, 상세 데이터 테이블, 한계 전문은 종합본을 참조.</p>
+
+</body>
+</html>
