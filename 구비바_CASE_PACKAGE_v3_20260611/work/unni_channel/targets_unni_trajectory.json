@@ -1,0 +1,25 @@
+{
+  "description": "구비바 언니채널 궤적 매칭 — softcon 전체 이력 수집 대상",
+  "subject": {
+    "name": "구비바",
+    "channelId": "269edc95873a1ec9fc534851c0783d1f",
+    "note": "구비바 자체도 2023-10~2024-01 누락분 보충 필요"
+  },
+  "targets": [
+    {"channelId": "269edc95873a1ec9fc534851c0783d1f", "name": "구비바", "group": "subject", "score": null, "note": "subject — 2023-10~2024-01 누락분 보충"},
+    {"channelId": "3c756c71b2c4a1bda8ee7a398e626f17", "name": "불꽃빡빡", "group": "candidate", "score": 100, "recent_level": 19.3},
+    {"channelId": "ad76cad60cf7f1c7b658433d3c2b4f75", "name": "유푸링", "group": "candidate", "score": 100, "recent_level": 17.0},
+    {"channelId": "694a4e3ac4406e1989f85cdde291999c", "name": "쥐뚱", "group": "candidate", "score": 95, "recent_level": 21.3},
+    {"channelId": "d8f9cfab91b27abb7b3f7f2c1a186e29", "name": "CASKER", "group": "candidate", "score": 95, "recent_level": 18.7},
+    {"channelId": "adeb7ab9d551519ccfae37b3788c40f1", "name": "루아 블루벨", "group": "candidate", "score": 90, "recent_level": 22.3},
+    {"channelId": "9c9a50b58884399c69d7ee1610bc6794", "name": "쇼새", "group": "candidate", "score": 85, "recent_level": 14.0},
+    {"channelId": "cd5ae4c07c49827120da9486e13454f5", "name": "연하늘 HaneuI", "group": "candidate", "score": 85, "recent_level": 14.0},
+    {"channelId": "a9e9faf32d32f089b07eb6213e9f4254", "name": "마무 Mamuu", "group": "candidate", "score": 83, "recent_level": 14.0},
+    {"channelId": "ee127dbe96d87d8056348dca8798ddd5", "name": "아야 AYA", "group": "candidate", "score": 83, "recent_level": 15.3},
+    {"channelId": "86e7edf62d3eabf0684f97ca6edce9ad", "name": "헵부", "group": "candidate", "score": 78, "recent_level": 18.0},
+    {"channelId": "cd94f8f4b13e8c195e551bc9f42b2646", "name": "치민22", "group": "candidate", "score": 78, "recent_level": 18.7},
+    {"channelId": "e3f1c85f98803a8a0f4187840ec6b862", "name": "스나루 SUNARU", "group": "candidate", "score": 78, "recent_level": 15.3},
+    {"channelId": "8131c92832957e2d83287c90af8e6932", "name": "이냐비", "group": "candidate", "score": 70, "recent_level": 16.0},
+    {"channelId": "aa26e59c91a22bd430ec1d5d6d965dac", "name": "포니고라운드", "group": "candidate", "score": 70, "recent_level": 16.7}
+  ]
+}
