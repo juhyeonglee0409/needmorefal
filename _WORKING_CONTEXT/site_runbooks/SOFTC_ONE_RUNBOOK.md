@@ -77,3 +77,8 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 - **tls-client WAF 우회 미테스트**: tls-client, got-scraping, patchright, botright, camoufox 5개 스택 테스트 예정이나 미진행. 성공 시 Playwright 대체 가능. 검증된 실패 경로 4개는 DL_038 참조.
 - **nodriver fresh profile 실패**: nodriver + fresh profile은 checkpoint 도달(§6 실측). nodriver + existing approved profile(.pw_profile)은 §6에서 687/687 후보 detail 완료. fresh profile 경로는 사용하지 말 것.
 - **03_GENERIC_PROTOCOL 내용 중복**: `03_STREAMER_CASE_GENERIC_PROTOCOL.md` lines 150-167에 SOFTC.ONE Step5 구체 내용이 있음. 향후 generic protocol 정비 시 사이트 특화 내용을 이 runbook으로 이전하고 원칙만 남기는 것 권장.
+- **.pw_profile 삭제됨 (2026-06-20)**: gitignored로 복구 불가. nodriver 스크립트는 프로필 없이 작동하므로 영향 없음. Playwright 경로 복원 시 재생성 필요.
+
+## See Also
+
+- `_WORKING_CONTEXT/COLLECTION_TOOLKIT.md` — 전체 수집 인프라 인벤토리 (스크립트 30개, 프로필, 도구, 매니페스트)

@@ -149,23 +149,7 @@ Reusable handling:
 - Treat UI download buttons as opportunistic. If framework/user-gesture/visibility handling makes them automation-unstable, use DOM extraction rather than repeated clicking.
 - Stop and preserve the boundary on 429 loops, repeated challenge loops, scope expansion, private/account data, or secret persistence uncertainty.
 
-Observed SOFTC.ONE Step5 route:
-
-- Source is checkpoint-gated and requires a user-approved browser session.
-- Canonical streams path: `/channel/{platform}/{channelId}/streams`.
-- `CSV 다운로드` is not automation-stable in current observations.
-- DOM row extraction is the primary §5 broadcast-record path unless later verification shows data loss.
-- Cookie/localStorage/session export remains prohibited.
-
-SOFTC.ONE Step5 full-range guard:
-
-- Do not assume the default date window is the requested collection window. Verify the UI/input/query state before batch collection.
-- For full-history collection, record the exact UTC query bounds and the visible UI range label in the run artifact.
-- Current verified full-range query shape: `?startDateTime={iso_utc}&endDateTime={iso_utc}` on `/streams`.
-- Use a scale ladder before full batch: small single-worker smoke, then gradual concurrency/delay changes, with a separate manifest/progress/error file for each rung.
-- Apply `skipExisting` before `limit` in resume smoke tests so the smoke covers the next missing targets, not already collected files.
-- Distinguish `not_found`/source path errors from rate-limit or challenge boundaries. Do not treat `not_found` as a 429/checkpoint signal.
-- If the visible DOM exposes a fixed row cap, record it as an extraction cap/residual risk, not as evidence that older broadcasts are absent.
+Site-specific routes, failure modes, proven runs, rate limit 기준: `site_runbooks/SOFTC_ONE_RUNBOOK.md` 참조. 수집 스크립트/프로필/도구 인벤토리: `COLLECTION_TOOLKIT.md` 참조.
 
 ## Output Discipline
 

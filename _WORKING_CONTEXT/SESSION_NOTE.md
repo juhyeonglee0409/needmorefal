@@ -439,3 +439,393 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - `softcon_cohort_member_profile_enrichment` is only partial: `follower_count` and `recent_category` are present, but `profile_text` is missing on 98/100 rows and classification flags are blank.
    - `auro_live_chzzk_follower_public_crosscheck` remains blocked by route requirements (`Chrome JS fetch + devalue parser`).
    - No cookie/token/session/csrf/password values, raw HTML, or screenshots were persisted. No CaseResult, disclosure final state, PublicDemoRow, or canonical package mutation was performed.
+
+---
+
+## [Cowork/Hosea] 2026-06-17T00:00+09:00 — 구비바 보고 가이드 + 2부 프레임 + 산문 시스템 v0.2
+
+1. What was done
+   - **구비바 1부 진단편 보고 가이드 작성**: 김달수_보고가이드_v1.md 포맷 + gubiba_part1_client_report_v2_20260617.md 데이터 소스 기반. ~400줄, 3막 구조(위치확인→성장추이+피어→방송량역설+목표조정), 예상 질문 12개. 핵심 수치 24개 전수 교차검증. 디스코드 화면공유 기준. 클로징 = "인식 전환 1개 + 2부 예고" (김달수 가이드의 "액션 확약"과 다름).
+   - **2부 분석 프레임 설계**: 사용자 제안(표본1/표본2/모집단) → 두 층 구조 확정.
+     - 비전 레퍼런스: 달콤레나, 아리사 + 서새봄/티뭉/강소연 (인터뷰 E1/F2 출처)
+     - 피어 레퍼런스: 목표 밴드 1.5K-2.5K 내 겸업 채널 (구조 비교)
+   - **리포트 산문 시스템 v0.1 → v0.2**: 사용자 9단계 Deep Review 결과물 검토 후 v0.2 수정 7건 적용 (범위 축소, 보존 규칙, 용어 수정, 용어집 부록). 실행 래퍼 별도 문서 분리.
+
+2. Files produced
+   - `Gunsmith_Mailbox/reports/gubiba_보고가이드_v1.md` — 구비바 1부 보고 가이드 (~400줄)
+   - `Codex_Workspace/.../specs/리포트_산문_시스템_v0.2.md` — 산문 시스템 v0.2 (규칙 원본)
+   - `Codex_Workspace/.../specs/리포트_산문_실행래퍼_v0.2.md` — LLM 실행 래퍼
+
+3. File status
+   - 보고 가이드: reviewed
+   - 산문 시스템 v0.2 + 실행 래퍼: Codex 배치 완료
+
+4. Decisions
+   - 2부 프레임: "이렇게 두 층 구분으로 가자" (사용자 확정)
+   - 실행 래퍼 분리: 규칙 원본 62줄 → 래퍼 포함 시 150줄+ 팽창 → 2파일 구조
+
+5. Boundaries
+   - 문서 작업만. 코드/파이프라인/canonical 미변경.
+
+---
+
+## [Cowork/Hosea] 2026-06-18T00:00+09:00 — 김달수 종합본 PDF + 요약본 + cross time-series 동기화
+
+1. What was done
+   - **김달수 v3.1 종합본 HTML→PDF**: WeasyPrint, 이모지→텍스트 치환. 53페이지 650KB.
+   - **4-Block 압축 요약본**: "지금 어디에 있는가 / 뭐가 문제인가 / 뭘 해야 하는가 / 어디까지 갈 수 있는가" 구조. 첫 버전 9p 464KB. 사용자 "분량+시각화 부족" 피드백 → 20+p + SVG 9개 확장 시도. **확장 Agent 출력 미반영 의심** (파일 크기 동일).
+   - **Cross time-series 문서 동기화**: "Chzzk 단일 스냅샷" 한계 → 편상관 r=+0.72~0.76 결과로 6개 위치 업데이트. Danny methodology review는 해당없음 확인.
+   - **Danny 요약본 결정**: 60p 전달 비현실적 → 섹션별 분석 결과 요약본 필요.
+
+2. Files produced / modified
+   - `deliverables/kimdalsu_v3_1_client_full_20260618.pdf` — 53p PDF
+   - `deliverables/kimdalsu_v3_1_client_summary_20260618.html` + `.pdf` — 요약본 (확장판 검증 필요)
+   - `deliverables/kimdalsu_v3_1_client_full_20260618.html` + `.md` — cross time-series 6건 동기화
+   - `deliverables/kimdalsu_v3_client_s5_20260618.md` — 2건 동기화
+   - `deliverables/kimdalsu_v3_client_s10s11_20260618.md` — 1건 동기화
+
+3. Key data synced
+   - Pearson: r=+0.761, +0.673, +0.657. Partial (방송일수 통제): r=+0.756, +0.716, +0.714
+   - 확신 수준: "관찰됨(독립 상관 확인)"
+
+4. Open issue
+   - 요약본 확장판 미반영 의심. Agent 937줄 보고 vs 파일 369줄 동일.
+
+5. Boundaries
+   - No cookie/token/session/csrf 저장. CaseResult/canonical 미변경.
+
+---
+
+## [Cowork/Hosea] 2026-06-19T09:00+09:00 — 구비바 576채널 코호트 팔로워 enrichment
+
+1. What was done
+   - **576채널 코호트 팔로워 전수 수집**: Softcon Chrome in-browser fetch로 4차 수집.
+     - 1차 386채널, 2차 120채널 (429 복구 후), 3차 8채널 (channelId 미보유→검색으로 확보), 4차 62채널 (매핑에 ID 있으나 누락분)
+   - **최종 병합**: 4개 팔로워 CSV + cohort base + ID 매핑 + 기존 enrichment 3소스. 파생 지표 산출.
+   - **결과**: 576/576 (100%) 커버리지. follower 233~317,991, 중앙값 3,435.
+
+2. Files produced
+   - `Gunsmith_Mailbox/reports/gubiva_cohort_enriched_576_20260619.csv` — 최종. 576행 15컬럼.
+   - `Gunsmith_Mailbox/reports/softcon_follower_{386,120,8,62}.csv` — 배치별 raw 수집 결과
+
+3. Technical notes
+   - Vercel WAF: Chrome page context `fetch()`, ~1.1-1.2s 딜레이. 429 시 메인 페이지 네비게이션으로 WAF 세션 갱신.
+   - channelId 미보유 8채널: `/search?q={name}` + enriched_965 grep. 공백 이름은 공백 제거 검색.
+   - JS 출력 제한: 25건씩 compact 포맷 추출.
+
+4. Boundaries
+   - Softcon ~1 req/s 준수. No cookie/token/session/screenshot 저장.
+
+5. Next step
+   - §5/§6 갱신본 기반 v3 보고서 반영 판단
+   - 요약본 확장판 미반영 검증 (6/18건)
+
+---
+
+## [Cowork/Hosea] 2026-06-19T18:00+09:00 — §5/§6 576코호트 진단 실행
+
+1. What was done
+   - **§5 코호트 테이블 생성**: 576 enriched → general_game 분류 join (965 cross-match 45ch, 10 true/35 false/531 virtual_only) → `cohort_final_virtual_576.csv` (576행) + `cohort_robustness_table_576.csv` (32행, 4 layer × 8 metric)
+   - **§5 6단계 진단 실행** (576 VTuber cohort):
+     - §5.1 기술통계: A=50, B=106, C=420. B avg CV=10.8%, hours CV=11.9% (균질), fol CV=69.0% (의도적 분산)
+     - §5.2 다축위치: B 내 4강2약 — 전환율 71.7%ile, 피크 75.9%ile, 효율 73.1%ile, 방송시간 62.7%ile / 팔로워 27.8%ile, **리텐션 25.0%ile (신규 발견)**
+     - §5.3 동질성: PAR 30.7%ile, Loyalty 25.0%ile
+     - §5.4 회귀: 전체 slope=0.712 R²=0.708, 구비바 잔차≈0 (−0.006). B only R²=0.017 (설명력 없음=의도적)
+     - §5.5 견고성: 50%ile 이상 4/6, 평균 56.1%ile. B+C 확장 시 효율 77.3%ile 유지
+     - §5.6~§5.8: 기존 정본(20260615) 유지 (방송기록 기반)
+   - **§5 종합**: "팔로워 under-indexed, 콘텐츠 over-indexed" 구조 재확인. 정본 대비 fol%ile 소폭↓, peak%ile 소폭↑, 잔차≈0 수렴. **리텐션 25%ile은 정본에 없던 신규 약점.**
+   - **§6 트레이드오프**: upper band 271ch (VTuber 59.4%) 대조.
+     - 갭: 10k 밴드까지 fol×17.5, avg×7.7, peak×3.6
+     - **리텐션 갭이 최대 병목**: 구비바 26.9% vs 상위 밴드 65%. 2.4배 개선 필요.
+     - 전환율 역전: 구비바 2.47% → 상위 밴드 ~1% (성장 시 자연 하락, 정상)
+     - 시간 추정: 50%/yr 성장 가정 시 10k 도달 ~6.5년
+   - **교차검증**: 576행·32행·구비바값·R²·271행 모두 일치 확인
+
+2. Files produced
+   - `Gunsmith_Mailbox/reports/cohort_final_virtual_576.csv` — 576행, is_general_game join 완료
+   - `Gunsmith_Mailbox/reports/cohort_robustness_table_576.csv` — 32행
+   - `Gunsmith_Mailbox/reports/gubiva_§5§6_576cohort_diagnosis_20260619.md` — §5/§6 종합 진단 보고
+
+3. Key findings vs 정본(20260615)
+   - 일치: 상승국면 판정, under-indexed/over-indexed 구조, 회귀 잔차≈0
+   - 신규: 리텐션 25%ile (정본 미측정), B+C 효율 77.3%ile, 상위 밴드 리텐션 갭 2.4배
+   - 변동: 코호트 +78% (323→576), 동체급 정의 변경 (peak→avg+hours 기반)
+
+4. Boundaries
+   - No cookie/token/session/screenshot 저장. CaseResult/canonical 미변경.
+   - targets\ 원본 미수정.
+
+---
+
+## [Cowork/Hosea] 2026-06-19T21:00+09:00 — v3 클라이언트 보고서 작성 완료
+
+1. What was done
+   - **v2→v3 보고서 작성**: `gubiba_part1_client_report_v2_20260617.md` 기반, 576 VTuber 코호트 + 상위밴드 271채널 데이터로 전면 갱신.
+   - **변경 A-H 전부 반영**:
+     - A. 헤더: 데이터 범위에 576 + 271 추가
+     - B. 결론카드①: 리텐션 발견 + dual priority(P0 리텐션 + P1 변곡점) 반영
+     - C. §2: VTuber 전수 코호트 3-layer 테이블(A/B/C) 추가
+     - D. §3: 6축 테이블(전환율·효율·리텐션 576 %ile 추가), 피크-일상 격차 약점 신규 기술, 잔류율 vs 리텐션 구분 명시
+     - E. §4: 10k 밴드 데이터 직접 관찰 반영, "불가능" → "매우 어렵지만 불가능은 아님", 성장 시간 추정, 리텐션 목표 행 추가, 리텐션 경보 하한(< 20%) 추가
+     - F. §5.4 + §6.1: 576 Layer B 포지셔닝·회귀 요약, P0(리텐션 개선) 최우선 액션 추가
+     - G. 한계: 항목 1·5 해소 표시(576 범위 확장), 항목 7 신규(잔류율 vs 리텐션 구분)
+     - H. 결론카드②: 리텐션 25%ile → 40% 개선이 팔로워 돌파와 동등 우선순위임을 명시
+   - **검증 수행**: 576 CSV 원본 대비 교차검증
+     - percentile 값 ±1%p 이내 일관 (계산 방법 차이 수준)
+     - max follower 317,991, max peak 29,490 확인
+     - **회귀 예측 오류 수정**: 10k 팔로워 시 예상 avg "105명" → "118명" (실제 slope=0.712, intercept=-0.777 기반 재계산), "1.9배" → "1.7배", "상위 5%" → "상위 10%"
+
+2. Files produced
+   - `Gunsmith_Mailbox/reports/gubiba_part1_client_report_v3_20260619.md` — v3 정본 (323행)
+
+3. Key message shift (v2 → v3)
+   - v2: 1축 ("방송량→팔로워 변곡점")
+   - v3: 2축 ("리텐션 개선 선행" + "팔로워 변곡점 돌파")
+   - 핵심 신규 발견: 잔류율(방송 내 0.712, 상위 14%)과 리텐션(방송 간 27%, 하위 25%)이 서로 다른 축
+
+4. Boundaries
+   - No cookie/token/session/screenshot 저장.
+   - targets\ 원본 미수정. v2 원본 미변경(Codex_Workspace에 보존).
+   - CaseResult/canonical 상태 미변경 — v3는 Gunsmith_Mailbox 출력물.
+
+---
+
+## [Cowork/Hosea] 2026-06-19T22:00+09:00 — §7 유튜브 타당성 조사 Codex 위임
+
+1. What was done
+   - 2부 §7 방향 결정: 유튜브 비활성 상태 확인 → "유튜브를 (재)시작해야 하는가" 타당성 분석으로 전환
+   - 상위밴드 271채널 ⊇ Layer A 50채널 (완전 포함) 확인 → 타겟 271채널
+   - step7_youtube_feasibility 디렉토리 생성
+   - Codex 핸드오프 문서 작성: 3-task 구조 (유튜브 존재 확인 → 활성 채널 지표 → 구비바 유튜브)
+
+2. Files produced
+   - `work/step7_youtube_feasibility/구비바_§7_CC_handoff_youtube_survey.md` — Codex 수집 위임 프롬프트
+
+3. What the next surface should do
+   - **Codex**: 핸드오프 문서 읽고 Task 1→2→3 순서로 수집 실행
+   - **Cowork/Hosea**: 수집 데이터 도착 후 교차 분석 + §7 타당성 보고서 작성
+
+4. Boundaries
+   - 핸드오프 문서만 작성. 수집 미실행. canonical 미변경.
+
+---
+
+### [Cowork/Hosea] 2026-06-19T23:30+09:00
+
+§7 유튜브 타당성 분석 완료
+
+1. Changes
+   - Codex 수집 데이터(youtube_presence_271.csv 84행, youtube_metrics_active.csv 78행) 검증
+   - 구비바 유튜브 채널 브라우저 확인 → youtube_gubiva.csv 작성 (@GOOBIBA02, 166 subs, 367 vids, full_vod, dormant)
+   - YouTube ↔ Chzzk 교차분석: 상관분석(3쌍 모두 r≈0), 밴드 통제 비교, 콘텐츠 유형별 잔류율, 업로드빈도-잔류율
+   - §7 보고서 작성 + 전수치 검증(12/12 pass)
+
+2. Files produced
+   - `data/cohort/collected/youtube_gubiva.csv` — 구비바 YT 지표 (1행)
+   - `reports/gubiva_§7_youtube_feasibility_20260619.md` — §7 타당성 보고서 (Gunsmith_Mailbox)
+
+3. Key findings
+   - 상위밴드 YT 보유율 92.9%, 활성 73.8%
+   - YT 구독자/업로드빈도 ↔ 치지직 리텐션 상관 없음 (r=0.013, 0.170)
+   - full_vod 잔류율 최하위 (median 0.564, 2위 대비 -7.4%p)
+   - 결론: YT 재시작 필요하나, 리텐션 개선(P0) 선행 → clip/highlight 전환 권고
+
+4. What the next surface should do
+   - §8-§9 범위 확정 후 2부 보고서 완성
+   - v3 보고서 docx/pdf 포맷 출력 (미완)
+
+---
+
+## [Codex] 2026-06-20T00:00+09:00 — 구비바 §7 YouTube survey 수집 실행 기록
+
+1. What was done
+   - Cowork/Hosea의 §7 handoff에 따라 상위밴드 271채널의 YouTube 병행 여부 조사를 위한 수집 스크립트를 작성했다.
+   - Task 1 presence는 YouTube Data API quota 사용량을 줄이기 위해 밴드별 30개 샘플(총 90개)을 시도했고, 84행까지 수집했다.
+     - 10k-20k 30행, 20k-50k 30행, 50k+ 24행
+     - has_youtube=true 78행, false 6행
+   - 85번째 샘플 `앰비션 / 8a59b34b46271960c1bf172bb0fac758`에서 YouTube Data API `Search.list`가 `youtube_search_http_429`를 반환했다.
+   - 이 boundary는 bot/rate 차단이 아니라 `Search.list` 호출당 100 quota units 구조 때문에 일일 기본 quota(10,000 units)에 가까워진 quota-unit exhaustion으로 해석한다.
+   - CHZZK lookup을 끈 상태로 1회 재시도했으나 같은 boundary가 재현되어 presence 수집을 멈췄다. 같은 날짜 내 반복 재시도는 의미가 낮음.
+   - 이후 YouTube search를 더 호출하지 않고, 이미 확정된 78개 `youtube_channel_id`에 대해서만 metrics-only 모드로 Task 2를 완료했다.
+     - metrics 78행, 중복 0
+     - content_type_primary: clip 31, highlight 23, mixed 10, full_vod 7, original 6, blank 1
+
+2. Files produced / modified
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step7_youtube_feasibility/scripts/collect_youtube_survey.py` — 재개 가능 수집 스크립트. `--skip-presence`, `--skip-chzzk-social`, 기존 metrics skip 로직 포함.
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/youtube_presence_271.csv` — Codex 수집분 84행.
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/youtube_metrics_active.csv` — Codex metrics 78행.
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step7_youtube_feasibility/구비바_§7_youtube_survey_run_20260619.md` — Codex 수집 런노트.
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/youtube_gubiva.csv` — Codex run 이후 Cowork가 별도 브라우저 확인으로 작성한 1행 파일. Codex 런노트의 Task 3 not_collected 상태와 혼동하지 말 것.
+
+3. File status
+   - `youtube_presence_271.csv`: partial sample, 84/90 attempted rows completed. 271 전수 아님.
+   - `youtube_metrics_active.csv`: complete for the 78 confirmed YouTube channel IDs in the current presence file.
+   - `youtube_gubiva.csv`: present, but Codex search route가 아니라 Cowork 후속 확인 산출물.
+   - CaseResult/canonical/disclosure/promotion 상태 미변경.
+
+4. What the next surface should do
+   - **Cowork/Hosea**: 이미 §7 타당성 분석에 사용한 수치와 Codex 수집 boundary를 구분해서 유지.
+   - **Codex/CC**: presence 전수 확장이 필요하면 YouTube daily quota reset 이후 `collect_youtube_survey.py`를 재개. 남은 샘플 6채널 search는 약 600 units 규모라 reset 후에는 충분히 작음.
+   - **Codex/CC**: metrics 보강만 필요할 경우 `--skip-presence`를 사용해 search endpoint 호출을 피할 것.
+
+5. Boundaries and warnings
+   - YouTube API key는 클립보드에서 임시 환경변수로만 사용했고 파일/명령 출력/런노트에 저장하지 않았다.
+   - raw HTML/raw JSON, cookie/token/localStorage/sessionStorage/auth header/screenshot 저장 없음.
+   - YouTube `Search.list`는 호출당 100 quota units로 비싸다. 80회 이상 호출하면 일일 기본 quota 대부분을 소진하므로, 같은 quota window 안에서 반복 재시도 금지.
+   - `match_confidence=medium` 행은 동명이인 가능성이 있으므로 최종 분석 전 수동 spot-check 권장.
+
+---
+
+## [Codex] 2026-06-20T01:30+09:00 — 구비바 §8 Layer A/C 방송기록 수집 smoke boundary
+
+1. What was done
+   - 구비바 §8.2 체급 교차검증용 Layer A/C 방송기록 수집을 준비했다.
+   - 기존 `collect_step5_broadcasts_cdp_parallel.mjs`에 `--target-file` 옵션을 추가해 T1/T2 외부의 LA/LC 타깃 목록을 같은 DOM 추출 파이프라인으로 실행할 수 있게 했다.
+   - 사용자 제공 44채널 목록을 `layer_ac_broadcast_targets_20260620.json`으로 구조화했다.
+     - Layer A / `LA`: 20
+     - Layer C / `LC`: 24
+   - 기존 승인된 `.pw_profile`로 Chrome CDP port 9222를 열고, 2채널 smoke를 단일 워커로 실행했다.
+   - 첫 타깃 `오화요 Ohwayo / 65a53076fe1a39636082dd6dba8b8a4b`에서 SOFTC.ONE `429`가 즉시 발생해 스크립트가 중단했다.
+   - boundary 발생 후 44채널 본수집은 시작하지 않았다.
+
+2. Files produced / modified
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs` — `--target-file` 지원 추가.
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/layer_ac_broadcast_targets_20260620.json` — LA/LC 44채널 입력.
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/구비바_§8_layer_ac_broadcast_collection_run_20260620.md` — 런노트.
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_manifest_layer_ac.json`
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_errors_layer_ac.csv`
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_progress_layer_ac.ndjson`
+
+3. File status
+   - LA/LC 방송별 CSV 생성 수: 0.
+   - Manifest: attempted 2, success 0, short_rows 0, error 1, boundary_signal=`checkpoint_or_rate_boundary`.
+   - Error CSV: 1행, `LA,65a53076fe1a39636082dd6dba8b8a4b,오화요 Ohwayo,429,1/44,1`.
+
+4. What the next surface should do
+   - **Operator/Cowork**: SOFTC.ONE 승인 브라우저 프로필이 여전히 통과 가능한 상태인지 확인.
+   - **Codex/CC**: boundary 해소 후 같은 target file로 재개. `--skip-existing true` 사용. 시작은 다시 1~2채널 smoke 권장.
+   - **Hosea**: 현재 상태에서는 Layer A/C 방송 데이터가 없으므로 §8.2 체급 교차검증 분석에 사용하지 말 것.
+
+5. Boundaries and warnings
+   - SOFTC.ONE `429` 발생. 공격적 재시도 없음.
+   - raw HTML, cookie/token/localStorage/sessionStorage/auth header, screenshot 저장 없음.
+   - CaseResult/canonical/disclosure/promotion 상태 미변경.
+
+---
+
+## [Codex] 2026-06-20T01:50+09:00 — 구비바 §8 Layer A/C 방송기록 수집 완료
+
+1. What was done
+   - 이전 CDP smoke `429` 이후 SOFTC.ONE Runbook 기준으로 route를 재정렬했다.
+   - `nodriver_dom_browser` + 기존 승인 `.pw_profile` + visible checkpoint wait 경로로 1채널 smoke를 통과했다.
+   - LA/LC 44채널을 10개 이하 chunk로 나누어 수집했고, `skip-existing`와 progress 기반 skip을 함께 사용해 `not_found` 반복 재시도를 막았다.
+   - 최종 통합 manifest/progress/errors를 official layer_ac 파일명으로 재작성했다.
+
+2. Files produced / modified
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs` — `--target-file` 지원.
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_nodriver.py` — `--target-file`, `--profile-dir`, full-range query, checkpoint wait, progress skip 지원.
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/layer_ac_broadcast_targets_20260620.json` — LA/LC 44채널 입력.
+   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/구비바_§8_layer_ac_broadcast_collection_run_20260620.md` — 최종 런노트.
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/LA/*.csv`
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/LC/*.csv`
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_manifest_layer_ac.json`
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_errors_layer_ac.csv`
+   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_progress_layer_ac.ndjson`
+
+3. File status
+   - Target 44개 전부 terminal 상태.
+   - CSV 42개 생성: LA 19, LC 23.
+   - 20행 이상 CSV 41개. 전체 방송 row 4,038.
+   - Short CSV 1건: `쿠온 레이 Planeta / 59aa824e4c4a56dd51e7a5e2e9172648`, 18 rows.
+   - Final error 2건: `부쿠키` not_found, `김네네` not_found.
+   - Schema mismatches 0, unprocessed 0, final boundary_signal null.
+
+4. What the next surface should do
+   - **Hosea/Cowork**: §8.2 체급 교차검증 분석에 LA/LC CSV 42개를 사용. 100-row DOM cap residual risk와 short CSV 1건을 방법론 한계에 반영.
+   - **Codex/CC**: 재수집 필요 시 같은 target file과 progress skip 옵션을 유지. `not_found` 2건은 canonical absence가 아니라 collection error로만 취급.
+
+5. Boundaries and warnings
+   - Initial CDP `429`, initial nodriver `checkpoint`는 preflight boundary로 기록됨. 최종 chunk 수집 중 boundary/rate-limit/checkpoint 없음.
+   - raw HTML, cookie/token/localStorage/sessionStorage/auth header, screenshot 저장 없음.
+   - CaseResult/canonical/disclosure/promotion 상태 미변경.
+
+---
+
+## [Cowork/Hosea] 2026-06-20T12:00+09:00 — 언니채널 체급 검증 + 풀리포트 반영
+
+1. What was done
+   - **체급 점수 제거 검증**: 100점 스코어링에서 체급 근접도(25점)를 완전 제거, 나머지 4항목(성장 25 + 안정 20 + 충분 15 + 형태 15 = 75점)만으로 구비바 15채널 + 김달수 15채널 재스코어링.
+   - **핵심 발견**:
+     - 김달수: 전략적죽음 #4→#1 (13개월 데이터 + 성장 방향 강일치), 미유 #6→#3, 해득이 #7→#4. 개리형 #1→#2, 기뮨디 #2→#5.
+     - 구비바: 불꽃빡빡 #14→#1 (7개월 데이터, 성장 방향 최강일치). 유나욘 #1→#2.
+     - 양쪽 Top 5 ratio 중앙값 1.40x 유지 — 법칙이 아닌 상관관계.
+     - 진짜 드라이버: 데이터 기간(충분성)과 성장 방향 일치.
+   - **궤적매칭 v2 보고서 2건 업데이트**: 체급 검증 섹션 + 수정된 활용 권장.
+   - **풀리포트 2건 반영**:
+     - `gubiva_full_report_v3_20260619.md`: §5.5 삽입 (§5.4 직후)
+     - `kimdalsu_v3_1_client_full_20260618.md`: §9 삽입 (§8 직후)
+
+2. Files modified
+   - `Gunsmith_Mailbox/reports/구비바_언니채널_궤적매칭_v2.md`
+   - `Gunsmith_Mailbox/reports/김달수_언니채널_궤적매칭_v2.md`
+   - `Gunsmith_Mailbox/reports/gubiva_full_report_v3_20260619.md`
+   - `Codex_Workspace/.../deliverables/kimdalsu_v3_1_client_full_20260618.md`
+
+3. Key methodological insight
+   - 체급 스코어링(25점)이 1.5x 피크 설계 → 1.4x 수렴은 사전 가설 반영
+   - 체급 제거 후에도 중앙값 유지 → 상관관계 실재, 인과 아님
+   - 개선 방향: 체급 배점 축소, 충분성·형태 유사도 확대
+
+4. Boundaries
+   - No cookie/token/session/screenshot 저장. targets\ 미수정.
+   - CaseResult/canonical 미변경. 풀리포트 직접 편집 (docx/pdf 미재생성).
+
+---
+
+## [Cowork/Hosea] 2026-06-20T18:00+09:00 — Universal Collector Framework 설계 + 구현
+
+1. What was done
+   - **설계 협업**: 사용자와 config-driven 범용 수집 프레임워크 아키텍처를 협의. 모듈 위치(`tools/collector/`), JS 외부화, Playwright 인터페이스만 예약 등 3건 결정.
+   - **CC 코드 리뷰 반영**: Codex 독립 리뷰 6건 수신. CDP 엔진 제외(nodriver 충분), `dom_eval` 네이밍, signal action config 선언, tracking↔targets resume 협력 등 반영.
+   - **구현 완료**: 17파일 생성, 전부 문법·기능 검증 통과.
+     - Core: `config.py`, `targets.py`, `tracking.py`, `rate.py`, `collector.py`, `__main__.py`
+     - Engines: `base.py`(ABC), `nodriver_engine.py`, `http_engine.py`
+     - Extractors: `dom_eval.py`, `api_json.py`
+     - Assets: `softcon_channel_streams.js`, `gubiba_step5.yaml`, `requirements.txt`
+   - **검증**: config 로딩, 323 대상 로딩/중복제거, resume(323 전부 skip), expression 치환, signal 감지, verify(304 ok / 14 missing / 5 short_rows) 전부 통과.
+   - **COLLECTION_TOOLKIT.md 갱신**: Quick Reference에 프레임워크 추가, §8 섹션 신설, 의존성 테이블 갱신.
+
+2. Files produced
+   - `tools/__init__.py`
+   - `tools/collector/__init__.py`
+   - `tools/collector/__main__.py`
+   - `tools/collector/collector.py` — CLI 진입점 (collect/verify)
+   - `tools/collector/config.py` — YAML 로더 + dataclass
+   - `tools/collector/targets.py` — 다중 소스 + 중복제거
+   - `tools/collector/tracking.py` — NDJSON progress + manifest + resume
+   - `tools/collector/rate.py` — delay/jitter + signal
+   - `tools/collector/engines/base.py` — Engine ABC
+   - `tools/collector/engines/nodriver_engine.py`
+   - `tools/collector/engines/http_engine.py`
+   - `tools/collector/extractors/dom_eval.py`
+   - `tools/collector/extractors/api_json.py`
+   - `tools/collector/expressions/softcon_channel_streams.js`
+   - `tools/collector/configs/gubiba_step5.yaml`
+   - `tools/collector/requirements.txt`
+
+3. Files modified
+   - `_WORKING_CONTEXT/COLLECTION_TOOLKIT.md` — Quick Reference + §8 + 의존성
+
+4. File status
+   - 프레임워크 17파일: raw — CC/Codex 리뷰 후 git commit 대상
+   - COLLECTION_TOOLKIT.md: reviewed
+
+5. What the next surface should do
+   - **Codex/CC**: `tools/collector/` 17파일 git commit. 커밋 전 코드 리뷰 권장.
+   - **Codex/CC**: 새 케이스 config YAML 추가 시 `configs/` 아래에 배치. 기존 개별 스크립트 → 프레임워크 전환은 점진적으로.
+   - **Cowork/Hosea**: 프레임워크로 새 수집 실행 시 `python -m tools.collector.collector collect --config <yaml>` 사용.
+
+6. Boundaries and warnings
+   - 프레임워크는 설계+구현+검증까지만 완료. 실제 라이브 수집(네트워크 호출)은 미실행.
+   - 기존 개별 스크립트는 그대로 유지. 프레임워크가 대체하지만 삭제하지 않음.
+   - No cookie/token/session/screenshot 저장. targets\ 미수정. CaseResult/canonical 미변경.

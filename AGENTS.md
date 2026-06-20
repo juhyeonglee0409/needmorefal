@@ -124,6 +124,23 @@ Not allowed by default:
 
 Required gates include exact URL/origin allowlist, explicit bridge enablement, no raw/screenshot output, and passed intent alignment. Collect additionally requires `CollectDirective.approved=true`. If any scope, checkpoint, CAPTCHA, private/account, or secret-persistence uncertainty appears, stop and preserve the boundary.
 
+## 세션 종료 시 기록 의무
+
+작업이 끝나면 반드시 핸드오프를 남긴다. 출력이 있으면 핸드오프도 있다.
+
+1. **SESSION_NOTE** — `_WORKING_CONTEXT/SESSION_NOTE.md`에 append. 포맷:
+   ```
+   ## [Surface] YYYY-MM-DDTHH:MM
+   1. What was done
+   2. Files produced (path)
+   3. File status: raw / reviewed / commit-candidate / hold / excluded
+   4. Next surface action (Codex, CC, or Cowork)
+   5. Boundaries and warnings
+   ```
+2. **DECISION_LOG** — 같은 질문이 반복되지 않을 판단이 나왔으면 `07_DECISION_LOG.md`에 prepend. 대부분의 작업에서는 불필요.
+
+핸드오프를 건너뛰지 않는다. 작업이 사소해 보여도 출력물이 있으면 기록한다. 상세 규칙: `_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md`
+
 ## User Context
 
 - User messages are short and often operational.

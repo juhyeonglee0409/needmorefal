@@ -47,6 +47,7 @@ Read only the focused context files needed for that scenario.
 | `10_USER_CLI_WORKFLOW.ko.md` | Korean translation of the User-CLI workflow |
 | `11_SESSION_BEHAVIOR_CONTRACT.md` | implementation session behavior contract |
 | `12_CONTINUITY_CONTRACT.md` | cross-surface SESSION_NOTE and DECISION_LOG writing rules |
+| `COLLECTION_TOOLKIT.md` | collection infrastructure inventory — scripts, profiles, tools, status |
 | `site_runbooks/` | site-specific operational runbooks (routes, failures, proven runs) |
 | `SESSION_NOTE.md` | current handoff note; read only when resuming active context work |
 

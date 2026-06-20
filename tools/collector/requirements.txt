@@ -1,0 +1,3 @@
+# Universal Collector Framework
+nodriver>=0.50
+pyyaml>=6.0
