@@ -776,6 +776,45 @@ nav {
   padding: 16px 0 0;
 }
 
+/* 무료 샘플 모집 배너 */
+.pricing-banner {
+  text-align: center;
+  padding: 32px 20px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(0, 255, 163, 0.25);
+  border-radius: 8px;
+  background: rgba(0, 255, 163, 0.04);
+}
+.pricing-banner-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 3px;
+  background: rgba(0, 255, 163, 0.15);
+  color: var(--neon-green);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.pricing-banner-text {
+  font-size: var(--fs-heading-l);
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.pricing-banner-text strong {
+  color: var(--neon-green);
+}
+.pricing-banner-sub {
+  font-size: var(--fs-label);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.pricing-price.free {
+  color: var(--neon-green);
+}
+
 .pricing-card {
   padding: 28px 0;
   border-bottom: 1px solid var(--border-subtle);
