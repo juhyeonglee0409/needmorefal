@@ -97,6 +97,35 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 
 ---
 
+## [Cowork/Hosea] 2026-06-20T21:00+09:00 — 방법론 v3→v4 업그레이드
+
+**한 줄 요약:** 구비바·김달수 2케이스 실행 결과를 역주입하여 채널진단 방법론을 v3에서 v4로 업그레이드.
+
+**산출물:**
+
+- `구비바_CASE_PACKAGE_v3_20260611/references/current_framework/스트리머_채널진단_방법론_v4_draft_20260620.md` — v4 정본 (1831행)
+- 원본 v3 파일(`_v3_draft_START_20260610.md`)도 in-place 수정됨 (내용 동일, 두 파일 모두 v4 상태)
+
+**변경 내역 (7건):**
+
+1. §5.2 재작성: 4축→6축 포지셔닝 + 잔류율/리텐션 분리 신설 (§5.2.1)
+2. §6.2 재작성: 상위 참조 밴드 프로토콜 (6.2.1-6.2.4) + §6.3.1 리텐션 하한 경보
+3. §6.6 신설: 궤적매칭 — 비전/피어 레퍼런스, 체급 점수 교훈 (6.6.1-6.6.4)
+4. §5.1.2 보강: A/B/C 레이어 분할 + robustness table
+5. §5.4.2 보강: 편상관(partial correlation) 검증
+6. §7.0+§7.7 신설: 외부 채널 상태 분류 + 비활성 채널 타당성 패턴 (7.7.1-7.7.4)
+7. §4.8.1 보강: 보조→주 코호트 역전 조건
+
+**파일 상태:** raw — CC/Codex review 후 git commit 필요.
+
+**다음 세션 할 일:**
+
+- v4 파일명 정리 (v3 원본 파일을 v3 이름으로 복원할지, 삭제할지 결정)
+- v4 정본을 `current_framework/` 기준 파일로 확정
+- §10~§15, 부록은 v3 그대로 — 실전 케이스 추가 시 역주입 대상
+
+---
+
 ## [Cowork/Hosea] 2026-06-15T09:27
 
 1. What was done
@@ -779,6 +808,93 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 4. Boundaries
    - No cookie/token/session/screenshot 저장. targets\ 미수정.
    - CaseResult/canonical 미변경. 풀리포트 직접 편집 (docx/pdf 미재생성).
+
+---
+
+## [Cowork/Hosea] 2026-06-21T06:00+09:00 — 전달 전 산출물 일괄 갱신 완료
+
+1. What was done
+   - **CaseResult partial 승격**: stub → partial. §5~§9 결과 반영, 12 claims, 3 strategic_targets, XGPS external_validation, P0/P1/P2 priority_stack.
+   - **2부 종합 리포트 v4**: 잘린 파일(668줄) 복구. Phase 1~3 로드맵 완성, §8-b XGPS 교차검증 종합(2수렴 3발산 테이블+해석) 추가.
+   - **1부 보고가이드 v2**: 방송투입량 112h→102.9h 정정, 576 VTuber 리텐션 하위 25% 추가, §8 XGPS 교차검증 결과 반영, 클로징에 P0 리텐션 추가.
+   - **2부 보고가이드 v1**: M1~M6 전체 90~100분 시나리오. 각 모듈별 [전문]/[쉽게], 체크인, 예상 질문 대비 7건.
+   - **DOSSIER 최종 갱신**: CaseResult partial, 파일목록·체크리스트 전면 갱신.
+
+2. Files produced
+   - `machine/구비바_CaseResult_v3_partial.json`
+   - `deliverables/gubiba_보고가이드_2부_v1.md`
+
+3. Files modified
+   - `deliverables/gubiva_full_report_v3_20260619.md` — v4 (§8-b 추가, Phase 1~3 복구)
+   - `deliverables/gubiba_보고가이드_v1.md` — v2 (576/리텐션/§8 갱신)
+   - `구비바_CASE_DOSSIER_v3.md` — CaseResult partial, 파일목록, 체크리스트
+
+4. What the next surface should do
+   - O17 쇼츠 결과 확인
+   - 1부 PDF/DOCX v3 재생성 (현재 v2 기반)
+   - 차트 PNG v3 재생성
+   - 클라이언트 전달 → 산출물 반응 로그 기록
+   - (전달 후) C21 상태 갱신, §10 실행 설계 착수
+
+5. Boundaries
+   - targets\ 미수정. C21은 "에디터 해석/가설"로 유지. CaseResult stub 파일은 보존(삭제 안 함).
+
+---
+
+## [Cowork/Hosea] 2026-06-21T05:00+09:00 — §9 산출물설계 + O13 토론배틀 보조 완료
+
+1. What was done
+   - **§9 산출물설계 정본 v1**: 6모듈 2부 전달구조 (M1 방송효과심화 → M2 카테고리·시간대 → M4 리텐션 → M3 유튜브 → M5 궤적매칭 → M6 통합진단), 90~100분 시나리오.
+   - **O13 토론배틀 보조 v1**: C21(자기 가치 평가 낮춤) 검증 도구. 3현상→1뿌리 구조, 근거 5개, 예상 반론 4종 대응, 분기판단(수용/부분/거부/과부하).
+   - **산출물 반응 로그 CSV**: R01~R09 빈 템플릿 (방법론 v4 §9.6 컬럼 일치).
+   - **DOSSIER 갱신**: §9 완료 반영, 케이스정의 갱신, 다음 Action 갱신, 체크리스트·파일목록 갱신.
+   - **방법론 v4 §9 대조 검증**: 6개 요구사항 전부 충족 확인.
+
+2. Files produced
+   - `work/step9_deliverable_design/구비바_§9_산출물설계_20260621.md` — §9 정본 v1
+   - `deliverables/gubiva_O13_토론배틀보조_v1.md` — O13 토론배틀 보조
+   - `deliverables/gubiva_산출물반응로그.csv` — 빈 템플릿
+
+3. Files modified
+   - `구비바_CASE_DOSSIER_v3.md` — §9 완료, 케이스정의, Action, 체크리스트, 파일목록
+
+4. What the next surface should do
+   - CaseResult stub → partial 승격 (§5~§9 반영)
+   - 전달 전 산출물 갱신 (2부 종합 리포트 §8 반영, 1부 PDF 재생성, 보고가이드 v2)
+   - 2부 보고가이드 본문 작성
+   - 클라이언트 전달 → 반응 로그 기록
+
+5. Boundaries
+   - No cookie/token/session/screenshot 저장. targets\ 미수정. C21은 "에디터 해석/가설"로 명시, 본인 확인 전 단정 금지.
+
+---
+
+## [Cowork/Hosea] 2026-06-21T03:00+09:00 — §8 XGPS 교차검증 분석 완료
+
+1. What was done
+   - **§8 XGPS 교차검증 분석**: Layer A 19ch/1,706건 + Layer C 23ch/2,194건 vs 구비바 582건. 5개 효과 교차검증.
+   - **수렴 2건**: 잔류율×방송길이 (모든 체급 r=-0.24~-0.37, 구비바 감소 가장 완만), 주말 우위 (+5~14%).
+   - **발산 3건**:
+     - 방송길이→시청자: LC r=0.25 (긴 방송=더 많은 시청자), LA/구비바 r≈0 (무상관). 구비바의 무상관은 "월 102.9h 한계수익 소진"으로 해석.
+     - 저녁 시간대: LC에서 저녁=프라임타임(peak_z +0.33), 구비바만 저녁 최저. 시간대 자체가 아닌 구비바 고유 요인.
+     - talk vs game: LA/LC 모두 game > talk. 구비바만 talk(pk 26) > game(pk 19). 시청자가 게임이 아닌 스트리머 자체에 반응.
+   - **심화 분석**: 채널별 r 분포 (LA 44% 양의상관, LC 91%), 카테고리별 peak_z (LC 음악/니케/명조 상위), 잔류율 기울기 비교, 주말 채널내정규화 차이.
+   - **DOSSIER v4 갱신**: §8 완료 반영, 4.5 §8 Claims 추가, 5-6 섹션 갱신, 체크리스트·정본파일목록 갱신.
+   - **전수치 검증**: Python 독립 스크립트로 peak median, r값, 잔류율 r값 9개 모두 일치 확인.
+
+2. Files produced
+   - `work/step8_xgps/구비바_§8_XGPS_교차검증_20260621.md` — §8 정본 v1
+
+3. Files modified
+   - `구비바_CASE_DOSSIER_v3.md` — §8 완료 반영 (상태표, 케이스정의, Claims 4.5, 본문 5-6, 체크리스트, 파일목록)
+
+4. What the next surface should do
+   - CaseResult stub → partial 승격 (§5~§8 반영)
+   - §9 산출물 설계 + O13 전달설계
+   - 클라이언트 전달물 최종
+
+5. Boundaries
+   - No cookie/token/session/screenshot 저장. targets\ 미수정. CaseResult/canonical 미변경.
 
 ---
 
