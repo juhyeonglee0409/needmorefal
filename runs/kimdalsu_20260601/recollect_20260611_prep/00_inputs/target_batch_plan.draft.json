@@ -210,7 +210,7 @@
       ],
       "verification_expectations": {
         "expected_min_rows": 1000,
-        "legacy_target_match_names_path": "김달수_CASE_PACKAGE_v3_20260611/data/cohort/수집대상_183명.csv",
+        "legacy_target_match_names_path": "김달수_케이스/data/cohort/수집대상_183명.csv",
         "target_match_rate_threshold": 0.9,
         "dedup_key": "channel_hash_or_channel_url"
       },

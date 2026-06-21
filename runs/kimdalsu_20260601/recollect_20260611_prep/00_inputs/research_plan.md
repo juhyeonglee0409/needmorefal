@@ -22,20 +22,20 @@ No CaseResult promotion, disclosure downgrade, PublicDemoRow creation, or Collec
 
 Treat these as legacy/reference, not fresh evidence:
 
-- `김달수_CASE_PACKAGE_v3_20260611/deliverables/milestone_report/김달수_채널분석_컨설팅리포트.md`
+- `김달수_케이스/deliverables/milestone_report/김달수_채널분석_컨설팅리포트.md`
 - `KimDalsu_TargetBatchPlan_MASTER_v2_M7_1_20260611/legacy/previous_milestone_report/김달수_채널분석_컨설팅리포트_LEGACY_20260601.md`
-- `김달수_CASE_PACKAGE_v3_20260611/machine/김달수_CaseResult_v3_partial_20260611.json`
-- `김달수_CASE_PACKAGE_v3_20260611/machine/김달수_EvidencePackage_v3_initial.json`
-- `김달수_CASE_PACKAGE_v3_20260611/machine/김달수_AbsenceInventory_v3_initial.json`
-- `김달수_CASE_PACKAGE_v3_20260611/machine/김달수_DisclosureLog_v3_initial.json`
-- `김달수_CASE_PACKAGE_v3_20260611/machine/김달수_PortfolioRow_v3_partial_20260611.json`
-- `김달수_CASE_PACKAGE_v3_20260611/machine/김달수_DecisionCard_v3_partial_20260611.json`
-- `김달수_CASE_PACKAGE_v3_20260611/source_inputs/legacy_project/김달수_project_original.json`
-- `김달수_CASE_PACKAGE_v3_20260611/source_inputs/current_analysis/김달수_보고직후_인터뷰로그_20260601.md`
-- `김달수_CASE_PACKAGE_v3_20260611/data/daily_stats/김달수_Dalsu_방송통계_1년_20260528.csv`
-- `김달수_CASE_PACKAGE_v3_20260611/data/cohort/김달수_코호트_131명.csv`
-- `김달수_CASE_PACKAGE_v3_20260611/data/cohort/수집대상_183명.csv`
-- `김달수_CASE_PACKAGE_v3_20260611/data/cohort/김달수_코호트_분석_방법과결과.md`
+- `김달수_케이스/machine/김달수_CaseResult_v3_partial_20260611.json`
+- `김달수_케이스/machine/김달수_EvidencePackage_v3_initial.json`
+- `김달수_케이스/machine/김달수_AbsenceInventory_v3_initial.json`
+- `김달수_케이스/machine/김달수_DisclosureLog_v3_initial.json`
+- `김달수_케이스/machine/김달수_PortfolioRow_v3_partial_20260611.json`
+- `김달수_케이스/machine/김달수_DecisionCard_v3_partial_20260611.json`
+- `김달수_케이스/source_inputs/legacy_project/김달수_project_original.json`
+- `김달수_케이스/source_inputs/current_analysis/김달수_보고직후_인터뷰로그_20260601.md`
+- `김달수_케이스/data/daily_stats/김달수_Dalsu_방송통계_1년_20260528.csv`
+- `김달수_케이스/data/cohort/김달수_코호트_131명.csv`
+- `김달수_케이스/data/cohort/수집대상_183명.csv`
+- `김달수_케이스/data/cohort/김달수_코호트_분석_방법과결과.md`
 
 ## Research Intent
 

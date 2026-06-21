@@ -41,8 +41,8 @@ Spec alias note:
 | Area | Path | Use |
 |---|---|---|
 | working generic protocol | `D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\03_STREAMER_CASE_GENERIC_PROTOCOL.md` | default case-agnostic workflow |
-| 김달수 package | `D:\Codex_Workspace\Streamer Consulting Project\김달수_CASE_PACKAGE_v3_20260611\` | completed/partial reference case |
-| 구비바 package | `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\` | current/alternate reference case |
+| 김달수 package | `D:\Codex_Workspace\Streamer Consulting Project\김달수_케이스\` | completed/partial reference case |
+| 구비바 package | `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\` | current/alternate reference case |
 | 김달수 dossier | `...\김달수_CASE_DOSSIER_v3.md` | human-readable case summary |
 | 김달수 CaseResult | `...\machine\김달수_CaseResult_v3_partial_20260611.json` | machine state |
 | 김달수 EvidencePackage | `...\machine\김달수_EvidencePackage_v3_initial.json` | evidence inventory |

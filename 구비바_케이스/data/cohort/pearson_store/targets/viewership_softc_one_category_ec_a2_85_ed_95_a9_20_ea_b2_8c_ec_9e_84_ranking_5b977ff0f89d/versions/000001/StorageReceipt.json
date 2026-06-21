@@ -1,0 +1,335 @@
+{
+  "version": "0.2",
+  "generated_at": "2026-06-15T08:44:35Z",
+  "target_url": "https://viewership.softc.one/category/%EC%A2%85%ED%95%A9%20%EA%B2%8C%EC%9E%84/ranking",
+  "source_collection_result": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\CollectionResult.json",
+  "storage_record": {
+    "stored_at": "2026-06-15T08:44:35Z",
+    "storage_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001",
+    "format": "json",
+    "encoding": "utf-8",
+    "append_mode": true,
+    "previous_versions": [],
+    "version_index": 1,
+    "durability_class": "fsynced",
+    "source_id": "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+  },
+  "inventory": {
+    "total_items": 965,
+    "field_coverage": {
+      "name": {
+        "present": 965,
+        "absent": 0
+      },
+      "platform": {
+        "present": 965,
+        "absent": 0
+      },
+      "channel_id": {
+        "present": 965,
+        "absent": 0
+      },
+      "rank": {
+        "present": 0,
+        "absent": 965
+      },
+      "stream_hours": {
+        "present": 965,
+        "absent": 0
+      },
+      "peak_viewers": {
+        "present": 965,
+        "absent": 0
+      },
+      "avg_viewers": {
+        "present": 965,
+        "absent": 0
+      },
+      "viewership": {
+        "present": 965,
+        "absent": 0
+      },
+      "follower": {
+        "present": 958,
+        "absent": 7
+      },
+      "band": {
+        "present": 965,
+        "absent": 0
+      },
+      "category_1": {
+        "present": 781,
+        "absent": 184
+      },
+      "category_1_share": {
+        "present": 965,
+        "absent": 0
+      },
+      "category_2": {
+        "present": 722,
+        "absent": 243
+      },
+      "category_2_share": {
+        "present": 965,
+        "absent": 0
+      },
+      "category_3": {
+        "present": 655,
+        "absent": 310
+      },
+      "category_3_share": {
+        "present": 965,
+        "absent": 0
+      },
+      "total_categories": {
+        "present": 965,
+        "absent": 0
+      },
+      "is_general_game": {
+        "present": 965,
+        "absent": 0
+      },
+      "gg_reason": {
+        "present": 965,
+        "absent": 0
+      },
+      "exclude_reason": {
+        "present": 0,
+        "absent": 965
+      },
+      "collected_at": {
+        "present": 965,
+        "absent": 0
+      },
+      "timeseries_max_live_views": {
+        "present": 965,
+        "absent": 0
+      },
+      "timeseries_avg_live_views": {
+        "present": 965,
+        "absent": 0
+      },
+      "timeseries_air_time": {
+        "present": 965,
+        "absent": 0
+      }
+    },
+    "first_seen_at": "2026-06-15T08:44:35Z",
+    "last_seen_at": null,
+    "change_from_previous": "first_collection"
+  },
+  "absence_log": [
+    {
+      "what": "unknown",
+      "scope": "unknown",
+      "absence_source": "arthur_collection_failed",
+      "detail": "",
+      "first_recorded_at": "2026-06-15T08:44:35Z"
+    },
+    {
+      "what": "unknown",
+      "scope": "unknown",
+      "absence_source": "charles_not_found",
+      "detail": "",
+      "first_recorded_at": "2026-06-15T08:44:35Z"
+    },
+    {
+      "what": "unknown",
+      "scope": "unknown",
+      "absence_source": "target_absent",
+      "detail": "",
+      "first_recorded_at": "2026-06-15T08:44:35Z"
+    },
+    {
+      "what": "unknown",
+      "scope": "unknown",
+      "absence_source": "target_absent",
+      "detail": "",
+      "first_recorded_at": "2026-06-15T08:44:35Z"
+    },
+    {
+      "what": "unknown",
+      "scope": "unknown",
+      "absence_source": "target_absent",
+      "detail": "",
+      "first_recorded_at": "2026-06-15T08:44:35Z"
+    },
+    {
+      "what": "unknown",
+      "scope": "unknown",
+      "absence_source": "arthur_collection_failed",
+      "detail": "",
+      "first_recorded_at": "2026-06-15T08:44:35Z"
+    }
+  ],
+  "preserved_status": {
+    "verification_status": "pass",
+    "boundary_signal_count": 0,
+    "preservation_verified": true
+  },
+  "lineage": {
+    "activity": {
+      "name": "pearson.store",
+      "version": "0.2.0",
+      "code_commit": "753ec3ea5b0803911cecf915cebd340c481350f6"
+    },
+    "input": {
+      "source_id": "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d",
+      "input_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "input_bytes": 4940044,
+      "schema_version": "CollectionResult/0.6.1"
+    },
+    "output": {
+      "receipt_sha256": null,
+      "artifacts": [
+        "ea29a73073b8b354e10e23b8e73afd094ee30ee221a791ec5ccc0dc894a5bc60",
+        "58a3c366a01cf760db18570090577d3a2e5c103d75073a6b6dc93b8a6db8eab3",
+        "6cf7d8b78e99fbe42cd43d14c676d6ff7caeae097ffcd360cc9f417ab0501d6f",
+        "3597aef03c6481def363449fe4655224b000ea3bd212ad76a2f6a1b2ee29e6af"
+      ]
+    },
+    "parent_chain": {
+      "protocol_hash": "6e2fa9f23b8a8beb79afb89da28f722c347026060e936bdb32012f6e385f8f9d",
+      "directive_hash": null,
+      "collector_ua": "gubiba_csv_to_cr/0.1",
+      "protocol_source": "구비바_§4_case_params_v1.json",
+      "input_shape": null,
+      "source_input_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\gubiba_CollectionResult.json"
+    },
+    "capture_mode": "exhaustive",
+    "durability_class": "fsynced",
+    "protocol_hash": "6e2fa9f23b8a8beb79afb89da28f722c347026060e936bdb32012f6e385f8f9d",
+    "directive_hash": null,
+    "input_shape": null,
+    "collector_ua": "gubiba_csv_to_cr/0.1"
+  },
+  "presence_map": {
+    "summary": {
+      "present": 18,
+      "explicit_null": 6,
+      "empty": 0,
+      "absent": 0,
+      "not_collected": 0
+    },
+    "detail": {
+      "avg_viewers": "present",
+      "band": "present",
+      "category_1": "explicit_null",
+      "category_1_share": "present",
+      "category_2": "explicit_null",
+      "category_2_share": "present",
+      "category_3": "explicit_null",
+      "category_3_share": "present",
+      "channel_id": "present",
+      "collected_at": "present",
+      "exclude_reason": "explicit_null",
+      "follower": "explicit_null",
+      "gg_reason": "present",
+      "is_general_game": "present",
+      "name": "present",
+      "peak_viewers": "present",
+      "platform": "present",
+      "rank": "explicit_null",
+      "stream_hours": "present",
+      "timeseries_air_time": "present",
+      "timeseries_avg_live_views": "present",
+      "timeseries_max_live_views": "present",
+      "total_categories": "present",
+      "viewership": "present"
+    }
+  },
+  "promotion_state": "stored_not_promoted",
+  "derived_artifacts": [
+    {
+      "artifact_id": "ea29a73073b8b354e10e23b8e73afd094ee30ee221a791ec5ccc0dc894a5bc60",
+      "kind": "normalized_items",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\normalized_items.csv",
+      "sha256": "ea29a73073b8b354e10e23b8e73afd094ee30ee221a791ec5ccc0dc894a5bc60",
+      "bytes": 1433264,
+      "row_count": 965,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "normalize_items",
+        "version": "0.2.0",
+        "parameters": {
+          "dedup_key": null
+        }
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "58a3c366a01cf760db18570090577d3a2e5c103d75073a6b6dc93b8a6db8eab3",
+      "kind": "field_coverage",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\field_coverage.csv",
+      "sha256": "58a3c366a01cf760db18570090577d3a2e5c103d75073a6b6dc93b8a6db8eab3",
+      "bytes": 2101,
+      "row_count": 24,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "field_coverage_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "6cf7d8b78e99fbe42cd43d14c676d6ff7caeae097ffcd360cc9f417ab0501d6f",
+      "kind": "absence_summary",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\absence_summary.csv",
+      "sha256": "6cf7d8b78e99fbe42cd43d14c676d6ff7caeae097ffcd360cc9f417ab0501d6f",
+      "bytes": 389,
+      "row_count": 4,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "absence_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "3597aef03c6481def363449fe4655224b000ea3bd212ad76a2f6a1b2ee29e6af",
+      "kind": "item_index",
+      "format": "jsonl",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\pearson_store\\targets\\viewership_softc_one_category_ec_a2_85_ed_95_a9_20_ea_b2_8c_ec_9e_84_ranking_5b977ff0f89d\\versions\\000001\\artifacts\\item_index.jsonl",
+      "sha256": "3597aef03c6481def363449fe4655224b000ea3bd212ad76a2f6a1b2ee29e6af",
+      "bytes": 641615,
+      "row_count": 965,
+      "source_collection_sha256": "4ebbfe924ce9fcd56b640c9fb99e4cbfa3a713dab72d270de8479c2ca9bafb89",
+      "parent_source_ids": [
+        "5c83281514535f97b9833912b8962a619028bf0640535b0657f7c34153f1926d"
+      ],
+      "transform": {
+        "name": "item_index",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    }
+  ],
+  "notes": [
+    "converted from gubiba_20240101_20260615_enriched_965.csv (965 rows)",
+    "timeseries joined from gubiba_20240101_20260615_pw_enriched.jsonl (5679 records)",
+    "join hits: 965, misses: 0"
+  ]
+}

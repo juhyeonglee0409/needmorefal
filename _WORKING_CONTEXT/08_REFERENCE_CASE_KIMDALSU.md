@@ -7,7 +7,7 @@ Use it when a future task explicitly concerns KimDalsu, or when an example of a 
 Source of truth:
 
 ```text
-D:\Codex_Workspace\Streamer Consulting Project\김달수_CASE_PACKAGE_v3_20260611\
+D:\Codex_Workspace\Streamer Consulting Project\김달수_케이스\
 ```
 
 ## Current State

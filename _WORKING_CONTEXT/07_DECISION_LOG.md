@@ -77,8 +77,8 @@ scope:
 
 - `_WORKING_CONTEXT/03_STREAMER_CASE_GENERIC_PROTOCOL.md`
 - `_WORKING_CONTEXT/SESSION_NOTE.md`
-- `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/구비바_§5_SOFTCONE_full_range_collection_run_20260615.md`
-- `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs`
+- `Streamer Consulting Project/구비바_케이스/work/step5_diagnosis/구비바_§5_SOFTCONE_full_range_collection_run_20260615.md`
+- `Streamer Consulting Project/구비바_케이스/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs`
 
 what_changed:
 
@@ -220,7 +220,7 @@ decision_id: `DL_TOOLING_20260615_040`
 
 scope:
 
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\pw_enrich.py`
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\work\step4_cohort_collect_prep\scripts\pw_enrich.py`
 
 what_changed:
 
@@ -248,7 +248,7 @@ decision_id: `DL_TOOLING_20260615_039`
 
 scope:
 
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\pw_enrich.py`
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\work\step4_cohort_collect_prep\scripts\pw_enrich.py`
 
 what_changed:
 
@@ -276,11 +276,11 @@ decision_id: `DL_TOOLING_20260615_038`
 
 scope:
 
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\pw_enrich.py` (최종 작동)
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\test_cookie_bridge.py` (실패 기록)
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\read_chrome_cookies.py` (실패 기록)
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\cdp_cookie_bridge.py` (실패 기록)
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\work\step4_cohort_collect_prep\scripts\playwright_cookie_bridge.py` (실패 기록)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\work\step4_cohort_collect_prep\scripts\pw_enrich.py` (최종 작동)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\work\step4_cohort_collect_prep\scripts\test_cookie_bridge.py` (실패 기록)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\work\step4_cohort_collect_prep\scripts\read_chrome_cookies.py` (실패 기록)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\work\step4_cohort_collect_prep\scripts\cdp_cookie_bridge.py` (실패 기록)
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\work\step4_cohort_collect_prep\scripts\playwright_cookie_bridge.py` (실패 기록)
 
 what_changed:
 
@@ -318,7 +318,7 @@ decision_id: `DL_INFRA_20260614_037`
 scope:
 
 - `D:\Codex_Workspace\Streamer Consulting Project\specs\Arthur_ExecutionProtocol_v3.json`
-- `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611\data\cohort\specs\구비바_§4_case_params_v1.json`
+- `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스\data\cohort\specs\구비바_§4_case_params_v1.json`
 
 what_changed:
 

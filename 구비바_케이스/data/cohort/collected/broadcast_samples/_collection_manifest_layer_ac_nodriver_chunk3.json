@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-06-20T01:41:18+0900",
+  "mode": "full",
+  "method": "nodriver_dom_browser",
+  "output_dir": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples",
+  "profile_dir": "work\\step4_cohort_collect_prep\\.pw_profile",
+  "raw_html_saved": false,
+  "secret_values_logged": false,
+  "cookie_values_read": false,
+  "url_pattern": "https://viewership.softc.one/channel/naverchzzk/{channelId}/streams",
+  "query": {
+    "full_range": true,
+    "startDateTime": "2023-10-01T15:00:00.000Z",
+    "endDateTime": "2026-06-15T14:59:59.999Z"
+  },
+  "checkpoint_wait_ms": 90000,
+  "target_summary": {
+    "target_file": "work\\step8_layer_ac_broadcasts\\layer_ac_broadcast_targets_20260620.json",
+    "candidate_rows_before_dedupe": 44,
+    "unique_targets_after_dedupe": 44,
+    "offset": 0,
+    "limit": 10,
+    "attempted_in_this_run": 10,
+    "skipped_existing": true,
+    "skipped_progress_existing": true,
+    "skip_progress_glob": "_collection_progress_layer_ac_nodriver*.ndjson",
+    "progress_existing_count": 20
+  },
+  "success_count": 9,
+  "short_rows_count": 0,
+  "error_count": 1,
+  "boundary_signal": null,
+  "deduped_memberships": [],
+  "successes": [
+    {
+      "progress": "1/44",
+      "group": "LC",
+      "channel_id": "051a3090c9566bdfd6af01cb1f463c16",
+      "name": "폰루루 ㅣ PON RuRu",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\051a3090c9566bdfd6af01cb1f463c16_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/051a3090c9566bdfd6af01cb1f463c16/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "2/44",
+      "group": "LC",
+      "channel_id": "f4c2ff0be58895c211652674f2f19ffa",
+      "name": "그나로",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\f4c2ff0be58895c211652674f2f19ffa_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/f4c2ff0be58895c211652674f2f19ffa/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "3/44",
+      "group": "LC",
+      "channel_id": "425366ceabbd175f051db2e87c3db139",
+      "name": "멜삐",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\425366ceabbd175f051db2e87c3db139_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/425366ceabbd175f051db2e87c3db139/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "4/44",
+      "group": "LC",
+      "channel_id": "8714050e915c2e7cd5d551756fd3dbb5",
+      "name": "슬히찡",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\8714050e915c2e7cd5d551756fd3dbb5_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/8714050e915c2e7cd5d551756fd3dbb5/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "5/44",
+      "group": "LC",
+      "channel_id": "8cfb2bdebc91dabb9d54ac44714a9b48",
+      "name": "아리랑털기",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\8cfb2bdebc91dabb9d54ac44714a9b48_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/8cfb2bdebc91dabb9d54ac44714a9b48/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "6/44",
+      "group": "LC",
+      "channel_id": "a57df5bebba78db17189b24b54d5a2e4",
+      "name": "모다해",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\a57df5bebba78db17189b24b54d5a2e4_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/a57df5bebba78db17189b24b54d5a2e4/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "7/44",
+      "group": "LC",
+      "channel_id": "07d0b756965acfb5fee4042f7ec180d0",
+      "name": "플로라 코튼",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\07d0b756965acfb5fee4042f7ec180d0_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/07d0b756965acfb5fee4042f7ec180d0/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "9/44",
+      "group": "LC",
+      "channel_id": "5fb53f10e2fe2dfe77cb2cc007d63c42",
+      "name": "이운비",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\5fb53f10e2fe2dfe77cb2cc007d63c42_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/5fb53f10e2fe2dfe77cb2cc007d63c42/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    },
+    {
+      "progress": "10/44",
+      "group": "LC",
+      "channel_id": "d7fcdd7413c90d58e81f4720273795b2",
+      "name": "로쥬마리",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LC\\d7fcdd7413c90d58e81f4720273795b2_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/d7fcdd7413c90d58e81f4720273795b2/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    }
+  ],
+  "errors": [
+    {
+      "progress": "8/44",
+      "group": "LC",
+      "channel_id": "107b9e4102fb92e546a3aff932babea0",
+      "name": "김네네",
+      "error": "not_found"
+    }
+  ]
+}

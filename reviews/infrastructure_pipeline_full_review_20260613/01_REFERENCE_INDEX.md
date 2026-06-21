@@ -39,8 +39,8 @@
 
 | Case | Path | State Observed |
 |---|---|---|
-| KimDalsu | `D:\Codex_Workspace\Streamer Consulting Project\김달수_CASE_PACKAGE_v3_20260611` | CaseResult `partial`; PortfolioRow `partial_ready`; DisclosureLog `red/defer` |
-| Gubiba | `D:\Codex_Workspace\Streamer Consulting Project\구비바_CASE_PACKAGE_v3_20260611` | CaseResult `not_ready` in JSON, README calls it stub; PortfolioRow `not_ready`; PublicDemoRow `blocked`; DisclosureLog `red/blocked` |
+| KimDalsu | `D:\Codex_Workspace\Streamer Consulting Project\김달수_케이스` | CaseResult `partial`; PortfolioRow `partial_ready`; DisclosureLog `red/defer` |
+| Gubiba | `D:\Codex_Workspace\Streamer Consulting Project\구비바_케이스` | CaseResult `not_ready` in JSON, README calls it stub; PortfolioRow `not_ready`; PublicDemoRow `blocked`; DisclosureLog `red/blocked` |
 | KimDalsu TargetBatchPlan | `D:\Codex_Workspace\Streamer Consulting Project\KimDalsu_TargetBatchPlan_MASTER_v2_M7_1_20260611` | 8 targets; CollectDirective templates all `approved=false` |
 
 ## Run Evidence

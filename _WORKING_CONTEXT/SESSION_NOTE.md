@@ -23,7 +23,7 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 - `IsaacInfra/researches/pearson 리서치_v_4_ GPT p3.md` — CHART v4 Phase 3 결과
 - `IsaacInfra/Pearson/current/Pearson_v0.2_storage_contract/SPEC_pearson_v0_2.md` — v0.2 정본 스펙
 - `IsaacInfra/Pearson/current/Pearson_v0.1_storage_contract/` — v0.1→v0.2 코드베이스
-- `구비바_CASE_PACKAGE_v3_20260611/machine/구비바_§4_case_params_v1.json` — 수집 프로토콜
+- `구비바_케이스/machine/구비바_§4_case_params_v1.json` — 수집 프로토콜
 
 ## Actions
 
@@ -103,7 +103,7 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 
 **산출물:**
 
-- `구비바_CASE_PACKAGE_v3_20260611/references/current_framework/스트리머_채널진단_방법론_v4_draft_20260620.md` — v4 정본 (1831행)
+- `구비바_케이스/references/current_framework/스트리머_채널진단_방법론_v4_draft_20260620.md` — v4 정본 (1831행)
 - 원본 v3 파일(`_v3_draft_START_20260610.md`)도 in-place 수정됨 (내용 동일, 두 파일 모두 v4 상태)
 
 **변경 내역 (7건):**
@@ -233,11 +233,11 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - Full remaining run used 6 workers, 6s delay, 2s jitter, existing-file resume.
 
 2. What files were produced
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/구비바_§5_SOFTCONE_full_range_collection_run_20260615.md`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_date_query_probe.json`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_manifest_full_6c6s.json`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_progress_full_6c6s.ndjson`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_errors_full_6c6s.csv`
+   - `Streamer Consulting Project/구비바_케이스/work/step5_diagnosis/구비바_§5_SOFTCONE_full_range_collection_run_20260615.md`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/broadcast_samples/_date_query_probe.json`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/broadcast_samples/_collection_manifest_full_6c6s.json`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/broadcast_samples/_collection_progress_full_6c6s.ndjson`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/broadcast_samples/_collection_errors_full_6c6s.csv`
 
 3. File status
    - Run note: reviewed; current handoff source for the Step5 full-range collection run.
@@ -269,11 +269,11 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - Collector was hardened with existing-candidate reuse, detail `fetch` timeout, progress NDJSON, per-candidate CSV/notes flush, append mode, and band filter.
 
 2. Outputs
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band.csv` — final upper reference band, 67 rows.
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band_notes.csv` — exclusion notes, 73 rows.
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/_upper_band_candidates.json` — 687-candidate pool.
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/_upper_band_detail_progress.ndjson` — per-candidate progress log.
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step6_tradeoff/구비바_§6_upper_reference_band_collection_run_20260616.md` — run note and caveats.
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/cohort_ref_upper_band.csv` — final upper reference band, 67 rows.
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/cohort_ref_upper_band_notes.csv` — exclusion notes, 73 rows.
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/_upper_band_candidates.json` — 687-candidate pool.
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/_upper_band_detail_progress.ndjson` — per-candidate progress log.
+   - `Streamer Consulting Project/구비바_케이스/work/step6_tradeoff/구비바_§6_upper_reference_band_collection_run_20260616.md` — run note and caveats.
 
 3. Verification
    - Final CSV schema matches requested columns exactly.
@@ -331,12 +331,12 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - Duplicates: 0. Required metric missing cells: 0. Detail records: 687/687.
 
 3. Files
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band.csv`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_ref_upper_band_notes.csv`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/collection_logs/_upper_band_detail_progress.ndjson`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/collection_logs/_upper_band_detail_records.json`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/collection_logs/_upper_band_collection_manifest.json`
-   - `Streamer Consulting Project/구비바_CASE_PACKAGE_v3_20260611/work/step6_tradeoff/구비바_§6_upper_reference_band_collection_run_20260616.md`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/cohort_ref_upper_band.csv`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/cohort_ref_upper_band_notes.csv`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/collection_logs/_upper_band_detail_progress.ndjson`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/collection_logs/_upper_band_detail_records.json`
+   - `Streamer Consulting Project/구비바_케이스/data/cohort/collected/collection_logs/_upper_band_collection_manifest.json`
+   - `Streamer Consulting Project/구비바_케이스/work/step6_tradeoff/구비바_§6_upper_reference_band_collection_run_20260616.md`
 
 4. Boundaries and warnings
    - No 429/checkpoint/rate-limit boundary was observed during the extension chunks.
@@ -680,11 +680,11 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
      - content_type_primary: clip 31, highlight 23, mixed 10, full_vod 7, original 6, blank 1
 
 2. Files produced / modified
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step7_youtube_feasibility/scripts/collect_youtube_survey.py` — 재개 가능 수집 스크립트. `--skip-presence`, `--skip-chzzk-social`, 기존 metrics skip 로직 포함.
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/youtube_presence_271.csv` — Codex 수집분 84행.
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/youtube_metrics_active.csv` — Codex metrics 78행.
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step7_youtube_feasibility/구비바_§7_youtube_survey_run_20260619.md` — Codex 수집 런노트.
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/youtube_gubiva.csv` — Codex run 이후 Cowork가 별도 브라우저 확인으로 작성한 1행 파일. Codex 런노트의 Task 3 not_collected 상태와 혼동하지 말 것.
+   - `구비바_케이스/work/step7_youtube_feasibility/scripts/collect_youtube_survey.py` — 재개 가능 수집 스크립트. `--skip-presence`, `--skip-chzzk-social`, 기존 metrics skip 로직 포함.
+   - `구비바_케이스/data/cohort/collected/youtube_presence_271.csv` — Codex 수집분 84행.
+   - `구비바_케이스/data/cohort/collected/youtube_metrics_active.csv` — Codex metrics 78행.
+   - `구비바_케이스/work/step7_youtube_feasibility/구비바_§7_youtube_survey_run_20260619.md` — Codex 수집 런노트.
+   - `구비바_케이스/data/cohort/collected/youtube_gubiva.csv` — Codex run 이후 Cowork가 별도 브라우저 확인으로 작성한 1행 파일. Codex 런노트의 Task 3 not_collected 상태와 혼동하지 말 것.
 
 3. File status
    - `youtube_presence_271.csv`: partial sample, 84/90 attempted rows completed. 271 전수 아님.
@@ -718,12 +718,12 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - boundary 발생 후 44채널 본수집은 시작하지 않았다.
 
 2. Files produced / modified
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs` — `--target-file` 지원 추가.
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/layer_ac_broadcast_targets_20260620.json` — LA/LC 44채널 입력.
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/구비바_§8_layer_ac_broadcast_collection_run_20260620.md` — 런노트.
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_manifest_layer_ac.json`
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_errors_layer_ac.csv`
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_progress_layer_ac.ndjson`
+   - `구비바_케이스/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs` — `--target-file` 지원 추가.
+   - `구비바_케이스/work/step8_layer_ac_broadcasts/layer_ac_broadcast_targets_20260620.json` — LA/LC 44채널 입력.
+   - `구비바_케이스/work/step8_layer_ac_broadcasts/구비바_§8_layer_ac_broadcast_collection_run_20260620.md` — 런노트.
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/_collection_manifest_layer_ac.json`
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/_collection_errors_layer_ac.csv`
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/_collection_progress_layer_ac.ndjson`
 
 3. File status
    - LA/LC 방송별 CSV 생성 수: 0.
@@ -751,15 +751,15 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - 최종 통합 manifest/progress/errors를 official layer_ac 파일명으로 재작성했다.
 
 2. Files produced / modified
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs` — `--target-file` 지원.
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step5_diagnosis/scripts/collect_step5_broadcasts_nodriver.py` — `--target-file`, `--profile-dir`, full-range query, checkpoint wait, progress skip 지원.
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/layer_ac_broadcast_targets_20260620.json` — LA/LC 44채널 입력.
-   - `구비바_CASE_PACKAGE_v3_20260611/work/step8_layer_ac_broadcasts/구비바_§8_layer_ac_broadcast_collection_run_20260620.md` — 최종 런노트.
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/LA/*.csv`
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/LC/*.csv`
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_manifest_layer_ac.json`
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_errors_layer_ac.csv`
-   - `구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples/_collection_progress_layer_ac.ndjson`
+   - `구비바_케이스/work/step5_diagnosis/scripts/collect_step5_broadcasts_cdp_parallel.mjs` — `--target-file` 지원.
+   - `구비바_케이스/work/step5_diagnosis/scripts/collect_step5_broadcasts_nodriver.py` — `--target-file`, `--profile-dir`, full-range query, checkpoint wait, progress skip 지원.
+   - `구비바_케이스/work/step8_layer_ac_broadcasts/layer_ac_broadcast_targets_20260620.json` — LA/LC 44채널 입력.
+   - `구비바_케이스/work/step8_layer_ac_broadcasts/구비바_§8_layer_ac_broadcast_collection_run_20260620.md` — 최종 런노트.
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/LA/*.csv`
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/LC/*.csv`
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/_collection_manifest_layer_ac.json`
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/_collection_errors_layer_ac.csv`
+   - `구비바_케이스/data/cohort/collected/broadcast_samples/_collection_progress_layer_ac.ndjson`
 
 3. File status
    - Target 44개 전부 terminal 상태.
@@ -785,163 +785,4 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 1. What was done
    - **체급 점수 제거 검증**: 100점 스코어링에서 체급 근접도(25점)를 완전 제거, 나머지 4항목(성장 25 + 안정 20 + 충분 15 + 형태 15 = 75점)만으로 구비바 15채널 + 김달수 15채널 재스코어링.
    - **핵심 발견**:
-     - 김달수: 전략적죽음 #4→#1 (13개월 데이터 + 성장 방향 강일치), 미유 #6→#3, 해득이 #7→#4. 개리형 #1→#2, 기뮨디 #2→#5.
-     - 구비바: 불꽃빡빡 #14→#1 (7개월 데이터, 성장 방향 최강일치). 유나욘 #1→#2.
-     - 양쪽 Top 5 ratio 중앙값 1.40x 유지 — 법칙이 아닌 상관관계.
-     - 진짜 드라이버: 데이터 기간(충분성)과 성장 방향 일치.
-   - **궤적매칭 v2 보고서 2건 업데이트**: 체급 검증 섹션 + 수정된 활용 권장.
-   - **풀리포트 2건 반영**:
-     - `gubiva_full_report_v3_20260619.md`: §5.5 삽입 (§5.4 직후)
-     - `kimdalsu_v3_1_client_full_20260618.md`: §9 삽입 (§8 직후)
-
-2. Files modified
-   - `Gunsmith_Mailbox/reports/구비바_언니채널_궤적매칭_v2.md`
-   - `Gunsmith_Mailbox/reports/김달수_언니채널_궤적매칭_v2.md`
-   - `Gunsmith_Mailbox/reports/gubiva_full_report_v3_20260619.md`
-   - `Codex_Workspace/.../deliverables/kimdalsu_v3_1_client_full_20260618.md`
-
-3. Key methodological insight
-   - 체급 스코어링(25점)이 1.5x 피크 설계 → 1.4x 수렴은 사전 가설 반영
-   - 체급 제거 후에도 중앙값 유지 → 상관관계 실재, 인과 아님
-   - 개선 방향: 체급 배점 축소, 충분성·형태 유사도 확대
-
-4. Boundaries
-   - No cookie/token/session/screenshot 저장. targets\ 미수정.
-   - CaseResult/canonical 미변경. 풀리포트 직접 편집 (docx/pdf 미재생성).
-
----
-
-## [Cowork/Hosea] 2026-06-21T06:00+09:00 — 전달 전 산출물 일괄 갱신 완료
-
-1. What was done
-   - **CaseResult partial 승격**: stub → partial. §5~§9 결과 반영, 12 claims, 3 strategic_targets, XGPS external_validation, P0/P1/P2 priority_stack.
-   - **2부 종합 리포트 v4**: 잘린 파일(668줄) 복구. Phase 1~3 로드맵 완성, §8-b XGPS 교차검증 종합(2수렴 3발산 테이블+해석) 추가.
-   - **1부 보고가이드 v2**: 방송투입량 112h→102.9h 정정, 576 VTuber 리텐션 하위 25% 추가, §8 XGPS 교차검증 결과 반영, 클로징에 P0 리텐션 추가.
-   - **2부 보고가이드 v1**: M1~M6 전체 90~100분 시나리오. 각 모듈별 [전문]/[쉽게], 체크인, 예상 질문 대비 7건.
-   - **DOSSIER 최종 갱신**: CaseResult partial, 파일목록·체크리스트 전면 갱신.
-
-2. Files produced
-   - `machine/구비바_CaseResult_v3_partial.json`
-   - `deliverables/gubiba_보고가이드_2부_v1.md`
-
-3. Files modified
-   - `deliverables/gubiva_full_report_v3_20260619.md` — v4 (§8-b 추가, Phase 1~3 복구)
-   - `deliverables/gubiba_보고가이드_v1.md` — v2 (576/리텐션/§8 갱신)
-   - `구비바_CASE_DOSSIER_v3.md` — CaseResult partial, 파일목록, 체크리스트
-
-4. What the next surface should do
-   - O17 쇼츠 결과 확인
-   - 1부 PDF/DOCX v3 재생성 (현재 v2 기반)
-   - 차트 PNG v3 재생성
-   - 클라이언트 전달 → 산출물 반응 로그 기록
-   - (전달 후) C21 상태 갱신, §10 실행 설계 착수
-
-5. Boundaries
-   - targets\ 미수정. C21은 "에디터 해석/가설"로 유지. CaseResult stub 파일은 보존(삭제 안 함).
-
----
-
-## [Cowork/Hosea] 2026-06-21T05:00+09:00 — §9 산출물설계 + O13 토론배틀 보조 완료
-
-1. What was done
-   - **§9 산출물설계 정본 v1**: 6모듈 2부 전달구조 (M1 방송효과심화 → M2 카테고리·시간대 → M4 리텐션 → M3 유튜브 → M5 궤적매칭 → M6 통합진단), 90~100분 시나리오.
-   - **O13 토론배틀 보조 v1**: C21(자기 가치 평가 낮춤) 검증 도구. 3현상→1뿌리 구조, 근거 5개, 예상 반론 4종 대응, 분기판단(수용/부분/거부/과부하).
-   - **산출물 반응 로그 CSV**: R01~R09 빈 템플릿 (방법론 v4 §9.6 컬럼 일치).
-   - **DOSSIER 갱신**: §9 완료 반영, 케이스정의 갱신, 다음 Action 갱신, 체크리스트·파일목록 갱신.
-   - **방법론 v4 §9 대조 검증**: 6개 요구사항 전부 충족 확인.
-
-2. Files produced
-   - `work/step9_deliverable_design/구비바_§9_산출물설계_20260621.md` — §9 정본 v1
-   - `deliverables/gubiva_O13_토론배틀보조_v1.md` — O13 토론배틀 보조
-   - `deliverables/gubiva_산출물반응로그.csv` — 빈 템플릿
-
-3. Files modified
-   - `구비바_CASE_DOSSIER_v3.md` — §9 완료, 케이스정의, Action, 체크리스트, 파일목록
-
-4. What the next surface should do
-   - CaseResult stub → partial 승격 (§5~§9 반영)
-   - 전달 전 산출물 갱신 (2부 종합 리포트 §8 반영, 1부 PDF 재생성, 보고가이드 v2)
-   - 2부 보고가이드 본문 작성
-   - 클라이언트 전달 → 반응 로그 기록
-
-5. Boundaries
-   - No cookie/token/session/screenshot 저장. targets\ 미수정. C21은 "에디터 해석/가설"로 명시, 본인 확인 전 단정 금지.
-
----
-
-## [Cowork/Hosea] 2026-06-21T03:00+09:00 — §8 XGPS 교차검증 분석 완료
-
-1. What was done
-   - **§8 XGPS 교차검증 분석**: Layer A 19ch/1,706건 + Layer C 23ch/2,194건 vs 구비바 582건. 5개 효과 교차검증.
-   - **수렴 2건**: 잔류율×방송길이 (모든 체급 r=-0.24~-0.37, 구비바 감소 가장 완만), 주말 우위 (+5~14%).
-   - **발산 3건**:
-     - 방송길이→시청자: LC r=0.25 (긴 방송=더 많은 시청자), LA/구비바 r≈0 (무상관). 구비바의 무상관은 "월 102.9h 한계수익 소진"으로 해석.
-     - 저녁 시간대: LC에서 저녁=프라임타임(peak_z +0.33), 구비바만 저녁 최저. 시간대 자체가 아닌 구비바 고유 요인.
-     - talk vs game: LA/LC 모두 game > talk. 구비바만 talk(pk 26) > game(pk 19). 시청자가 게임이 아닌 스트리머 자체에 반응.
-   - **심화 분석**: 채널별 r 분포 (LA 44% 양의상관, LC 91%), 카테고리별 peak_z (LC 음악/니케/명조 상위), 잔류율 기울기 비교, 주말 채널내정규화 차이.
-   - **DOSSIER v4 갱신**: §8 완료 반영, 4.5 §8 Claims 추가, 5-6 섹션 갱신, 체크리스트·정본파일목록 갱신.
-   - **전수치 검증**: Python 독립 스크립트로 peak median, r값, 잔류율 r값 9개 모두 일치 확인.
-
-2. Files produced
-   - `work/step8_xgps/구비바_§8_XGPS_교차검증_20260621.md` — §8 정본 v1
-
-3. Files modified
-   - `구비바_CASE_DOSSIER_v3.md` — §8 완료 반영 (상태표, 케이스정의, Claims 4.5, 본문 5-6, 체크리스트, 파일목록)
-
-4. What the next surface should do
-   - CaseResult stub → partial 승격 (§5~§8 반영)
-   - §9 산출물 설계 + O13 전달설계
-   - 클라이언트 전달물 최종
-
-5. Boundaries
-   - No cookie/token/session/screenshot 저장. targets\ 미수정. CaseResult/canonical 미변경.
-
----
-
-## [Cowork/Hosea] 2026-06-20T18:00+09:00 — Universal Collector Framework 설계 + 구현
-
-1. What was done
-   - **설계 협업**: 사용자와 config-driven 범용 수집 프레임워크 아키텍처를 협의. 모듈 위치(`tools/collector/`), JS 외부화, Playwright 인터페이스만 예약 등 3건 결정.
-   - **CC 코드 리뷰 반영**: Codex 독립 리뷰 6건 수신. CDP 엔진 제외(nodriver 충분), `dom_eval` 네이밍, signal action config 선언, tracking↔targets resume 협력 등 반영.
-   - **구현 완료**: 17파일 생성, 전부 문법·기능 검증 통과.
-     - Core: `config.py`, `targets.py`, `tracking.py`, `rate.py`, `collector.py`, `__main__.py`
-     - Engines: `base.py`(ABC), `nodriver_engine.py`, `http_engine.py`
-     - Extractors: `dom_eval.py`, `api_json.py`
-     - Assets: `softcon_channel_streams.js`, `gubiba_step5.yaml`, `requirements.txt`
-   - **검증**: config 로딩, 323 대상 로딩/중복제거, resume(323 전부 skip), expression 치환, signal 감지, verify(304 ok / 14 missing / 5 short_rows) 전부 통과.
-   - **COLLECTION_TOOLKIT.md 갱신**: Quick Reference에 프레임워크 추가, §8 섹션 신설, 의존성 테이블 갱신.
-
-2. Files produced
-   - `tools/__init__.py`
-   - `tools/collector/__init__.py`
-   - `tools/collector/__main__.py`
-   - `tools/collector/collector.py` — CLI 진입점 (collect/verify)
-   - `tools/collector/config.py` — YAML 로더 + dataclass
-   - `tools/collector/targets.py` — 다중 소스 + 중복제거
-   - `tools/collector/tracking.py` — NDJSON progress + manifest + resume
-   - `tools/collector/rate.py` — delay/jitter + signal
-   - `tools/collector/engines/base.py` — Engine ABC
-   - `tools/collector/engines/nodriver_engine.py`
-   - `tools/collector/engines/http_engine.py`
-   - `tools/collector/extractors/dom_eval.py`
-   - `tools/collector/extractors/api_json.py`
-   - `tools/collector/expressions/softcon_channel_streams.js`
-   - `tools/collector/configs/gubiba_step5.yaml`
-   - `tools/collector/requirements.txt`
-
-3. Files modified
-   - `_WORKING_CONTEXT/COLLECTION_TOOLKIT.md` — Quick Reference + §8 + 의존성
-
-4. File status
-   - 프레임워크 17파일: raw — CC/Codex 리뷰 후 git commit 대상
-   - COLLECTION_TOOLKIT.md: reviewed
-
-5. What the next surface should do
-   - **Codex/CC**: `tools/collector/` 17파일 git commit. 커밋 전 코드 리뷰 권장.
-   - **Codex/CC**: 새 케이스 config YAML 추가 시 `configs/` 아래에 배치. 기존 개별 스크립트 → 프레임워크 전환은 점진적으로.
-   - **Cowork/Hosea**: 프레임워크로 새 수집 실행 시 `python -m tools.collector.collector collect --config <yaml>` 사용.
-
-6. Boundaries and warnings
-   - 프레임워크는 설계+구현+검증까지만 완료. 실제 라이브 수집(네트워크 호출)은 미실행.
-   - 기존 개별 스크립트는 그대로 유지. 프레임워크가 대체하지만 삭제하지 않음.
-   - No cookie/token/session/screenshot 저장. targets\ 미수정. CaseResult/canonical 미변경.
+     - 김달수: 전략적죽음 #4→#1 (13�
