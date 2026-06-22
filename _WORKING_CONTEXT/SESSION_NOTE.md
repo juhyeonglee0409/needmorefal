@@ -785,4 +785,30 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
 1. What was done
    - **체급 점수 제거 검증**: 100점 스코어링에서 체급 근접도(25점)를 완전 제거, 나머지 4항목(성장 25 + 안정 20 + 충분 15 + 형태 15 = 75점)만으로 구비바 15채널 + 김달수 15채널 재스코어링.
    - **핵심 발견**:
-     - 김달수: 전략적죽음 #4→#1 (13�
+     - 김달수: 전략적죽음 #4→#1 (13�
+
+---
+
+## [CC] 2026-06-22T — Contextwins 프롬프트 코퍼스 파이프라인 스펙 작성
+
+1. What was done
+   - Contextwins Project 프롬프트 코퍼스 수집 파이프라인 설계를 스펙 문서로 통합.
+   - 소스 매트릭스를 `Gunsmith_Mailbox/`에서 `Contextwins Project/researches/`로 복사.
+   - 스펙 14개 섹션: 목적, 레코드 스키마(NDJSON), L0~L3 전 레이어, CLI, resume/에러, 의존성, 비용 추정, 배치 순서.
+   - 설계 과정에서 확정된 TILLER 프롬프트 3개(L0.5b 게이트, L1 추출, L3 태깅) 전문 포함.
+   - 스키마 필드 추가: `published_at`(게시 시간), `target_models`(대상 모델 배열).
+
+2. Files produced
+   - `Contextwins Project/specs/prompt_corpus_pipeline_spec.md` — Codex 구현 스펙 v1.0
+   - `Contextwins Project/researches/prompt_corpus_source_matrix.md` — 소스 매트릭스 (Gunsmith_Mailbox에서 복사)
+
+3. File status
+   - 스펙: Codex 구현 대기. 코드 위치 `tools/corpus/`.
+   - 소스 매트릭스: 원본(`Gunsmith_Mailbox`)도 유지.
+
+4. What the next surface should do
+   - **Codex**: `specs/prompt_corpus_pipeline_spec.md` 읽고 `tools/corpus/` 구현 시작. 순서 1(GitHub E1~E4)부터 end-to-end 검증.
+   - **Operator**: Anthropic API 크레딧 + Naver Search API 키 + Reddit PRAW credentials 준비.
+
+5. Boundaries
+   - 문서 작업만. 코드/파이프라인/canonical 미변경. cookie/token 저장 없음.
