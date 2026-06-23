@@ -2,6 +2,105 @@
 
 ## Date
 
+2026-06-24
+
+## Case
+
+Contextwins 한국어 소스 전량 수집 + pipeline 개선 3건
+
+### 무엇을 했는가
+
+1. **K소스 전량 파이프라인 완료**: K10(tistory), K11(velog), K12(naver), K14(brunch), K15(github-ko), K16(site-agnostic), K2(gpters board) 전부 gate + extract 완료. corpus_tagged.ndjson **5,867건** 누적.
+2. **progress logging 추가**: gate.py (20건마다), extract.py (10건마다), collector.py (소스 시작/완료) — 터미널에서 실시간 모니터링 가능.
+3. **cross-run dedup 구현**: `data/known_ids.txt` (5,867 content_id) 기반. extract.py + prpt_fetch.py에서 이미 있는 프롬프트 skip. normalize.py에서 자동 갱신.
+4. **adaptive sleep 적용**: gate에서 page_text 보유 시 0.3초, fetch 필요 시 2초. 예상 절감 ~60%.
+
+### 산출물
+
+| 파일 | 상태 |
+|------|------|
+| `tools/corpus/gate.py` | 수정 (progress logging + adaptive sleep) |
+| `tools/corpus/extract.py` | 수정 (progress logging + known_ids dedup) |
+| `tools/corpus/normalize.py` | 수정 (known_ids 갱신) |
+| `tools/corpus/prpt_fetch.py` | 수정 (known_ids dedup) |
+| `tools/corpus/collector.py` | 수정 (소스별 진행 로그) |
+| `specs/PATCH_cross_run_dedup.md` | 적용 완료로 갱신 |
+| `tools/corpus/data/known_ids.txt` | 신규 (5,867 ids) |
+| `tools/corpus/data/corpus_tagged.ndjson` | 갱신 (5,867건) |
+
+### 수집 결과 요약
+
+| 소스 | gate pass | pass rate | 비고 |
+|------|-----------|-----------|------|
+| K10 (tistory) | 555 | 63% | 최고 pass rate |
+| K14 (brunch) | 219 | 55% | |
+| K16 (site-agnostic) | 196 | 34% | |
+| K11 (velog) | 110 | 33% | |
+| K15 (github-ko) | 61 | 25% | |
+| K12 (naver) | 31 | 0.8% | 3,855건 중 대부분 regex reject |
+| K2 (gpters board) | 6 | 4% | |
+
+### 커밋
+
+- `87d551cc` Contextwins: K소스 전량 수집 완료 + cross-run dedup + progress logging + adaptive sleep
+
+### 다음 세션에서 할 일
+
+- 쿼리 확장으로 수집 볼륨 추가 증대 (같은 소스 재실행은 단기 수확 적음)
+- 코퍼스 품질 분석 — lang/domain 분포, 소스별 프롬프트 특성
+- TILLER 태깅 고도화 (현재 null mode)
+- git push (operator 지시 시)
+
+---
+
+## Date
+
+2026-06-23
+
+## Case
+
+구비바 본인 선정 레퍼런스 20채널 분석 → 보고서 v5 머지 + 보고가이드 v2
+
+### 무엇을 했는가
+
+1. **이전 세션에서 완료한 것**: 20채널 수집(Codex 위임, 13,096행), 보충안 작성(`gubiba_unni20_report_supplement_20260623.md`), 효율 지표 과대해석 보정(r=-0.204 상관분석 반영).
+
+2. **이번 세션**: 보충안을 보고서 본문 + 보고가이드에 직접 머지.
+   - `gubiva_full_report_v3_20260619.md` → v5 (2026-06-23)
+     - 헤더 메타데이터 갱신 (v5, 데이터 범위 +20ch/13096건)
+     - 결론 카드 ① 보충 (언니채널 목표 거리 문장)
+     - §2 코호트 설계: "본인 선정 레퍼런스 (20채널)" 서브섹션 추가
+     - §5.5-b: 20채널 전체 테이블 + 요약 대조 + 핵심 발견 4개 + 티어 구조
+     - §6.3: 목표 거리 3단계 프레이밍 (1,500 → 10K~30K → 30K+)
+     - 한계 #8 추가: 팔로워 711~17,460 데이터 공백
+     - 팔로워 728 → 711 전수 통일
+   - `gubiba_보고가이드_합본_v1.md` → v2
+     - M5-b 모듈 추가 (본인 선정 레퍼런스, 10분)
+     - 시간 배분 갱신 (총 100~110분)
+
+3. **검증**: subagent 검증 13항목 중 11 PASS, 2 주의사항(부정문맥 #12 → OK, 팔로워 통일 #13 → 수정 완료).
+
+4. **커밋**: `a01d116` feat(gubiba): merge unni20 analysis into report v5 + guide v2
+
+### 산출물
+
+| 파일 | 상태 |
+|------|------|
+| `구비바_케이스/deliverables/gubiva_full_report_v3_20260619.md` | 수정 (v5) |
+| `구비바_케이스/deliverables/gubiba_보고가이드_합본_v1.md` | 수정 (v2) |
+| `Gunsmith_Mailbox/reports/gubiba_unni20_report_supplement_20260623.md` | 이전 세션 산출 (참조용, git 외부) |
+
+### 다음 세션에서 할 일
+
+- **보고서 파일명 리네임 고려**: 실제 버전이 v5인데 파일명에 v3이 남아있음. 리네임 여부 판단 필요.
+- **DOSSIER 갱신**: v5 반영, 파일목록 업데이트.
+- **Pipeline spec 피드백**: 이전에 식별한 6개 리뷰 포인트 CC에 미전달 상태.
+- **Contextwins S-007**: Anthropic API credits 여전히 대기 중.
+
+---
+
+## Date
+
 2026-06-16
 
 ## Case
@@ -786,6 +885,50 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - **체급 점수 제거 검증**: 100점 스코어링에서 체급 근접도(25점)를 완전 제거, 나머지 4항목(성장 25 + 안정 20 + 충분 15 + 형태 15 = 75점)만으로 구비바 15채널 + 김달수 15채널 재스코어링.
    - **핵심 발견**:
      - 김달수: 전략적죽음 #4→#1 (13�
+
+---
+
+## [CC] 2026-06-23T04:30+09:00 — Contextwins 코퍼스 파이프라인 풀런 + Threads/Reddit 소스 확장
+
+1. What was done
+   - **코퍼스 파이프라인 풀런 완료**: Phase 1-5 구현(전 세션) 후 스모크 테스트 → 풀런 2회 실행.
+     - 1차 풀런: Google CSE 403 발견 → Serper.dev로 전환.
+     - 2차 풀런(skip-gate): 코퍼스 v1 — 1,510건 (en 1,488 / ko 14 / mixed 8).
+   - **Google CSE → Serper.dev 전환**: Google CSE JSON API가 신규 프로젝트에서 사용 불가(정책 변경). Serper.dev POST API로 drop-in 교체. 4파일 수정.
+   - **K10/K11 검색엔진 전환**: Naver Blog Search는 `site:` 연산자 미지원 → Serper로 이관. K12 네이티브 Naver 소스 추가.
+   - **Threads 소스 추가 (E13 EN, K13 KO)**: `site:threads.net` Serper 검색. 프롬프트 공유 게시물 정확히 타겟됨.
+   - **Reddit JSON parser + snippet fallback**: Reddit이 Python 클라이언트를 TLS/headless 레벨에서 완전 차단. `.json` API 시도 → 실패 시 Serper snippet을 page_text로 활용. UrlRecord에 snippet 필드 추가.
+   - **Skip-gate 방식 채택**: L0.5 LLM gate가 과도하게 필터링(5.3% pass rate) → skip-gate로 전환. 웹 소스 수율 1건→26건.
+   - **git push 완료**: 11개 커밋 origin/master에 푸시.
+
+2. Files produced / modified
+   - `Contextwins Project/tools/corpus/search_serp.py` — Serper 엔진 추가, snippet 저장
+   - `Contextwins Project/tools/corpus/config.py` — `serper_api_key()` 추가
+   - `Contextwins Project/tools/corpus/gate.py` — Reddit JSON parser, snippet fallback
+   - `Contextwins Project/tools/corpus/schemas.py` — UrlRecord.snippet 필드
+   - `Contextwins Project/tools/corpus/collector.py` — E13/K13 라우팅, RUN_SOURCE_ORDER 갱신
+   - `Contextwins Project/tools/corpus/configs/serp_queries.yaml` — E13/K13 Threads, K12 Naver, engine 전환
+   - `Contextwins Project/tools/corpus/data/corpus.ndjson` — 코퍼스 v1 원본
+   - `Contextwins Project/tools/corpus/data/corpus_tagged.ndjson` — 코퍼스 v1 태깅 완료
+
+3. File status
+   - 코드 변경: commit-candidate (커밋 + 푸시 완료)
+   - 코퍼스 v1 데이터: reviewed (1,510건, heuristic TILLER 태깅)
+   - 중간 산출물(raw/gated/progress): runtime artifact, 미커밋
+
+4. What the next surface should do
+   - **CC/Codex**: 한국어 소스 볼륨 확대 — 현재 ko 14건으로 부족. Threads(K13), Naver(K12), Tistory(K10), Velog(K11) 쿼리 확장 또는 신규 한국어 소스 추가.
+   - **CC/Codex**: skip-gate를 `cmd_run()` 기본값으로 전환 검토.
+   - **CC/Codex**: E1 CSV field limit 에러 수정 (`csv.field_size_limit` 증가).
+   - **CC/Codex**: K6 gptskorea.com robots.txt 차단 — 대안 경로 검토.
+   - **CC/Codex**: 스펙 v1.4 → v1.5 업데이트 (Serper 전환, Threads 추가, skip-gate 반영).
+
+5. Boundaries and warnings
+   - Google CSE JSON API는 신규 프로젝트에서 사용 불가 (Google 정책 변경). 기존 프로젝트도 향후 제한 가능성.
+   - Reddit는 urllib/requests/nodriver 모두 차단. snippet(~150자) 정도만 확보 가능. Reddit OAuth API가 남은 옵션.
+   - OpenAI API 사용량 대시보드 반영 지연 있음 (수 시간). nano 모델 사용 중이라 비용 미미.
+   - Serper.dev 무료 티어: 2,500 queries. 현재 ~200 사용.
+   - cookie/token/session 저장 없음. CaseResult/canonical 미변경.
 
 ---
 

@@ -1,5 +1,52 @@
 # Decision Log
 
+## 2026-06-23 - Google CSE JSON API 사용 불가 → Serper.dev 전환
+
+decision_id: `DL_TOOLING_20260623_048`
+
+scope:
+- `Contextwins Project/tools/corpus/search_serp.py`
+- `Contextwins Project/tools/corpus/configs/serp_queries.yaml`
+
+what_changed:
+Google Custom Search JSON API는 신규 프로젝트/고객에게 더 이상 제공되지 않음. Cloud Console에서 "사용 설정됨"으로 표시되지만 실제 API 호출은 403 반환. Google Cloud Assist가 정책 변경을 확인. 대체로 Serper.dev POST API 채택 (무료 2,500 queries).
+
+why:
+스모크 테스트 통과 후 풀런에서 Google CSE 전 쿼리 403 실패. API 키 재생성, 프로젝트 설정 점검, Cloud Assist 문의까지 진행. Cloud Assist 답변: "This product is not available for new projects or new customers." 설정 문제가 아닌 정책 변경.
+
+authority:
+operator 2026-06-23.
+
+boundary:
+Serper.dev 무료 티어 2,500 queries. 유료 전환 또는 다른 검색 API 검토는 볼륨 증가 시 별도 판단. Reddit 차단 문제와는 별개.
+
+status: active
+
+---
+
+## 2026-06-23 - Reddit Python 클라이언트 완전 차단 확인
+
+decision_id: `DL_TOOLING_20260623_049`
+
+scope:
+- `Contextwins Project/tools/corpus/gate.py`
+
+what_changed:
+Reddit가 urllib, requests, nodriver(headless Chrome) 모두 차단. `.json` API도 403, old.reddit.com HTML도 403, nodriver 렌더링도 "blocked by network security". 현재 유일한 확보 경로는 Serper snippet fallback (~150자). Reddit OAuth API가 미검증 대안으로 남아 있음.
+
+why:
+Reddit JSON parser 구현 후 테스트에서 3경로 모두 실패 확인. TLS fingerprinting + headless 감지로 추정.
+
+authority:
+self-determined by CC — 기술적 dead-end 확인.
+
+boundary:
+Reddit OAuth API는 미시도. 한국어 소스 우선 정책에 따라 Reddit 투자 보류. 향후 영어 소스 확대 시 재검토.
+
+status: active
+
+---
+
 ## 2026-06-16 - Working Context hygiene policy
 
 decision_id: `DL_INFRA_20260616_047`
