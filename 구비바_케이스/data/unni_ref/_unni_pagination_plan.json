@@ -1,0 +1,321 @@
+{
+  "generated_at": "2026-06-22T14:41:50.039Z",
+  "page_plan": [
+    {
+      "name_input": "아라하시 타비",
+      "platform": "chzzk",
+      "channel_id": "a6c4ddb09cdb160478996007bff35296",
+      "row_count_page1": 100,
+      "total_page": 20,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 6,
+          "total": 20
+        },
+        {
+          "current": 6,
+          "total": 20
+        },
+        {
+          "current": 6,
+          "total": 20
+        },
+        {
+          "current": 6,
+          "total": 20
+        },
+        {
+          "current": 1,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name_input": "이글콥",
+      "platform": "chzzk",
+      "channel_id": "eaf7b569c9992d0e57db0059eb5c0eeb",
+      "row_count_page1": 100,
+      "total_page": 10,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 10
+        }
+      ]
+    },
+    {
+      "name_input": "아리사",
+      "platform": "chzzk",
+      "channel_id": "4de764d9dad3b25602284be6db3ac647",
+      "row_count_page1": 100,
+      "total_page": 9,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name_input": "고세구",
+      "platform": "afreeca",
+      "channel_id": "gosegu2",
+      "row_count_page1": 100,
+      "total_page": 7,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name_input": "달콤레나",
+      "platform": "chzzk",
+      "channel_id": "a67b328bcc8eea4451ccfa754bc19ae1",
+      "row_count_page1": 100,
+      "total_page": 10,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 10
+        }
+      ]
+    },
+    {
+      "name_input": "아오쿠모 린",
+      "platform": "chzzk",
+      "channel_id": "516937b5f85cbf2249ce31b0ad046b0f",
+      "row_count_page1": 100,
+      "total_page": 6,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name_input": "미녕이데려오께",
+      "platform": "chzzk",
+      "channel_id": "c7d3b49d29be2d2b1d74ba8403f5851a",
+      "row_count_page1": 100,
+      "total_page": 2,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 2
+        }
+      ]
+    },
+    {
+      "name_input": "제갈금자",
+      "platform": "afreeca",
+      "channel_id": "dlsn9911",
+      "row_count_page1": 100,
+      "total_page": 8,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 8
+        }
+      ]
+    },
+    {
+      "name_input": "하시요",
+      "platform": "chzzk",
+      "channel_id": "b33c957eac9335d38e4043c3dca97675",
+      "row_count_page1": 100,
+      "total_page": 3,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 3
+        }
+      ]
+    },
+    {
+      "name_input": "둥그레",
+      "platform": "chzzk",
+      "channel_id": "1b0561f3051c10a24b9d8ec9a6cb3374",
+      "row_count_page1": 100,
+      "total_page": 9,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name_input": "디디디용",
+      "platform": "chzzk",
+      "channel_id": "798e100206987b59805cfb75f927e965",
+      "row_count_page1": 100,
+      "total_page": 7,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name_input": "뇨롱이",
+      "platform": "chzzk",
+      "channel_id": "c65ca7335aaeb2ca0c985078223017c0",
+      "row_count_page1": 100,
+      "total_page": 8,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 2
+        },
+        {
+          "current": 1,
+          "total": 8
+        }
+      ]
+    },
+    {
+      "name_input": "망내",
+      "platform": "chzzk",
+      "channel_id": "bd07973b6021d72512240c01a386d5c9",
+      "row_count_page1": 100,
+      "total_page": 7,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name_input": "이오몽",
+      "platform": "chzzk",
+      "channel_id": "d2fb83a5db130bf4d273c981b82ca41f",
+      "row_count_page1": 100,
+      "total_page": 2,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 2
+        }
+      ]
+    },
+    {
+      "name_input": "이로나묭 치카",
+      "platform": "chzzk",
+      "channel_id": "ec30975bd41d3179fe7734ddbf760acb",
+      "row_count_page1": 100,
+      "total_page": 6,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name_input": "백곰파",
+      "platform": "chzzk",
+      "channel_id": "20ef78f064ebfd8dd4f7ec8a3a222fd2",
+      "row_count_page1": 100,
+      "total_page": 8,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 8
+        }
+      ]
+    },
+    {
+      "name_input": "티뭉",
+      "platform": "chzzk",
+      "channel_id": "26253bf7ed6b95832c40f4f43f6d049d",
+      "row_count_page1": 100,
+      "total_page": 100,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 6,
+          "total": 23
+        },
+        {
+          "current": 0,
+          "total": 100
+        },
+        {
+          "current": 1,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name_input": "쿠레나이 나츠키",
+      "platform": "chzzk",
+      "channel_id": "a54372e8197f6d241a43a318279860d6",
+      "row_count_page1": 100,
+      "total_page": 8,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 8
+        }
+      ]
+    },
+    {
+      "name_input": "니니아",
+      "platform": "chzzk",
+      "channel_id": "f00f6d46ecc6d735b96ecf376b9e5212",
+      "row_count_page1": 100,
+      "total_page": 9,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 1,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name_input": "두뭉",
+      "platform": "chzzk",
+      "channel_id": "6f1ae352c78027acf1bd92589fc44128",
+      "row_count_page1": 100,
+      "total_page": 26,
+      "checkpoint": false,
+      "pairs": [
+        {
+          "current": 25,
+          "total": 26
+        },
+        {
+          "current": 25,
+          "total": 26
+        },
+        {
+          "current": 1,
+          "total": 9
+        }
+      ]
+    }
+  ]
+}

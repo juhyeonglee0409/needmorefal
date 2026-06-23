@@ -1,0 +1,99 @@
+{
+  "version": "0.2",
+  "manifest_version": "0.2",
+  "generated_at": "2026-06-22T14:50:56Z",
+  "source_collection_result": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000001\\CollectionResult.json",
+  "source_collection_sha256": "5b7239c0dc0137b40770b72856d74c2635ff68a6a3a5b163d4d6177a864b9fa1",
+  "raw_source_id": "ec2f0ca9345b20ad771421262dabf5f0f816481ea416f069524e5805c6021c45",
+  "polars_available": false,
+  "polars_used": false,
+  "raw_source_of_truth": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000001\\CollectionResult.json",
+  "artifacts": [
+    {
+      "artifact_id": "cd74f1b5b750720e1f2c2b317f9b7edbdd5fbc17a02888c4fb3f2754c4d4d4bd",
+      "kind": "normalized_items",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000001\\artifacts\\normalized_items.csv",
+      "sha256": "cd74f1b5b750720e1f2c2b317f9b7edbdd5fbc17a02888c4fb3f2754c4d4d4bd",
+      "bytes": 8891535,
+      "row_count": 13116,
+      "source_collection_sha256": "5b7239c0dc0137b40770b72856d74c2635ff68a6a3a5b163d4d6177a864b9fa1",
+      "parent_source_ids": [
+        "ec2f0ca9345b20ad771421262dabf5f0f816481ea416f069524e5805c6021c45"
+      ],
+      "transform": {
+        "name": "normalize_items",
+        "version": "0.2.0",
+        "parameters": {
+          "dedup_key": null
+        }
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "e8dc206bd09c8b7d18d84d5d16295f8bc64203b6f8b85bcaa1742622d856bb8c",
+      "kind": "field_coverage",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000001\\artifacts\\field_coverage.csv",
+      "sha256": "e8dc206bd09c8b7d18d84d5d16295f8bc64203b6f8b85bcaa1742622d856bb8c",
+      "bytes": 789,
+      "row_count": 8,
+      "source_collection_sha256": "5b7239c0dc0137b40770b72856d74c2635ff68a6a3a5b163d4d6177a864b9fa1",
+      "parent_source_ids": [
+        "ec2f0ca9345b20ad771421262dabf5f0f816481ea416f069524e5805c6021c45"
+      ],
+      "transform": {
+        "name": "field_coverage_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "fecd6690439dc4ff5e8ee3ce886b0338151050c742776c63a626c1d965ec0deb",
+      "kind": "absence_summary",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000001\\artifacts\\absence_summary.csv",
+      "sha256": "fecd6690439dc4ff5e8ee3ce886b0338151050c742776c63a626c1d965ec0deb",
+      "bytes": 389,
+      "row_count": 4,
+      "source_collection_sha256": "5b7239c0dc0137b40770b72856d74c2635ff68a6a3a5b163d4d6177a864b9fa1",
+      "parent_source_ids": [
+        "ec2f0ca9345b20ad771421262dabf5f0f816481ea416f069524e5805c6021c45"
+      ],
+      "transform": {
+        "name": "absence_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "9fa9b2de859fb8fa221057ca88a30a2ddac3b44e948108e586a9aeb0b205c366",
+      "kind": "item_index",
+      "format": "jsonl",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000001\\artifacts\\item_index.jsonl",
+      "sha256": "9fa9b2de859fb8fa221057ca88a30a2ddac3b44e948108e586a9aeb0b205c366",
+      "bytes": 8550812,
+      "row_count": 13116,
+      "source_collection_sha256": "5b7239c0dc0137b40770b72856d74c2635ff68a6a3a5b163d4d6177a864b9fa1",
+      "parent_source_ids": [
+        "ec2f0ca9345b20ad771421262dabf5f0f816481ea416f069524e5805c6021c45"
+      ],
+      "transform": {
+        "name": "item_index",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    }
+  ]
+}

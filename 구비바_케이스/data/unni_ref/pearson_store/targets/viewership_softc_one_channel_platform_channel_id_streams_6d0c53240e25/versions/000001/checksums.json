@@ -1,0 +1,30 @@
+{
+  "CollectionResult.json": {
+    "sha256": "5b7239c0dc0137b40770b72856d74c2635ff68a6a3a5b163d4d6177a864b9fa1",
+    "bytes": 16354231
+  },
+  "StorageReceipt.json": {
+    "sha256": "5dfc756611a4f38df7c26c015d2667f3ee6c471f2425094dee1a7e45e21332c3",
+    "bytes": 9039
+  },
+  "artifacts/artifact_manifest.json": {
+    "sha256": "330738e3ec2e2a87e0f456693300a795a51185ad921a3ba295d1289cf0abd6c8",
+    "bytes": 4719
+  },
+  "artifacts/normalized_items.csv": {
+    "sha256": "cd74f1b5b750720e1f2c2b317f9b7edbdd5fbc17a02888c4fb3f2754c4d4d4bd",
+    "bytes": 8891535
+  },
+  "artifacts/field_coverage.csv": {
+    "sha256": "e8dc206bd09c8b7d18d84d5d16295f8bc64203b6f8b85bcaa1742622d856bb8c",
+    "bytes": 789
+  },
+  "artifacts/absence_summary.csv": {
+    "sha256": "fecd6690439dc4ff5e8ee3ce886b0338151050c742776c63a626c1d965ec0deb",
+    "bytes": 389
+  },
+  "artifacts/item_index.jsonl": {
+    "sha256": "9fa9b2de859fb8fa221057ca88a30a2ddac3b44e948108e586a9aeb0b205c366",
+    "bytes": 8550812
+  }
+}
