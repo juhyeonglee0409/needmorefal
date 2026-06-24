@@ -2,6 +2,54 @@
 
 ## Date
 
+2026-06-24 (second session)
+
+## Case
+
+Pipeline Integrity 패치 — L2↔L3 불일치 해결 + heuristic TILLER 전체 적용
+
+### 무엇을 했는가
+
+1. **문제 진단 수용**: Cowork 리뷰 3건 (L2↔L3 불일치, TILLER 편향, HELM 범위 축소) + GPT 리뷰 (스키마 부족, source_id provenance, published_at) + Codex 보완 6건 통합.
+2. **`cmd_rebuild()` 신설**: collector.py에 `rebuild` 서브커맨드 추가. 전체 extracted + raw_github 통합 normalize → retag. 입력 검증, L3 progress 초기화, known_ids 리셋, 검증 리포트 포함.
+3. **heuristic tagger 보강**: tiller_tag.py의 heading/berth/bearing/slack 판정을 단일 값에서 분기 함수로 분리. Frame, Method, Experience, Failure, Raw 검출 패턴 추가 (한국어 포함).
+4. **rebuild 실행**: `python -m corpus rebuild --tag-mode heuristic` — L2=L3=5,836, tiller null=0, HELM 전 값 출현 확인.
+5. **progress.ndjson corrupt 정리**: 줄바꿈으로 분리된 JSON 2건 + 추가 corrupt 1건 제거.
+
+### 산출물
+
+| 파일 | 상태 |
+|------|------|
+| `tools/corpus/collector.py` | 수정 (rebuild 서브커맨드 + tag-mode 경고) |
+| `tools/corpus/tiller_tag.py` | 수정 (HELM 분기 함수 + 한국어 패턴) |
+| `specs/PATCH_pipeline_integrity.md` | 신규 (적용 완료) |
+| `tools/corpus/data/corpus.ndjson` | 갱신 (5,836건, 통합 normalize) |
+| `tools/corpus/data/corpus_tagged.ndjson` | 갱신 (5,836건, 100% heuristic 태깅) |
+| `tools/corpus/data/known_ids.txt` | 재생성 (5,836 ids) |
+
+### 검증 결과
+
+| 항목 | Before | After |
+|------|--------|-------|
+| L2 (corpus) | 2,812 | 5,836 |
+| L3 (tagged) | 5,867 | 5,836 |
+| L2 == L3 | FAIL | PASS |
+| tiller null | 4,325 (74%) | 0 (0%) |
+| heading values | Role only | Role(1926), Both(243), Frame(142) |
+| berth values | Category only | Category(564), Method(191), Both(91) |
+| bearing values | Output only | Experience(299), Failure(202), Output(152) |
+| slack values | Include only | Include(422), Raw(294) |
+
+### 다음 세션에서 할 일
+
+- Phase 2: serp_queries.yaml label/collection_route, published_at 강화
+- Phase 3: LLM tagger 소규모 검증
+- 코퍼스 품질 분석 (lang/domain 분포 기반)
+
+---
+
+## Date
+
 2026-06-24
 
 ## Case
