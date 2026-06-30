@@ -1,0 +1,12 @@
+metric,value_monthly,value_weekly,period_monthly,period_weekly,note
+peak_viewers,165,165,05.17~06.17,06.09~06.17,동일 — 피크가 최근 7일 내 발생
+avg_viewers,69,78,05.17~06.17,06.09~06.17,월간이 낮음 — 이전 주 평균 하락 반영
+viewership,11253,2449,05.17~06.17,06.09~06.17,월간 총량
+stream_hours,162.7,31.4,05.17~06.17,06.09~06.17,월간 총량
+best_rank,44,60,05.17~06.17,06.09~06.17,월간이 더 높음
+follower,3760,3760,05.17~06.17,06.09~06.17,시점 동일
+max_chat_6m,176,168,05.17~06.17,06.09~06.17,
+avg_chat_6m,35,38,05.17~06.17,06.09~06.17,월간이 낮음
+retention,0.418,0.473,derived,derived,avg/peak
+efficiency,2.994,0.651,derived,derived,viewership/follower — 월간이 코호트와 비교 가능
+conversion_pct,1.84,2.07,derived,derived,avg/follower*100

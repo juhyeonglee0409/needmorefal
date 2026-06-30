@@ -1,0 +1,542 @@
+{
+  "url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+  "timestamp": "2026-06-12 16:21:16",
+  "diagnostic_version": "0.10.0",
+  "diagnostic_ua": "CharlesSmith/0.10.0",
+  "delay_used": 2.0,
+  "robots": {
+    "fetched": true,
+    "status_code": 200,
+    "encoding_used": "utf-8",
+    "parse_success": true,
+    "allowed_for_ua": true,
+    "crawl_delay": null,
+    "sitemaps": [],
+    "fallback_used": false,
+    "error": null
+  },
+  "http": {
+    "final_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "status_code": 200,
+    "redirect_chain": [
+      "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a"
+    ],
+    "content_type": "text/html",
+    "content_length": 2112,
+    "title": "치지직 CHZZK",
+    "meta_description": null,
+    "elapsed_ms": 1962
+  },
+  "frameworks": [],
+  "rendering_judgment": {
+    "value": "csr",
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "text": "보이는 콘텐츠 적음 (0자, 의미 노드 0개) + 스크립트 비중 높음 (6개/1482자) — CSR 의심",
+        "strength": 0.2,
+        "kind": "required"
+      }
+    ]
+  },
+  "sitemap_candidates": [
+    {
+      "url": "https://m.chzzk.naver.com/sitemap.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap_index.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap-index.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap1.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap.xml.gz",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap_index.xml.gz",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap/sitemap.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemaps/sitemap.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    }
+  ],
+  "phase2": {
+    "attempted": true,
+    "trigger": "csr",
+    "ok": true,
+    "error": null,
+    "elapsed_ms": 7935,
+    "status_code": 200,
+    "rendered_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "rendered_html_length": 148751,
+    "rendered_title": "치지직 CHZZK",
+    "rendered_frameworks": [],
+    "rendered_judgment": {
+      "value": "SSR_STATIC (HTML 구조 데이터, 페이지네이션 확인 권장)",
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "text": "데이터 배열 winner='html.div.channel_home_vod_item__N7KA5#2' (점수 0.77, 길이 9, 샘플 키: ['thumbnail', 'time', 'title', 'video_card_item__lOC8Y', 'blind', 'category'])",
+          "strength": 0.4,
+          "kind": "required"
+        }
+      ]
+    },
+    "observed_apis": [
+      {
+        "url": "https://ssl.pstatic.net/static/nng/glive/locales/mw/strings-ko_kr.json?t=29687481",
+        "method": "GET",
+        "resource_type": "fetch",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://ssl.pstatic.net/static/nng/glive/locales/mw/strings-en_us.json?t=29687481",
+        "method": "GET",
+        "resource_type": "fetch",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/client-config",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/badges/assets/last-updated?badgeType=CHANNEL_ACHIEVEMENT",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://comm-api.game.naver.com/nng_main/v1/user/getUserStatus",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/badges/assets?badgeType=CHANNEL_ACHIEVEMENT&size=100&page=0",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/paid-product/init",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/commercial/v1/offerwall/total-reward?clientPlatformType=MOBILE",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/donations/missions?mine=false&page=0&size=50",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/videos?sortType=LATEST&pagingType=PAGE&size=24&videoType=&page=0",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/cafe-connection",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/commercial/v1/streamer-shop/dcbccbf2d8e2a1b095244c5856d3613a/products?catalogType=CATALOG",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/clips?clipUID=&filterType=ALL&orderType=POPULAR&page=0&size=30&readCount=",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/data?fields=banners,topExposedVideos,missionDonationChannelHomeExposure",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://apis.naver.com/nng_main/nng_comment_api/v1/type/CHANNEL_POST/id/dcbccbf2d8e2a1b095244c5856d3613a/comments?limit=10&offset=0&orderType=DESC&originalLoungeId=",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://apis.naver.com/cafe-home-web/cafe-home/v1/member/identifier",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://article.cafe.naver.com/gw/cafes/31404806/popular/articles?limit=30&fromAllArticleList=true&page=1&from=webkit",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://apis.naver.com/cafe-web/cafe2/ArticleListV2dot1.json?search.clubid=31404806&search.page=1&search.perPage=30&ad=false&from=webkit",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://apis.naver.com/cafe-web/cafe2/ArticleListV2dot1.json?search.clubid=31404806&search.menuid=3&search.page=1&search.perPage=30&ad=false&from=webkit",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://apis.naver.com/cafe-web/cafe2/CafeGateInfo.json?cafeId=31404806&from=webkit",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      }
+    ],
+    "cookies": [
+      {
+        "name": "ba.uuid",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": false,
+        "http_only": false,
+        "same_site": "Lax"
+      },
+      {
+        "name": "NNB",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": false,
+        "same_site": "None"
+      },
+      {
+        "name": "SRT30",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": false,
+        "same_site": "None"
+      },
+      {
+        "name": "SRT5",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": false,
+        "same_site": "None"
+      },
+      {
+        "name": "BUC",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": true,
+        "same_site": "None"
+      }
+    ],
+    "verification_passed": null,
+    "verification_reason": null,
+    "gate_status": null
+  },
+  "boundary_signals": [],
+  "transport_trace": [
+    {
+      "phase": "phase1",
+      "transport": "httpx",
+      "status_code": 200,
+      "title": "치지직 CHZZK",
+      "content_type": "text/html",
+      "bytes": 2112,
+      "checkpoint_detected": false,
+      "detail": "default transport"
+    }
+  ],
+  "protocol": {
+    "version": "1.0",
+    "generated_at": "2026-06-12 16:21:16",
+    "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path": "playwright",
+    "best_path_trace": [
+      "Phase 1 had no data evidence",
+      "Phase 2 rendered content produced usable data evidence"
+    ],
+    "pre_check": {
+      "robots_status": "allowed",
+      "robots_detail": "robots HTTP 200",
+      "gate_status": "none",
+      "gate_detail": "none; status=none",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "low"
+    },
+    "connection_test": {
+      "method": "GET",
+      "url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+      "headers": {
+        "User-Agent": "CharlesSmith/0.10.0",
+        "Accept": "text/html,application/xhtml+xml"
+      },
+      "expected_status": 200,
+      "expected_content_type": "text/html",
+      "sample_response_hint": "Playwright로 렌더링 후 DOM과 XHR/fetch를 확인합니다."
+    },
+    "collection_plan": {
+      "source": "rendered_dom",
+      "fields": [
+        "thumbnail",
+        "time",
+        "title",
+        "video_card_item__lOC8Y",
+        "blind",
+        "category"
+      ],
+      "pagination": {
+        "type": "unknown",
+        "pattern": null,
+        "total_items": null,
+        "items_per_page": null,
+        "total_pages": null
+      },
+      "delay_seconds": 2.0,
+      "retry": {
+        "max_retries": 3,
+        "backoff_seconds": [
+          30,
+          60,
+          120
+        ],
+        "stop_on": [
+          "403",
+          "login_redirect"
+        ]
+      },
+      "estimated_items": null,
+      "estimated_time": "규모 미상",
+      "sample_record_hint": {
+        "thumbnail": "<thumbnail>",
+        "time": "<time>",
+        "title": "<title>",
+        "video_card_item__lOC8Y": "<video_card_item__lOC8Y>",
+        "blind": "<blind>",
+        "category": "<category>"
+      },
+      "json_path_hints": [
+        "not_applicable: rendered DOM source"
+      ],
+      "selector_hints": [
+        "div.channel_home_vod_item__N7KA5",
+        "div[class~=\"channel_home_vod_item__N7KA5\"]",
+        "[data-testid*=\"thumbnail\" i]",
+        "[itemprop=\"thumbnail\"]",
+        "[class*=\"thumbnail\" i]",
+        "[data-testid*=\"time\" i]",
+        "[itemprop=\"time\"]",
+        "[class*=\"time\" i]"
+      ],
+      "wait_condition": "page.goto(wait_until='networkidle'); wait_for_selector('div.channel_home_vod_item__N7KA5')"
+    },
+    "storage": {
+      "format": "csv",
+      "columns": [
+        "thumbnail",
+        "time",
+        "title",
+        "video_card_item__lOC8Y",
+        "blind",
+        "category",
+        "source_url",
+        "fetched_at"
+      ],
+      "filename_pattern": "m_chzzk_naver_com_{YYYYMMDD}.csv",
+      "encoding": "utf-8"
+    },
+    "verification": {
+      "expected_row_count": null,
+      "null_ratio_threshold": 0.05,
+      "dedup_key": "title",
+      "sample_check_count": 5
+    },
+    "agent_prompt": null,
+    "notes": [
+      "best_path: playwright",
+      "official_api_suggestion: 네이버 검색 API (https://developers.naver.com/docs/serviceapi/search/)",
+      "pagination_unknown: 수동 확인 필요"
+    ],
+    "transport": "httpx",
+    "profile_required": false,
+    "profile_summary": null,
+    "rsc_payload_candidates": [],
+    "diagnostic_findings": {
+      "api": {
+        "status": "rejected",
+        "candidates_seen": 21,
+        "usable_candidates": 0,
+        "reason": "api candidates seen but not confirmed as usable JSON data endpoints"
+      },
+      "sitemap": {
+        "status": "rejected",
+        "candidates_seen": 8,
+        "usable_candidates": 0,
+        "reason": "sitemap candidates seen but not validated as usable XML sitemap"
+      },
+      "rsc": {
+        "status": "not_found",
+        "payload_count": 0,
+        "reason": "no RSC payload candidates found"
+      }
+    },
+    "recovery_plan": [],
+    "url_resolution_needed": false,
+    "profile_or_session_likely_needed": false,
+    "arthur_inspect_recommended": true,
+    "browser_probe": null
+  }
+}

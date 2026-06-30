@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-06-22T14:50:37Z",
+  "target_count": 20,
+  "metrics_rows": 20,
+  "history_rows": 13096,
+  "history_channels": 20,
+  "history_rows_per_channel": {
+    "a6c4ddb09cdb160478996007bff35296": 678,
+    "eaf7b569c9992d0e57db0059eb5c0eeb": 920,
+    "4de764d9dad3b25602284be6db3ac647": 893,
+    "c7d3b49d29be2d2b1d74ba8403f5851a": 161,
+    "dlsn9911": 722,
+    "1b0561f3051c10a24b9d8ec9a6cb3374": 858,
+    "798e100206987b59805cfb75f927e965": 666,
+    "bd07973b6021d72512240c01a386d5c9": 676,
+    "d2fb83a5db130bf4d273c981b82ca41f": 113,
+    "ec30975bd41d3179fe7734ddbf760acb": 572,
+    "26253bf7ed6b95832c40f4f43f6d049d": 594,
+    "a54372e8197f6d241a43a318279860d6": 702,
+    "6f1ae352c78027acf1bd92589fc44128": 821,
+    "gosegu2": 671,
+    "a67b328bcc8eea4451ccfa754bc19ae1": 907,
+    "516937b5f85cbf2249ce31b0ad046b0f": 548,
+    "b33c957eac9335d38e4043c3dca97675": 269,
+    "c65ca7335aaeb2ca0c985078223017c0": 716,
+    "20ef78f064ebfd8dd4f7ec8a3a222fd2": 783,
+    "f00f6d46ecc6d735b96ecf376b9e5212": 826
+  },
+  "history_rows_per_channel_min": 113,
+  "history_rows_per_channel_max": 920,
+  "duplicate_channel_stream_id_count": 0,
+  "missing_required_history_rows": 0,
+  "metrics_missing_follower_count": 0,
+  "boundary_signal": null,
+  "coverage_pass": true,
+  "residual_risks": [
+    "Pagination was collected with explicit page parameter and stopped on empty or duplicate page signals where encountered.",
+    "Some page-count hints in the UI can include unrelated number pairs; actual collection relied on page traversal and stream_id deduplication.",
+    "Chzzk profile API does not provide all requested recent-stream/category fields; SOFTC.ONE broadcast rows provide broadcast-level category/time/viewer metrics."
+  ],
+  "artifacts": {
+    "targets_csv": {
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\unni_targets_20.csv",
+      "sha256": "8859079824fa6de8437ec97c2f73298e5911a7749189aadd19327be94e460c48"
+    },
+    "metrics_csv": {
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\unni_channel_metrics.csv",
+      "sha256": "4da669e6996e68cd25dba0a0f7b5058f96306094d76bbc5a6f836954bc16677d"
+    },
+    "history_paginated_csv": {
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\unni_broadcast_history_paginated.csv",
+      "sha256": "2d5ca7c2c1813b46b5d989001460d22e61063ec41a028b6e6257b27c9599939c"
+    },
+    "pagination_manifest": {
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\_unni_broadcast_pagination_manifest.json",
+      "sha256": "7139e3fb80562afbdfe94854584d1435d8e9c2e1d1b760f0e25e3ce25855dd16"
+    },
+    "pagination_progress": {
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\_unni_broadcast_pagination_progress.ndjson",
+      "sha256": "7c0928c664960c45c677e01a9a377d4a3d4b0dde0c3547d87cd69a7ff70277d1"
+    }
+  },
+  "updated_at": "2026-06-22T14:52:36Z",
+  "notes": [
+    "Superseded page-1-only working artifacts were removed after paginated CSV became the analysis source of truth."
+  ]
+}

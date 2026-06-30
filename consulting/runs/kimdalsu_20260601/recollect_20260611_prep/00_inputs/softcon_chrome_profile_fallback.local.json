@@ -1,0 +1,11 @@
+{
+  "type": "guest_session",
+  "status": "operator_approved",
+  "scope": "Softcon route diagnosis only",
+  "transport": "chrome_profile",
+  "chrome_executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "user_data_dir": "C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data",
+  "profile_directory": "Default",
+  "headers": {},
+  "cookies": {}
+}

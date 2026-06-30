@@ -1,0 +1,433 @@
+{
+  "task": "cohort_broadcast_sample_collection",
+  "source": "viewership.softc.one",
+  "method": "채널카드 → 방송기록 탭 → CSV 다운로드",
+  "date_range": "최대 (전체 기간)",
+  "output_dir": "data/cohort/collected/broadcast_samples/",
+  "samples": {
+    "T1_main_general_game": [
+      {
+        "channelId": "2e8bf74c2f666827d87cd5603ed46e3e",
+        "name": "져미님",
+        "peak_recent_median": 14.0,
+        "url": "https://viewership.softc.one/channel/2e8bf74c2f666827d87cd5603ed46e3e,naverchzzk"
+      },
+      {
+        "channelId": "42762380a34c933366636bfdc4067293",
+        "name": "모혜",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/42762380a34c933366636bfdc4067293,naverchzzk"
+      },
+      {
+        "channelId": "1abdd12d26d0bdd140274d854165133d",
+        "name": "석진서",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/1abdd12d26d0bdd140274d854165133d,naverchzzk"
+      },
+      {
+        "channelId": "b1555a149b5bd08186dae8f00d6384d4",
+        "name": "도또 dotto",
+        "peak_recent_median": 14.0,
+        "url": "https://viewership.softc.one/channel/b1555a149b5bd08186dae8f00d6384d4,naverchzzk"
+      },
+      {
+        "channelId": "973bf833fa668636ea3709e811f5a4c2",
+        "name": "린다비",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/973bf833fa668636ea3709e811f5a4c2,naverchzzk"
+      },
+      {
+        "channelId": "d84166a91ce2de36514c2fe0b9f206e5",
+        "name": "갱탑",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/d84166a91ce2de36514c2fe0b9f206e5,naverchzzk"
+      },
+      {
+        "channelId": "a03f578cc5ceafcd0a32ed986577d2c8",
+        "name": "김달걀",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/a03f578cc5ceafcd0a32ed986577d2c8,naverchzzk"
+      },
+      {
+        "channelId": "be1729574be8282d009fb7a17f141487",
+        "name": "유메루",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/be1729574be8282d009fb7a17f141487,naverchzzk"
+      },
+      {
+        "channelId": "58e8be339d0b5d4913ad7042c47f35f1",
+        "name": "양먕양",
+        "peak_recent_median": 15.0,
+        "url": "https://viewership.softc.one/channel/58e8be339d0b5d4913ad7042c47f35f1,naverchzzk"
+      },
+      {
+        "channelId": "a1e8a76d16710cae478f14924373b893",
+        "name": "어둠왕",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/a1e8a76d16710cae478f14924373b893,naverchzzk"
+      },
+      {
+        "channelId": "2292d27f5367c7e775b4840e27988646",
+        "name": "박시초",
+        "peak_recent_median": 14.0,
+        "url": "https://viewership.softc.one/channel/2292d27f5367c7e775b4840e27988646,naverchzzk"
+      },
+      {
+        "channelId": "eb064c26cd6f84311b664be23f047ccb",
+        "name": "다현띠",
+        "peak_recent_median": 15.0,
+        "url": "https://viewership.softc.one/channel/eb064c26cd6f84311b664be23f047ccb,naverchzzk"
+      },
+      {
+        "channelId": "1b31094bf7d83b61cf2ab110f9b91989",
+        "name": "SENA 세나",
+        "peak_recent_median": 13.0,
+        "url": "https://viewership.softc.one/channel/1b31094bf7d83b61cf2ab110f9b91989,naverchzzk"
+      },
+      {
+        "channelId": "6f1350c4e68bb962130a0bc27d8c4373",
+        "name": "아 말 콩",
+        "peak_recent_median": 16.0,
+        "url": "https://viewership.softc.one/channel/6f1350c4e68bb962130a0bc27d8c4373,naverchzzk"
+      },
+      {
+        "channelId": "726b155098a80e8eba10d68f0cfc07cd",
+        "name": "코코론",
+        "peak_recent_median": 19.0,
+        "url": "https://viewership.softc.one/channel/726b155098a80e8eba10d68f0cfc07cd,naverchzzk"
+      },
+      {
+        "channelId": "827cf700086734c7b700e138eaf9f57e",
+        "name": "나들희",
+        "peak_recent_median": 18.0,
+        "url": "https://viewership.softc.one/channel/827cf700086734c7b700e138eaf9f57e,naverchzzk"
+      },
+      {
+        "channelId": "9c4d6af375e79095271e69b2b9942774",
+        "name": "마롱 Marong",
+        "peak_recent_median": 16.0,
+        "url": "https://viewership.softc.one/channel/9c4d6af375e79095271e69b2b9942774,naverchzzk"
+      },
+      {
+        "channelId": "d19b09a7ae53b27342a3b504878b4bd0",
+        "name": "도완 M4YD4Y",
+        "peak_recent_median": 16.0,
+        "url": "https://viewership.softc.one/channel/d19b09a7ae53b27342a3b504878b4bd0,naverchzzk"
+      },
+      {
+        "channelId": "eddbcea5d023e37bf205c4ed2d73ff4d",
+        "name": "롱판다",
+        "peak_recent_median": 21.0,
+        "url": "https://viewership.softc.one/channel/eddbcea5d023e37bf205c4ed2d73ff4d,naverchzzk"
+      },
+      {
+        "channelId": "5115e44952e6827c6408dd979bf7ec58",
+        "name": "세 라 핌",
+        "peak_recent_median": 17.0,
+        "url": "https://viewership.softc.one/channel/5115e44952e6827c6408dd979bf7ec58,naverchzzk"
+      },
+      {
+        "channelId": "746cf36edf555daaffba15eb3d64e4d5",
+        "name": "무스타디오",
+        "peak_recent_median": 17.0,
+        "url": "https://viewership.softc.one/channel/746cf36edf555daaffba15eb3d64e4d5,naverchzzk"
+      },
+      {
+        "channelId": "8d2a6539c9b0570f9d69c8539eebeb69",
+        "name": "김정폭",
+        "peak_recent_median": 19.0,
+        "url": "https://viewership.softc.one/channel/8d2a6539c9b0570f9d69c8539eebeb69,naverchzzk"
+      },
+      {
+        "channelId": "7f4aaa6b0fb60cc52448e7d0c036342d",
+        "name": "에맴맨TV",
+        "peak_recent_median": 19.0,
+        "url": "https://viewership.softc.one/channel/7f4aaa6b0fb60cc52448e7d0c036342d,naverchzzk"
+      },
+      {
+        "channelId": "3fdc985be3bad369225118e6d8dc496b",
+        "name": "서애덕",
+        "peak_recent_median": 21.0,
+        "url": "https://viewership.softc.one/channel/3fdc985be3bad369225118e6d8dc496b,naverchzzk"
+      },
+      {
+        "channelId": "a4c69e7f9c0fc25a018a1c3c3cf0c17f",
+        "name": "아오토 라떼",
+        "peak_recent_median": 19.0,
+        "url": "https://viewership.softc.one/channel/a4c69e7f9c0fc25a018a1c3c3cf0c17f,naverchzzk"
+      },
+      {
+        "channelId": "dba054a105477139d4e3a291dfe6fa57",
+        "name": "안로그",
+        "peak_recent_median": 17.0,
+        "url": "https://viewership.softc.one/channel/dba054a105477139d4e3a291dfe6fa57,naverchzzk"
+      },
+      {
+        "channelId": "55894ddc17c453bcaf5e0b6b3e7498e0",
+        "name": "극악뉴",
+        "peak_recent_median": 19.0,
+        "url": "https://viewership.softc.one/channel/55894ddc17c453bcaf5e0b6b3e7498e0,naverchzzk"
+      },
+      {
+        "channelId": "7dd6f0927c18f4acc3f40b8d31a80f0f",
+        "name": "로디마스",
+        "peak_recent_median": 32.0,
+        "url": "https://viewership.softc.one/channel/7dd6f0927c18f4acc3f40b8d31a80f0f,naverchzzk"
+      },
+      {
+        "channelId": "23fa0556093a22a19cc7f16858c90264",
+        "name": "채팅방장",
+        "peak_recent_median": 33.0,
+        "url": "https://viewership.softc.one/channel/23fa0556093a22a19cc7f16858c90264,naverchzzk"
+      },
+      {
+        "channelId": "72daeda32bb15f58ae6c6f1866c35492",
+        "name": "파랑떡볶이",
+        "peak_recent_median": 30.0,
+        "url": "https://viewership.softc.one/channel/72daeda32bb15f58ae6c6f1866c35492,naverchzzk"
+      },
+      {
+        "channelId": "8df0e2fd888d52ed10562f2cdb9fa6e0",
+        "name": "소발자",
+        "peak_recent_median": 28.0,
+        "url": "https://viewership.softc.one/channel/8df0e2fd888d52ed10562f2cdb9fa6e0,naverchzzk"
+      },
+      {
+        "channelId": "412471b48add5dd2e56282f163f3f411",
+        "name": "니은 Neeun",
+        "peak_recent_median": 24.0,
+        "url": "https://viewership.softc.one/channel/412471b48add5dd2e56282f163f3f411,naverchzzk"
+      },
+      {
+        "channelId": "aaab8f4e08ca394e4012936c8d445b6c",
+        "name": "아울이네",
+        "peak_recent_median": 28.0,
+        "url": "https://viewership.softc.one/channel/aaab8f4e08ca394e4012936c8d445b6c,naverchzzk"
+      },
+      {
+        "channelId": "42d9e35fdeee6c2163494eb12961e9da",
+        "name": "설ㅡ하",
+        "peak_recent_median": 31.0,
+        "url": "https://viewership.softc.one/channel/42d9e35fdeee6c2163494eb12961e9da,naverchzzk"
+      },
+      {
+        "channelId": "6fdb2087d2d7d0349d0c194cfe1be0d9",
+        "name": "뀨냥냥",
+        "peak_recent_median": 26.0,
+        "url": "https://viewership.softc.one/channel/6fdb2087d2d7d0349d0c194cfe1be0d9,naverchzzk"
+      },
+      {
+        "channelId": "e5c1270f02735e2a381a70c944fd2688",
+        "name": "빛나람 starnaram",
+        "peak_recent_median": 37.0,
+        "url": "https://viewership.softc.one/channel/e5c1270f02735e2a381a70c944fd2688,naverchzzk"
+      },
+      {
+        "channelId": "d82829566190e566da4d8e97308d5993",
+        "name": "쿠라맛챠",
+        "peak_recent_median": 21.0,
+        "url": "https://viewership.softc.one/channel/d82829566190e566da4d8e97308d5993,naverchzzk"
+      },
+      {
+        "channelId": "86d3d8d5997609df783949d107fbde24",
+        "name": "덕드래곤",
+        "peak_recent_median": 35.0,
+        "url": "https://viewership.softc.one/channel/86d3d8d5997609df783949d107fbde24,naverchzzk"
+      },
+      {
+        "channelId": "7839037e2c05af7473df365aab79fbaa",
+        "name": "연보민",
+        "peak_recent_median": 24.0,
+        "url": "https://viewership.softc.one/channel/7839037e2c05af7473df365aab79fbaa,naverchzzk"
+      },
+      {
+        "channelId": "8968e548991e09739da81e75c7dc75c0",
+        "name": "라피니아 GO66",
+        "peak_recent_median": 43.0,
+        "url": "https://viewership.softc.one/channel/8968e548991e09739da81e75c7dc75c0,naverchzzk"
+      }
+    ],
+    "T2_aux_virtual": [
+      {
+        "channelId": "45576f93954effd76e8e5d7d032bd51e",
+        "name": "기랑",
+        "peak_recent_median": 13.0,
+        "url": "https://viewership.softc.one/channel/45576f93954effd76e8e5d7d032bd51e,naverchzzk"
+      },
+      {
+        "channelId": "f60d90f276f23f4da2ae58d86efd7ec3",
+        "name": "RingoBiA",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/f60d90f276f23f4da2ae58d86efd7ec3,naverchzzk"
+      },
+      {
+        "channelId": "827cf700086734c7b700e138eaf9f57e",
+        "name": "나들희",
+        "peak_recent_median": 18.0,
+        "url": "https://viewership.softc.one/channel/827cf700086734c7b700e138eaf9f57e,naverchzzk"
+      },
+      {
+        "channelId": "eaa4c99fc7b796b38d2c33b4c6ae4327",
+        "name": "이치순",
+        "peak_recent_median": 14.0,
+        "url": "https://viewership.softc.one/channel/eaa4c99fc7b796b38d2c33b4c6ae4327,naverchzzk"
+      },
+      {
+        "channelId": "b9aa434ac6960331d9e91e84a6f22b70",
+        "name": "오피셜 김청단",
+        "peak_recent_median": 14.0,
+        "url": "https://viewership.softc.one/channel/b9aa434ac6960331d9e91e84a6f22b70,naverchzzk"
+      },
+      {
+        "channelId": "aca36e99198a7587de9dd1bbe324fd87",
+        "name": "박 잔디",
+        "peak_recent_median": 20.0,
+        "url": "https://viewership.softc.one/channel/aca36e99198a7587de9dd1bbe324fd87,naverchzzk"
+      },
+      {
+        "channelId": "9812f27abbda07386b7f47420b030572",
+        "name": "치즈여우",
+        "peak_recent_median": 13.0,
+        "url": "https://viewership.softc.one/channel/9812f27abbda07386b7f47420b030572,naverchzzk"
+      },
+      {
+        "channelId": "c60605305243b0234e4cd0d10a675b05",
+        "name": "이쿠롬",
+        "peak_recent_median": 20.0,
+        "url": "https://viewership.softc.one/channel/c60605305243b0234e4cd0d10a675b05,naverchzzk"
+      },
+      {
+        "channelId": "6a15de04cb25a8d6d59f43c596fb7037",
+        "name": "이하람",
+        "peak_recent_median": 12.0,
+        "url": "https://viewership.softc.one/channel/6a15de04cb25a8d6d59f43c596fb7037,naverchzzk"
+      },
+      {
+        "channelId": "a9e9faf32d32f089b07eb6213e9f4254",
+        "name": "마무 Mamuu",
+        "peak_recent_median": 17.0,
+        "url": "https://viewership.softc.one/channel/a9e9faf32d32f089b07eb6213e9f4254,naverchzzk"
+      },
+      {
+        "channelId": "beae152e925e1b47c9934721733d9b1e",
+        "name": "Lee노바",
+        "peak_recent_median": 21.0,
+        "url": "https://viewership.softc.one/channel/beae152e925e1b47c9934721733d9b1e,naverchzzk"
+      },
+      {
+        "channelId": "1083715618553e192668ef69c2bee0fa",
+        "name": "김오니",
+        "peak_recent_median": 27.0,
+        "url": "https://viewership.softc.one/channel/1083715618553e192668ef69c2bee0fa,naverchzzk"
+      },
+      {
+        "channelId": "910178578a17431ecb3292b609a63bc4",
+        "name": "미카 Mika",
+        "peak_recent_median": 21.0,
+        "url": "https://viewership.softc.one/channel/910178578a17431ecb3292b609a63bc4,naverchzzk"
+      },
+      {
+        "channelId": "aa26e59c91a22bd430ec1d5d6d965dac",
+        "name": "포니고라운드",
+        "peak_recent_median": 20.0,
+        "url": "https://viewership.softc.one/channel/aa26e59c91a22bd430ec1d5d6d965dac,naverchzzk"
+      },
+      {
+        "channelId": "7ed88067545ffab624ab36d4e495c31e",
+        "name": "김꼬멍",
+        "peak_recent_median": 21.0,
+        "url": "https://viewership.softc.one/channel/7ed88067545ffab624ab36d4e495c31e,naverchzzk"
+      },
+      {
+        "channelId": "85eb67daa4822df8a31f1cdbd74c34da",
+        "name": "l늘푸름l",
+        "peak_recent_median": 22.0,
+        "url": "https://viewership.softc.one/channel/85eb67daa4822df8a31f1cdbd74c34da,naverchzzk"
+      },
+      {
+        "channelId": "adeb7ab9d551519ccfae37b3788c40f1",
+        "name": "루아 블루벨",
+        "peak_recent_median": 22.0,
+        "url": "https://viewership.softc.one/channel/adeb7ab9d551519ccfae37b3788c40f1,naverchzzk"
+      },
+      {
+        "channelId": "b3f6e84450055948f1e9faea3fa6f870",
+        "name": "키 맨",
+        "peak_recent_median": 24.0,
+        "url": "https://viewership.softc.one/channel/b3f6e84450055948f1e9faea3fa6f870,naverchzzk"
+      },
+      {
+        "channelId": "6e872ef76e61aee6fd9aed66077a9f4c",
+        "name": "듀 나",
+        "peak_recent_median": 25.0,
+        "url": "https://viewership.softc.one/channel/6e872ef76e61aee6fd9aed66077a9f4c,naverchzzk"
+      },
+      {
+        "channelId": "6445cd09811f4bbfd22e944d4d6c4b8d",
+        "name": "배 린 희",
+        "peak_recent_median": 27.0,
+        "url": "https://viewership.softc.one/channel/6445cd09811f4bbfd22e944d4d6c4b8d,naverchzzk"
+      },
+      {
+        "channelId": "7dd6f0927c18f4acc3f40b8d31a80f0f",
+        "name": "로디마스",
+        "peak_recent_median": 32.0,
+        "url": "https://viewership.softc.one/channel/7dd6f0927c18f4acc3f40b8d31a80f0f,naverchzzk"
+      },
+      {
+        "channelId": "1b55e07f8d3cdf58334796ed76cd9699",
+        "name": "호주머니",
+        "peak_recent_median": 38.0,
+        "url": "https://viewership.softc.one/channel/1b55e07f8d3cdf58334796ed76cd9699,naverchzzk"
+      },
+      {
+        "channelId": "ab504d770e36bf59aaf155be434952d8",
+        "name": "우소 마토",
+        "peak_recent_median": 33.0,
+        "url": "https://viewership.softc.one/channel/ab504d770e36bf59aaf155be434952d8,naverchzzk"
+      },
+      {
+        "channelId": "8968e548991e09739da81e75c7dc75c0",
+        "name": "라피니아 GO66",
+        "peak_recent_median": 43.0,
+        "url": "https://viewership.softc.one/channel/8968e548991e09739da81e75c7dc75c0,naverchzzk"
+      },
+      {
+        "channelId": "57c46759986b55890b332f0a851c6f78",
+        "name": "메아리 Meahri",
+        "peak_recent_median": 34.0,
+        "url": "https://viewership.softc.one/channel/57c46759986b55890b332f0a851c6f78,naverchzzk"
+      },
+      {
+        "channelId": "2d27c050d8db708af8b54c9d128d2278",
+        "name": "연 구 대 상",
+        "peak_recent_median": 31.0,
+        "url": "https://viewership.softc.one/channel/2d27c050d8db708af8b54c9d128d2278,naverchzzk"
+      },
+      {
+        "channelId": "3e058dcfbb022dfdaa1a9b7d9eefe45a",
+        "name": "리채 Richae",
+        "peak_recent_median": 37.0,
+        "url": "https://viewership.softc.one/channel/3e058dcfbb022dfdaa1a9b7d9eefe45a,naverchzzk"
+      },
+      {
+        "channelId": "44dae7a2b81746e217082f6ef7f81779",
+        "name": "제이I",
+        "peak_recent_median": 39.0,
+        "url": "https://viewership.softc.one/channel/44dae7a2b81746e217082f6ef7f81779,naverchzzk"
+      },
+      {
+        "channelId": "69c9f82ea5a6e9141ae7de1d15506d11",
+        "name": "주녑 Junyeop",
+        "peak_recent_median": 28.0,
+        "url": "https://viewership.softc.one/channel/69c9f82ea5a6e9141ae7de1d15506d11,naverchzzk"
+      },
+      {
+        "channelId": "1e3897fe400dd8cdd5b9bb4b96e999e4",
+        "name": "매운소다",
+        "peak_recent_median": 36.0,
+        "url": "https://viewership.softc.one/channel/1e3897fe400dd8cdd5b9bb4b96e999e4,naverchzzk"
+      }
+    ]
+  }
+}

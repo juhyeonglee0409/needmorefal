@@ -1,0 +1,17 @@
+{
+  "case_id": "kimdalsu_20260601",
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "generated_at": "2026-06-16T22:00:17+09:00",
+  "items": [
+    {
+      "case_id": "kimdalsu_20260601",
+      "run_id": "kimdalsu_recollect_20260616_01",
+      "target_id": "auro_live_chzzk_follower_public_crosscheck",
+      "absence_type": "source_absence_or_collection_boundary",
+      "boundary_signal": "not_collected_route_requires_chrome_js_fetch_devalue_parser",
+      "items": 0,
+      "meaning": "operator_review_required_not_final_absence",
+      "artifact_path": "40_arthur_collect/auro_live_chzzk_follower_public_crosscheck/combined.json"
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "case_id": "kimdalsu_20260601",
+  "methodology_version": "streamer_channel_diagnosis_v3 + MASTER_v2_M7.1",
+  "case_result_status": "partial",
+  "case_type": "client_deliverable_case",
+  "analysis_mode": "deep_dive",
+  "data_depth": "mixed",
+  "data_sources": [
+    "channel_stats",
+    "cohort",
+    "deliverable",
+    "manual_review",
+    "external_validation"
+  ],
+  "subject": {
+    "streamer_key": "kimdalsu",
+    "platform": "chzzk",
+    "platform_channel_id": null,
+    "public_alias": "A스트리머"
+  },
+  "milestone_status": {
+    "analysis_milestone": true,
+    "analysis_close": true,
+    "execution_manual_included": false,
+    "tracking_sheet_included": false,
+    "execution_close": false
+  },
+  "deliverable_milestones": [
+    {
+      "milestone_id": "kimdalsu_milestone_1_analysis_report",
+      "milestone_type": "analysis_report",
+      "audience": "client",
+      "section_sequence": [
+        "Executive Summary",
+        "분석 개요",
+        "정체성 진단",
+        "성장 추이",
+        "측정 보정",
+        "코호트 벤치마크",
+        "1만 팔로워 전략",
+        "콘텐츠 채널 전략",
+        "전략 제언",
+        "방법론/한계/open 부록"
+      ],
+      "client_impact_headline": "정체가 아니라 건강한 급성장 중이며, 1만 도달의 핵심은 진성도 유지다.",
+      "headline_metrics": [
+        "최고 시청자 1년 +227%",
+        "팔로워 1년 +104%",
+        "동급 코호트 진성도 상위 약 6~8%"
+      ],
+      "completed": true,
+      "completed_at": "2026-06-01",
+      "execution_manual_included": false,
+      "tracking_sheet_included": false,
+      "evidence_refs": [
+        "deliverables/milestone_report/김달수_채널분석_컨설팅리포트.md",
+        "data/cohort/김달수_코호트_분석_방법과결과.md"
+      ],
+      "disclosure_tag": "red"
+    }
+  ],
+  "identity_summary": {
+    "internal_text": "롤에 진심이어서 처음에는 강해 보이지만, 실제로는 마음이 여리고 행동이 귀여운 — 게임을 보러 왔다가 사람에게 정이 들어 챙겨보게 되는 사촌동생 같은 친근한 채널.",
+    "client_safe_text": "게임으로 들어오고 사람 때문에 남는, 정붙음 기반의 양지형 롤 채널.",
+    "public_safe_text": "MOBA 게임 기반 관계형 스트리머 케이스.",
+    "identity_clarity": "high",
+    "restricted_terms": [
+      "김달수",
+      "Dalsu",
+      "롤",
+      "사촌동생"
+    ],
+    "disclosure_tag": "red"
+  },
+  "measurement_corrections": [
+    {
+      "correction_id": "MC1_long_stream_avg_viewer_distortion",
+      "affected_metric": "avg_viewers",
+      "distortion_source": "long_stream_hours / 노방종",
+      "correction_method": "peak_ratio",
+      "raw_vs_corrected_summary": "평균 시청자 하락으로 보이는 일부 구간을 장시간 방송 분모 팽창에 따른 측정 착시로 보정.",
+      "recommendation_impact": "정체/누수 진단을 건강한 성장 진단으로 정정하고, 노방종은 비권장 전략으로 처리.",
+      "evidence_refs": [
+        "deliverables/milestone_report/김달수_채널분석_컨설팅리포트.md#4-지표-신뢰성--측정-보정",
+        "data/cohort/김달수_코호트_분석_방법과결과.md#3-노방종장시간-방송-보정"
+      ],
+      "disclosure_tag": "red"
+    }
+  ],
+  "cohort": {
+    "cohort_cell_id": "chzzk_lol_peak_60_240_personal_streamers_20260428_20260527",
+    "platform": "chzzk",
+    "primary_cohort": "롤/MOBA 게임 동급 개인 스트리머",
+    "auxiliary_cohorts": [
+      "버추얼 포함 민감도 확인"
+    ],
+    "population_source": "소프트콘 뷰어십 엔터 구독 / 치지직 롤 카테고리 스트리머 랭킹 2,000명",
+    "base_population_n": 2000,
+    "filter_steps": [
+      {
+        "step": 1,
+        "filter": "peak 60~240",
+        "result_n": 183
+      },
+      {
+        "step": 2,
+        "filter": "e스포츠팀/대회 계정 제외",
+        "excluded_n": 12
+      },
+      {
+        "step": 3,
+        "filter": "팔로워 랭킹 매칭",
+        "notes": "6,000위 랭킹 기준 이름 매칭"
+      },
+      {
+        "step": 4,
+        "filter": "기업형 버추얼 확인",
+        "notes": "코호트 내 0명"
+      }
+    ],
+    "final_n": 131,
+    "rank_metrics": [
+      {
+        "metric": "adjusted_ratio",
+        "value": "2.05%",
+        "rank_summary": "10/131, 상위 약 8%"
+      },
+      {
+        "metric": "raw_ratio",
+        "value": "1.46%",
+        "rank_summary": "21/131, 상위 약 16%"
+      },
+      {
+        "metric": "peak_viewers",
+        "value": 120,
+        "rank_summary": "47/131, 상위 약 36%"
+      },
+      {
+        "metric": "followers",
+        "value": 3617,
+        "rank_summary": "하위 약 19%"
+      }
+    ],
+    "robustness_tests": [
+      {
+        "test": "보정 미적용",
+        "result": "상위 16%로 결론 방향 유지"
+      },
+      {
+        "test": "버추얼 포함/제외 민감도",
+        "result": "비-버추얼과 비율 차이 미미, 포함 유지"
+      },
+      {
+        "test": "peak 상한 편향 점검",
+        "result": "편향 경미로 기록"
+      }
+    ],
+    "precision_guardrail": "정밀 순위보다 동급 대비 상위권/고효율 구조라는 해석을 우선한다.",
+    "cohort_confidence": "high",
+    "disclosure_tag": "red"
+  },
+  "diagnostics": {
+    "current_position_summary": "팔로워 규모는 작으나 실제 방송 집객력과 진성도가 강한 고효율 채널.",
+    "primary_bottleneck": "conversion",
+    "secondary_bottlenecks": [
+      "content_fit",
+      "execution"
+    ],
+    "execution_barriers": [
+      "노방종 습관",
+      "숏폼 전환의 정체성 정합 문제",
+      "솔랭 vs 종겜 인식 격차 후속 검증"
+    ],
+    "support_acceptance": "medium"
+  },
+  "claims": [
+    {
+      "claim_id": "KD_C_MAIN_GROWTH_REVISION",
+      "internal_text": "김달수 채널은 정체가 아니라 1년 기준 건강한 급성장 중이다.",
+      "client_safe_text": "단기 지표만 보면 정체처럼 보일 수 있지만, 1년 전체로 보면 성장 중입니다.",
+      "public_safe_text": "Case A는 단기 정체처럼 보였으나 장기 창에서 성장으로 재판정되었다.",
+      "claim_level": "L2_cohort_relative",
+      "components_source": "mixed",
+      "synthesis_status": "externally_validated",
+      "interpretation_status": "revised_claim",
+      "confidence": "high",
+      "precision_guardrail": "6개월 단기 해석이 아니라 1년 일별 데이터 기준으로 판단.",
+      "evidence_refs": [
+        "deliverables/milestone_report/김달수_채널분석_컨설팅리포트.md",
+        "deliverables/roadmap/김달수_재방문_로드맵_v3.1.md"
+      ],
+      "claim_revision_history": [
+        {
+          "from": "정체/누수 가능성",
+          "to": "건강한 급성장",
+          "reason": "1년 추세 + 노방종 보정 + 외부 검증"
+        }
+      ],
+      "portfolio_field_targets": [
+        "growth_velocity_score",
+        "current_level_score"
+      ],
+      "disclosure_tag": "red"
+    },
+    {
+      "claim_id": "KD_C_COHORT_EFFICIENCY",
+      "internal_text": "동급 코호트에서 팔로워 대비 시청 집객력이 상위권이다.",
+      "client_safe_text": "팔로워 수에 비해 실제 방송에 사람을 모으는 힘이 강합니다.",
+      "public_safe_text": "Case A는 팔로워 대비 라이브 전환 효율이 높은 유형이다.",
+      "claim_level": "L2_cohort_relative",
+      "components_source": "cohort_data",
+      "synthesis_status": "externally_validated",
+      "interpretation_status": "active_claim",
+      "confidence": "high",
+      "precision_guardrail": "정밀 순위보다 상위권임이 견고하다는 해석 우선.",
+      "evidence_refs": [
+        "data/cohort/김달수_코호트_분석_방법과결과.md",
+        "data/cohort/김달수_코호트_131명.csv"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "current_level_score",
+        "data_quality_score"
+      ],
+      "disclosure_tag": "red"
+    }
+  ],
+  "strategic_targets": [
+    {
+      "target_name": "1만 팔로워 도달 + 진성도 유지",
+      "target_metric": "follower_count + adjusted_avg_viewer_to_follower_ratio",
+      "recommended_band": "1만 도달 시 비율 1.0~1.2% 유지",
+      "warning_threshold": "0.7% 이하",
+      "tradeoff_rationale": "현 비율 2.05%를 그대로 유지하며 1만 도달은 현실적으로 어려우므로, 건강한 상위권 band를 목표로 설정.",
+      "monitoring_window": "후속 응대 및 월간/분기 단위",
+      "disclosure_tag": "red"
+    }
+  ],
+  "content_funnel_analysis": [
+    {
+      "content_type": "shortform",
+      "reach_signal": "unknown",
+      "conversion_signal": "unknown",
+      "identity_fit": "partial",
+      "recommendation": "조회수 중심 챌린지 숏폼보다 롤/MOBA 맥락과 사람 반응이 함께 보이는 숏폼을 우선.",
+      "caveat": "도달과 본방 전환을 분리해서 추적해야 함.",
+      "disclosure_tag": "red"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "category": "measurement",
+      "recommendation": "평균 시청자 단독 판단을 피하고 peak/채팅/보정비율 중심으로 추적한다.",
+      "rationale_refs": [
+        "MC1_long_stream_avg_viewer_distortion"
+      ],
+      "tracking_basis": "보정비율, 최고 시청자, 채팅",
+      "execution_manual_needed": false,
+      "disclosure_tag": "red"
+    },
+    {
+      "priority": "high",
+      "category": "strategy",
+      "recommendation": "1만 팔로워는 빠른 수치 달성이 아니라 진성도 1.0~1.2% 유지와 함께 간다.",
+      "rationale_refs": [
+        "KD_C_COHORT_EFFICIENCY"
+      ],
+      "tracking_basis": "팔로워 대비 보정평청 비율",
+      "execution_manual_needed": true,
+      "disclosure_tag": "red"
+    }
+  ],
+  "limitations": [
+    {
+      "limitation": "코호트는 한 달 스냅샷이며 타 채널 시계열은 미수집.",
+      "impact": "성장 궤적 비교에는 한계"
+    },
+    {
+      "limitation": "노방종 보정은 김달수 1명 대상 추정.",
+      "impact": "정밀값보다 방향성 해석 중심"
+    }
+  ],
+  "open_analysis_tasks": [
+    {
+      "id": "O17",
+      "task": "솔랭 vs 종겜 격차 검증",
+      "status": "pending_6_16"
+    },
+    {
+      "id": "O18",
+      "task": "자기 의심 영역 정밀화",
+      "status": "pending_6_16"
+    },
+    {
+      "id": "O19",
+      "task": "저챗 보강 액션 검토",
+      "status": "pending_6_16"
+    }
+  ],
+  "external_validation": [
+    {
+      "type": "XGPS/GPT cross-check",
+      "summary": "노방종 착시와 성장 중 판정이 독립 재현됨.",
+      "disclosure_tag": "red"
+    }
+  ],
+  "evidence_refs": [
+    "machine/김달수_EvidencePackage_v3_initial.json"
+  ],
+  "absence_refs": [
+    "machine/김달수_AbsenceInventory_v3_initial.json"
+  ],
+  "disclosure": {
+    "case_default_tag": "red",
+    "public_demo_allowed": false,
+    "public_demo_blockers": [
+      "실제 클라이언트명/채널명",
+      "코호트 세부 명단",
+      "보고 직후 인터뷰 원문",
+      "정확 수치/임계 도출 맥락"
+    ],
+    "synthetic_release_possible": true,
+    "restricted_terms": [
+      "김달수",
+      "Dalsu",
+      "롤",
+      "사촌동생",
+      "구체 코호트 명단"
+    ],
+    "disclosure_log_refs": [
+      "machine/김달수_DisclosureLog_v3_initial.json"
+    ]
+  },
+  "bridge_readiness": {
+    "case_result_status": "partial",
+    "bridge_status": "partial_ready",
+    "portfolio_ready": false,
+    "public_demo_ready": false,
+    "blocking_reasons": [
+      "실행 매뉴얼/트래킹 시트 미포함",
+      "6/16 후속 open 검증 대기",
+      "공개 데모는 별도 합성/익명화 필요"
+    ]
+  }
+}

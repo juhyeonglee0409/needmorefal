@@ -1,0 +1,897 @@
+{
+  "url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+  "timestamp": "2026-06-11 23:43:21",
+  "diagnostic_version": "0.10.0",
+  "diagnostic_ua": "CharlesSmith/0.10.0",
+  "delay_used": 2.0,
+  "robots": {
+    "fetched": true,
+    "status_code": 429,
+    "encoding_used": null,
+    "parse_success": false,
+    "allowed_for_ua": null,
+    "crawl_delay": null,
+    "sitemaps": [],
+    "fallback_used": false,
+    "error": "robots 429 → rate limit/verification 가능성, 정책 확인 보류"
+  },
+  "http": {
+    "final_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+    "status_code": 429,
+    "redirect_chain": [
+      "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C"
+    ],
+    "content_type": "text/html; charset=utf-8",
+    "content_length": 33815,
+    "title": "Vercel Security Checkpoint",
+    "meta_description": null,
+    "elapsed_ms": 2062
+  },
+  "frameworks": [],
+  "rendering_judgment": {
+    "value": "verification_gate",
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "text": "access control 제공자 Vercel 식별 (header:x-vercel-mitigated, body:security checkpoint)",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "차단 status HTTP 429",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "본문에 verification 시그니처 \"security checkpoint\" 발견",
+        "strength": 0.4,
+        "kind": "required"
+      }
+    ]
+  },
+  "sitemap_candidates": [],
+  "phase2_profile": {
+    "attempted": true,
+    "trigger": "verification_gate",
+    "transport": "chrome_profile",
+    "profile_used": true,
+    "ok": true,
+    "checkpoint_cleared": true,
+    "error": null,
+    "elapsed_ms": 10309,
+    "status_code": 200,
+    "rendered_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+    "rendered_html_length": 2111882,
+    "rendered_title": "리그 오브 레전드 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+    "rendered_content_type": "text/html; charset=utf-8",
+    "gate_status": "passed",
+    "rendered_frameworks": [
+      {
+        "location": "next_flight",
+        "label": "Next.js __next_f (Server Components flight)",
+        "strength": 0.4,
+        "match_count": 33
+      }
+    ],
+    "rendered_judgment": {
+      "value": "SSR_HYDRATED (FULL/PARTIAL 미확정 — 보조신호 없음)",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "text": "Next.js __next_f (Server Components flight) 발견 (매치 33회)",
+          "strength": 0.4,
+          "kind": "required"
+        },
+        {
+          "text": "데이터 배열 winner='html.div.hidden_sm:max-xl:group-hover:f#0' (점수 0.67, 길이 8, 샘플 키: ['text'])",
+          "strength": 0.4,
+          "kind": "bonus"
+        },
+        {
+          "text": "기타 배열 후보 4개 (점수 내림차순)",
+          "strength": 0.1,
+          "kind": "bonus"
+        },
+        {
+          "text": "완전성 신호 없음 — totalCount/페이지네이션 신호 없음 → FULL/PARTIAL 단정 불가",
+          "strength": 0.1,
+          "kind": "bonus"
+        }
+      ]
+    },
+    "rsc_push_count": 33,
+    "rsc_payload_candidates": [
+      {
+        "index": 0,
+        "rows": 3421,
+        "keys": [
+          "category",
+          "categoryCode",
+          "chatCount",
+          "createdAt",
+          "id",
+          "liveChannels",
+          "liveViews",
+          "type"
+        ],
+        "types": [
+          "afreeca",
+          "cime",
+          "naverchzzk",
+          "twitch"
+        ],
+        "classification": "category_ranking",
+        "source": "next_rsc"
+      },
+      {
+        "index": 1,
+        "rows": 3421,
+        "keys": [
+          "category",
+          "categoryCode",
+          "chatCount",
+          "createdAt",
+          "id",
+          "liveChannels",
+          "liveViews",
+          "type"
+        ],
+        "types": [
+          "afreeca",
+          "cime",
+          "naverchzzk",
+          "twitch"
+        ],
+        "classification": "category_ranking",
+        "source": "next_rsc"
+      },
+      {
+        "index": 2,
+        "rows": 3421,
+        "keys": [
+          "category",
+          "categoryCode",
+          "chatCount",
+          "createdAt",
+          "id",
+          "liveChannels",
+          "liveViews",
+          "type"
+        ],
+        "types": [
+          "afreeca",
+          "cime",
+          "naverchzzk",
+          "twitch"
+        ],
+        "classification": "category_ranking",
+        "source": "next_rsc"
+      }
+    ],
+    "raw_artifact": null,
+    "raw_artifact_saved": false,
+    "raw_artifact_save_reason": "disabled_no_save_raw"
+  },
+  "browser_probe": {
+    "attempted": true,
+    "ok": true,
+    "target_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+    "rendered_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+    "status_code": 200,
+    "title": "리그 오브 레전드 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+    "html_length": 2220128,
+    "screenshot_artifact": null,
+    "raw_artifact": null,
+    "browser_probe_artifacts_allowed": false,
+    "browser_probe_screenshot_saved": false,
+    "browser_probe_screenshot_save_reason": "disabled_no_save_raw",
+    "browser_probe_raw_saved": false,
+    "browser_probe_raw_save_reason": "disabled_no_save_raw",
+    "visible_text_sample": "소프트콘뷰어십 소프트콘 멤버십 대시보드 스탠드 방송 현황 LIVE 스트리머 랭킹 방송 그룹 플랫폼 카테고리 랭킹 이스포츠 NEW 로그인 카테고리 카테고리 상세 리그 오브 레전드 리그 오브 레전드 / 리그 오브 레전드 / League of Legends / 리그 오브 레전드 카테고리 데이터 요약 통계 플랫폼별 통계 소프트콘 랭킹 스트리머 랭킹 성장 랭킹 랭킹 히스토리 높은 등급의 멤버십이 필요합니다 ENTERPRISE 부터 이용 가능합니다 구독 요금제 사용설명서 ( 예시 ) 하스스톤 카테고리 소프트콘 뷰어십 2.3.3 이메일 디스코드 링크드인 Github Velog 나이스페이 에스크로 이용약관 개인정보처리방침 제휴 팬심 FANCIM 헛삯 SSAPI 도움 아르고 오로라이브 auro.live 오픈소스 React Next.js shadcn/ui Magic UI nivo tailwind © 2026, 스튜디오 소프트콘 | 정연진 사업자 등록번호 : 586-56-00743 | 경기도 남양주시 화도읍 마석중앙로37번길 45 504호 22827 | 대표전화 : 010-9728-9622 | 스튜디오 소프트콘은 간이과세자입니다. 수집 안내 소프트콘 뷰어십에 표시된 모든 브랜드, 상표는 제3자의 소유이며 소프트콘 뷰어십에선 정보 제공의 목적으로만 사용되며, 수집되는 정보는 오직 누구나 자유로이 접근이 가능한 데이터만을 수집합니다. 로그인 전, 베이직 ...",
+    "candidate_links": [
+      {
+        "text": "소프트콘 뷰어십",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "",
+        "href": "https://viewership.softc.one/search"
+      },
+      {
+        "text": "소프트콘뷰어십",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "",
+        "href": "https://viewership.softc.one/search?q="
+      },
+      {
+        "text": "소프트콘 멤버십",
+        "href": "https://viewership.softc.one/pricing"
+      },
+      {
+        "text": "대시보드",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "스탠드",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "방송 현황 LIVE",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "스트리머 랭킹",
+        "href": "https://viewership.softc.one/streams"
+      },
+      {
+        "text": "방송 그룹",
+        "href": "https://viewership.softc.one/streamergroups"
+      },
+      {
+        "text": "플랫폼",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "카테고리 랭킹",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "이스포츠 NEW",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "로그인",
+        "href": "https://viewership.softc.one/auth/signin"
+      },
+      {
+        "text": "카테고리",
+        "href": "https://viewership.softc.one/category"
+      },
+      {
+        "text": "카테고리 상세",
+        "href": "https://viewership.softc.one/"
+      },
+      {
+        "text": "요약",
+        "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C"
+      },
+      {
+        "text": "통계",
+        "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/statistics"
+      },
+      {
+        "text": "플랫폼별 통계",
+        "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/platforms"
+      },
+      {
+        "text": "소프트콘 랭킹",
+        "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking"
+      }
+    ],
+    "candidate_forms": [],
+    "candidate_buttons": [
+      {
+        "text": "",
+        "type": "button"
+      },
+      {
+        "text": "",
+        "type": "button"
+      },
+      {
+        "text": "소프트콘 멤버십",
+        "type": "button"
+      },
+      {
+        "text": "대시보드",
+        "type": "button"
+      },
+      {
+        "text": "스탠드",
+        "type": "button"
+      },
+      {
+        "text": "방송 현황 LIVE",
+        "type": "button"
+      },
+      {
+        "text": "스트리머 랭킹",
+        "type": "button"
+      },
+      {
+        "text": "방송 그룹",
+        "type": "button"
+      },
+      {
+        "text": "플랫폼",
+        "type": "button"
+      },
+      {
+        "text": "카테고리 랭킹",
+        "type": "button"
+      },
+      {
+        "text": "이스포츠 NEW",
+        "type": "button"
+      },
+      {
+        "text": "로그인",
+        "type": "button"
+      },
+      {
+        "text": "요약",
+        "type": "button"
+      },
+      {
+        "text": "통계",
+        "type": "button"
+      },
+      {
+        "text": "플랫폼별 통계",
+        "type": "button"
+      },
+      {
+        "text": "소프트콘 랭킹",
+        "type": "button"
+      },
+      {
+        "text": "스트리머 랭킹",
+        "type": "button"
+      },
+      {
+        "text": "성장 랭킹",
+        "type": "button"
+      },
+      {
+        "text": "랭킹 히스토리",
+        "type": "button"
+      },
+      {
+        "text": "구독 요금제",
+        "type": "button"
+      }
+    ],
+    "checkpoint_detected": false,
+    "captcha_detected": false,
+    "login_required_likely": false,
+    "rate_limited": false,
+    "visible_content_likely": true,
+    "url_resolution_needed": false,
+    "url_candidates": [],
+    "profile_or_session_likely_needed": false,
+    "elapsed_ms": 4549,
+    "error": null
+  },
+  "boundary_signals": [
+    {
+      "source": "http",
+      "signal": "http_429",
+      "severity": "grey",
+      "action": "recorded",
+      "detail": "Phase 1 observed an access boundary with default transport",
+      "target": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C"
+    },
+    {
+      "source": "transport",
+      "signal": "profile_transport_cleared",
+      "severity": "info",
+      "action": "proceeded",
+      "detail": "chrome_profile reached actual HTML with provided profile",
+      "target": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C"
+    }
+  ],
+  "transport_trace": [
+    {
+      "phase": "phase1",
+      "transport": "httpx",
+      "status_code": 429,
+      "title": "Vercel Security Checkpoint",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 33815,
+      "checkpoint_detected": true,
+      "detail": "default transport"
+    },
+    {
+      "phase": "phase2",
+      "transport": "chrome_profile",
+      "status_code": 200,
+      "title": "리그 오브 레전드 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2111882,
+      "checkpoint_detected": false,
+      "detail": "profile transport"
+    }
+  ],
+  "profile_summary": {
+    "provided": true,
+    "type": "guest_session",
+    "status": "operator_approved_pending_manual_bootstrap",
+    "transport": "chrome_profile",
+    "header_names": [],
+    "cookie_names": [],
+    "user_agent_provided": false,
+    "secret_values_logged": false
+  },
+  "data_candidates": {
+    "next_rsc": {
+      "push_count": 33,
+      "payload_candidates": [
+        {
+          "index": 0,
+          "rows": 3421,
+          "keys": [
+            "category",
+            "categoryCode",
+            "chatCount",
+            "createdAt",
+            "id",
+            "liveChannels",
+            "liveViews",
+            "type"
+          ],
+          "types": [
+            "afreeca",
+            "cime",
+            "naverchzzk",
+            "twitch"
+          ],
+          "classification": "category_ranking",
+          "source": "next_rsc"
+        },
+        {
+          "index": 1,
+          "rows": 3421,
+          "keys": [
+            "category",
+            "categoryCode",
+            "chatCount",
+            "createdAt",
+            "id",
+            "liveChannels",
+            "liveViews",
+            "type"
+          ],
+          "types": [
+            "afreeca",
+            "cime",
+            "naverchzzk",
+            "twitch"
+          ],
+          "classification": "category_ranking",
+          "source": "next_rsc"
+        },
+        {
+          "index": 2,
+          "rows": 3421,
+          "keys": [
+            "category",
+            "categoryCode",
+            "chatCount",
+            "createdAt",
+            "id",
+            "liveChannels",
+            "liveViews",
+            "type"
+          ],
+          "types": [
+            "afreeca",
+            "cime",
+            "naverchzzk",
+            "twitch"
+          ],
+          "classification": "category_ranking",
+          "source": "next_rsc"
+        }
+      ]
+    },
+    "api_candidates": []
+  },
+  "gate_status": "profile_cleared",
+  "protocol": {
+    "version": "1.0",
+    "generated_at": "2026-06-11 23:43:26",
+    "target_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+    "best_path": "rsc_payload",
+    "best_path_trace": [
+      "Profile Phase 2 reached actual HTML",
+      "Next.js RSC payload candidates found"
+    ],
+    "pre_check": {
+      "robots_status": "unknown",
+      "robots_detail": "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+      "gate_status": "profile_cleared",
+      "gate_detail": "Vercel; status=profile_cleared",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "medium"
+    },
+    "connection_test": {
+      "method": "GET",
+      "url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+      "headers": {
+        "User-Agent": "CharlesSmith/0.10.0",
+        "Accept": "text/html,application/xhtml+xml"
+      },
+      "expected_status": 200,
+      "expected_content_type": "text/html",
+      "sample_response_hint": "HTML response contains Next.js RSC payload candidates; extract self.__next_f.push payload arrays."
+    },
+    "collection_plan": {
+      "source": "next_rsc_payload",
+      "fields": [
+        "category",
+        "categoryCode",
+        "chatCount",
+        "createdAt",
+        "id",
+        "liveChannels",
+        "liveViews",
+        "type"
+      ],
+      "pagination": {
+        "type": "none",
+        "pattern": "next_rsc_payload_indexes",
+        "total_items": 10263,
+        "items_per_page": 10263,
+        "total_pages": 1
+      },
+      "delay_seconds": 2.0,
+      "retry": {
+        "max_retries": 3,
+        "backoff_seconds": [
+          30,
+          60,
+          120
+        ],
+        "stop_on": [
+          "403",
+          "login_redirect"
+        ]
+      },
+      "estimated_items": 10263,
+      "estimated_time": "약 2초",
+      "sample_record_hint": {
+        "category": "<category>",
+        "categoryCode": "<categoryCode>",
+        "chatCount": "<chatCount>",
+        "createdAt": "<createdAt>",
+        "id": "<id>",
+        "liveChannels": "<liveChannels>",
+        "liveViews": "<liveViews>",
+        "type": "<type>"
+      },
+      "json_path_hints": [
+        "next_rsc.payloads[0]",
+        "next_rsc.payloads[1]",
+        "next_rsc.payloads[2]"
+      ],
+      "selector_hints": [],
+      "wait_condition": "after GET: extract Next.js RSC payload arrays [0,1,2]"
+    },
+    "storage": {
+      "format": "csv",
+      "columns": [
+        "category",
+        "categoryCode",
+        "chatCount",
+        "createdAt",
+        "id",
+        "liveChannels",
+        "liveViews",
+        "type",
+        "source_url",
+        "fetched_at"
+      ],
+      "filename_pattern": "viewership_softc_one_{YYYYMMDD}.csv",
+      "encoding": "utf-8"
+    },
+    "verification": {
+      "expected_row_count": 10263,
+      "null_ratio_threshold": 0.05,
+      "dedup_key": "id",
+      "sample_check_count": 5
+    },
+    "agent_prompt": null,
+    "notes": [
+      "best_path: rsc_payload"
+    ],
+    "transport": "chrome_profile",
+    "profile_required": true,
+    "profile_summary": {
+      "provided": true,
+      "type": "guest_session",
+      "status": "operator_approved_pending_manual_bootstrap",
+      "transport": "chrome_profile",
+      "header_names": [],
+      "cookie_names": [],
+      "user_agent_provided": false,
+      "secret_values_logged": false
+    },
+    "rsc_payload_candidates": [
+      {
+        "index": 0,
+        "rows": 3421,
+        "keys": [
+          "category",
+          "categoryCode",
+          "chatCount",
+          "createdAt",
+          "id",
+          "liveChannels",
+          "liveViews",
+          "type"
+        ],
+        "types": [
+          "afreeca",
+          "cime",
+          "naverchzzk",
+          "twitch"
+        ],
+        "classification": "category_ranking",
+        "source": "next_rsc"
+      },
+      {
+        "index": 1,
+        "rows": 3421,
+        "keys": [
+          "category",
+          "categoryCode",
+          "chatCount",
+          "createdAt",
+          "id",
+          "liveChannels",
+          "liveViews",
+          "type"
+        ],
+        "types": [
+          "afreeca",
+          "cime",
+          "naverchzzk",
+          "twitch"
+        ],
+        "classification": "category_ranking",
+        "source": "next_rsc"
+      },
+      {
+        "index": 2,
+        "rows": 3421,
+        "keys": [
+          "category",
+          "categoryCode",
+          "chatCount",
+          "createdAt",
+          "id",
+          "liveChannels",
+          "liveViews",
+          "type"
+        ],
+        "types": [
+          "afreeca",
+          "cime",
+          "naverchzzk",
+          "twitch"
+        ],
+        "classification": "category_ranking",
+        "source": "next_rsc"
+      }
+    ],
+    "diagnostic_findings": {
+      "api": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no data-like API candidates found"
+      },
+      "sitemap": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no sitemap candidates found"
+      },
+      "rsc": {
+        "status": "selected",
+        "payload_count": 3,
+        "reason": "RSC payload candidates found"
+      }
+    },
+    "recovery_plan": [],
+    "url_resolution_needed": false,
+    "profile_or_session_likely_needed": true,
+    "arthur_inspect_recommended": true,
+    "browser_probe": {
+      "attempted": true,
+      "ok": true,
+      "target_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+      "rendered_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+      "status_code": 200,
+      "title": "리그 오브 레전드 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+      "html_length": 2220128,
+      "screenshot_artifact": null,
+      "raw_artifact": null,
+      "browser_probe_artifacts_allowed": false,
+      "browser_probe_screenshot_saved": false,
+      "browser_probe_screenshot_save_reason": "disabled_no_save_raw",
+      "browser_probe_raw_saved": false,
+      "browser_probe_raw_save_reason": "disabled_no_save_raw",
+      "visible_text_sample": "소프트콘뷰어십 소프트콘 멤버십 대시보드 스탠드 방송 현황 LIVE 스트리머 랭킹 방송 그룹 플랫폼 카테고리 랭킹 이스포츠 NEW 로그인 카테고리 카테고리 상세 리그 오브 레전드 리그 오브 레전드 / 리그 오브 레전드 / League of Legends / 리그 오브 레전드 카테고리 데이터 요약 통계 플랫폼별 통계 소프트콘 랭킹 스트리머 랭킹 성장 랭킹 랭킹 히스토리 높은 등급의 멤버십이 필요합니다 ENTERPRISE 부터 이용 가능합니다 구독 요금제 사용설명서 ( 예시 ) 하스스톤 카테고리 소프트콘 뷰어십 2.3.3 이메일 디스코드 링크드인 Github Velog 나이스페이 에스크로 이용약관 개인정보처리방침 제휴 팬심 FANCIM 헛삯 SSAPI 도움 아르고 오로라이브 auro.live 오픈소스 React Next.js shadcn/ui Magic UI nivo tailwind © 2026, 스튜디오 소프트콘 | 정연진 사업자 등록번호 : 586-56-00743 | 경기도 남양주시 화도읍 마석중앙로37번길 45 504호 22827 | 대표전화 : 010-9728-9622 | 스튜디오 소프트콘은 간이과세자입니다. 수집 안내 소프트콘 뷰어십에 표시된 모든 브랜드, 상표는 제3자의 소유이며 소프트콘 뷰어십에선 정보 제공의 목적으로만 사용되며, 수집되는 정보는 오직 누구나 자유로이 접근이 가능한 데이터만을 수집합니다. 로그인 전, 베이직 ...",
+      "candidate_links": [
+        {
+          "text": "소프트콘 뷰어십",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "",
+          "href": "https://viewership.softc.one/search"
+        },
+        {
+          "text": "소프트콘뷰어십",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "",
+          "href": "https://viewership.softc.one/search?q="
+        },
+        {
+          "text": "소프트콘 멤버십",
+          "href": "https://viewership.softc.one/pricing"
+        },
+        {
+          "text": "대시보드",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "스탠드",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "방송 현황 LIVE",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "스트리머 랭킹",
+          "href": "https://viewership.softc.one/streams"
+        },
+        {
+          "text": "방송 그룹",
+          "href": "https://viewership.softc.one/streamergroups"
+        },
+        {
+          "text": "플랫폼",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "카테고리 랭킹",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "이스포츠 NEW",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "로그인",
+          "href": "https://viewership.softc.one/auth/signin"
+        },
+        {
+          "text": "카테고리",
+          "href": "https://viewership.softc.one/category"
+        },
+        {
+          "text": "카테고리 상세",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "요약",
+          "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C"
+        },
+        {
+          "text": "통계",
+          "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/statistics"
+        },
+        {
+          "text": "플랫폼별 통계",
+          "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/platforms"
+        },
+        {
+          "text": "소프트콘 랭킹",
+          "href": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking"
+        }
+      ],
+      "candidate_forms": [],
+      "candidate_buttons": [
+        {
+          "text": "",
+          "type": "button"
+        },
+        {
+          "text": "",
+          "type": "button"
+        },
+        {
+          "text": "소프트콘 멤버십",
+          "type": "button"
+        },
+        {
+          "text": "대시보드",
+          "type": "button"
+        },
+        {
+          "text": "스탠드",
+          "type": "button"
+        },
+        {
+          "text": "방송 현황 LIVE",
+          "type": "button"
+        },
+        {
+          "text": "스트리머 랭킹",
+          "type": "button"
+        },
+        {
+          "text": "방송 그룹",
+          "type": "button"
+        },
+        {
+          "text": "플랫폼",
+          "type": "button"
+        },
+        {
+          "text": "카테고리 랭킹",
+          "type": "button"
+        },
+        {
+          "text": "이스포츠 NEW",
+          "type": "button"
+        },
+        {
+          "text": "로그인",
+          "type": "button"
+        },
+        {
+          "text": "요약",
+          "type": "button"
+        },
+        {
+          "text": "통계",
+          "type": "button"
+        },
+        {
+          "text": "플랫폼별 통계",
+          "type": "button"
+        },
+        {
+          "text": "소프트콘 랭킹",
+          "type": "button"
+        },
+        {
+          "text": "스트리머 랭킹",
+          "type": "button"
+        },
+        {
+          "text": "성장 랭킹",
+          "type": "button"
+        },
+        {
+          "text": "랭킹 히스토리",
+          "type": "button"
+        },
+        {
+          "text": "구독 요금제",
+          "type": "button"
+        }
+      ],
+      "checkpoint_detected": false,
+      "captcha_detected": false,
+      "login_required_likely": false,
+      "rate_limited": false,
+      "visible_content_likely": true,
+      "url_resolution_needed": false,
+      "url_candidates": [],
+      "profile_or_session_likely_needed": false,
+      "elapsed_ms": 4549,
+      "error": null
+    }
+  }
+}

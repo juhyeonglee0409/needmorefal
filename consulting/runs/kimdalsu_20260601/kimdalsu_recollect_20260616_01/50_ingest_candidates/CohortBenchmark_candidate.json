@@ -1,0 +1,12 @@
+{
+  "case_id": "kimdalsu_20260601",
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "generated_at": "2026-06-16T22:00:17+09:00",
+  "status": "partial",
+  "population_rows": 100,
+  "follower_rows": 3987,
+  "enrichment_rows": 100,
+  "follower_match_rate": null,
+  "reason": "Softcon LoL population currently yields 100 filtered naverchzzk rows and carries the residual risk `category_route_visible_cap_100_rows`. Follower ranking was recovered to 3987 rows across pages 1..40. Cohort member enrichment collected 100 channel-page rows. Human review is still required before promotion.",
+  "promotion_status": "patch_candidate_only"
+}

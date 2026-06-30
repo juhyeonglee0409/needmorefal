@@ -1,0 +1,18 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "softcon_cohort_member_profile_enrichment",
+  "collection_method": "browser_channel_page_line_parse",
+  "transport": "nodriver_existing_approved_profile_visible_chrome",
+  "profile_used": true,
+  "items_collected": 100,
+  "requests_made": 100,
+  "boundary_signals": [],
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false,
+  "final_snapshot": true,
+  "updated_at": "2026-06-16T21:57:37+09:00",
+  "parse_status": "partial",
+  "profile_text_captured_rows": 2,
+  "profile_text_missing_rows": 98
+}

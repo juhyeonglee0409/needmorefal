@@ -1,0 +1,283 @@
+{
+  "url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "timestamp": "2026-06-11 23:07:26",
+  "diagnostic_version": "0.10.0",
+  "diagnostic_ua": "CharlesSmith/0.10.0",
+  "delay_used": 2.0,
+  "robots": {
+    "fetched": true,
+    "status_code": 429,
+    "encoding_used": null,
+    "parse_success": false,
+    "allowed_for_ua": null,
+    "crawl_delay": null,
+    "sitemaps": [],
+    "fallback_used": false,
+    "error": "robots 429 → rate limit/verification 가능성, 정책 확인 보류"
+  },
+  "http": {
+    "final_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "status_code": 429,
+    "redirect_chain": [
+      "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    ],
+    "content_type": "text/html; charset=utf-8",
+    "content_length": 33810,
+    "title": "Vercel Security Checkpoint",
+    "meta_description": null,
+    "elapsed_ms": 2047
+  },
+  "frameworks": [],
+  "rendering_judgment": {
+    "value": "verification_gate",
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "text": "access control 제공자 Vercel 식별 (header:x-vercel-mitigated, body:security checkpoint)",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "차단 status HTTP 429",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "본문에 verification 시그니처 \"security checkpoint\" 발견",
+        "strength": 0.4,
+        "kind": "required"
+      }
+    ]
+  },
+  "sitemap_candidates": [],
+  "phase2": {
+    "attempted": true,
+    "trigger": "verification_gate",
+    "ok": false,
+    "error": "Playwright로도 미통과. CAPTCHA 또는 고급 접근 제어 추정. (HTTP 429, gate title 유지, 콘텐츠 증가 미약)",
+    "elapsed_ms": 8810,
+    "status_code": 429,
+    "rendered_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "rendered_html_length": 32564,
+    "rendered_title": "Vercel Security Checkpoint",
+    "rendered_frameworks": [],
+    "rendered_judgment": null,
+    "observed_apis": [],
+    "cookies": [],
+    "verification_passed": false,
+    "verification_reason": "Playwright로도 미통과. CAPTCHA 또는 고급 접근 제어 추정. (HTTP 429, gate title 유지, 콘텐츠 증가 미약)",
+    "gate_status": "restricted"
+  },
+  "browser_probe": {
+    "attempted": true,
+    "ok": true,
+    "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "rendered_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "status_code": 429,
+    "title": "Vercel Security Checkpoint",
+    "html_length": 33928,
+    "screenshot_artifact": null,
+    "raw_artifact": null,
+    "browser_probe_artifacts_allowed": false,
+    "browser_probe_screenshot_saved": false,
+    "browser_probe_screenshot_save_reason": "disabled_no_save_raw",
+    "browser_probe_raw_saved": false,
+    "browser_probe_raw_save_reason": "disabled_no_save_raw",
+    "visible_text_sample": "브라우저를 확인하고 있습니다 Vercel 보안 검문소 | icn1::1781186846-7xnWQsJJn3pS8pw6P4ISDPYYYC0HDKG3",
+    "candidate_links": [
+      {
+        "text": "Website owner? Click here to fix",
+        "href": "https://vercel.link/security-checkpoint"
+      }
+    ],
+    "candidate_forms": [],
+    "candidate_buttons": [],
+    "checkpoint_detected": true,
+    "captcha_detected": false,
+    "login_required_likely": false,
+    "rate_limited": true,
+    "visible_content_likely": false,
+    "url_resolution_needed": false,
+    "url_candidates": [],
+    "profile_or_session_likely_needed": true,
+    "elapsed_ms": 2277,
+    "error": null
+  },
+  "boundary_signals": [
+    {
+      "source": "http",
+      "signal": "http_429",
+      "severity": "grey",
+      "action": "recorded",
+      "detail": "Phase 1 observed an access boundary with default transport",
+      "target": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    }
+  ],
+  "transport_trace": [
+    {
+      "phase": "phase1",
+      "transport": "httpx",
+      "status_code": 429,
+      "title": "Vercel Security Checkpoint",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 33810,
+      "checkpoint_detected": true,
+      "detail": "default transport"
+    }
+  ],
+  "gate_status": "restricted",
+  "protocol": {
+    "version": "1.0",
+    "generated_at": "2026-06-11 23:07:29",
+    "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path": "manual_review",
+    "best_path_trace": [
+      "Phase 1 rendering=verification_gate",
+      "Phase 2 gate_status=restricted",
+      "manual review required before collection planning"
+    ],
+    "pre_check": {
+      "robots_status": "unknown",
+      "robots_detail": "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+      "gate_status": "restricted",
+      "gate_detail": "Vercel; status=restricted",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "restricted"
+    },
+    "connection_test": null,
+    "collection_plan": null,
+    "storage": null,
+    "verification": null,
+    "agent_prompt": null,
+    "notes": [
+      "best_path: manual_review",
+      "manual_review_checklist: 정상 브라우저 세션에서 콘텐츠가 보이는지 확인",
+      "manual_review_checklist: CAPTCHA, verification gate, IP 제한, 권한 세션 요구를 구분",
+      "manual_review_checklist: 클라이언트가 허용한 세션/헤더 제공 가능 여부 확인",
+      "manual_review_checklist: 공식 API, sitemap, 승인된 export 경로를 먼저 확인"
+    ],
+    "transport": "httpx",
+    "profile_required": false,
+    "profile_summary": null,
+    "rsc_payload_candidates": [],
+    "diagnostic_findings": {
+      "api": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no data-like API candidates found"
+      },
+      "sitemap": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no sitemap candidates found"
+      },
+      "rsc": {
+        "status": "not_found",
+        "payload_count": 0,
+        "reason": "no RSC payload candidates found"
+      }
+    },
+    "recovery_plan": [
+      {
+        "action": "manual_browser_access_check",
+        "required": true,
+        "reason": "best_path=manual_review; gate_status=restricted; risk_level=restricted",
+        "record": [
+          "normal_browser_visible",
+          "login_or_session_required",
+          "checkpoint_captcha_or_429_present",
+          "approved_profile_or_session_available"
+        ]
+      },
+      {
+        "action": "review_browser_probe",
+        "required": true,
+        "reason": "bounded browser probe recorded visibility/access signals without bypassing gates",
+        "record": [
+          "visible_content_likely",
+          "checkpoint_detected",
+          "captcha_detected",
+          "login_required_likely",
+          "rate_limited",
+          "url_candidates",
+          "screenshot_artifact",
+          "raw_artifact"
+        ],
+        "summary": {
+          "visible_content_likely": false,
+          "checkpoint_detected": true,
+          "captcha_detected": false,
+          "login_required_likely": false,
+          "rate_limited": true,
+          "url_candidate_count": 0
+        }
+      },
+      {
+        "action": "respect_boundary_and_retry_policy",
+        "required": true,
+        "reason": "boundary_signals=['http_429']",
+        "record": [
+          "whether_limit_clears_after_wait",
+          "whether operator-approved profile/session is available"
+        ]
+      },
+      {
+        "action": "rerun_charles_with_operator_approved_profile_or_engage",
+        "required": true,
+        "reason": "access boundary prevents collection planning with default transport",
+        "record": [
+          "profile_summary_only",
+          "no_secret_values",
+          "approved_scope"
+        ]
+      },
+      {
+        "action": "do_not_run_arthur_collect",
+        "required": true,
+        "reason": "manual_review/restricted protocol has no executable collection_plan"
+      }
+    ],
+    "url_resolution_needed": false,
+    "profile_or_session_likely_needed": true,
+    "arthur_inspect_recommended": false,
+    "browser_probe": {
+      "attempted": true,
+      "ok": true,
+      "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "rendered_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "status_code": 429,
+      "title": "Vercel Security Checkpoint",
+      "html_length": 33928,
+      "screenshot_artifact": null,
+      "raw_artifact": null,
+      "browser_probe_artifacts_allowed": false,
+      "browser_probe_screenshot_saved": false,
+      "browser_probe_screenshot_save_reason": "disabled_no_save_raw",
+      "browser_probe_raw_saved": false,
+      "browser_probe_raw_save_reason": "disabled_no_save_raw",
+      "visible_text_sample": "브라우저를 확인하고 있습니다 Vercel 보안 검문소 | icn1::1781186846-7xnWQsJJn3pS8pw6P4ISDPYYYC0HDKG3",
+      "candidate_links": [
+        {
+          "text": "Website owner? Click here to fix",
+          "href": "https://vercel.link/security-checkpoint"
+        }
+      ],
+      "candidate_forms": [],
+      "candidate_buttons": [],
+      "checkpoint_detected": true,
+      "captcha_detected": false,
+      "login_required_likely": false,
+      "rate_limited": true,
+      "visible_content_likely": false,
+      "url_resolution_needed": false,
+      "url_candidates": [],
+      "profile_or_session_likely_needed": true,
+      "elapsed_ms": 2277,
+      "error": null
+    }
+  }
+}

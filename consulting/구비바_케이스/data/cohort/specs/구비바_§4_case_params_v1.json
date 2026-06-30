@@ -1,0 +1,191 @@
+{
+  "case_id": "gubiba",
+  "protocol_ref": "arthur_execution_protocol_v3",
+  "created_at": "2026-06-14",
+  "charles_diagnostic_id": "gubiba_cohort_charles_20260614",
+  "purpose": "구비바 §4 주/보조 코호트 구축용 공개 채널 단위 통계 수집",
+
+  "operator_decision": {
+    "main_cohort": "main_general_game",
+    "auxiliary_cohort": "aux_virtual",
+    "do_not_decide": true,
+    "record_only": true
+  },
+
+  "target_streamer_metrics": {
+    "raw_max": 148,
+    "raw_max_source": "chzzk dashboard historical all-time peak",
+    "raw_max_note": "소프트콘 7d peak(집계 윈도우 내 최고 동접)과는 별개 지표. softcone 7d peak는 aggregation_window에 따라 변동하며, 2026-06-14 기준 27로 관측됨",
+    "softcone_7d_peak_observed": 27,
+    "peak_band_derivation": "raw_max × 0.5~2.0 = 74~296"
+  },
+
+  "source_selection": {
+    "primary": "softcone_category_ranking",
+    "enrichment": "softcone_detail",
+    "fallback_follower": "softcone_followers",
+    "note": "기존 softcone_general_ranking(400ch) 대신 category_ranking(10,000ch)으로 전환. 카테고리 사전 필터링 + CSV 다운로드로 효율 극대화."
+  },
+
+  "filters": {
+    "category": "리그 오브 레전드",
+    "category_url_segment": "%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C",
+    "platforms": ["naverchzzk", "soop"],
+    "peak_band": {
+      "min": 74,
+      "max": 296,
+      "basis": "구비바 raw_max=148 × 0.5~2.0",
+      "extended_max": 500,
+      "extended_note": "소프트콘 7일 기준 peak가 raw_max보다 낮을 수 있으므로 넉넉히 잡고 후필터"
+    },
+    "aggregation_window": "7d (discovery pass). 30d 전환 예정 (분석용 최소 기준)",
+    "virtual_separation": {
+      "method": "tag_filter",
+      "tags": ["버추얼"]
+    }
+  },
+
+  "preflight": {
+    "auto_proceed": false,
+    "minimum_candidates": 30,
+    "dry_run_targets": {
+      "category_ranking": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/ranking",
+      "detail_page_sample": "https://viewership.softc.one/channel/naverchzzk/1de3e9d4595f71ab6c20dbd94d9e2f39"
+    },
+    "expected_results": {
+      "peak_band_candidates_chzzk": "≥93 (Hosea inspect 기준)",
+      "peak_band_candidates_soop": "≥67",
+      "detail_page_fields": ["follower_count", "category_1", "category_1_share"]
+    }
+  },
+
+  "tasks": [
+    {
+      "task_id": "discovery_ranking_scan",
+      "mode": "collect",
+      "status": "completed",
+      "description": "SOFTC.ONE 종합 게임 카테고리 랭킹 스캔. 7d aggregation, chzzk only, peak 10-50 band",
+      "source_id": "softcone_category_ranking",
+      "method": "browser_authenticated_fetch",
+      "actual_scope": {
+        "category": "종합 게임 (general ranking, not LoL-specific)",
+        "platform": "naverchzzk",
+        "peak_band": [10, 50],
+        "aggregation": "7d"
+      },
+      "result": {
+        "channels_scanned": 506,
+        "output_file": "gubiba_cohort_enriched_v2.csv"
+      }
+    },
+    {
+      "task_id": "discovery_detail_enrichment",
+      "mode": "enrich",
+      "status": "completed",
+      "description": "디테일 페이지 RSC payload 파싱 → follower, category shares 추출",
+      "source_id": "softcone_detail",
+      "depends_on": ["discovery_ranking_scan"],
+      "method": "RSC_payload_parsing",
+      "enriched_columns": [
+        "follower", "category_1", "category_1_share",
+        "category_2", "category_2_share",
+        "category_3", "category_3_share", "total_categories"
+      ],
+      "result": {
+        "success_rate": "506/506 (100%)",
+        "worker_config": "3 parallel, 1.5s delay"
+      }
+    },
+    {
+      "task_id": "discovery_classification",
+      "mode": "classify",
+      "status": "completed",
+      "description": "classifyGG() 적용 → is_general_game, gg_reason 판정",
+      "depends_on": ["discovery_detail_enrichment"],
+      "method": "classifyGG_v1",
+      "result": {
+        "true": 235,
+        "false": 271,
+        "unknown": 0,
+        "gg_reasons": ["gg_primary", "multi_game", "gg_secondary", "talk_primary", "single_game_dominant", "single_game_or_non_game"]
+      }
+    },
+    {
+      "task_id": "production_30d_collection",
+      "mode": "collect+enrich+classify",
+      "status": "planned",
+      "description": "30d aggregation 기반 본수집. discovery pass 동일 파이프라인, peak_band 74-296 적용",
+      "depends_on_verification": "discovery pass pipeline validation (506/506, unknown=0)",
+      "planned_scope": {
+        "aggregation": "30d",
+        "peak_band": [74, 296],
+        "platform": "naverchzzk",
+        "method": "browser_authenticated_fetch + RSC_payload_parsing + classifyGG_v1"
+      }
+    }
+  ],
+
+  "budgets": {
+    "collect_csv_downloads": "3~9 (플랫폼×탭 조합)",
+    "enrich_detail_pages": "93~200",
+    "follower_supplement": "0~10",
+    "total_estimated": "100~220"
+  },
+
+  "classification_rules": {
+    "general_game": {
+      "method": "category_share_analysis",
+      "rules": [
+        "2개 이상 게임 카테고리에 각 15%+ share → is_general_game=true",
+        "단일 게임 80%+ → is_general_game=false",
+        "talk/just chatting 1순위 50%+ → is_general_game=false",
+        "종합게임 카테고리 label → is_general_game=true",
+        "판정 불명확 → is_general_game='unknown'"
+      ]
+    },
+    "exclude_filters": [
+      "is_esports_team (LCK, HLE 등 공식 채널)",
+      "is_tournament (EWC, CBLOL 등)",
+      "is_corporate (공식 채널)",
+      "is_inactive (기간 내 방송시간 0)",
+      "is_duplicate (동일 스트리머 다중 채널)"
+    ]
+  },
+
+  "required_output_columns": [
+    "channel_name", "channel_url", "platform",
+    "primary_category", "category_share",
+    "stream_hours", "peak_viewers", "avg_viewers", "viewership",
+    "follower_count", "is_virtual", "is_general_game",
+    "exclude_reason", "collected_at"
+  ],
+
+  "required_outputs": {
+    "normalized_main": "normalized/cohort_general_game_population_normalized.csv",
+    "normalized_aux": "normalized/cohort_virtual_population_normalized.csv",
+    "followers_matched": "normalized/cohort_followers_matched.csv",
+    "raw_fetch_log": "meta/raw_fetch_log.jsonl",
+    "absence_inventory": "meta/absence_inventory.csv"
+  },
+
+  "handoff_to_analysis": {
+    "after_arthur_returns": [
+      "merge CSV ranking data + detail enrichment → unified channel records",
+      "apply general_game_classification rules → is_general_game flag",
+      "apply exclude_filters → exclude_reason",
+      "normalize follower matching",
+      "compute peak bands and derived columns",
+      "produce cohort_final_main_general_game.csv",
+      "produce cohort_final_aux_virtual.csv",
+      "produce cohort_robustness_table.csv",
+      "enter §5 diagnosis"
+    ]
+  },
+
+  "membership_restricted_fields": {
+    "fields": ["chat_6m_peak", "chat_6m_avg"],
+    "missing_reason": "membership_restricted",
+    "impact": "non-critical for §5 core diagnosis",
+    "note": "ENTERPRISE 멤버십으로 접근 가능하나 공개 API 범위 외. 수집 가능하면 bonus."
+  }
+}

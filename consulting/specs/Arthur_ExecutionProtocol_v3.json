@@ -1,0 +1,299 @@
+{
+  "protocol_version": "arthur_execution_protocol_v3",
+  "updated_at": "2026-06-14",
+  "description": "Arthur 수집 범용 방법론. 케이스 파라미터와 분리된 일반 절차·소스 레지스트리·정책.",
+
+  "phases": {
+    "inspect": {
+      "description": "소스별 1건 샘플 요청 → 실제 테이블 구조, 컬럼, 페이지네이션, 방어 기제 확인",
+      "max_requests_per_source": 2,
+      "outputs": ["inspect_result.json", "boundary_signals", "available_columns"],
+      "note": "Charles 진단 + Hosea Chrome 탐색으로 사전 완료 가능. Arthur 실행 환경에서 접근 가능 여부 재확인용."
+    },
+    "preflight": {
+      "description": "본 수집 전 사전 검토. inspect 결과 + case params 기반으로 실행 가능 여부를 검증하고, operator 승인을 받은 후에만 collect 진입.",
+      "sequence": "inspect → preflight → (operator 승인) → collect",
+      "checks": {
+        "source_accessibility": {
+          "description": "실행 환경에서 각 소스에 실제 접근 가능한지 검증",
+          "method": "소스별 1건 실제 HTTP/브라우저 요청 → 200 응답 + 파싱 성공 확인",
+          "fail_action": "stop_and_report (접근 불가 소스는 대안 소스 제안)"
+        },
+        "parameter_validity": {
+          "description": "케이스 파라미터의 필터 조건이 합리적인지 검증",
+          "checks": [
+            "peak_band 범위에 후보가 최소 N명 이상 존재하는지",
+            "platform 필터가 유효한지 (결과 0건 아닌지)",
+            "category URL이 유효한지",
+            "aggregation_window가 데이터가 있는 기간인지"
+          ],
+          "fail_action": "report_with_suggestion (범위 조정 제안)"
+        },
+        "sample_dry_run": {
+          "description": "소스별 1-2건 실제 수집 + 파싱하여 파이프라인 정상 작동 확인",
+          "scope": "collect 대상 소스 + enrich 대상 소스 각 1건",
+          "validates": ["파싱 로직 정상", "컬럼 매핑 정확", "데이터 형식 일치"],
+          "fail_action": "stop_and_report (파서 수정 필요)"
+        },
+        "budget_projection": {
+          "description": "예상 요청 수가 budget 한도 내인지 검증",
+          "method": "collect 대상 항목 수 × 예상 요청 비율 계산",
+          "report_fields": ["예상 총 요청 수", "budget 한도", "초과 여부", "예상 소요 시간"],
+          "fail_action": "report_with_options (budget 증액 or 필터 조정)"
+        }
+      },
+      "output": {
+        "preflight_report": {
+          "path": "meta/preflight_report.json",
+          "includes": [
+            "source_accessibility_results",
+            "parameter_validity_results",
+            "dry_run_results",
+            "budget_projection",
+            "go_no_go_recommendation"
+          ]
+        }
+      },
+      "gate": {
+        "auto_proceed_if": "모든 checks 통과 + budget 여유 50%+ → operator에게 보고만 하고 자동 진행 (operator가 명시적으로 auto_proceed 설정한 경우에만)",
+        "require_approval_if": "checks 일부 실패, budget 여유 50% 미만, 또는 auto_proceed 미설정",
+        "abort_if": "source_accessibility 전면 실패, 또는 dry_run 전면 실패"
+      }
+    },
+    "collect": {
+      "description": "케이스 파라미터의 source_selection + filters 기반 배치 수집",
+      "patterns": {
+        "csv_download": {
+          "description": "CSV 다운로드 기능이 있는 소스에서 일괄 다운로드",
+          "method": "browser_click_or_api",
+          "limit_handling": "소스별 행 제한이 있으면 필터(플랫폼, 기간 등)를 바꿔가며 반복 다운로드",
+          "note": "CSV에 없는 필드는 enrich 단계에서 보강"
+        },
+        "page_scrape": {
+          "description": "페이지네이션 순회하며 테이블 파싱",
+          "method": "browser_session (vercel checkpoint bypass) 또는 HTTP (방어 없는 경우)",
+          "page_range": "케이스 파라미터에서 지정",
+          "save_raw": true
+        },
+        "api_call": {
+          "description": "공개 API 엔드포인트가 있는 경우 직접 호출",
+          "method": "HTTP GET/POST",
+          "note": "RSC payload(_rsc 파라미터) 파싱 포함"
+        }
+      },
+      "exhaustion_rule": "소스의 총 항목이 1회 수집 한도를 초과하면, 필터를 조합해 한도 이내 슬라이스를 반복 수집하여 전수 확보. '남는 게 없을 때까지' 원칙."
+    },
+    "enrich": {
+      "description": "collect에서 누락된 필드를 디테일 페이지 등 2차 소스에서 보강",
+      "patterns": {
+        "detail_page_traversal": {
+          "description": "채널 상세 페이지 순회하여 팔로워, 카테고리 비율 등 추출",
+          "url_pattern": "소스 레지스트리의 detail 소스 참조",
+          "filter": "케이스 파라미터의 enrich_filter (e.g. peak_band 해당자만)",
+          "columns": "케이스 파라미터의 enrich_columns"
+        },
+        "cross_source_match": {
+          "description": "다른 소스(e.g. 팔로워 랭킹)에서 채널명 매칭으로 보강",
+          "method": "name_match + verification"
+        }
+      }
+    },
+    "normalize": {
+      "description": "수집 데이터를 표준 컬럼으로 정규화",
+      "steps": [
+        "raw → parsed (소스별 파서)",
+        "parsed → normalized (표준 컬럼 매핑)",
+        "normalized → filtered (케이스 필터 적용)",
+        "filtered → enriched (보강 데이터 병합)",
+        "enriched → final (제외 필터 + 플래그)"
+      ]
+    }
+  },
+
+  "source_registry": {
+    "softcone_category_ranking": {
+      "source_id": "softcone_category_ranking",
+      "source_name": "소프트콘 카테고리별 스트리머 랭킹",
+      "source_url_pattern": "https://viewership.softc.one/category/{category_name}/ranking",
+      "platform": "all (filterable)",
+      "rendering": "Next.js App Router (RSC)",
+      "bot_defense": "vercel_checkpoint",
+      "browser_bypass": true,
+      "aggregation_window": {
+        "default": "7d (지난 7일)",
+        "configurable": true
+      },
+      "pagination": {
+        "type": "page_number",
+        "param": "page",
+        "items_per_page": 100,
+        "total_items": "카테고리별 상이 (롤: 10,000)"
+      },
+      "csv_download": {
+        "available": true,
+        "restriction": "ENTERPRISE membership only",
+        "row_limit": 2000,
+        "columns": ["플랫폼", "스트리머", "방송시간", "최고시청자", "평균시청자", "뷰어십"],
+        "exhaustion_method": "플랫폼 필터를 바꿔가며 반복 다운로드하여 전수 확보"
+      },
+      "tabs": {
+        "스트리머_랭킹": {
+          "columns": ["rank", "streamer", "platform_icon", "best_rank", "stream_hours", "peak_viewers", "avg_viewers", "viewership"],
+          "sort": "viewership DESC"
+        },
+        "소프트콘_랭킹": {
+          "columns": ["rank", "streamer", "platform_icon", "rank_history", "points", "stream_hours", "peak_viewers", "avg_viewers", "viewership"],
+          "sort": "points ASC (composite)"
+        },
+        "성장_랭킹": {
+          "columns": "미확인 (inspect 필요)",
+          "note": "코호트 내 성장 추세 비교에 유용할 수 있음"
+        }
+      },
+      "filters": {
+        "platform": {"type": "dropdown", "options": ["전체", "치지직", "SOOP", "트위치"]},
+        "min_stream_hours": {"type": "input", "unit": "hours"},
+        "tags": {"type": "toggle", "options": ["버추얼", "이세계아이돌", "스텔라이브", "에스더", "아카이브", "하니즈"]}
+      },
+      "columns_missing": ["follower_count", "channel_id"],
+      "discovered_at": "2026-06-14 Hosea Chrome inspect"
+    },
+
+    "softcone_general_ranking": {
+      "source_id": "softcone_general_ranking",
+      "source_name": "소프트콘 전체 랭킹",
+      "source_url": "https://viewership.softc.one/ranking/softcone",
+      "request_url_pattern": "https://viewership.softc.one/ranking/softcone?platform={platform}&page={page}",
+      "platform": "all (filterable to chzzk)",
+      "rendering": "Next.js App Router (RSC)",
+      "bot_defense": "vercel_checkpoint",
+      "browser_bypass": true,
+      "aggregation_window": {"default": "7d"},
+      "pagination": {
+        "type": "page_number",
+        "items_per_page": 100,
+        "total_pages": 4,
+        "total_items": 400
+      },
+      "note": "전체 카테고리 통합 랭킹. 카테고리별 랭킹이 있으면 그쪽이 더 효율적."
+    },
+
+    "softcone_virtual_ranking": {
+      "source_id": "softcone_virtual_ranking",
+      "source_name": "소프트콘 버추얼 랭킹",
+      "source_url": "https://viewership.softc.one/ranking/virtualsoftcone",
+      "request_url_pattern": "https://viewership.softc.one/ranking/virtualsoftcone?platform={platform}&page={page}",
+      "platform": "all (filterable)",
+      "rendering": "Next.js App Router (RSC)",
+      "bot_defense": "vercel_checkpoint",
+      "browser_bypass": true,
+      "pagination": {"type": "page_number", "items_per_page": 100, "total_pages": 4},
+      "tag_filters": ["버추얼", "이세계아이돌", "스텔라이브", "에스더", "아카이브", "하니즈"]
+    },
+
+    "softcone_detail": {
+      "source_id": "softcone_detail",
+      "source_name": "소프트콘 채널 상세 페이지",
+      "source_url_pattern": "https://viewership.softc.one/channel/{platform}/{channel_id}",
+      "platform_values": {"chzzk": "naverchzzk", "soop": "soopchat", "twitch": "twitch"},
+      "rendering": "Next.js App Router (RSC)",
+      "bot_defense": "none_after_initial_load",
+      "browser_bypass": true,
+      "tabs": {
+        "summary": {
+          "columns": [
+            "follower_count", "follower_updated_at", "peak_viewers", "avg_viewers",
+            "viewership", "stream_hours", "peak_rank", "peak_follower",
+            "chat_6m_peak", "chat_6m_avg",
+            "category_1", "category_1_share"
+          ],
+          "membership_restricted": ["chat_6m_peak", "chat_6m_avg"]
+        },
+        "category": {
+          "columns": ["category_name", "category_hours", "category_peak", "category_avg", "category_viewership"]
+        }
+      },
+      "note": "팔로워 수, 카테고리 비율 등 보강용. 1 page per channel."
+    },
+
+    "softcone_followers": {
+      "source_id": "softcone_followers",
+      "source_name": "소프트콘 팔로워 랭킹",
+      "source_url": "https://viewership.softc.one/ranking/followers",
+      "request_url_pattern": "https://viewership.softc.one/ranking/followers?platform={platform}&page={page}",
+      "pagination": {"type": "page_number", "items_per_page": 100, "total_pages": 1018, "total_items": 101777},
+      "columns": ["rank", "channel_name", "last_stream_date", "follower_count"],
+      "note": "대규모. 보조적 사용 (디테일 페이지에서 팔로워 확인 가능)."
+    }
+  },
+
+  "polite_policy": {
+    "between_pages": "2~3s",
+    "between_detail_pages": "3~5s",
+    "on_429_or_503": "wait 30s → retry once → stop if still failing",
+    "max_retries": 2,
+    "backoff_seconds": [3, 10],
+    "note": "소프트콘은 소규모 서비스. conservative interval 유지."
+  },
+
+  "privacy_and_boundary_rules": {
+    "allowed": [
+      "공개 채널 단위 통계",
+      "공개 랭킹",
+      "공개 프로필의 비민감 채널 설명"
+    ],
+    "forbidden": [
+      "비공개/회원전용 자료 (멤버십 전용 6분 채팅 등 — 우리가 멤버십이 있어도 공개 API로만)",
+      "타인 계정 세션/쿠키",
+      "개별 시청자 추적",
+      "후원자 단위 정보",
+      "개인식별정보 저장"
+    ],
+    "record_and_stop_if": [
+      "private_session_required",
+      "custom_checkpoint_bypass_required",
+      "infinite_retry_needed",
+      "operator_scope_exceeded",
+      "membership_paywall_hit_on_required_field"
+    ],
+    "record_and_continue_if_within_budget": [
+      "public_data_missing",
+      "parse_failed",
+      "aggregation_window_unknown",
+      "limited_5xx_timeout_retry",
+      "membership_paywall_on_optional_field"
+    ]
+  },
+
+  "missing_value_policy": {
+    "blank_cells_forbidden_without_missing_reason": true,
+    "absence_source_values": [
+      "charles_not_found",
+      "arthur_collection_failed",
+      "target_absent",
+      "membership_restricted",
+      "csv_row_limit_exceeded",
+      "undetermined"
+    ],
+    "unknown_allowed_for_flags": [
+      "is_virtual", "is_general_game", "is_corporate",
+      "is_tournament", "is_esports_team", "is_inactive",
+      "is_too_new", "is_duplicate"
+    ]
+  },
+
+  "output_standards": {
+    "raw_path_pattern": "raw/{source_id}/{filename}",
+    "parsed_path_pattern": "parsed/{source_id}/{filename}.jsonl",
+    "normalized_path_pattern": "normalized/{cohort_type}_normalized.csv",
+    "meta_path_pattern": "meta/{log_type}.jsonl",
+    "required_meta_columns": [
+      "run_id", "source_name", "source_url", "request_url",
+      "platform", "cohort_type",
+      "aggregation_window_start", "aggregation_window_end",
+      "fetched_at", "http_status", "content_type",
+      "raw_path", "response_hash", "parse_status",
+      "missing_reason", "boundary_signal", "collector_version"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "kind": "CollectDirective",
+  "case_id": "kimdalsu_20260601",
+  "target_id": "youtube_dalsooisfree_content_funnel",
+  "methodology_version": "MASTER_v2_M7.1 + streamer_channel_diagnosis_v3",
+  "source_protocol": "<insert Charles ExecutionProtocol protocol object here>",
+  "approved": false,
+  "approved_best_path": "<requests|api_direct|rsc_payload|sitemap_first|playwright>",
+  "approved_scope": {
+    "allowed_domains": [
+      "www.youtube.com",
+      "youtube.com"
+    ],
+    "path_prefixes": [
+      "/@dalsooisfree",
+      "/channel/UCvkwM7BIrqqEq7I_9UiCY6w"
+    ],
+    "max_requests": 80,
+    "max_pages": 20,
+    "max_items": 200
+  },
+  "field_policy": {
+    "include": [
+      "run_id",
+      "case_id",
+      "streamer_key",
+      "platform",
+      "content_id",
+      "content_url",
+      "posted_at",
+      "content_type",
+      "content_topic",
+      "duration_sec",
+      "title",
+      "identity_fit",
+      "views",
+      "likes",
+      "comments",
+      "shares",
+      "cta_present",
+      "main_link_present",
+      "conversion_signal",
+      "follower_delta_1d",
+      "follower_delta_3d",
+      "follower_delta_7d",
+      "recommendation",
+      "evidence_refs",
+      "disclosure_tag"
+    ],
+    "exclude": [
+      "email",
+      "phone",
+      "personal_id",
+      "token",
+      "cookie",
+      "session",
+      "csrf",
+      "password",
+      "payment",
+      "private_message"
+    ],
+    "mask": []
+  },
+  "raw_policy": {
+    "save_raw": true,
+    "redact_secrets": true,
+    "retention_policy": "retain_raw_unless_sensitive"
+  },
+  "boundary_policy": {
+    "robots_disallowed": "record",
+    "private_network": "stop",
+    "restricted_gate": "stop",
+    "login_required_without_profile": "stop",
+    "target_specific_bypass": "stop",
+    "rate_limited": "stop_and_record"
+  },
+  "profile_policy": {
+    "profile_required": false,
+    "profile_values_must_not_be_logged": true,
+    "profile_summary_only": true
+  },
+  "operator_note": "Do not set approved=true until Charles protocol and Arthur inspect are reviewed for youtube_dalsooisfree_content_funnel."
+}

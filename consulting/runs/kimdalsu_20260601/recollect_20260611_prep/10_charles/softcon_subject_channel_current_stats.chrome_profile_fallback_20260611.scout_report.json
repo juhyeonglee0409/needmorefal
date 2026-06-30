@@ -1,0 +1,315 @@
+{
+  "url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "timestamp": "2026-06-11 23:23:28",
+  "diagnostic_version": "0.10.0",
+  "diagnostic_ua": "CharlesSmith/0.10.0",
+  "delay_used": 2.0,
+  "robots": {
+    "fetched": true,
+    "status_code": 429,
+    "encoding_used": null,
+    "parse_success": false,
+    "allowed_for_ua": null,
+    "crawl_delay": null,
+    "sitemaps": [],
+    "fallback_used": false,
+    "error": "robots 429 → rate limit/verification 가능성, 정책 확인 보류"
+  },
+  "http": {
+    "final_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "status_code": 429,
+    "redirect_chain": [
+      "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    ],
+    "content_type": "text/html; charset=utf-8",
+    "content_length": 33815,
+    "title": "Vercel Security Checkpoint",
+    "meta_description": null,
+    "elapsed_ms": 1956
+  },
+  "frameworks": [],
+  "rendering_judgment": {
+    "value": "verification_gate",
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "text": "access control 제공자 Vercel 식별 (header:x-vercel-mitigated, body:security checkpoint)",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "차단 status HTTP 429",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "본문에 verification 시그니처 \"security checkpoint\" 발견",
+        "strength": 0.4,
+        "kind": "required"
+      }
+    ]
+  },
+  "sitemap_candidates": [],
+  "phase2_profile": {
+    "attempted": true,
+    "trigger": "verification_gate",
+    "transport": "chrome_profile",
+    "profile_used": true,
+    "ok": false,
+    "checkpoint_cleared": false,
+    "error": "TargetClosedError: BrowserType.launch_persistent_context: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n<launched> pid=19412\n[pid=19412][err] [19412:6448:0611/232326.096:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n[pid=19412][err] \n[pid=19412][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\nCall log:\n  - <launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n  - <launched> pid=19412\n  - [pid=19412][err] [19412:6448:0611/232326.096:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n  - [pid=19412][err]\n  - [pid=19412][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n  - [pid=19412] <gracefully close start>\n  - [pid=19412] <kill>\n  - [pid=19412] <will force kill>\n  - [pid=19412] taskkill stderr: ERROR: The process \"19412\" not found.\n  - [pid=19412] <process did exit: exitCode=0, signal=null>\n  - [pid=19412] starting temporary directories cleanup\n  - [pid=19412] finished temporary directories cleanup\n  - [pid=19412] <gracefully close end>\n",
+    "elapsed_ms": 4890,
+    "status_code": null,
+    "rendered_url": null,
+    "rendered_html_length": null,
+    "rendered_title": null,
+    "rendered_content_type": null,
+    "gate_status": "phase2_error",
+    "rendered_frameworks": [],
+    "rendered_judgment": null,
+    "rsc_push_count": 0,
+    "rsc_payload_candidates": [],
+    "raw_artifact": null,
+    "raw_artifact_saved": false,
+    "raw_artifact_save_reason": null
+  },
+  "browser_probe": {
+    "attempted": true,
+    "ok": false,
+    "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "rendered_url": null,
+    "status_code": null,
+    "title": null,
+    "html_length": null,
+    "screenshot_artifact": null,
+    "raw_artifact": null,
+    "browser_probe_artifacts_allowed": false,
+    "browser_probe_screenshot_saved": false,
+    "browser_probe_screenshot_save_reason": "disabled_no_save_raw",
+    "browser_probe_raw_saved": false,
+    "browser_probe_raw_save_reason": "disabled_no_save_raw",
+    "visible_text_sample": "",
+    "candidate_links": [],
+    "candidate_forms": [],
+    "candidate_buttons": [],
+    "checkpoint_detected": false,
+    "captcha_detected": false,
+    "login_required_likely": false,
+    "rate_limited": false,
+    "visible_content_likely": false,
+    "url_resolution_needed": false,
+    "url_candidates": [],
+    "profile_or_session_likely_needed": false,
+    "elapsed_ms": 7448,
+    "error": "playwright_error:TargetClosedError: BrowserType.launch_persistent_context: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n<launched> pid=14144\n[pid=14144][err] [14144:32476:0611/232328.859:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n[pid=14144][err] \n[pid=14144][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n[pid=14144][err] [14144:32552:0611/232331.077:ERROR:components\\device_event_log\\device_event_log_impl.cc:202] [23:23:31.077] USB: usb_service_win.cc:108 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)\n[pid=14144][err] [14144:23676:0611/232331.253:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\nCall log:\n  - <launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n  - <launched> pid=14144\n  - [pid=14144][err] [14144:32476:0611/232328.859:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n  - [pid=14144][err]\n  - [pid=14144][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n  - [pid=14144][err] [14144:32552:0611/232331.077:ERROR:components\\device_event_log\\device_event_log_impl.cc:202] [23:23:31.077] USB: usb_service_win.cc:108 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)\n  - [pid=14144][err] [14144:23676:0611/232331.253:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n  - [pid=14144] <gracefully close start>\n  - [pid=14144] <kill>\n  - [pid=14144] <will force kill>\n  - [pid=14144] taskkill stderr: ERROR: The process \"14144\" not found.\n  - [pid=14144] <process did exit: exitCode=0, signal=null>\n  - [pid=14144] starting temporary directories cleanup\n  - [pid=14144] finished temporary directories cleanup\n  - [pid=14144] <gracefully close end>\n"
+  },
+  "boundary_signals": [
+    {
+      "source": "http",
+      "signal": "http_429",
+      "severity": "grey",
+      "action": "recorded",
+      "detail": "Phase 1 observed an access boundary with default transport",
+      "target": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    },
+    {
+      "source": "transport",
+      "signal": "profile_transport_failed",
+      "severity": "grey",
+      "action": "recorded",
+      "detail": "TargetClosedError: BrowserType.launch_persistent_context: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n<launched> pid=19412\n[pid=19412][err] [19412:6448:0611/232326.096:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n[pid=19412][err] \n[pid=19412][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\nCall log:\n  - <launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n  - <launched> pid=19412\n  - [pid=19412][err] [19412:6448:0611/232326.096:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n  - [pid=19412][err]\n  - [pid=19412][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n  - [pid=19412] <gracefully close start>\n  - [pid=19412] <kill>\n  - [pid=19412] <will force kill>\n  - [pid=19412] taskkill stderr: ERROR: The process \"19412\" not found.\n  - [pid=19412] <process did exit: exitCode=0, signal=null>\n  - [pid=19412] starting temporary directories cleanup\n  - [pid=19412] finished temporary directories cleanup\n  - [pid=19412] <gracefully close end>\n",
+      "target": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    }
+  ],
+  "transport_trace": [
+    {
+      "phase": "phase1",
+      "transport": "httpx",
+      "status_code": 429,
+      "title": "Vercel Security Checkpoint",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 33815,
+      "checkpoint_detected": true,
+      "detail": "default transport"
+    },
+    {
+      "phase": "phase2",
+      "transport": "chrome_profile",
+      "status_code": null,
+      "title": null,
+      "content_type": null,
+      "bytes": null,
+      "checkpoint_detected": true,
+      "detail": "profile transport"
+    }
+  ],
+  "profile_summary": {
+    "provided": true,
+    "type": "guest_session",
+    "status": "operator_approved",
+    "transport": "chrome_profile",
+    "header_names": [],
+    "cookie_names": [],
+    "user_agent_provided": false,
+    "secret_values_logged": false
+  },
+  "gate_status": "phase2_error",
+  "protocol": {
+    "version": "1.0",
+    "generated_at": "2026-06-11 23:23:35",
+    "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path": "manual_review",
+    "best_path_trace": [
+      "Phase 1 rendering=verification_gate",
+      "Phase 2 gate_status=missing",
+      "manual review required before collection planning"
+    ],
+    "pre_check": {
+      "robots_status": "unknown",
+      "robots_detail": "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+      "gate_status": "phase2_error",
+      "gate_detail": "Vercel; status=phase2_error",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "restricted"
+    },
+    "connection_test": null,
+    "collection_plan": null,
+    "storage": null,
+    "verification": null,
+    "agent_prompt": null,
+    "notes": [
+      "best_path: manual_review",
+      "manual_review_checklist: 정상 브라우저 세션에서 콘텐츠가 보이는지 확인",
+      "manual_review_checklist: CAPTCHA, verification gate, IP 제한, 권한 세션 요구를 구분",
+      "manual_review_checklist: 클라이언트가 허용한 세션/헤더 제공 가능 여부 확인",
+      "manual_review_checklist: 공식 API, sitemap, 승인된 export 경로를 먼저 확인"
+    ],
+    "transport": "chrome_profile",
+    "profile_required": true,
+    "profile_summary": {
+      "provided": true,
+      "type": "guest_session",
+      "status": "operator_approved",
+      "transport": "chrome_profile",
+      "header_names": [],
+      "cookie_names": [],
+      "user_agent_provided": false,
+      "secret_values_logged": false
+    },
+    "rsc_payload_candidates": [],
+    "diagnostic_findings": {
+      "api": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no data-like API candidates found"
+      },
+      "sitemap": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no sitemap candidates found"
+      },
+      "rsc": {
+        "status": "not_found",
+        "payload_count": 0,
+        "reason": "no RSC payload candidates found"
+      }
+    },
+    "recovery_plan": [
+      {
+        "action": "manual_browser_access_check",
+        "required": true,
+        "reason": "best_path=manual_review; gate_status=phase2_error; risk_level=restricted",
+        "record": [
+          "normal_browser_visible",
+          "login_or_session_required",
+          "checkpoint_captcha_or_429_present",
+          "approved_profile_or_session_available"
+        ]
+      },
+      {
+        "action": "review_browser_probe",
+        "required": true,
+        "reason": "bounded browser probe recorded visibility/access signals without bypassing gates",
+        "record": [
+          "visible_content_likely",
+          "checkpoint_detected",
+          "captcha_detected",
+          "login_required_likely",
+          "rate_limited",
+          "url_candidates",
+          "screenshot_artifact",
+          "raw_artifact"
+        ],
+        "summary": {
+          "visible_content_likely": false,
+          "checkpoint_detected": false,
+          "captcha_detected": false,
+          "login_required_likely": false,
+          "rate_limited": false,
+          "url_candidate_count": 0
+        }
+      },
+      {
+        "action": "respect_boundary_and_retry_policy",
+        "required": true,
+        "reason": "boundary_signals=['http_429', 'profile_transport_failed']",
+        "record": [
+          "whether_limit_clears_after_wait",
+          "whether operator-approved profile/session is available"
+        ]
+      },
+      {
+        "action": "rerun_charles_with_operator_approved_profile_or_engage",
+        "required": true,
+        "reason": "access boundary prevents collection planning with default transport",
+        "record": [
+          "profile_summary_only",
+          "no_secret_values",
+          "approved_scope"
+        ]
+      },
+      {
+        "action": "do_not_run_arthur_collect",
+        "required": true,
+        "reason": "manual_review/restricted protocol has no executable collection_plan"
+      }
+    ],
+    "url_resolution_needed": false,
+    "profile_or_session_likely_needed": true,
+    "arthur_inspect_recommended": false,
+    "browser_probe": {
+      "attempted": true,
+      "ok": false,
+      "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "rendered_url": null,
+      "status_code": null,
+      "title": null,
+      "html_length": null,
+      "screenshot_artifact": null,
+      "raw_artifact": null,
+      "browser_probe_artifacts_allowed": false,
+      "browser_probe_screenshot_saved": false,
+      "browser_probe_screenshot_save_reason": "disabled_no_save_raw",
+      "browser_probe_raw_saved": false,
+      "browser_probe_raw_save_reason": "disabled_no_save_raw",
+      "visible_text_sample": "",
+      "candidate_links": [],
+      "candidate_forms": [],
+      "candidate_buttons": [],
+      "checkpoint_detected": false,
+      "captcha_detected": false,
+      "login_required_likely": false,
+      "rate_limited": false,
+      "visible_content_likely": false,
+      "url_resolution_needed": false,
+      "url_candidates": [],
+      "profile_or_session_likely_needed": false,
+      "elapsed_ms": 7448,
+      "error": "playwright_error:TargetClosedError: BrowserType.launch_persistent_context: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n<launched> pid=14144\n[pid=14144][err] [14144:32476:0611/232328.859:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n[pid=14144][err] \n[pid=14144][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n[pid=14144][err] [14144:32552:0611/232331.077:ERROR:components\\device_event_log\\device_event_log_impl.cc:202] [23:23:31.077] USB: usb_service_win.cc:108 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)\n[pid=14144][err] [14144:23676:0611/232331.253:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\nCall log:\n  - <launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n  - <launched> pid=14144\n  - [pid=14144][err] [14144:32476:0611/232328.859:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n  - [pid=14144][err]\n  - [pid=14144][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n  - [pid=14144][err] [14144:32552:0611/232331.077:ERROR:components\\device_event_log\\device_event_log_impl.cc:202] [23:23:31.077] USB: usb_service_win.cc:108 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)\n  - [pid=14144][err] [14144:23676:0611/232331.253:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n  - [pid=14144] <gracefully close start>\n  - [pid=14144] <kill>\n  - [pid=14144] <will force kill>\n  - [pid=14144] taskkill stderr: ERROR: The process \"14144\" not found.\n  - [pid=14144] <process did exit: exitCode=0, signal=null>\n  - [pid=14144] starting temporary directories cleanup\n  - [pid=14144] finished temporary directories cleanup\n  - [pid=14144] <gracefully close end>\n"
+    }
+  }
+}

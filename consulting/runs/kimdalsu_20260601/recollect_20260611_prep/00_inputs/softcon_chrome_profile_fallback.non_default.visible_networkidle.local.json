@@ -1,0 +1,14 @@
+{
+  "type": "guest_session",
+  "status": "operator_approved_visible_networkidle_diagnostic",
+  "transport": "chrome_profile",
+  "chrome_executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "user_data_dir": "D:\\Codex_Workspace\\Streamer Consulting Project\\runs\\kimdalsu_20260601\\recollect_20260611_prep\\00_inputs\\local_chrome_profiles\\softcon_fallback_user_data",
+  "profile_directory": "Default",
+  "visible_window": true,
+  "visible_window_allowed": true,
+  "wait_until": "networkidle",
+  "settle_wait_ms": 1500,
+  "headers": {},
+  "cookies": {}
+}

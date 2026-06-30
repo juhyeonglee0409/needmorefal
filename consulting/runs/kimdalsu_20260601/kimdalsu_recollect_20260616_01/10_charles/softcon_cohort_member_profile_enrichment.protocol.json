@@ -1,0 +1,16 @@
+{
+  "target_id": "softcon_cohort_member_profile_enrichment",
+  "target_url": "derived_from:softcon_chzzk_lol_population_monthly.channel_url",
+  "best_path": "manual_review",
+  "pre_check": {
+    "gate_status": "restricted",
+    "boundary_signal": "not_run_population_dependency_blocked",
+    "profile_required": true
+  },
+  "collection_plan": null,
+  "collection_window": {
+    "startDateTime": "2025-12-18T00:00:00+09:00",
+    "endDateTime": "2026-06-16T00:00:00+09:00",
+    "basis": "run_date_minus_180_days"
+  }
+}

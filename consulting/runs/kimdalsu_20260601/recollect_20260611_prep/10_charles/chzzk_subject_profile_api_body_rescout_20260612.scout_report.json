@@ -1,0 +1,877 @@
+{
+  "url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+  "timestamp": "2026-06-12 22:42:31",
+  "diagnostic_version": "0.10.0",
+  "diagnostic_ua": "CharlesSmith/0.10.0",
+  "delay_used": 2.0,
+  "robots": {
+    "fetched": true,
+    "status_code": 200,
+    "encoding_used": "utf-8",
+    "parse_success": true,
+    "allowed_for_ua": true,
+    "crawl_delay": null,
+    "sitemaps": [],
+    "fallback_used": false,
+    "error": null
+  },
+  "http": {
+    "final_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "status_code": 200,
+    "redirect_chain": [
+      "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a"
+    ],
+    "content_type": "text/html",
+    "content_length": 2112,
+    "title": "치지직 CHZZK",
+    "meta_description": null,
+    "elapsed_ms": 1951
+  },
+  "frameworks": [],
+  "rendering_judgment": {
+    "value": "csr",
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "text": "보이는 콘텐츠 적음 (0자, 의미 노드 0개) + 스크립트 비중 높음 (6개/1482자) — CSR 의심",
+        "strength": 0.2,
+        "kind": "required"
+      }
+    ]
+  },
+  "sitemap_candidates": [
+    {
+      "url": "https://m.chzzk.naver.com/sitemap.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap_index.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap-index.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap1.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap.xml.gz",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap_index.xml.gz",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemap/sitemap.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    },
+    {
+      "url": "https://m.chzzk.naver.com/sitemaps/sitemap.xml",
+      "discovered_from": "common_path",
+      "head_status": 200,
+      "head_content_type": "text/html",
+      "likely_valid": false,
+      "validation_reason": "Content-Type text/html → HTML catch-all 가능성"
+    }
+  ],
+  "phase2": {
+    "attempted": true,
+    "trigger": "csr",
+    "ok": true,
+    "error": null,
+    "elapsed_ms": 6448,
+    "status_code": 200,
+    "rendered_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "rendered_html_length": 145036,
+    "rendered_title": "치지직 CHZZK",
+    "rendered_frameworks": [],
+    "rendered_judgment": {
+      "value": "SSR_STATIC (HTML 구조 데이터, 페이지네이션 확인 권장)",
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "text": "데이터 배열 winner='html.div.channel_home_vod_item__N7KA5#2' (점수 0.77, 길이 10, 샘플 키: ['thumbnail', 'time', 'title', 'video_card_item__lOC8Y', 'blind', 'category'])",
+          "strength": 0.4,
+          "kind": "required"
+        }
+      ]
+    },
+    "observed_apis": [
+      {
+        "url": "https://ssl.pstatic.net/static/nng/glive/locales/mw/strings-ko_kr.json?t=29687862",
+        "method": "GET",
+        "resource_type": "fetch",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://ssl.pstatic.net/static/nng/glive/locales/mw/strings-en_us.json?t=29687862",
+        "method": "GET",
+        "resource_type": "fetch",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/client-config",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/badges/assets/last-updated?badgeType=CHANNEL_ACHIEVEMENT",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://comm-api.game.naver.com/nng_main/v1/user/getUserStatus",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/badges/assets?badgeType=CHANNEL_ACHIEVEMENT&size=100&page=0",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null,
+        "body_summary": {
+          "captured": true,
+          "parse_status": "parsed",
+          "reason": "parsed_json_summary",
+          "byte_length": 655,
+          "max_bytes": 256000,
+          "field_paths": [
+            "code",
+            "message",
+            "content.channelId",
+            "content.channelName",
+            "content.channelImageUrl",
+            "content.verifiedMark",
+            "content.channelType",
+            "content.channelDescription",
+            "content.followerCount",
+            "content.openLive",
+            "content.subscriptionAvailability",
+            "content.subscriptionPaymentAvailability.iapAvailability",
+            "content.subscriptionPaymentAvailability.iabAvailability",
+            "content.adMonetizationAvailability",
+            "content.activatedChannelBadgeIds[]",
+            "content.paidProductSaleAllowed"
+          ],
+          "profile_field_paths": [
+            "content.channelId",
+            "content.channelName",
+            "content.channelDescription",
+            "content.followerCount",
+            "content.channelImageUrl",
+            "content.openLive"
+          ],
+          "contextual_field_paths": [],
+          "sample_scalars": {
+            "code": 200,
+            "message": null,
+            "content.channelId": "dcbccbf2d8e2a1b095244c5856d3613a",
+            "content.channelName": "김달수 Dalsu",
+            "content.channelImageUrl": "https://nng-phinf.pstatic.net/MjAyNjA1MzBfNjMg/MDAxNzgwMTUxNDMzNzcx.aFaLyrcMzvIsmxtb8DgMeLbJM3XWalkKxiNisW3ZM_Qg.wCwv...",
+            "content.verifiedMark": false,
+            "content.channelType": "STREAMING",
+            "content.channelDescription": "문의 : biz@nobent.co.kr",
+            "content.followerCount": 3754,
+            "content.openLive": false,
+            "content.subscriptionAvailability": true,
+            "content.subscriptionPaymentAvailability.iapAvailability": false,
+            "content.subscriptionPaymentAvailability.iabAvailability": true,
+            "content.adMonetizationAvailability": true,
+            "content.paidProductSaleAllowed": false
+          },
+          "classification": {
+            "kind": "chzzk_channel_profile",
+            "usable_for_profile_intent": true,
+            "contextual_only": false,
+            "reason": "CHZZK channel identity fields present"
+          },
+          "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a"
+        }
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/paid-product/init",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/commercial/v1/offerwall/total-reward?clientPlatformType=MOBILE",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/commercial/v1/streamer-shop/dcbccbf2d8e2a1b095244c5856d3613a/products?catalogType=CATALOG",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/donations/missions?mine=false&page=0&size=50",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null,
+        "body_summary": {
+          "captured": true,
+          "parse_status": "parsed",
+          "reason": "parsed_json_summary",
+          "byte_length": 98,
+          "max_bytes": 256000,
+          "field_paths": [
+            "code",
+            "message",
+            "content.page",
+            "content.size",
+            "content.totalCount",
+            "content.totalPages",
+            "content.data[]"
+          ],
+          "profile_field_paths": [],
+          "contextual_field_paths": [],
+          "sample_scalars": {
+            "code": 200,
+            "message": null,
+            "content.page": 0,
+            "content.size": 50,
+            "content.totalCount": 0,
+            "content.totalPages": 0
+          },
+          "classification": {
+            "kind": "json_data",
+            "usable_for_profile_intent": false,
+            "contextual_only": false,
+            "reason": "generic JSON summary"
+          },
+          "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/donations/missions?mine=false&page=0&size=50"
+        }
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/cafe-connection",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null,
+        "body_summary": {
+          "captured": true,
+          "parse_status": "parsed",
+          "reason": "parsed_json_summary",
+          "byte_length": 177,
+          "max_bytes": 256000,
+          "field_paths": [
+            "code",
+            "message",
+            "content.cafe.id",
+            "content.cafe.name",
+            "content.menu.id",
+            "content.menu.name"
+          ],
+          "profile_field_paths": [],
+          "contextual_field_paths": [],
+          "sample_scalars": {
+            "code": 200,
+            "message": null,
+            "content.cafe.id": 31404806,
+            "content.cafe.name": "치지직 김달수 공식 팬카페 [달따냥]",
+            "content.menu.id": 3,
+            "content.menu.name": "📆  ㅣ 방송 일정"
+          },
+          "classification": {
+            "kind": "json_data",
+            "usable_for_profile_intent": false,
+            "contextual_only": false,
+            "reason": "generic JSON summary"
+          },
+          "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/cafe-connection"
+        }
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/videos?sortType=LATEST&pagingType=PAGE&size=24&videoType=&page=0",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null,
+        "body_summary": {
+          "captured": true,
+          "parse_status": "parsed",
+          "reason": "parsed_json_summary",
+          "byte_length": 11342,
+          "max_bytes": 256000,
+          "field_paths": [
+            "code",
+            "message",
+            "content.page",
+            "content.size",
+            "content.totalCount",
+            "content.totalPages",
+            "content.data[]",
+            "content.data[].videoNo",
+            "content.data[].videoId",
+            "content.data[].videoTitle",
+            "content.data[].videoType",
+            "content.data[].publishDate",
+            "content.data[].thumbnailImageUrl",
+            "content.data[].trailerUrl",
+            "content.data[].duration",
+            "content.data[].readCount",
+            "content.data[].publishDateAt",
+            "content.data[].categoryType",
+            "content.data[].videoCategory",
+            "content.data[].videoCategoryValue",
+            "content.data[].exposure",
+            "content.data[].adult",
+            "content.data[].clipActive",
+            "content.data[].livePv",
+            "content.data[].tags[]",
+            "content.data[].commentActive",
+            "content.data[].channel.channelId",
+            "content.data[].channel.channelName",
+            "content.data[].channel.channelImageUrl",
+            "content.data[].channel.verifiedMark",
+            "content.data[].channel.activatedChannelBadgeIds[]",
+            "content.data[].blindType",
+            "content.data[].watchTimeline",
+            "content.data[].paidProductId",
+            "content.data[].tvAppViewingPolicyType",
+            "content.data[].chapterActive"
+          ],
+          "profile_field_paths": [],
+          "contextual_field_paths": [
+            "content.data[].videoTitle"
+          ],
+          "sample_scalars": {
+            "code": 200,
+            "message": null,
+            "content.page": 0,
+            "content.size": 24,
+            "content.totalCount": 10,
+            "content.totalPages": 1,
+            "content.data[].videoNo": 13668898,
+            "content.data[].videoId": "12E994DA4CA16B340ED062EE1B296CDDB4EC",
+            "content.data[].videoTitle": "유나라 장인 후보생축구안봐요)",
+            "content.data[].videoType": "REPLAY",
+            "content.data[].publishDate": "2026-06-12 18:21:45",
+            "content.data[].thumbnailImageUrl": "https://livecloud-thumb.akamaized.net/chzzk/kr/live-rewind-image/record/55255173/represent/thumbnail/image_19398738_7...",
+            "content.data[].trailerUrl": null,
+            "content.data[].duration": 29156,
+            "content.data[].readCount": 17,
+            "content.data[].publishDateAt": 1781256105042,
+            "content.data[].categoryType": "GAME",
+            "content.data[].videoCategory": "League_of_Legends",
+            "content.data[].videoCategoryValue": "리그 오브 레전드",
+            "content.data[].exposure": false,
+            "content.data[].adult": false,
+            "content.data[].clipActive": true,
+            "content.data[].livePv": 8094,
+            "content.data[].tags[]": "김달수"
+          },
+          "classification": {
+            "kind": "chzzk_channel_context",
+            "usable_for_profile_intent": false,
+            "contextual_only": true,
+            "reason": "CHZZK VOD/card or channel-home context endpoint"
+          },
+          "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/videos?sortType=LATEST&pagingType=PAGE&size=24&videoType=&page=0"
+        }
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/data?fields=banners,topExposedVideos,missionDonationChannelHomeExposure",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null,
+        "body_summary": {
+          "captured": true,
+          "parse_status": "parsed",
+          "reason": "parsed_json_summary",
+          "byte_length": 2968,
+          "max_bytes": 256000,
+          "field_paths": [
+            "code",
+            "message",
+            "content.topExposedVideos.openLive",
+            "content.topExposedVideos.fixedVideo",
+            "content.topExposedVideos.latestVideo.videoNo",
+            "content.topExposedVideos.latestVideo.videoId",
+            "content.topExposedVideos.latestVideo.videoTitle",
+            "content.topExposedVideos.latestVideo.videoType",
+            "content.topExposedVideos.latestVideo.publishDate",
+            "content.topExposedVideos.latestVideo.thumbnailImageUrl",
+            "content.topExposedVideos.latestVideo.duration",
+            "content.topExposedVideos.latestVideo.readCount",
+            "content.topExposedVideos.latestVideo.channelId",
+            "content.topExposedVideos.latestVideo.publishDateAt",
+            "content.topExposedVideos.latestVideo.adult",
+            "content.topExposedVideos.latestVideo.categoryType",
+            "content.topExposedVideos.latestVideo.videoCategory",
+            "content.topExposedVideos.latestVideo.videoCategoryValue",
+            "content.topExposedVideos.latestVideo.blindType",
+            "content.topExposedVideos.latestVideo.watchTimeline",
+            "content.topExposedVideos.latestVideo.paidProductId",
+            "content.topExposedVideos.latestVideo.livePv",
+            "content.topExposedVideos.latestVideo.tags[]",
+            "content.topExposedVideos.latestVideo.tvAppViewingPolicyType",
+            "content.banners[]",
+            "content.banners[].title",
+            "content.banners[].imageUrl",
+            "content.banners[].landingUrl",
+            "content.missionDonationChannelHomeExposure",
+            "content.activatedAchievementBadgeIds[]"
+          ],
+          "profile_field_paths": [],
+          "contextual_field_paths": [
+            "content.topExposedVideos.latestVideo.videoTitle",
+            "content.banners[].title"
+          ],
+          "sample_scalars": {
+            "code": 200,
+            "message": null,
+            "content.topExposedVideos.openLive": null,
+            "content.topExposedVideos.fixedVideo": null,
+            "content.topExposedVideos.latestVideo.videoNo": 13668898,
+            "content.topExposedVideos.latestVideo.videoId": "12E994DA4CA16B340ED062EE1B296CDDB4EC",
+            "content.topExposedVideos.latestVideo.videoTitle": "유나라 장인 후보생축구안봐요)",
+            "content.topExposedVideos.latestVideo.videoType": "REPLAY",
+            "content.topExposedVideos.latestVideo.publishDate": "2026-06-12 18:21:45",
+            "content.topExposedVideos.latestVideo.thumbnailImageUrl": "https://livecloud-thumb.akamaized.net/chzzk/kr/live-rewind-image/record/55255173/represent/thumbnail/image_19398738_7...",
+            "content.topExposedVideos.latestVideo.duration": 29156,
+            "content.topExposedVideos.latestVideo.readCount": 17,
+            "content.topExposedVideos.latestVideo.channelId": "dcbccbf2d8e2a1b095244c5856d3613a",
+            "content.topExposedVideos.latestVideo.publishDateAt": 1781256105042,
+            "content.topExposedVideos.latestVideo.adult": false,
+            "content.topExposedVideos.latestVideo.categoryType": "GAME",
+            "content.topExposedVideos.latestVideo.videoCategory": "League_of_Legends",
+            "content.topExposedVideos.latestVideo.videoCategoryValue": "리그 오브 레전드",
+            "content.topExposedVideos.latestVideo.blindType": null,
+            "content.topExposedVideos.latestVideo.watchTimeline": null,
+            "content.topExposedVideos.latestVideo.paidProductId": null,
+            "content.topExposedVideos.latestVideo.livePv": 8094,
+            "content.topExposedVideos.latestVideo.tags[]": "김달수",
+            "content.topExposedVideos.latestVideo.tvAppViewingPolicyType": "ALLOWED"
+          },
+          "classification": {
+            "kind": "chzzk_channel_context",
+            "usable_for_profile_intent": false,
+            "contextual_only": true,
+            "reason": "CHZZK VOD/card or channel-home context endpoint"
+          },
+          "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/data?fields=banners,topExposedVideos,missionDonationChannelHomeExposure"
+        }
+      },
+      {
+        "url": "https://apis.naver.com/nng_main/nng_comment_api/v1/type/CHANNEL_POST/id/dcbccbf2d8e2a1b095244c5856d3613a/comments?limit=10&offset=0&orderType=DESC&originalLoungeId=",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/clips?clipUID=&filterType=ALL&orderType=POPULAR&page=0&size=30&readCount=",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null,
+        "body_summary": {
+          "captured": true,
+          "parse_status": "parsed",
+          "reason": "parsed_json_summary",
+          "byte_length": 20050,
+          "max_bytes": 256000,
+          "field_paths": [
+            "code",
+            "message",
+            "content.size",
+            "content.page.next.clipUID",
+            "content.page.next.readCount",
+            "content.page.prev",
+            "content.data[]",
+            "content.data[].clipUID",
+            "content.data[].videoId",
+            "content.data[].clipTitle",
+            "content.data[].ownerChannelId",
+            "content.data[].ownerChannel",
+            "content.data[].thumbnailImageUrl",
+            "content.data[].categoryType",
+            "content.data[].clipCategory",
+            "content.data[].duration",
+            "content.data[].adult",
+            "content.data[].createdDate",
+            "content.data[].recId",
+            "content.data[].readCount",
+            "content.data[].blindType",
+            "content.data[].privateUserBlock",
+            "content.hasStreamerClips",
+            "content.hasAiGeneratedClips"
+          ],
+          "profile_field_paths": [],
+          "contextual_field_paths": [],
+          "sample_scalars": {
+            "code": 200,
+            "message": null,
+            "content.size": 30,
+            "content.page.next.clipUID": "e003wo0kja",
+            "content.page.next.readCount": 304,
+            "content.page.prev": null,
+            "content.data[].clipUID": "QnA3GoDXg8",
+            "content.data[].videoId": "12DCE2E98A3BB71956B026D223CE63AD21D2",
+            "content.data[].clipTitle": "3달에 한번나오는 전신샷",
+            "content.data[].ownerChannelId": "dcbccbf2d8e2a1b095244c5856d3613a",
+            "content.data[].ownerChannel": null,
+            "content.data[].thumbnailImageUrl": "https://video-phinf.pstatic.net/20250811_108/1754854075128xJzAP_JPEG/RN3elUBIBj_03.jpg",
+            "content.data[].categoryType": "GAME",
+            "content.data[].clipCategory": "League_of_Legends",
+            "content.data[].duration": 34,
+            "content.data[].adult": false,
+            "content.data[].createdDate": "2025-08-11 04:27:33",
+            "content.data[].recId": "{\"seedClipUID\":\"QnA3GoDXg8\",\"fromType\":\"CHANNEL\",\"listType\":\"CHANNEL\",\"orderType\":\"POPULAR\",\"filterType\":\"ALL\",\"chann...",
+            "content.data[].readCount": 4802,
+            "content.data[].blindType": null,
+            "content.data[].privateUserBlock": false,
+            "content.hasStreamerClips": false,
+            "content.hasAiGeneratedClips": false
+          },
+          "classification": {
+            "kind": "chzzk_channel_context",
+            "usable_for_profile_intent": false,
+            "contextual_only": true,
+            "reason": "CHZZK VOD/card or channel-home context endpoint"
+          },
+          "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a/clips?clipUID=&filterType=ALL&orderType=POPULAR&page=0&size=30&readCount="
+        }
+      },
+      {
+        "url": "https://apis.naver.com/cafe-home-web/cafe-home/v1/member/identifier",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://article.cafe.naver.com/gw/cafes/31404806/popular/articles?limit=30&fromAllArticleList=true&page=1&from=webkit",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://apis.naver.com/cafe-web/cafe2/ArticleListV2dot1.json?search.clubid=31404806&search.page=1&search.perPage=30&ad=false&from=webkit",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      },
+      {
+        "url": "https://apis.naver.com/cafe-web/cafe2/ArticleListV2dot1.json?search.clubid=31404806&search.menuid=3&search.page=1&search.perPage=30&ad=false&from=webkit",
+        "method": "GET",
+        "resource_type": "xhr",
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "grade": "A",
+        "reason": "브라우저 XHR/fetch 실제 호출",
+        "error": null
+      }
+    ],
+    "cookies": [
+      {
+        "name": "ba.uuid",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": false,
+        "http_only": false,
+        "same_site": "Lax"
+      },
+      {
+        "name": "NNB",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": false,
+        "same_site": "None"
+      },
+      {
+        "name": "SRT30",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": false,
+        "same_site": "None"
+      },
+      {
+        "name": "SRT5",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": false,
+        "same_site": "None"
+      },
+      {
+        "name": "BUC",
+        "domain": ".naver.com",
+        "path": "/",
+        "secure": true,
+        "http_only": true,
+        "same_site": "None"
+      }
+    ],
+    "verification_passed": null,
+    "verification_reason": null,
+    "gate_status": null
+  },
+  "boundary_signals": [],
+  "transport_trace": [
+    {
+      "phase": "phase1",
+      "transport": "httpx",
+      "status_code": 200,
+      "title": "치지직 CHZZK",
+      "content_type": "text/html",
+      "bytes": 2112,
+      "checkpoint_detected": false,
+      "detail": "default transport"
+    }
+  ],
+  "protocol": {
+    "version": "1.0",
+    "generated_at": "2026-06-12 22:42:31",
+    "target_url": "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path": "api_direct",
+    "best_path_trace": [
+      "usable data API candidate confirmed or strongly indicated",
+      "API direct avoids brittle HTML selectors when endpoint shape is reusable"
+    ],
+    "pre_check": {
+      "robots_status": "allowed",
+      "robots_detail": "robots HTTP 200",
+      "gate_status": "none",
+      "gate_detail": "none; status=none",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "low"
+    },
+    "connection_test": {
+      "method": "GET",
+      "url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+      "headers": {
+        "User-Agent": "CharlesSmith/0.10.0",
+        "Accept": "application/json"
+      },
+      "expected_status": 200,
+      "expected_content_type": "application/json",
+      "sample_response_hint": "JSON 응답의 배열, totalCount, pagination 필드를 확인합니다."
+    },
+    "collection_plan": {
+      "source": "api",
+      "fields": [
+        "channelId",
+        "channelName",
+        "channelDescription",
+        "followerCount",
+        "channelImageUrl",
+        "openLive"
+      ],
+      "pagination": {
+        "type": "unknown",
+        "pattern": null,
+        "total_items": null,
+        "items_per_page": null,
+        "total_pages": null
+      },
+      "delay_seconds": 2.0,
+      "retry": {
+        "max_retries": 3,
+        "backoff_seconds": [
+          30,
+          60,
+          120
+        ],
+        "stop_on": [
+          "403",
+          "login_redirect"
+        ]
+      },
+      "estimated_items": null,
+      "estimated_time": "규모 미상",
+      "sample_record_hint": {
+        "channelId": "dcbccbf2d8e2a1b095244c5856d3613a",
+        "channelName": "김달수 Dalsu",
+        "channelDescription": "문의 : biz@nobent.co.kr",
+        "followerCount": 3754,
+        "channelImageUrl": "https://nng-phinf.pstatic.net/MjAyNjA1MzBfNjMg/MDAxNzgwMTUxNDMzNzcx.aFaLyrcMz...",
+        "openLive": false
+      },
+      "json_path_hints": [
+        "$.content.channelId",
+        "$.content.channelName",
+        "$.content.channelDescription",
+        "$.content.followerCount",
+        "$.content.channelImageUrl",
+        "$.content.openLive"
+      ],
+      "selector_hints": [],
+      "wait_condition": "http_response: GET https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a returns 2xx JSON"
+    },
+    "storage": {
+      "format": "csv",
+      "columns": [
+        "channelId",
+        "channelName",
+        "channelDescription",
+        "followerCount",
+        "channelImageUrl",
+        "openLive",
+        "source_url",
+        "fetched_at"
+      ],
+      "filename_pattern": "m_chzzk_naver_com_{YYYYMMDD}.csv",
+      "encoding": "utf-8"
+    },
+    "verification": {
+      "expected_row_count": null,
+      "null_ratio_threshold": 0.05,
+      "dedup_key": "channelId",
+      "sample_check_count": 5
+    },
+    "agent_prompt": null,
+    "notes": [
+      "best_path: api_direct",
+      "official_api_suggestion: 네이버 검색 API (https://developers.naver.com/docs/serviceapi/search/)",
+      "pagination_unknown: 수동 확인 필요"
+    ],
+    "transport": "httpx",
+    "profile_required": false,
+    "profile_summary": null,
+    "rsc_payload_candidates": [],
+    "diagnostic_findings": {
+      "api": {
+        "status": "selected",
+        "candidates_seen": 20,
+        "usable_candidates": 1,
+        "reason": "best_path=api_direct"
+      },
+      "sitemap": {
+        "status": "rejected",
+        "candidates_seen": 8,
+        "usable_candidates": 0,
+        "reason": "sitemap candidates seen but not validated as usable XML sitemap"
+      },
+      "rsc": {
+        "status": "not_found",
+        "payload_count": 0,
+        "reason": "no RSC payload candidates found"
+      }
+    },
+    "recovery_plan": [],
+    "url_resolution_needed": false,
+    "profile_or_session_likely_needed": false,
+    "arthur_inspect_recommended": true,
+    "browser_probe": null
+  }
+}

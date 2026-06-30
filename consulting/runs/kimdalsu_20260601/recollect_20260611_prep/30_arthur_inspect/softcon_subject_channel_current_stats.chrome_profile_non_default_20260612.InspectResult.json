@@ -1,0 +1,62 @@
+{
+  "version": "0.6",
+  "generated_at": "2026-06-12 00:19:09",
+  "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "boundary_signals": [
+    {
+      "source": "robots",
+      "signal": "robots_check",
+      "severity": "info",
+      "action": "recorded",
+      "detail": "robots 429 → rate limit/challenge 가능성, 보류",
+      "target": "/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": null
+    },
+    {
+      "source": "http",
+      "signal": "http_429",
+      "severity": "stop",
+      "action": "stopped",
+      "detail": "429 rate limit/challenge — 안전 재시도 불가",
+      "target": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "matched_rule": null,
+      "reason": "http_429"
+    }
+  ],
+  "available_resources": [
+    {
+      "kind": "robots",
+      "checked": true,
+      "allowed": null,
+      "crawl_delay": null,
+      "target_path": "/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    },
+    {
+      "kind": "sitemap_candidate",
+      "url": "https://viewership.softc.one/sitemap.xml",
+      "status": "candidate_not_fetched"
+    },
+    {
+      "kind": "http",
+      "url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "status_code": 429,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 33809
+    }
+  ],
+  "sample_records": [],
+  "field_maps": [],
+  "estimated_collection_options": [],
+  "operator_questions": [
+    "세션/profile이 필요한 대상인지 Hosea 쪽에서 확인해야 합니다."
+  ],
+  "policy_trace": [],
+  "artifacts": [],
+  "session_profile": {
+    "provided": false,
+    "type": null,
+    "status": "not_provided",
+    "secret_values_logged": false
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "evidence_package_id": "EVIDPKG_GUBIBA_V3_INITIAL_20260611",
+  "case_id": "gubiba",
+  "source_items": [
+    {
+      "evidence_id": "EVID_GUBIBA_S1_V3",
+      "source_type": "interview",
+      "source_title": "구비바 §1 입력자료 v3",
+      "source_url_or_path": "/mnt/data/구비바_§1_입력자료_v3(1).md",
+      "raw_path": null,
+      "fetched_at": null,
+      "aggregation_window": null,
+      "response_hash": "e3e40621e2a88de325098e71e64e75846469bfbe385bb7b7b8059c79ab8c0049",
+      "parse_status": "success",
+      "boundary_signal": "none",
+      "retention_policy": "retain_raw",
+      "disclosure_tag": "red",
+      "notes": "정체성 추출 v3, 본인 면담 발화 기반"
+    },
+    {
+      "evidence_id": "EVID_GUBIBA_ENTRY_679",
+      "source_type": "interview",
+      "source_title": "구비바 §6§7§9 진입자료",
+      "source_url_or_path": "/mnt/data/구비바_§6§7§9_진입자료(1).md",
+      "raw_path": null,
+      "fetched_at": null,
+      "aggregation_window": null,
+      "response_hash": "1a77c5524b0bbe2333f9362bfa07aabce719e59e3ac372555caa5ad93fc53daf",
+      "parse_status": "success",
+      "boundary_signal": "none",
+      "retention_policy": "retain_raw",
+      "disclosure_tag": "red",
+      "notes": "5차 인터뷰에서 조기 진입한 목표/콘텐츠/산출물 영역"
+    },
+    {
+      "evidence_id": "EVID_GUBIBA_PROJECT_STEP1",
+      "source_type": "manual_review",
+      "source_title": "구비바 project step1 JSON",
+      "source_url_or_path": "/mnt/data/구비바_project_step1_20260610.json",
+      "raw_path": null,
+      "fetched_at": null,
+      "aggregation_window": null,
+      "response_hash": "4538f60151f773f329ce69998c80d8f67abbcb18ce29c2deee209986dd4e67da",
+      "parse_status": "success",
+      "boundary_signal": "none",
+      "retention_policy": "retain_raw",
+      "disclosure_tag": "red",
+      "notes": "Step 1 코호트 spec ready 상태의 레지스터"
+    },
+    {
+      "evidence_id": "EVID_GUBIBA_COHORT_SPEC_STEP1",
+      "source_type": "manual_review",
+      "source_title": "구비바 §4 cohort spec v2",
+      "source_url_or_path": "/mnt/data/구비바_§4_cohort_spec_v2_20260610.json",
+      "raw_path": null,
+      "fetched_at": null,
+      "aggregation_window": null,
+      "response_hash": "480f1527ea7994b419fa6b476e11b9313b8212ca85434a81b744af4237e2dfe4",
+      "parse_status": "success",
+      "boundary_signal": "none",
+      "retention_policy": "retain_raw",
+      "disclosure_tag": "red",
+      "notes": "종합게임 주 코호트 + 버추얼 보조 코호트 spec"
+    },
+    {
+      "evidence_id": "EVID_GUBIBA_STATS_CSV",
+      "source_type": "channel_stats",
+      "source_title": "구비바 방송통계 1년 20260529 CSV",
+      "source_url_or_path": "/mnt/data/스트리머팀_구비바_케이스_20260601.zip::∞èñφè╕δª¼δ¿╕φîÇ_Ω╡¼δ╣äδ░ö_∞╝Ç∞¥┤∞èñ/02_δì░∞¥┤φä░/Ω╡¼δ╣äδ░ö_δ░⌐∞åíφå╡Ω│ä_1δàä_20260529.csv",
+      "raw_path": "/mnt/data/스트리머팀_구비바_케이스_20260601.zip::∞èñφè╕δª¼δ¿╕φîÇ_Ω╡¼δ╣äδ░ö_∞╝Ç∞¥┤∞èñ/02_δì░∞¥┤φä░/Ω╡¼δ╣äδ░ö_δ░⌐∞åíφå╡Ω│ä_1δàä_20260529.csv",
+      "fetched_at": null,
+      "aggregation_window": "2025-05-29 to 2026-05-29",
+      "response_hash": "f7320bb87d61b8b364e4dce938eadd5df70d40352eddfa3357b1a8322aa8d64b",
+      "parse_status": "success",
+      "boundary_signal": "none",
+      "retention_policy": "retain_raw",
+      "disclosure_tag": "red",
+      "notes": "227 rows, 8 columns; metrics recomputed in v3 reread pass."
+    }
+  ],
+  "appendix_refs": [
+    "구비바_v3_re_read_pass_20260611.md"
+  ],
+  "created_at": "2026-06-11"
+}

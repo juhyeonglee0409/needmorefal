@@ -1,0 +1,56 @@
+{
+  "case_id": "kimdalsu_milestone_1",
+  "source_document": "김달수_채널분석_컨설팅리포트.md",
+  "status": "read_only_calibration",
+  "methodology_context": [
+    "channel_diagnosis_v1",
+    "MASTER_v1"
+  ],
+  "not_a_formal_migration": true,
+  "provisional_case_characterization": {
+    "case_type": "client_deliverable_case",
+    "data_depth": "mixed_public_and_client_reported_or_derived",
+    "milestone_type": "analysis_report",
+    "analysis_milestone": true,
+    "execution_close": false,
+    "public_demo_status": "blocked_until_synthetic_or_anonymized"
+  },
+  "observed_report_sections": [
+    "Executive Summary",
+    "1. 분석 개요",
+    "2. 채널 정체성 진단",
+    "3. 성장 추이 분석",
+    "4. 지표 신뢰성 — 측정 보정",
+    "5. 경쟁 환경 분석 — 코호트 벤치마크",
+    "6. 1만 팔로워 전략",
+    "7. 콘텐츠 채널 전략",
+    "8. 전략 제언 종합",
+    "부록 A. 분석 방법론",
+    "부록 B. 데이터 한계 및 유의사항",
+    "부록 C. 미해결 분석 과제"
+  ],
+  "m7_required_objects": [
+    "DeliverableMilestone",
+    "MeasurementCorrection",
+    "CohortBenchmark.robustness_tests",
+    "StrategicTarget",
+    "ContentFunnelAnalysis",
+    "Limitations",
+    "OpenAnalysisTasks",
+    "ExternalValidation",
+    "PrecisionGuardrail"
+  ],
+  "red_items": [
+    "client identity",
+    "exact report metrics",
+    "cohort exact filter values and ranks",
+    "content performance details",
+    "client-specific recommendations"
+  ],
+  "yellow_items": [
+    "measurement correction concept",
+    "cohort robustness concept",
+    "goal band / warning threshold concept",
+    "reach vs conversion content funnel concept"
+  ]
+}

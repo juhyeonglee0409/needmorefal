@@ -1,0 +1,48 @@
+{
+  "absence_inventory_id": "kimdalsu_absence_initial_20260611",
+  "case_id": "kimdalsu_20260601",
+  "absence_items": [
+    {
+      "absence_id": "ABS1_execution_manual",
+      "target_area": "execution",
+      "expected_asset": "실행 매뉴얼",
+      "present_status": "absent",
+      "checked_source": "package review",
+      "checked_at": "2026-06-11T00:00:00+09:00",
+      "absence_source": "manual_review_absent",
+      "absence_type": "not_applicable",
+      "confidence": "high",
+      "impact": "분석 마일스톤은 완료됐지만 실행 클로즈는 아님.",
+      "next_check": "6/16 후속 응대 후 생성 여부 판단",
+      "disclosure_tag": "red"
+    },
+    {
+      "absence_id": "ABS2_tracking_sheet",
+      "target_area": "execution",
+      "expected_asset": "트래킹 시트",
+      "present_status": "absent",
+      "checked_source": "package review",
+      "checked_at": "2026-06-11T00:00:00+09:00",
+      "absence_source": "manual_review_absent",
+      "absence_type": "not_applicable",
+      "confidence": "high",
+      "impact": "실행 반응성 점수 산출 불가.",
+      "next_check": "실행 단계 진입 시 작성",
+      "disclosure_tag": "red"
+    },
+    {
+      "absence_id": "ABS3_public_demo_row",
+      "target_area": "public_demo",
+      "expected_asset": "PublicDemoRow",
+      "present_status": "not_collected",
+      "checked_source": "disclosure review not performed",
+      "checked_at": "2026-06-11T00:00:00+09:00",
+      "absence_source": "undetermined",
+      "absence_type": "not_verified",
+      "confidence": "high",
+      "impact": "실제 사례 공개 금지. 합성/익명화 별도 생성 필요.",
+      "next_check": "PublicDemo 기획 시 disclosure review",
+      "disclosure_tag": "yellow"
+    }
+  ]
+}

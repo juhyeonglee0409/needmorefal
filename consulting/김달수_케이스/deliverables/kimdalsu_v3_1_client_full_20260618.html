@@ -1,0 +1,2821 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채널 진단 보고서 — 종합본</title>
+<style>
+
+@page { size: A4; margin: 20mm 18mm 24mm 18mm; }
+@media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-break { page-break-before: always; }
+    .no-break { page-break-inside: avoid; }
+}
+:root {
+    --teal-800: #2D4A5E; --teal-600: #3A5F78; --teal-400: #708DA1;
+    --amber-500: #C4834D; --amber-600: #A8693A;
+    --neutral-900: #1B1711; --neutral-700: #3D3833; --neutral-500: #6B6560;
+    --neutral-400: #9B9590; --neutral-300: #D4D0C8; --neutral-200: #E8E4DF;
+    --neutral-100: #F5F2ED; --neutral-50: #FBF7F1;
+    --success-700: #01682D; --error-700: #A8292F; --warning-700: #A43112;
+    --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+body {
+    font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    color: var(--neutral-900); background: var(--white);
+    font-size: 10.5pt; line-height: 1.7;
+    max-width: 210mm; margin: 0 auto; padding: 24px 28px;
+}
+/* Cover */
+.cover { padding: 60px 0 40px 0; }
+.cover h1 {
+    font-size: 28pt; font-weight: 800; color: var(--teal-800);
+    margin: 0 0 12px 0; line-height: 1.3;
+}
+.cover .subtitle { font-size: 14pt; color: var(--teal-600); margin: 0 0 20px 0; }
+.cover .divider {
+    width: 80px; height: 3px; background: var(--amber-500);
+    border: none; margin: 20px 0;
+}
+.cover-meta { width: 100%; border-collapse: collapse; margin: 16px 0 32px 0; }
+.cover-meta td {
+    padding: 5px 12px; font-size: 9.5pt; border-bottom: 1px solid var(--neutral-200);
+    vertical-align: top;
+}
+.cover-meta td:first-child {
+    font-weight: 700; color: var(--teal-600); white-space: nowrap; width: 120px;
+}
+/* Headings */
+h2 {
+    font-size: 16pt; font-weight: 800; color: var(--teal-800);
+    border-bottom: 2px solid var(--teal-600);
+    margin: 48px 0 12px 0; padding-bottom: 8px;
+}
+h3 {
+    font-size: 12pt; font-weight: 700; color: var(--teal-600);
+    margin: 28px 0 8px 0;
+}
+/* Conclusion card */
+.conclusion-card {
+    border: 2px solid var(--amber-500); border-radius: 8px;
+    padding: 20px 24px; background: var(--neutral-50);
+    margin: 20px 0; page-break-inside: avoid;
+}
+.conclusion-card .card-label {
+    font-size: 9pt; font-weight: 700; color: var(--amber-500);
+    text-transform: uppercase; margin-bottom: 8px; display: block;
+}
+/* Certainty badge */
+.certainty {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 9pt; margin: 8px 0; padding: 6px 12px;
+    border-radius: 4px; background: var(--neutral-100);
+}
+.certainty .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 3px;
+    font-weight: 700; font-size: 9pt;
+}
+.certainty .badge.sure { background: #E8F5E9; color: var(--success-700); }
+.certainty .badge.almost { background: #E3EDF3; color: var(--teal-600); }
+.certainty .badge.observed { background: var(--neutral-100); color: var(--neutral-500); }
+.certainty .badge.inferred { background: #FFF3E0; color: var(--warning-700); }
+/* Action title */
+.action-title {
+    border-left: 4px solid var(--teal-600); padding: 10px 16px;
+    margin: 16px 0 20px 0; background: var(--neutral-50);
+    font-weight: 700; color: var(--teal-800);
+}
+.action-title .normal-weight { font-weight: 400; }
+/* Tables */
+table {
+    width: 100%; border-collapse: collapse; margin: 16px 0;
+    font-size: 9.5pt; page-break-inside: avoid;
+}
+th {
+    background: var(--teal-800); color: var(--white);
+    font-size: 9pt; font-weight: 700; padding: 8px 12px;
+    text-align: left;
+}
+td { padding: 7px 12px; border-bottom: 1px solid var(--neutral-200); }
+tr:nth-child(even) td { background: var(--neutral-50); }
+/* Inline styles */
+.highlight { color: var(--amber-500); font-weight: 700; }
+.positive { color: var(--success-700); font-weight: 600; }
+.negative { color: var(--error-700); font-weight: 600; }
+.warning { color: var(--warning-700); font-weight: 600; }
+.bold-lead { font-weight: 700; color: var(--teal-800); }
+.neg-lead { font-weight: 700; color: var(--error-700); }
+/* Lists */
+ul, ol { margin: 8px 0 8px 24px; padding: 0; }
+li { margin: 4px 0; }
+/* Blockquote */
+blockquote {
+    border-left: 3px solid var(--neutral-300); padding: 8px 16px;
+    margin: 12px 0; color: var(--neutral-700); background: var(--neutral-100);
+    border-radius: 0 4px 4px 0;
+}
+/* HR */
+hr { border: none; border-top: 1px solid var(--neutral-300); margin: 32px 0; }
+/* Page break */
+.page-break { page-break-before: always; height: 0; margin: 0; padding: 0; }
+.no-break { page-break-inside: avoid; }
+/* Code / Pre */
+pre {
+    background: var(--neutral-100); padding: 14px 18px; border-radius: 6px;
+    font-size: 8.5pt; line-height: 1.5; overflow-x: auto;
+    font-family: 'Consolas', 'Menlo', monospace; white-space: pre-wrap;
+    margin: 16px 0;
+}
+code {
+    background: var(--neutral-100); padding: 1px 4px; border-radius: 3px;
+    font-family: 'Consolas', 'Menlo', monospace; font-size: 9pt;
+}
+/* Footer */
+.doc-footer {
+    margin-top: 48px; border-top: 1px solid var(--neutral-300);
+    color: var(--neutral-400); font-size: 8pt; text-align: center;
+    padding-top: 16px; line-height: 1.8;
+}
+/* Hanul summary */
+.hanul-summary {
+    border-left: 4px solid var(--teal-600); padding: 10px 16px;
+    margin: 16px 0 20px 0; background: var(--neutral-50);
+    font-weight: 700; color: var(--teal-800);
+}
+/* Data notice */
+.data-notice {
+    font-size: 8pt; color: var(--neutral-400);
+    margin-top: 24px; padding: 10px 16px;
+    border-top: 1px solid var(--neutral-300);
+    line-height: 1.6;
+}
+/* Prose log (footer-like code) */
+.prose-log {
+    background: var(--neutral-100); padding: 12px 16px; border-radius: 6px;
+    font-size: 7.5pt; line-height: 1.5; color: var(--neutral-500);
+    font-family: 'Consolas', 'Menlo', monospace; white-space: pre-wrap;
+    margin: 24px 0;
+}
+p { margin: 8px 0; }
+
+</style>
+</head>
+<body>
+<div class="cover">
+<h1>채널 진단 보고서 — 종합본</h1>
+<hr class="divider">
+<table class="cover-meta">
+<tr><td>분석 대상</td><td>치지직 채널 (팔로워 3,760명, 리그 오브 레전드 주력)</td></tr>
+<tr><td>분석 기준일</td><td>2026년 6월 18일</td></tr>
+<tr><td>데이터 범위</td><td>코호트 v3 1,544채널 + YouTube @dalsooisfree 718개 영상 + §2~§11 전체 진단</td></tr>
+<tr><td>버전</td><td>v3.1 종합본 (§1 용어 정의 신설 + §2~§4 효율 톤 교정·데이터 정정 + §5~§11 통합)</td></tr>
+</table>
+</div>
+<div class="page-break"></div>
+<h2 style="font-size:18pt; border-bottom:3px solid var(--teal-800);">PART I — §2~§4: 코호트 설계와 현재 위치</h2>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ①</span>
+<p>본 채널은 "극단적으로 오래 돌리는 상위권 엔진"이다. 월간 방송시간(162.7시간)은 LoL 상위 100채널 중 150시간 이상 그룹(14채널)에 속하는 극단적 수준이며, 팔로워 대비 시청 효율은 LoL 상위 100채널의 상위 25%(Q3 경계)에 해당한다. 이 효율의 상당 부분은 극단적 방송시간에 의존한다. 한편 잔류율이 동급 채널의 65% 수준에 그치며, LoL 카테고리 상위 100위 안에 들지 못해 카테고리 내 자연 발견이 구조적으로 어렵다. 체급을 키우려면 <strong>잔류율 개선이 첫 번째</strong>, 유입 경로 확장이 두 번째 과제이다.</p>
+</div>
+<hr>
+<h2>§1. 이 보고서에서 쓰는 용어</h2>
+<p>이 보고서에 나오는 숫자와 용어를 먼저 정리한다. 이후 등장하는 모든 분석은 아래 정의를 기준으로 한다.</p>
+<h3>기본 지표 (Softcon 제공)</h3>
+<table>
+<thead><tr>
+<th>용어</th>
+<th>뜻</th>
+<th>예시</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong class="highlight">팔로워</strong></td>
+<td>채널을 팔로우한 사람 수. 한 번 누르면 계속 남아 있으므로, 과거에 눌렀지만 더 이상 보지 않는 사람도 포함된다</td>
+<td>3,760명</td>
+</tr>
+<tr>
+<td><strong class="highlight">평균 시청자</strong></td>
+<td>일정 기간 방송 중 동시에 접속해 있던 사람 수의 평균. 방송을 켜 놓고 자리를 비운 시간도 포함되므로, 방송이 길수록 낮아지는 경향이 있다</td>
+<td>69명 (월간)</td>
+</tr>
+<tr>
+<td><strong class="highlight">최고 시청자 (피크)</strong></td>
+<td>같은 기간 내 가장 많은 사람이 동시에 접속해 있던 순간의 수치</td>
+<td>165명</td>
+</tr>
+<tr>
+<td><strong class="highlight">뷰어십</strong></td>
+<td>평균 시청자 × 방송시간. "총 시청량"에 해당한다. 방송을 오래 할수록 커진다</td>
+<td>11,253</td>
+</tr>
+<tr>
+<td><strong class="highlight">방송시간</strong></td>
+<td>해당 기간 동안 방송을 켜 놓은 총 시간</td>
+<td>162.7시간/월</td>
+</tr>
+</tbody></table>
+<h3>분석용 지표 (본 보고서에서 계산)</h3>
+<table>
+<thead><tr>
+<th>용어</th>
+<th>계산식</th>
+<th>뜻</th>
+<th>주의점</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong class="highlight">잔류율</strong></td>
+<td>평균 시청자 ÷ 최고 시청자</td>
+<td>피크 대비 얼마나 남아 있었는가. 1에 가까울수록 시청자가 떠나지 않고 남아 있다는 뜻</td>
+<td>방송이 길면 심야 시간대가 평균을 끌어내려 낮아진다</td>
+</tr>
+<tr>
+<td><strong class="highlight">효율</strong></td>
+<td>뷰어십 ÷ 팔로워</td>
+<td>팔로워 1명당 만들어 낸 총 시청량. 높을수록 팔로워를 잘 활용하고 있다는 뜻</td>
+<td>방송시간이 길면 뷰어십이 커져 효율도 올라간다. 즉 방송시간의 영향을 받는 지표이다</td>
+</tr>
+<tr>
+<td><strong class="highlight">팔로워→시청 전환율</strong></td>
+<td>평균 시청자 ÷ 팔로워 × 100</td>
+<td>팔로워 중 실제로 방송을 보러 오는 비율. 방송시간과 무관하게 채널의 순수 끌어오는 힘을 보여준다</td>
+<td>팔로워가 늘면 자연히 낮아지는 경향이 있다</td>
+</tr>
+<tr>
+<td><strong class="highlight">코호트</strong></td>
+<td>—</td>
+<td>비교 대상으로 묶은 채널 집단. 본 보고서에서는 A층(LoL 상위 100), B층(동급생 126), C층(팔로워 밴드 1,317)의 세 집단을 사용한다</td>
+<td></td>
+</tr>
+<tr>
+<td><strong class="highlight">중앙값</strong></td>
+<td>—</td>
+<td>전체를 줄 세웠을 때 정가운데 값. 평균과 달리 극단적으로 크거나 작은 값에 휘둘리지 않는다</td>
+<td></td>
+</tr>
+<tr>
+<td><strong class="highlight">Q3 (75%ile)</strong></td>
+<td>—</td>
+<td>전체의 상위 25% 경계. "상위권"에 해당한다</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>이 보고서의 핵심 지표 우선순위</h3>
+<p>효율은 방송시간의 영향을 받으므로, 채널 역량을 순수하게 비교하려면 <strong>전환율</strong>이 더 적합하다. 이 보고서에서 "채널이 잘하고 있는가"를 판단하는 1차 기준은 전환율이며, 효율은 참고 지표로 사용한다.</p>
+<hr>
+<h2>§2. 비교 대상 — 코호트 설계</h2>
+<div class="action-title"><strong>혼자만의 숫자는 의미가 없다. "지금 잘하고 있는 건지"를 판단하려면 비교 대상이 있어야 한다.</strong></div>
+<h3>코호트 구성</h3>
+<p>비교 코호트를 세 층으로 설계했다. 각 층은 서로 다른 질문에 답한다.</p>
+<table>
+<thead><tr>
+<th>층</th>
+<th>채널 수</th>
+<th>소스</th>
+<th>답하는 질문</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A — LoL 상위 100</td>
+<td>100</td>
+<td>Softcon 뷰어십 카테고리 랭킹</td>
+<td>"LoL 생태계에서 체급별 효율과 잔류율이 어떻게 변하는가"</td>
+</tr>
+<tr>
+<td>B — 동급생</td>
+<td>126</td>
+<td>이전 분석 코호트 + 팔로워 랭킹 교차</td>
+<td>"비슷한 규모의 채널들과 비교해 어디가 강하고 약한가"</td>
+</tr>
+<tr>
+<td>C — 팔로워 밴드</td>
+<td>1,317</td>
+<td>팔로워 2,000~8,000 구간 전체</td>
+<td>"같은 팔로워 대역에 얼마나 많은 채널이 몰려 있는가"</td>
+</tr>
+</tbody></table>
+<p>합계 1,544채널이다. 여기에 본 채널을 기준점으로 놓고 비교한다.</p>
+<h3>왜 이 구조인가</h3>
+<p>이전 분석(legacy)은 LoL 카테고리 131채널을 단일 코호트로 사용했다. v3에서는 체급개선이 핵심 질문이므로 코호트를 용도별로 분리했다.</p>
+<div class="action-title"><strong>A층(LoL 상위 100)</strong> <span class="normal-weight">은 시청자·피크·뷰어십·방송시간이 모두 있어, 효율-체급 관계를 분석할 수 있는 유일한 데이터이다. 본 채널은 이 100위 안에 들지 않지만, "도달 목표 공간"으로서 의미가 있다.</span></div>
+<div class="action-title"><strong>B층(동급생)</strong> <span class="normal-weight">은 평균 시청자 40~150명 구간에 99채널이 분포한다. 본 채널(평균 69명)과 직접 비교할 수 있는 유일한 집단이다. 잔류율과 팔로워 규모를 여기서 비교한다.</span></div>
+<div class="action-title"><strong>C층(팔로워 밴드)</strong> <span class="normal-weight">은 팔로워 수만 있고 시청 데이터는 없다. 그러나 본 채널 주변의 밀집도를 보여준다 — 2,000~8,000 팔로워 구간에 1,317채널이 몰려 있어, 팔로워 순위를 한 칸 올리는 것도 쉽지 않다는 현실을 확인시킨다.</span></div>
+<h3>코호트의 한계</h3>
+<ol>
+<li>LoL 카테고리 랭킹이 상위 100개만 표시됨. 본 채널의 정확한 LoL 내 순위는 확인 불가(100위 밖은 확실)</li>
+<li>B층 데이터는 이전 분석 시점 기준 — A층과 직접 수치 비교 시 시점 차이 고려 필요</li>
+<li>C층에 시청 데이터가 없어 팔로워 밀집도 이상의 분석 불가</li>
+<li>코호트 채널의 채팅 밀도 데이터 미보유 — 참여도 비교 불가</li>
+</ol>
+<hr>
+<h2>§3. 현재 위치 — 핵심 수치</h2>
+<div class="action-title"><strong>본 채널은 LoL 카테고리 100위 밖, 치지직 전체 팔로워 순위 1,269위이다. 작은 팔로워 풀을 상위권 효율로 돌리고 있지만, 발견되기 어려운 위치에 있다.</strong></div>
+<h3>기본 지표 (최근 1개월)</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>값</th>
+<th>비고</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>팔로워</td>
+<td>3,760명</td>
+<td>치지직 전체 #1,269 / 3,987 (상위 32%)</td>
+</tr>
+<tr>
+<td>평균 시청자</td>
+<td>69명</td>
+<td>월간 기준 (05.17~06.17)</td>
+</tr>
+<tr>
+<td>최고 시청자</td>
+<td>165명</td>
+<td></td>
+</tr>
+<tr>
+<td>뷰어십</td>
+<td>11,253</td>
+<td>평균 시청자 × 방송시간</td>
+</tr>
+<tr>
+<td>방송시간</td>
+<td>162.7시간</td>
+<td>월간 — 코호트 중앙값 71.2h의 약 2.3배</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>0.418</td>
+<td>평균/최고</td>
+</tr>
+<tr>
+<td>효율</td>
+<td>2.994</td>
+<td>뷰어십/팔로워</td>
+</tr>
+<tr>
+<td>팔로워→시청 전환율</td>
+<td>1.84%</td>
+<td>평균 시청자/팔로워</td>
+</tr>
+<tr>
+<td>LoL 카테고리 순위</td>
+<td>100위 밖</td>
+<td>100위 최저 평균=346명 (월간)</td>
+</tr>
+<tr>
+<td>최고 순위</td>
+<td>44위</td>
+<td>치지직 전체</td>
+</tr>
+</tbody></table>
+<h3>4축 포지셔닝</h3>
+<table>
+<thead><tr>
+<th>축</th>
+<th>값</th>
+<th>동급생(B층) 내 위치</th>
+<th>해석</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>시청자 규모</td>
+<td>평균 69명</td>
+<td>중앙값과 동일</td>
+<td>동급생 median 수준</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>0.418</td>
+<td><strong class="highlight">하위권</strong></td>
+<td>동급생 중앙(0.645)의 65%</td>
+</tr>
+<tr>
+<td>팔로워 규모</td>
+<td>3,760명</td>
+<td><strong class="highlight">하위 9%</strong></td>
+<td>동급생 중 거의 최소</td>
+</tr>
+<tr>
+<td>효율</td>
+<td>2.994</td>
+<td>(A층 대비) 상위 25%</td>
+<td>LoL 상위 100 중앙(1.351)의 2.2배이나, Q3 경계(75%ile). z-score 0.03으로 "극단"이 아닌 "상위권"</td>
+</tr>
+</tbody></table>
+<div class="action-title"><strong>프로파일 요약:</strong> <span class="normal-weight">"극단적 방송시간 + 상위권 효율 + 최저 잔류율" 유형이다. 팔로워 풀이 동급생 중 가장 작은데도, 상위권 효율과 월 162.7시간이라는 방송량으로 시청자 규모를 중앙까지 끌어올리고 있다. 효율 자체는 방송시간에 비례하는 구조(뷰어십 = 평균 시청자 × 방송시간)이므로, 이 효율의 상당 부분은 방송시간이 만들어낸 것이다. 방송시간과 무관한 지표인 팔로워→시청 전환율(1.84%)이 대형 채널(1.47~1.56%)보다 높다는 점이, 방송시간을 제외한 순수 채널 역량을 더 정확히 반영한다. 그러나 들어온 시청자의 절반 이상이 방송 중 떠난다.</span></div>
+<h3>이전 분석 대비 변화</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>이전</th>
+<th>현재</th>
+<th>변화</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>팔로워</td>
+<td>~1,843명</td>
+<td>3,760명</td>
+<td><strong class="positive">+104%</strong></td>
+</tr>
+<tr>
+<td>평균 시청자</td>
+<td>~46명</td>
+<td>69명</td>
+<td><strong class="positive">+50%</strong></td>
+</tr>
+<tr>
+<td>최고 시청자</td>
+<td>~50명</td>
+<td>165명</td>
+<td><strong class="positive">+230%</strong></td>
+</tr>
+</tbody></table>
+<p>모든 핵심 지표에서 유의미한 성장이 관찰된다. 특히 최고 시청자의 증가폭이 가장 크다 — 스파이크성 유입이 발생하고 있다는 신호이다.</p>
+<hr>
+<h2>§4. 심층 진단 — 체급개선의 구조</h2>
+<h3>4.1 효율-체급 커브: 체급이 올라가면 효율은 떨어지는가?</h3>
+<div class="action-title"><strong>효율 하락은 선형이 아니라 U자형이다. 200~1,000명 구간에 "효율 계곡"이 존재한다.</strong></div>
+<p>LoL 상위 100채널을 평균 시청자 밴드별로 분류하면 아래와 같다(기업·방송사 채널 제외).</p>
+<table>
+<thead><tr>
+<th>밴드 (월간 평균 시청자)</th>
+<th>채널 수</th>
+<th>효율 중앙값</th>
+<th>잔류율 중앙값</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>500명 미만</td>
+<td>6</td>
+<td>3.321*</td>
+<td>0.171</td>
+</tr>
+<tr>
+<td>500~2,000</td>
+<td>50</td>
+<td>1.321</td>
+<td>0.331</td>
+</tr>
+<tr>
+<td>2,000~5,000</td>
+<td>31</td>
+<td><strong class="highlight">1.081</strong></td>
+<td>0.422</td>
+</tr>
+<tr>
+<td>5,000~15,000</td>
+<td>8</td>
+<td>2.989</td>
+<td>0.476</td>
+</tr>
+<tr>
+<td>15,000 이상</td>
+<td>5</td>
+<td>8.430</td>
+<td>0.320</td>
+</tr>
+</tbody></table>
+<blockquote><p>*효율 = 뷰어십/팔로워. 팔로워 매칭률 64/100이므로 일부 밴드는 표본 제한적(* 표시).</p></blockquote>
+<p>500~2,000명 구간(50채널)이 코호트 최대 밀집 구간이다. 2,000~5,000명 구간에서 효율이 최저(1.081)를 기록하는데, 이 구간에 <strong>과거 유명했으나 현재 비활성인 채널</strong>(은퇴 프로게이머, 전직 유명 스트리머 등)이 집중되어 있기 때문이다. 대형 팔로워를 보유하지만 실제 시청자는 적어 효율이 낮다.</p>
+<p>본 채널처럼 팔로워가 시청자 성장과 함께 유기적으로 늘어나는 경우, 이 "효율 저점"을 같은 방식으로 통과할 가능성은 낮다. 핵심 조건은 <strong>팔로워 증가 속도가 시청자 증가 속도를 크게 앞서지 않는 것</strong>이다.</p>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — 효율 패턴은 코호트 단면 데이터에서 확인되었으나, 동일 채널의 시계열(성장 과정)을 추적한 것은 아니다. 유기적 성장 채널이 저점을 피한다는 것은 추정이다.</div>
+<h3>4.2 잔류율과 방송시간: 노방종의 비용</h3>
+<div class="action-title"><strong>방송시간이 길수록 잔류율이 급감한다. 이것은 본 채널만의 문제가 아니라 코호트 전체에서 확인되는 구조적 패턴이다.</strong></div>
+<table>
+<thead><tr>
+<th>방송시간 밴드 (월간)</th>
+<th>채널 수</th>
+<th>잔류율 중앙값</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>30시간 미만</td>
+<td>30</td>
+<td><strong class="highlight">0.626</strong></td>
+</tr>
+<tr>
+<td>30~80시간</td>
+<td>23</td>
+<td>0.362</td>
+</tr>
+<tr>
+<td>80~150시간</td>
+<td>33</td>
+<td>0.299</td>
+</tr>
+<tr>
+<td><strong class="highlight">150시간 이상</strong></td>
+<td><strong class="highlight">14</strong></td>
+<td><strong class="highlight">0.245</strong></td>
+</tr>
+<tr>
+<td><strong class="highlight">본 채널 (162.7시간)</strong></td>
+<td>—</td>
+<td><strong class="highlight">0.418</strong></td>
+</tr>
+</tbody></table>
+<p>30시간 미만 채널의 잔류율(0.626)과 150시간 이상 채널의 잔류율(0.245)은 2.6배 차이가 난다. 방송시간이 길어지면 심야·새벽 구간의 저시청 시간이 평균을 끌어내리기 때문이다.</p>
+<p>본 채널(162.7시간)은 150시간 이상 그룹(14채널)에 속한다. 이 그룹의 잔류율 중앙값은 0.245인데, 본 채널의 0.418은 이보다 <strong>1.7배 높다</strong> — 극단적 방송시간 대비 잘 버티고 있다는 의미이다. 그러나 동급생 중앙(0.645)과의 격차는 크다.</p>
+<div class="action-title"><strong>참고 사례 — 가장 가까운 비교 채널:</strong> <span class="normal-weight">동급생 중 평균 79명·팔로워 3,918·LoL 주력인 채널이 있다. 비슷한 규모인데 잔류율이 0.908로 본 채널의 2.2배이다. 이 격차는 방송 길이와 패턴에서 올 가능성이 높다.</span></div>
+<div class="certainty">단정 등급: <span class="badge almost">거의 확실</span> — 방송시간↔잔류율 음의 상관은 코호트 전체(100채널)에서 일관되게 관찰되며, 밴드별로 단조 감소한다.</div>
+<h3>4.3 팔로워→시청 전환율: 작은 풀의 역설</h3>
+<div class="action-title"><strong>팔로워가 적을수록 전환율이 높다. 본 채널은 이 "작은 풀의 이점"을 잘 활용하고 있다.</strong></div>
+<table>
+<thead><tr>
+<th>팔로워 밴드</th>
+<th>채널 수</th>
+<th>전환율 중앙값</th>
+<th>비고</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>5만~10만</td>
+<td>19</td>
+<td>1.47%</td>
+<td>LoL 상위 100 내 매칭 채널 (공식채널 포함)</td>
+</tr>
+<tr>
+<td>10만 이상</td>
+<td>33</td>
+<td>1.56%</td>
+<td>LoL 상위 100 내 매칭 채널</td>
+</tr>
+<tr>
+<td><strong class="highlight">본 채널 (3,760)</strong></td>
+<td>—</td>
+<td><strong class="highlight">1.84%</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote><p>5만~10만 밴드에 치지직 게임(전환율 30.81%, 플랫폼 공식 채널) 포함. 이를 제외하면 18채널/전환율 중앙값 1.43%. LoL 상위 100은 대형 채널이어서 팔로워 5만 미만 밴드에 해당하는 소규모 채널의 전환율 분포는 이 코호트로는 관찰되지 않는다.</p></blockquote>
+<p>LoL 상위 100의 대형 채널들은 전환율이 1.47~1.56%에 수렴한다. 본 채널의 1.84%는 이 대형 채널보다 높다 — 팔로워 3,760명 규모에서 이 전환율을 유지한다는 것은 팔로워 풀을 잘 활성화하고 있다는 뜻이다. 전환율은 방송시간에 독립적인 지표이므로, §4.2에서 지적한 효율의 방송시간 편향 문제가 없다. 체급이 올라갈 때 이 전환율이 1.5% 수준으로 자연 희석되는 것은 피할 수 없다. 핵심은 <strong>급락(1% 이하)을 방지</strong>하는 것이다.</p>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — 전환율의 밴드별 감소 패턴은 확인되었으나, 특정 채널의 전환율이 팔로워 증가에 따라 어떻게 변하는지는 종단 데이터가 필요하다.</div>
+<h3>4.4 LoL 카테고리 내 위치: 발견의 구조적 한계</h3>
+<div class="action-title"><strong>본 채널은 LoL 카테고리 100위 밖이다. 카테고리 탐색을 통한 자연 유입은 현 체급에서 기대하기 어렵다.</strong></div>
+<p>LoL 카테고리 상위 100위의 평균 시청자 분포는 아래와 같다.</p>
+<ul>
+<li>100위 최저: 평균 346명 (월간)</li>
+<li>중앙값(50위): 약 1,600명</li>
+<li>본 채널: 평균 69명</li>
+</ul>
+<p>본 채널의 평균 시청자는 100위 최저의 20% 수준이다. 카테고리 페이지에서 시청자 순으로 정렬했을 때, 스크롤해서 도달하기 어려운 위치에 있다는 뜻이다.</p>
+<p>이것이 의미하는 바: <strong>현재 체급에서 LoL 카테고리 자체는 유입 엔진으로 기능하지 않는다.</strong> 신규 시청자가 유입되려면 카테고리 탐색이 아닌 다른 경로 — 숏폼 콘텐츠, 레이드, 외부 플랫폼 노출 — 가 필요하다.</p>
+<h3>4.5 카테고리별 효과: LoL 집중의 트레이드오프</h3>
+<div class="action-title"><strong>LoL이 방송시간의 90%를 차지하지만, 서브 카테고리(TFT2)의 잔류율이 LoL의 1.7배이다.</strong></div>
+<table>
+<thead><tr>
+<th>카테고리</th>
+<th>방송시간</th>
+<th>평균 시청자</th>
+<th>최고 시청자</th>
+<th>잔류율</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>LoL</td>
+<td>158.2시간 (90%)</td>
+<td>70</td>
+<td>165</td>
+<td>0.424</td>
+</tr>
+<tr>
+<td>TFT2</td>
+<td>16.6시간 (10%)</td>
+<td>50</td>
+<td>69</td>
+<td><strong class="highlight">0.725</strong></td>
+</tr>
+</tbody></table>
+<p>TFT2의 평균 시청자(50명)는 LoL(70명)의 71%이다. 이것은 LoL 시청자의 약 71%가 게임과 무관하게 채널을 시청한다는 뜻으로 해석할 수 있다 — 이른바 "사람을 보러 오는" 코어 시청자가 약 50명 존재한다는 간접 증거이다.</p>
+<p>다만 TFT2의 총 방송시간(16.6시간)이 짧아 표본이 제한적이며, TFT2의 높은 잔류율은 짧은 세션 길이의 효과일 수도 있다(§4.2 참조).</p>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — 카테고리별 잔류율 차이는 확인되었으나, 원인(콘텐츠 특성 vs 세션 길이)은 분리되지 않았다.</div>
+<hr>
+<h2>§4.6 종합 — 체급개선 경로</h2>
+<div class="action-title"><strong>체급을 키우되 효율을 잃지 않는 것이 과제이다. 세 레버의 우선순위는 잔류율 → 유입 경로 → 팔로워 풀 순서이다.</strong></div>
+<h3>현재 프로파일 정의</h3>
+<p>본 채널은 <strong>"극단적 방송시간, 상위권 효율, 낮은 잔류율"</strong> 사분면에 있다.</p>
+<ul>
+<li>효율 2.994 → LoL 상위 100 중앙(1.351)의 2.2배이나, 분포 내 상위 25%(Q3 경계)</li>
+<li>팔로워→시청 전환율 1.84% → 대형 채널(1.47~1.56%) 대비 높음</li>
+<li>평균 시청자 69명 → LoL 상위 100 중앙(약 1,600명)의 0.04배</li>
+</ul>
+<p>효율이 상위권이지만, 이는 뷰어십 산식 상 방송시간에 비례하므로, 월 162.7시간이라는 극단적 방송량이 효율을 끌어올리는 구조이다. 방송시간을 코호트 중앙(71.2h)으로 조정하면 효율은 중앙과 비슷해진다. 방송시간과 무관한 전환율(1.84%)이 채널의 순수 역량을 더 정확히 반영한다.</p>
+<h3>세 레버와 우선순위</h3>
+<div class="action-title"><strong>P1. 잔류율 개선 (0.418 → 0.55~0.65 목표)</strong> <span class="normal-weight">— 효과가 가장 직접적인 레버이다.</span></div>
+<p>코호트 데이터가 보여주는 것: 방송시간을 줄이면 잔류율이 올라간다. 현재 월 162.7시간을 80~100시간 수준으로 조정하면 잔류율 0.45~0.55 밴드에 진입할 수 있다. 단, 총 방송시간 축소는 뷰어십 총량 감소를 수반하므로, 같은 총 시간을 <strong>더 짧은 세션 × 더 많은 일수로 분배</strong>하는 것이 더 안전한 경로이다. (§4.2 근거)</p>
+<blockquote><p>초기 관찰 기반이며, 세션 분할의 실제 효과는 실행 단계에서 수치로 검증 예정.</p></blockquote>
+<div class="action-title"><strong>P2. 유입 경로 확장</strong> <span class="normal-weight">— 카테고리 디스커버리가 작동하지 않으므로 대안이 필수이다.</span></div>
+<p>현재 유튜브에 6개월간 15건을 업로드했다(숏폼 11건, 롱폼 4건, 월 2.5건). 콘텐츠의 대부분이 LoL 관련이다. 숏폼은 외부 유입의 가장 현실적인 경로이나, 조회수 데이터가 확보되지 않아 현재 파이프라인의 효과를 수치로 평가할 수 없다. (§4.4 근거)</p>
+<blockquote><p>유튜브 조회수 데이터 별도 수집 후 ROI 추정 예정.</p></blockquote>
+<div class="action-title"><strong>P3. 팔로워 풀 확대 (3,760 → 5,300+)</strong> <span class="normal-weight">— P1과 P2가 선행되면 자연히 뒤따를 가능성이 높다.</span></div>
+<p>팔로워 5,300명은 치지직 전체 상위 1,000위 진입선이다. 현재 전환율(1.84%)이 유지된다면 평균 시청자 ~98명, 전환율이 1.5%로 희석되더라도 ~80명을 기대할 수 있다. (§4.3 근거)</p>
+<h3>마일스톤 시뮬레이션</h3>
+<table>
+<thead><tr>
+<th>단계</th>
+<th>평균 시청자 목표</th>
+<th>필요 팔로워 (전환 1.84%)</th>
+<th>필요 팔로워 (전환 1.5%)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>현재</td>
+<td>69</td>
+<td>3,760 (실측)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>MS1</td>
+<td>120</td>
+<td>~6,500</td>
+<td>~8,000</td>
+</tr>
+<tr>
+<td>MS2</td>
+<td>200</td>
+<td>~10,900</td>
+<td>~13,300</td>
+</tr>
+<tr>
+<td>MS3</td>
+<td>500</td>
+<td>~27,200</td>
+<td>~33,300</td>
+</tr>
+</tbody></table>
+<p>전환율은 팔로워 증가에 따라 자연 희석되므로, 실제 필요 팔로워는 "전환 1.5%" 열에 더 가까울 것이다.</p>
+<hr>
+<h2>한계와 다음 단계</h2>
+<ol>
+<li>LoL 카테고리 랭킹 100행 상한으로 본 채널의 정확한 LoL 내 순위 미확인. 100위 밖인 것만 확실</li>
+<li>모든 뷰어십 데이터의 출처는 Softcon으로, 플랫폼 공식 원자료가 아님. 절대 수치보다 <strong>추세와 상대 위치</strong> 중심으로 해석해야 함</li>
+<li>코호트 분석은 단면(cross-section) 데이터임. 동일 채널의 성장 궤적을 추적한 종단 분석이 아님 — "체급이 올라가면 X가 일어난다"는 진술은 추정으로 취급</li>
+<li>유튜브 조회수·참여도 미확보. 숏폼→치지직 전환 퍼널의 실제 효과 미검증</li>
+<li>코호트 채널의 채팅 밀도 데이터 없음. 참여 밀도의 체급별 변화(성장전략 프레임 Q2) 미해결</li>
+<li>카테고리별 잔류율 차이의 원인(콘텐츠 vs 세션 길이)이 분리되지 않음</li>
+<li>효율 지표(뷰어십/팔로워)는 방송시간 편향이 내재됨. 전환율(평균시청자/팔로워)을 1차 역량 지표로 병용 권장</li>
+</ol>
+<blockquote><p><strong>다음 단계:</strong> §5(목표 업데이트 + 효율 하락 변곡점 분석), §7(콘텐츠 채널 효과 — 유튜브 조회수 수집 후), §8(실행 장벽 인벤토리)</p></blockquote>
+<hr>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ②</span>
+<p>본 채널의 성장 과제는 "더 많이 돌리는 것"이 아니라 "같은 시간을 더 효과적으로 쓰는 것"이다. 현재의 상위권 효율은 월 162.7시간이라는 극단적 방송량에 상당 부분 의존한다. 방송시간과 무관한 전환율(1.84%)이 대형 채널(1.47~1.56%)보다 높다는 점이 진정한 강점이다. 잔류율 개선(P1)을 통해 방송시간을 줄이면서도 평균 시청자를 유지·상승시키고, 유입 경로 확장(P2)을 병행하여 평균 시청자 120명(MS1)에 도달하는 것이 현실적 목표이다.</p>
+</div>
+<hr>
+<div class="page-break"></div>
+<h2 style="font-size:18pt; border-bottom:3px solid var(--teal-800);">PART II — §5: 재진단과 우선순위 갱신</h2>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ①</span>
+<p>§2~§4에서 본 채널을 "극단적으로 많이 돌리는 작은 엔진"으로 진단했다. §5는 이 엔진에 유튜브라는 외부 연료 탱크가 붙어 있었다는 사실을 추가하고, 수리 우선순위를 정한다. 유튜브 Shorts 672개, Shorts 누적 조회수 911만은 치지직 체급(팔로워 3,760명) 대비 압도적인 외부 도달 자산이다. 그러나 이 도달이 치지직 유입으로 이어지는 배관이 거의 없다. 잔류율 개선이 여전히 첫 번째이고, <strong>유튜브 전환 퍼널 설계가 두 번째로 올라왔다.</strong></p>
+</div>
+<hr>
+<h2>§5.1 포지셔닝 업데이트 — "밖에서는 크고, 안에서는 작다"</h2>
+<div class="action-title"><strong>§4에서 "고효율-소체급" 사분면으로 정의했다. 유튜브 데이터를 더하면 이 프로파일에 한 축이 추가된다 — 외부 노출 규모이다.</strong></div>
+<table>
+<thead><tr>
+<th>축</th>
+<th>값</th>
+<th>코호트 대비</th>
+<th>해석</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>효율</td>
+<td>2.994</td>
+<td>LoL top 100 중앙의 2.2배</td>
+<td>상위 25% (Q3 경계). 방송시간 의존</td>
+</tr>
+<tr>
+<td>평균 시청자</td>
+<td>69명</td>
+<td>LoL top 100 중앙의 0.04배</td>
+<td>최하위권</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>0.418</td>
+<td>동급생 중앙(0.645)의 65%</td>
+<td>하위</td>
+</tr>
+<tr>
+<td>팔로워</td>
+<td>3,760</td>
+<td>동급생 내 최하위</td>
+<td>최하위</td>
+</tr>
+<tr>
+<td><strong class="highlight">YouTube Shorts 조회수</strong></td>
+<td><strong class="highlight">911만</strong></td>
+<td>—</td>
+<td><strong class="highlight">체급 대비 이례적</strong></td>
+</tr>
+<tr>
+<td><strong class="highlight">YouTube 구독자</strong></td>
+<td><strong class="highlight">7,190</strong></td>
+<td>—</td>
+<td>치지직 팔로워의 1.9배</td>
+</tr>
+</tbody></table>
+<p>치지직에서는 "작지만 효율적인 엔진"이고, 유튜브에서는 "911만 조회를 만든 Shorts 도달 엔진"이다. 문제는 이 두 엔진이 연결되어 있지 않다는 것이다.</p>
+<p>유튜브 구독자(7,190)가 치지직 팔로워(3,760)의 1.9배라는 점도 주목할 만하다. 유튜브에서 본 채널을 아는 사람이 치지직보다 많지만, 유튜브 시청자와 치지직 시청자가 얼마나 겹치는지는 현재 데이터로 확인할 수 없다.</p>
+<hr>
+<h2>§5.2 유튜브 자산 진단 — Shorts가 만든 도달, 설계되지 않은 전환</h2>
+<div class="action-title"><strong>유튜브는 도달을 만들고 있지만, 전환은 만들지 못하고 있다. "도달이 없어서 안 큰다"가 아니라 "도달을 쓰지 못해서 안 큰다"가 더 정확한 진단이다.</strong></div>
+<h3>Shorts vs 일반 영상</h3>
+<table>
+<thead><tr>
+<th>유형</th>
+<th>영상 수</th>
+<th>총 조회수</th>
+<th>영상당 조회수</th>
+<th>좋아요율</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Shorts</td>
+<td>672</td>
+<td>9,113,707</td>
+<td>13,562</td>
+<td>0.94%</td>
+</tr>
+<tr>
+<td>일반</td>
+<td>46</td>
+<td>131,060</td>
+<td>2,849</td>
+<td>1.17%</td>
+</tr>
+</tbody></table>
+<p>전체 조회수의 98.6%가 Shorts에서 발생한다. 일반 영상은 좋아요율이 더 높지만 도달 규모가 작아, 현재는 전환 자산이라기보다 보조 아카이브에 가깝다.</p>
+<h3>콘텐츠 유형별 도달</h3>
+<table>
+<thead><tr>
+<th>태그</th>
+<th>영상 수</th>
+<th>영상당 조회수</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>하이라이트</td>
+<td>68</td>
+<td><strong class="highlight">30,144</strong></td>
+</tr>
+<tr>
+<td>내전</td>
+<td>4</td>
+<td>20,061</td>
+</tr>
+<tr>
+<td>솔로랭크</td>
+<td>598</td>
+<td>11,212</td>
+</tr>
+<tr>
+<td>듀오</td>
+<td>23</td>
+<td>9,618</td>
+</tr>
+<tr>
+<td>토크</td>
+<td>18</td>
+<td>5,813</td>
+</tr>
+</tbody></table>
+<p>하이라이트 계열(68개)이 영상당 조회수 3만으로 도달 효율 최상위이다. 솔로랭크(598개)는 양으로 총 조회수를 끌고, 하이라이트는 효율로 끈다.</p>
+<h3>전환 퍼널의 부재</h3>
+<p>Shorts에서 일반 영상 또는 치지직으로 이어지는 연결이 체계적으로 설계되어 있지 않다. 672개 Shorts 중 description에 풀버전 영상 링크가 있는 것은 <strong>6건</strong>(0.9%)뿐이다. 나머지 666개는 개별 클립으로 소비되고 다음 행동으로 이어질 장치가 없다.</p>
+<table>
+<thead><tr>
+<th>매핑 유형</th>
+<th>Shorts 수</th>
+<th>비중</th>
+<th>해석</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>풀버전 링크 연결</td>
+<td>6</td>
+<td>0.9%</td>
+<td>실제 설계된 전환</td>
+</tr>
+<tr>
+<td>같은 주제 공유</td>
+<td>363</td>
+<td>54.0%</td>
+<td>키워드 겹침, 설계된 연결 아님</td>
+</tr>
+<tr>
+<td>매핑 불가</td>
+<td>291</td>
+<td>43.3%</td>
+<td>독립 소비</td>
+</tr>
+</tbody></table>
+<h3>전환 프록시</h3>
+<p>유튜브 총 조회수(924만) 대비 치지직 팔로워(3,760)의 비율은 <strong>0.0407%</strong>이다. 직관적으로 환산하면 유튜브 조회수 1,000회당 치지직 팔로워 최대 0.41명이다.</p>
+<p>이것은 실제 전환율이 아니라 상한 추정치이다. 같은 사람의 반복 조회, 유튜브 외 유입 경로(치지직 디스커버리, 레이드, 커뮤니티), 팔로워 중 유튜브 비경유 유입이 모두 분리되지 않았기 때문이다.</p>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — API 키 기반 공개 조회수 스냅샷이며, 동일 사용자 이동 경로를 직접 추적하지 않았다.</div>
+<hr>
+<h2>§5.3 우선순위 갱신 — §4.6 대비 변경</h2>
+<div class="action-title"><strong>§4.6에서 P1(잔류율)→P2(유입 경로)→P3(팔로워 풀)로 설정했다. 유튜브 데이터 확보 후 P2의 내용이 구체화되고, 유튜브 전환 퍼널이 독립 항목으로 올라왔다.</strong></div>
+<table>
+<thead><tr>
+<th>순위</th>
+<th>과제</th>
+<th>§4 대비 변화</th>
+<th>단정 등급</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong class="highlight">P1</strong></td>
+<td>잔류율 개선 (0.418 → 0.55~0.65)</td>
+<td>변동 없음. 방송시간↔잔류율 음의 상관은 코호트 데이터로 입증</td>
+<td>거의 확실</td>
+</tr>
+<tr>
+<td><strong class="highlight">P2</strong></td>
+<td>유튜브 전환 퍼널 설계</td>
+<td><strong class="highlight">신규 분리.</strong> §4에서는 "유입 경로 확장" 안에 포함되어 있었으나, 유튜브 데이터 확인 후 독립 항목으로 승격. 도달은 이미 있다(911만). 부족한 것은 배관이다</td>
+<td>관찰됨</td>
+</tr>
+<tr>
+<td><strong class="highlight">P3</strong></td>
+<td>유입 경로 다각화 (레이드, 콜라보, 디스커버리)</td>
+<td>§4의 P2에서 유튜브를 분리한 나머지. 유튜브 외 유입 경로</td>
+<td>추정</td>
+</tr>
+<tr>
+<td><strong class="highlight">P4</strong></td>
+<td>팔로워 풀 확대 (3,760 → 5,300+)</td>
+<td>§4의 P3에서 변동 없음. P1~P3 선행 시 자연 따라올 가능성</td>
+<td>추정</td>
+</tr>
+</tbody></table>
+<h3>P1은 왜 여전히 첫 번째인가</h3>
+<p>유튜브가 911만 조회를 만들고 있어도 P2가 아닌 P1이 먼저인 이유는, 잔류율이 낮은 상태에서 유입을 늘려봐야 "들어오고 떠나는" 패턴이 반복되기 때문이다. 동급생 비교 채널(평균 79명, 팔로워 3,918)은 잔류율 0.908로 본 채널의 2.2배이다. 잔류율이 0.55 이상으로 올라가면, 같은 유입량에서도 평균 시청자가 상승한다.</p>
+<p>잔류율 개선의 가장 직접적인 경로는 방송 편성 조정이다. 현재 월 162.7시간은 코호트 중앙값(71.2시간)의 2.3배이다. 이를 80~100시간으로 축소하거나, 같은 총 시간을 짧은 세션 × 더 많은 일수로 분배하면 잔류율 0.45~0.55 밴드에 진입할 수 있다. TFT2 카테고리에서 잔류율 0.725가 관찰된 것은 짧은 세션의 효과일 수 있다는 간접 증거이다(§4.5 참조).</p>
+<blockquote><p>초기 관찰 기반이며, 세션 분할의 실제 효과는 실행 단계에서 수치로 검증 예정.</p></blockquote>
+<h3>P2는 무엇을 의미하는가</h3>
+<p>유튜브 전환 퍼널 설계란, 이미 존재하는 Shorts 도달을 치지직 유입으로 전환하는 배관을 만드는 것이다. 현재 상태에서 가장 비용이 낮은 개입은 다음이다.</p>
+<ol>
+<li>Shorts description에 치지직 라이브 링크 또는 풀버전 영상 링크를 표준화하는 것. 현재 672개 중 6건(0.9%)에만 링크가 있다</li>
+<li>하이라이트 계열 Shorts(영상당 조회수 3만)에 집중. 도달 효율이 가장 높은 유형이므로 전환 장치의 ROI도 가장 높을 가능성이 있다</li>
+<li>일반 영상을 "Shorts 이후 이어볼 이유가 있는 콘텐츠"로 재설계. 현재 46개 일반 영상은 독립적 클립이고, Shorts에서 넘어올 동기를 제공하지 않는다</li>
+</ol>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — Shorts description 링크 부재와 낮은 전환 프록시는 확인된 사실이다. 그러나 "링크를 넣으면 전환이 올라간다"는 아직 검증 전이다.</div>
+<hr>
+<h2>§5.4 성장전략 프레임 질문 업데이트</h2>
+<div class="action-title"><strong>§4까지 미해결이었던 질문 6개 중 Q3(숏폼→치지직 전환율)이 부분 답변되었다.</strong></div>
+<table>
+<thead><tr>
+<th>질문</th>
+<th>§4 시점 상태</th>
+<th>§5 시점 상태</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Q1. 효율 하락 선형 vs 변곡점</td>
+<td>부분 답변</td>
+<td>변동 없음. 종단 데이터 필요</td>
+</tr>
+<tr>
+<td>Q2. 참여 밀도 자연 희석 vs 약화</td>
+<td>미해결</td>
+<td>변동 없음. 코호트 채팅 밀도 데이터 필요</td>
+</tr>
+<tr>
+<td><strong class="highlight">Q3. 숏폼→치지직 전환율</strong></td>
+<td><strong class="highlight">미해결</strong></td>
+<td><strong class="highlight">부분 답변.</strong> 상한 프록시 0.0407%. 실제 전환은 미검증</td>
+</tr>
+<tr>
+<td>Q4. 정붙음 깨지는 구간</td>
+<td>부분 답변</td>
+<td>변동 없음. 종단 데이터 필요</td>
+</tr>
+<tr>
+<td>Q5. 비LoL 콘텐츠 체급 기여</td>
+<td>부분 답변</td>
+<td>유튜브 기준: LoL 100%. 비LoL 콘텐츠 실험 부재</td>
+</tr>
+<tr>
+<td>Q6. 정체성 스케일링</td>
+<td>미해결</td>
+<td>변동 없음</td>
+</tr>
+</tbody></table>
+<p>Q3의 "부분 답변"이 의미하는 것: 유튜브 총 조회수 924만 대비 치지직 팔로워 3,760의 비율(0.0407%)은 산출했으나, 이것은 상한 추정치이다. 실제 전환율을 알려면 YouTube Analytics OAuth 기반 traffic source 데이터가 필요하다. 한편, 치지직 일별 시계열(287일)을 활용한 교차 시계열 분석에서 YouTube 업로드 빈도와 Chzzk 성장 지표 간 독립적 양의 상관이 확인되었다(주간 편상관 r=+0.72~0.76, 방송 활동량 통제 후). §7 §4 참조.</p>
+<p>Q5는 유튜브 데이터로 보강되었다. 유튜브 콘텐츠 태깅 결과 솔로랭크(598개), 하이라이트(68개), 듀오(23개), 토크(18개), 내전(4개), 기타(7개)이고, 비LoL 콘텐츠는 사실상 없다. 채널 전체가 LoL 단일 소재로 운영되고 있어, "비LoL 콘텐츠의 체급 기여도"는 측정 대상 자체가 부족하다.</p>
+<hr>
+<h2>§5.5 마일스톤 시뮬레이션 갱신</h2>
+<div class="action-title"><strong>§4.6의 시뮬레이션에 유튜브 전환 프록시를 추가한다. 유튜브가 제대로 된 전환 퍼널을 갖추면 팔로워 확보 속도가 달라질 수 있다는 가설이 추가되었다.</strong></div>
+<table>
+<thead><tr>
+<th>단계</th>
+<th>평균 시청자 목표</th>
+<th>필요 팔로워 (전환 1.84%)</th>
+<th>필요 팔로워 (전환 1.5%)</th>
+<th>비고</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>현재</td>
+<td>69</td>
+<td>3,760 (실측)</td>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td>MS1</td>
+<td>120</td>
+<td>~6,500</td>
+<td>~8,000</td>
+<td>치지직 전체 상위 ~900위</td>
+</tr>
+<tr>
+<td>MS2</td>
+<td>200</td>
+<td>~10,900</td>
+<td>~13,300</td>
+<td>LoL 카테고리 ~80위 진입권</td>
+</tr>
+<tr>
+<td>MS3</td>
+<td>500</td>
+<td>~27,200</td>
+<td>~33,300</td>
+<td>LoL 카테고리 ~30위</td>
+</tr>
+</tbody></table>
+<p>MS1까지 필요한 팔로워 순증은 약 2,740~4,240명이다. 현재 유튜브 프록시 전환율(0.0407%)이 유지되고 유튜브가 유일한 유입원이라면, 약 673만~1,042만 추가 조회수가 필요하다. 현재 월 평균 조회수(2026년 기준 약 16만/월)로는 42~65개월이 걸린다.</p>
+<p>그러나 전환 퍼널 설계(P2)로 프록시 전환율이 0.0407%에서 0.1%로 올라간다면, 필요 조회수는 274만~424만으로 줄고 기간은 17~27개월로 단축된다. 전환율 0.2%면 9~13개월이다.</p>
+<p>이 수치는 "유튜브만으로 MS1에 도달하려면"이라는 극단적 가정의 시뮬레이션이며, 실제로는 치지직 내 디스커버리, 레이드, 커뮤니티 유입이 병행되므로 보조 참고용으로만 취급한다.</p>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 전환 프록시 자체가 상한 추정치이므로, 이 위에 쌓는 시뮬레이션은 시나리오 수준이다.</div>
+<hr>
+<h2>한계</h2>
+<ol>
+<li>유튜브 데이터는 공개 API 기반 누적 조회수 단일 스냅샷임. 일별 증분(<code>views_delta</code>) 계산 불가, 기준선 비교(Shorts 업로드 전후 lift) 불가</li>
+<li><del>치지직 시계열이 단일 스냅샷뿐임</del> → <strong>해소됨.</strong> 치지직 일별 CSV(287일)를 활용한 교차 시계열 분석 완료. 주간 편상관 r=+0.72~0.76 (방송 활동량 통제 후). §7 §4 참조. 잔여 제한: 주간 n=10으로 검정력 제한적</li>
+<li>전환 프록시 0.0407%는 실제 전환율이 아닌 상한 추정치. 유튜브 시청자→치지직 팔로워 이동 경로를 직접 추적하지 않음</li>
+<li>YouTube Analytics API 미사용. <code>engagedViews</code>, <code>averageViewDuration</code>, <code>subscribersGained</code>, traffic source 미확보</li>
+<li>콘텐츠 태깅은 정규식 기반 자동 분류이며 수동 검증 미수행. 복수 속성 영상은 단일 태그로 접힘</li>
+<li>코호트 분석은 단면 데이터. "체급이 올라가면 X가 일어난다"는 진술은 추정</li>
+<li>잔류율 개선의 기대 효과(세션 분할 시 0.45~0.55)는 코호트 밴드 분포 기반 추정이지 실험 결과가 아님</li>
+</ol>
+<hr>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ②</span>
+<p>유튜브 Shorts가 만든 911만 조회수는 치지직 팔로워 3,760명 규모의 채널에게는 이례적인 외부 자산이다. 그러나 Shorts description에 다음 행동으로 이어지는 링크가 있는 영상은 672개 중 6개뿐이고, 전환 프록시(0.0407%)는 이 자산이 치지직 성장에 거의 기여하지 못하고 있음을 시사한다. 우선순위는 변하지 않았다 — <strong>P1 잔류율 개선으로 그릇을 키우고, P2 유튜브 전환 퍼널로 물을 흘려보내는 것</strong>이 §5의 결론이다.</p>
+</div>
+<hr>
+<div class="page-break"></div>
+<h2 style="font-size:18pt; border-bottom:3px solid var(--teal-800);">PART III — §6: 목표 업데이트와 성장 트레이드오프</h2>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ①</span>
+<p>핵심 질문은 "효율을 유지하면서 체급을 3배로 키울 수 있는가"이다. 코호트 데이터의 답은 <strong>조건부 가능</strong>이다. 효율 하락은 피할 수 없지만, 비활성 채널이 만드는 "효율 계곡"(2,000~5,000 시청자 구간)은 유기적으로 성장하는 채널에게 해당하지 않는다. 실제 위험은 효율 하락 자체가 아니라, 방송시간을 유지한 채 팔로워만 늘리는 경로 — 잔류율이 더 빠져 "커지는데 비어지는" 패턴에 진입하는 것이다.</p>
+</div>
+<hr>
+<h2>§6.1 목표 정의 — "3배"가 의미하는 것</h2>
+<div class="action-title"><strong>성장전략 프레임의 핵심 질문은 "팔로워 3,760에서 10,000으로, 효율을 유지하면서 갈 수 있는가"이다. 10,000은 상징적 목표가 아니라, LoL 카테고리 디스커버리가 작동하기 시작하는 체급이다.</strong></div>
+<p>현재 LoL 카테고리 100위 최저 평균 시청자는 346명(월간)이다. 본 채널의 평균 69명은 이 문턱의 20%에 불과하다. 그러나 팔로워 10,000에 전환율 1.5%를 적용하면 평균 시청자 ~150명이 되고, 이는 100위 진입에는 여전히 부족하지만 카테고리 하위 노출 구간에 진입할 가능성이 있다.</p>
+<table>
+<thead><tr>
+<th>단계</th>
+<th>팔로워 목표</th>
+<th>예상 평균 시청자</th>
+<th>핵심 의미</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>현재</td>
+<td>3,760</td>
+<td>69</td>
+<td>LoL 100위 밖. 디스커버리 불가</td>
+</tr>
+<tr>
+<td>MS1</td>
+<td>~8,000</td>
+<td>~120</td>
+<td>치지직 전체 상위 ~900위. 외부 유입 의존 지속</td>
+</tr>
+<tr>
+<td>MS2</td>
+<td>~13,300</td>
+<td>~200</td>
+<td>LoL 카테고리 ~80위 진입권. 디스커버리 작동 시작</td>
+</tr>
+<tr>
+<td>MS3</td>
+<td>~33,300</td>
+<td>~500</td>
+<td>LoL 카테고리 ~30위. 자기강화 루프 가능</td>
+</tr>
+</tbody></table>
+<blockquote><p>전환율 1.84%→1.5% 희석을 반영한 보수 추정치. §4.3 근거.</p></blockquote>
+<p>MS2(평균 200명)가 실질적 전환점이다. 이 체급에 도달하면 카테고리 디스커버리가 유입 경로에 추가되어, "외부에서 끌어와야만 크는" 구조에서 "안에서도 발견되는" 구조로 전환된다.</p>
+<hr>
+<h2>§6.2 효율 하락 변곡점 — "계곡"은 누구에게 해당하는가</h2>
+<div class="action-title"><strong>코호트 단면 데이터에서 2,000~5,000 시청자 구간에 효율 최저점(1.081)이 관찰된다. 그러나 이 "계곡"은 유기적 성장 채널이 아니라 비활성 대형 채널이 만든 것이다.</strong></div>
+<p>LoL 상위 100채널의 효율-체급 커브를 다시 정리한다(§4.1 데이터).</p>
+<table>
+<thead><tr>
+<th>시청자 밴드 (월간)</th>
+<th>채널 수</th>
+<th>효율 중앙값</th>
+<th>잔류율 중앙값</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>500 미만</td>
+<td>6</td>
+<td>3.321*</td>
+<td>0.171</td>
+</tr>
+<tr>
+<td>500~2,000</td>
+<td>50</td>
+<td>1.321</td>
+<td>0.331</td>
+</tr>
+<tr>
+<td>2,000~5,000</td>
+<td>31</td>
+<td><strong class="highlight">1.081</strong></td>
+<td>0.422</td>
+</tr>
+<tr>
+<td>5,000~15,000</td>
+<td>8</td>
+<td>2.989</td>
+<td>0.476</td>
+</tr>
+<tr>
+<td>15,000 이상</td>
+<td>5</td>
+<td>8.430</td>
+<td>0.320</td>
+</tr>
+</tbody></table>
+<blockquote><p>*효율 = 뷰어십/팔로워. 팔로워 매칭률 64/100이므로 일부 밴드 표본 제한적.</p></blockquote>
+<p>2,000~5,000 구간(31채널)에서 효율이 최저를 기록하는 이유는, 이 구간에 <strong>과거 유명했으나 현재 비활성인 채널</strong>(은퇴 프로게이머, 전직 유명 스트리머 등)이 집중되어 있기 때문이다. 대형 팔로워를 보유하지만 시청자가 급감해 효율이 낮다.</p>
+<p>본 채널처럼 팔로워가 시청자 성장과 함께 유기적으로 늘어나는 경우, 이 "효율 저점"을 같은 방식으로 통과할 가능성은 낮다. 효율 하락의 실제 경로는 U자형 계곡이 아니라, <strong>완만한 하향 곡선</strong>일 가능성이 더 높다.</p>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 단면 데이터에서 관찰된 패턴이며, 동일 채널의 성장 궤적을 추적한 종단 분석이 아니다.</div>
+<h3>본 채널에게 실제로 중요한 변곡점</h3>
+<p>효율 하락 자체보다 경계해야 할 것은 두 가지 구조적 전환점이다.</p>
+<div class="action-title"><strong>전환점 1: 전환율 급락 (1.84% → 1.0% 이하)</strong> <span class="normal-weight">현재 전환율 1.84%는 "작은 풀의 이점"이다(§4.3). 팔로워가 늘면 자연 희석은 피할 수 없지만, 1.0% 이하로 떨어지면 같은 팔로워 수에서 평균 시청자가 급감한다. LoL 상위 100의 대형 채널(10만+) 전환율 중앙값이 1.56%이므로, 1.5%까지의 희석은 정상 범위이다.</span></div>
+<div class="action-title"><strong>전환점 2: 잔류율 추가 하락 (0.418 → 0.30 이하)</strong> <span class="normal-weight">현재 잔류율 0.418은 150시간+ 방송 그룹 중앙(0.245)보다 높지만, 동급생 중앙(0.645)보다 낮다. 체급이 올라가면서 방송시간을 유지하면 잔류율이 추가 하락할 수 있다. 0.30 이하로 떨어지면 "시청자가 들어오지만 머무르지 않는" 상태가 심화된다.</span></div>
+<hr>
+<h2>§6.3 마일스톤별 트레이드오프</h2>
+<div class="action-title"><strong>각 마일스톤에서 예상되는 지표 변화와 핵심 리스크를 정리한다.</strong></div>
+<h3>MS1: 평균 120명 (팔로워 ~8,000)</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>현재</th>
+<th>MS1 예상</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>효율</td>
+<td>2.994</td>
+<td>1.8~2.2</td>
+<td>팔로워 증가에 따른 자연 희석. 500-2K 밴드 중앙(1.321) 위</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>0.418</td>
+<td>0.50~0.60</td>
+<td>P1(방송 편성 조정) 실행 전제</td>
+</tr>
+<tr>
+<td>전환율</td>
+<td>1.84%</td>
+<td>1.5~1.7%</td>
+<td>정상 희석 범위</td>
+</tr>
+<tr>
+<td>방송시간</td>
+<td>162.7h</td>
+<td>80~100h</td>
+<td>P1 실행 시</td>
+</tr>
+</tbody></table>
+<p>MS1의 핵심 트레이드오프: <strong>방송시간을 절반으로 줄이면서 평균 시청자를 69에서 120으로 올려야 한다.</strong> 이것은 모순처럼 보이지만, 잔류율 개선(0.418→0.55)이 방송시간 축소를 상쇄하고도 남을 수 있다. 같은 162.7시간에 잔류율 0.55면 뷰어십은 11,253에서 ~14,900으로 올라간다. 방송시간을 100시간으로 줄여도 잔류율 0.60이면 뷰어십 ~9,900으로, 현재 대비 소폭 감소에 그친다.</p>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — 코호트 밴드별 잔류율-방송시간 상관에서 도출한 기대치이나, 본 채널에서 실제로 재현되는지는 검증 전.</div>
+<h3>MS2: 평균 200명 (팔로워 ~13,300)</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>MS1 예상</th>
+<th>MS2 예상</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>효율</td>
+<td>1.8~2.2</td>
+<td>1.3~1.8</td>
+<td>500-2K 밴드 중앙(1.321)에 근접</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>0.50~0.60</td>
+<td>0.45~0.55</td>
+<td>밴드 이동에 따른 소폭 하락</td>
+</tr>
+<tr>
+<td>전환율</td>
+<td>1.5~1.7%</td>
+<td>1.3~1.5%</td>
+<td>대형 채널 수렴대(1.35~1.56%) 진입</td>
+</tr>
+<tr>
+<td>LoL 카테고리</td>
+<td>100위 밖</td>
+<td>~80위</td>
+<td>디스커버리 작동 시작</td>
+</tr>
+</tbody></table>
+<p>MS2의 핵심 트레이드오프: <strong>효율은 현재의 절반 수준으로 떨어지지만, LoL 카테고리 디스커버리라는 새 유입 경로가 열린다.</strong> 효율 하락은 비용이고 디스커버리는 수익이다. 이 교환이 성립하려면 디스커버리 유입이 효율 하락을 상쇄해야 한다.</p>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 카테고리 순위와 디스커버리 효과의 관계는 코호트 데이터로 직접 확인되지 않았다.</div>
+<h3>MS3: 평균 500명 (팔로워 ~33,300)</h3>
+<p>MS3는 현재로부터 거리가 멀어 추정의 불확실성이 크다. 핵심 전제 하나만 기록한다: MS3 도달 시 본 채널은 LoL 카테고리 ~30위에 위치하며, 이 체급에서는 카테고리 내 자기강화 루프(높은 순위 → 더 많은 노출 → 더 많은 시청자 → 더 높은 순위)가 작동할 수 있다. 그러나 MS2에서 MS3로의 이행은 콘텐츠 다각화, 팀 구성, 외부 콘텐츠 전략 등 현재 분석 범위 밖의 요인이 결정적이므로, 상세 시뮬레이션은 MS2 도달 후 수행하는 것이 적절하다.</p>
+<hr>
+<h2>§6.4 경보 하한 재검토</h2>
+<div class="action-title"><strong>이전 분석(legacy)에서 효율 0.7을 경보 하한으로 설정했다. v3 데이터로 재검토하면 이 하한은 유지하되, 보조 경보를 추가할 필요가 있다.</strong></div>
+<p>효율 0.7은 뷰어십/팔로워 비율이다. 현재 2.994에서 0.7까지 떨어지려면 팔로워가 현재 대비 4.3배(~16,000명)로 늘면서 뷰어십이 정체해야 한다. MS2(팔로워 ~13,300) 근방에서 효율 1.3이 예상되므로, 0.7은 "정상 성장 경로에서는 도달하지 않는 수치"이다.</p>
+<p>그러나 효율만으로는 포착하지 못하는 악화 신호가 있다. 보조 경보를 추가한다.</p>
+<table>
+<thead><tr>
+<th>경보</th>
+<th>조건</th>
+<th>의미</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>효율 하한 (legacy)</td>
+<td>효율 &lt; 0.7</td>
+<td>팔로워 대비 시청 극단적 저하</td>
+</tr>
+<tr>
+<td>잔류율 하한</td>
+<td>잔류율 &lt; 0.30</td>
+<td>시청자 이탈이 방송시간 효과를 넘어섬</td>
+</tr>
+<tr>
+<td>전환율 하한</td>
+<td>전환율 &lt; 1.0%</td>
+<td>"작은 풀의 이점" 소멸, 팔로워 비활성화</td>
+</tr>
+<tr>
+<td>유튜브 업로드 중단</td>
+<td>월 업로드 &lt; 3건, 2개월 연속</td>
+<td>외부 유입 파이프라인 정지</td>
+</tr>
+</tbody></table>
+<blockquote><p>경보 수치는 코호트 밴드 분포에서 도출한 참고치이며, 실운영에서 조정이 필요하다.</p></blockquote>
+<hr>
+<h2>§6.5 수익 프레임 — 체급 달성 시 기대 구조</h2>
+<div class="action-title"><strong>본 분석의 포커스는 체급개선이며, 수익 최적화가 아니다. 수익 서브섹션은 "체급이 올라가면 어떤 수익 구조가 가능해지는가"를 프레임으로만 제시한다. 실제 수익 데이터는 본인 확인이 필요하며 미확보 상태이다.</strong></div>
+<p>치지직의 주요 수익 경로는 치즈(후원), 구독, 광고, 외부 협찬이다. 각 경로는 체급에 따라 작동 조건이 달라진다.</p>
+<table>
+<thead><tr>
+<th>수익 경로</th>
+<th>작동 조건</th>
+<th>현재 (avg 69)</th>
+<th>MS1 (avg 120)</th>
+<th>MS2 (avg 200)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>치즈(후원)</td>
+<td>시청자 수 × 후원 참여율</td>
+<td>소규모 코어 기반</td>
+<td>코어 확대, 후원 총량 증가 예상</td>
+<td>후원 단가·빈도 상승 구간</td>
+</tr>
+<tr>
+<td>구독</td>
+<td>팔로워 × 구독 전환율</td>
+<td>3,760 팔로워 기반</td>
+<td>~8,000 팔로워 기반</td>
+<td>~13,300 팔로워 기반</td>
+</tr>
+<tr>
+<td>광고</td>
+<td>동시 시청자 일정 수 이상</td>
+<td>미달 가능성</td>
+<td>진입 가능 구간</td>
+<td>안정적 작동</td>
+</tr>
+<tr>
+<td>외부 협찬</td>
+<td>채널 규모 + 도달 증빙</td>
+<td>치지직 체급 부족, 유튜브 도달 활용 가능</td>
+<td>복합 도달(치지직+유튜브) 제시 가능</td>
+<td>단독 협찬 가능 구간</td>
+</tr>
+</tbody></table>
+<p>현재 체급에서 유일하게 즉시 활용 가능한 비대칭 자산은 <strong>유튜브 Shorts 도달(911만 조회, 전체 924만 중 98.6%)</strong>이다. 치지직 체급은 작지만 유튜브 도달 규모를 협찬 제안에 병기할 수 있다. 다만 이것은 수익 전략이 아니라 체급개선 과정의 부산물로 취급한다.</p>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 수익 경로별 작동 조건은 플랫폼 일반론이며, 본 채널의 실제 수익 데이터로 검증되지 않았다. 실데이터 확보 후 갱신 필요.</div>
+<hr>
+<h2>한계</h2>
+<ol>
+<li>효율 하락 예측은 단면(cross-section) 코호트에서 도출한 밴드별 중앙값 기반임. 동일 채널의 성장 궤적(종단 데이터)이 아니므로, "체급이 올라가면 효율이 X로 떨어진다"는 시나리오이지 확정이 아님</li>
+<li>마일스톤 시뮬레이션의 전환율 희석(1.84%→1.5%)은 대형 채널 수렴대에서 차용한 가정. 소규모 채널의 성장 과정에서 전환율이 어떤 경로로 변하는지는 종단 데이터 없이 확인 불가</li>
+<li>잔류율 개선 기대치(방송시간 축소 시 0.50~0.60)는 코호트 밴드 분포에서 도출한 추정. 본 채널에서 동일 효과가 재현되는지는 실행 후 검증 필요</li>
+<li>수익 프레임은 실데이터 없이 플랫폼 일반론으로 작성함. 실제 후원·구독·광고 수익 데이터 확보 후 갱신 필요</li>
+<li>LoL 카테고리 디스커버리 효과(MS2 전환점)는 직접 측정되지 않았음. 카테고리 순위 상승이 실제 유입 증가로 이어지는지는 별도 확인 필요</li>
+<li>경보 하한은 코호트 분포 기반 참고치이며, 실운영 조건에서 교정 필요</li>
+</ol>
+<hr>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ②</span>
+<p>효율 2.994에서 1.3~1.8로 떨어지는 것은 비용이다. 그러나 이 비용의 대가로 LoL 카테고리 디스커버리(MS2)라는 자기강화 루프가 열린다. "효율을 유지하면서 3배"는 불가능하지만, <strong>"효율이 떨어지는 속도보다 체급이 올라가는 속도가 빠른 경로"는 가능하다.</strong> 그 경로의 첫 구간은 §5에서 정한 P1(잔류율)과 P2(유튜브 전환 퍼널)이다.</p>
+</div>
+<div class="page-break"></div>
+<h2 style="font-size:18pt; border-bottom:3px solid var(--teal-800);">PART IV — §7: 콘텐츠 채널 효과 분석</h2>
+<div class="hanul-summary"><strong>한 줄 요약:</strong> 유튜브는 현재 일반 영상 채널이라기보다 Shorts 기반 도달 엔진으로 작동한다. 교차 시계열 분석 결과, YouTube 업로드 빈도와 Chzzk 성장 지표 간 독립적 양의 상관이 확인됐다(주간 편상관 r=+0.72~0.76, 방송 활동량 통제 후). 다만 인과 방향은 미확정이며, 전환율 자체는 여전히 상한 프록시(0.0407%) 수준이다.</div>
+<h2>1. 콘텐츠 인벤토리</h2>
+<div class="action-title"><strong>영상 구조는 Shorts에 극단적으로 기울어져 있다. 전체 718개 중 672개가 Shorts이고, 조회수의 98.6%가 Shorts에서 발생한다. 단정 등급: 확실.</strong></div>
+<p>Shorts 분류는 <code>duration_seconds &lt;= 60</code>을 1차 기준으로 삼았다. 제목 또는 description에 <code>#shorts</code>, <code>#쇼츠</code>, <code>shorts</code>가 있으면 Shorts로 확정했다. <code>duration_seconds &gt; 60</code>이면서 Shorts 시그널이 있는 영상은 자동 분류에는 Shorts로 반영하되, 수동 확인 대상으로 분리했다.</p>
+<table>
+<thead><tr>
+<th>유형</th>
+<th>영상 수</th>
+<th>총 조회수</th>
+<th>영상당 조회수</th>
+<th>좋아요율</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Shorts</td>
+<td>672</td>
+<td>9,113,707</td>
+<td>13,562</td>
+<td>0.94%</td>
+</tr>
+<tr>
+<td>일반</td>
+<td>46</td>
+<td>131,060</td>
+<td>2,849</td>
+<td>1.17%</td>
+</tr>
+<tr>
+<td>전체</td>
+<td>718</td>
+<td>9,244,767</td>
+<td>12,876</td>
+<td>0.94%</td>
+</tr>
+</tbody></table>
+<p>수동 확인 대상은 8건이다. 모두 <code>duration_seconds &gt; 60</code>이지만 제목에 Shorts 시그널이 있어 자동 분류상 Shorts로 처리했다.</p>
+<table>
+<thead><tr>
+<th>게시일</th>
+<th>길이(초)</th>
+<th>조회수</th>
+<th>제목</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>2025-10-03</td>
+<td>63</td>
+<td>594</td>
+<td>혼자던지면트롤이지만같이던지면낭만서커스다</td>
+</tr>
+<tr>
+<td>2025-09-27</td>
+<td>73</td>
+<td>587</td>
+<td>난아님</td>
+</tr>
+<tr>
+<td>2025-05-30</td>
+<td>74</td>
+<td>13,960</td>
+<td>쉽고강함</td>
+</tr>
+<tr>
+<td>2025-03-02</td>
+<td>75</td>
+<td>3,710</td>
+<td>탑은이게맞아</td>
+</tr>
+<tr>
+<td>2025-01-31</td>
+<td>76</td>
+<td>3,884</td>
+<td>그마챌은훈수안둠</td>
+</tr>
+<tr>
+<td>2024-12-27</td>
+<td>66</td>
+<td>3,027</td>
+<td>그냥 때리는 사람</td>
+</tr>
+<tr>
+<td>2024-12-08</td>
+<td>71</td>
+<td>2,303</td>
+<td>임포스터 케이틀린</td>
+</tr>
+<tr>
+<td>2024-10-26</td>
+<td>85</td>
+<td>9,146</td>
+<td>마음만은 4번타자야</td>
+</tr>
+</tbody></table>
+<h3>콘텐츠 태깅 기준</h3>
+<p>정규식은 제목, 태그, description을 결합한 텍스트에 적용했다. 단일 primary tag를 부여했고, 복수 매칭 시 <code>내전 &gt; 듀오 &gt; 토크 &gt; 솔로랭크 &gt; 하이라이트 &gt; 기타</code> 순서로 접었다. 이 때문에 라인·티어·챔피언 정보가 포함된 하이라이트 일부는 <code>솔로랭크</code>로 들어간다.</p>
+<table>
+<thead><tr>
+<th>태그</th>
+<th>대표 정규식</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>솔로랭크</td>
+<td>`솔랭</td>
+<td>솔로랭크</td>
+<td>랭크</td>
+<td>랭겜</td>
+<td>배치</td>
+<td>승급</td>
+<td>강등</td>
+<td>연승</td>
+<td>연패</td>
+<td>티어</td>
+<td>챌린저</td>
+<td>마스터</td>
+<td>다이아</td>
+<td>플레</td>
+<td>골드</td>
+<td>실버</td>
+<td>브론즈</td>
+<td>아이언</td>
+<td>탑</td>
+<td>정글</td>
+<td>미드</td>
+<td>원딜</td>
+<td>서폿</td>
+<td>서포터</td>
+<td>바텀`</td>
+</tr>
+<tr>
+<td>듀오</td>
+<td>`듀오</td>
+<td>duo</td>
+<td>둘이</td>
+<td>같이</td>
+<td>합방</td>
+<td>with</td>
+<td>랑 랭크</td>
+<td>와 랭크</td>
+<td>랑 롤</td>
+<td>와 롤`</td>
+</tr>
+<tr>
+<td>내전</td>
+<td>`내전</td>
+<td>스크림</td>
+<td>자낳대</td>
+<td>팀전</td>
+<td>5인큐</td>
+<td>시참</td>
+<td>대회</td>
+<td>사용자 설정`</td>
+</tr>
+<tr>
+<td>토크</td>
+<td>`토크</td>
+<td>썰</td>
+<td>Q&amp;A</td>
+<td>질문</td>
+<td>고민</td>
+<td>상담</td>
+<td>소통</td>
+<td>먹방</td>
+<td>노가리</td>
+<td>수다</td>
+<td>라디오</td>
+<td>월드컵</td>
+<td>반응</td>
+<td>리액션</td>
+<td>지피티</td>
+<td>제미나이`</td>
+</tr>
+<tr>
+<td>하이라이트</td>
+<td>`하이라이트</td>
+<td>highlight</td>
+<td>클립</td>
+<td>쇼츠</td>
+<td>shorts</td>
+<td>레전드</td>
+<td>웃긴</td>
+<td>모음</td>
+<td>매드무비</td>
+<td>킬각</td>
+<td>한타</td>
+<td>대참사</td>
+<td>절망편</td>
+<td>희망편</td>
+<td>버그</td>
+<td>장인</td>
+<td>필살</td>
+<td>챌린지</td>
+<td>컨셉</td>
+<td>궁</td>
+<td>스킨`</td>
+</tr>
+<tr>
+<td>기타</td>
+<td>위 정규식 미매칭</td>
+</tr>
+</tbody></table>
+<table>
+<thead><tr>
+<th>태그</th>
+<th>영상 수</th>
+<th>총 조회수</th>
+<th>영상당 조회수</th>
+<th>좋아요율</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>솔로랭크</td>
+<td>598</td>
+<td>6,704,777</td>
+<td>11,212</td>
+<td>0.91%</td>
+</tr>
+<tr>
+<td>하이라이트</td>
+<td>68</td>
+<td>2,049,758</td>
+<td>30,144</td>
+<td>1.05%</td>
+</tr>
+<tr>
+<td>듀오</td>
+<td>23</td>
+<td>221,206</td>
+<td>9,618</td>
+<td>0.90%</td>
+</tr>
+<tr>
+<td>토크</td>
+<td>18</td>
+<td>104,629</td>
+<td>5,813</td>
+<td>0.76%</td>
+</tr>
+<tr>
+<td>기타</td>
+<td>7</td>
+<td>84,154</td>
+<td>12,022</td>
+<td>0.73%</td>
+</tr>
+<tr>
+<td>내전</td>
+<td>4</td>
+<td>80,243</td>
+<td>20,061</td>
+<td>1.14%</td>
+</tr>
+</tbody></table>
+<p>미분류는 7건이다. <code>기타</code>의 평균 조회수는 12,022로 낮지는 않지만 표본이 작고 정규식 미포착 제목이 섞여 있어 콘텐츠 전략 판단에는 쓰지 않는 편이 안전하다.</p>
+<h2>2. YouTube 자체 성과</h2>
+<div class="action-title"><strong>도달을 끄는 유형은 일반 영상이 아니라 Shorts, 그중에서도 순간 반응·챔피언/라인 기반 하이라이트다. 단정 등급: 확실.</strong></div>
+<p>Shorts는 일반 영상보다 영상당 조회수가 4.8배 높다. 일반 영상은 좋아요율이 1.17%로 Shorts의 0.94%보다 높지만, 도달 규모가 작다. 현재 구조에서는 일반 영상이 도달의 중심이라기보다 Shorts의 원본 또는 보조 아카이브에 가깝다.</p>
+<p>상위 조회수 영상도 같은 결론을 지지한다.</p>
+<table>
+<thead><tr>
+<th>순위</th>
+<th>게시일</th>
+<th>유형</th>
+<th>태그</th>
+<th>조회수</th>
+<th>제목</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2024-09-13</td>
+<td>Shorts</td>
+<td>하이라이트</td>
+<td>1,365,022</td>
+<td>다음엔 발뮬리에로</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2025-01-08</td>
+<td>Shorts</td>
+<td>솔로랭크</td>
+<td>878,329</td>
+<td>블츠 잡기술</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-07-20</td>
+<td>Shorts</td>
+<td>솔로랭크</td>
+<td>167,551</td>
+<td>나도롤체그랜드다이아임</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2025-07-19</td>
+<td>Shorts</td>
+<td>솔로랭크</td>
+<td>121,310</td>
+<td>그런닉달고못하지말라고</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2025-11-24</td>
+<td>Shorts</td>
+<td>솔로랭크</td>
+<td>111,426</td>
+<td>자헨 밴 좀요</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2025-12-30</td>
+<td>Shorts</td>
+<td>하이라이트</td>
+<td>78,435</td>
+<td>초고수 특유의 무빙</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2025-07-15</td>
+<td>Shorts</td>
+<td>솔로랭크</td>
+<td>77,310</td>
+<td>슈슈슛</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2023-11-01</td>
+<td>Shorts</td>
+<td>기타</td>
+<td>66,322</td>
+<td>루시안님, 먼저 들어가세요</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2025-01-09</td>
+<td>Shorts</td>
+<td>솔로랭크</td>
+<td>64,014</td>
+<td>킬먹야하거든~</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2026-05-08</td>
+<td>Shorts</td>
+<td>하이라이트</td>
+<td>60,667</td>
+<td>모시모시 키코에테루?</td>
+</tr>
+</tbody></table>
+<p>월별 추세는 2025년 1월과 2025년 7월에 큰 피크가 있고, 2026년 4월 이후 업로드 빈도와 누적 조회수가 동시에 낮아진 상태다. 단, 조회수는 누적값이므로 오래된 영상이 더 많은 시간을 가진다는 편향이 있다.</p>
+<table>
+<thead><tr>
+<th>월</th>
+<th>업로드</th>
+<th>Shorts</th>
+<th>일반</th>
+<th>총 조회수</th>
+<th>Shorts 조회수</th>
+<th>일반 조회수</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>2025-01</td>
+<td>27</td>
+<td>26</td>
+<td>1</td>
+<td>1,212,629</td>
+<td>1,210,959</td>
+<td>1,670</td>
+</tr>
+<tr>
+<td>2025-07</td>
+<td>19</td>
+<td>15</td>
+<td>4</td>
+<td>553,036</td>
+<td>550,505</td>
+<td>2,531</td>
+</tr>
+<tr>
+<td>2025-11</td>
+<td>24</td>
+<td>20</td>
+<td>4</td>
+<td>345,549</td>
+<td>297,351</td>
+<td>48,198</td>
+</tr>
+<tr>
+<td>2025-12</td>
+<td>22</td>
+<td>20</td>
+<td>2</td>
+<td>281,587</td>
+<td>249,332</td>
+<td>32,255</td>
+</tr>
+<tr>
+<td>2026-01</td>
+<td>24</td>
+<td>24</td>
+<td>0</td>
+<td>301,670</td>
+<td>301,670</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2026-02</td>
+<td>21</td>
+<td>19</td>
+<td>2</td>
+<td>265,099</td>
+<td>260,770</td>
+<td>4,329</td>
+</tr>
+<tr>
+<td>2026-03</td>
+<td>22</td>
+<td>18</td>
+<td>4</td>
+<td>285,815</td>
+<td>282,945</td>
+<td>2,870</td>
+</tr>
+<tr>
+<td>2026-04</td>
+<td>9</td>
+<td>9</td>
+<td>0</td>
+<td>76,620</td>
+<td>76,620</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2026-05</td>
+<td>10</td>
+<td>7</td>
+<td>3</td>
+<td>142,856</td>
+<td>139,708</td>
+<td>3,148</td>
+</tr>
+<tr>
+<td>2026-06</td>
+<td>6</td>
+<td>5</td>
+<td>1</td>
+<td>35,432</td>
+<td>34,820</td>
+<td>612</td>
+</tr>
+</tbody></table>
+<h2>3. Shorts-일반 영상 캠페인 매핑</h2>
+<div class="action-title"><strong>자동 매핑은 일부 가능하지만, 고신뢰 직접 매핑은 아직 낮다. Shorts가 일반 영상으로 체계적으로 이어진다는 증거는 현재 데이터만으로 부족하다. 단정 등급: 관찰됨.</strong></div>
+<p>매핑은 세 단계로 시도했다. 첫째, Shorts description에 일반 영상 URL이 있으면 <code>direct_teaser</code>로 분류했다. 둘째, 같은 시리즈명·짝 제목·편명 구조가 있으면 <code>same_series</code> 후보로 분류했다. 셋째, 챔피언·라인·게임 모드 키워드가 겹치면 <code>same_topic</code> 후보로 분류했다. 나머지는 <code>channel_level</code>로 남겼다.</p>
+<table>
+<thead><tr>
+<th>relationship_type</th>
+<th>Shorts 수</th>
+<th>비중</th>
+<th>신뢰도</th>
+<th>해석</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>direct_teaser</td>
+<td>6</td>
+<td>0.9%</td>
+<td>높음</td>
+<td>description의 풀버전 링크 기반</td>
+</tr>
+<tr>
+<td>same_series</td>
+<td>12</td>
+<td>1.8%</td>
+<td>낮음</td>
+<td>시리즈 표지어 기반 후보, 수동 검증 필요</td>
+</tr>
+<tr>
+<td>same_topic</td>
+<td>363</td>
+<td>54.0%</td>
+<td>낮음~중간</td>
+<td>챔피언·라인·모드 공유 후보</td>
+</tr>
+<tr>
+<td>channel_level</td>
+<td>291</td>
+<td>43.3%</td>
+<td>해당 없음</td>
+<td>개별 일반 영상 매핑 불가</td>
+</tr>
+<tr>
+<td>자동 매핑 후보 합계</td>
+<td>381</td>
+<td>56.7%</td>
+<td>혼합</td>
+<td>direct 외에는 캠페인 증거 아님</td>
+</tr>
+</tbody></table>
+<p>고신뢰 <code>direct_teaser</code> 샘플은 최근 이즈리얼/티모 원딜 영상에 집중되어 있다.</p>
+<table>
+<thead><tr>
+<th>Shorts</th>
+<th>연결 일반 영상</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>달모 절망편ㅣ티모 원딜</td>
+<td>아아 이것은 '실명'이라는 것이다</td>
+<td>description 풀버전 링크</td>
+</tr>
+<tr>
+<td>달모 희망편ㅣ티모 원딜</td>
+<td>아아 이것은 '실명'이라는 것이다</td>
+<td>description 풀버전 링크</td>
+</tr>
+<tr>
+<td>이즈리얼 궁 버그?</td>
+<td>이즈리얼 장인에게 야르한 강의 받기ㅣ이론편</td>
+<td>description 풀버전 링크</td>
+</tr>
+<tr>
+<td>개쎈 이즈리얼 스킨</td>
+<td>이즈리얼 장인에게 야르한 강의 받기ㅣ이론편</td>
+<td>description 풀버전 링크</td>
+</tr>
+<tr>
+<td>이즈리얼 장인의 필살 콤보</td>
+<td>이즈리얼 장인에게 야르한 강의 받기ㅣ이론편</td>
+<td>description 풀버전 링크</td>
+</tr>
+<tr>
+<td>챌린저 괴롭히는 실버</td>
+<td>이즈리얼 장인에게 야르한 강의 받기ㅣ이론편</td>
+<td>description 풀버전 링크</td>
+</tr>
+</tbody></table>
+<p>자동 매핑률 56.7%는 "캠페인 설계가 확인됐다"는 뜻이 아니다. <code>same_topic</code>은 같은 챔피언·라인·티어 키워드를 공유하는 후보일 뿐이고, 실제로 Shorts 시청자가 일반 영상을 봤는지는 YouTube Analytics 없이 확인할 수 없다.</p>
+<h2>4. 교차 시계열 <small>(업데이트: 2026-06-18)</small></h2>
+<div class="action-title"><strong>YouTube 업로드 빈도와 Chzzk 주간 지표 사이에 유의미한 양의 상관이 관측되며, 방송 활동량(방송일수·방송시간) 통제 후에도 상관이 유지된다. 단정 등급: 관찰됨(독립 상관 확인), 인과 미확정.</strong></div>
+<p>이전 분석에서는 "Chzzk 단일 스냅샷만 있어 시차 상관 수행 불가"로 결론냈으나, <code>data/daily_stats/</code> Chzzk 일별 CSV(287일, 2025-05-28 ~ 2026-05-28)를 활용하여 분석을 업데이트했다.</p>
+<h3>주간 교차 분석 (n=10, 2026-W12 ~ W22)</h3>
+<table>
+<thead><tr>
+<th>주차</th><th>YT업로드</th><th>Shorts</th><th>일반</th><th>팔Δ</th><th>평균시청</th><th>방송일</th><th>뷰어십</th>
+</tr></thead>
+<tbody>
+<tr><td>W12</td><td>5</td><td>3</td><td>2</td><td>+60</td><td>83.8</td><td>5</td><td>4,272</td></tr>
+<tr><td>W13</td><td>5</td><td>4</td><td>1</td><td>+44</td><td>83.0</td><td>5</td><td>3,614</td></tr>
+<tr><td>W14</td><td>4</td><td>4</td><td>0</td><td>+49</td><td>73.5</td><td>6</td><td>3,507</td></tr>
+<tr><td>W15</td><td>2</td><td>2</td><td>0</td><td>+21</td><td>61.4</td><td>5</td><td>2,412</td></tr>
+<tr><td>W16</td><td>2</td><td>2</td><td>0</td><td>+27</td><td>69.2</td><td>4</td><td>1,772</td></tr>
+<tr><td>W17</td><td>3</td><td>3</td><td>0</td><td>+34</td><td>72.2</td><td>5</td><td>3,042</td></tr>
+<tr><td>W19</td><td>3</td><td>2</td><td>1</td><td>+12</td><td>65.0</td><td>4</td><td>2,676</td></tr>
+<tr><td>W20</td><td>2</td><td>2</td><td>0</td><td>+10</td><td>53.6</td><td>5</td><td>2,116</td></tr>
+<tr><td>W21</td><td>1</td><td>0</td><td>1</td><td>+24</td><td>64.4</td><td>5</td><td>2,841</td></tr>
+<tr><td>W22</td><td>4</td><td>3</td><td>1</td><td>+17</td><td>63.8</td><td>4</td><td>1,992</td></tr>
+</tbody></table>
+<p>주간 Pearson 상관: YT업로드 vs 평균시청자 r=<strong>+0.761</strong>, vs 팔로워Δ r=<strong>+0.673</strong>, vs 뷰어십 r=<strong>+0.657</strong> (모두 df=8 기준 유의).</p>
+<h3>편상관: 방송 활동량 교란 통제</h3>
+<p>"YouTube를 많이 올리는 주 = Chzzk도 열심히 하는 주"라는 교란 가설 검증. YouTube 업로드와 방송일수의 zero-order 상관은 r=+0.154로 거의 독립적이다.</p>
+<table>
+<thead><tr><th>쌍 (방송일수 통제)</th><th>zero-order r</th><th>partial r</th><th>유의</th></tr></thead>
+<tbody>
+<tr><td>YT업로드 vs 평균시청자</td><td>+0.761</td><td><strong>+0.756</strong></td><td>*</td></tr>
+<tr><td>YT업로드 vs 팔로워Δ</td><td>+0.673</td><td><strong>+0.716</strong></td><td>*</td></tr>
+<tr><td>YT업로드 vs 뷰어십</td><td>+0.657</td><td><strong>+0.714</strong></td><td>*</td></tr>
+</tbody></table>
+<p>방송일수 통제 후 편상관이 유지·증가 → <strong>"활동량 교란" 가설 기각.</strong> YouTube 업로드 빈도는 Chzzk 방송일수와 독립적으로 시청자 지표와 상관을 갖는다.</p>
+<h3>이벤트 분석: 2026-04 업로드 감소</h3>
+<p>2026-04에 YouTube 업로드가 22→9로 급감. 팔로워Δ가 57.7% 감소한 반면, 평균시청자·뷰어십은 15%·12.5%만 감소 — 신규 유입 감속이지 기존 시청자 이탈이 아닌 것으로 해석.</p>
+<p>상세 분석: §7 교차 시계열 업데이트 문서 참조.</p>
+<h2>5. 전환 프록시 추정</h2>
+<div class="action-title"><strong>YouTube 총 조회수 대비 Chzzk 팔로워 비율은 0.0407%다. 이는 실제 전환율이 아니라 상한 프록시다. 단정 등급: 추정.</strong></div>
+<p>계산식은 <code>Chzzk 팔로워 3,760 / YouTube 채널 총 조회수 9,241,534</code>다. 다른 말로 하면 YouTube 조회수 1,000회당 Chzzk 팔로워 0.41명 수준의 상한이다. 실제 전환율은 이보다 낮을 가능성이 크다. 같은 사람이 여러 번 조회했을 수 있고, Chzzk 팔로워가 YouTube에서 온 사람인지 직접 추적하지 않았으며, 치지직 디스커버리·레이드·외부 클립 유입을 분리하지 않았기 때문이다.</p>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>값</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>YouTube 채널 총 조회수</td>
+<td>9,241,534</td>
+</tr>
+<tr>
+<td>YouTube 영상별 조회수 합계</td>
+<td>9,244,767</td>
+</tr>
+<tr>
+<td>Chzzk 팔로워</td>
+<td>3,760</td>
+</tr>
+<tr>
+<td>상한 프록시 전환율(채널 총 조회수 기준)</td>
+<td>0.0407%</td>
+</tr>
+<tr>
+<td>직관 환산</td>
+<td>조회수 1,000회당 최대 0.41명</td>
+</tr>
+</tbody></table>
+<p>현재 데이터로 말할 수 있는 것은 "Shorts가 도달 총량을 만든다"까지다. "Shorts가 Chzzk 팔로워 또는 평균 시청자를 만든다"는 아직 검증 전이다.</p>
+<h2>6. 판단 요약</h2>
+<div class="action-title"><strong>김달수의 콘텐츠 채널은 유입 퍼널의 재료는 충분하지만, 전환 퍼널로 설계됐다는 증거는 약하다. 단정 등급: 관찰됨.</strong></div>
+<p>Shorts는 672개, 911만 조회수를 만들었다. 이 규모는 김달수의 Chzzk 체급 대비 외부 노출 자산으로 의미가 있다. 특히 하이라이트 계열은 영상당 조회수 3만 이상으로, 도달 효율이 가장 높다. 그러나 일반 영상은 46개, 총 13.1만 조회수에 그쳐 Shorts 이후 깊은 시청으로 이어지는 구조가 약하게 보인다.</p>
+<p>운영 관점의 우선순위는 다음이다.</p>
+<table>
+<thead><tr>
+<th>우선순위</th>
+<th>판단</th>
+<th>단정 등급</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>Shorts 하이라이트 생산은 유지. 도달 효율 최상위 유형</td>
+<td>확실</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Shorts description의 풀버전/라이브 연결 표준화. 현재 direct_teaser 6건뿐</td>
+<td>관찰됨</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>일반 영상은 "긴 클립 저장소"가 아니라 Shorts 이후 이어볼 이유가 있는 시리즈로 재설계 필요</td>
+<td>추정</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>YouTube 업로드 빈도와 Chzzk 성장 지표 간 독립적 양의 상관 확인 (편상관 r=+0.72~0.76). 인과 방향 미확정</td>
+<td>관찰됨(독립 상관 확인)</td>
+</tr>
+</tbody></table>
+<h2>7. 한계</h2>
+<ol>
+<li>단일 스냅샷 기반 — 일별 <code>views_delta</code> 계산 불가, <code>pre-Shorts baseline</code> vs <code>post-Shorts lift</code> 비교 불가.</li>
+<li><del>Chzzk 시계열 부재</del> → <strong>해소됨.</strong> 치지직 일별 CSV(287일)를 활용한 교차 시계열 분석 완료. 주간 편상관 r=+0.72~0.76 (방송 활동량 통제 후). 잔여 제한: 주간 n=10으로 검정력 제한적.</li>
+<li>YouTube 외 유입 경로 미분리 — 치지직 디스커버리, 레이드, 외부 클립, 커뮤니티 유입 분리 안 됨.</li>
+<li>전환 프록시의 상한 추정 성격 — Shorts 시청자가 실제로 일반 영상을 봤는지, Chzzk 팔로우·방문·구독으로 전환됐는지 확인 불가.</li>
+<li>YouTube Analytics API 미사용 — <code>engagedViews</code>, <code>averageViewDuration</code>, <code>subscribersGained</code>, traffic source, viewer overlap 미확보.</li>
+<li>자동 콘텐츠 태깅 한계 — 정규식 기반 primary label, 수동 검증 미수행, 복수 속성 영상의 태그 접힘 발생.</li>
+<li>캠페인 매핑 한계 — <code>direct_teaser</code> 외 <code>same_topic</code>·<code>same_series</code>는 후보이며, 실제 시청 경로 증거 아님.</li>
+</ol>
+<h2>8. 업그레이드 경로</h2>
+<p>향후 수집을 일별 스냅샷으로 전환하면 기준선 비교가 가능하다. 권장 수집 시간은 KST 03:00-05:00이다. 이 시간대에 YouTube 영상별 조회수, 좋아요, 댓글, Chzzk 팔로워·평균 시청자·최고 시청자 스냅샷을 매일 저장하면 <code>views_delta</code> 기반으로 업로드 전후 변화량을 볼 수 있다.</p>
+<p>일별 수집 전환 후에는 다음 지표를 산출할 수 있다.</p>
+<table>
+<thead><tr>
+<th>확장 지표</th>
+<th>필요 데이터</th>
+<th>산출 가능성</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>views_delta</code></td>
+<td>영상별 일별 조회수</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>기준선 대비 lift</td>
+<td>업로드 전후 일별 조회수·Chzzk 시계열</td>
+<td>가능</td>
+</tr>
+<tr>
+<td><code>estimated_short_to_normal_conversion_rate</code></td>
+<td>Shorts와 일반 영상의 일별 증분, 매핑 테이블</td>
+<td>추정 가능</td>
+</tr>
+<tr>
+<td>Chzzk 전환 상관</td>
+<td>Chzzk 일별 팔로워·시청자</td>
+<td>상관 계산 가능</td>
+</tr>
+<tr>
+<td>실제 구독/시청 전환</td>
+<td>YouTube Analytics OAuth</td>
+<td>확장 필요</td>
+</tr>
+</tbody></table>
+<p>OAuth 확장 시에는 <code>engagedViews</code>, <code>averageViewDuration</code>, <code>subscribersGained</code>, traffic source를 추가 확보할 수 있다. 이 단계가 되어야 Shorts가 일반 영상, 구독, Chzzk 유입 중 어디로 전환되는지 더 직접적으로 볼 수 있다.</p>
+<h2>출처</h2>
+<table>
+<thead><tr>
+<th>출처</th>
+<th>경로</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>YouTube profile</td>
+<td><code>D:\Gunsmith_Mailbox\reports\youtube_dalsooisfree_profile.json</code></td>
+</tr>
+<tr>
+<td>YouTube videos</td>
+<td><code>D:\Gunsmith_Mailbox\reports\youtube_dalsooisfree_videos.json</code></td>
+</tr>
+<tr>
+<td>Chzzk current stats</td>
+<td><code>D:\Codex_Workspace\Streamer Consulting Project\김달수_CASE_PACKAGE_v3_20260611\work\kimdalsu_cohort_v3_rebuild_20260617.md</code></td>
+</tr>
+<tr>
+<td>산문 규칙</td>
+<td><code>D:\Codex_Workspace\Streamer Consulting Project\specs\리포트_산문_시스템_v0.2.md</code></td>
+</tr>
+</tbody></table>
+<div class="page-break"></div>
+<h2 style="font-size:18pt; border-bottom:3px solid var(--teal-800);">PART V — §8: 실행장벽 인벤토리</h2>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ①</span>
+<p>§5~§7이 "무엇을 해야 하는가"를 정했다면, §8은 "왜 그것이 안 될 수 있는가"를 정리한다. 장벽은 크게 세 종류이다 — 습관 관성(방송시간 축소에 대한 저항), 정체성 천장("정붙음" 구조가 체급 확대에서 깨지는 지점), 파이프라인 공백(전환 퍼널·콘텐츠 다각화가 존재하지 않는 상태). 세 장벽 모두 "현재 잘 돌아가는 것을 건드려야 한다"는 공통 구조를 가진다. 이것이 실행을 어렵게 만드는 본질이다.</p>
+</div>
+<hr>
+<h2>§8.1 장벽 1: 노방종 관성 — "줄여야 느는" 역설</h2>
+<div class="action-title"><strong>P1(잔류율 개선)의 핵심 실행은 방송시간 축소이다. 그러나 월 162.7시간은 습관이자 채널 운영의 기본 리듬이고, 이것을 절반으로 줄이는 것은 "잘 되고 있는 것을 멈추는" 감각을 준다.</strong></div>
+<p>코호트 데이터가 보여주는 것은 명확하다. 150시간+ 그룹(14채널)의 잔류율 중앙값은 0.245이고, 80~150시간 그룹(33채널)의 중앙값은 0.299, 30~80시간 그룹(23채널)은 0.362이다. 본 채널의 0.418은 150시간+ 그룹 내에서 이례적으로 높은 것이지, 절대 수준으로 높은 것이 아니다. 동급생 중앙값 0.645와 비교하면 하위권이다.</p>
+<p>그러나 "방송시간을 줄이면 잔류율이 올라간다"는 코호트 밴드 분포에서 도출한 추정이지, 동일 채널의 시계열 변화가 아니다(한계 §6.3 참조). 스트리머 입장에서는 "지금 162시간 하면서 69명이 보고 있는데, 80시간으로 줄이면 누가 120명을 보장하는가"라는 합리적 불안이 존재한다.</p>
+<h3>관성의 구조</h3>
+<table>
+<thead><tr>
+<th>요인</th>
+<th>현재 상태</th>
+<th>축소 시 우려</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>일과 리듬</td>
+<td>방송이 일상의 구조를 제공</td>
+<td>비방송 시간 활용 계획 필요</td>
+</tr>
+<tr>
+<td>뷰어십 총량</td>
+<td>11,253 (월간)</td>
+<td>방송시간 축소 = 총량 감소 가능성</td>
+</tr>
+<tr>
+<td>시청자 기대</td>
+<td>"항상 켜져 있다"는 인식</td>
+<td>접속 시 오프라인 → 이탈 위험</td>
+</tr>
+<tr>
+<td>성과 지표</td>
+<td>절대 시간이 체감 성과</td>
+<td>시간 줄이면 "덜 한다"는 감각</td>
+</tr>
+</tbody></table>
+<h3>완화 경로</h3>
+<p>방송시간을 줄이는 것이 아니라, <strong>방송시간을 재배치한다</strong>는 프레이밍이 저항을 낮출 수 있다. 같은 총 시간(162시간)을 유지하되 세션 길이를 줄이고 날수를 늘리는 것이 1단계이고, 잔류율 변화를 확인한 후 총 시간 축소를 2단계로 진행하는 것이 이행 리스크를 줄인다.</p>
+<p>TFT2 카테고리에서 잔류율 0.725가 관찰된 것(§4.5 참조)은 짧은 세션·다른 콘텐츠에서 잔류율이 달라진다는 간접 증거이다. 같은 스트리머의 다른 조건에서 잔류율이 올라간 사례가 이미 있다.</p>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — 코호트 밴드 간 잔류율 차이, TFT2 잔류율 0.725는 확인된 사실. 그러나 "본 채널이 방송시간을 줄이면 잔류율이 올라간다"는 아직 검증 전.</div>
+<hr>
+<h2>§8.2 장벽 2: "정붙음" 정체성의 스케일링 한계</h2>
+<div class="action-title"><strong>본 채널의 커뮤니티는 소규모 밀착 구조("정붙음")로 운영된다. 이 구조는 팔로워 3,760명에서 작동하지만, 10,000명 이상에서도 작동할지는 미검증이다.</strong></div>
+<p>성장전략 프레임의 Q6("정체성 스케일링")은 미해결 상태이다. 현재 데이터로 직접 답할 수는 없지만, 코호트에서 관찰된 패턴 두 가지가 간접 단서를 제공한다.</p>
+<div class="action-title"><strong>단서 1: 전환율 희석 패턴</strong> <span class="normal-weight">팔로워가 늘면 전환율(avg/follower)은 자연 희석된다(§6.2). LoL 상위 100에서 50K~100K 밴드 전환율 중앙값 1.35%, 100K+ 밴드 1.56%. 현재 1.84%에서 이 수렴대로 떨어지는 것은 "팔로워 풀에서 비활성 비중이 늘어난다"는 뜻이다. "정붙음" 구조에서 비활성 팔로워는 커뮤니티 밀도를 희석시킨다.</span></div>
+<div class="action-title"><strong>단서 2: 채팅 밀도</strong> <span class="normal-weight">현재 6분 평균 채팅 35, 6분 최고 채팅 176이다. 평균 시청자 69명 대비 6분 채팅 35는 참여율이 높은 편이다. 체급이 올라가면 시청자는 늘지만 채팅 참여율은 하락하는 것이 일반적이다. "모든 시청자와 소통할 수 있다"는 구조가 평균 200명에서도 유지되기는 어렵다.</span></div>
+<h3>스케일링 시나리오</h3>
+<table>
+<thead><tr>
+<th>체급</th>
+<th>예상 채팅 밀도</th>
+<th>"정붙음" 유지 가능성</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>avg 69 (현재)</td>
+<td>시청자 대부분과 개별 소통 가능</td>
+<td>유지</td>
+</tr>
+<tr>
+<td>avg 120 (MS1)</td>
+<td>핵심 시청자와 소통 가능, 신규는 관찰자</td>
+<td>부분 유지</td>
+</tr>
+<tr>
+<td>avg 200 (MS2)</td>
+<td>채팅 속도가 개별 소통을 넘어섬</td>
+<td>전환 필요</td>
+</tr>
+</tbody></table>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 채팅 밀도 변화는 코호트 데이터에 없음. 일반적 패턴에서 유추한 시나리오.</div>
+<h3>완화 경로</h3>
+<p>"정붙음"을 포기하는 것이 아니라, <strong>스케일에 맞게 변형</strong>하는 것이 과제이다. 소규모 밀착 소통 → 모더레이터 위임, 고정 시청자 전용 구간 배치, 채팅 참여 구조 설계(예: 구독자 전용 채팅 이벤트) 등이 가능한 경로이다. 그러나 이것은 "현재 잘 돌아가는 커뮤니티 문화를 의도적으로 바꾸는" 행위이므로, 장벽 1(관성)과 같은 심리적 저항이 동반된다.</p>
+<hr>
+<h2>§8.3 장벽 3: 콘텐츠 단일 소재 의존</h2>
+<div class="action-title"><strong>유튜브 718개 영상 중 비LoL 콘텐츠는 사실상 없다. 솔로랭크 598개, 하이라이트 68개, 듀오 23개, 내전 4개, 토크 18개 — 전부 LoL 기반이다. 이것은 콘텐츠 다각화 "저항"이라기보다 "시도 자체가 없었던" 상태이다.</strong></div>
+<p>단일 소재 의존의 리스크는 두 가지이다.</p>
+<div class="action-title"><strong>리스크 1: LoL 카테고리 천장</strong> <span class="normal-weight">LoL 카테고리 100위 최저 평균 시청자는 346명이다. 현재 69명에서 346명까지 LoL만으로 올라가야 한다. 같은 카테고리 안에서 5배 성장은 콘텐츠 차별화 없이는 어렵다. 코호트 상위 채널(5K~15K 밴드)은 대부분 프로게이머 경력 또는 고유 콘텐츠 포맷을 보유하고 있다.</span></div>
+<div class="action-title"><strong>리스크 2: 외부 변수 의존</strong> <span class="normal-weight">LoL 패치 메타, 시즌 주기, 게임 인기도 변동에 채널 전체가 노출된다. 비LoL 콘텐츠가 없으면 완충 장치가 없다.</span></div>
+<h3>다각화 장벽의 구조</h3>
+<table>
+<thead><tr>
+<th>요인</th>
+<th>현재 상태</th>
+<th>다각화 시 우려</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>시청자 기대</td>
+<td>"LoL 채널"로 인식</td>
+<td>비LoL 콘텐츠 = 시청자 이탈?</td>
+</tr>
+<tr>
+<td>스트리머 전문성</td>
+<td>LoL 고랭크(그랜드마스터~챌린저급)</td>
+<td>다른 게임에서 같은 실력 불가</td>
+</tr>
+<tr>
+<td>유튜브 알고리즘</td>
+<td>LoL 키워드로 도달 최적화</td>
+<td>비LoL Shorts는 도달 감소 가능</td>
+</tr>
+<tr>
+<td>제작 루틴</td>
+<td>솔로랭크 플레이 → 편집 → 업로드</td>
+<td>새 게임 = 새 루틴 학습 비용</td>
+</tr>
+</tbody></table>
+<p>TFT2 카테고리에서 잔류율 0.725가 나왔다는 것(§4.5)은, LoL 생태계 안에서의 소규모 다각화(TFT, 발로란트 등)가 리스크 대비 시도 가능하다는 간접 증거이다. LoL을 완전히 벗어나는 것이 아니라, LoL 생태계 인접 게임으로 확장하는 것이 저항이 낮은 경로이다.</p>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — 유튜브 100% LoL, TFT2 잔류율 0.725는 확인된 사실. 그러나 "인접 게임 확장이 체급에 기여한다"는 아직 검증 전.</div>
+<hr>
+<h2>§8.4 장벽 4: 유튜브 전환 파이프라인 공백</h2>
+<div class="action-title"><strong>§5에서 P2로 설정한 유튜브 전환 퍼널은 "없는 것을 만드는" 작업이다. 기존 관성을 바꾸는 장벽 1~3과 달리, 이것은 새로운 습관을 처음부터 형성해야 하는 장벽이다.</strong></div>
+<p>현재 상태의 핵심 수치를 재확인한다.</p>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>값</th>
+<th>출처</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Shorts 중 풀버전 링크 보유</td>
+<td>6/672 (0.9%)</td>
+<td>§7 캠페인 매핑</td>
+</tr>
+<tr>
+<td>전환 프록시 (상한)</td>
+<td>0.0407%</td>
+<td>§7 전환 프록시</td>
+</tr>
+<tr>
+<td>최근 월 업로드 (2026-06)</td>
+<td>6건</td>
+<td>§7 월별 추세</td>
+</tr>
+<tr>
+<td>하이라이트 영상당 조회수</td>
+<td>30,144</td>
+<td>§7 콘텐츠 태깅</td>
+</tr>
+</tbody></table>
+<p>전환 퍼널 설계는 기술적으로 단순하다 — Shorts description에 치지직 링크를 넣고, 하이라이트 Shorts에 풀버전 연결을 표준화하면 된다. 그러나 "단순한 일이 왜 지금까지 안 됐는가"를 짚어야 한다.</p>
+<h3>공백의 원인 추정</h3>
+<table>
+<thead><tr>
+<th>원인</th>
+<th>가능성</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>인식 부재</td>
+<td>높음</td>
+<td>유튜브를 "도달 도구"가 아닌 "방송 부산물"로 인식했을 가능성</td>
+</tr>
+<tr>
+<td>편집 루틴</td>
+<td>중간</td>
+<td>Shorts 제작이 자동화/반복 작업이라 description 커스터마이징이 루틴에 없었을 가능성</td>
+</tr>
+<tr>
+<td>효과 미확인</td>
+<td>높음</td>
+<td>링크를 넣어도 전환 효과를 측정할 도구가 없었을 가능성</td>
+</tr>
+</tbody></table>
+<h3>완화 경로</h3>
+<p>이 장벽은 4개 중 실행 난이도가 가장 낮다. description 템플릿 하나를 만들면 모든 후속 업로드에 적용할 수 있다. 단, 효과 측정 없이 시작하면 "해봤는데 모르겠다"로 끝날 수 있으므로, 일별 Chzzk 팔로워 스냅샷을 병행해서 Shorts 업로드 전후 변화를 관찰하는 것이 최소한의 측정 체계이다.</p>
+<div class="certainty">단정 등급: <span class="badge observed">관찰됨</span> — Shorts description 링크 부재, 업로드 빈도 하락은 확인된 사실. 원인은 추정.</div>
+<hr>
+<h2>§8.5 장벽 5: 업로드 빈도 하락 추세</h2>
+<div class="action-title"><strong>§7 월별 추세에서 2026년 4월 이후 유튜브 업로드 빈도가 뚜렷하게 하락하고 있다. 이 추세가 지속되면 P2(유튜브 전환 퍼널)의 전제 자체가 무너진다.</strong></div>
+<table>
+<thead><tr>
+<th>월</th>
+<th>업로드</th>
+<th>총 조회수</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>2026-01</td>
+<td>24</td>
+<td>301,670</td>
+</tr>
+<tr>
+<td>2026-02</td>
+<td>21</td>
+<td>265,099</td>
+</tr>
+<tr>
+<td>2026-03</td>
+<td>22</td>
+<td>285,815</td>
+</tr>
+<tr>
+<td>2026-04</td>
+<td><strong class="highlight">9</strong></td>
+<td>76,620</td>
+</tr>
+<tr>
+<td>2026-05</td>
+<td><strong class="highlight">10</strong></td>
+<td>142,856</td>
+</tr>
+<tr>
+<td>2026-06</td>
+<td><strong class="highlight">6</strong></td>
+<td>35,432</td>
+</tr>
+</tbody></table>
+<p>2026년 1~3월 평균 22.3건에서 4~6월 평균 8.3건으로 63% 감소했다. 조회수도 비례하여 하락했다.</p>
+<p>원인은 현재 데이터로 확인할 수 없다. 방송시간 과다로 편집 여력이 줄었을 가능성, 동기 저하, 외부 사정 등 모두 가능하다. 그러나 원인과 무관하게, 유튜브 업로드가 월 3건 이하로 떨어져 2개월 연속되면 §6.4에서 설정한 경보 조건에 해당한다.</p>
+<div class="certainty">단정 등급: <span class="badge sure">확실</span> — 업로드 빈도 하락은 §7 데이터에서 직접 확인된 사실. 원인은 미확인.</div>
+<hr>
+<h2>§8.6 장벽 요약 — 우선순위와 난이도</h2>
+<table>
+<thead><tr>
+<th>장벽</th>
+<th>핵심 내용</th>
+<th>실행 난이도</th>
+<th>관련 우선순위</th>
+<th>단정 등급</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>①노방종 관성</td>
+<td>162.7h 축소 저항</td>
+<td>높음</td>
+<td>P1 (잔류율)</td>
+<td>관찰됨</td>
+</tr>
+<tr>
+<td>②정붙음 천장</td>
+<td>소규모 밀착이 체급 확대와 충돌</td>
+<td>중~높음</td>
+<td>전체</td>
+<td>추정</td>
+</tr>
+<tr>
+<td>③단일 소재</td>
+<td>LoL 100%, 다각화 시도 없음</td>
+<td>중간</td>
+<td>P3 (유입 다각화)</td>
+<td>관찰됨</td>
+</tr>
+<tr>
+<td>④전환 파이프라인</td>
+<td>Shorts 전환 장치 부재</td>
+<td><strong class="highlight">낮음</strong></td>
+<td>P2 (유튜브 퍼널)</td>
+<td>관찰됨</td>
+</tr>
+<tr>
+<td>⑤업로드 하락</td>
+<td>4~6월 63% 감소</td>
+<td>낮~중간</td>
+<td>P2 전제</td>
+<td>확실</td>
+</tr>
+</tbody></table>
+<p>실행 설계(§10~§11)에서 가장 먼저 착수할 수 있는 것은 장벽 ④(전환 파이프라인)이다. 난이도가 가장 낮고, 효과 측정이 가능하며, 성공 시 다른 장벽 해소의 동기를 만든다.</p>
+<p>장벽 ①(노방종)은 난이도가 가장 높지만 P1과 직결되므로, ④와 병행하되 단계적 이행(세션 분할 → 총시간 축소)으로 접근한다.</p>
+<hr>
+<h2>한계</h2>
+<ol>
+<li>장벽 ②(정붙음 스케일링)은 종단 데이터 없이 유추한 시나리오임. 동일 채널이 성장하면서 커뮤니티 구조가 어떻게 변했는지의 사례 연구가 없음</li>
+<li>장벽 ⑤(업로드 하락)의 원인은 미확인. 스트리머 본인 확인 필요</li>
+<li>채팅 밀도 변화 예측은 코호트 데이터에 포함되지 않음. 체급별 채팅 참여율 벤치마크 미보유</li>
+<li>"정붙음" 개념 자체가 정량화되지 않았음. 커뮤니티 밀착도를 측정하는 지표가 정의되지 않아, 장벽의 크기를 수치로 표현할 수 없음</li>
+<li>장벽 간 상호작용(예: 방송시간 축소 → 편집 여력 확보 → 업로드 빈도 회복)은 논리적 가설이며, 실제 인과 검증 전</li>
+</ol>
+<hr>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ②</span>
+<p>다섯 장벽 중 넷은 "현재 돌아가고 있는 것을 바꿔야 한다"는 구조이고, 하나(전환 파이프라인)는 "없는 것을 새로 만들어야 한다"는 구조이다. <strong>가장 쉬운 것(④ 전환 파이프라인)부터 시작해서 작은 성공을 만들고, 가장 어려운 것(① 노방종)은 단계적으로 접근하는 것</strong>이 실행 설계의 기본 순서이다.</p>
+</div>
+<div class="page-break"></div>
+<h2 style="font-size:18pt; border-bottom:3px solid var(--teal-800);">PART VI — §10~§11: 실행설계와 트래킹</h2>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ①</span>
+<p>§5~§8이 진단이었다면, §10~§11은 처방전이다. 핵심 원칙은 두 가지이다. 첫째, <strong>가장 쉬운 것부터 시작한다</strong> — 전환 파이프라인(P2)은 description 템플릿 하나로 착수할 수 있고, 효과 측정도 가능하다. 둘째, <strong>가장 어려운 것은 단계적으로 접근한다</strong> — 방송시간 축소(P1)는 세션 분할로 시작해서 총량 조정으로 이행한다. 모든 실행 항목은 "동사 + 시간 + 횟수 + 대상" 수준으로 정의하되, 스트리머 본인과의 협의 후 확정해야 한다.</p>
+</div>
+<hr>
+<p># §10 실행설계</p>
+<h2>§10.1 실행 순서 — 왜 이 순서인가</h2>
+<div class="action-title"><strong>§8의 장벽 난이도 분석에서 도출한 순서이다. 난이도가 낮고 측정 가능한 것을 먼저 실행해서 작은 성공을 만들고, 그 성공이 다음 단계의 동기가 되는 구조이다.</strong></div>
+<table>
+<thead><tr>
+<th>단계</th>
+<th>실행 항목</th>
+<th>대응 우선순위</th>
+<th>대응 장벽</th>
+<th>난이도</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1단계</td>
+<td>유튜브 전환 퍼널 설계</td>
+<td>P2</td>
+<td>§8.4 (파이프라인 공백)</td>
+<td>낮음</td>
+</tr>
+<tr>
+<td>2단계</td>
+<td>방송 세션 분할</td>
+<td>P1 전반부</td>
+<td>§8.1 (노방종 관성)</td>
+<td>중간</td>
+</tr>
+<tr>
+<td>3단계</td>
+<td>방송 총시간 축소</td>
+<td>P1 후반부</td>
+<td>§8.1 (노방종 관성)</td>
+<td>높음</td>
+</tr>
+<tr>
+<td>4단계</td>
+<td>인접 콘텐츠 실험</td>
+<td>P3</td>
+<td>§8.3 (단일 소재)</td>
+<td>중간</td>
+</tr>
+</tbody></table>
+<p>P4(팔로워 풀 확대)는 독립 실행 항목이 아니다. 1~4단계 실행의 결과로 따라오는 지표이다.</p>
+<p>1단계와 2단계는 병행할 수 있다. 3단계는 2단계의 잔류율 변화를 확인한 후 시작한다. 4단계는 1~2단계와 독립적이므로 여력이 있을 때 시작할 수 있지만, P1/P2보다 우선하지 않는다.</p>
+<hr>
+<h2>§10.2 1단계: 유튜브 전환 퍼널 설계</h2>
+<div class="action-title"><strong>현재 672개 Shorts 중 6개(0.9%)에만 다음 행동으로 이어지는 링크가 있다. 이것을 100%로 올리는 것이 1단계의 전부이다.</strong></div>
+<h3>실행 항목</h3>
+<table>
+<thead><tr>
+<th>항목</th>
+<th>동사</th>
+<th>대상</th>
+<th>시간/횟수</th>
+<th>비고</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>작성한다</td>
+<td>Shorts description 표준 템플릿</td>
+<td>1회</td>
+<td>치지직 라이브 링크 + 풀버전 연결(해당 시) 포함</td>
+</tr>
+<tr>
+<td>B</td>
+<td>적용한다</td>
+<td>신규 업로드 모든 Shorts</td>
+<td>매 업로드</td>
+<td>템플릿 복사-붙여넣기</td>
+</tr>
+<tr>
+<td>C</td>
+<td>기록한다</td>
+<td>일별 치지직 팔로워 수</td>
+<td>매일 1회</td>
+<td>KST 03:00~05:00 권장 (§7 업그레이드 경로)</td>
+</tr>
+<tr>
+<td>D</td>
+<td>비교한다</td>
+<td>Shorts 업로드일 전후 팔로워 변화</td>
+<td>주 1회</td>
+<td>C의 데이터로 산출</td>
+</tr>
+</tbody></table>
+<h3>템플릿 예시</h3>
+<pre>[LIVE] 치지직 라이브: https://chzzk.naver.com/[채널URL]
+[VOD] 풀버전: [해당 일반 영상 URL] (해당 시에만)</pre>
+<h3>착수 조건</h3>
+<p>없음. 즉시 실행 가능하다.</p>
+<h3>성공 기준</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>현재</th>
+<th>4주 후 목표</th>
+<th>측정 방법</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>신규 Shorts 링크 적용률</td>
+<td>0.9%</td>
+<td>100%</td>
+<td>업로드 건별 확인</td>
+</tr>
+<tr>
+<td>일별 팔로워 스냅샷</td>
+<td>미수집</td>
+<td>28일 연속 기록</td>
+<td>수동 또는 자동 스냅샷</td>
+</tr>
+</tbody></table>
+<blockquote><p>4주 후 팔로워 변화량이 유의미하게 나타나지 않더라도 실패가 아니다. 전환 프록시 0.0407%에서 측정 가능한 변화가 나오려면 충분한 Shorts 조회수가 필요하며, 4주는 기준선 확보 기간이다.</p></blockquote>
+<hr>
+<h2>§10.3 2단계: 방송 세션 분할</h2>
+<div class="action-title"><strong>총 방송시간을 유지한 채 세션 길이를 줄이고 방송 일수를 늘린다. "줄이는" 것이 아니라 "나누는" 것이 이 단계의 프레이밍이다.</strong></div>
+<h3>현재 패턴 (추정)</h3>
+<p>정확한 세션별 데이터는 미보유이지만, 월 162.7시간을 30일로 단순 분배하면 일 평균 5.4시간이다. 노방종 패턴이라면 특정 일에 10시간 이상 방송하고 쉬는 날이 있는 비균등 분배일 가능성이 높다.</p>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 세션별 방송 기록이 없어 패턴을 확인할 수 없다. 스트리머 본인 확인 필요.</div>
+<h3>실행 항목</h3>
+<table>
+<thead><tr>
+<th>항목</th>
+<th>동사</th>
+<th>대상</th>
+<th>시간/횟수</th>
+<th>비고</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>설정한다</td>
+<td>세션 종료 시각</td>
+<td>매 방송</td>
+<td>시작 후 4~5시간에 종료 알림</td>
+</tr>
+<tr>
+<td>B</td>
+<td>늘린다</td>
+<td>주간 방송 일수</td>
+<td>주 5일 이상</td>
+<td>총 시간 유지 목적</td>
+</tr>
+<tr>
+<td>C</td>
+<td>기록한다</td>
+<td>세션별 시작·종료·평균·피크</td>
+<td>매 방송</td>
+<td>잔류율 변화 추적용</td>
+</tr>
+</tbody></table>
+<h3>착수 조건</h3>
+<p>1단계(전환 퍼널)와 동시 착수 가능. 단, 스트리머 본인과 세션 길이·일수에 대한 협의가 선행되어야 한다.</p>
+<h3>성공 기준</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>현재</th>
+<th>8주 후 목표</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>세션 평균 길이</td>
+<td>~5.4h (추정)</td>
+<td>3~4h</td>
+<td>세션 분할</td>
+</tr>
+<tr>
+<td>주간 방송 일수</td>
+<td>미확인</td>
+<td>5~6일</td>
+<td>총 시간 유지</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>0.418</td>
+<td>0.45~0.50</td>
+<td>코호트 80-150h 밴드 중앙 0.299 대비 보수 설정</td>
+</tr>
+<tr>
+<td>뷰어십</td>
+<td>11,253</td>
+<td>11,000 이상 유지</td>
+<td>총 시간 유지 전제</td>
+</tr>
+</tbody></table>
+<blockquote><p>잔류율 목표 0.45~0.50은 코호트 밴드 중앙값(80-150h: 0.299)이 아니라, 현재 0.418에서의 <strong>개선폭</strong>으로 설정했다. 세션 분할만으로 잔류율이 밴드 중앙까지 올라갈 것이라는 보장은 없다.</p></blockquote>
+<hr>
+<h2>§10.4 3단계: 방송 총시간 축소</h2>
+<div class="action-title"><strong>2단계에서 세션 분할의 잔류율 효과를 확인한 후, 총 방송시간을 162.7시간에서 80~100시간으로 줄인다.</strong></div>
+<h3>착수 조건</h3>
+<p>2단계 실행 8주 후, 다음 두 조건을 <strong>모두</strong> 충족할 때 시작한다.</p>
+<table>
+<thead><tr>
+<th>조건</th>
+<th>기준</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>잔류율 개선 확인</td>
+<td>잔류율 ≥ 0.45 (4주 평균)</td>
+<td>세션 분할 효과가 실제로 존재함을 확인</td>
+</tr>
+<tr>
+<td>뷰어십 유지 확인</td>
+<td>뷰어십 ≥ 10,000 (4주 평균)</td>
+<td>세션 분할이 총량을 깎지 않았음을 확인</td>
+</tr>
+</tbody></table>
+<p>조건 미충족 시 2단계를 유지하거나 세션 길이를 추가 조정한다. 총시간 축소로 강행하지 않는다.</p>
+<h3>실행 항목</h3>
+<table>
+<thead><tr>
+<th>항목</th>
+<th>동사</th>
+<th>대상</th>
+<th>시간/횟수</th>
+<th>비고</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>줄인다</td>
+<td>월간 총 방송시간</td>
+<td>162h → 120h (1차)</td>
+<td>4주 유지 후 평가</td>
+</tr>
+<tr>
+<td>B</td>
+<td>줄인다</td>
+<td>월간 총 방송시간</td>
+<td>120h → 80~100h (2차)</td>
+<td>1차 결과 확인 후</td>
+</tr>
+<tr>
+<td>C</td>
+<td>모니터링한다</td>
+<td>잔류율·뷰어십·평균 시청자</td>
+<td>주 1회</td>
+<td>경보 하한(§6.4) 체크</td>
+</tr>
+</tbody></table>
+<h3>성공 기준</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>2단계 종료 시</th>
+<th>3단계 완료 시 목표</th>
+<th>근거</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>방송시간</td>
+<td>~162h</td>
+<td>80~100h</td>
+<td>코호트 중앙값(71.2h) 근방</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>0.45~0.50</td>
+<td>0.55~0.65</td>
+<td>동급생 중앙(0.645) 접근</td>
+</tr>
+<tr>
+<td>평균 시청자</td>
+<td>~69</td>
+<td>90~120</td>
+<td>MS1(120) 진입 경로</td>
+</tr>
+<tr>
+<td>뷰어십</td>
+<td>~11,000</td>
+<td>9,000~12,000</td>
+<td>§6.3 MS1 시뮬레이션 범위</td>
+</tr>
+</tbody></table>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 방송시간 축소 → 잔류율 개선 → 평균 시청자 상승은 코호트 밴드 분포 기반 시나리오이다. 본 채널에서 동일 효과가 재현되는지는 3단계 실행 결과로만 확인할 수 있다.</div>
+<hr>
+<h2>§10.5 4단계: 인접 콘텐츠 실험</h2>
+<div class="action-title"><strong>LoL 100% 의존에서 벗어나기 위한 소규모 실험이다. LoL을 떠나는 것이 아니라, LoL 생태계 인접 게임(TFT, 발로란트 등)으로 확장한다.</strong></div>
+<h3>실행 항목</h3>
+<table>
+<thead><tr>
+<th>항목</th>
+<th>동사</th>
+<th>대상</th>
+<th>시간/횟수</th>
+<th>비고</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>배정한다</td>
+<td>주 1회 비LoL 세션</td>
+<td>주 1회, 2~3시간</td>
+<td>총 방송시간의 10~15%</td>
+</tr>
+<tr>
+<td>B</td>
+<td>기록한다</td>
+<td>비LoL 세션 잔류율·평균·피크</td>
+<td>매 세션</td>
+<td>LoL 세션과 비교</td>
+</tr>
+<tr>
+<td>C</td>
+<td>비교한다</td>
+<td>LoL 세션 vs 비LoL 세션 잔류율</td>
+<td>4주 후</td>
+<td>최소 4세션 데이터</td>
+</tr>
+</tbody></table>
+<h3>착수 조건</h3>
+<p>1~2단계와 독립적. 여력이 있을 때 시작. 단, P1/P2 실행에 방해가 되지 않는 범위 내에서.</p>
+<h3>참고 데이터</h3>
+<p>TFT2 카테고리 잔류율 0.725(§4.5)는 같은 스트리머의 비LoL 세션에서 잔류율이 올라간 사례이다. 표본 1건이므로 일반화할 수 없지만, "비LoL = 시청자 이탈"이라는 가정이 반드시 맞지는 않는다는 단서이다.</p>
+<h3>성공 기준</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>기준</th>
+<th>해석</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>비LoL 세션 잔류율 ≥ 0.40</td>
+<td>LoL 세션(0.418)과 동등</td>
+<td>다각화 실행 가능</td>
+</tr>
+<tr>
+<td>비LoL 세션 잔류율 &lt; 0.30</td>
+<td>LoL 대비 유의미한 하락</td>
+<td>해당 게임 중단, 다른 게임 시도 또는 다각화 보류</td>
+</tr>
+</tbody></table>
+<hr>
+<p># §11 트래킹 체계</p>
+<h2>§11.1 측정 구조</h2>
+<div class="action-title"><strong>모든 실행 항목의 효과를 확인하려면 최소한 일별 스냅샷이 필요하다. 치지직은 일별 CSV(287일)가 확보되어 교차 시계열 분석이 가능해졌으나, 유튜브는 여전히 누적 조회수 단일 스냅샷이라 일별 증분 기반 "전후 비교"가 불가능하다.</strong></div>
+<h3>일별 수집 항목</h3>
+<table>
+<thead><tr>
+<th>플랫폼</th>
+<th>지표</th>
+<th>수집 시각</th>
+<th>수집 방법</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>치지직</td>
+<td>팔로워 수</td>
+<td>KST 03:00~05:00</td>
+<td>Softcon 또는 수동</td>
+</tr>
+<tr>
+<td>치지직</td>
+<td>전일 방송 세션 수·시간·평균·피크</td>
+<td>KST 03:00~05:00</td>
+<td>Softcon 또는 수동</td>
+</tr>
+<tr>
+<td>유튜브</td>
+<td>영상별 조회수 (신규 업로드만)</td>
+<td>KST 03:00~05:00</td>
+<td>YouTube Data API v3</td>
+</tr>
+<tr>
+<td>유튜브</td>
+<td>채널 구독자 수</td>
+<td>KST 03:00~05:00</td>
+<td>YouTube Data API v3</td>
+</tr>
+</tbody></table>
+<blockquote><p>KST 03:00~05:00은 방송 종료 후·다음 방송 시작 전 사이의 조용한 시간대이다(§7 업그레이드 경로 권장).</p></blockquote>
+<h3>주간 리뷰 항목</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>산출 방법</th>
+<th>사용처</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>주간 잔류율</td>
+<td>주간 avg/peak 평균</td>
+<td>2~3단계 효과 확인</td>
+</tr>
+<tr>
+<td>주간 팔로워 순증</td>
+<td>주말 팔로워 - 주초 팔로워</td>
+<td>P4 추적</td>
+</tr>
+<tr>
+<td>주간 Shorts 업로드 수</td>
+<td>업로드 카운트</td>
+<td>1단계 + §6.4 경보 체크</td>
+</tr>
+<tr>
+<td>주간 Shorts 조회수 합계</td>
+<td>신규 업로드 조회수 합산</td>
+<td>1단계 도달 추적</td>
+</tr>
+</tbody></table>
+<h3>월간 마일스톤 체크</h3>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>경보 조건 (§6.4)</th>
+<th>조치</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>효율 (뷰어십/팔로워)</td>
+<td>&lt; 0.7</td>
+<td>실행 중단, 원인 분석</td>
+</tr>
+<tr>
+<td>잔류율</td>
+<td>&lt; 0.30</td>
+<td>방송시간 추가 축소 또는 편성 재검토</td>
+</tr>
+<tr>
+<td>전환율 (avg/팔로워)</td>
+<td>&lt; 1.0%</td>
+<td>팔로워 비활성화 점검</td>
+</tr>
+<tr>
+<td>유튜브 업로드</td>
+<td>&lt; 3건, 2개월 연속</td>
+<td>P2 파이프라인 점검</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>§11.2 전환 프록시 추적</h2>
+<div class="action-title"><strong>§7에서 산출한 전환 프록시(0.0407%)의 변화를 추적하는 것이 1단계 효과 측정의 핵심이다.</strong></div>
+<p>일별 팔로워 스냅샷이 확보되면, Shorts 업로드일 기준으로 다음을 산출할 수 있다.</p>
+<table>
+<thead><tr>
+<th>지표</th>
+<th>산출식</th>
+<th>의미</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>업로드 후 팔로워 변화</td>
+<td>업로드 익일 팔로워 - 업로드 전일 팔로워</td>
+<td>단건 Shorts의 단기 전환 효과</td>
+</tr>
+<tr>
+<td>주간 팔로워 순증 / 주간 Shorts 조회수</td>
+<td>(주말 fol - 주초 fol) / 주간 Shorts 조회수 합</td>
+<td>전환 프록시의 주간 근사치</td>
+</tr>
+</tbody></table>
+<p>현재 프록시(0.0407%)가 1단계 실행 후 0.05% 이상으로 올라가면, description 링크의 전환 기여가 있다고 판단할 수 있다. 0.1% 이상이면 유의미한 개선이다.</p>
+<div class="certainty">단정 등급: <span class="badge inferred">추정</span> — 전환 프록시 자체가 상한 추정치이므로, 변화량도 상한 수준의 변화를 보는 것이다. 실제 전환 인과는 이 방법으로 확인할 수 없다.</div>
+<hr>
+<h2>§11.3 단계별 타임라인</h2>
+<div class="action-title"><strong>아래 타임라인은 권장 일정이며, 스트리머 본인과의 협의 후 확정한다.</strong></div>
+<table>
+<thead><tr>
+<th>주차</th>
+<th>1단계 (전환 퍼널)</th>
+<th>2단계 (세션 분할)</th>
+<th>3단계 (총시간 축소)</th>
+<th>4단계 (인접 콘텐츠)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>W1~W2</td>
+<td>템플릿 작성·적용 시작</td>
+<td>세션 길이 목표 협의</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>W3~W4</td>
+<td>신규 업로드 100% 적용</td>
+<td>세션 분할 시작</td>
+<td>—</td>
+<td>(여력 시 시작 가능)</td>
+</tr>
+<tr>
+<td>W5~W8</td>
+<td>팔로워 기준선 확보</td>
+<td>세션 분할 지속</td>
+<td>—</td>
+<td>주 1회 비LoL 실험</td>
+</tr>
+<tr>
+<td>W9~W12</td>
+<td>전환 프록시 변화 평가</td>
+<td>잔류율 변화 평가</td>
+<td>착수 조건 판단</td>
+<td>4세션 비교</td>
+</tr>
+<tr>
+<td>W13~W16</td>
+<td>유지</td>
+<td>유지</td>
+<td>1차 축소 (162h→120h)</td>
+<td>결과 기반 방향 결정</td>
+</tr>
+<tr>
+<td>W17~W24</td>
+<td>유지</td>
+<td>—</td>
+<td>2차 축소 (120h→80~100h)</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<blockquote><p>이 타임라인은 "모든 것이 계획대로 진행될 때"의 최선 시나리오이다. 2단계에서 잔류율이 오르지 않으면 3단계 착수가 늦어지고, 업로드 빈도가 회복되지 않으면 1단계의 효과 측정이 지연된다.</p></blockquote>
+<hr>
+<h2>§11.4 리포트 주기와 체크포인트</h2>
+<table>
+<thead><tr>
+<th>시점</th>
+<th>리포트</th>
+<th>판단 사항</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>W4</td>
+<td>1차 체크포인트</td>
+<td>1단계 적용률 100% 달성 여부. 팔로워 기준선 수집 정상 여부</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>2차 체크포인트</td>
+<td>2단계 잔류율 변화 방향. 전환 프록시 기준선</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>중간 리뷰</td>
+<td>3단계 착수 조건 판단. 4단계 실험 결과 1차 평가</td>
+</tr>
+<tr>
+<td>W24</td>
+<td>종합 리뷰</td>
+<td>MS1 진입 경로 평가. 전체 전략 재검토</td>
+</tr>
+</tbody></table>
+<p>W12 중간 리뷰에서 3단계 착수 조건(잔류율 ≥ 0.45, 뷰어십 ≥ 10,000)이 충족되지 않으면, 다음 중 하나를 선택한다.</p>
+<table>
+<thead><tr>
+<th>상황</th>
+<th>대응</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>잔류율 미개선 (&lt; 0.43)</td>
+<td>세션 분할 방식 재설계. 세션 길이·시간대·콘텐츠 구성 검토</td>
+</tr>
+<tr>
+<td>뷰어십 하락 (&lt; 9,000)</td>
+<td>세션 분할이 총량을 깎고 있음. 방송 일수 증가로 보전 시도</td>
+</tr>
+<tr>
+<td>둘 다 악화</td>
+<td>2단계 롤백. 원래 패턴 복원 후 원인 재분석</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>한계</h2>
+<ol>
+<li>모든 타임라인과 목표 수치는 코호트 밴드 분포 기반 추정이며, 본 채널에서의 실제 효과는 실행 결과로만 확인 가능</li>
+<li>세션별 방송 기록(시작·종료·세션 길이)이 현재 미보유. 2단계 착수 전 현재 패턴 파악이 선행되어야 함</li>
+<li>일별 스냅샷 수집은 수동 또는 별도 자동화 구축이 필요하며, 수집 자체가 실행 부담이 될 수 있음</li>
+<li>전환 프록시 변화는 인과가 아닌 상관 수준의 관찰임. "링크를 넣었더니 팔로워가 늘었다"가 반드시 "링크 때문에 늘었다"를 의미하지 않음</li>
+<li>스트리머 본인의 의향·사정이 반영되지 않은 상태. 모든 실행 항목은 협의 후 확정 필요</li>
+<li>4단계(인접 콘텐츠) 성공 기준의 잔류율 0.40은 현재 LoL 잔류율(0.418) 기준이며, 게임별 특성에 따라 조정 필요</li>
+</ol>
+<hr>
+<div class="conclusion-card no-break">
+<span class="card-label">결론 카드 ②</span>
+<p>실행 설계의 핵심은 순서와 조건이다. 1단계(전환 퍼널)는 조건 없이 즉시 시작한다. 2단계(세션 분할)는 1단계와 병행한다. 3단계(총시간 축소)는 2단계의 결과를 확인한 후에만 시작한다. <strong>"잘 되면 다음 단계, 안 되면 멈추고 재검토"가 이 설계의 안전장치이다.</strong> W24 종합 리뷰 시점에 MS1(avg 120) 진입 경로가 보이지 않으면, §5의 우선순위와 §6의 마일스톤 자체를 재검토한다.</p>
+</div>
+<hr>
+<div class="data-notice"><strong>외부 데이터 고지:</strong> 치지직 뷰어십·팔로워·카테고리 데이터는 Softcon 기반이며 플랫폼 공식 API 원자료가 아니다. 유튜브 데이터는 YouTube Data API v3 공개 조회수 기반이며, YouTube Analytics의 시청 지속시간·유입 경로·구독 전환 데이터가 아니다. 절대 수치보다 추세와 상대 위치 중심으로 해석했다.</div>
+</body>
+</html>

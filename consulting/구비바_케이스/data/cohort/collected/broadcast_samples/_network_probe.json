@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-06-15T12:28:23.485Z",
+  "rawHtmlSaved": false,
+  "secretValuesLogged": false,
+  "probes": [
+    {
+      "inputUrl": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+      "state": {
+        "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+        "title": "Vercel Security Checkpoint",
+        "bodyText": "브라우저를 확인하지 못했습니다\n\n코드 29\n\nVercel 보안 검문소\n\n|\n\nicn1::1781526479-Cy56MBvzG2grLcwQuHjYXXfnRHPEDpoc",
+        "links": [],
+        "buttons": []
+      },
+      "afterClicks": {
+        "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+        "title": "Vercel Security Checkpoint",
+        "text": "브라우저를 확인하지 못했습니다\n\n코드 29\n\nVercel 보안 검문소\n\n|\n\nicn1::1781526479-Cy56MBvzG2grLcwQuHjYXXfnRHPEDpoc",
+        "buttons": []
+      },
+      "network": [
+        {
+          "type": "request",
+          "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+          "method": "GET",
+          "resourceType": "Document"
+        },
+        {
+          "type": "response",
+          "url": "https://viewership.softc.one/channel/269edc95873a1ec9fc534851c0783d1f,naverchzzk",
+          "status": 429,
+          "mimeType": "text/html"
+        },
+        {
+          "type": "request",
+          "url": "https://viewership.softc.one/.well-known/vercel/security/static/challenge.v2.min.js",
+          "method": "GET",
+          "resourceType": "Script"
+        },
+        {
+          "type": "request",
+          "url": "https://viewership.softc.one/favicon.ico",
+          "method": "GET",
+          "resourceType": "Other"
+        },
+        {
+          "type": "response",
+          "url": "https://viewership.softc.one/favicon.ico",
+          "status": 429,
+          "mimeType": "text/html"
+        }
+      ]
+    },
+    {
+      "inputUrl": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+      "state": {
+        "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+        "title": "Vercel Security Checkpoint",
+        "bodyText": "브라우저를 확인하지 못했습니다\n\n코드 29\n\nVercel 보안 검문소\n\n|\n\nicn1::1781526491-SyKcq4iclTr9CniuToFWRYcD8b6Z3Zm2",
+        "links": [],
+        "buttons": []
+      },
+      "afterClicks": {
+        "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+        "title": "Vercel Security Checkpoint",
+        "text": "브라우저를 확인하지 못했습니다\n\n코드 29\n\nVercel 보안 검문소\n\n|\n\nicn1::1781526491-SyKcq4iclTr9CniuToFWRYcD8b6Z3Zm2",
+        "buttons": []
+      },
+      "network": [
+        {
+          "type": "request",
+          "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+          "method": "GET",
+          "resourceType": "Document"
+        },
+        {
+          "type": "response",
+          "url": "https://viewership.softc.one/channel/naverchzzk/269edc95873a1ec9fc534851c0783d1f",
+          "status": 429,
+          "mimeType": "text/html"
+        },
+        {
+          "type": "request",
+          "url": "https://viewership.softc.one/.well-known/vercel/security/static/challenge.v2.min.js",
+          "method": "GET",
+          "resourceType": "Script"
+        },
+        {
+          "type": "request",
+          "url": "https://viewership.softc.one/favicon.ico",
+          "method": "GET",
+          "resourceType": "Other"
+        },
+        {
+          "type": "response",
+          "url": "https://viewership.softc.one/favicon.ico",
+          "status": 429,
+          "mimeType": "text/html"
+        }
+      ]
+    }
+  ]
+}

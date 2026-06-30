@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채널 진단 보고서 — 섹션별 결과 요약</title>
+<style>
+
+@page { size: A4; margin: 20mm 18mm 24mm 18mm; }
+@media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-break { page-break-before: always; }
+    .no-break { page-break-inside: avoid; }
+}
+:root {
+    --teal-800: #2D4A5E; --teal-600: #3A5F78; --teal-400: #708DA1;
+    --amber-500: #C4834D; --amber-600: #A8693A;
+    --neutral-900: #1B1711; --neutral-700: #3D3833; --neutral-500: #6B6560;
+    --neutral-400: #9B9590; --neutral-300: #D4D0C8; --neutral-200: #E8E4DF;
+    --neutral-100: #F5F2ED; --neutral-50: #FBF7F1;
+    --success-700: #01682D; --error-700: #A8292F; --warning-700: #A43112;
+    --white: #FFFFFF;
+}
+* { box-sizing: border-box; }
+body {
+    font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    color: var(--neutral-900); background: var(--white);
+    font-size: 10.5pt; line-height: 1.7;
+    max-width: 210mm; margin: 0 auto; padding: 24px 28px;
+}
+/* Cover */
+.cover { padding: 48px 0 32px 0; }
+.cover h1 {
+    font-size: 24pt; font-weight: 800; color: var(--teal-800);
+    margin: 0 0 10px 0; line-height: 1.3;
+}
+.cover .subtitle { font-size: 13pt; color: var(--teal-600); margin: 0 0 16px 0; }
+.cover .divider {
+    width: 80px; height: 3px; background: var(--amber-500);
+    border: none; margin: 16px 0;
+}
+.cover-meta { width: 100%; border-collapse: collapse; margin: 12px 0 24px 0; }
+.cover-meta td {
+    padding: 4px 12px; font-size: 9.5pt; border-bottom: 1px solid var(--neutral-200);
+    vertical-align: top;
+}
+.cover-meta td:first-child {
+    font-weight: 700; color: var(--teal-600); white-space: nowrap; width: 120px;
+}
+/* Headings */
+h2 {
+    font-size: 14pt; font-weight: 800; color: var(--teal-800);
+    border-bottom: 2px solid var(--teal-600);
+    margin: 36px 0 10px 0; padding-bottom: 6px;
+}
+h3 {
+    font-size: 11pt; font-weight: 700; color: var(--teal-600);
+    margin: 20px 0 6px 0;
+}
+/* Part header */
+.part-header {
+    background: var(--teal-800); color: var(--white);
+    padding: 10px 16px; margin: 40px 0 8px 0;
+    font-size: 11pt; font-weight: 700; border-radius: 4px;
+}
+.part-header:first-of-type { margin-top: 24px; }
+/* Section summary card */
+.section-card {
+    border: 1px solid var(--neutral-200); border-radius: 6px;
+    padding: 16px 20px; margin: 12px 0; background: var(--white);
+    page-break-inside: avoid;
+}
+.section-card .section-id {
+    font-size: 9pt; font-weight: 700; color: var(--amber-500);
+    text-transform: uppercase; margin-bottom: 4px; display: block;
+}
+.section-card .section-title {
+    font-size: 12pt; font-weight: 700; color: var(--teal-800);
+    margin-bottom: 8px;
+}
+.section-card .one-liner {
+    font-weight: 700; color: var(--teal-600); margin-bottom: 8px;
+    font-size: 10pt; line-height: 1.5;
+    border-left: 3px solid var(--amber-500); padding-left: 12px;
+}
+.section-card p { margin: 6px 0; font-size: 10pt; }
+/* Key metric inline */
+.km { font-weight: 700; color: var(--teal-800); }
+.km-pos { font-weight: 700; color: var(--success-700); }
+.km-neg { font-weight: 700; color: var(--error-700); }
+.km-warn { font-weight: 700; color: var(--warning-700); }
+/* Certainty badge */
+.certainty {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 8.5pt; margin: 6px 0 0 0; padding: 4px 10px;
+    border-radius: 3px; background: var(--neutral-100);
+}
+.certainty .badge {
+    display: inline-block; padding: 1px 7px; border-radius: 3px;
+    font-weight: 700; font-size: 8.5pt;
+}
+.certainty .badge.sure { background: #E8F5E9; color: var(--success-700); }
+.certainty .badge.observed { background: #E3EDF3; color: var(--teal-600); }
+.certainty .badge.inferred { background: #FFF3E0; color: var(--warning-700); }
+/* Key numbers table */
+table {
+    width: 100%; border-collapse: collapse; margin: 10px 0;
+    font-size: 9pt; page-break-inside: avoid;
+}
+th {
+    background: var(--teal-800); color: var(--white);
+    font-size: 8.5pt; font-weight: 700; padding: 6px 10px;
+    text-align: left;
+}
+td { padding: 5px 10px; border-bottom: 1px solid var(--neutral-200); font-size: 9pt; }
+tr:nth-child(even) td { background: var(--neutral-50); }
+/* Compact list */
+ul { margin: 6px 0 6px 20px; padding: 0; }
+li { margin: 3px 0; font-size: 10pt; }
+/* Footer note */
+.footer-note {
+    margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--neutral-300);
+    font-size: 8.5pt; color: var(--neutral-500); line-height: 1.5;
+}
+/* Navigation TOC */
+.toc { margin: 16px 0; }
+.toc-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 4px 0; border-bottom: 1px dotted var(--neutral-300);
+    font-size: 9.5pt;
+}
+.toc-item .toc-section { font-weight: 700; color: var(--teal-600); }
+.toc-item .toc-title { flex: 1; margin-left: 8px; }
+.toc-item .toc-cert { font-size: 8.5pt; color: var(--neutral-500); white-space: nowrap; }
+hr { border: none; border-top: 1px solid var(--neutral-300); margin: 24px 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+    <h1>채널 진단 보고서<br>섹션별 결과 요약</h1>
+    <p class="subtitle">종합본(v3.1) 60페이지 → 섹션별 핵심 발견사항 압축</p>
+    <hr class="divider">
+    <table class="cover-meta">
+        <tr><td>문서 유형</td><td>내부 리뷰용 — 섹션별 결과 요약</td></tr>
+        <tr><td>원본</td><td>kimdalsu_v3_1_client_full_20260618 (종합본)</td></tr>
+        <tr><td>구성</td><td>§1~§4 (PART I) → §5 (PART II) → §6 (PART III) → §7 (PART IV) → §8 (PART V) → §10~§11 (PART VI)</td></tr>
+        <tr><td>최종 갱신</td><td>2026-06-18</td></tr>
+    </table>
+</div>
+
+<!-- TOC -->
+<h2>목차 &amp; 단정 등급 일람</h2>
+<div class="toc">
+    <div class="toc-item"><span class="toc-section">§1</span><span class="toc-title">용어 정의</span><span class="toc-cert">—</span></div>
+    <div class="toc-item"><span class="toc-section">§2</span><span class="toc-title">코호트 설계</span><span class="toc-cert">확실</span></div>
+    <div class="toc-item"><span class="toc-section">§3</span><span class="toc-title">현재 위치</span><span class="toc-cert">확실</span></div>
+    <div class="toc-item"><span class="toc-section">§4</span><span class="toc-title">심층 진단 (6개 하위 분석)</span><span class="toc-cert">혼합</span></div>
+    <div class="toc-item"><span class="toc-section">§5</span><span class="toc-title">재진단 — 포지셔닝·전략 업데이트</span><span class="toc-cert">혼합</span></div>
+    <div class="toc-item"><span class="toc-section">§6</span><span class="toc-title">목표 업데이트 — "3배"의 정의</span><span class="toc-cert">혼합</span></div>
+    <div class="toc-item"><span class="toc-section">§7</span><span class="toc-title">콘텐츠 채널 효과 (YouTube↔Chzzk)</span><span class="toc-cert">혼합</span></div>
+    <div class="toc-item"><span class="toc-section">§8</span><span class="toc-title">실행장벽 인벤토리 (5개 장벽)</span><span class="toc-cert">혼합</span></div>
+    <div class="toc-item"><span class="toc-section">§10</span><span class="toc-title">실행설계 (4단계)</span><span class="toc-cert">추정</span></div>
+    <div class="toc-item"><span class="toc-section">§11</span><span class="toc-title">트래킹 체계</span><span class="toc-cert">추정</span></div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ===== PART I ===== -->
+<div class="part-header">PART I — §1~§4: 현재 상태 진단</div>
+
+<!-- §1 -->
+<div class="section-card">
+    <span class="section-id">§1 용어 정의</span>
+    <div class="section-title">지표 정의 및 산출 기준</div>
+    <div class="one-liner">보고서 전체에서 사용하는 6개 기본 지표와 4개 파생 지표의 정의.</div>
+    <p><span class="km">기본 지표:</span> 팔로워(누적 구독), 평균 시청자(avg viewer), 최고 시청자(peak viewer), 뷰어십(총 시청자·분), 방송시간(월간 합계), 6분 평균 채팅.</p>
+    <p><span class="km">파생 지표:</span> 잔류율(avg/peak), 효율(뷰어십/팔로워), 전환율(avg/팔로워), 코호트(비교군 구조).</p>
+    <p>모든 수치는 Softcon 기반이며 플랫폼 공식 API 원자료가 아님. 절대값보다 추세·상대 위치 중심으로 해석.</p>
+</div>
+
+<!-- §2 -->
+<div class="section-card">
+    <span class="section-id">§2 코호트 설계</span>
+    <div class="section-title">3층 비교군 1,544채널</div>
+    <div class="one-liner">대상 채널의 상대 위치를 다층적으로 파악하기 위한 코호트 구조.</div>
+    <table>
+        <tr><th>코호트</th><th>정의</th><th>채널 수</th><th>용도</th></tr>
+        <tr><td>A — LoL 상위</td><td>LoL 카테고리 시청자 상위 100</td><td>100</td><td>카테고리 내 절대 위치</td></tr>
+        <tr><td>B — 동급생</td><td>팔로워 1K~15K 전 카테고리</td><td>126</td><td>체급 내 상대 위치</td></tr>
+        <tr><td>C — 팔로워 밴드</td><td>전 카테고리 팔로워 밴드</td><td>1,317</td><td>스케일링 경로·분포 관찰</td></tr>
+    </table>
+    <div class="certainty"><span class="badge sure">확실</span> 코호트 데이터 직접 수집·검증</div>
+</div>
+
+<!-- §3 -->
+<div class="section-card">
+    <span class="section-id">§3 현재 위치</span>
+    <div class="section-title">4축 포지셔닝 — "많이 하지만 적게 남는다"</div>
+    <div class="one-liner">방송시간은 코호트 최상위이나, 잔류율·효율·전환율은 중하위권.</div>
+    <table>
+        <tr><th>지표</th><th>현재 값</th><th>동급생 중앙</th><th>위치</th></tr>
+        <tr><td>팔로워</td><td class="km">3,760</td><td>—</td><td>—</td></tr>
+        <tr><td>평균 시청자</td><td class="km">69</td><td>—</td><td>—</td></tr>
+        <tr><td>방송시간 (월)</td><td class="km">162.7h</td><td>71.2h</td><td class="km-neg">2.3배 과다</td></tr>
+        <tr><td>잔류율 (avg/peak)</td><td class="km">0.418</td><td>0.645</td><td class="km-neg">하위권</td></tr>
+        <tr><td>효율 (뷰어십/팔로워)</td><td class="km">2.99</td><td>—</td><td>—</td></tr>
+        <tr><td>전환율 (avg/팔로워)</td><td class="km">1.84%</td><td>—</td><td>양호</td></tr>
+    </table>
+    <p>핵심 구조: 긴 방송시간 → 높은 뷰어십 총량이지만, 피크 대비 평균 비율(잔류율)은 동급생 중앙의 65% 수준. "양으로 보전하는" 패턴.</p>
+    <div class="certainty"><span class="badge sure">확실</span> 코호트 데이터 직접 비교</div>
+</div>
+
+<!-- §4 -->
+<div class="section-card">
+    <span class="section-id">§4 심층 진단</span>
+    <div class="section-title">6개 하위 분석 — 효율 커브·잔류율·전환율·카테고리·성장 경로</div>
+    <div class="one-liner">방송시간 축소 시 잔류율 개선 여지가 있으며, 전환율은 자연 수렴대 진입 전.</div>
+
+    <h3>§4.1 효율 커브 — U자형</h3>
+    <p>방송시간 30h 이하와 150h+ 양극에서 효율(뷰어십/팔로워)이 높고, 중간대에서 낮아지는 U자 구조. 본 채널(162.7h, 효율 2.99)은 오른쪽 끝에 위치. 극단 방송시간이 효율을 밀어올리는 것이 아니라, 뷰어십 총량을 팔로워로 나눈 결과.</p>
+
+    <h3>§4.2 잔류율 — 방송시간 역관계</h3>
+    <p>150h+ 그룹 잔류율 중앙 <span class="km">0.245</span>, 80~150h 그룹 <span class="km">0.299</span>, 30~80h 그룹 <span class="km">0.362</span>. 본 채널 0.418은 150h+ 내에서 이례적으로 높지만, 동급생 중앙 0.645 대비 절대 수준 하위. 코호트 밴드 분포 기반 — 동일 채널 시계열 검증은 아님.</p>
+
+    <h3>§4.3 전환율 — 자연 희석 전</h3>
+    <p>50K~100K 밴드 전환율 중앙 1.35%, 100K+ 1.56%. 현재 1.84%는 수렴대 진입 전이라 MS1(avg 120) 달성 시에도 유지 가능 추정.</p>
+
+    <h3>§4.4 LoL 카테고리 내 위치</h3>
+    <p>LoL 상위 100 최저 avg <span class="km">346명</span>. 현재 69명은 100위권 밖. 동일 카테고리 내 5배 성장이 필요한 위치.</p>
+
+    <h3>§4.5 카테고리 효과</h3>
+    <p>TFT2 카테고리에서 잔류율 <span class="km-pos">0.725</span> 관측. LoL(0.418)과 크게 다름. 같은 스트리머의 다른 카테고리에서 잔류율이 달라진 사례 — 인접 콘텐츠 다각화 간접 근거.</p>
+
+    <h3>§4.6 성장 경로 3단계</h3>
+    <p>P1(잔류율 개선) → P2(유튜브 전환 퍼널) → P3(유입 다각화). P4(팔로워 풀 확대)는 P1~P3의 결과.</p>
+    <div class="certainty"><span class="badge observed">관찰됨~추정</span> 코호트 밴드 분포 관찰이지 인과 아님. 개별 채널 적용 검증 전.</div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ===== PART II ===== -->
+<div class="part-header">PART II — §5: 재진단</div>
+
+<div class="section-card">
+    <span class="section-id">§5 재진단</span>
+    <div class="section-title">포지셔닝 업데이트 · YouTube 자산 진단 · 전략 프레임 Q 업데이트</div>
+    <div class="one-liner">YouTube 데이터 확보로 P2(유튜브 전환 퍼널)가 P3에서 승격. "3배" 목표를 7개 질문으로 구조화.</div>
+
+    <h3>§5.1 포지셔닝 업데이트</h3>
+    <p>4축 진단(§3) 이후 YouTube 데이터 추가 확보. 외부 도달 자산(Shorts 672개, 911만 조회수)이 확인되면서 진단 범위 확장.</p>
+
+    <h3>§5.2 YouTube 자산 진단</h3>
+    <p>Shorts 영상당 조회수 <span class="km">13,163</span> (일반 영상 2,845의 4.8배). 하이라이트 유형 영상당 <span class="km">30,144</span>으로 도달 효율 최상위. 그러나 Shorts → Chzzk 전환 장치(description 링크)는 672개 중 <span class="km-neg">6개(0.9%)</span>에만 존재.</p>
+
+    <h3>§5.3 우선순위 업데이트</h3>
+    <p>P2(유튜브 전환 퍼널)를 기존 P3에서 <span class="km-pos">승격</span>. 이유: 실행 난이도 최저(description 템플릿 1개), 측정 가능, 성공 시 다른 장벽 해소의 동기 생성.</p>
+
+    <h3>§5.4 전략 프레임 Q — 7개 질문</h3>
+    <p>Q1(잔류율 개선 경로), Q2(마일스톤 정의), Q3(YouTube↔Chzzk 전환 구조), Q4(팔로워 풀 확대), Q5(콘텐츠 다각화), Q6(정체성 스케일링), Q7(수익화 타이밍). Q3에 대해 교차 시계열 분석(§7 §4)으로 부분 답변 확보.</p>
+
+    <h3>§5.5 마일스톤 시뮬레이션</h3>
+    <p>MS1(avg 120) → MS2(avg 200) → MS3(avg 350). 각 마일스톤별 필요 잔류율·방송시간·팔로워 조합을 시뮬레이션. 코호트 밴드 분포 기반 추정.</p>
+    <div class="certainty"><span class="badge observed">관찰됨</span> YouTube 데이터는 확인된 사실. 마일스톤 시뮬레이션은 추정.</div>
+</div>
+
+<!-- ===== PART III ===== -->
+<div class="part-header">PART III — §6: 목표 업데이트</div>
+
+<div class="section-card">
+    <span class="section-id">§6 목표 업데이트</span>
+    <div class="section-title">"3배"의 정의 · 효율 밸리 · 마일스톤 트레이드오프 · 경보 임계값</div>
+    <div class="one-liner">"평균 시청자 3배(69→207)"는 잔류율 개선 + 팔로워 확대의 동시 달성을 요구하며, 중간에 효율 하락 구간을 반드시 통과해야 한다.</div>
+
+    <h3>§6.1 "3배" = avg 69 → 207</h3>
+    <p>평균 시청자 3배가 목표의 정량적 정의. 단순 산술이 아니라 avg = follower × 전환율이므로, 팔로워 확대와 잔류율 유지를 동시에 달성해야 함.</p>
+
+    <h3>§6.2 효율 밸리</h3>
+    <p>팔로워 5K~15K 구간에서 효율(뷰어십/팔로워)이 <span class="km-neg">하락</span>하는 "밸리" 존재. 비활성 팔로워 비중 증가 때문. 이 구간을 통과하면서 전환율이 자연 희석되는 것은 정상이며, 핵심은 잔류율을 함께 올려서 avg를 유지하는 것.</p>
+
+    <h3>§6.3 마일스톤별 트레이드오프</h3>
+    <table>
+        <tr><th>마일스톤</th><th>avg 목표</th><th>필요 잔류율</th><th>필요 방송시간</th><th>핵심 과제</th></tr>
+        <tr><td>MS1</td><td>120</td><td>0.55~0.65</td><td>80~100h</td><td>방송시간 축소 + 잔류율 개선</td></tr>
+        <tr><td>MS2</td><td>200</td><td>0.60~0.70</td><td>유지</td><td>팔로워 풀 확대 + 전환율 유지</td></tr>
+        <tr><td>MS3</td><td>350</td><td>0.65+</td><td>유지</td><td>LoL 100위권 진입</td></tr>
+    </table>
+
+    <h3>§6.4 경보 임계값</h3>
+    <p>효율 &lt; 0.7, 잔류율 &lt; 0.30, 전환율 &lt; 1.0%, 유튜브 업로드 &lt; 3건(2개월 연속) 시 실행 중단·원인 분석.</p>
+
+    <h3>§6.5 수익 프레임</h3>
+    <p>MS1~MS3 달성 경로에서의 수익 구조 변화를 프레이밍. 현 단계에서 수익화보다 체급 확대가 선행 과제.</p>
+    <div class="certainty"><span class="badge inferred">추정</span> 마일스톤 수치는 코호트 분포 기반 시뮬레이션. 실제 경로는 실행 결과 의존.</div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ===== PART IV ===== -->
+<div class="part-header">PART IV — §7: 콘텐츠 채널 효과 (YouTube↔Chzzk)</div>
+
+<div class="section-card">
+    <span class="section-id">§7 콘텐츠 채널 효과</span>
+    <div class="section-title">YouTube 718개 영상 분석 · 교차 시계열 · 편상관 · 전환 프록시</div>
+    <div class="one-liner">YouTube 업로드 빈도와 Chzzk 주간 지표 사이 독립적 양의 상관 확인(편상관 r=+0.72~0.76). 인과 미확정.</div>
+
+    <h3>§7.1 콘텐츠 인벤토리</h3>
+    <p>718개 영상 = Shorts 672 + 일반 46. 솔로랭크 598, 하이라이트 68, 듀오 23, 토크 18, 내전 4, 기타 7. 100% LoL 기반. 비LoL 콘텐츠 사실상 없음.</p>
+
+    <h3>§7.2 YouTube 자체 성과</h3>
+    <p>Shorts 영상당 조회수 <span class="km">13,163</span> vs 일반 <span class="km">2,845</span> (4.8배). 하이라이트 유형 <span class="km">30,144</span>으로 최상위. 좋아요율은 일반(1.17%)이 Shorts(0.94%)보다 높지만, 도달 규모가 작아 일반 영상은 Shorts의 보조 아카이브에 가까움.</p>
+    <p>월별 추세: 2026-01~03 평균 <span class="km">22.3건</span>/월 → 2026-04~06 평균 <span class="km-neg">8.3건</span>/월로 63% 감소. 조회수도 비례 하락.</p>
+
+    <h3>§7.3 Shorts-일반 영상 캠페인 매핑</h3>
+    <p>고신뢰 direct_teaser(description 풀버전 링크) <span class="km-neg">6건(0.9%)</span>. 자동 매핑 후보 56.7%는 same_topic(챔피언·라인 키워드 공유)이며 실제 시청 경로 증거 아님. Shorts → 일반 영상으로 체계적으로 이어지는 구조가 설계되지 않은 상태.</p>
+
+    <h3>§7.4 교차 시계열 (2026-06-18 업데이트)</h3>
+    <p>Chzzk 일별 CSV(287일) 확보로 주간 교차 분석 실행(n=10, W12~W22).</p>
+    <table>
+        <tr><th>상관 쌍</th><th>Pearson r</th><th>편상관 r (방송일수 통제)</th></tr>
+        <tr><td>YT업로드 vs 평균시청자</td><td class="km-pos">+0.761</td><td class="km-pos">+0.756</td></tr>
+        <tr><td>YT업로드 vs 팔로워Δ</td><td class="km-pos">+0.673</td><td class="km-pos">+0.716</td></tr>
+        <tr><td>YT업로드 vs 뷰어십</td><td class="km-pos">+0.657</td><td class="km-pos">+0.714</td></tr>
+    </table>
+    <p>YouTube 업로드와 방송일수의 zero-order 상관 r=+0.154 → 거의 독립. 방송일수 통제 후 편상관 유지·증가 → <span class="km-pos">"활동량 교란" 가설 기각</span>. YouTube 업로드 빈도는 방송 활동량과 독립적으로 Chzzk 지표와 상관.</p>
+    <p>이벤트 분석: 2026-04 업로드 급감(22→9) 시 팔로워Δ <span class="km-neg">57.7% 감소</span>, 평균시청자·뷰어십은 15%·12.5%만 감소 → 신규 유입 감속이지 기존 시청자 이탈 아님.</p>
+
+    <h3>§7.5 전환 프록시</h3>
+    <p>YouTube 총 조회수(924만) 대비 Chzzk 팔로워(3,760) = 상한 프록시 <span class="km">0.0407%</span>. 조회수 1,000회당 최대 0.41명. 실제 전환율은 이보다 낮을 가능성 큼(중복 조회, 유입 경로 미분리).</p>
+
+    <h3>§7.6 판단 요약</h3>
+    <table>
+        <tr><th>우선순위</th><th>판단</th><th>단정 등급</th></tr>
+        <tr><td>P1</td><td>Shorts 하이라이트 생산 유지 — 도달 효율 최상위</td><td>확실</td></tr>
+        <tr><td>P2</td><td>Shorts description 풀버전/라이브 연결 표준화 (현재 6건)</td><td>관찰됨</td></tr>
+        <tr><td>P3</td><td>일반 영상 → Shorts 이후 이어볼 시리즈로 재설계</td><td>추정</td></tr>
+        <tr><td>P4</td><td>YouTube↔Chzzk 독립적 양의 상관 확인 (편상관 r=+0.72~0.76)</td><td>관찰됨(독립 상관 확인)</td></tr>
+    </table>
+
+    <h3>§7.7~§7.8 한계 및 업그레이드 경로</h3>
+    <p>한계 7개: 단일 스냅샷 기반 views_delta 불가, YouTube 외 유입 미분리, 전환 프록시 상한 성격, YouTube Analytics API 미사용, 자동 태깅 한계, 캠페인 매핑 한계, Chzzk 시계열 일부만 확보.</p>
+    <p>업그레이드: 일별 스냅샷(KST 03:00-05:00) 전환 시 views_delta·기준선 lift·전환 상관 산출 가능. OAuth 확장 시 engagedViews·subscribersGained 확보.</p>
+    <div class="certainty"><span class="badge observed">관찰됨(독립 상관 확인)</span> 편상관 r=+0.72~0.76. 인과 방향 미확정, n=10 소표본.</div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ===== PART V ===== -->
+<div class="part-header">PART V — §8: 실행장벽 인벤토리</div>
+
+<div class="section-card">
+    <span class="section-id">§8 실행장벽 인벤토리</span>
+    <div class="section-title">5개 장벽 — 습관 관성 · 정체성 천장 · 단일 소재 · 파이프라인 공백 · 업로드 하락</div>
+    <div class="one-liner">"현재 잘 돌아가는 것을 건드려야 한다"가 공통 구조. 가장 쉬운 ④(전환 파이프라인)부터 착수.</div>
+    <table>
+        <tr><th>장벽</th><th>핵심</th><th>난이도</th><th>관련 P</th><th>단정</th></tr>
+        <tr><td>① 노방종 관성</td><td>162.7h 축소 저항. 코호트 밴드 분포상 축소 시 잔류율 개선 기대되나, 동일 채널 시계열 검증 아님</td><td class="km-neg">높음</td><td>P1</td><td>관찰됨</td></tr>
+        <tr><td>② 정붙음 천장</td><td>소규모 밀착 커뮤니티가 체급 확대 시 유지 불가 추정. avg 200+ 시 개별 소통 한계</td><td class="km-warn">중~높음</td><td>전체</td><td>추정</td></tr>
+        <tr><td>③ 단일 소재</td><td>YouTube 718개 100% LoL. 비LoL 시도 자체가 없었던 상태</td><td>중간</td><td>P3</td><td>관찰됨</td></tr>
+        <tr><td>④ 전환 파이프라인</td><td>Shorts description 링크 0.9%. 템플릿 1개로 즉시 착수 가능</td><td class="km-pos">낮음</td><td>P2</td><td>관찰됨</td></tr>
+        <tr><td>⑤ 업로드 하락</td><td>2026-04~06 업로드 63% 감소. 원인 미확인. P2 전제 위협</td><td>낮~중간</td><td>P2 전제</td><td>확실</td></tr>
+    </table>
+    <p>완화 경로 핵심: ① "방송시간 축소"가 아니라 "세션 분할(재배치)" 프레이밍 → ② 모더레이터 위임·참여 구조 설계 → ③ LoL 생태계 인접 게임(TFT 등) 소규모 실험 → ④ description 템플릿 표준화(즉시) → ⑤ 원인 파악 필요(스트리머 본인 확인).</p>
+    <div class="certainty"><span class="badge observed">관찰됨~확실</span> 장벽의 존재는 확인. 완화 경로 효과는 추정.</div>
+</div>
+
+<!-- ===== PART VI ===== -->
+<div class="part-header">PART VI — §10~§11: 실행설계와 트래킹</div>
+
+<!-- §10 -->
+<div class="section-card">
+    <span class="section-id">§10 실행설계</span>
+    <div class="section-title">4단계 실행 — 전환퍼널 → 세션분할 → 총시간축소 → 인접콘텐츠</div>
+    <div class="one-liner">가장 쉬운 것부터 시작하고, 가장 어려운 것은 단계적으로 접근한다. 모든 항목은 스트리머 협의 후 확정.</div>
+    <table>
+        <tr><th>단계</th><th>실행 항목</th><th>대응 P</th><th>대응 장벽</th><th>난이도</th><th>착수 조건</th></tr>
+        <tr><td>1단계</td><td>유튜브 전환 퍼널 설계</td><td>P2</td><td>§8.4</td><td class="km-pos">낮음</td><td>없음 (즉시)</td></tr>
+        <tr><td>2단계</td><td>방송 세션 분할</td><td>P1 전반</td><td>§8.1</td><td>중간</td><td>1단계와 동시</td></tr>
+        <tr><td>3단계</td><td>방송 총시간 축소 (162→80~100h)</td><td>P1 후반</td><td>§8.1</td><td class="km-neg">높음</td><td>잔류율 ≥ 0.45 &amp; 뷰어십 ≥ 10K (2단계 8주 후)</td></tr>
+        <tr><td>4단계</td><td>인접 콘텐츠 실험</td><td>P3</td><td>§8.3</td><td>중간</td><td>여력 시</td></tr>
+    </table>
+    <p>1단계 핵심 실행: Shorts description 표준 템플릿 작성(치지직 링크 + 풀버전 연결) + 일별 팔로워 스냅샷 수집 시작.</p>
+    <p>2단계 핵심 실행: 총 시간 유지한 채 세션 길이를 5.4h → 3~4h로 줄이고 방송 일수를 늘림. 8주 후 잔류율 변화 평가.</p>
+    <p>3단계 착수 조건 미충족 시: 2단계 유지 또는 세션 길이 추가 조정. 강행 금지.</p>
+    <p>4단계: 주 1회 비LoL 세션(2~3시간). TFT2 잔류율 0.725가 간접 근거. 비LoL 잔류율 ≥ 0.40이면 다각화 실행 가능 판단.</p>
+    <div class="certainty"><span class="badge inferred">추정</span> 목표 수치는 코호트 밴드 분포 기반. 실제 효과는 실행 결과로만 확인 가능.</div>
+</div>
+
+<!-- §11 -->
+<div class="section-card">
+    <span class="section-id">§11 트래킹 체계</span>
+    <div class="section-title">측정 구조 · 전환 프록시 추적 · W24 타임라인</div>
+    <div class="one-liner">일별 스냅샷(KST 03:00-05:00) + 주간 리뷰 + 월간 경보 체크. W12 중간리뷰에서 3단계 착수 여부 결정.</div>
+
+    <h3>§11.1 일별/주간/월간 측정</h3>
+    <p>일별: 치지직 팔로워·세션 기록 + 유튜브 영상별 조회수·구독자(YouTube Data API v3). 주간: 잔류율·팔로워 순증·Shorts 업로드 수·조회수 합계. 월간: 효율·잔류율·전환율·업로드 빈도 경보 체크(§6.4 임계값).</p>
+
+    <h3>§11.2 전환 프록시 추적</h3>
+    <p>1단계 효과 측정 핵심. Shorts 업로드일 기준 전후 팔로워 변화 + 주간 전환 프록시 근사치 산출. 현재 0.0407%에서 0.05%+ → 전환 기여 판단, 0.1%+ → 유의미 개선.</p>
+
+    <h3>§11.3 타임라인 (권장)</h3>
+    <table>
+        <tr><th>주차</th><th>1단계</th><th>2단계</th><th>3단계</th><th>4단계</th></tr>
+        <tr><td>W1~W4</td><td>템플릿 작성·적용 100%</td><td>세션 분할 시작</td><td>—</td><td>(여력 시)</td></tr>
+        <tr><td>W5~W8</td><td>팔로워 기준선 확보</td><td>세션 분할 지속</td><td>—</td><td>주 1회 실험</td></tr>
+        <tr><td>W9~W12</td><td>전환 프록시 변화 평가</td><td>잔류율 변화 평가</td><td>착수 조건 판단</td><td>4세션 비교</td></tr>
+        <tr><td>W13~W24</td><td>유지</td><td>—</td><td>162→120→80~100h</td><td>방향 결정</td></tr>
+    </table>
+
+    <h3>§11.4 체크포인트</h3>
+    <p>W4(적용률 확인) → W8(잔류율 방향) → <span class="km">W12 중간 리뷰</span>(3단계 착수 조건 판단) → W24 종합 리뷰(MS1 진입 경로 평가, 전체 전략 재검토).</p>
+    <p>W12에서 잔류율 미개선(&lt;0.43) 시 세션 분할 재설계, 뷰어십 하락(&lt;9K) 시 방송 일수 증가로 보전, 둘 다 악화 시 2단계 롤백.</p>
+    <div class="certainty"><span class="badge inferred">추정</span> 타임라인은 최선 시나리오. 실행 지연·조건 미충족 시 일정 변동.</div>
+</div>
+
+<hr>
+
+<!-- FOOTER -->
+<div class="footer-note">
+    <p><strong>외부 데이터 고지:</strong> 치지직 데이터는 Softcon 기반(플랫폼 공식 API 아님). 유튜브 데이터는 YouTube Data API v3 공개 조회수 기반(YouTube Analytics 시청 지속시간·유입 경로·구독 전환 데이터 아님). 절대 수치보다 추세와 상대 위치 중심으로 해석.</p>
+    <p><strong>문서 성격:</strong> 이 요약본은 종합본(kimdalsu_v3_1_client_full_20260618)의 섹션별 핵심 발견사항을 내부 리뷰 목적으로 압축한 것이다. 세부 데이터 테이블, 산출 과정, 한계 조건의 완전한 기술은 종합본을 참조.</p>
+</div>
+
+</body>
+</html>

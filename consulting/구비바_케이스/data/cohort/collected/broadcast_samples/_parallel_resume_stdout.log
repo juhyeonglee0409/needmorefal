@@ -1,0 +1,17 @@
+{"workerId":1,"progress":"1/323","channelId":"652abc4f57f73627fd3b63c1acb46735","error":"429"}
+{"workerId":2,"progress":"2/323","channelId":"e2f91d088c9bbcd1fce2924ff3f58226","error":"429"}
+{
+  "manifestPath": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples\\_collection_manifest_resume.json",
+  "errorsPath": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples\\_collection_errors_resume.csv",
+  "progressPath": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_CASE_PACKAGE_v3_20260611\\data\\cohort\\collected\\broadcast_samples\\_collection_progress_resume.ndjson",
+  "candidate_rows_before_dedupe": 380,
+  "unique_targets_after_dedupe": 323,
+  "offset": 0,
+  "limit": null,
+  "attempted_in_this_run": 235,
+  "skipped_existing": true,
+  "successCount": 0,
+  "shortRowsCount": 0,
+  "errorCount": 2,
+  "boundarySignal": "checkpoint_or_rate_boundary"
+}

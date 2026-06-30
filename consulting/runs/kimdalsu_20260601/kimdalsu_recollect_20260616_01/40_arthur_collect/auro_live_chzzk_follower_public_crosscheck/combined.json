@@ -1,0 +1,16 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "auro_live_chzzk_follower_public_crosscheck",
+  "source_url": "https://auro.live/rank/chzzk/0",
+  "response": {
+    "status_code": 200,
+    "final_url": "https://auro.live/rank/chzzk/0",
+    "response_hash": "0c02d337b4afbd393d9913a8e20f801babc97141367792a376d35e01a13e48b6",
+    "response_bytes": 207051
+  },
+  "items": [],
+  "verification": {
+    "parse_status": "blocked",
+    "boundary_signal": "not_collected_route_requires_chrome_js_fetch_devalue_parser"
+  }
+}

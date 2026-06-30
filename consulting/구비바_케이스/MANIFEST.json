@@ -1,0 +1,254 @@
+{
+  "package_name": "구비바_케이스",
+  "created_at": "2026-06-11",
+  "status": "private_validation_case__case_result_not_ready",
+  "read_first": [
+    "README.md",
+    "구비바_CASE_DOSSIER_v3.md"
+  ],
+  "canonical_machine_files": [
+    "machine/구비바_project_v3.json",
+    "machine/구비바_CaseResult_v3_stub.json",
+    "machine/구비바_EvidencePackage_v3_initial.json",
+    "machine/구비바_AbsenceInventory_v3_initial.json",
+    "machine/구비바_DisclosureLog_v3_initial.json"
+  ],
+  "file_count": 47,
+  "files": [
+    {
+      "path": "MANIFEST.json",
+      "bytes": 9245,
+      "sha256": "720e7255b9762ee1092924da3349e9ea66827743bf25f0854fe2bb4d170f0f69"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1677,
+      "sha256": "3ac279b1a8e8fcf9a1eb61fc0bee167c770e0d4e81a45c4895951563a0175de5"
+    },
+    {
+      "path": "archive/README.md",
+      "bytes": 285,
+      "sha256": "770dc0aeed423b99641a13130b6e976c739d73d3773fa7d13ba315c38c7d72ff"
+    },
+    {
+      "path": "archive/prior_packages/구비바_v3_migration_prep_package_20260611.zip",
+      "bytes": 29063,
+      "sha256": "a9a1539fd4455970c8b7eafc374c2bc44bc2022513cb3e9b22d8dab1e29c37dd"
+    },
+    {
+      "path": "archive/prior_packages/구비바_§4_step1_코호트구축_패키지_20260610.zip",
+      "bytes": 29872,
+      "sha256": "9705782ba773737d5353018718c3b654c50223047f5a270dae9b926628aca563"
+    },
+    {
+      "path": "archive/prior_packages/스트리머팀_구비바_케이스_20260601.zip",
+      "bytes": 58568,
+      "sha256": "d479c5833f241a3e02eb1dbc203753af5a47b93fe454b7f80b92e0d856a547c9"
+    },
+    {
+      "path": "archive/prior_packages/스트리머팀_구비바_케이스_step0_20260610.zip",
+      "bytes": 61173,
+      "sha256": "47a26adf5b05801539c2f878b3f9069ce34f4c69056811cab2c990d5fe75409c"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 518,
+      "sha256": "5ff86cd9b5fc819efe3c3c53914d82136014d2b4afc93f92ebeea413f02bcb3c"
+    },
+    {
+      "path": "data/cohort/README.md",
+      "bytes": 386,
+      "sha256": "27784dfe608543ba933b7ec028d12dc0e2e26d66e532e1fca28239fd93801924"
+    },
+    {
+      "path": "data/cohort/specs/구비바_§4_Arthur_ExecutionProtocol_v2_TEMPLATE_20260610.json",
+      "bytes": 4662,
+      "sha256": "9bc7928a2807a82a7f1a2547e8bc4473d29e2205ac9ca74c3511060270a45688"
+    },
+    {
+      "path": "data/cohort/specs/구비바_§4_Charles_진단요청_v2_20260610.md",
+      "bytes": 3391,
+      "sha256": "804eccafd39e8c1519bb49f50ba4e9d1a247b7a0012cb61a26c3150484aacd9a"
+    },
+    {
+      "path": "data/cohort/specs/구비바_§4_cohort_spec_v2_20260610.json",
+      "bytes": 8912,
+      "sha256": "480f1527ea7994b419fa6b476e11b9313b8212ca85434a81b744af4237e2dfe4"
+    },
+    {
+      "path": "data/cohort/specs/구비바_§4_column_contract_v2_20260610.csv",
+      "bytes": 7600,
+      "sha256": "fd35e74e92c5117934b39b30c6ef4c99e8c5824b8ae35a3d2f111a9dff77c768"
+    },
+    {
+      "path": "data/cohort/specs/구비바_§4_코호트_방법론_v2_20260610.md",
+      "bytes": 9869,
+      "sha256": "51fb98a5db3c2995de075a2bdaca46c6374f78748b8708355608c81bdae6db4d"
+    },
+    {
+      "path": "data/daily_stats/구비바_방송통계_1년_20260529.csv",
+      "bytes": 9447,
+      "sha256": "f7320bb87d61b8b364e4dce938eadd5df70d40352eddfa3357b1a8322aa8d64b"
+    },
+    {
+      "path": "deliverables/README.md",
+      "bytes": 445,
+      "sha256": "97b7f556100d93c97c6047bf7402140ff07088121e474120aed2b6177b20c97c"
+    },
+    {
+      "path": "machine/schema/MASTER_v2_M7_1_canonical_enum_table.csv",
+      "bytes": 5064,
+      "sha256": "e101bd9f532c5ad0c265df05db584387e3665b38790f7ba450c07c167aac4fb4"
+    },
+    {
+      "path": "machine/schema/MASTER_v2_M7_1_canonical_schema_pack.json",
+      "bytes": 24633,
+      "sha256": "29ba47fab0adbd013981f70e9f7f1513516b8718223bb8123573a9f1f9b45c34"
+    },
+    {
+      "path": "machine/schema/MASTER_v2_M7_1_disclosure_boundary_matrix.csv",
+      "bytes": 1661,
+      "sha256": "a3a887b5d5147a148e1c1eeaa4ea329fa01cd043cc5b2e411f427ec88a9261b3"
+    },
+    {
+      "path": "machine/구비바_AbsenceInventory_v3_initial.json",
+      "bytes": 2867,
+      "sha256": "575ea33ad6b0018160665568ac65d5bba699d4e5a6defadec3dd781f0455656f"
+    },
+    {
+      "path": "machine/구비바_CaseResult_v3_stub.json",
+      "bytes": 13436,
+      "sha256": "690f44942a5406835e805bec60c94a60f07df23273c57b38369af93264a5a830"
+    },
+    {
+      "path": "machine/구비바_DisclosureLog_v3_initial.json",
+      "bytes": 668,
+      "sha256": "c2a23b3106d83bf6f990e4de088cb2f95a5d3f499d47db365f36c92f2a8a4ee1"
+    },
+    {
+      "path": "machine/구비바_EvidencePackage_v3_initial.json",
+      "bytes": 3769,
+      "sha256": "42c7fa8bb6eaad9088278efdc6f9fbee3b61392a99635f5743b37473cee8ca1b"
+    },
+    {
+      "path": "machine/구비바_ValidationCaseRegistryRow_v3.csv",
+      "bytes": 1280,
+      "sha256": "8b7089a18ec8b14469dfc26bbe0e950f1c822f9cae1eab55be138dcafb7a5e02"
+    },
+    {
+      "path": "machine/구비바_ValidationCaseRegistryRow_v3.json",
+      "bytes": 1517,
+      "sha256": "3f65358af7b82f0c47c91bfa9729183046ad67132a234827a9efc2a7323e7e48"
+    },
+    {
+      "path": "machine/구비바_project_v3.json",
+      "bytes": 53237,
+      "sha256": "fb62246bbb9934f94093292a204ba7ae5d86e781f756da9c48b70e1f969a90f0"
+    },
+    {
+      "path": "references/README.md",
+      "bytes": 330,
+      "sha256": "1c39b77b289db428d2111ea1010078d810245f9435bd9b04fbcde0ce68c120d4"
+    },
+    {
+      "path": "references/current_framework/MASTER_streamer_mcn_framework_v2_draft_M7_1_QA2_patched_20260610.md",
+      "bytes": 128380,
+      "sha256": "5e358ab1b2b50ecea32362cb13e3ca15cc392fcdc2cbf73d3d9491fd39bcf5ca"
+    },
+    {
+      "path": "references/current_framework/MASTER_v2_QA_round2_report_20260610.md",
+      "bytes": 3941,
+      "sha256": "68cc9801837afb515c2d8642da0633da4262b25028c24ff5af92b79d97b21be4"
+    },
+    {
+      "path": "references/current_framework/스트리머_채널진단_방법론_v3_draft_START_20260610.md",
+      "bytes": 82797,
+      "sha256": "20016773bffa533d42530c9234002d4c7c8e56fe127105d9436a1858fd4153e7"
+    },
+    {
+      "path": "references/legacy_framework/MASTER_streamer_mcn_minimal_insert_v1.md",
+      "bytes": 59381,
+      "sha256": "48f68fc6a2fb731c3e34c9be6a558be03bd45c5a1d22d821fae1beb52357831c"
+    },
+    {
+      "path": "references/legacy_framework/스트리머_채널진단_방법론_v1.md",
+      "bytes": 45196,
+      "sha256": "eeb5f1174727cc289adeba424650f8412d2e073ece90231c6164c75b59d3f405"
+    },
+    {
+      "path": "source_inputs/README.md",
+      "bytes": 406,
+      "sha256": "99f84102ed80c9886cb1d21d2a6b71747960f82b4d4944d8abce4238dc3255b4"
+    },
+    {
+      "path": "source_inputs/README_original_zip.md",
+      "bytes": 12474,
+      "sha256": "e5abff09fd77e2442d067f38c53b0d41195070e281cbe37e077b54f73cc3daab"
+    },
+    {
+      "path": "source_inputs/current_analysis/구비바_§1_입력자료_v3.md",
+      "bytes": 16853,
+      "sha256": "e3e40621e2a88de325098e71e64e75846469bfbe385bb7b7b8059c79ab8c0049"
+    },
+    {
+      "path": "source_inputs/current_analysis/구비바_§6§7§9_진입자료.md",
+      "bytes": 16063,
+      "sha256": "1a77c5524b0bbe2333f9362bfa07aabce719e59e3ac372555caa5ad93fc53daf"
+    },
+    {
+      "path": "source_inputs/legacy_project/구비바_project_original_from_source_zip.json",
+      "bytes": 40329,
+      "sha256": "dab95334bd6c02e9cae5cac2987d132cf07159aff7add402a87430d8a847e01b"
+    },
+    {
+      "path": "source_inputs/legacy_project/구비바_project_original_from_zip.json",
+      "bytes": 40329,
+      "sha256": "dab95334bd6c02e9cae5cac2987d132cf07159aff7add402a87430d8a847e01b"
+    },
+    {
+      "path": "source_inputs/original_raw/구비바_인터뷰_답변추적_v5.md",
+      "bytes": 13285,
+      "sha256": "56bf70f26c70cda17e8a6ca117ac7385c4df77db3efe8d201a93a6edaade4738"
+    },
+    {
+      "path": "source_inputs/original_raw/구비바_인터뷰_전체로그_v3.md",
+      "bytes": 39683,
+      "sha256": "19e9dc91819b65592b387a8a26aafa008dc6d153605c149660f0e4feebc930ce"
+    },
+    {
+      "path": "source_inputs/original_raw/구비바_자기소개_원자료.md",
+      "bytes": 2622,
+      "sha256": "49fb37116241f946e7ab14edad9b2ba5c8d7759b054415450b6a387f48f1e3b5"
+    },
+    {
+      "path": "work/README.md",
+      "bytes": 322,
+      "sha256": "1b17f6c966fc45901cf72febbdea8b9116dd34992107c85064dd44269db2fe4b"
+    },
+    {
+      "path": "work/migration/구비바_v3_re_read_pass_20260611.md",
+      "bytes": 4232,
+      "sha256": "4c51b77601ba7c3fda3f9f7239fa746c3e26c4cf662374526cb3d7427ba56dc8"
+    },
+    {
+      "path": "work/step0/구비바_Step0_레지스터_정리_20260610.md",
+      "bytes": 2105,
+      "sha256": "e9dcff8af56f03348af14100e72f5e010d6dfd8a8a0c29ee8413291f76a02ce2"
+    },
+    {
+      "path": "work/step0/구비바_project_step0_20260610.json",
+      "bytes": 44862,
+      "sha256": "c7e112a25be14a3f389a1e9263f787f0640b32f43db2d8099ccdaccbc25d222f"
+    },
+    {
+      "path": "work/step1_cohort_spec/구비바_project_step1_20260610.json",
+      "bytes": 48106,
+      "sha256": "4538f60151f773f329ce69998c80d8f67abbcb18ce29c2deee209986dd4e67da"
+    },
+    {
+      "path": "구비바_CASE_DOSSIER_v3.md",
+      "bytes": 7638,
+      "sha256": "4267c1fbade78238a6f8d3cb13014bfdb7807576860cce7b66dd54abecbfa863"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "target_id": "chzzk_subject_channel_public_profile",
+  "target_url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+  "best_path": "public_http_parse",
+  "pre_check": {
+    "gate_status": "public_cleared",
+    "boundary_signal": null,
+    "profile_required": false
+  },
+  "collection_plan": {
+    "source": "public_http_parse",
+    "max_pages": 1
+  },
+  "verification": {
+    "preserve_not_verifiable": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "softcon_subject_channel_current_stats",
+  "approved": true,
+  "operator_approval_source": "user message 2026-06-16: 수집 시작하자",
+  "approval_scope": "collect only; no CaseResult/Disclosure/PublicDemo promotion",
+  "blocked_reason": null,
+  "secret_values_logged": false,
+  "created_at": "2026-06-16T22:00:17+09:00"
+}

@@ -1,0 +1,36 @@
+{
+  "case_id": "kimdalsu_20260601",
+  "case_alias": "A스트리머",
+  "case_type": "client_deliverable_case",
+  "platform": "chzzk",
+  "primary_category": "롤/MOBA",
+  "secondary_category": null,
+  "is_virtual": false,
+  "data_depth": "mixed",
+  "analysis_status": "analysis_closed",
+  "execution_status": "tracking",
+  "case_result_status": "partial",
+  "portfolio_row_status": "partial_ready",
+  "public_demo_status": "synthetic_candidate",
+  "disclosure_review_status": "requires_consent",
+  "main_blockers": [
+    "실행 매뉴얼/트래킹 미완료",
+    "6/16 후속 open 확인 필요",
+    "실제 사례 공개 전 별도 동의/익명화 검토 필요"
+  ],
+  "allowed_public_description": "MOBA 게임 기반 개별 Deep-Dive 분석 마일스톤 사례",
+  "restricted_terms": [
+    "김달수",
+    "Dalsu",
+    "롤",
+    "코호트 명단",
+    "보고 직후 인터뷰 원문"
+  ],
+  "evidence_package_path": "machine/김달수_EvidencePackage_v3_initial.json",
+  "case_result_path": "machine/김달수_CaseResult_v3_partial_20260611.json",
+  "portfolio_row_path": "machine/김달수_PortfolioRow_v3_partial_20260611.json",
+  "decision_card_path": "machine/김달수_DecisionCard_v3_partial_20260611.json",
+  "public_demo_row_path": null,
+  "last_reviewed_at": "2026-06-11",
+  "notes": "채널진단방법론 v1 + MASTER v1 산출물을 MASTER v2 M7.1 구조로 재패키징."
+}

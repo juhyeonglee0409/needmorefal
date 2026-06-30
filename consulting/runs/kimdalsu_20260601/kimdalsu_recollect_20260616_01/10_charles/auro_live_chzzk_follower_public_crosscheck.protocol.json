@@ -1,0 +1,14 @@
+{
+  "target_id": "auro_live_chzzk_follower_public_crosscheck",
+  "target_url": "https://auro.live/rank/chzzk/0",
+  "best_path": "manual_review",
+  "pre_check": {
+    "gate_status": "restricted",
+    "boundary_signal": "not_collected_route_requires_chrome_js_fetch_devalue_parser",
+    "profile_required": false
+  },
+  "collection_plan": null,
+  "verification": {
+    "preserve_not_verifiable": true
+  }
+}

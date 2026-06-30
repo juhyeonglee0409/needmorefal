@@ -1,0 +1,58 @@
+﻿{
+    "version":  "1.0",
+    "generated_at":  "2026-06-11 18:56:31",
+    "target_url":  "https://viewership.softc.one/",
+    "best_path":  "manual_review",
+    "best_path_trace":  [
+                            "Phase 1 rendering=verification_gate",
+                            "Phase 2 gate_status=restricted",
+                            "manual review required before collection planning"
+                        ],
+    "pre_check":  {
+                      "robots_status":  "unknown",
+                      "robots_detail":  "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+                      "gate_status":  "restricted",
+                      "gate_detail":  "Vercel; status=restricted",
+                      "login_required":  false,
+                      "terms_flag":  false,
+                      "terms_detail":  "",
+                      "risk_level":  "restricted"
+                  },
+    "connection_test":  null,
+    "collection_plan":  null,
+    "storage":  null,
+    "verification":  null,
+    "agent_prompt":  null,
+    "notes":  [
+                  "best_path: manual_review",
+                  "manual_review_checklist: 정상 브라우저 세션에서 콘텐츠가 보이는지 확인",
+                  "manual_review_checklist: CAPTCHA, verification gate, IP 제한, 권한 세션 요구를 구분",
+                  "manual_review_checklist: 클라이언트가 허용한 세션/헤더 제공 가능 여부 확인",
+                  "manual_review_checklist: 공식 API, sitemap, 승인된 export 경로를 먼저 확인"
+              ],
+    "transport":  "httpx",
+    "profile_required":  false,
+    "profile_summary":  null,
+    "rsc_payload_candidates":  [
+
+                               ],
+    "diagnostic_findings":  {
+                                "api":  {
+                                            "status":  "not_found",
+                                            "candidates_seen":  0,
+                                            "usable_candidates":  0,
+                                            "reason":  "no data-like API candidates found"
+                                        },
+                                "sitemap":  {
+                                                "status":  "not_found",
+                                                "candidates_seen":  0,
+                                                "usable_candidates":  0,
+                                                "reason":  "no sitemap candidates found"
+                                            },
+                                "rsc":  {
+                                            "status":  "not_found",
+                                            "payload_count":  0,
+                                            "reason":  "no RSC payload candidates found"
+                                        }
+                            }
+}

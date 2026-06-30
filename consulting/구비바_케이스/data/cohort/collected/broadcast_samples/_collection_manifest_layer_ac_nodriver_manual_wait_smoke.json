@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-06-20T01:35:28+0900",
+  "mode": "full",
+  "method": "nodriver_dom_browser",
+  "output_dir": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples",
+  "profile_dir": "work\\step4_cohort_collect_prep\\.pw_profile",
+  "raw_html_saved": false,
+  "secret_values_logged": false,
+  "cookie_values_read": false,
+  "url_pattern": "https://viewership.softc.one/channel/naverchzzk/{channelId}/streams",
+  "query": {
+    "full_range": true,
+    "startDateTime": "2023-10-01T15:00:00.000Z",
+    "endDateTime": "2026-06-15T14:59:59.999Z"
+  },
+  "checkpoint_wait_ms": 90000,
+  "target_summary": {
+    "target_file": "work\\step8_layer_ac_broadcasts\\layer_ac_broadcast_targets_20260620.json",
+    "candidate_rows_before_dedupe": 44,
+    "unique_targets_after_dedupe": 44,
+    "offset": 0,
+    "limit": 1,
+    "attempted_in_this_run": 1,
+    "skipped_existing": false
+  },
+  "success_count": 1,
+  "short_rows_count": 0,
+  "error_count": 0,
+  "boundary_signal": null,
+  "deduped_memberships": [],
+  "successes": [
+    {
+      "progress": "1/44",
+      "group": "LA",
+      "channel_id": "65a53076fe1a39636082dd6dba8b8a4b",
+      "name": "오화요 Ohwayo",
+      "row_count": 100,
+      "status": "success",
+      "output_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\cohort\\collected\\broadcast_samples\\LA\\65a53076fe1a39636082dd6dba8b8a4b_방송별_요약.csv",
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/65a53076fe1a39636082dd6dba8b8a4b/streams?startDateTime=2023-10-01T15%3A00%3A00.000Z&endDateTime=2026-06-15T14%3A59%3A59.999Z"
+    }
+  ],
+  "errors": []
+}

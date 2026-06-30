@@ -1,0 +1,45 @@
+{
+  "url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking",
+  "target_id": "softcon_chzzk_lol_population_monthly",
+  "generated_at": "2026-06-16T21:11:43+09:00",
+  "tool": "codex_browser_profile_summary",
+  "transport": "nodriver_existing_approved_profile_visible_chrome",
+  "save_raw": false,
+  "save_screenshot": false,
+  "secret_values_logged": false,
+  "final_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking",
+  "title": "리그 오브 레전드 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+  "body_text_length": 773,
+  "content_signals": {
+    "has_kimdalsu": false,
+    "has_softcon": true,
+    "has_lol": false,
+    "has_follower": false,
+    "has_ranking": true
+  },
+  "boundary": {
+    "checkpoint_detected": false,
+    "rate_limited_detected": false,
+    "login_required_likely": false,
+    "enterprise_required_likely": false
+  },
+  "boundary_signal": null,
+  "visible_text_sample": "소프트콘뷰어십 소프트콘 멤버십 대시보드 스탠드 방송 현황 LIVE 스트리머 랭킹 방송 그룹 플랫폼 카테고리 랭킹 이스포츠 NEW 카테고리 카테고리 상세 요약 통계 플랫폼별 통계 소프트콘 랭킹 스트리머 랭킹 성장 랭킹 랭킹 히스토리 필터 소프트콘 뷰어십 2.3.3 이메일 디스코드 링크드인 Github Velog 나이스페이 에스크로 이용약관 개인정보처리방침 제휴 팬심 FANCIM 헛삯 SSAPI 도움 아르고 오로라이브 auro.live 오픈소스 React Next.js shadcn/ui Magic UI nivo tailwind © 2026, 스튜디오 소프트콘 | 정연진 사업자 등록번호 : 586-56-00743 | 경기도 남양주시 화도읍 마석중앙로37번길 45 504호 22827 | 대표전화 : 010-9728-9622 | 스튜디오 소프트콘은 간이과세자입니다. 수집 안내 소프트콘 뷰어십에 표시된 모든 브랜드, 상표는 제3자의 소유이며 소프트콘 뷰어십에선 정보 제공의 목적으로만 사용되며, 수집되는 정보는 오직 누구나 자유로이 접근이 가능한 데이터만을 수집합니다. 로그인 전, 베이직 요금제로 제공하는 데이터 : [ CC : BY-ND 4.0 ] 라이센스로 개인/단체/기업의 모든 사용자가 ( 출처 표기 - 변경 금지 )를 지킬시 상업적, 비상업적인 용도로 자유롭게 사용할 수 있습니다. 플러스, 프로, 엔터프라이즈 요금제로 추가 제공하는 데이터",
+  "metric_lines": [
+    "소프트콘뷰어십",
+    "소프트콘 멤버십",
+    "방송 현황",
+    "스트리머 랭킹",
+    "방송 그룹",
+    "카테고리 랭킹",
+    "소프트콘 랭킹",
+    "스트리머 랭킹",
+    "성장 랭킹",
+    "랭킹 히스토리",
+    "소프트콘 뷰어십",
+    "소프트콘 뷰어십에 표시된 모든 브랜드, 상표는 제3자의 소유이며 소프트콘 뷰어십에선 정보 제공의 목적으로만 사용되며, 수집되는 정보는 오직 누구나 자유로이 접근이 가능한 데이터만을 수집합니다.",
+    "로그인 전, 베이직 요금제로 제공하는 데이터 : [ CC : BY-ND 4.0 ] 라이센스로 개인/단체/기업의 모든 사용자가 ( 출처 표기 - 변경 금지 )를 지킬시 상업적, 비상업적인 용도로 자유롭게 사용할 수 있습니다.",
+    "플러스, 프로, 엔터프라이즈 요금제로 추가 제공하는 데이터 : 이용약관에 따라 재배포 및 상업적 이용을 금지하며, 소프트콘 뷰어십의 데이터를 컨텐츠 및 서비스로 제공하는 행위를 금지합니다."
+  ],
+  "channel_anchor_count": 100
+}

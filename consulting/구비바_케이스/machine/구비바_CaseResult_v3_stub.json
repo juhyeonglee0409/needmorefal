@@ -1,0 +1,350 @@
+{
+  "case_id": "gubiba",
+  "methodology_version": "streamer_channel_diagnosis_v3 + MASTER_v2_M7.1",
+  "case_result_status": "not_ready",
+  "case_type": "private_validation_case",
+  "analysis_mode": "deep_dive",
+  "data_depth": "creator_shared",
+  "data_sources": [
+    "interview",
+    "channel_stats",
+    "content_sample",
+    "manual_review"
+  ],
+  "subject": {
+    "streamer_key": "gubiba",
+    "platform": "chzzk",
+    "platform_channel_id": null,
+    "public_alias": null
+  },
+  "milestone_status": {
+    "analysis_milestone": false,
+    "analysis_close": false,
+    "execution_manual_included": false,
+    "tracking_sheet_included": false,
+    "execution_close": false
+  },
+  "deliverable_milestones": [],
+  "identity_summary": {
+    "internal_text": "동네 누나·여동생 톤의 \"광대+샌드백\"을 본인 의도로 깔고, 시청자가 \"멘헤라 꾸숭이\"로 받아 희망/실제 격차가 작게 작동하는 종합게임 힐링 채널.",
+    "client_safe_text": "정체성이 없는 채널이 아니라, 본인 의도와 시청자 수용이 꽤 맞아 있는 종합게임 힐링 채널로 정리된다.",
+    "public_safe_text": null,
+    "identity_clarity": "high",
+    "restricted_terms": [
+      "본인 고유 어휘 원문",
+      "발화 시점",
+      "시청자 호칭/내부 밈",
+      "정확 직업·연령·거주 단서"
+    ],
+    "disclosure_tag": "red"
+  },
+  "measurement_corrections": [
+    {
+      "correction_id": "MC_GUBIBA_LONG_STREAM_0DAYS",
+      "affected_metric": "avg_viewers",
+      "distortion_source": "long_stream_hours_absent_14h_plus_zero_days",
+      "correction_method": "raw_equals_corrected",
+      "raw_vs_corrected_summary": "1년 데이터 227방송일 중 14h+ 노방종 0일, 최대 방송시간 9.6h. §3은 skip이 아니라 보정 미적용 통과로 처리한다.",
+      "recommendation_impact": "평균 시청자 해석에 장시간/노방종 보정 경고는 낮지만, peak/채팅 우선 지표 체계는 유지한다.",
+      "evidence_refs": [
+        "EVID_GUBIBA_STATS_CSV"
+      ],
+      "disclosure_tag": "red"
+    }
+  ],
+  "cohort": {
+    "cohort_cell_id": null,
+    "platform": "chzzk",
+    "primary_cohort": "general_game_main_pending",
+    "auxiliary_cohorts": [
+      "virtual_aux_pending"
+    ],
+    "population_source": null,
+    "base_population_n": null,
+    "filter_steps": [],
+    "final_n": null,
+    "rank_metrics": [],
+    "robustness_tests": [],
+    "precision_guardrail": "§5 전에는 구비바의 코호트 내 위치를 확정하지 않는다. 종합게임 주 코호트와 버추얼 보조 코호트를 모두 확인한다.",
+    "cohort_confidence": "unknown",
+    "disclosure_tag": "red"
+  },
+  "diagnostics": {
+    "current_position_summary": null,
+    "primary_bottleneck": "unknown",
+    "secondary_bottlenecks": [
+      "execution",
+      "monetization",
+      "support_acceptance"
+    ],
+    "execution_barriers": [
+      "shortform_completion_barrier_pending_O17",
+      "editing_externalization_barrier",
+      "donation_self_censorship"
+    ],
+    "support_acceptance": "unknown"
+  },
+  "claims": [
+    {
+      "claim_id": "C20",
+      "internal_text": "§1 v3 본질 (한 줄): 동네 누나·여동생 톤의 \"광대+샌드백\"을 본인 의도로 깔고, 시청자가 그걸 \"멘헤라 꾸숭이\"로 받아 희망/실제 격차 거의 없이 작동하는 종합게임 힐링 채널. 5차 C6 본인 답(\"내가 본 거랑 땡구들의 제 이미지랑도 비슷\")으로 의도/수용 정합 확인.",
+      "client_safe_text": null,
+      "public_safe_text": null,
+      "claim_level": "L0_record",
+      "components_source": "self_statement",
+      "synthesis_status": "client_accepted",
+      "interpretation_status": "active_claim",
+      "confidence": "high",
+      "precision_guardrail": null,
+      "evidence_refs": [
+        "EVID_GUBIBA_S1_V3"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "identity_clarity_score"
+      ],
+      "disclosure_tag": "red"
+    },
+    {
+      "claim_id": "C21",
+      "internal_text": "5차 결정적 통합 진단 (에디터 해석): 세 약점이 동일 뿌리 — (가) 매력 의심 우선순위 D6 (5/31 21:29) (나) 도네 자기 검열 \"소규모 방송인이 돈을 요구해! 너 뭐 됨? 너 그 정도로 재밌지 않잖아!\" (5/31 21:57) (다) \"전업 같은 취미\" 자기 정의 격차 (5/31 21:38). 모두 *자기 가치 평가 낮춤* 메커니즘. 구성 재료는 모두 디스코드 면담의 본인 발화 기반. 다만 매력·도네·자기정의 격차를 같은 뿌리로 묶는 통합 구조는 analyst_synthesis_pending_client_response 상태로, 산출물 전달 후 수용/교정 반응을 확인한다.",
+      "client_safe_text": null,
+      "public_safe_text": null,
+      "claim_level": "L4_intervention_candidate",
+      "components_source": "self_statement",
+      "synthesis_status": "analyst_synthesis_pending_client_response",
+      "interpretation_status": "open_claim",
+      "confidence": "medium",
+      "precision_guardrail": null,
+      "evidence_refs": [
+        "EVID_GUBIBA_S1_V3",
+        "EVID_GUBIBA_ENTRY_679"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "support_acceptance_score",
+        "execution_readiness_score",
+        "primary_bottleneck"
+      ],
+      "disclosure_tag": "red"
+    },
+    {
+      "claim_id": "C2",
+      "internal_text": "구비바 1년 변화: 팔로워 471→711 (+51%), peak 분기평균 17.7→26.6 (+50%), 채팅 +43%. 김달수(+104%/+227%/+69%) 대비 완만한 꾸준 성장형.",
+      "client_safe_text": null,
+      "public_safe_text": null,
+      "claim_level": "L1_descriptive_stat",
+      "components_source": "metric",
+      "synthesis_status": "none",
+      "interpretation_status": "active_claim",
+      "confidence": "medium",
+      "precision_guardrail": null,
+      "evidence_refs": [
+        "EVID_GUBIBA_STATS_CSV"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "growth_velocity_score"
+      ],
+      "disclosure_tag": "red"
+    },
+    {
+      "claim_id": "C3",
+      "internal_text": "노방종 0일. 방법론 v1 §3.5 기준으로 §3(노방종 보정)은 생략이 아니라 통과 확인 처리. 보정 효과 없음, 원시 평균 사용 가능, 산출물에는 “노방종 0일 확인·보정 미적용”을 명시.",
+      "client_safe_text": null,
+      "public_safe_text": null,
+      "claim_level": "L1_descriptive_stat",
+      "components_source": "metric",
+      "synthesis_status": "none",
+      "interpretation_status": "active_claim",
+      "confidence": "high",
+      "precision_guardrail": null,
+      "evidence_refs": [
+        "EVID_GUBIBA_STATS_CSV"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "data_quality_score"
+      ],
+      "disclosure_tag": "red"
+    },
+    {
+      "claim_id": "C23",
+      "internal_text": "영속 의향 강함 (5/31 21:40~41): \"본업을 해도 계속 하지 않을까\", \"주 3~4일정도 해서 방송 시간을 줄여나가는\", \"완전 방송 졸업!을 생각해본적은 없습니다요\", \"치지직의 거머리·구머리\". 데드라인 없음 + 축소되더라도 계속. 컨설팅 액션이 *단기 급성장*이 아닌 *장기 지속 가능 구조* 우선 시사.",
+      "client_safe_text": null,
+      "public_safe_text": null,
+      "claim_level": "L0_record",
+      "components_source": "self_statement",
+      "synthesis_status": "none",
+      "interpretation_status": "active_claim",
+      "confidence": "high",
+      "precision_guardrail": null,
+      "evidence_refs": [
+        "EVID_GUBIBA_S1_V3"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "intervention_fit"
+      ],
+      "disclosure_tag": "red"
+    },
+    {
+      "claim_id": "C25",
+      "internal_text": "자기 의심 우선순위 명시 (5/31 21:29 D6): 매력 > 실력 > 설정. \"매력, 실력 둘 다 비슷하게 부족하다고는 생각하는데 매력이 쪼금 더 위인듯\". 컨설팅 산출물 *응대 우선순위* = 매력 의심 해소가 1순위.",
+      "client_safe_text": null,
+      "public_safe_text": null,
+      "claim_level": "L0_record",
+      "components_source": "self_statement",
+      "synthesis_status": "none",
+      "interpretation_status": "active_claim",
+      "confidence": "high",
+      "precision_guardrail": null,
+      "evidence_refs": [
+        "EVID_GUBIBA_ENTRY_679"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "support_acceptance_score"
+      ],
+      "disclosure_tag": "red"
+    },
+    {
+      "claim_id": "C31",
+      "internal_text": "5차 큰 노선 본인 동의 (5/31 23:09): 방송 안정화 전 = 방송을 위한 방송 (대중성 우선) / 방송 안정화 후 = 내가 주도하는 방송 (소울류·토론 등 본인 영역). 본인 의사결정 메커니즘 = *납득되면 받아들임 + 토론 배틀로 합의*. 컨설팅 액션 설계 시 *납득 가능한 근거 + 토론 여지* 두 가지 형식 필요.",
+      "client_safe_text": null,
+      "public_safe_text": null,
+      "claim_level": "L4_intervention_candidate",
+      "components_source": "self_statement",
+      "synthesis_status": "client_accepted",
+      "interpretation_status": "active_claim",
+      "confidence": "medium",
+      "precision_guardrail": null,
+      "evidence_refs": [
+        "EVID_GUBIBA_ENTRY_679"
+      ],
+      "claim_revision_history": [],
+      "portfolio_field_targets": [
+        "recommended_intervention_type"
+      ],
+      "disclosure_tag": "red"
+    }
+  ],
+  "strategic_targets": [
+    {
+      "target_name": "1만 팔로워 목표 재정의",
+      "target_metric": "follower_count + sustainable_streaming_structure",
+      "recommended_band": null,
+      "warning_threshold": null,
+      "tradeoff_rationale": "영속 의향과 자기검열이 동시에 존재하므로 1만을 단기 도달점으로 볼지 장기 통과점으로 볼지 §6에서 재정의해야 한다.",
+      "monitoring_window": "§6 after §5 cohort diagnosis",
+      "tracking_required": true,
+      "evidence_refs": [
+        "EVID_GUBIBA_S1_V3",
+        "EVID_GUBIBA_ENTRY_679"
+      ],
+      "disclosure_tag": "red"
+    }
+  ],
+  "content_funnel_analysis": [
+    {
+      "content_type": "shortform",
+      "reach_signal": "unknown",
+      "conversion_signal": "unknown",
+      "identity_fit": "unknown",
+      "recommendation": "O17 쇼츠 1개 결과를 made/not_made/partial로 확인하고, 의지 평가가 아니라 실행장벽 데이터로 기록한다.",
+      "caveat": "§7 본 분석 전에는 쇼츠 효과를 판단하지 않는다.",
+      "evidence_refs": [
+        "EVID_GUBIBA_ENTRY_679"
+      ],
+      "disclosure_tag": "red"
+    }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "REC_NEXT_001",
+      "priority": "1",
+      "category": "cohort",
+      "recommendation_text": "§4 종합게임 주 코호트와 버추얼 보조 코호트를 수집하고 §5 진단으로 넘어간다. §9 산출물 작성으로 점프하지 않는다.",
+      "rationale_refs": [
+        "O4",
+        "C37"
+      ],
+      "execution_manual_needed": false,
+      "tracking_basis": "cohort_final.csv + robustness table",
+      "disclosure_tag": "red"
+    }
+  ],
+  "limitations": [
+    {
+      "limitation_id": "LIM_GUBIBA_001",
+      "text": "§4 final cohort and §5 six-step diagnosis incomplete."
+    }
+  ],
+  "open_analysis_tasks": [
+    {
+      "task_id": "O4",
+      "text": "§4 final cohort data collection"
+    },
+    {
+      "task_id": "O17",
+      "text": "shorts action result check"
+    },
+    {
+      "task_id": "O13",
+      "text": "integrated synthesis delivery design after §5/§7"
+    }
+  ],
+  "external_validation": [],
+  "evidence_refs": [
+    "EVID_GUBIBA_S1_V3",
+    "EVID_GUBIBA_ENTRY_679",
+    "EVID_GUBIBA_STATS_CSV",
+    "EVID_GUBIBA_PROJECT_STEP1",
+    "EVID_GUBIBA_COHORT_SPEC_STEP1"
+  ],
+  "absence_refs": [
+    "ABS_GUBIBA_001",
+    "ABS_GUBIBA_002",
+    "ABS_GUBIBA_003",
+    "ABS_GUBIBA_004",
+    "ABS_GUBIBA_005"
+  ],
+  "disclosure": {
+    "case_default_tag": "red",
+    "public_demo_allowed": false,
+    "public_demo_blockers": [
+      "Private creator-shared interview data",
+      "Unique self-phrases and internal vocabulary",
+      "Financial/self-definition/MCN details",
+      "No final cohort or §5 diagnosis",
+      "No client consent for anonymized public demo"
+    ],
+    "synthetic_release_possible": false,
+    "restricted_terms": [
+      "실명/정확 나이/직업/거주지",
+      "구비바 고유 발화 원문",
+      "도네·수입 관련 세부값",
+      "NOB 엔터테인먼트 관련 진행 세부",
+      "O13 통합진단 전달문",
+      "O17 실행 결과와 반응 로그",
+      "원본 디스코드 면담 로그"
+    ],
+    "disclosure_log_refs": [
+      "DISC_GUBIBA_INITIAL_001"
+    ]
+  },
+  "bridge_readiness": {
+    "case_result_status": "not_ready",
+    "bridge_status": "not_ready",
+    "portfolio_ready": false,
+    "public_demo_ready": false,
+    "blocking_reasons": [
+      "§4 final cohort not collected",
+      "§5 six-step diagnosis incomplete",
+      "O13 synthesis response not yet observed after deliverable",
+      "O17 shorts action result unknown",
+      "§8 XGPS not run",
+      "public demo consent/anonymization not reviewed"
+    ]
+  }
+}

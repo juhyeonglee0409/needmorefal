@@ -1,0 +1,23 @@
+{
+  "type": "guest_session",
+  "status": "operator_approved_pending_manual_bootstrap",
+  "scope": "Softcon route diagnosis only",
+  "transport": "chrome_profile",
+  "chrome_executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "user_data_dir": "D:\\Codex_Workspace\\Streamer Consulting Project\\runs\\kimdalsu_20260601\\recollect_20260611_prep\\00_inputs\\local_chrome_profiles\\softcon_fallback_user_data",
+  "profile_directory": "Default",
+  "headers": {},
+  "cookies": {},
+  "secret_values_logged": false,
+  "artifact_policy": {
+    "save_raw": false,
+    "save_screenshot": false,
+    "raw_html_allowed": false,
+    "screenshots_allowed": false
+  },
+  "notes": [
+    "Use a non-default Chrome user-data-dir because Chrome remote debugging can reject the normal Default profile directory.",
+    "Before Charles uses this profile, manually open Chrome with this user-data-dir and confirm the Softcon route is visible or checkpoint state is resolved.",
+    "Do not store token values in chat, ScoutReport, SESSION_NOTE, RUN_MANIFEST, git-tracked files, raw HTML, screenshots, logs, or debug output."
+  ]
+}

@@ -1,0 +1,8 @@
+﻿test_id,name,basis,total_pool,in_band_channels,gubiba_percentile,min_peak,max_peak,median_peak,mean_followers,median_followers,notes
+R1,recent_median_peak_band,peak_recent_median 11.5~46,370,184,71.7,12,44,18.0,907,744,
+R2,all_median_peak_band,peak_median 10~40,370,230,80.4,6,49,16.0,771,573,
+R3,raw_max_peak_band,peak_max 74~296,370,42,40.5,5,43,27.5,1220,1066,
+R4,p95_peak_band,peak_p95 18.85~75.4,370,188,76.1,4,47,17.0,834,659,
+R5,main_vs_aux_virtual,main vs virtual comparison,218,196,44.9,12,45,24.5,1396,1150,"T2 virtual cohort: 196/218 included, 구비바 44.9%ile (vs T1 71.7%ile)"
+R6,exclude_flags,inactive/too_new before/after,371,370,,,,,,,"Excluded 1 (inactive=0, too_new=1)"
+R7,non_nobangjong_only,nobangjong excluded from R1,184,166,73.5,12,44,18.0,865,705,Removed 18 nobangjong channels (max_weekly_airtime >= 80h)

@@ -1,0 +1,25 @@
+{
+  "version": "0.6.1",
+  "generated_at": "2026-06-16T19:25:40+09:00",
+  "target_id": "softcon_subject_channel_current_stats",
+  "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "transport_attempted": "playwright",
+  "profile_provided": true,
+  "profile_status": "invalid — user_data_dir path not supported as MCP profile parameter",
+  "boundary_signals": [
+    {
+      "source": "http",
+      "signal": "http_429",
+      "severity": "stop",
+      "action": "stopped",
+      "detail": "429 rate limit/challenge — Vercel WAF. HTTP client 접근 불가."
+    }
+  ],
+  "sample_records": [],
+  "operator_questions": [
+    "Playwright persistent context 또는 nodriver + existing profile로만 접근 가능.",
+    "브라우저 직접 접근으로 진행 필요."
+  ],
+  "review_decision": "proceed_with_browser_collection",
+  "review_rationale": "SOFTC_ONE_RUNBOOK 기준 Playwright persistent context가 유일한 working route. 단일 채널 페이지이므로 브라우저 DOM 추출로 진행."
+}

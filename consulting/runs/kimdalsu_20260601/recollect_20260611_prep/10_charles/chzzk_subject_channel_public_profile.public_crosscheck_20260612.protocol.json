@@ -1,0 +1,145 @@
+﻿{
+    "version":  "1.0",
+    "generated_at":  "2026-06-12 16:21:16",
+    "target_url":  "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path":  "playwright",
+    "best_path_trace":  [
+                            "Phase 1 had no data evidence",
+                            "Phase 2 rendered content produced usable data evidence"
+                        ],
+    "pre_check":  {
+                      "robots_status":  "allowed",
+                      "robots_detail":  "robots HTTP 200",
+                      "gate_status":  "none",
+                      "gate_detail":  "none; status=none",
+                      "login_required":  false,
+                      "terms_flag":  false,
+                      "terms_detail":  "",
+                      "risk_level":  "low"
+                  },
+    "connection_test":  {
+                            "method":  "GET",
+                            "url":  "https://m.chzzk.naver.com/dcbccbf2d8e2a1b095244c5856d3613a",
+                            "headers":  {
+                                            "User-Agent":  "CharlesSmith/0.10.0",
+                                            "Accept":  "text/html,application/xhtml+xml"
+                                        },
+                            "expected_status":  200,
+                            "expected_content_type":  "text/html",
+                            "sample_response_hint":  "Playwright濡??뚮뜑留???DOM怨?XHR/fetch瑜??뺤씤?⑸땲??"
+                        },
+    "collection_plan":  {
+                            "source":  "rendered_dom",
+                            "fields":  [
+                                           "thumbnail",
+                                           "time",
+                                           "title",
+                                           "video_card_item__lOC8Y",
+                                           "blind",
+                                           "category"
+                                       ],
+                            "pagination":  {
+                                               "type":  "unknown",
+                                               "pattern":  null,
+                                               "total_items":  null,
+                                               "items_per_page":  null,
+                                               "total_pages":  null
+                                           },
+                            "delay_seconds":  2.0,
+                            "retry":  {
+                                          "max_retries":  3,
+                                          "backoff_seconds":  [
+                                                                  30,
+                                                                  60,
+                                                                  120
+                                                              ],
+                                          "stop_on":  [
+                                                          "403",
+                                                          "login_redirect"
+                                                      ]
+                                      },
+                            "estimated_items":  null,
+                            "estimated_time":  "洹쒕え 誘몄긽",
+                            "sample_record_hint":  {
+                                                       "thumbnail":  "\u003cthumbnail\u003e",
+                                                       "time":  "\u003ctime\u003e",
+                                                       "title":  "\u003ctitle\u003e",
+                                                       "video_card_item__lOC8Y":  "\u003cvideo_card_item__lOC8Y\u003e",
+                                                       "blind":  "\u003cblind\u003e",
+                                                       "category":  "\u003ccategory\u003e"
+                                                   },
+                            "json_path_hints":  [
+                                                    "not_applicable: rendered DOM source"
+                                                ],
+                            "selector_hints":  [
+                                                   "div.channel_home_vod_item__N7KA5",
+                                                   "div[class~=\"channel_home_vod_item__N7KA5\"]",
+                                                   "[data-testid*=\"thumbnail\" i]",
+                                                   "[itemprop=\"thumbnail\"]",
+                                                   "[class*=\"thumbnail\" i]",
+                                                   "[data-testid*=\"time\" i]",
+                                                   "[itemprop=\"time\"]",
+                                                   "[class*=\"time\" i]"
+                                               ],
+                            "wait_condition":  "page.goto(wait_until=\u0027networkidle\u0027); wait_for_selector(\u0027div.channel_home_vod_item__N7KA5\u0027)"
+                        },
+    "storage":  {
+                    "format":  "csv",
+                    "columns":  [
+                                    "thumbnail",
+                                    "time",
+                                    "title",
+                                    "video_card_item__lOC8Y",
+                                    "blind",
+                                    "category",
+                                    "source_url",
+                                    "fetched_at"
+                                ],
+                    "filename_pattern":  "m_chzzk_naver_com_{YYYYMMDD}.csv",
+                    "encoding":  "utf-8"
+                },
+    "verification":  {
+                         "expected_row_count":  null,
+                         "null_ratio_threshold":  0.05,
+                         "dedup_key":  "title",
+                         "sample_check_count":  5
+                     },
+    "agent_prompt":  null,
+    "notes":  [
+                  "best_path: playwright",
+                  "official_api_suggestion: ?ㅼ씠踰?寃??API (https://developers.naver.com/docs/serviceapi/search/)",
+                  "pagination_unknown: ?섎룞 ?뺤씤 ?꾩슂"
+              ],
+    "transport":  "httpx",
+    "profile_required":  false,
+    "profile_summary":  null,
+    "rsc_payload_candidates":  [
+
+                               ],
+    "diagnostic_findings":  {
+                                "api":  {
+                                            "status":  "rejected",
+                                            "candidates_seen":  21,
+                                            "usable_candidates":  0,
+                                            "reason":  "api candidates seen but not confirmed as usable JSON data endpoints"
+                                        },
+                                "sitemap":  {
+                                                "status":  "rejected",
+                                                "candidates_seen":  8,
+                                                "usable_candidates":  0,
+                                                "reason":  "sitemap candidates seen but not validated as usable XML sitemap"
+                                            },
+                                "rsc":  {
+                                            "status":  "not_found",
+                                            "payload_count":  0,
+                                            "reason":  "no RSC payload candidates found"
+                                        }
+                            },
+    "recovery_plan":  [
+
+                      ],
+    "url_resolution_needed":  false,
+    "profile_or_session_likely_needed":  false,
+    "arthur_inspect_recommended":  true,
+    "browser_probe":  null
+}

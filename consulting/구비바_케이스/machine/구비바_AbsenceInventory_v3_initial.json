@@ -1,0 +1,76 @@
+{
+  "absence_inventory_id": "ABSINV_GUBIBA_V3_INITIAL_20260611",
+  "case_id": "gubiba",
+  "absence_items": [
+    {
+      "absence_id": "ABS_GUBIBA_001",
+      "target_area": "§4 cohort",
+      "expected_asset": "cohort_final.csv + robustness table",
+      "present_status": "not_collected",
+      "checked_source": "project_step1 + cohort_spec",
+      "checked_at": "2026-06-11",
+      "absence_source": "undetermined",
+      "absence_type": "not_verified",
+      "confidence": "high",
+      "impact": "Blocks §5 diagnosis and PortfolioRow creation.",
+      "next_check": "After Charles/Arthur cohort collection",
+      "disclosure_tag": "red"
+    },
+    {
+      "absence_id": "ABS_GUBIBA_002",
+      "target_area": "§5 diagnosis",
+      "expected_asset": "six-step diagnosis report",
+      "present_status": "not_collected",
+      "checked_source": "project_step1",
+      "checked_at": "2026-06-11",
+      "absence_source": "undetermined",
+      "absence_type": "not_verified",
+      "confidence": "high",
+      "impact": "Blocks analysis_close and CaseResult ready status.",
+      "next_check": "After §4 final cohort",
+      "disclosure_tag": "red"
+    },
+    {
+      "absence_id": "ABS_GUBIBA_003",
+      "target_area": "O17 shorts action",
+      "expected_asset": "made/not_made/partial result",
+      "present_status": "unknown",
+      "checked_source": "§6§7§9 entry + project_step1",
+      "checked_at": "2026-06-11",
+      "absence_source": "undetermined",
+      "absence_type": "not_verified",
+      "confidence": "high",
+      "impact": "Needed to classify content expansion barrier as execution data.",
+      "next_check": "Ask owner/client for result",
+      "disclosure_tag": "red"
+    },
+    {
+      "absence_id": "ABS_GUBIBA_004",
+      "target_area": "O13 synthesis response",
+      "expected_asset": "client acceptance/correction after delivery",
+      "present_status": "not_collected",
+      "checked_source": "§1 + §6§7§9 entry",
+      "checked_at": "2026-06-11",
+      "absence_source": "undetermined",
+      "absence_type": "not_verified",
+      "confidence": "high",
+      "impact": "C21 remains analyst_synthesis_pending_client_response.",
+      "next_check": "After §5/§7 and deliverable discussion",
+      "disclosure_tag": "red"
+    },
+    {
+      "absence_id": "ABS_GUBIBA_005",
+      "target_area": "Public demo consent/anonymization",
+      "expected_asset": "disclosure review approval",
+      "present_status": "absent",
+      "checked_source": "project_step1 + MASTER M7.1 policy",
+      "checked_at": "2026-06-11",
+      "absence_source": "manual_review_absent",
+      "absence_type": "not_applicable",
+      "confidence": "high",
+      "impact": "PublicDemoRow blocked; private validation only.",
+      "next_check": "Only if explicit consent/synthetic conversion is planned",
+      "disclosure_tag": "red"
+    }
+  ]
+}

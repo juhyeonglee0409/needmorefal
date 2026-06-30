@@ -1,0 +1,10 @@
+reaction_id,delivered_at,module_id,diagnosis_claim,client_reaction_type,accepted_part,rejected_part,revised_claim,next_question,followup_needed,notes
+R01,,M1,방송시간 한계수익 소진,,,,,,
+R02,,M2,talk > game (스트리머 반응 구조),,,,,,
+R03,,M3,유튜브 재시작 시기 = P0 이후,,,,,,
+R04,,M4,리텐션 P0 우선순위,,,,,,
+R05,,M5,궤적매칭 비전 채널,,,,,,
+R06,,M6-1,매력 의심 ← 자기가치평가낮춤,,,,,,
+R07,,M6-2,도네 자기검열 ← 자기가치평가낮춤,,,,,,
+R08,,M6-3,자기정의 격차 ← 자기가치평가낮춤,,,,,,
+R09,,M6-통합,세 현상 = 동일 뿌리,,,,,,

@@ -1,0 +1,219 @@
+{
+  "version": "0.2",
+  "generated_at": "2026-06-22T14:55:29Z",
+  "target_url": "https://viewership.softc.one/channel/{platform}/{channel_id}/streams?page={page_no}",
+  "source_collection_result": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000002\\CollectionResult.json",
+  "storage_record": {
+    "stored_at": "2026-06-22T14:55:29Z",
+    "storage_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000002",
+    "format": "json",
+    "encoding": "utf-8",
+    "append_mode": true,
+    "previous_versions": [
+      "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000001\\CollectionResult.json"
+    ],
+    "version_index": 2,
+    "durability_class": "fsynced",
+    "source_id": "698a0fbb8b1b7d8b800ac8761d77b06341362d900f585a27f8ee7f980ba6e9cf"
+  },
+  "inventory": {
+    "total_items": 13116,
+    "field_coverage": {
+      "target_count": 20,
+      "metrics_rows": 20,
+      "broadcast_rows": 13096,
+      "channels_with_history": 20,
+      "history_rows_per_channel_min": 113,
+      "history_rows_per_channel_max": 920,
+      "metrics_missing_follower_count": 0,
+      "missing_required_history_rows": 0
+    },
+    "first_seen_at": "2026-06-22T14:50:56Z",
+    "last_seen_at": "2026-06-22T14:50:56Z",
+    "change_from_previous": "modified"
+  },
+  "absence_log": [],
+  "preserved_status": {
+    "verification_status": "pass",
+    "boundary_signal_count": 0,
+    "preservation_verified": true
+  },
+  "lineage": {
+    "activity": {
+      "name": "pearson.store",
+      "version": "0.2.0",
+      "code_commit": "59711f162d1f65b1958895f421e856c512e21a08"
+    },
+    "input": {
+      "source_id": "698a0fbb8b1b7d8b800ac8761d77b06341362d900f585a27f8ee7f980ba6e9cf",
+      "input_sha256": "77c89ed68481081d19e2fef9e6dd6b409afd880c08131ece0d93305750ce992a",
+      "input_bytes": 16354077,
+      "schema_version": "CollectionResult/0.6.1"
+    },
+    "output": {
+      "receipt_sha256": null,
+      "artifacts": [
+        "22858824fc2cf359acb68532b73dfdc1f77697e30e0de034113f47fabdb222b3",
+        "e0378b5098bf04fbbc35ed75d0f1f697673f55e998f4763e2cbb68ba8b29f7b8",
+        "f8d921b0101332e2e5b443535a5b47a53d8f71ce1ee0856da73547be8880e5a3",
+        "44a69d0d67fa8c8d1b355f4a903a151d4c1cb9130210629489d2efd1581860bc"
+      ]
+    },
+    "parent_chain": {
+      "protocol_hash": null,
+      "directive_hash": null,
+      "collector_ua": "codex_chrome_connector_dom_paginated/0.1",
+      "protocol_source": "operator_phase_flow_unni_reference_20_paginated",
+      "input_shape": null,
+      "source_input_path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\unni_ref_paginated.CollectionResult.json"
+    },
+    "capture_mode": "exhaustive",
+    "durability_class": "fsynced",
+    "protocol_hash": null,
+    "directive_hash": null,
+    "input_shape": null,
+    "collector_ua": "codex_chrome_connector_dom_paginated/0.1"
+  },
+  "presence_map": {
+    "summary": {
+      "present": 0,
+      "explicit_null": 0,
+      "empty": 0,
+      "absent": 8,
+      "not_collected": 28
+    },
+    "detail": {
+      "boundary_signal": "not_collected",
+      "broadcast_rows": "absent",
+      "category": "not_collected",
+      "channel_description": "not_collected",
+      "channel_id": "not_collected",
+      "channel_name": "not_collected",
+      "channel_url": "not_collected",
+      "channels_with_history": "absent",
+      "fetch_status": "not_collected",
+      "fetched_at": "not_collected",
+      "follower_count": "not_collected",
+      "history_rows_per_channel_max": "absent",
+      "history_rows_per_channel_min": "absent",
+      "metrics_missing_follower_count": "absent",
+      "metrics_rows": "absent",
+      "missing_required_history_rows": "absent",
+      "name_input": "not_collected",
+      "note": "not_collected",
+      "page_no": "not_collected",
+      "platform": "not_collected",
+      "recent_streams": "not_collected",
+      "source_url": "not_collected",
+      "stream_id": "not_collected",
+      "target_count": "absent",
+      "verified": "not_collected",
+      "구독자 증감": "not_collected",
+      "방송 시간": "not_collected",
+      "시작 시간": "not_collected",
+      "시작제목": "not_collected",
+      "연령": "not_collected",
+      "전체 채팅수": "not_collected",
+      "종료 시간": "not_collected",
+      "최고 시청자": "not_collected",
+      "카테고리": "not_collected",
+      "팔로워 증감": "not_collected",
+      "평균 시청자": "not_collected"
+    }
+  },
+  "promotion_state": "stored_not_promoted",
+  "derived_artifacts": [
+    {
+      "artifact_id": "22858824fc2cf359acb68532b73dfdc1f77697e30e0de034113f47fabdb222b3",
+      "kind": "normalized_items",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000002\\artifacts\\normalized_items.csv",
+      "sha256": "22858824fc2cf359acb68532b73dfdc1f77697e30e0de034113f47fabdb222b3",
+      "bytes": 8891535,
+      "row_count": 13116,
+      "source_collection_sha256": "77c89ed68481081d19e2fef9e6dd6b409afd880c08131ece0d93305750ce992a",
+      "parent_source_ids": [
+        "698a0fbb8b1b7d8b800ac8761d77b06341362d900f585a27f8ee7f980ba6e9cf"
+      ],
+      "transform": {
+        "name": "normalize_items",
+        "version": "0.2.0",
+        "parameters": {
+          "dedup_key": null
+        }
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "e0378b5098bf04fbbc35ed75d0f1f697673f55e998f4763e2cbb68ba8b29f7b8",
+      "kind": "field_coverage",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000002\\artifacts\\field_coverage.csv",
+      "sha256": "e0378b5098bf04fbbc35ed75d0f1f697673f55e998f4763e2cbb68ba8b29f7b8",
+      "bytes": 789,
+      "row_count": 8,
+      "source_collection_sha256": "77c89ed68481081d19e2fef9e6dd6b409afd880c08131ece0d93305750ce992a",
+      "parent_source_ids": [
+        "698a0fbb8b1b7d8b800ac8761d77b06341362d900f585a27f8ee7f980ba6e9cf"
+      ],
+      "transform": {
+        "name": "field_coverage_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "f8d921b0101332e2e5b443535a5b47a53d8f71ce1ee0856da73547be8880e5a3",
+      "kind": "absence_summary",
+      "format": "csv",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000002\\artifacts\\absence_summary.csv",
+      "sha256": "f8d921b0101332e2e5b443535a5b47a53d8f71ce1ee0856da73547be8880e5a3",
+      "bytes": 389,
+      "row_count": 4,
+      "source_collection_sha256": "77c89ed68481081d19e2fef9e6dd6b409afd880c08131ece0d93305750ce992a",
+      "parent_source_ids": [
+        "698a0fbb8b1b7d8b800ac8761d77b06341362d900f585a27f8ee7f980ba6e9cf"
+      ],
+      "transform": {
+        "name": "absence_summary",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    },
+    {
+      "artifact_id": "44a69d0d67fa8c8d1b355f4a903a151d4c1cb9130210629489d2efd1581860bc",
+      "kind": "item_index",
+      "format": "jsonl",
+      "path": "D:\\Codex_Workspace\\Streamer Consulting Project\\구비바_케이스\\data\\unni_ref\\pearson_store\\targets\\viewership_softc_one_channel_platform_channel_id_streams_6d0c53240e25\\versions\\000002\\artifacts\\item_index.jsonl",
+      "sha256": "44a69d0d67fa8c8d1b355f4a903a151d4c1cb9130210629489d2efd1581860bc",
+      "bytes": 8550812,
+      "row_count": 13116,
+      "source_collection_sha256": "77c89ed68481081d19e2fef9e6dd6b409afd880c08131ece0d93305750ce992a",
+      "parent_source_ids": [
+        "698a0fbb8b1b7d8b800ac8761d77b06341362d900f585a27f8ee7f980ba6e9cf"
+      ],
+      "transform": {
+        "name": "item_index",
+        "version": "0.2.0",
+        "parameters": {}
+      },
+      "derived": true,
+      "raw_source_of_truth": false,
+      "dedup_applied": false
+    }
+  ],
+  "notes": [
+    "Pagination was collected with explicit page parameter and stopped on empty or duplicate page signals where encountered.",
+    "Some page-count hints in the UI can include unrelated number pairs; actual collection relied on page traversal and stream_id deduplication.",
+    "Chzzk profile API does not provide all requested recent-stream/category fields; SOFTC.ONE broadcast rows provide broadcast-level category/time/viewer metrics.",
+    "Superseded page-1-only working artifact removed; paginated CSV is the retained analysis artifact."
+  ]
+}

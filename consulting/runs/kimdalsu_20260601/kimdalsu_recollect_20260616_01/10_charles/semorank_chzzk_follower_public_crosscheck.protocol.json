@@ -1,0 +1,17 @@
+{
+  "target_id": "semorank_chzzk_follower_public_crosscheck",
+  "target_url": "https://www.semorank.kr/ranking/chzzk",
+  "best_path": "public_http_parse",
+  "pre_check": {
+    "gate_status": "public_cleared",
+    "boundary_signal": null,
+    "profile_required": false
+  },
+  "collection_plan": {
+    "source": "public_http_parse",
+    "max_pages": 1
+  },
+  "verification": {
+    "preserve_not_verifiable": true
+  }
+}

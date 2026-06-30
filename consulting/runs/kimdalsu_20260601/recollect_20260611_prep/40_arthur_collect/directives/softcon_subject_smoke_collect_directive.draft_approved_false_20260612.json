@@ -1,0 +1,546 @@
+{
+  "kind": "CollectDirective",
+  "version": "draft",
+  "status": "draft",
+  "approved": false,
+  "approval_state": "operator_approval_required_before_collect",
+  "case_id": "kimdalsu_20260601",
+  "run_id": "recollect_20260611_prep",
+  "target_id": "softcon_subject_channel_current_stats",
+  "target_role": "subject_current_stats_smoke_collect",
+  "created_at": "2026-06-12T15:20:00+09:00",
+  "created_by": "Codex tooling review",
+  "source_protocol_path": "10_charles/softcon_subject_channel_current_stats.charles_profile_ab_smoke_20260612.protocol.json",
+  "source_protocol_hash": "37daf61a0b92c644738bcf5a1bab7b178e1dc333f70958e314ea5281438a0cdc",
+  "protocol_hash": "37daf61a0b92c644738bcf5a1bab7b178e1dc333f70958e314ea5281438a0cdc",
+  "source_protocol": {
+    "version": "1.0",
+    "generated_at": "2026-06-12 14:09:26",
+    "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+    "best_path": "rsc_payload",
+    "best_path_trace": [
+      "Profile Phase 2 reached actual HTML",
+      "Next.js RSC payload candidates found"
+    ],
+    "pre_check": {
+      "robots_status": "unknown",
+      "robots_detail": "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+      "gate_status": "profile_cleared",
+      "gate_detail": "Vercel; status=profile_cleared",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "medium"
+    },
+    "connection_test": {
+      "method": "GET",
+      "url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "headers": {
+        "User-Agent": "CharlesSmith/0.10.0",
+        "Accept": "text/html,application/xhtml+xml"
+      },
+      "expected_status": 200,
+      "expected_content_type": "text/html",
+      "sample_response_hint": "HTML response contains Next.js RSC payload candidates; extract self.__next_f.push payload arrays."
+    },
+    "collection_plan": {
+      "source": "next_rsc_payload",
+      "fields": [
+        "airTime",
+        "avgChatCount",
+        "avgLiveViews",
+        "date",
+        "maxAccumulateViews",
+        "maxChatCount",
+        "maxFollowerCount",
+        "maxLiveViews",
+        "maxSubscribers",
+        "minAccumulateViews",
+        "sumChatCount",
+        "sumCount",
+        "sumLiveViews",
+        "viewership"
+      ],
+      "pagination": {
+        "type": "none",
+        "pattern": "next_rsc_payload_indexes",
+        "total_items": 223,
+        "items_per_page": 223,
+        "total_pages": 1
+      },
+      "delay_seconds": 2.0,
+      "retry": {
+        "max_retries": 3,
+        "backoff_seconds": [
+          30,
+          60,
+          120
+        ],
+        "stop_on": [
+          "403",
+          "login_redirect"
+        ]
+      },
+      "estimated_items": 223,
+      "estimated_time": "약 2초",
+      "sample_record_hint": {
+        "airTime": "<airTime>",
+        "avgChatCount": "<avgChatCount>",
+        "avgLiveViews": "<avgLiveViews>",
+        "date": "<date>",
+        "maxAccumulateViews": "<maxAccumulateViews>",
+        "maxChatCount": "<maxChatCount>",
+        "maxFollowerCount": "<maxFollowerCount>",
+        "maxLiveViews": "<maxLiveViews>",
+        "maxSubscribers": "<maxSubscribers>",
+        "minAccumulateViews": "<minAccumulateViews>",
+        "sumChatCount": "<sumChatCount>",
+        "sumCount": "<sumCount>"
+      },
+      "json_path_hints": [
+        "next_rsc.payloads[0]",
+        "next_rsc.payloads[1]",
+        "next_rsc.payloads[2]"
+      ],
+      "selector_hints": [],
+      "wait_condition": "after GET: extract Next.js RSC payload arrays [0,1,2]"
+    },
+    "storage": {
+      "format": "csv",
+      "columns": [
+        "airTime",
+        "avgChatCount",
+        "avgLiveViews",
+        "date",
+        "maxAccumulateViews",
+        "maxChatCount",
+        "maxFollowerCount",
+        "maxLiveViews",
+        "maxSubscribers",
+        "minAccumulateViews",
+        "sumChatCount",
+        "sumCount",
+        "sumLiveViews",
+        "viewership",
+        "source_url",
+        "fetched_at"
+      ],
+      "filename_pattern": "viewership_softc_one_{YYYYMMDD}.csv",
+      "encoding": "utf-8"
+    },
+    "verification": {
+      "expected_row_count": 223,
+      "null_ratio_threshold": 0.05,
+      "dedup_key": null,
+      "sample_check_count": 5
+    },
+    "agent_prompt": null,
+    "notes": [
+      "best_path: rsc_payload"
+    ],
+    "transport": "chrome_profile",
+    "profile_required": true,
+    "profile_summary": {
+      "provided": true,
+      "type": "guest_session",
+      "status": "operator_approved_pending_manual_bootstrap",
+      "transport": "chrome_profile",
+      "header_names": [],
+      "cookie_names": [],
+      "user_agent_provided": false,
+      "secret_values_logged": false
+    },
+    "rsc_payload_candidates": [
+      {
+        "index": 0,
+        "rows": 117,
+        "keys": [
+          "airTime",
+          "avgChatCount",
+          "avgLiveViews",
+          "date",
+          "maxAccumulateViews",
+          "maxChatCount",
+          "maxFollowerCount",
+          "maxLiveViews",
+          "maxSubscribers",
+          "minAccumulateViews",
+          "sumChatCount",
+          "sumCount",
+          "sumLiveViews",
+          "viewership"
+        ],
+        "types": [],
+        "classification": "peak_stream_ranking",
+        "source": "next_rsc"
+      },
+      {
+        "index": 1,
+        "rows": 53,
+        "keys": [
+          "airTime",
+          "avgChatCount",
+          "avgLiveViews",
+          "date",
+          "maxAccumulateViews",
+          "maxChatCount",
+          "maxFollowerCount",
+          "maxLiveViews",
+          "maxSubscribers",
+          "minAccumulateViews",
+          "sumChatCount",
+          "sumCount",
+          "sumLiveViews",
+          "viewership"
+        ],
+        "types": [],
+        "classification": "peak_stream_ranking",
+        "source": "next_rsc"
+      },
+      {
+        "index": 2,
+        "rows": 53,
+        "keys": [
+          "airTime",
+          "avgChatCount",
+          "avgLiveViews",
+          "date",
+          "maxAccumulateViews",
+          "maxChatCount",
+          "maxFollowerCount",
+          "maxLiveViews",
+          "maxSubscribers",
+          "minAccumulateViews",
+          "sumChatCount",
+          "sumCount",
+          "sumLiveViews",
+          "viewership"
+        ],
+        "types": [],
+        "classification": "peak_stream_ranking",
+        "source": "next_rsc"
+      }
+    ],
+    "diagnostic_findings": {
+      "api": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no data-like API candidates found"
+      },
+      "sitemap": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no sitemap candidates found"
+      },
+      "rsc": {
+        "status": "selected",
+        "payload_count": 3,
+        "reason": "RSC payload candidates found"
+      }
+    },
+    "recovery_plan": [],
+    "url_resolution_needed": false,
+    "profile_or_session_likely_needed": true,
+    "arthur_inspect_recommended": true,
+    "browser_probe": {
+      "attempted": true,
+      "ok": true,
+      "target_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "rendered_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "status_code": 200,
+      "title": "김달수 Dalsu | 치지직 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+      "html_length": 501177,
+      "screenshot_artifact": null,
+      "raw_artifact": null,
+      "browser_probe_artifacts_allowed": false,
+      "browser_probe_screenshot_saved": false,
+      "browser_probe_screenshot_save_reason": "disabled_no_save_raw",
+      "browser_probe_raw_saved": false,
+      "browser_probe_raw_save_reason": "disabled_no_save_raw",
+      "visible_text_sample": "소프트콘뷰어십 소프트콘 멤버십 대시보드 스탠드 방송 현황 LIVE 스트리머 랭킹 방송 그룹 플랫폼 카테고리 랭킹 이스포츠 NEW 로그인 공지 06.12 서버 장애 리포트 광고제거 이자리 1주에 만원! 채널 치지직 김달수 Dalsu LIVE dcbccbf2d8e2a1b095244c5856d3613a | 유나라 장인 후보생축구안봐요) 요약 통계 카테고리 랭킹 방송기록 구간분석 LIVE 92 12 (금) 10:10시작 리그 오브 레전드유나라 장인 후보생축구안봐요) 팔로워 2026.06.12 (금) 14:06 업데이트 3,747명 카테고리별 뷰어십 그래프 최근 한달간의 카테고리 뷰어십 데이터 92.9% 리그 오브 레전드 2026년 누적 뷰어십 2026.01.01 (목) ~ 06.12 (금) 77,566명 광고제거 이자리 1주에 만원! 스트리머 요약 데이터 기간 내 전체 요약 데이터 어제 | 06.11 (목) 오늘 | 06.12 (금) 최근 7일 | 06.05 (금) ~ 최근 한달 | 05.12 ~ 06.12 최근 1년 | 25.06.12 ~ 지난주 | 06.01 ~ 06.07 이번주 | 06.08 ~ 지난달 | 05월 이번달 | 06월 ~ 작년 | 2025년 올해 | 2026년 ... 동시 최고 시청자 165명 43 ( +35.2 % ) 평균 시청자 71명 4 ( +6.0 % ) 뷰어십 ( 평균 시청자 * 방송시간 ) 2,517명 265....",
+      "candidate_links": [
+        {
+          "text": "소프트콘 뷰어십",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "",
+          "href": "https://viewership.softc.one/search"
+        },
+        {
+          "text": "소프트콘뷰어십",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "",
+          "href": "https://viewership.softc.one/search?q="
+        },
+        {
+          "text": "소프트콘 멤버십",
+          "href": "https://viewership.softc.one/pricing"
+        },
+        {
+          "text": "대시보드",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "스탠드",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "방송 현황 LIVE",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "스트리머 랭킹",
+          "href": "https://viewership.softc.one/streams"
+        },
+        {
+          "text": "방송 그룹",
+          "href": "https://viewership.softc.one/streamergroups"
+        },
+        {
+          "text": "플랫폼",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "카테고리 랭킹",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "이스포츠 NEW",
+          "href": "https://viewership.softc.one/"
+        },
+        {
+          "text": "로그인",
+          "href": "https://viewership.softc.one/auth/signin"
+        },
+        {
+          "text": "공지 06.12 서버 장애 리포트",
+          "href": "https://viewership.softc.one/blogs/20260612-notice"
+        },
+        {
+          "text": "광고제거",
+          "href": "https://viewership.softc.one/pricing"
+        },
+        {
+          "text": "이자리 1주에 만원!",
+          "href": "https://www.notion.so/33673aeff2c680ffb638c8719f24bf70?source=VALUE"
+        },
+        {
+          "text": "",
+          "href": "https://recruit.darakcast.com/"
+        },
+        {
+          "text": "광고제거",
+          "href": "https://viewership.softc.one/pricing"
+        },
+        {
+          "text": "이자리 1주에 만원!",
+          "href": "https://www.notion.so/33673aeff2c680ffb638c8719f24bf70?source=VALUE"
+        }
+      ],
+      "candidate_forms": [],
+      "candidate_buttons": [
+        {
+          "text": "",
+          "type": "button"
+        },
+        {
+          "text": "",
+          "type": "button"
+        },
+        {
+          "text": "소프트콘 멤버십",
+          "type": "button"
+        },
+        {
+          "text": "대시보드",
+          "type": "button"
+        },
+        {
+          "text": "스탠드",
+          "type": "button"
+        },
+        {
+          "text": "방송 현황 LIVE",
+          "type": "button"
+        },
+        {
+          "text": "스트리머 랭킹",
+          "type": "button"
+        },
+        {
+          "text": "방송 그룹",
+          "type": "button"
+        },
+        {
+          "text": "플랫폼",
+          "type": "button"
+        },
+        {
+          "text": "카테고리 랭킹",
+          "type": "button"
+        },
+        {
+          "text": "이스포츠 NEW",
+          "type": "button"
+        },
+        {
+          "text": "로그인",
+          "type": "button"
+        },
+        {
+          "text": "광고제거",
+          "type": "button"
+        },
+        {
+          "text": "이자리 1주에 만원!",
+          "type": "button"
+        },
+        {
+          "text": "",
+          "type": "button"
+        },
+        {
+          "text": "광고제거",
+          "type": "button"
+        },
+        {
+          "text": "이자리 1주에 만원!",
+          "type": "button"
+        },
+        {
+          "text": "",
+          "type": "button"
+        },
+        {
+          "text": "요약",
+          "type": "button"
+        },
+        {
+          "text": "통계",
+          "type": "button"
+        }
+      ],
+      "checkpoint_detected": false,
+      "captcha_detected": false,
+      "login_required_likely": false,
+      "rate_limited": false,
+      "visible_content_likely": true,
+      "url_resolution_needed": false,
+      "url_candidates": [],
+      "profile_or_session_likely_needed": false,
+      "elapsed_ms": 2848,
+      "error": null
+    }
+  },
+  "inspect_result_path": "30_arthur_inspect/softcon_subject_channel_current_stats.chrome_profile_visible_networkidle_inspect_20260612.InspectResult.json",
+  "profile_config_path": "00_inputs/softcon_chrome_profile_fallback.non_default.visible_networkidle.local.json",
+  "approved_best_path": "rsc_payload",
+  "transport": "chrome_profile",
+  "collect_mode": {
+    "transport": "chrome_profile",
+    "headed_visible": true,
+    "wait_until": "networkidle",
+    "settle_wait_ms": 1500,
+    "purpose": "subject route smoke collect only after future explicit approved=true"
+  },
+  "approved_scope": {
+    "allowed_urls": [
+      "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    ],
+    "allowed_domains": [
+      "viewership.softc.one"
+    ],
+    "path_prefixes": [
+      "/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a"
+    ],
+    "max_routes": 1,
+    "max_pages": 1,
+    "max_requests": 3,
+    "max_items": 10,
+    "max_runtime_seconds": 60
+  },
+  "policy": {
+    "allow_chrome_profile_collect": true,
+    "allow_visible_window": true,
+    "visible_window_allowed": true,
+    "require_exact_allowed_url": true,
+    "wait_until": "networkidle",
+    "settle_wait_ms": 1500,
+    "save_raw": false,
+    "save_screenshot": false,
+    "store_secret_values": false,
+    "sanitize_rendered_url_query": true,
+    "items_only_plus_metadata": true,
+    "do_not_mutate_case_package": true,
+    "stop_on": [
+      "checkpoint_detected",
+      "captcha_detected",
+      "login_required_likely",
+      "unexpected_private_or_account_page",
+      "off_allowlist_url",
+      "rendered_no_rsc_payload"
+    ]
+  },
+  "raw_policy": {
+    "save_raw": false,
+    "save_screenshot": false,
+    "redact_secrets": true
+  },
+  "validation": {
+    "mode": "smoke_sample_only",
+    "expected_row_count": 223,
+    "smoke_max_items": 10,
+    "sample_check_count": 5,
+    "require_value_samples": true,
+    "required_fields": [
+      "airTime",
+      "avgChatCount",
+      "avgLiveViews",
+      "date",
+      "maxAccumulateViews",
+      "maxChatCount",
+      "maxFollowerCount",
+      "maxLiveViews",
+      "maxSubscribers",
+      "minAccumulateViews",
+      "sumChatCount",
+      "sumCount",
+      "sumLiveViews",
+      "viewership"
+    ],
+    "numeric_fields_must_be_non_negative": true,
+    "date_field_must_parse": true,
+    "on_missing_required_field": "record_absence_not_verifiable",
+    "full_row_count_pass_not_expected_when_capped": true,
+    "verification_note": "max_items=10 is a smoke cap; full expected_row_count remains provenance, not pass criteria for the capped smoke."
+  },
+  "output_policy": {
+    "proposed_output_path": "40_arthur_collect/results/softcon_subject_smoke_collect_20260612.CollectionResult.json",
+    "create_collection_result_now": false,
+    "items_only_plus_metadata": true,
+    "preserve_source_url": true,
+    "preserve_fetched_at": true,
+    "preserve_protocol_hash": true,
+    "preserve_directive_hash": true,
+    "preserve_profile_summary": true,
+    "preserve_boundary_signals": true,
+    "record_visible_window_used": true,
+    "raw_html_artifact_allowed": false,
+    "screenshot_artifact_allowed": false,
+    "secret_value_storage_allowed": false,
+    "do_not_mutate_case_package": true,
+    "do_not_mutate_case_result": true,
+    "do_not_mutate_disclosure_log": true,
+    "do_not_mutate_public_demo_row": true
+  },
+  "operator_approval": {
+    "collect_approval": "no",
+    "approved_true_required_later": true,
+    "approval_note": "This draft must remain approved=false until the operator explicitly approves approved=true for this exact route and scope."
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "url": "https://viewership.softc.one/ranking/streamer",
+  "timestamp": "2026-06-11 23:27:59",
+  "diagnostic_version": "0.10.0",
+  "diagnostic_ua": "CharlesSmith/0.10.0",
+  "delay_used": 2.0,
+  "robots": {
+    "fetched": true,
+    "status_code": 429,
+    "encoding_used": null,
+    "parse_success": false,
+    "allowed_for_ua": null,
+    "crawl_delay": null,
+    "sitemaps": [],
+    "fallback_used": false,
+    "error": "robots 429 → rate limit/verification 가능성, 정책 확인 보류"
+  },
+  "http": {
+    "final_url": "https://viewership.softc.one/ranking/streamer",
+    "status_code": 429,
+    "redirect_chain": [
+      "https://viewership.softc.one/ranking/streamer"
+    ],
+    "content_type": "text/html; charset=utf-8",
+    "content_length": 33809,
+    "title": "Vercel Security Checkpoint",
+    "meta_description": null,
+    "elapsed_ms": 2043
+  },
+  "frameworks": [],
+  "rendering_judgment": {
+    "value": "verification_gate",
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "text": "access control 제공자 Vercel 식별 (header:x-vercel-mitigated, body:security checkpoint)",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "차단 status HTTP 429",
+        "strength": 0.4,
+        "kind": "required"
+      },
+      {
+        "text": "본문에 verification 시그니처 \"security checkpoint\" 발견",
+        "strength": 0.4,
+        "kind": "required"
+      }
+    ]
+  },
+  "sitemap_candidates": [],
+  "phase2_profile": {
+    "attempted": true,
+    "trigger": "verification_gate",
+    "transport": "chrome_profile",
+    "profile_used": true,
+    "ok": false,
+    "checkpoint_cleared": false,
+    "error": "TimeoutError: BrowserType.launch_persistent_context: Timeout 180000ms exceeded.\nCall log:\n  - <launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n  - <launched> pid=25212\n  - [pid=25212][err] [25212:29760:0611/232459.217:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n  - [pid=25212][err]\n  - [pid=25212][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n  - [pid=25212][err] [25212:16620:0611/232501.391:ERROR:components\\device_event_log\\device_event_log_impl.cc:202] [23:25:01.392] USB: usb_service_win.cc:108 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)\n  - [pid=25212][err] [25212:14192:0611/232501.550:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n  - [pid=25212][err] [25212:14192:0611/232529.804:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n  - [pid=25212][err] [25212:14192:0611/232623.173:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n",
+    "elapsed_ms": 182739,
+    "status_code": null,
+    "rendered_url": null,
+    "rendered_html_length": null,
+    "rendered_title": null,
+    "rendered_content_type": null,
+    "gate_status": "phase2_error",
+    "rendered_frameworks": [],
+    "rendered_judgment": null,
+    "rsc_push_count": 0,
+    "rsc_payload_candidates": [],
+    "raw_artifact": null,
+    "raw_artifact_saved": false,
+    "raw_artifact_save_reason": null
+  },
+  "browser_probe": {
+    "attempted": false,
+    "ok": false,
+    "target_url": "https://viewership.softc.one/ranking/streamer",
+    "error": "budget_exceeded_before_browser_probe"
+  },
+  "boundary_signals": [
+    {
+      "source": "http",
+      "signal": "http_429",
+      "severity": "grey",
+      "action": "recorded",
+      "detail": "Phase 1 observed an access boundary with default transport",
+      "target": "https://viewership.softc.one/ranking/streamer"
+    },
+    {
+      "source": "transport",
+      "signal": "profile_transport_failed",
+      "severity": "grey",
+      "action": "recorded",
+      "detail": "TimeoutError: BrowserType.launch_persistent_context: Timeout 180000ms exceeded.\nCall log:\n  - <launching> C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --profile-directory=Default --user-data-dir=C:\\Users\\faust\\AppData\\Local\\Google\\Chrome\\User Data --remote-debugging-pipe about:blank\n  - <launched> pid=25212\n  - [pid=25212][err] [25212:29760:0611/232459.217:ERROR:chrome\\installer\\util\\google_update_settings.cc:265] Failed opening key Software\\Google\\Update\\ClientStateMedium\\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5\n  - [pid=25212][err]\n  - [pid=25212][err] DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.\n  - [pid=25212][err] [25212:16620:0611/232501.391:ERROR:components\\device_event_log\\device_event_log_impl.cc:202] [23:25:01.392] USB: usb_service_win.cc:108 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)\n  - [pid=25212][err] [25212:14192:0611/232501.550:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n  - [pid=25212][err] [25212:14192:0611/232529.804:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n  - [pid=25212][err] [25212:14192:0611/232623.173:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n",
+      "target": "https://viewership.softc.one/ranking/streamer"
+    }
+  ],
+  "transport_trace": [
+    {
+      "phase": "phase1",
+      "transport": "httpx",
+      "status_code": 429,
+      "title": "Vercel Security Checkpoint",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 33809,
+      "checkpoint_detected": true,
+      "detail": "default transport"
+    },
+    {
+      "phase": "phase2",
+      "transport": "chrome_profile",
+      "status_code": null,
+      "title": null,
+      "content_type": null,
+      "bytes": null,
+      "checkpoint_detected": true,
+      "detail": "profile transport"
+    }
+  ],
+  "profile_summary": {
+    "provided": true,
+    "type": "guest_session",
+    "status": "operator_approved",
+    "transport": "chrome_profile",
+    "header_names": [],
+    "cookie_names": [],
+    "user_agent_provided": false,
+    "secret_values_logged": false
+  },
+  "gate_status": "phase2_error",
+  "protocol": {
+    "version": "1.0",
+    "generated_at": "2026-06-11 23:27:59",
+    "target_url": "https://viewership.softc.one/ranking/streamer",
+    "best_path": "manual_review",
+    "best_path_trace": [
+      "Phase 1 rendering=verification_gate",
+      "Phase 2 gate_status=missing",
+      "manual review required before collection planning"
+    ],
+    "pre_check": {
+      "robots_status": "unknown",
+      "robots_detail": "robots 429 → rate limit/verification 가능성, 정책 확인 보류",
+      "gate_status": "phase2_error",
+      "gate_detail": "Vercel; status=phase2_error",
+      "login_required": false,
+      "terms_flag": false,
+      "terms_detail": "",
+      "risk_level": "restricted"
+    },
+    "connection_test": null,
+    "collection_plan": null,
+    "storage": null,
+    "verification": null,
+    "agent_prompt": null,
+    "notes": [
+      "best_path: manual_review",
+      "manual_review_checklist: 정상 브라우저 세션에서 콘텐츠가 보이는지 확인",
+      "manual_review_checklist: CAPTCHA, verification gate, IP 제한, 권한 세션 요구를 구분",
+      "manual_review_checklist: 클라이언트가 허용한 세션/헤더 제공 가능 여부 확인",
+      "manual_review_checklist: 공식 API, sitemap, 승인된 export 경로를 먼저 확인"
+    ],
+    "transport": "chrome_profile",
+    "profile_required": true,
+    "profile_summary": {
+      "provided": true,
+      "type": "guest_session",
+      "status": "operator_approved",
+      "transport": "chrome_profile",
+      "header_names": [],
+      "cookie_names": [],
+      "user_agent_provided": false,
+      "secret_values_logged": false
+    },
+    "rsc_payload_candidates": [],
+    "diagnostic_findings": {
+      "api": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no data-like API candidates found"
+      },
+      "sitemap": {
+        "status": "not_found",
+        "candidates_seen": 0,
+        "usable_candidates": 0,
+        "reason": "no sitemap candidates found"
+      },
+      "rsc": {
+        "status": "not_found",
+        "payload_count": 0,
+        "reason": "no RSC payload candidates found"
+      }
+    },
+    "recovery_plan": [
+      {
+        "action": "manual_browser_access_check",
+        "required": true,
+        "reason": "best_path=manual_review; gate_status=phase2_error; risk_level=restricted",
+        "record": [
+          "normal_browser_visible",
+          "login_or_session_required",
+          "checkpoint_captcha_or_429_present",
+          "approved_profile_or_session_available"
+        ]
+      },
+      {
+        "action": "review_browser_probe",
+        "required": true,
+        "reason": "bounded browser probe recorded visibility/access signals without bypassing gates",
+        "record": [
+          "visible_content_likely",
+          "checkpoint_detected",
+          "captcha_detected",
+          "login_required_likely",
+          "rate_limited",
+          "url_candidates",
+          "screenshot_artifact",
+          "raw_artifact"
+        ],
+        "summary": {
+          "visible_content_likely": false,
+          "checkpoint_detected": false,
+          "captcha_detected": false,
+          "login_required_likely": false,
+          "rate_limited": false,
+          "url_candidate_count": 0
+        }
+      },
+      {
+        "action": "respect_boundary_and_retry_policy",
+        "required": true,
+        "reason": "boundary_signals=['http_429', 'profile_transport_failed']",
+        "record": [
+          "whether_limit_clears_after_wait",
+          "whether operator-approved profile/session is available"
+        ]
+      },
+      {
+        "action": "rerun_charles_with_operator_approved_profile_or_engage",
+        "required": true,
+        "reason": "access boundary prevents collection planning with default transport",
+        "record": [
+          "profile_summary_only",
+          "no_secret_values",
+          "approved_scope"
+        ]
+      },
+      {
+        "action": "do_not_run_arthur_collect",
+        "required": true,
+        "reason": "manual_review/restricted protocol has no executable collection_plan"
+      }
+    ],
+    "url_resolution_needed": false,
+    "profile_or_session_likely_needed": true,
+    "arthur_inspect_recommended": false,
+    "browser_probe": {
+      "attempted": false,
+      "ok": false,
+      "target_url": "https://viewership.softc.one/ranking/streamer",
+      "error": "budget_exceeded_before_browser_probe"
+    }
+  }
+}

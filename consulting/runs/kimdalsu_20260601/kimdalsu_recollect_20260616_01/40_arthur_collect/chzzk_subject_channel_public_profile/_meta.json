@@ -1,0 +1,12 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "chzzk_subject_channel_public_profile",
+  "collection_method": "public_http_parse",
+  "source_url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+  "collected_at": "2026-06-16T20:28:44+09:00",
+  "items_collected": 1,
+  "boundary_signals": [],
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false
+}

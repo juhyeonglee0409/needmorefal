@@ -1,0 +1,20 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "target_id": "softcon_subject_channel_current_stats",
+  "collection_method": "browser_dom_extraction",
+  "transport": "nodriver_existing_approved_profile_visible_chrome",
+  "profile_used": true,
+  "source_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+  "collected_at": "2026-06-16T21:11:06+09:00",
+  "disclosure_tag": "red",
+  "items_collected": 1,
+  "pages_fetched": 1,
+  "requests_made": 1,
+  "boundary_signals": [],
+  "secret_values_logged": false,
+  "raw_html_saved": false,
+  "screenshot_saved": false,
+  "repair_pass": "subject_line_parse",
+  "parse_status": "ok",
+  "updated_at": "2026-06-16T21:35:39+09:00"
+}

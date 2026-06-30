@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-22T14:49:41.708Z",
+  "output_csv": "D:/Codex_Workspace/Streamer Consulting Project/구비바_케이스/data/unni_ref/unni_broadcast_history_paginated.csv",
+  "progress_path": "D:/Codex_Workspace/Streamer Consulting Project/구비바_케이스/data/unni_ref/_unni_broadcast_pagination_progress.ndjson",
+  "source_page1_csv": "D:/Codex_Workspace/Streamer Consulting Project/구비바_케이스/data/unni_ref/unni_broadcast_history.csv",
+  "page_plan_path": "D:/Codex_Workspace/Streamer Consulting Project/구비바_케이스/data/unni_ref/_unni_pagination_plan.json",
+  "page_limit_this_run": 60,
+  "attempted_this_run": 24,
+  "collected_rows_this_run": 2049,
+  "total_rows": 13096,
+  "channel_count": 20,
+  "min_rows_per_channel": 113,
+  "max_rows_per_channel": 920,
+  "errors_this_run": [],
+  "boundary_signal": null,
+  "raw_html_saved": false,
+  "secret_values_logged": false,
+  "cookie_values_read": false,
+  "storage_values_read": false,
+  "screenshot_saved": false
+}

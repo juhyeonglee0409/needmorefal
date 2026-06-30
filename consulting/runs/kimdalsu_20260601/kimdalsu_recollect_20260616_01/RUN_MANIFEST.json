@@ -1,0 +1,231 @@
+{
+  "run_id": "kimdalsu_recollect_20260616_01",
+  "case_id": "kimdalsu_20260601",
+  "generated_at": "2026-06-16T22:00:17+09:00",
+  "run_root": "D:\\Codex_Workspace\\Streamer Consulting Project\\runs\\kimdalsu_20260601\\kimdalsu_recollect_20260616_01",
+  "operator_collection_approval": {
+    "source": "user message",
+    "message": "수집 시작하자",
+    "scope": "collection only; final judgment/promotion remains operator/Hosea review"
+  },
+  "period_policy": {
+    "basis_date": "2026-06-16",
+    "default_recent_6_months_start": "2025-12-18",
+    "youtube_dalsooisfree_content_funnel": {
+      "start": "2025-12-18",
+      "end": "2026-06-16",
+      "applied": true
+    },
+    "softcon_cohort_member_profile_enrichment": {
+      "startDateTime": "2025-12-18T00:00:00+09:00",
+      "endDateTime": "2026-06-16T00:00:00+09:00",
+      "applied": true,
+      "reason": null
+    }
+  },
+  "targets": [
+    {
+      "target_id": "softcon_subject_channel_current_stats",
+      "status": "collected",
+      "items": 1,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "source_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "softcon_subject_channel_current_stats",
+        "collection_method": "browser_dom_extraction",
+        "transport": "nodriver_existing_approved_profile_visible_chrome",
+        "profile_used": true,
+        "source_url": "https://viewership.softc.one/channel/naverchzzk/dcbccbf2d8e2a1b095244c5856d3613a",
+        "collected_at": "2026-06-16T21:11:06+09:00",
+        "disclosure_tag": "red",
+        "items_collected": 1,
+        "pages_fetched": 1,
+        "requests_made": 1,
+        "boundary_signals": [],
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false,
+        "repair_pass": "subject_line_parse",
+        "parse_status": "ok",
+        "updated_at": "2026-06-16T21:35:39+09:00"
+      }
+    },
+    {
+      "target_id": "softcon_chzzk_lol_population_monthly",
+      "status": "collected",
+      "items": 100,
+      "parse_status": "below_expected_min_rows",
+      "boundary_signal": null,
+      "source_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "softcon_chzzk_lol_population_monthly",
+        "collection_method": "browser_dom_anchor_repair",
+        "transport": "nodriver_existing_approved_profile_visible_chrome",
+        "profile_used": true,
+        "source_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking",
+        "collected_at": "2026-06-16T21:13:52+09:00",
+        "disclosure_tag": "red",
+        "items_collected": 100,
+        "pages_fetched": 1,
+        "requests_made": 1,
+        "boundary_signals": [],
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false,
+        "residual_risk": "category_route_visible_cap_100_rows"
+      }
+    },
+    {
+      "target_id": "softcon_chzzk_follower_ranking_enterprise",
+      "status": "collected",
+      "items": 3987,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "source_url": "https://viewership.softc.one/ranking/followers?type=naverchzzk&page=1..40",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "softcon_chzzk_follower_ranking_enterprise",
+        "collection_method": "browser_dom_page_number_extraction",
+        "transport": "nodriver_existing_approved_profile_visible_chrome",
+        "profile_used": true,
+        "source_url": "https://viewership.softc.one/ranking/followers?type=naverchzzk&page=1..40",
+        "collected_at": "2026-06-16T21:41:11+09:00",
+        "disclosure_tag": "red",
+        "items_collected": 3987,
+        "pages_fetched": 40,
+        "requests_made": 40,
+        "boundary_signals": [],
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false,
+        "final_snapshot": true
+      }
+    },
+    {
+      "target_id": "semorank_chzzk_follower_public_crosscheck",
+      "status": "collected",
+      "items": 60,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "source_url": "https://www.semorank.kr/ranking/chzzk",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "semorank_chzzk_follower_public_crosscheck",
+        "collection_method": "public_http_parse",
+        "source_url": "https://www.semorank.kr/ranking/chzzk",
+        "collected_at": "2026-06-16T20:28:53+09:00",
+        "items_collected": 60,
+        "boundary_signals": [],
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false
+      }
+    },
+    {
+      "target_id": "chzzk_subject_channel_public_profile",
+      "status": "collected",
+      "items": 1,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "source_url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "chzzk_subject_channel_public_profile",
+        "collection_method": "public_http_parse",
+        "source_url": "https://api.chzzk.naver.com/service/v1/channels/dcbccbf2d8e2a1b095244c5856d3613a",
+        "collected_at": "2026-06-16T20:28:44+09:00",
+        "items_collected": 1,
+        "boundary_signals": [],
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false
+      }
+    },
+    {
+      "target_id": "youtube_dalsooisfree_content_funnel",
+      "status": "collected",
+      "items": 15,
+      "parse_status": "ok",
+      "boundary_signal": null,
+      "source_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvkwM7BIrqqEq7I_9UiCY6w",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "youtube_dalsooisfree_content_funnel",
+        "collection_method": "youtube_atom_feed",
+        "source_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvkwM7BIrqqEq7I_9UiCY6w",
+        "collected_at": "2026-06-16T20:31:10+09:00",
+        "items_collected": 15,
+        "boundary_signals": [],
+        "collection_window_start": "2025-12-18",
+        "collection_window_end": "2026-06-16",
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false
+      }
+    },
+    {
+      "target_id": "softcon_cohort_member_profile_enrichment",
+      "status": "collected",
+      "items": 100,
+      "parse_status": "partial",
+      "boundary_signal": null,
+      "source_url": "derived_from:softcon_chzzk_lol_population_monthly.channel_url",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "softcon_cohort_member_profile_enrichment",
+        "collection_method": "browser_channel_page_line_parse",
+        "transport": "nodriver_existing_approved_profile_visible_chrome",
+        "profile_used": true,
+        "items_collected": 100,
+        "requests_made": 100,
+        "boundary_signals": [],
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false,
+        "final_snapshot": true,
+        "updated_at": "2026-06-16T21:57:37+09:00",
+        "parse_status": "partial",
+        "profile_text_captured_rows": 2,
+        "profile_text_missing_rows": 98
+      }
+    },
+    {
+      "target_id": "auro_live_chzzk_follower_public_crosscheck",
+      "status": "boundary",
+      "items": 0,
+      "parse_status": "blocked",
+      "boundary_signal": "not_collected_route_requires_chrome_js_fetch_devalue_parser",
+      "source_url": "https://auro.live/rank/chzzk/0",
+      "meta": {
+        "run_id": "kimdalsu_recollect_20260616_01",
+        "target_id": "auro_live_chzzk_follower_public_crosscheck",
+        "collection_method": "public_http_parse",
+        "source_url": "https://auro.live/rank/chzzk/0",
+        "collected_at": "2026-06-16T20:28:54+09:00",
+        "items_collected": 0,
+        "boundary_signals": [
+          "not_collected_route_requires_chrome_js_fetch_devalue_parser"
+        ],
+        "secret_values_logged": false,
+        "raw_html_saved": false,
+        "screenshot_saved": false
+      }
+    }
+  ],
+  "legacy_inputs": [
+    "00_inputs/legacy/daily_stats/김달수_Dalsu_방송통계_1년_20260528.csv",
+    "00_inputs/legacy/cohort/김달수_코호트_131명.csv",
+    "00_inputs/legacy/cohort/수집대상_183명.csv",
+    "00_inputs/legacy/cohort/specs/스크래핑_작업명세서_구현팀.md"
+  ],
+  "secret_storage_check": {
+    "cookie_values_logged": false,
+    "session_tokens_logged": false,
+    "raw_html_saved": false,
+    "screenshots_saved": false
+  },
+  "promotion_boundary": "No CaseResult, DisclosureLog final state, PublicDemoRow, or package canonical data was promoted."
+}

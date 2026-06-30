@@ -1,0 +1,82 @@
+# 구비바 §5 방송별 요약 — nodriver DOM 수집
+# 사용법: python -m tools.collector.collector collect --config tools/collector/configs/gubiba_step5.yaml
+
+job:
+  name: gubiba_step5_broadcasts
+  description: "구비바 §5 방송기록 DOM 수집 (viewership.softc.one /streams)"
+
+targets:
+  sources:
+    - file: ../../../구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_final_main_general_game.csv
+      format: csv
+      group: T1
+      id_column: channelId
+      name_column: channel_name
+      filter: { column: final_include, truthy: true }
+    - file: ../../../구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/cohort_final_aux_virtual.csv
+      format: csv
+      group: T2
+      id_column: channelId
+      name_column: channel_name
+      filter: { column: final_include, truthy: true }
+  dedupe:
+    enabled: true
+    priority: [T1, T2]
+
+url:
+  template: "https://viewership.softc.one/channel/naverchzzk/{channelId}/streams"
+  params:
+    startDateTime: "2023-10-01T15:00:00.000Z"
+    endDateTime: "2026-06-15T14:59:59.999Z"
+
+engine:
+  type: nodriver
+  headless: false
+  lang: ko-KR
+  profile_dir: null
+
+extraction:
+  method: dom_eval
+  expression_file: ../expressions/softcon_channel_streams.js
+  wait:
+    poll_ms: 2000
+    timeout_ms: 12000
+    checkpoint_wait_ms: 0
+  signals:
+    checkpoint:
+      pattern: "Security Checkpoint|보안 검문|브라우저를 확인"
+      action: abort
+    rate_limit:
+      pattern: "Too Many Requests|rate limit|요청이 너무 많"
+      action: abort
+    not_found:
+      pattern: "존재하지 않는 페이지|404"
+      action: skip
+  validation:
+    min_rows: 10
+
+output:
+  dir: ../../../구비바_CASE_PACKAGE_v3_20260611/data/cohort/collected/broadcast_samples
+  file_pattern: "{group}/{channelId}_방송별_요약.csv"
+  columns:
+    - 시작 시간
+    - 종료 시간
+    - 카테고리
+    - 연령
+    - 시작제목
+    - 방송 시간
+    - 최고 시청자
+    - 평균 시청자
+    - 전체 채팅수
+    - 팔로워 증감
+    - 구독자 증감
+
+rate:
+  delay_ms: 10000
+  jitter_ms: 5000
+  seed: 42
+
+resume:
+  skip_existing: true
+  skip_progress: true
+  progress_glob: "_collection_progress_*.ndjson"

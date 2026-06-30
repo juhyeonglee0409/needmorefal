@@ -1,0 +1,41 @@
+{
+  "target_id": "softcon_chzzk_lol_population_monthly",
+  "target_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking",
+  "best_path": "browser_dom_extraction",
+  "pre_check": {
+    "gate_status": "profile_cleared",
+    "boundary_signal": null,
+    "profile_required": true,
+    "profile_type": "browser_profile",
+    "secret_values_logged": false
+  },
+  "diagnostic_findings": {
+    "title": "리그 오브 레전드 : 소프트콘 뷰어십 SOFTC.ONE VIEWERSHIP",
+    "final_url": "https://viewership.softc.one/category/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/softconeranking",
+    "content_signals": {
+      "has_kimdalsu": false,
+      "has_softcon": true,
+      "has_lol": false,
+      "has_follower": false,
+      "has_ranking": true
+    },
+    "boundary": {
+      "checkpoint_detected": false,
+      "rate_limited_detected": false,
+      "login_required_likely": false,
+      "enterprise_required_likely": false
+    }
+  },
+  "profile_required": true,
+  "collection_plan": {
+    "max_items": 120,
+    "source": "category_ranking_dom_scroll"
+  },
+  "verification": {
+    "preserve_not_verifiable": true
+  },
+  "source_paths": {
+    "scout_report": "10_charles/softcon_chzzk_lol_population_monthly.scout_report.json",
+    "protocol": "10_charles/softcon_chzzk_lol_population_monthly.protocol.json"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "target_id": "softcon_cohort_member_profile_enrichment",
+  "generated_at": "2026-06-16T20:33:09+09:00",
+  "tool": "codex_dependency_gate",
+  "boundary_signal": "not_run_population_dependency_blocked",
+  "dependency": "softcon_chzzk_lol_population_monthly",
+  "reason": "population target blocked by enterprise_membership_required; no channel_url input set available",
+  "collection_window": {
+    "startDateTime": "2025-12-18T00:00:00+09:00",
+    "endDateTime": "2026-06-16T00:00:00+09:00",
+    "basis": "run_date_minus_180_days"
+  },
+  "save_raw": false,
+  "secret_values_logged": false
+}
