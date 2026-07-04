@@ -16,6 +16,11 @@ from tools.outreach.pool import ChannelPool
 
 
 class OutreachTests(unittest.TestCase):
+    def test_email_regex_stops_at_ascii_domain(self) -> None:
+        # trailing Korean particle must not be captured into the domain
+        self.assertEqual(extract_public_email("문의 kimjune_@naver.com로 주세요"), "kimjune_@naver.com")
+        self.assertEqual(extract_public_email("business a@b.co.kr으로"), "a@b.co.kr")
+
     def test_extract_public_email_only_when_present(self) -> None:
         self.assertEqual(
             extract_public_email("문의: test.channel+biz@example.co.kr 입니다"),

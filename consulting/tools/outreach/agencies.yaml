@@ -21,3 +21,10 @@ email_domains:
   - enchantenter.co.kr
   - gysent.com
   - listella.tv
+  # 2026-07-04 census 대조에서 발견된 소형 버튜버 소속사/네트워크
+  - asvtuber.com
+  - creatorbus.net
+  - heavenbridge.net
+  - lumiplanet.live
+  - stargazer.ltd
+  - shark-tail.com

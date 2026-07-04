@@ -5,7 +5,9 @@ from __future__ import annotations
 import re
 
 
-EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", re.IGNORECASE)
+# ASCII-only local/domain parts: `\w` under IGNORECASE also matches Unicode
+# word chars, which captured trailing Korean particles (e.g. "naver.com로").
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
 
 
 def extract_public_email(text: str | None) -> str | None:
