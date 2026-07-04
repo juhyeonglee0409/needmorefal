@@ -293,4 +293,4 @@ python -m tools.collector.collector verify --config tools/collector/configs/gubi
 - `site_runbooks/SOFTC_ONE_RUNBOOK.md` — WAF 상세, failure modes, proven runs
 - `02_TOOL_CONTRACTS_Charles_Arthur.md` — Arthur/Charles 도구 계약
 - `07_DECISION_LOG.md` — DL_038 (WAF 우회 경로 확정), DL_039 (멀티탭 병렬화), DL_040 (rate limit), DL_045 (Step5 protocol)
-- `SESSION_NOTE.md` — 최근 세션 핸드오프
+- `handoffs/INDEX.md` — 최근 세션 핸드오프

@@ -29,6 +29,7 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 | 카테고리 랭킹 | `/category/{game}/ranking` | 랭킹 테이블 (CSV 2000행 제한) | DL_037에서 일반 랭킹 → 카테고리 랭킹 전환 |
 | 팔로워 랭킹 | `/ranking/followers?platform={platform}` | 팔로워 순 전체 랭킹 | §6에서 상위 참조밴드(10k+) 후보 스캔에 사용 |
 | 일반 랭킹 | `/ranking` | 상위 400ch | 카테고리 랭킹보다 범위 좁음 |
+| **버추얼 랭킹** (2026-07-04 검증) | `/ranking/virtualsoftcone?page={N}` | 버튜버 뷰어십 랭킹 (rank/name/hours/max·avg 시청자/viewership). 행 링크에서 `/channel/{platform}/{cid}` 복원 | **BASIC=4페이지(400) 캡, ENTERPRISE 멤버십=94페이지/7,489행 전량**. HTML 페이지네이션(RSC), CSV 2000행 캡과 무관. 소형 버튜버 tail까지 포함(치지직 7,203, avg 5~130·3h+ 타겟밴드 3,903). |
 
 ## Failure Modes
 
@@ -70,8 +71,11 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 | 2026-06-15 | 구비바 §5 full-range probe | full-range query 검증, DOM 100-row cap 확인 | `data/cohort/collected/broadcast_samples/_date_query_probe.json` |
 | 2026-06-15 | 구비바 §5 scale ladder | 6 workers, 6s delay — checkpoint/rate boundary 미발생 | `구비바_§5_SOFTCONE_full_range_collection_run_20260615.md` |
 | 2026-06-16 | 구비바 §6 upper reference band | nodriver + existing profile, 687/687 후보 detail 완료, 271행 채택 | `cohort_ref_upper_band.csv`, `구비바_§6_upper_reference_band_collection_run_20260616.md` |
+| 2026-07-04 | 버튜버 아웃리치 census | Chrome MCP(사용자 ENTERPRISE 세션) + 버추얼 랭킹 94p 수확, 1.1s/req. 치지직 7,203행. **지표만(secret/raw 0건 검증)** | `runs/vtuber_outreach_pilot_20260704/softcon_chzzk_census_20260704.ndjson` (원본 다운로드: `D:\Gunsmith_Mailbox\reports\`) |
 
 ## Open Risks
+
+- **[2026-07-04 실측, 07-05 정정] 미부트스트랩 프로필 실패 재확인**: fresh nodriver(프로필 무) → checkpoint, 신규 영속 profile dir + 30s 대기 → "브라우저를 확인하지 못했습니다 (코드 99)". `.pw_profile` 삭제(6/20) 후 재부트스트랩이 안 된 상태로, 기존 "fresh profile 사용 금지" 기록과 일치하는 예상된 실패 (operator 확인). WAF 강화 여부는 부트스트랩 재수행 후에만 판정 가능. 절차: visible 브라우저로 checkpoint 1회 통과 → 프로필 저장 → nodriver가 해당 `user_data_dir` 재사용. COLLECTION_TOOLKIT의 "nodriver 프로필 불필요" 문구는 이 runbook과 충돌 — 이 runbook을 정본으로 볼 것.
 
 - **DOM 100-row extraction cap**: `/streams` 페이지에서 한 번에 100개만 표시. 100건 초과 방송 기록 수집 시 pagination 또는 date windowing 필요. 현재 미검증.
 - **tls-client WAF 우회 미테스트**: tls-client, got-scraping, patchright, botright, camoufox 5개 스택 테스트 예정이나 미진행. 성공 시 Playwright 대체 가능. 검증된 실패 경로 4개는 DL_038 참조.

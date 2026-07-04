@@ -21,6 +21,9 @@ Scope: 치지직 스트리머 프로필/채널 데이터 (upstream identity/sour
 | Surface | Pattern | Data | Caveat |
 |---|---|---|---|
 | 채널 프로필 | `chzzk.naver.com/api/channels/{channelId}` 계열 | 채널명, 프로필, 팔로워 수, 방송 상태 | 공개 API. 인증 불필요. |
+| 채널 상세 (2026-07-03 프로브 검증) | `api.chzzk.naver.com/service/v1/channels/{channelId}` | 채널명, bio(channelDescription), followerCount, openLive, 구독/수익화 가능 여부 | 무인증, UA 헤더만. |
+| 채널 검색 (2026-07-03 프로브 검증) | `api.chzzk.naver.com/service/v1/search/channels?keyword=&offset=&size=` | 채널 목록 + bio + followerCount | 무인증. 채널명/bio 키워드 매칭 — 소형 채널 편향 (outreach 파일럿-1 실측). |
+| 라이브 검색 (2026-07-04 프로브 검증) | `api.chzzk.naver.com/service/v1/search/lives?keyword=&offset=&size=` | 라이브 목록: liveTitle, tags, concurrentUserCount, liveCategory, channelId | 무인증. 버튜버 식별은 tags/제목 신호로 (전용 카테고리 없음 — `categories/ETC/virtual/lives` 등은 빈 배열). |
 
 ## Failure Modes
 
