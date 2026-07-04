@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>익명 VTuber 사례 · 수익구조 진단 요약</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+    color: #1e293b; background: #f1f5f9; font-size: 13px; line-height: 1.7;
+    padding: 24px;
+  }
+  .page { max-width: 680px; margin: 0 auto; background: white; border-radius: 12px;
+    padding: 36px 40px; box-shadow: 0 4px 24px rgba(15,23,42,0.08); }
+  .top { border-top: 5px solid; border-image: linear-gradient(90deg,#3b82f6,#8b5cf6,#06b6d4) 1;
+    margin: -36px -40px 24px; padding: 28px 40px 0; }
+  .label { font-size: 11px; color: #64748b; letter-spacing: 3px; text-transform: uppercase; }
+  h1 { font-size: 23px; font-weight: 800; line-height: 1.35; margin: 8px 0 4px; }
+  .sub { font-size: 13px; color: #64748b; }
+  .badge { display: inline-block; margin-top: 16px; padding: 8px 20px; border-radius: 8px;
+    background: #dcfce7; color: #166534; font-size: 15px; font-weight: 800; }
+  .badge small { display:block; font-size:10px; font-weight:600; color:#16a34a; letter-spacing:0; }
+  h3 { font-size: 15px; font-weight: 800; margin: 26px 0 10px; padding-bottom: 6px;
+    border-bottom: 2px solid #e2e8f0; }
+  p { margin-bottom: 10px; }
+  .hl { border-left: 3px solid #3b82f6; background: #eff6ff; padding: 12px 16px;
+    border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .hl.purple { background:#f5f3ff; border-color:#8b5cf6; }
+  .cr { display: flex; gap: 10px; margin: 14px 0; }
+  .cd { flex: 1; padding: 14px; border-radius: 8px; background: #fafbfc; border: 1px solid #e2e8f0; text-align:center; }
+  .cd .k { font-size: 10px; color: #94a3b8; }
+  .cd .v { font-size: 20px; font-weight: 800; margin-top: 2px; }
+  .cd .v.bad { color:#ef4444; } .cd .v.good { color:#16a34a; } .cd .v.blue { color:#3b82f6; }
+  .cd .d { font-size: 10px; color: #94a3b8; margin-top: 2px; }
+  .arrow { display:flex; align-items:center; font-size:20px; color:#cbd5e1; }
+  ul { margin: 8px 0 8px 18px; } li { margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 4px; font-size: 11.5px; }
+  th, td { padding: 5px 9px; text-align: left; border-bottom: 1px solid #f1f5f9; }
+  th { background: #f8fafc; font-weight: 700; color: #475569; font-size: 10.5px; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.ext td { background: #eff6ff; }
+  tr.dud td { color: #94a3b8; }
+  .ttl { font-size: 11px; font-weight: 700; color: #475569; margin: 14px 0 2px; }
+  .tag { display:inline-block; font-size:9px; font-weight:700; padding:1px 6px; border-radius:3px; }
+  .tag.e { background:#dbeafe; color:#1e40af; } .tag.f { background:#f1f5f9; color:#64748b; }
+  .two { display:flex; gap:14px; } .two > div { flex:1; }
+  .good2 { color:#16a34a; font-weight:700; } .bad2 { color:#ef4444; font-weight:700; }
+  .foot { margin-top: 28px; padding: 16px 18px; background: #0f172a; color: #e2e8f0;
+    border-radius: 8px; font-size: 12px; }
+  .foot b { color: white; }
+  .note { margin-top: 14px; font-size: 10px; color: #94a3b8; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="label">Consulting Sample · 익명 처리</div>
+    <h1>수익구조만 바꿔서<br>같은 시청자로 약 2.4배</h1>
+    <div class="sub">치지직 VTuber · 후원 구조 재설계 진단 (요약본)</div>
+    <div class="badge">+139%<small>재설계 제안치 · 시뮬레이션 검증 · 시청자/방송시간 변화 없음</small></div>
+  </div>
+
+  <h3>어떤 상황이었나</h3>
+  <p>이 채널은 치지직이 기본 제공하는 후원 3종(기본·영상·미션)만 쓰고 있었습니다. 자기 콘텐츠에 맞게 설계하거나 커스터마이즈한 부분이 하나도 없었죠.</p>
+  <div class="hl">
+    이 상태에서는 시청자가 후원할 <b>"쓸 이유"</b>를 콘텐츠에서 찾지 못합니다. 시청자 수가 늘어도 후원 전환을 끌어올릴 지렛대가 없어요. 방송 시간을 늘려도 무급 노동이 될 뿐이고요.
+  </div>
+
+  <h3>핵심 인사이트 — 지갑 확장이 아니라 구조 전환</h3>
+  <p>시청자에게 "더 써 달라"고 하는 게 아닙니다. 이미 후원은 흐르고 있는데, <b>그 돈이 갈 곳(콘텐츠와 연동된 후원 경로)이 없어서</b> 수동적 경로에만 머물러 있었을 뿐입니다.</p>
+  <div class="hl purple">
+    <b>어떻게 확인했나:</b> 6개월치 후원 데이터를 전수 역산해서, 코어 시청자가 이미 어떤 가격대를 감당하고 있는지를 먼저 계산했습니다. 새로 제안한 가격은 도전적인 숫자가 아니라, <b>관찰된 실제 지출의 하한선</b>이었습니다. 그래서 "무리한 인상"이 아니라 "이미 있던 여력을 구조로 연결"한 겁니다.
+  </div>
+
+  <h3>재설계 예시 — 단일 룰렛을 목적별 2개로 분리</h3>
+  <p>초안은 스트리머 본인이 짠 <b>16슬롯 단일 룰렛</b>이었습니다. "방송 더 보려고" 낸 후원과 재미 요소와 꽝이 한 판에 다 섞여 있었죠. 이걸 <b>목적별 이중 룰렛(연장 + 엔터)</b>으로 재설계했습니다. (슬롯 이름의 채널 고유 용어만 일반 표현으로 바꿨고, 확률·구조는 원본 그대로입니다.)</p>
+
+  <div class="ttl">BEFORE · 스트리머 초안 — 단일 16슬롯 (연장·엔터·꽝 혼재)</div>
+  <table>
+    <tr><th>슬롯</th><th class="n">확률</th><th>유형</th><th>슬롯</th><th class="n">확률</th><th>유형</th></tr>
+    <tr><td class="dud">꽝 (소멸)</td><td class="n dud">12%</td><td><span class="tag f">꽝</span></td><td>잔소리 듣기 5분</td><td class="n">7%</td><td><span class="tag f">엔터</span></td></tr>
+    <tr><td>리액션 챌린지 5분</td><td class="n">9%</td><td><span class="tag f">엔터</span></td><td>TMI 잡담</td><td class="n">7%</td><td><span class="tag f">엔터</span></td></tr>
+    <tr><td>비명 금지 5분</td><td class="n">9%</td><td><span class="tag f">엔터</span></td><td>고통게임 1시간</td><td class="n">6%</td><td><span class="tag f">엔터</span></td></tr>
+    <tr><td>박수 리액션</td><td class="n">8%</td><td><span class="tag f">엔터</span></td><td>공포게임 1.5시간</td><td class="n">6%</td><td><span class="tag f">엔터</span></td></tr>
+    <tr><td>간식 금지 챌린지</td><td class="n">8%</td><td><span class="tag f">엔터</span></td><td>낙서 프로필</td><td class="n">2%</td><td><span class="tag f">엔터</span></td></tr>
+    <tr><td>시청자 칭찬하기</td><td class="n">8%</td><td><span class="tag f">엔터</span></td><td class="ext">방송 −1분</td><td class="n ext">1%</td><td><span class="tag e">연장</span></td></tr>
+    <tr><td>말투 챌린지 5분</td><td class="n">8%</td><td><span class="tag f">엔터</span></td><td class="ext">방송 +9분</td><td class="n ext">1%</td><td><span class="tag e">연장</span></td></tr>
+    <tr><td>한 번 더!</td><td class="n">7.5%</td><td><span class="tag f">엔터</span></td><td class="ext">방송 +18분</td><td class="n ext">0.5%</td><td><span class="tag e">연장</span></td></tr>
+  </table>
+  <div class="note" style="margin-top:4px">연장은 16슬롯 중 3개, 합쳐도 <b class="bad2">2.5%</b>. 꽝은 <b class="bad2">12%</b>. "방송 더 보려고" 낸 후원이 97.5% 확률로 다른 데로 샘.</div>
+
+  <div style="text-align:center; color:#8b5cf6; font-weight:700; font-size:12px; margin:16px 0 6px;">↓ 재설계 · 후원 목적에 따라 2개 룰렛으로 분리 ↓</div>
+
+  <div class="two">
+    <div>
+      <div class="ttl">AFTER ① 연장 룰렛 · 5슬롯</div>
+      <table>
+        <tr><th>슬롯</th><th class="n">확률</th></tr>
+        <tr class="dud"><td>1초 (미니꽝)</td><td class="n">20%</td></tr>
+        <tr><td>−10분</td><td class="n">20%</td></tr>
+        <tr class="ext"><td>+10분</td><td class="n">45%</td></tr>
+        <tr class="ext"><td>+30분</td><td class="n">10%</td></tr>
+        <tr class="ext"><td>+60분</td><td class="n">5%</td></tr>
+      </table>
+      <div class="note" style="margin-top:4px">연장 전용. 바닥 0분이라 "빚"은 안 생기고, −10분으로 드라마는 유지.</div>
+    </div>
+    <div>
+      <div class="ttl">AFTER ② 엔터 룰렛 · 11슬롯 (꽝 제거)</div>
+      <table>
+        <tr><th>슬롯</th><th class="n">확률</th></tr>
+        <tr><td>박수 리액션</td><td class="n">15%</td></tr>
+        <tr><td>말투 챌린지</td><td class="n">14%</td></tr>
+        <tr><td>TMI 잡담</td><td class="n">12%</td></tr>
+        <tr><td>한 번 더!</td><td class="n">10%</td></tr>
+        <tr><td>낙서 프로필</td><td class="n">9%</td></tr>
+        <tr><td>간식 금지 챌린지 · 시청자 칭찬</td><td class="n">각 8%</td></tr>
+        <tr><td>리액션 챌린지 20분 · 비명 금지 20분</td><td class="n">각 6%</td></tr>
+        <tr><td>공포게임 1.5h · 고통게임 1h</td><td class="n">각 6%</td></tr>
+      </table>
+      <div class="note" style="margin-top:4px">꽝 제거로 모든 스핀에 보상 보장. 시간 항목 5분 → 20분 상향.</div>
+    </div>
+  </div>
+
+  <div class="ttl" style="margin-top:14px">한 판(스핀)의 가치가 이렇게 달라집니다</div>
+  <table>
+    <tr><th>지표</th><th class="n">초안 (단일 16슬롯)</th><th class="n">재설계 (이중 룰렛)</th><th class="n">변화</th></tr>
+    <tr><td>룰렛 구조</td><td class="n">단일 16슬롯 혼재</td><td class="n good2">연장 5 + 엔터 11</td><td class="n">목적 분리</td></tr>
+    <tr><td>연장 확률</td><td class="n bad2">2.5%</td><td class="n good2">100% (전용)</td><td class="n">전용화</td></tr>
+    <tr><td>한 판의 연장 가치</td><td class="n bad2">0.17분</td><td class="n good2">8.5분</td><td class="n good2">50배</td></tr>
+    <tr><td>연장 분당 단가</td><td class="n bad2">11,765치즈</td><td class="n good2">247치즈</td><td class="n good2">48배 효율</td></tr>
+    <tr><td>꽝 슬롯</td><td class="n bad2">12% (보상 0)</td><td class="n good2">0% (미니꽝 20%)</td><td class="n">보상 보장</td></tr>
+  </table>
+
+  <h3>설계 원칙 4가지</h3>
+  <ul>
+    <li><b>기능 분리</b> — 후원 동기(방송 연장 vs 재미)를 뒤섞지 않고 목적별로 나눔</li>
+    <li><b>노동 가치 보장</b> — 모든 유료 콘텐츠의 실질 시급이 8,000원 이상 되도록 단가 역산</li>
+    <li><b>드라마 보존</b> — 예측 불가능한 재미는 남기되, 시청자가 "손해 봤다"는 느낌은 제거</li>
+    <li><b>검증</b> — 몬테카를로 시뮬레이션으로 수익 분포를 사전 확인 (감이 아니라 숫자로)</li>
+  </ul>
+
+  <div class="foot">
+    이건 <b>익명 처리한 실제 진단 사례</b>의 요약입니다. 당신 채널의 후원 구조도 같은 방식으로,
+    "이미 흐르는 돈이 어디서 새고 있는지"부터 데이터로 짚어드릴 수 있어요.
+    궁금하시면 편하게 한 줄만 남겨주세요.
+  </div>
+  <div class="note">※ 의뢰인 동의하에 모든 식별 정보(채널명·수익 절대액·시청자 정보·커뮤니티 용어)를 제거하고, 구조와 방법만 남겨 재구성했습니다. 위 수치는 재설계 제안 기준의 시뮬레이션 검증치이며 실행 전 추정입니다.</div>
+</div>
+</body>
+</html>
