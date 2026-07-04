@@ -1,0 +1,23 @@
+# Initial exclusion seed for solo-vtuber outreach classification.
+# Keep this list conservative: a match excludes the channel from the solo pool.
+
+agency_terms:
+  - 스텔라이브
+  - 이세계아이돌
+  - 미츄
+  - 버츄얼 유니온
+  - 허니즈
+  - 에스더
+  - 아카이브
+  - 픽셀네트워크
+  - 샌드박스네트워크
+  - 인챈트
+  - 지와이에스
+  - 리스텔라
+
+email_domains:
+  - pixelnetwork.co.kr
+  - sandboxnetwork.net
+  - enchantenter.co.kr
+  - gysent.com
+  - listella.tv
