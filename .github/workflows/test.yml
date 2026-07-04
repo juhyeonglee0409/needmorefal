@@ -1,0 +1,36 @@
+name: test
+
+on:
+  push:
+    paths:
+      - "consulting/tools/**"
+      - "consulting/_WORKING_CONTEXT/handoffs/**"
+      - "consulting/_WORKING_CONTEXT/SESSION_NOTE.md"
+      - "consulting/_WORKING_CONTEXT/07_DECISION_LOG.md"
+      - "consulting/_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md"
+      - ".github/workflows/test.yml"
+  pull_request:
+    paths:
+      - "consulting/tools/**"
+      - "consulting/_WORKING_CONTEXT/handoffs/**"
+      - "consulting/_WORKING_CONTEXT/07_DECISION_LOG.md"
+      - "consulting/_WORKING_CONTEXT/12_CONTINUITY_CONTRACT.md"
+      - ".github/workflows/test.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pytest
+        run: pip install pytest
+      - name: Run tests
+        run: python -m pytest consulting/tools -q
+      - name: Lint handoff / decision-log format
+        run: python -m consulting.tools.ops.lint_handoff
+      - name: Check handoff index
+        run: python -m consulting.tools.ops.status_board --check
