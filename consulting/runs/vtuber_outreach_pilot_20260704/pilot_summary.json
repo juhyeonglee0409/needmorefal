@@ -1,0 +1,21 @@
+{
+  "raw_candidates": 73,
+  "vtuber_heuristic_pass": 73,
+  "agency_flagged": 0,
+  "follower_band_pass": 9,
+  "qualified_solo_band": 9,
+  "qualified_with_email_in_bio": 2,
+  "emails_sample": [
+    {
+      "name": "버추얼변호사김명변",
+      "followers": 949,
+      "email": "kimlaw2424@gmail.com"
+    },
+    {
+      "name": "첼로 vtuber",
+      "followers": 836,
+      "email": "cello.illust@gmail.com"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,19 @@
+{"generated_at":"2026-07-04T16:58:45+0900","event":"start","source":"lives","pool":"runs\\vtuber_outreach_pilot_20260704\\channel_pool.ndjson","raw_json_saved":false,"secret_values_logged":false,"cookie_values_read":false}
+{"generated_at":"2026-07-04T16:58:48+0900","event":"append","channel_id":"f14beda307bb956be9bcd6181737f424","status":"excluded","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:58:50+0900","event":"append","channel_id":"5c1f48589caebfc5f67ae6ca0355c1a7","status":"excluded","segment":"rookie","email":false}
+{"generated_at":"2026-07-04T16:58:52+0900","event":"append","channel_id":"72583ce0c7a7be38997d74e3e9645668","status":"excluded","segment":"rookie","email":false}
+{"generated_at":"2026-07-04T16:58:54+0900","event":"append","channel_id":"87a267231c59dbc9abc3aa2bcd20e1ac","status":"candidate","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:58:57+0900","event":"append","channel_id":"354a21d5de27d11b47be0ec8008a89ce","status":"excluded","segment":"growth","email":true}
+{"generated_at":"2026-07-04T16:58:59+0900","event":"append","channel_id":"719fbd638f3f650230bdfa6f4ee2ba92","status":"excluded","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:02+0900","event":"append","channel_id":"d2239f4c380ca82cc811c3c331379cf6","status":"excluded","segment":"growth","email":true}
+{"generated_at":"2026-07-04T16:59:05+0900","event":"append","channel_id":"6602be5a2b6efe102ddb46a6d46a6993","status":"candidate","segment":"rookie","email":false}
+{"generated_at":"2026-07-04T16:59:10+0900","event":"append","channel_id":"02204f7cc552c79579eb3283b611a2de","status":"candidate","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:12+0900","event":"append","channel_id":"9a71adf8e4e761833f5173f4477acfe9","status":"candidate","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:14+0900","event":"append","channel_id":"60a32064b0151c3c324fbd85df24f4dd","status":"qualified","segment":"growth","email":true}
+{"generated_at":"2026-07-04T16:59:16+0900","event":"append","channel_id":"3bd6befdf14d5bd7b4f7c2bd4c802b5e","status":"candidate","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:19+0900","event":"append","channel_id":"f7e62a41cfff5b33e29245e52f8431b5","status":"candidate","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:21+0900","event":"append","channel_id":"41eddd3d2f45abb352a56ea02bfa6b80","status":"excluded","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:22+0900","event":"skip_duplicate","channel_id":"87a267231c59dbc9abc3aa2bcd20e1ac"}
+{"generated_at":"2026-07-04T16:59:23+0900","event":"append","channel_id":"ce2154281afadcbd9795a9d6cba7249f","status":"candidate","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:25+0900","event":"append","channel_id":"c702598273a9fe6c7ed0ad0b40d9cabd","status":"candidate","segment":"growth","email":false}
+{"generated_at":"2026-07-04T16:59:28+0900","event":"done","source":"lives","keywords":["버튜버","버츄얼","버추얼","Vtuber","V튜버","버미육","신인 버튜버"],"searched":0,"discovered":17,"appended":16,"skipped_duplicate":1,"skipped_opted_out":0,"errors":0,"boundary_signal":null}

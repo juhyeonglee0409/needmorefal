@@ -1,0 +1,17 @@
+{
+  "live_unique_channels": 8,
+  "vtuber_signal_pass": 8,
+  "enriched": 8,
+  "qualified_solo_band_150_10k": 5,
+  "with_email_in_bio": 1,
+  "emails": [
+    {
+      "name": "꽃분홍",
+      "followers": 1169,
+      "viewers_now": 36,
+      "email": "blossiiiv@gmail.com"
+    }
+  ],
+  "errors_count": 0,
+  "errors_sample": []
+}
