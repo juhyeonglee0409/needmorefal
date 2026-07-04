@@ -1,5 +1,99 @@
 # SESSION_NOTE
 
+> **⛔ 쓰기 동결 (2026-07-04, DL_CONTEXT_20260704_050)**
+> 이 파일은 데이터북 전환 이전의 legacy 아카이브다. 새 핸드오프는 `handoffs/YYYY-MM-DDTHHMM-<Surface>.md`에 작성하고 `python -m consulting.tools.ops.status_board`로 INDEX를 재생성할 것. 이 파일에는 더 이상 추가하지 않는다 (operator가 legacy 형식을 명시 요청한 경우 제외). 기존 항목의 삭제·이동 금지.
+
+## [CC] 2026-07-04T17:30 — 운영 자동화 도구 4종 (워크플로우 패턴 코드화)
+
+1. What was done
+   - operator와 "수동으로 돌리던 패턴 중 판단 불필요한 것을 코드로 내려보내기" 논의 → 4종 구현·검증.
+   - ① 핸드오프 lint: `consulting/tools/ops/lint_handoff.py` — SESSION_NOTE 서식(서페이스 태그/날짜) + DECISION_LOG id 중복/스코프 검증. 에러 exit 1, 경고 exit 0. 실파일 통과(에러 0, 날짜만 항목 4건 경고), 음성테스트로 에러 4종 탐지 확인.
+   - ② CI: `.github/workflows/test.yml` — push마다 `pytest consulting/tools` + lint. 로컬 시뮬레이션 통과(테스트 10, lint 0). **다음 push 시 GitHub Actions 발화** (needmorefal 리모트 확인됨).
+   - ③ 상태판: `D:\Claude_Code_Workspace\tools\status_board.py` → `STATUS.md`. 워크스페이스 8개 repo 브랜치/미커밋/최근커밋/최신 핸드오프 + 프로세스 스냅샷. 생성 확인.
+   - ④ 교차리뷰 디스패치: `D:\Claude_Code_Workspace\tools\cross_review.py` — diff를 Codex read-only로 보내 2차 소견. 라이브 검증: 의도 버그 2종(off-by-one, 0나눗셈) 검출. 200KB 초과 diff 거부 가드. codex 경로는 `tools/codex.cmd` shim(해시폴더 자동해석).
+
+2. File status
+   - ①②: needmorefal tracked (미커밋 — 아래 경계). ③④+shim+STATUS.md: `D:\Claude_Code_Workspace\tools\` (로컬 untracked).
+
+3. What the next surface should do
+   - **Operator**: ops 도구 커밋 여부 판단(현재 미커밋). 커밋 시 outreach/(Codex 미커밋)와 안 섞이게 `consulting/tools/ops/`+`.github/`만 선별 add 권장.
+   - 정리: codex.exe 프로세스 11개 잔류(과거 mcp-probe/exec 잔재). 다른 세션 소유 가능성 있어 자동 종료 안 함 — operator 확인 후 정리.
+
+4. Boundaries
+   - `consulting/tools/outreach/`(Codex 세션 소유)와 미접촉 — 직렬화 규칙 적용. ops 도구는 별도 경로.
+   - 이 핸드오프 작성 중 SESSION_NOTE가 타 세션에 의해 수정되어 재독 후 기록(직렬화 규칙 2번 실전 발동). 커밋 미수행(멀티세션 미커밋 혼재 — operator 판단 대기).
+
+## [CC] 2026-07-04 — 크몽 리스팅 수정 적용 + 버튜버 콜드메일 리서치
+
+1. What was done
+   - 어제 리뷰의 우선순위 액션을 브라우저 커넥터로 크몽 편집 폼에 직접 적용 (8건): 제목 "치지직 동급 100개 채널 비교 스트리머 성장 컨설팅"(29/30자), 본문 최상단 무료 사전 확인 블록, 리포트 샘플 문구 교체, STANDARD에 120분×2회 명시, 수정횟수 텍스트 3/6/9 통일(operator 확정: 표 기준), FAQ "A." 오타, 검색키워드 "채널 성장"→"SOOP 컨설팅", 대상자 4건. **제출은 operator가 직접 완료. 심사 결과 미확인.**
+   - 콜드메일 방법론 + 버튜버 특화 딥리서치: 워크플로 21개 소스 수집, 검증 단계는 세션 한도로 전원 실패(unverified 보존). 법규 축은 메인 루프에서 법문 원문 확인.
+   - operator 방향 확정: 콜드메일 타겟을 **버튜버 특화**로 전환.
+
+2. Files produced
+   - `reviews/coldmail_vtuber_research_20260704.md` — 방법론(unverified)/법규(verified)/치지직 버튜버 생태계/초안 설계 반영사항
+   - `specs/vtuber_outreach_pipeline_spec_20260704.md` — 타겟 리스트업 파이프라인 S1~S7 스펙 v0.1 (operator 확정: 관행 노선 1:1 교섭 구성). chzzk 검색/상세 API 무인증 작동 프로브 완료 (각 1회). 파일럿(~300 후보, HTTP만) operator 승인 대기.
+   - `reviews/kmong_gig_783585_conversion_review_20260703.md` (어제) 기반 액션 실행됨
+
+2-1. 추가 진행 (같은 날, 파일럿 실행)
+   - operator 확정: 관행 노선(1:1 교섭 구성), 파일럿 승인·실행 완료.
+   - **파일럿 결과**: 키워드 채널검색은 초소형 편향(73 중 64가 팔로워<150), 라이브 단발 스냅샷은 8 유니크. qualified 14명 중 bio 이메일 3명(~21%). "버추얼 카테고리" API는 성립 안 함(버튜버는 콘텐츠 카테고리로 방송, 태그로 식별). S1 주력을 소프트콘 버튜버 랭킹으로 재설계 — 스펙 §5 갱신.
+   - **Codex 직접 연결 검증**: `codex.exe exec` 헤드리스 왕복 성공 (bin\d8dfab353c0001dc, stdin 닫기 필수 `</dev/null`). CC→Codex 동기 오케스트레이션 가능.
+   - 발견된 제약: Claude Chrome 확장이 chzzk.naver.com 차단(정책) — 치지직 웹 확인은 Codex/Cowork 몫.
+   - 산출물: `runs/vtuber_outreach_pilot_20260704/` (NDJSON + summary 2종), 발송 후보 시드 3건 확보.
+
+2-2. 병렬 트랙 (같은 날, operator 둘 다 승인)
+   - **트랙 A Codex 구현**: 첫 실행 ChatGPT 사용량 한도로 실패 → 16:25 자동 재시도 예약(백그라운드). `--full-auto`는 세션 권한정책이 거부, 기본 샌드박스로 실행. 과제파일: scratchpad/codex_outreach_task.md.
+   - **트랙 B 소프트콘 (완료)**: nodriver 무인 루트는 미부트스트랩 프로필로 실패 확인. operator가 Chrome에서 checkpoint 통과 → Chrome MCP 사용자 세션으로 수집 성공.
+   - **파일럿-2 결정적 발견**: 소프트콘 "버추얼 랭킹" 존재(400채널, 태그필터에 소속사명). 소형 버튜버도 개별 시계열 추적됨(꽃분홍 1,170). **단 top 300은 전원 팔로워 1만+ 기성/소속사** — 평균시청자 100~600 조인 결과 팔로워 median 42k, 이메일 39%가 소속사 도메인. → 소스 역할 확정: **발견=치지직 라이브폴링(개인세 소형), 지표보강=소프트콘(S6)**. 스펙 v0.3 반영. 산출물 `runs/vtuber_outreach_pilot_20260704/pilot2_softcon_route.md`.
+
+2-2-b. Codex 구현 완료 + CC 라이브 smoke 통과
+   - Codex(5.5)가 `consulting/tools/outreach/` 구현 (chzzk adapter, append-only pool+opted_out 보존, classify, CLI collect/normalize, LLM stub, 테스트 10개 통과).
+   - CC 라이브 smoke (2026-07-04 낮): `collect --source lives --pages 1` → 17 발견/16 append/에러 0. 풀 16 유니크 (growth 13, rookie 3), **이메일 보유 3명** (꽃분홍 1,169 / 게임초보응애 1,676 / 아라비아의 별 373 — 신규 2명). 발송 후보(개인세 growth) 13명.
+   - 다음: 저녁 피크(20~24시) 폴링 누적으로 풀 확장.
+
+2-3. 인프라 MCP 재연결 (레포 재편으로 유실됐던 것 전수 복구)
+   - 원인: 레포 재편으로 IsaacInfra 경로 이동 + 이전 MCP 등록이 어떤 config에도 안 남아 있었음.
+   - IsaacInfra 전수 조사: MCP 서버 보유 도구 4개 = Arthur, Charles(scouter), Pearson, Susan. Bridge/Hosea는 MCP 아님.
+   - 복구: 설치 없이 PYTHONPATH 기동 래퍼 4개 (`D:\Claude_Code_Workspace\tools\{arthur,charles,pearson,susan}-mcp.cmd`) → MCP initialize 핸드셰이크 4/4 검증 → **Codex config(`~/.codex/config.toml`) 등록** (operator 선택: Codex에만). 백업 `config.toml.bak_20260704`. `codex mcp list`로 4개 enabled 확인.
+   - Codex CLI 자체도 Claude 쪽 MCP로 등록 (`D:\Claude_Code_Workspace\.mcp.json`, 다음 세션부터) + 서브에이전트 codex-delegate/codex-implementer.
+   - 경계: Pearson/Susan MCP 연결은 도구 노출일 뿐 — canonical mutation/판단 게이트는 기존 계약 그대로.
+   - 주의: Arthur `collect_data`의 softcon 프로필은 여전히 미부트스트랩 — 자동 수집은 프로필 재생성 후.
+
+3. What the next surface should do
+   - **Operator**: 크몽 심사 상태 확인. 콜드메일 초안 v2 검토. (소프트콘 CollectDirective는 사용자 세션 경로로 대체됨 — 별도 nodriver 부트스트랩은 무인 배치 필요 시에만.)
+   - **Codex**: 16:25 재시도 결과 확인. S1 발견 주력을 치지직 라이브폴링으로(스펙 v0.3). S3 블랙리스트에 소프트콘 소속사 태그/도메인 반영.
+   - **Cowork/Codex**: 치지직 개인세 버튜버 중 비즈니스 메일 공개 채널 리스트업 파이프라인 (프로 등급대, 팔로워 수백~수천). 발송 전 채널별 지표 1~2개 추출 자동화.
+   - 심사 통과 후 공개 페이지 fetch로 8건 반영 검증.
+
+4. Boundaries
+   - 크몽 편집은 operator 승인 흐름 하에 진행, 최종 제출은 operator 본인이 수행. 콜드메일은 정보통신망법 §50 옵트인 원칙과 충돌 소지 있음 — 1:1 개별 작성/소량/거부 존중 설계로 리스크 완화, (광고) 표기는 operator 결정 대기. 발송 행위는 아직 없음.
+
+---
+
+## [CC] 2026-07-03 — 크몽 gig/783585 전환율 리뷰 (첫 5건 전환 관점)
+
+1. What was done
+   - operator 의뢰로 크몽 리스팅(데이터 기반 스트리머 성장 컨설팅, gig/783585)을 3축(신뢰 신호 / 서비스 설명 / 마켓플레이스 맥락)으로 분석. 가격 수준 판정은 범위 밖.
+   - 페이지 전문 fetch(Exa+WebFetch) + 크몽 내 경쟁 리스팅 검색. bdata CLI 미설치로 대안 루트 사용.
+   - **페이지 내부 모순 발견**: 가격표 수정 횟수 3/6/9회 vs 본문 "수정 및 재진행" 1/2/3회. STANDARD에 120분×2회 컨설팅이 붙은 표 구성도 의도/오류 확인 필요.
+   - 핵심 진단: 카피 설득력은 충분, 병목은 (a) 제목·썸네일에 차별 숫자 부재, (b) 리뷰 0 상태의 현실 퍼널(문의→사전확인→결제)에 페이지가 최적화 안 됨, (c) 카테고리(창업·사업>일반 경영 자문)가 타겟 동선과 불일치.
+
+2. Files produced
+   - `reviews/kmong_gig_783585_conversion_review_20260703.md` — 3축 [관찰→진단→액션] + 우선순위 6개 + remaining_risk
+
+3. File status
+   - review_note. 리스팅 수정은 operator 실행 사항 — 세션이 페이지를 변경할 수 없음.
+
+4. What the next surface should do
+   - **Operator**: 수정 횟수 모순 정리(최우선), 무료 사전 확인 본문 최상단 이동, 제목·태그에 치지직/SOOP 키워드, 응답 1시간 체제.
+   - **Cowork/CC**: 1~2주 후 크몽 판매자 대시보드 노출/유입 통계 확인 → 카테고리 이동 여부 판단 자료로.
+
+5. Boundaries
+   - 공개 페이지 fetch 3회(자기 리스팅 1 + 검색 2)만 수행. 로그인/계정 접근 없음. canonical 미변경. 캐러셀·상세이미지 시각 품질은 미검증(렌더링 안 함).
+
+---
+
 ## Date
 
 2026-06-24 (second session)
@@ -1002,4 +1096,82 @@ Pearson v0.2 구현 검증 + 수집 데이터 → CollectionResult 변환 → Pe
    - **Operator**: Anthropic API 크레딧 + Naver Search API 키 + Reddit PRAW credentials 준비.
 
 5. Boundaries
-   - 문서 작업만. 코드/파이프라인/canonical 미변경. cookie/token 저장 없음.
+   - 문서 작업만. 코드/파이프라인/canonical 미변경. cookie/token 저장 없음.## [CC] 2026-07-04T16:25
+
+1. What was done
+   - CC 제안 `consulting/specs/vtuber_outreach_pipeline_spec_20260704.md`를 구현 관점에서 검토하고, 즉시 실행 가능한지 판단이 필요한 이견 항목을 정리해 리뷰 노트로 남김.
+   - 이견: CHZZK 공식 경로 정합성, LLM 의존 단계, outreach 모듈 부재, NDJSON 산출 형식 mismatch, SOFTC.ONE 프로필/체크포인트 게이트 분리 필요.
+
+2. What files were produced
+   - `consulting/reviews/review_note_vtuber_outreach_pipeline_implementation_20260704.md` (review_note)
+
+3. File status
+   - commit-candidate
+
+4. Next surface should do
+   - CC: 리뷰 노트의 1~4번 항목이 해소되도록 구현 범위를 분리(collector-compatible 최소 구현 우선)하고 다음 세션으로 진행.
+
+5. Boundaries and warnings
+   - CHZZK Runbook의 정식 경로는 `api/channels/{channelId}` 중심이며, `/service/v1/...`는 검증 체계 정리 필요.
+   - 현재 `consulting/tools/collector`는 LLM/`tools/outreach` 경로가 없어 S3/S7 요구사항 충족 불가. 별도 모듈 또는 spec 재정의 필요.
+   - SOFTC.ONE은 WAF/체크포인트/프로필 제약이 존재하므로 S6 실행은 별도 승인/준비 없이 진행하면 안 됨.
+
+---
+
+## [Codex] 2026-07-04T16:44
+
+1. What was done
+   - operator 판정에 따라 `consulting/tools/outreach/` 패키지를 신설.
+   - CHZZK `/service/v1/search/channels`, `/service/v1/search/lives`, `/service/v1/channels/{channelId}` 어댑터를 구현.
+   - S1~S5 최소 구현: discovery/enrich normalize, VTuber heuristic, agency exclusion seed, follower segment label, bio email extraction, append-only NDJSON pool.
+   - `outreach.status=opted_out`의 최신 상태를 읽고 이후 normalize/collect에서 skip하도록 구현.
+   - LLM 경계판정은 `llm.py` interface stub만 추가하고 실행 경로에는 연결하지 않음.
+
+2. Files produced
+   - `consulting/tools/outreach/__init__.py`
+   - `consulting/tools/outreach/__main__.py`
+   - `consulting/tools/outreach/agencies.yaml`
+   - `consulting/tools/outreach/chzzk.py`
+   - `consulting/tools/outreach/classify.py`
+   - `consulting/tools/outreach/email_extract.py`
+   - `consulting/tools/outreach/llm.py`
+   - `consulting/tools/outreach/pipeline.py`
+   - `consulting/tools/outreach/pool.py`
+   - `consulting/tools/outreach/README.md`
+   - `consulting/tools/outreach/tests/test_outreach.py`
+
+3. File status
+   - `consulting/tools/outreach/`: commit-candidate
+   - temp normalize smoke output: local temp only, repo 미저장
+
+4. Next surface action
+   - Codex/CC: operator가 라이브 실행을 요청하면 external CHZZK 접근 escalation 후 `python -m tools.outreach collect ...` 실행.
+   - CC: S6 Softcon metrics는 기존 판정대로 별도 승인/프로필 게이트 후 collector 계약으로 진행.
+
+5. Boundaries and warnings
+   - 라이브 외부 요청은 실행하지 않음. 검증은 unittest/compileall 및 기존 NDJSON offline normalize smoke만 수행.
+   - cookie/token/profile/screenshot/raw HTML 저장 없음.
+   - CaseResult, disclosure, PublicDemoRow, CollectDirective, SOFTC.ONE 수집 상태 변경 없음.
+
+---
+
+## [Codex] 2026-07-04T17:50
+
+1. What was done
+   - 새 작업 요청 전 컨텍스트 경계 확인.
+   - `D:\Codex_Workspace\_CODEX_SESSION_START.md` 읽기를 시도했으나 해당 경로가 현재 파일시스템에 없음.
+   - 현재 workspace의 `_WORKING_CONTEXT/README.md`, `11_SESSION_BEHAVIOR_CONTRACT.md`, `09_NEW_SESSION_WORKFLOW_SCENARIOS.md`를 읽고 시작 경계와 시나리오 라우터를 확인.
+
+2. Files produced
+   - 없음
+
+3. File status
+   - `_WORKING_CONTEXT/SESSION_NOTE.md`: reviewed
+
+4. Next surface action
+   - Codex: 사용자의 다음 구체 작업 요청을 받은 뒤 해당 시나리오에 맞는 focused context만 추가 로드.
+
+5. Boundaries and warnings
+   - 필수 시작 문서 `D:\Codex_Workspace\_CODEX_SESSION_START.md`는 누락 상태.
+   - 동일 파일명은 `D:\Codex_Workspace\gunsmith-workshop\_CODEX_SESSION_START.md`에서만 발견됨.
+   - 외부 웹 접근, collection, CaseResult/disclosure/PublicDemoRow/CollectDirective 변경 없음.

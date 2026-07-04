@@ -2,25 +2,28 @@
 
 This file is the project-wide operating instruction for Codex sessions working in the Streamer Consulting Project.
 
-Start from:
+Start from (paths relative to this file's directory, `consulting/`):
 
 ```text
-D:\Codex_Workspace\_CODEX_SESSION_START.md
-D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\README.md
+_WORKING_CONTEXT/README.md
 ```
+
+Design-philosophy root (optional, gunsmith-workshop repo): `D:\Codex_Workspace\gunsmith-workshop\_CODEX_SESSION_START.md`
 
 Then classify the task using:
 
 ```text
-D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\09_NEW_SESSION_WORKFLOW_SCENARIOS.md
+_WORKING_CONTEXT/09_NEW_SESSION_WORKFLOW_SCENARIOS.md
 ```
 
 For the workflow standard, use:
 
 ```text
-D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\10_USER_CLI_WORKFLOW.md
-D:\Codex_Workspace\Streamer Consulting Project\_WORKING_CONTEXT\10_USER_CLI_WORKFLOW.ko.md
+_WORKING_CONTEXT/10_USER_CLI_WORKFLOW.md
+_WORKING_CONTEXT/10_USER_CLI_WORKFLOW.ko.md
 ```
+
+If a specific task is fully described in the prompt, execute it directly — do not block on the start-ritual files above.
 
 ## External Site Scout Rule
 

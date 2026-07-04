@@ -1,12 +1,12 @@
 # Continuity Contract
 
-This document governs how all surfaces (Codex, Claude Code, Cowork/Hosea) persist state across sessions. It defines when, where, and how to write SESSION_NOTE entries and DECISION_LOG entries.
+This document governs how all surfaces (Codex, Claude Code, Cowork/Hosea) persist state across sessions. It defines when, where, and how to write handoff databook entries and DECISION_LOG entries.
 
 Every surface reads this contract. No surface is exempt.
 
 ---
 
-## Part 1: SESSION_NOTE
+## Part 1: Handoff Databook
 
 ### Purpose
 
@@ -20,16 +20,44 @@ Any task completion that produces an output: file, data, report, actionable find
 
 | Task type | Location |
 |---|---|
-| Streamer Consulting work | `_WORKING_CONTEXT/SESSION_NOTE.md` |
+| Streamer Consulting work | `_WORKING_CONTEXT/handoffs/YYYY-MM-DDTHHMM-<Surface>.md` |
 | Gunsmith general (non-Streamer) | Handoff section at the bottom of the relevant report in `Gunsmith_Mailbox/reports/` |
+
+`_WORKING_CONTEXT/SESSION_NOTE.md` is the legacy archive for pre-databook handoffs. Do not append new Streamer Consulting handoffs there unless the operator explicitly asks for legacy-format output.
+
+`_WORKING_CONTEXT/handoffs/INDEX.md` is generated from individual handoff files. Do not edit it manually.
 
 ### Format
 
-Each entry is appended. Do not overwrite prior entries. The primary surface may rewrite the main body (Date, Case, Scenario, Goal, etc.) to reflect current state — but handoff entries below are append-only.
+Each handoff is a separate file. Do not overwrite another surface's handoff file. If the same surface writes more than one handoff in the same minute, append `-02`, `-03`, etc. to the filename.
+
+Filename:
+
+```text
+YYYY-MM-DDTHHMM-<Surface>.md
+YYYY-MM-DDTHHMM-<Surface>-02.md
+```
+
+Use minute precision. Do not use colon characters in filenames.
+
+Required frontmatter:
+
+```yaml
+---
+surface: CC | Codex | Cowork
+timestamp: 2026-07-04T17:30
+task: one-line task title
+status: raw | reviewed | commit-candidate | hold | excluded
+next_surface: CC | Codex | Cowork | operator
+files: [relative/path, ...]
+decision_ids: [DL_CONTEXT_20260704_050]
+links: [related-doc-slug]
+---
+```
+
+Body:
 
 ```
-## [Surface/Agent] YYYY-MM-DDTHH:MM
-
 1. What was done
 2. What files were produced (absolute or repo-relative path)
 3. File status (raw / reviewed / commit-candidate / hold / excluded)
@@ -39,9 +67,11 @@ Each entry is appended. Do not overwrite prior entries. The primary surface may 
 
 ### Field definitions
 
-**Surface tag**: `[Codex]`, `[CC]` (Claude Code), `[Cowork/Hosea]`. Required. Without it, provenance is unknown.
+**Surface**: `Codex`, `CC` (Claude Code), or `Cowork`. Required. Without it, provenance is unknown.
 
 **Timestamp**: ISO 8601 local time, minute precision. Required. Without it, entry ordering is ambiguous when multiple surfaces write in the same day.
+
+**Task**: one-line title for the handoff. Keep details in the body.
 
 **File status values**:
 
@@ -53,9 +83,23 @@ Each entry is appended. Do not overwrite prior entries. The primary surface may 
 | `hold` | Pending operator decision. Do not use without approval. |
 | `excluded` | Dead end. Do not use. Kept for record only. |
 
-**Next surface**: must name the target — Codex, CC, or Cowork. Not "next tool" or "next step." The reader must know which surface should pick this up.
+**Next surface**: must name the target — Codex, CC, Cowork, or operator. Not "next tool" or "next step." The reader must know who should pick this up.
 
 **Boundaries**: rate limits hit, blocked paths, operator approval required, data quality caveats, policy constraints discovered. Anything the next surface would regret not knowing.
+
+### Index
+
+After writing or editing a handoff, regenerate the index:
+
+```powershell
+python -m consulting.tools.ops.status_board
+```
+
+CI checks the generated index:
+
+```powershell
+python -m consulting.tools.ops.status_board --check
+```
 
 ### What NOT to write
 
@@ -157,17 +201,28 @@ Self-determined decisions are limited to: technical dead-end declarations, tool 
 
 ### Every surface must
 
-1. Read `SESSION_NOTE.md` before starting work on a Streamer task
-2. Write a handoff entry on task completion
-3. Check the current highest DECISION_LOG number before adding a new entry
-4. Respect all `status: active` decisions in the log
+1. Read `handoffs/INDEX.md` before resuming recent Streamer context work; read the referenced handoff files only as needed
+2. Read legacy `SESSION_NOTE.md` only when pre-databook history is needed
+3. Write a handoff file on task completion
+4. Regenerate `handoffs/INDEX.md` after writing a handoff
+5. Check the current highest DECISION_LOG number before adding a new entry
+6. Respect all `status: active` decisions in the log
 
 ### No surface may
 
-1. Delete or overwrite another surface's SESSION_NOTE entries
+1. Delete or overwrite another surface's handoff files
 2. Mark a DECISION_LOG entry as inactive without operator approval
 3. Contradict an active decision without first logging a superseding decision with operator authority
 4. Skip the handoff because the task felt minor — if output exists, handoff exists
+
+### Write serialization (operator ruling 2026-07-04)
+
+Operator works one active session at a time. That rule only holds if every surface also follows these two rules:
+
+1. **Background runs count as writers.** A session that spawns a background process (codex exec, scheduled retry, batch collector) that writes to a repo must treat that repo as claimed until the run finishes. Either wait for it before handing off, or scope the run to paths no other session touches. "One active session" means one active *writer*, not one visible window.
+2. **Re-read shared documents immediately before writing.** Long-lived sessions hold stale copies of `handoffs/INDEX.md`, `SESSION_NOTE.md`, specs, and runbooks. Before editing any shared document, re-read its current state first — anchor edits on what is on disk now, not on what the session remembers.
+
+Commit frequently. Git turns the worst remaining case into a loud merge conflict instead of a silent overwrite.
 
 ---
 
@@ -188,7 +243,8 @@ Do not duplicate the same information across multiple context documents.
 
 | Information type | Canonical home |
 |---|---|
-| Current handoff and recent state | `SESSION_NOTE.md` |
+| Current handoff and recent state | `handoffs/INDEX.md` + referenced handoff files |
+| Legacy pre-databook handoff history | `SESSION_NOTE.md` |
 | Durable decisions and policy | `07_DECISION_LOG.md` |
 | Site-specific working routes, failures, defaults, proven-run pointers | `site_runbooks/` |
 | Cross-site reusable rules | `03_STREAMER_CASE_GENERIC_PROTOCOL.md` |
@@ -198,13 +254,14 @@ If information belongs in more than one place, put the operational summary in th
 
 ### Archive review
 
-- If `SESSION_NOTE.md` grows beyond roughly 30 handoff entries or becomes hard to scan, propose an archive split. Keep the current active state and latest handoffs in place.
+- If `handoffs/INDEX.md` grows hard to scan, update the index generator or add filters before moving handoff files.
+- `SESSION_NOTE.md` is already legacy after the handoff databook transition. Do not migrate, compact, rename, or copy it without explicit operator approval.
 - If `07_DECISION_LOG.md` grows hard to scan, add or update an index first. Do not move active decisions without operator approval.
 - Archive work must preserve provenance, timestamps, decision IDs, and status values.
 - No surface may silently compact, delete, or relocate active context entries.
 
 ### Conflict resolution
 
-If a SESSION_NOTE entry and a DECISION_LOG entry contradict each other, the DECISION_LOG takes precedence. SESSION_NOTE is current state; DECISION_LOG is durable policy.
+If a handoff entry and a DECISION_LOG entry contradict each other, the DECISION_LOG takes precedence. Handoffs are current state; DECISION_LOG is durable policy.
 
 If two DECISION_LOG entries contradict each other, the newer one takes precedence (it should reference and supersede the older one).

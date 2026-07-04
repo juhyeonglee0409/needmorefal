@@ -59,7 +59,7 @@ Decision log는 `_WORKING_CONTEXT/07_DECISION_LOG.md`다. durable workflow decis
 - Charles/Arthur pipeline preparation
 - exact evidence lookup
 - package mutation boundary
-- `SESSION_NOTE.md`를 통한 session handoff
+- `_WORKING_CONTEXT/handoffs/`를 통한 session handoff
 
 Collection은 user/operator가 별도로 승인한 경우에만 포함된다. Formal audit bundle은 선택 사항이며, 외부 공유나 공식 검토가 필요할 때만 만든다.
 
@@ -106,10 +106,10 @@ D:\Codex_Workspace\_CODEX_SESSION_START.md
 
 1. `_WORKING_CONTEXT/README.md`를 읽는다.
 2. `09_NEW_SESSION_WORKFLOW_SCENARIOS.md`에서 task scenario를 분류한다.
-3. 기존 case/run을 이어갈 때는 다른 case context를 읽기 전에 최신 관련 `SESSION_NOTE.md`를 읽는다. 이는 Scenario 2와 Scenario 7에서 필수이며, 기존 run을 재개하는 Scenario 3에도 적용된다.
+3. 최근 project context를 이어갈 때는 `_WORKING_CONTEXT/handoffs/INDEX.md`와 최신 관련 handoff 파일을 먼저 읽는다. case-local run이 여전히 `SESSION_NOTE.md`를 쓰는 경우에는 최신 관련 case/run note를 읽는다.
 4. active task context만 로드한다.
 5. source file은 broad loading이 아니라 targeted lookup으로 사용한다.
-6. session이 durable state, decision, blocker, next step을 만들면 `SESSION_NOTE.md`를 작성하거나 갱신한다.
+6. session이 durable state, decision, blocker, next step을 만들면 handoff 파일을 작성한다.
 
 작업이 문서 개정, QA, 비교, exact evidence review를 명시적으로 요구하지 않는 한 full MASTER, full methodology, old reports, archive packages, full CSV, full JSON은 로드하지 않는다.
 
@@ -119,7 +119,7 @@ D:\Codex_Workspace\_CODEX_SESSION_START.md
 
 - `_WORKING_CONTEXT/README.md`
 - `09_NEW_SESSION_WORKFLOW_SCENARIOS.md`의 관련 줄
-- case/run을 재개할 때 최신 관련 `SESSION_NOTE.md`
+- 최근 project context를 재개할 때 `_WORKING_CONTEXT/handoffs/INDEX.md`와 최신 관련 handoff
 
 기본 제한:
 
@@ -268,7 +268,8 @@ CLI/Codex가 만들 수 있는 것:
 - patch candidates
 - proposed JSON updates
 - run artifacts
-- `SESSION_NOTE.md`
+- handoff files
+- case-local `SESSION_NOTE.md`
 
 CLI/Codex가 조용히 overwrite하면 안 되는 것:
 
@@ -407,18 +408,18 @@ Ordinary case/package work:
 Project working-context maintenance:
 
 ```text
-_WORKING_CONTEXT/SESSION_NOTE.md
+_WORKING_CONTEXT/handoffs/YYYY-MM-DDTHHMM-<Surface>.md
 ```
 
 Session note update rule:
 
 - 동일한 run을 명시적으로 이어가는 경우에만 existing note를 update한다.
 - ordinary case/package work에서는 같은 날짜의 같은 task일 때만 existing note를 update한다.
-- project working-context maintenance에서는 `_WORKING_CONTEXT/SESSION_NOTE.md`를 update한다.
+- project working-context maintenance에서는 새 handoff 파일을 만들고 `_WORKING_CONTEXT/handoffs/INDEX.md`를 재생성한다.
 - 그 외에는 new note를 만든다.
 - previous session note를 조용히 overwrite하거나 delete하지 않는다.
 
-Ordinary workflow session에는 lightweight note 하나면 충분하다.
+Ordinary case/run workflow session에는 lightweight note 하나면 충분하다. `_WORKING_CONTEXT` handoff는 `12_CONTINUITY_CONTRACT.md`의 frontmatter schema를 따른다.
 
 ```markdown
 # SESSION_NOTE
@@ -476,7 +477,7 @@ Optional only:
 ```text
 Did the session start from the canonical README?
 Did it classify the scenario before loading more context?
-If resuming a case/run, did it read the newest relevant SESSION_NOTE.md first?
+If resuming recent context, did it read the newest relevant handoff or case-local SESSION_NOTE first?
 Did it keep task-context loading within the default limits?
 Did it load at most one active reference per role?
 If legacy was loaded, was its purpose recorded as comparison/history/calibration only?
@@ -494,7 +495,7 @@ If profile/session access was involved, did it avoid storing token values in art
 If working-context files changed, did it write a decision log entry?
 If a patch candidate status changed, did it write a decision log entry?
 If a protected file changed, was there explicit user instruction?
-Did it leave SESSION_NOTE.md or equivalent next-step state when needed?
+Did it leave a handoff or equivalent next-step state when needed?
 Did it leave the next session with a clear smallest next action?
 ```
 
@@ -504,7 +505,7 @@ Did it leave the next session with a clear smallest next action?
 
 - Section 0에 document precedence와 protected files를 추가했다.
 - `AGENTS.md`를 protected project-wide instruction file로 표시했다.
-- 기존 case/run을 재개할 때 최신 관련 `SESSION_NOTE.md`를 먼저 읽는 startup rule을 추가했다.
+- 기존 case/run을 재개할 때 최신 관련 `SESSION_NOTE.md`를 먼저 읽는 startup rule을 추가했다. `_WORKING_CONTEXT` handoff에는 `12_CONTINUITY_CONTRACT.md`의 handoff databook이 우선한다.
 - Context budget을 fixed startup overhead와 minimum necessary task context로 재정의했다.
 - Full ScoutReport는 disk에 보존하고 targeted lookup으로만 로드하는 규칙을 추가했다.
 - Working-context mutation rule을 명시했다.

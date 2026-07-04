@@ -57,7 +57,7 @@ It covers:
 - Charles/Arthur pipeline preparation
 - exact evidence lookup
 - package mutation boundaries
-- session handoff through `SESSION_NOTE.md`
+- session handoff through `_WORKING_CONTEXT/handoffs/`
 
 Collection is included only when separately authorized by the user/operator. Formal audit bundles are optional and only needed for external sharing or formal review.
 
@@ -104,10 +104,10 @@ Every meaningful Streamer Consulting Project session then starts with:
 
 1. Read `_WORKING_CONTEXT/README.md`.
 2. Classify the task scenario from `09_NEW_SESSION_WORKFLOW_SCENARIOS.md`.
-3. If continuing an existing case/run, read the newest relevant `SESSION_NOTE.md` before loading other case context. This is mandatory for Scenario 2 and Scenario 7, and also applies to Scenario 3 when resuming an existing run.
+3. If continuing recent project context, read `_WORKING_CONTEXT/handoffs/INDEX.md` and then the newest relevant handoff file before loading other case context. For case-local runs that still use `SESSION_NOTE.md`, read the newest relevant case/run note.
 4. Load only the active task context.
 5. Use source files by targeted lookup, not broad loading.
-6. Write or update `SESSION_NOTE.md` when the session creates durable state, decisions, blockers, or next steps.
+6. Write a handoff file when the session creates durable state, decisions, blockers, or next steps.
 
 Do not load full MASTER, full methodology, old reports, archive packages, full CSV, or full JSON unless the task explicitly requires document revision, QA, comparison, or exact evidence review.
 
@@ -117,7 +117,7 @@ Fixed startup overhead is not counted against the task-context budget:
 
 - `_WORKING_CONTEXT/README.md`
 - the relevant lines of `09_NEW_SESSION_WORKFLOW_SCENARIOS.md`
-- the newest relevant `SESSION_NOTE.md` when resuming a case/run
+- `_WORKING_CONTEXT/handoffs/INDEX.md` and the newest relevant handoff when resuming recent project context
 
 Default limits:
 
@@ -266,7 +266,8 @@ CLI/Codex may create:
 - patch candidates
 - proposed JSON updates
 - run artifacts
-- `SESSION_NOTE.md`
+- handoff files
+- case-local `SESSION_NOTE.md`
 
 CLI/Codex may not silently overwrite:
 
@@ -405,18 +406,18 @@ For ordinary case/package work:
 For project working-context maintenance:
 
 ```text
-_WORKING_CONTEXT/SESSION_NOTE.md
+_WORKING_CONTEXT/handoffs/YYYY-MM-DDTHHMM-<Surface>.md
 ```
 
 Session note update rule:
 
 - Update an existing note only when explicitly continuing the same run.
 - For ordinary case/package work, update an existing note only when it is the same task on the same date.
-- For project working-context maintenance, update `_WORKING_CONTEXT/SESSION_NOTE.md`.
+- For project working-context maintenance, create a new handoff file and regenerate `_WORKING_CONTEXT/handoffs/INDEX.md`.
 - Otherwise create a new note.
 - Never silently overwrite or delete previous session notes.
 
-For ordinary workflow sessions, one lightweight note is enough:
+For ordinary case/run workflow sessions, one lightweight note is enough. For `_WORKING_CONTEXT` handoffs, use the frontmatter schema in `12_CONTINUITY_CONTRACT.md`.
 
 ```markdown
 # SESSION_NOTE
@@ -474,7 +475,7 @@ Before ending a meaningful session, check:
 ```text
 Did the session start from the canonical README?
 Did it classify the scenario before loading more context?
-If resuming a case/run, did it read the newest relevant SESSION_NOTE.md first?
+If resuming recent context, did it read the newest relevant handoff or case-local SESSION_NOTE first?
 Did it keep task-context loading within the default limits?
 Did it load at most one active reference per role?
 If legacy was loaded, was its purpose recorded as comparison/history/calibration only?
@@ -492,7 +493,7 @@ If profile/session access was involved, did it avoid storing token values in art
 If working-context files changed, did it write a decision log entry?
 If a patch candidate status changed, did it write a decision log entry?
 If a protected file changed, was there explicit user instruction?
-Did it leave SESSION_NOTE.md or equivalent next-step state when needed?
+Did it leave a handoff or equivalent next-step state when needed?
 Did it leave the next session with a clear smallest next action?
 ```
 
@@ -502,7 +503,7 @@ Did it leave the next session with a clear smallest next action?
 
 - Added Section 0 for document precedence and protected files.
 - Marked `AGENTS.md` as a protected project-wide instruction file.
-- Added startup rule to read the newest relevant `SESSION_NOTE.md` when resuming an existing case/run.
+- Added startup rule to read the newest relevant `SESSION_NOTE.md` when resuming an existing case/run. Superseded for `_WORKING_CONTEXT` handoffs by the handoff databook in `12_CONTINUITY_CONTRACT.md`.
 - Reframed context budget as fixed startup overhead plus minimum necessary task context.
 - Added rule to preserve full ScoutReport on disk while loading it only by targeted lookup.
 - Added explicit working-context mutation rule.

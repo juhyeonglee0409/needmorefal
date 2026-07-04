@@ -46,10 +46,11 @@ Read only the focused context files needed for that scenario.
 | `10_USER_CLI_WORKFLOW.md` | solo user + CLI/Codex workflow and session handoff rules |
 | `10_USER_CLI_WORKFLOW.ko.md` | Korean translation of the User-CLI workflow |
 | `11_SESSION_BEHAVIOR_CONTRACT.md` | implementation session behavior contract |
-| `12_CONTINUITY_CONTRACT.md` | cross-surface SESSION_NOTE and DECISION_LOG writing rules |
+| `12_CONTINUITY_CONTRACT.md` | cross-surface handoff databook and DECISION_LOG writing rules |
 | `COLLECTION_TOOLKIT.md` | collection infrastructure inventory — scripts, profiles, tools, status |
+| `handoffs/` | per-session handoff databook and generated recent-state index |
 | `site_runbooks/` | site-specific operational runbooks (routes, failures, proven runs) |
-| `SESSION_NOTE.md` | current handoff note; read only when resuming active context work |
+| `SESSION_NOTE.md` | legacy pre-databook handoff archive; read only for older history |
 
 ## Source Loading Rule
 
@@ -143,13 +144,14 @@ When a case-specific pattern becomes reusable, move the reusable part into the g
 - Every top-level file or directory must appear in the File Roles table above.
 - `README.md` remains the canonical entrypoint. Do not make a second master index inside this folder.
 - Keep roles separated:
-  - `SESSION_NOTE.md`: current handoff and recent state.
+  - `handoffs/`: current handoff and recent state.
+  - `SESSION_NOTE.md`: legacy pre-databook handoff history.
   - `07_DECISION_LOG.md`: durable decisions and policy.
   - case run notes: detailed execution evidence for a specific run.
   - `site_runbooks/`: site-specific routes, failures, collection defaults, and proven-run pointers.
   - `03_STREAMER_CASE_GENERIC_PROTOCOL.md`: cross-site reusable rules only.
 - Do not duplicate the same operational finding across all documents. Put the summary in the right role document and link to the evidence.
-- If `SESSION_NOTE.md` or `07_DECISION_LOG.md` becomes hard to scan, create an archive/index plan first. Do not silently delete, compact, or move active entries.
+- If `handoffs/INDEX.md`, `SESSION_NOTE.md`, or `07_DECISION_LOG.md` becomes hard to scan, create an archive/index plan first. Do not silently delete, compact, or move active entries.
 
 ## Session Workflow
 
