@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>초앵 채널 데이터 카드</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Malgun Gothic','Apple SD Gothic Neo',-apple-system,sans-serif;
+    color:#1e293b; background:#f1f5f9; font-size:13px; line-height:1.65; padding:24px; }
+  .card { max-width:640px; margin:0 auto; background:white; border-radius:14px;
+    padding:32px 36px; box-shadow:0 4px 24px rgba(15,23,42,0.08); }
+  .top { border-top:5px solid; border-image:linear-gradient(90deg,#7c3aed,#3b82f6,#06b6d4) 1;
+    margin:-32px -36px 20px; padding:24px 36px 0; }
+  .label { font-size:10px; color:#64748b; letter-spacing:3px; text-transform:uppercase; }
+  h1 { font-size:22px; font-weight:800; margin:6px 0 2px; }
+  .sub { font-size:11.5px; color:#94a3b8; }
+  .hero { display:flex; gap:10px; margin:18px 0 6px; }
+  .hv { flex:1; padding:14px 10px; border-radius:10px; text-align:center; background:#faf5ff; border:1px solid #e9d5ff; }
+  .hv.b { background:#eff6ff; border-color:#bfdbfe; }
+  .hv .k { font-size:10px; color:#7c3aed; font-weight:700; }
+  .hv.b .k { color:#2563eb; }
+  .hv .v { font-size:24px; font-weight:800; margin-top:2px; }
+  .hv .d { font-size:9.5px; color:#94a3b8; margin-top:2px; }
+  h3 { font-size:13.5px; font-weight:800; margin:20px 0 8px; }
+  table { width:100%; border-collapse:collapse; font-size:12px; }
+  th,td { padding:6px 10px; border-bottom:1px solid #f1f5f9; text-align:left; }
+  th { background:#f8fafc; font-size:10.5px; color:#475569; }
+  td.n,th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  .me { color:#7c3aed; font-weight:800; }
+  .hl { border-left:3px solid #06b6d4; background:#ecfeff; padding:10px 14px;
+    border-radius:0 6px 6px 0; margin:10px 0; font-size:12px; }
+  .hl.p { border-color:#7c3aed; background:#faf5ff; }
+  .bar { height:10px; background:#e2e8f0; border-radius:5px; overflow:hidden; margin:6px 0 4px; }
+  .bar > div { height:100%; background:linear-gradient(90deg,#7c3aed,#3b82f6); border-radius:5px; }
+  .note { margin-top:16px; font-size:9.5px; color:#94a3b8; line-height:1.6; }
+  .foot { margin-top:14px; padding-top:10px; border-top:1px solid #e2e8f0;
+    font-size:10.5px; color:#64748b; display:flex; justify-content:space-between; }
+</style></head><body>
+<div class="card">
+  <div class="top">
+    <div class="label">Channel Data Card · 2026.07</div>
+    <h1>초앵</h1>
+    <div class="sub">치지직 VTuber · 최근 7일 공개 방송 지표 기준</div>
+  </div>
+  <div class="hero">
+    <div class="hv"><div class="k">팔로워 대비 시청자 효율</div><div class="v">상위 24%</div><div class="d">비슷한 규모 버튜버 3,291개 중 801위</div></div>
+    <div class="hv b"><div class="k">치지직 버튜버 전체 뷰어십</div><div class="v">상위 34%</div><div class="d">7,203개 채널 중 2,477위</div></div>
+  </div>
+  <h3>동급 버튜버 중앙값과 비교</h3>
+  <table>
+    <tr><th>지표</th><th class="n">초앵</th><th class="n">동급 중앙값</th><th class="n">차이</th></tr>
+    <tr><td>평균 시청자</td><td class="n me">16명</td><td class="n">8명</td><td class="n me">2.0배</td></tr>
+    <tr><td>1천 팔로워당 시청자</td><td class="n me">29.9명</td><td class="n">17.4명</td><td class="n me">1.7배</td></tr>
+    <tr><td>주간 방송시간</td><td class="n me">13.9h</td><td class="n">18.1h</td><td class="n">-4.2h</td></tr>
+  </table>
+  <div class="hl">팔로워 535명 규모에서 평균 16명이 봅니다. 이 비율(효율)은 동급의 <b>1.7배</b>로, 팔로워가 실제 시청으로 잘 이어지는 <b>드문 체질</b>이에요. 지금 팔로워 수는 콘텐츠 대비 저평가 상태에 가깝습니다.</div>
+  <h3>다음 이정표 — 팔로워 1,500 변곡점</h3>
+  <div class="bar"><div style="width:35.7%"></div></div><div style="font-size:11px;color:#64748b;">535 / 1,500 · <b>965명 남음</b></div><div class="hl p">코호트 데이터에서 팔로워 1,500을 넘기면 "평균 시청자 14명 이상" 유지 확률이 <b>28% → 83%</b>로 급등합니다.</div>
+  <div class="note">
+    ※ 출처: 공개 방송 지표 (공개 뷰어십 통계 사이트 + 치지직 공개 채널 정보), 2026.07.04 수집 · 최근 7일 기준.<br>
+    ※ 동급 = 팔로워 ±1,500 범위의 치지직 버튜버. 공개 지표 기반이라 채널 내부 데이터(시청 지속시간·유입 경로 등)는 반영되지 않았습니다.
+  </div>
+  <div class="foot">
+    <span>만든 사람: 이삭컨설팅 (스트리머 데이터 분석)</span>
+    <span>정밀 진단(비교군 설계·병목 분석): 크몽 "이삭컨설팅" 검색</span>
+  </div>
+</div></body></html>

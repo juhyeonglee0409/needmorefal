@@ -10,6 +10,7 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 - 안정 경로: operator-approved 브라우저 프로필 + Playwright persistent context 또는 nodriver.
 - 피해야 할 경로: curl_cffi, CDP headless, Playwright cookies → HTTP client 전달, fresh nodriver profile — 전부 실패 검증됨.
 - 총 요청률 ~1 req/s 유지. 향후 제휴 가능성 고려하여 보수적 속도 유지.
+- **[2026-07 관계 업데이트]** operator가 소프트콘 대표와 통화 — 구두상 제휴에 가까운 협의 완료, 단 소프트콘은 대외적 중립 포지션 희망. 공개 산출물(유튜브·마케팅 자료)에서는 브랜드명 전면 노출 대신 **"공개 뷰어십 통계 사이트에서 수집한 데이터"** 수준의 일반 표기 사용. 표기 수위 변경 필요 시 재확인.
 
 ## Working Routes
 
