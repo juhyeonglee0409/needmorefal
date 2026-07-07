@@ -302,7 +302,7 @@ final 데이터:
 | 보고가이드 합본 | `deliverables/gubiba_보고가이드_합본_v1.md` (1부 v2 + 2부 v1 통합) |
 | CaseResult partial | `machine/구비바_CaseResult_v3_partial.json` |
 | 구비바 방송요약 | `data/daily_stats/구비바_방송별_요약_586건_20260615.csv` |
-| 방법론 정본 | `../references/스트리머_채널진단_방법론_v4_draft_20260620.md` (프로젝트 루트) |
+| 방법론 정본 | `../references/스트리머_채널진단_방법론_v4_1.md` (프로젝트 루트) |
 
 ---
 
