@@ -1,0 +1,209 @@
+{
+  "input": "runs\\backtest_20260708\\weekly_series.ndjson",
+  "forward_horizon": 12,
+  "week_count": 53,
+  "seed": 20260708,
+  "rules": {
+    "retention_lower_band": {
+      "verdict": "기각",
+      "effect_size": -0.2268735184916798,
+      "n": 52947,
+      "sensitivity": {
+        "missing_as_failure": {
+          "n": 52947,
+          "n_scored": 52947,
+          "predicted": 2190,
+          "tp": 1186,
+          "fp": 1004,
+          "tn": 11754,
+          "fn": 39003,
+          "precision": 0.5415525114155251,
+          "recall": 0.029510562591753962,
+          "base_rate": 0.7590420609288534,
+          "lift": -0.21748954951332833
+        },
+        "missing_as_negative": {
+          "n": 52947,
+          "n_scored": 52947,
+          "predicted": 2190,
+          "tp": 1186,
+          "fp": 1004,
+          "tn": 11754,
+          "fn": 39003,
+          "precision": 0.5415525114155251,
+          "recall": 0.029510562591753962,
+          "base_rate": 0.7590420609288534,
+          "lift": -0.21748954951332833
+        },
+        "missing_excluded": {
+          "n": 52947,
+          "n_scored": 18376,
+          "predicted": 1293,
+          "tp": 289,
+          "fp": 1004,
+          "tn": 11754,
+          "fn": 5329,
+          "precision": 0.22351121423047177,
+          "recall": 0.051441794232823065,
+          "base_rate": 0.3057248585111014,
+          "lift": -0.08221364428062966
+        }
+      },
+      "evidence": {
+        "rule": "retention_lower_band_4weeks",
+        "band_q": 0.25,
+        "streak": 4,
+        "outcome_definition": "alpha_follower<=0 and alpha_avgLiveViews<=0",
+        "default_precision": 0.5415525114155251,
+        "default_recall": 0.029510562591753962,
+        "default_base_rate": 0.7590420609288534,
+        "default_risk_diff": -0.2268735184916798,
+        "default_risk_pvalue": 1.0,
+        "predicted_positive_rate": 0.041362116833814945,
+        "support_condition": "risk_diff >= 0.05 and pvalue <= 0.05"
+      }
+    },
+    "threshold_1500_inflexion": {
+      "verdict": "기각",
+      "effect_size": -0.19020433071604592,
+      "n": 55,
+      "sensitivity": {
+        "missing_as_failure": {
+          "n_events_target": 8,
+          "n_events_placebo": 47,
+          "mean_delta_target": -0.37392844344208037,
+          "mean_delta_placebo": -0.18372411272603445,
+          "effect_lift": -0.19020433071604592,
+          "permutation_pvalue": 1.0,
+          "positive_rate_target": 0.0,
+          "positive_rate_placebo": 0.10638297872340426
+        },
+        "missing_as_negative": {
+          "n_events_target": 8,
+          "n_events_placebo": 47,
+          "mean_delta_target": -0.37392844344208037,
+          "mean_delta_placebo": -0.18372411272603445,
+          "effect_lift": -0.19020433071604592,
+          "permutation_pvalue": 1.0,
+          "positive_rate_target": 0.0,
+          "positive_rate_placebo": 0.10638297872340426
+        },
+        "missing_excluded": {
+          "n_events_target": 3,
+          "n_events_placebo": 15,
+          "mean_delta_target": -0.20372497493011113,
+          "mean_delta_placebo": -0.052060031581495456,
+          "effect_lift": -0.1516649433486157,
+          "permutation_pvalue": 0.9476309226932669,
+          "positive_rate_target": 0.0,
+          "positive_rate_placebo": 0.3333333333333333
+        }
+      },
+      "evidence": {
+        "rule": "threshold_inflexion_1500_vs_placebo",
+        "target_threshold": 1500,
+        "placebo_thresholds": [
+          750,
+          1000,
+          2000,
+          3000
+        ],
+        "moving_median_window": 4,
+        "outcome_definition": "alpha_views_post_minus_pre"
+      }
+    },
+    "airtime_uncorrelated": {
+      "verdict": "지지",
+      "effect_size": 0.9585998139251717,
+      "n": 18376,
+      "sensitivity": {
+        "missing_excluded": {
+          "n": 18376,
+          "spearman_rho": 0.041400186074828364,
+          "permutation_pvalue": 0.0024937655860349127
+        },
+        "missing_as_zero": {
+          "n": 30276,
+          "spearman_rho": 0.0461328728168127,
+          "permutation_pvalue": 0.0024937655860349127
+        }
+      },
+      "evidence": {
+        "rule": "airtime_growth_uncorrelated",
+        "airtime_key": "airTime",
+        "growth_key": "alpha_avg_and_follower",
+        "min_n": 30,
+        "corr_abs_threshold": 0.2,
+        "support_condition": "abs(rho)<=0.20 and p>=0.20"
+      }
+    },
+    "bottleneck_axis": {
+      "verdict": "기각",
+      "effect_size": -0.10396949971006053,
+      "n": 52947,
+      "sensitivity": {
+        "missing_as_failure": {
+          "n": 52947,
+          "n_scored": 52947,
+          "predicted": 5398,
+          "tp": 4347,
+          "fp": 1051,
+          "tn": 3753,
+          "fn": 43796,
+          "precision": 0.8052982586143016,
+          "recall": 0.09029350061275783,
+          "base_rate": 0.9092677583243621,
+          "lift": -0.10396949971006053
+        },
+        "missing_as_negative": {
+          "n": 52947,
+          "n_scored": 52947,
+          "predicted": 5398,
+          "tp": 4347,
+          "fp": 1051,
+          "tn": 3753,
+          "fn": 43796,
+          "precision": 0.8052982586143016,
+          "recall": 0.09029350061275783,
+          "base_rate": 0.9092677583243621,
+          "lift": -0.10396949971006053
+        },
+        "missing_excluded": {
+          "n": 52947,
+          "n_scored": 18376,
+          "predicted": 3130,
+          "tp": 2079,
+          "fp": 1051,
+          "tn": 3753,
+          "fn": 11493,
+          "precision": 0.6642172523961661,
+          "recall": 0.15318302387267904,
+          "base_rate": 0.738572050500653,
+          "lift": -0.07435479810448686
+        },
+        "severity_corr": {
+          "n": 18376,
+          "spearman_rho": 0.04238891476947846,
+          "permutation_pvalue": 0.0024937655860349127
+        }
+      },
+      "evidence": {
+        "rule": "bottleneck_multi_axis_bottom25",
+        "axis_values": [
+          "efficiency",
+          "peak",
+          "airtime",
+          "follower"
+        ],
+        "prediction_condition": "severity=min(percentile(axis)); severity<=q25 and weak_axes>=2",
+        "axis_q": 0.25,
+        "weak_axes_min": 2,
+        "outcome_definition": "alpha_follower<=0 or alpha_views<=0",
+        "binary_lift_pvalue": 1.0,
+        "severity_corr": 0.04238891476947846,
+        "severity_corr_pvalue": 0.0024937655860349127,
+        "predicted_positive_rate": 0.17033086634740965
+      }
+    }
+  }
+}
