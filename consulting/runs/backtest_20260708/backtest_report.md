@@ -13,6 +13,7 @@
 |1500 inflexion with placebo checks|기각|55|-0.1902|effect=-0.1902, p=1.0000, target=1500|L2|
 |AirTime and future growth correlation|지지|18376|0.9586|rho=0.0414, p=0.0025, n=18376|L3|
 |Segment-axis bottleneck indicator|기각|52947|-0.1040|lift=-0.1040, severity_corr=0.0424, severity_corr_p=0.0025, weak_axes_min=2, axis_q=0.25, n=52947|L2|
+|Growth outlook (efficiency x momentum, §6.3.2)|지지|25000|0.4961|green_rate=0.5526, red_rate=0.0565, base=0.2864, green_p=0.0025, red_p=0.0025, n_green=3042, n_red=2885|L3|
 
 ## Decision constants
 
@@ -36,6 +37,12 @@
 - `BOTTLENECK_MIN_SIGNALS=6`
 - `BOTTLENECK_LIFT_MIN=0.1`
 - `BOTTLENECK_PVALUE_MAX=0.3`
+- `GROWTH_OUTLOOK_Q_HIGH=0.75`
+- `GROWTH_OUTLOOK_Q_LOW=0.25`
+- `GROWTH_OUTLOOK_MOMENTUM_WEEKS=4`
+- `GROWTH_OUTLOOK_MIN_SIGNALS=30`
+- `GROWTH_OUTLOOK_LIFT_MIN=0.15`
+- `GROWTH_OUTLOOK_PVALUE_MAX=0.05`
 - `PERMUTATION_ROUNDS=400`
 - `MOTION_MEDIAN_WINDOW=4`
 - `MISSING_DELTA_FALLBACK=-0.05`

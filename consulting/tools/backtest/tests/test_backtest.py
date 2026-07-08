@@ -10,6 +10,7 @@ from tools.backtest import rules
 from tools.backtest.fixture import (
     build_airtime_dataset,
     build_bottleneck_dataset,
+    build_growth_outlook_dataset,
     build_mixed_dataset,
     build_retention_dataset,
     build_threshold_dataset,
@@ -156,6 +157,27 @@ def test_bottleneck_rule_supports_stagnation() -> None:
 
     assert result.verdict == rules.VERDICT_SUPPORT
     assert result.sensitivity["missing_as_negative"]["n_scored"] > rules.BOTTLENECK_MIN_SIGNALS
+
+
+def test_growth_outlook_rule_separates_green_red() -> None:
+    channels, week_dates = _load_records(build_growth_outlook_dataset())
+    alpha_follower, _alpha_views = rules.compute_alpha(
+        channels=channels,
+        week_count=len(week_dates),
+        forward_horizon=rules.FORWARD_HORIZON,
+    )
+    result = rules.evaluate_growth_outlook_rule(
+        channels=channels,
+        week_count=len(week_dates),
+        alpha_follower=alpha_follower,
+        seed=rules.RANDOM_SEED,
+    )
+
+    assert result.verdict == rules.VERDICT_SUPPORT
+    assert result.evidence["green_exceed_rate"] > result.evidence["base_exceed_rate"]
+    assert result.evidence["red_exceed_rate"] < result.evidence["base_exceed_rate"]
+    assert result.evidence["n_green"] >= rules.GROWTH_OUTLOOK_MIN_SIGNALS
+    assert result.evidence["n_red"] >= rules.GROWTH_OUTLOOK_MIN_SIGNALS
 
 
 def test_lookahead_guard_preserves_past_predictions() -> None:
@@ -383,6 +405,7 @@ def test_cli_smoke_writes_outputs(tmp_path: Path) -> None:
         "threshold_1500_inflexion",
         "airtime_uncorrelated",
         "bottleneck_axis",
+        "growth_outlook",
     }
 
 

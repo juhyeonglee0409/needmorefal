@@ -204,6 +204,38 @@
         "severity_corr_pvalue": 0.0024937655860349127,
         "predicted_positive_rate": 0.17033086634740965
       }
+    },
+    "growth_outlook": {
+      "verdict": "지지",
+      "effect_size": 0.4960978422250253,
+      "n": 25000,
+      "sensitivity": {
+        "missing_as_failure": {
+          "green_lift": 0.3031207027893009,
+          "green_pvalue": 0.0024937655860349127,
+          "red_lift": 0.2598472377923655,
+          "red_pvalue": 0.0024937655860349127
+        },
+        "missing_excluded": {
+          "green_lift": 0.4995562503255306,
+          "red_lift": 0.43886076817086866,
+          "n_green": 1816,
+          "n_red": 1654
+        }
+      },
+      "evidence": {
+        "rule": "growth_outlook_efficiency_x_momentum",
+        "definition": "eff=avg/follower, momentum=직전 4주 팔로워 상대성장, 세그먼트-주 percentile",
+        "q_high": 0.75,
+        "q_low": 0.25,
+        "outcome_definition": "alpha_follower>0 (전방 12주 초과 성장)",
+        "green_exceed_rate": 0.5525969756738988,
+        "red_exceed_rate": 0.05649913344887347,
+        "base_exceed_rate": 0.28636,
+        "n_green": 3042,
+        "n_red": 2885,
+        "support_condition": "green/red lift >= 0.15 and p <= 0.05 (양방향 동시)"
+      }
     }
   }
 }

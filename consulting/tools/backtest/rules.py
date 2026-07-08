@@ -50,6 +50,13 @@ BOTTLENECK_MIN_SIGNALS = 6
 BOTTLENECK_LIFT_MIN = 0.10
 BOTTLENECK_PVALUE_MAX = 0.30
 
+GROWTH_OUTLOOK_Q_HIGH = 0.75
+GROWTH_OUTLOOK_Q_LOW = 0.25
+GROWTH_OUTLOOK_MOMENTUM_WEEKS = 4
+GROWTH_OUTLOOK_MIN_SIGNALS = 30
+GROWTH_OUTLOOK_LIFT_MIN = 0.15
+GROWTH_OUTLOOK_PVALUE_MAX = 0.05
+
 
 @dataclass(frozen=True)
 class ParsedChannel:
@@ -182,7 +189,143 @@ def evaluate_all_rules(
             alpha_views=alpha_views,
             seed=seed,
         ),
+        "growth_outlook": evaluate_growth_outlook_rule(
+            channels=channels,
+            week_count=week_count,
+            alpha_follower=alpha_follower,
+            seed=seed,
+        ),
     }
+
+
+def evaluate_growth_outlook_rule(
+    channels: list[ParsedChannel],
+    week_count: int,
+    *,
+    alpha_follower: dict[str, dict[int, float | None]],
+    seed: int = RANDOM_SEED,
+) -> RuleResult:
+    """§6.3.2 성장 전망 신호: 효율×관성 상/하위 25% 조합이 전방 12주 초과 성장을 분리하는가.
+
+    청신호(둘 다 상위 25%)는 초과 성장을, 적신호(둘 다 하위 25%)는 정체를 예측해야
+    지지. 두 방향 모두 lift + permutation p를 요구한다.
+    """
+    cases: list[tuple[bool, bool, bool | None]] = []  # (green, red, exceeded|None)
+    for week in range(GROWTH_OUTLOOK_MOMENTUM_WEEKS, week_count):
+        seg_eff: dict[str, list[float]] = {}
+        seg_mom: dict[str, list[float]] = {}
+        cache: dict[str, tuple[str, float | None, float | None]] = {}
+        for channel in channels:
+            eff = _efficiency(channel, week)
+            mom = _slope(
+                channel,
+                week - GROWTH_OUTLOOK_MOMENTUM_WEEKS,
+                week,
+                "maxFollowerCount",
+            )
+            cache[channel.channel_id] = (channel.segment, eff, mom)
+            if eff is not None:
+                seg_eff.setdefault(channel.segment, []).append(eff)
+            if mom is not None:
+                seg_mom.setdefault(channel.segment, []).append(mom)
+        for channel in channels:
+            segment, eff, mom = cache[channel.channel_id]
+            if eff is None or mom is None:
+                continue
+            pop_eff = seg_eff.get(segment, [])
+            pop_mom = seg_mom.get(segment, [])
+            if len(pop_eff) < 10 or len(pop_mom) < 10:
+                continue
+            pct_eff = _percentile_rank(eff, pop_eff)
+            pct_mom = _percentile_rank(mom, pop_mom)
+            green = pct_eff >= GROWTH_OUTLOOK_Q_HIGH and pct_mom >= GROWTH_OUTLOOK_Q_HIGH
+            red = pct_eff <= GROWTH_OUTLOOK_Q_LOW and pct_mom <= GROWTH_OUTLOOK_Q_LOW
+            alpha = alpha_follower.get(channel.channel_id, {}).get(week)
+            exceeded = None if alpha is None else alpha > 0
+            cases.append((green, red, exceeded))
+
+    def _direction_pairs(pick_green: bool, missing_as_stagnation: bool):
+        pairs: list[tuple[bool, bool]] = []
+        for green, red, exceeded in cases:
+            if exceeded is None:
+                if not missing_as_stagnation:
+                    continue
+                exceeded = False  # 이탈=정체 (생존편향 가드)
+            prediction = green if pick_green else red
+            outcome = exceeded if pick_green else not exceeded
+            pairs.append((prediction, outcome))
+        return pairs
+
+    green_default = _direction_pairs(True, missing_as_stagnation=True)
+    red_default = _direction_pairs(False, missing_as_stagnation=True)
+    green_strict = _direction_pairs(True, missing_as_stagnation=False)
+    red_strict = _direction_pairs(False, missing_as_stagnation=False)
+
+    green_lift = _binary_lift(green_default)
+    red_lift = _binary_lift(red_default)
+    green_p = _binary_lift_pvalue(green_default, seed=seed)
+    red_p = _binary_lift_pvalue(red_default, seed=seed + 1)
+
+    n_green = sum(1 for pred, _ in green_default if pred)
+    n_red = sum(1 for pred, _ in red_default if pred)
+
+    green_rate = (
+        sum(1 for pred, out in green_default if pred and out) / n_green if n_green else 0.0
+    )
+    red_stagnation_rate = (
+        sum(1 for pred, out in red_default if pred and out) / n_red if n_red else 0.0
+    )
+    base_exceed_rate = (
+        sum(1 for _, _, e in cases if e) / len(cases) if cases else 0.0
+    )
+
+    if n_green < GROWTH_OUTLOOK_MIN_SIGNALS or n_red < GROWTH_OUTLOOK_MIN_SIGNALS:
+        verdict = VERDICT_INSUFFICIENT
+    elif (
+        green_lift >= GROWTH_OUTLOOK_LIFT_MIN
+        and green_p <= GROWTH_OUTLOOK_PVALUE_MAX
+        and red_lift >= GROWTH_OUTLOOK_LIFT_MIN
+        and red_p <= GROWTH_OUTLOOK_PVALUE_MAX
+    ):
+        verdict = VERDICT_SUPPORT
+    else:
+        verdict = VERDICT_REJECT
+
+    return RuleResult(
+        verdict=verdict,
+        effect_size=green_rate - (1.0 - red_stagnation_rate),
+        n=len(cases),
+        sensitivity={
+            "missing_as_failure": {
+                "green_lift": green_lift,
+                "green_pvalue": green_p,
+                "red_lift": red_lift,
+                "red_pvalue": red_p,
+            },
+            "missing_excluded": {
+                "green_lift": _binary_lift(green_strict),
+                "red_lift": _binary_lift(red_strict),
+                "n_green": sum(1 for pred, _ in green_strict if pred),
+                "n_red": sum(1 for pred, _ in red_strict if pred),
+            },
+        },
+        evidence={
+            "rule": "growth_outlook_efficiency_x_momentum",
+            "definition": "eff=avg/follower, momentum=직전 4주 팔로워 상대성장, 세그먼트-주 percentile",
+            "q_high": GROWTH_OUTLOOK_Q_HIGH,
+            "q_low": GROWTH_OUTLOOK_Q_LOW,
+            "outcome_definition": "alpha_follower>0 (전방 12주 초과 성장)",
+            "green_exceed_rate": green_rate,
+            "red_exceed_rate": 1.0 - red_stagnation_rate,
+            "base_exceed_rate": base_exceed_rate,
+            "n_green": n_green,
+            "n_red": n_red,
+            "support_condition": (
+                f"green/red lift >= {GROWTH_OUTLOOK_LIFT_MIN} "
+                f"and p <= {GROWTH_OUTLOOK_PVALUE_MAX} (양방향 동시)"
+            ),
+        },
+    )
 
 
 def compute_alpha(

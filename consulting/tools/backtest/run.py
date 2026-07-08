@@ -79,6 +79,7 @@ def _build_report(payload: dict[str, object]) -> str:
         "threshold_1500_inflexion": "1500 inflexion with placebo checks",
         "airtime_uncorrelated": "AirTime and future growth correlation",
         "bottleneck_axis": "Segment-axis bottleneck indicator",
+        "growth_outlook": "Growth outlook (efficiency x momentum, §6.3.2)",
     }
     lines = [
         "# Backtest report",
@@ -101,6 +102,7 @@ def _build_report(payload: dict[str, object]) -> str:
         "threshold_1500_inflexion",
         "airtime_uncorrelated",
         "bottleneck_axis",
+        "growth_outlook",
     ):
         item = rules_block.get(key)
         if not isinstance(item, dict):
@@ -145,6 +147,12 @@ def _build_report(payload: dict[str, object]) -> str:
         f"- `BOTTLENECK_MIN_SIGNALS={rules.BOTTLENECK_MIN_SIGNALS}`",
         f"- `BOTTLENECK_LIFT_MIN={rules.BOTTLENECK_LIFT_MIN}`",
         f"- `BOTTLENECK_PVALUE_MAX={rules.BOTTLENECK_PVALUE_MAX}`",
+        f"- `GROWTH_OUTLOOK_Q_HIGH={rules.GROWTH_OUTLOOK_Q_HIGH}`",
+        f"- `GROWTH_OUTLOOK_Q_LOW={rules.GROWTH_OUTLOOK_Q_LOW}`",
+        f"- `GROWTH_OUTLOOK_MOMENTUM_WEEKS={rules.GROWTH_OUTLOOK_MOMENTUM_WEEKS}`",
+        f"- `GROWTH_OUTLOOK_MIN_SIGNALS={rules.GROWTH_OUTLOOK_MIN_SIGNALS}`",
+        f"- `GROWTH_OUTLOOK_LIFT_MIN={rules.GROWTH_OUTLOOK_LIFT_MIN}`",
+        f"- `GROWTH_OUTLOOK_PVALUE_MAX={rules.GROWTH_OUTLOOK_PVALUE_MAX}`",
         f"- `PERMUTATION_ROUNDS={rules.PERMUTATION_ROUNDS}`",
         f"- `MOTION_MEDIAN_WINDOW={rules.MOTION_MEDIAN_WINDOW}`",
         f"- `MISSING_DELTA_FALLBACK={rules.MISSING_DELTA_FALLBACK}`",
@@ -206,6 +214,16 @@ def _evidence_summary(
             f"rho={_format(payload.get('spearman_rho'))}, "
             f"p={_format(payload.get('permutation_pvalue'))}, "
             f"n={payload.get('n')}"
+        )
+    if key == "growth_outlook":
+        payload = sensitivity.get("missing_as_failure", {})
+        return (
+            f"green_rate={_format(evidence.get('green_exceed_rate'))}, "
+            f"red_rate={_format(evidence.get('red_exceed_rate'))}, "
+            f"base={_format(evidence.get('base_exceed_rate'))}, "
+            f"green_p={_format(payload.get('green_pvalue'))}, "
+            f"red_p={_format(payload.get('red_pvalue'))}, "
+            f"n_green={evidence.get('n_green')}, n_red={evidence.get('n_red')}"
         )
     if key == "bottleneck_axis":
         payload = sensitivity.get("missing_as_negative", {})

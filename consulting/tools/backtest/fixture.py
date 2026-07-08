@@ -224,6 +224,31 @@ def build_bottleneck_dataset(week_count: int = 40) -> list[dict]:
     return channels
 
 
+def build_growth_outlook_dataset(week_count: int = 40) -> list[dict]:
+    """정답: 효율×관성 상위 조합(4)은 초과 성장, 하위 조합(4)은 정체, 중간(8)이 기준선.
+
+    세그먼트 라벨은 전용값('outlook')을 써서 mixed 데이터셋에서 타 규칙 코호트를
+    오염시키지 않는다 (엔진은 세그먼트를 불투명 그룹 키로만 사용).
+    """
+    dates = make_week_dates(week_count)
+    channels: list[dict] = []
+
+    def add(cid, eff, rate):
+        follower = _geometric(10000.0, rate, week_count)
+        avg = [v * eff for v in follower]
+        peak = [v * 2.0 for v in avg]
+        air = _linear(6.0, 0.0, week_count)
+        channels.append(_build_channel(cid, "outlook", follower, avg, peak, air, dates))
+
+    for idx in range(4):
+        add(f"outlook-green-{idx}", 0.10 + 0.005 * idx, 0.008)
+    for idx in range(8):
+        add(f"outlook-mid-{idx}", 0.02 + 0.004 * idx, 0.002 + 0.0003 * idx)
+    for idx in range(4):
+        add(f"outlook-red-{idx}", 0.004 + 0.0002 * idx, 0.0)
+    return channels
+
+
 def build_mixed_dataset(week_count: int = 40) -> list[dict]:
     seen: set[str] = set()
     records: list[dict] = []
@@ -232,6 +257,7 @@ def build_mixed_dataset(week_count: int = 40) -> list[dict]:
         + build_threshold_dataset(week_count)
         + build_airtime_dataset(week_count)
         + build_bottleneck_dataset(week_count)
+        + build_growth_outlook_dataset(week_count)
     ):
         if record["channel_id"] in seen:
             continue
