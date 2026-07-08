@@ -22,6 +22,11 @@ def _linear(start: float, slope: float, week_count: int) -> list[float]:
     return [start + slope * week for week in range(week_count)]
 
 
+def _geometric(start: float, weekly_rate: float, week_count: int) -> list[float]:
+    """상대 성장률이 상수인 시계열 (상대 기울기 기반 α 검증용)."""
+    return [start * (1.0 + weekly_rate) ** week for week in range(week_count)]
+
+
 def _build_channel(
     channel_id: str,
     segment: str,
@@ -52,46 +57,46 @@ def _build_channel(
 
 
 def build_retention_dataset(week_count: int = 40) -> list[dict]:
+    """정답: 리텐션 하위 밴드 채널(5개)만 4주+ 연속 신호, 전방 상대 성장 정체.
+
+    - 건강 12: 리텐션 0.50~0.72 분산, 상대 성장 +0.4%~+0.84%/주 분산
+    - 저리텐션 정체 5: 리텐션 0.10, 성장 0 (예측 양성 → outcome 양성)
+    - 정상리텐션 정체 2: 리텐션 0.60, 성장 0 (예측 음성인데 outcome 양성 → base rate 유지)
+    저리텐션이 전체의 5/19(>25%)라 q25 경계가 저리텐션과 건강군 사이에 형성된다.
+    """
     dates = make_week_dates(week_count)
     channels: list[dict] = []
 
-    for idx in range(6):
-        follower = _linear(1500 + idx * 5, 7.0, week_count)
-        avg = _linear(1200.0, 4.0, week_count)
-        peak = _linear(2200.0, 4.2, week_count)
-        air = _linear(6.0 + idx * 0.3, 0.2, week_count)
+    for idx in range(12):
+        rate = 0.004 + 0.0004 * idx
+        ret = 0.50 + 0.02 * idx
+        avg = _geometric(400.0, rate, week_count)
+        peak = [v / ret for v in avg]
+        follower = _geometric(3000.0 + 50 * idx, rate * 0.8, week_count)
+        air = _linear(5.0 + 0.1 * idx, 0.0, week_count)
         channels.append(_build_channel(
-            f"retention-normal-{idx}",
-            "growth",
-            follower,
-            avg,
-            peak,
-            air,
-            dates,
+            f"retention-normal-{idx}", "growth", follower, avg, peak, air, dates,
         ))
 
-    follower = _linear(900.0, 0.0, week_count)
-    avg = _linear(900.0, 2.0, week_count)
-    peak = []
-    for week in range(week_count):
-        if 18 <= week <= 28:
-            avg_v = 100.0
-            peak_v = 5000.0
-        else:
-            avg_v = 900.0
-            peak_v = 1500.0
-        avg[week] = avg_v
-        peak.append(peak_v)
-    air = _linear(3.0, 0.0, week_count)
-    channels.append(_build_channel(
-        "retention-low",
-        "growth",
-        follower,
-        avg,
-        peak,
-        air,
-        dates,
-    ))
+    for idx in range(5):
+        avg = _linear(300.0 + idx * 10, 0.0, week_count)
+        peak = [v / 0.10 for v in avg]
+        follower = _linear(2000.0 + idx * 30, 0.0, week_count)
+        air = _linear(4.0, 0.0, week_count)
+        channels.append(_build_channel(
+            "retention-low" if idx == 0 else f"retention-low-{idx}",
+            "growth", follower, avg, peak, air, dates,
+        ))
+
+    for idx in range(2):
+        avg = _linear(350.0 + idx * 10, 0.0, week_count)
+        peak = [v / 0.60 for v in avg]
+        follower = _linear(2500.0 + idx * 30, 0.0, week_count)
+        air = _linear(5.0, 0.0, week_count)
+        channels.append(_build_channel(
+            f"retention-stall-normal-{idx}",
+            "growth", follower, avg, peak, air, dates,
+        ))
     return channels
 
 
@@ -115,13 +120,13 @@ def build_threshold_dataset(week_count: int = 40) -> list[dict]:
             dates,
         ))
 
-    # Targets: crossing 1500 then slope increases.
+    # Targets: crossing 1500 and then much faster relative growth for clear post-1500 signal.
     avg_target = [0.0] * week_count
     for week in range(week_count):
         if week < 20:
-            avg_target[week] = 1440.0
+            avg_target[week] = 1400.0 + 5.0 * week
         else:
-            avg_target[week] = 1501.0 + 45.0 * (week - 20)
+            avg_target[week] = 1501.0 + 450.0 * (week - 20)
     peak_target = [v * 2.2 for v in avg_target]
     for idx in range(8):
         follower_target = [900.0 + 1.5 * week + idx * 2.0 for week in range(week_count)]
@@ -168,73 +173,54 @@ def build_threshold_dataset(week_count: int = 40) -> list[dict]:
 
 
 def build_airtime_dataset(week_count: int = 40) -> list[dict]:
+    """정답: 방송량과 상대 성장이 독립 (체급·성장 모두 방송량과 결합 금지).
+
+    20채널 동일 체급(base 동일), 방송량은 채널 인덱스로 단조 증가,
+    성장 부호는 인덱스 짝/홀로 교차 → 방송량 순위와 성장 순위 무상관.
+    """
     dates = make_week_dates(week_count)
     channels: list[dict] = []
-    for pair_idx in range(10):
-        base = 3000.0 + pair_idx * 10.0
-        air = [20.0 + pair_idx] * week_count
-
-        avg_plus = [250.0 + week for week in range(week_count)]
-        follower_plus = [base + 2.0 * week for week in range(week_count)]
-        peak_plus = [avg_plus[week] * 1.8 + 2.0 for week in range(week_count)]
+    for idx in range(20):
+        air = [6.0 + (idx // 2) * 2.0] * week_count
+        rate = 0.005 if idx % 2 == 0 else -0.005
+        avg = _geometric(250.0, rate, week_count)
+        follower = _geometric(3000.0, rate * 0.6, week_count)
+        peak = [v * 1.8 for v in avg]
         channels.append(_build_channel(
-            f"airtime-pos-{pair_idx}",
-            "rookie",
-            follower_plus,
-            avg_plus,
-            peak_plus,
-            air,
-            dates,
-        ))
-
-        avg_minus = [250.0 - week for week in range(week_count)]
-        avg_minus = [max(1.0, value) for value in avg_minus]
-        follower_minus = [base + 1.0 + 2.0 * week for week in range(week_count)]
-        peak_minus = [avg_minus[week] * 1.8 + 2.0 for week in range(week_count)]
-        channels.append(_build_channel(
-            f"airtime-neg-{pair_idx}",
-            "rookie",
-            follower_minus,
-            avg_minus,
-            peak_minus,
-            air,
-            dates,
+            f"airtime-{'pos' if idx % 2 == 0 else 'neg'}-{idx}",
+            "rookie", follower, avg, peak, air, dates,
         ))
     return channels
 
 
 def build_bottleneck_dataset(week_count: int = 40) -> list[dict]:
+    """정답: 다축(효율·피크·방송량) 병목 채널 2개만 예측 양성이고 이후 정체.
+
+    - 건강 10: 효율 0.04, 피크 avg×2, 방송량 10~14.5, 상대 성장 +0.3%~+0.66%/주
+    - 병목 정체 2: 효율 0.004, 피크 avg×1.2, 방송량 2 (3축 하위) + 성장 0.
+      팔로워 레벨은 높게 두어 팔로워 축은 약축이 아니게 유지 (weak_axes=3).
+    """
     dates = make_week_dates(week_count)
     channels: list[dict] = []
 
-    follower = _linear(25000.0, 12.0, week_count)
-    avg = _linear(1200.0, 10.0, week_count)
-    peak = [value * 2.0 for value in avg]
-    air = _linear(11.0, 0.1, week_count)
-    channels.append(_build_channel(
-        "bottleneck-baseline",
-        "large",
-        follower,
-        avg,
-        peak,
-        air,
-        dates,
-    ))
+    for idx in range(10):
+        rate = 0.003 + 0.0004 * idx
+        follower = _geometric(20000.0 + idx * 1000, rate, week_count)
+        avg = [v * 0.04 for v in follower]
+        peak = [v * 2.0 for v in avg]
+        air = _linear(10.0 + idx * 0.45, 0.0, week_count)
+        channels.append(_build_channel(
+            f"bottleneck-healthy-{idx}", "large", follower, avg, peak, air, dates,
+        ))
 
-    # Bottleneck candidate: strong efficiency/peak/air constraints with weak avg growth.
-    follower_b = _linear(200000.0, 8.0, week_count)
-    avg_b = _linear(80.0, 1.0, week_count)
-    peak_b = [value * 2.0 for value in avg_b]
-    air_b = _linear(3.0, 0.0, week_count)
-    channels.append(_build_channel(
-        "bottleneck-stall",
-        "large",
-        follower_b,
-        avg_b,
-        peak_b,
-        air_b,
-        dates,
-    ))
+    for idx in range(2):
+        follower = _linear(200000.0 + idx * 5000, 0.0, week_count)
+        avg = [v * 0.004 for v in follower]
+        peak = [v * 1.2 for v in avg]
+        air = _linear(2.0, 0.0, week_count)
+        channels.append(_build_channel(
+            f"bottleneck-stall-{idx}", "large", follower, avg, peak, air, dates,
+        ))
     return channels
 
 

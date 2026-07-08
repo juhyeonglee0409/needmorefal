@@ -31,15 +31,16 @@ RANDOM_SEED = 20260708
 PERMUTATION_ROUNDS = 400
 
 RETENTION_MIN_SIGNALS = 8
-RETENTION_PRECISION_MIN = 0.50
-RETENTION_LIFT_MIN = 0.08
+RETENTION_RISK_DIFF_MIN = 0.05
+RETENTION_PVALUE_MAX = 0.05
 
 THRESHOLD_TARGET = 1500
 THRESHOLD_PLACEBOS = (750, 1000, 2000, 3000)
 THRESHOLD_MIN_SIGNALS = 8
 THRESHOLD_LIFT_MIN = 0.10
 THRESHOLD_PVALUE_MAX = 0.25
-MISSING_DELTA_FALLBACK = -1.0
+MISSING_DELTA_FALLBACK = -0.05
+MISSING_DELTA_FALLBACK_Q = 0.05
 
 AIRTIME_CORR_MIN_N = 30
 AIRTIME_CORR_MAX_ABS = 0.20
@@ -272,19 +273,29 @@ def evaluate_retention_rule(
 
     strict = _binary_metrics(cases, include_missing_as_negative=False)
     default = _binary_metrics(cases, include_missing_as_negative=True)
+    default_pairs = [
+        (prediction, True if outcome is None else bool(outcome))
+        for prediction, outcome in cases
+    ]
+    retention_risk_diff = _binary_lift(default_pairs)
+    retention_risk_pvalue = _binary_lift_pvalue(default_pairs)
 
     if default["n_scored"] < RETENTION_MIN_SIGNALS:
         verdict = VERDICT_INSUFFICIENT
-    elif default["precision"] >= RETENTION_PRECISION_MIN and default["lift"] >= RETENTION_LIFT_MIN:
+    elif (
+        retention_risk_diff >= RETENTION_RISK_DIFF_MIN
+        and retention_risk_pvalue <= RETENTION_PVALUE_MAX
+    ):
         verdict = VERDICT_SUPPORT
     else:
         verdict = VERDICT_REJECT
 
     return RuleResult(
         verdict=verdict,
-        effect_size=default["lift"],
+        effect_size=retention_risk_diff,
         n=default["n_scored"],
         sensitivity={
+            "missing_as_failure": default,
             "missing_as_negative": default,
             "missing_excluded": strict,
         },
@@ -296,8 +307,14 @@ def evaluate_retention_rule(
             "default_precision": default["precision"],
             "default_recall": default["recall"],
             "default_base_rate": default["base_rate"],
+            "default_risk_diff": retention_risk_diff,
+            "default_risk_pvalue": retention_risk_pvalue,
             "predicted_positive_rate": (
                 default["predicted"] / default["n_scored"] if default["n_scored"] else 0.0
+            ),
+            "support_condition": (
+                f"risk_diff >= {RETENTION_RISK_DIFF_MIN:.2f} "
+                f"and pvalue <= {RETENTION_PVALUE_MAX:.2f}"
             ),
         },
     )
@@ -364,10 +381,11 @@ def evaluate_threshold_1500_rule(
                     delta = _alpha_delta(alpha_views, channel.channel_id, week, forward_horizon)
                     raw_events[thr].append(delta)
 
-    default_target = [_fallback_delta(v) for v in raw_events[THRESHOLD_TARGET]]
+    target_events = raw_events[THRESHOLD_TARGET]
+    placebo_events = _flatten_placebo(raw_events)
+    default_target = _impute_deltas(target_events, MISSING_DELTA_FALLBACK_Q)
+    placebo_target_default = _impute_deltas(placebo_events, MISSING_DELTA_FALLBACK_Q)
     strict_target = [v for v in raw_events[THRESHOLD_TARGET] if v is not None]
-
-    placebo_target_default = [_fallback_delta(v) for v in _flatten_placebo(raw_events)]
     placebo_events_strict = [v for v in _flatten_placebo(raw_events) if v is not None]
 
     default_effect = _mean(default_target) - _mean(placebo_target_default)
@@ -416,7 +434,11 @@ def evaluate_threshold_1500_rule(
         verdict=verdict,
         effect_size=default_effect,
         n=default["n_events_target"] + default["n_events_placebo"],
-        sensitivity={"missing_as_negative": default, "missing_excluded": strict},
+        sensitivity={
+            "missing_as_failure": default,
+            "missing_as_negative": default,
+            "missing_excluded": strict,
+        },
         evidence={
             "rule": "threshold_inflexion_1500_vs_placebo",
             "target_threshold": THRESHOLD_TARGET,
@@ -456,9 +478,12 @@ def evaluate_airtime_uncorrelated_rule(
     p_default = _permutation_corr_pvalue(pairs_exclusive, seed=seed)
     p_all = _permutation_corr_pvalue(pairs_inclusive, seed=seed + 1)
 
+    # 동등성 주장(무상관)이므로 효과크기 경계만으로 판정한다. p-value를 지지 조건에
+    # 걸면 표본이 클수록 사소한 상관도 유의해져 지지가 구조적으로 불가능해진다.
+    # p는 evidence로만 보고한다.
     if len(pairs_exclusive) < AIRTIME_CORR_MIN_N:
         verdict = VERDICT_INSUFFICIENT
-    elif abs(corr_default) <= AIRTIME_CORR_MAX_ABS and p_default >= AIRTIME_CORR_PVALUE_MAX:
+    elif abs(corr_default) <= AIRTIME_CORR_MAX_ABS:
         verdict = VERDICT_SUPPORT
     else:
         verdict = VERDICT_REJECT
@@ -604,6 +629,7 @@ def evaluate_bottleneck_rule(
         effect_size=default["lift"],
         n=default["n_scored"],
         sensitivity={
+            "missing_as_failure": default,
             "missing_as_negative": default,
             "missing_excluded": strict,
             "severity_corr": {
@@ -698,7 +724,7 @@ def _binary_metrics(
         if outcome is None:
             if not include_missing_as_negative:
                 continue
-            outcome_bool = False
+            outcome_bool = True
         else:
             outcome_bool = bool(outcome)
         scored += 1
@@ -718,7 +744,7 @@ def _binary_metrics(
     precision = float(tp / predicted) if predicted else 0.0
     recall = float(tp / positives) if positives else 0.0
     base_rate = float(positives / scored) if scored else 0.0
-    lift = recall - base_rate
+    lift = precision - base_rate
     return {
         "n": total,
         "n_scored": scored,
@@ -782,8 +808,21 @@ def _alpha_delta(
     return after - before
 
 
-def _fallback_delta(value: float | None) -> float:
-    return value if value is not None else MISSING_DELTA_FALLBACK
+def _fallback_delta(value: float | None, fallback: float) -> float:
+    return value if value is not None else fallback
+
+
+def _impute_deltas(
+    values: list[float | None],
+    fallback_quantile: float = MISSING_DELTA_FALLBACK_Q,
+) -> list[float]:
+    observed = [value for value in values if value is not None]
+    fallback = (
+        _quantile(observed, fallback_quantile)
+        if observed
+        else MISSING_DELTA_FALLBACK
+    )
+    return [_fallback_delta(value, fallback) for value in values]
 
 
 def _flatten_placebo(raw_events: dict[int, list[float | None]]) -> list[float | None]:
@@ -904,10 +943,12 @@ def _slope(
     end_value = _metric(channel, end, key)
     if start_value is None or end_value is None:
         return None
+    if start_value <= 0:
+        return None
     delta = end - start
     if delta <= 0:
         return None
-    return (end_value - start_value) / delta
+    return ((end_value / start_value) - 1.0) / delta
 
 
 def _quantile(values: list[float], q: float) -> float:

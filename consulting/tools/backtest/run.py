@@ -127,8 +127,8 @@ def _build_report(payload: dict[str, object]) -> str:
         "",
         f"- `RETENTION_BAND_Q={rules.RETENTION_BAND_Q}`",
         f"- `RETENTION_STREAK={rules.RETENTION_STREAK}`",
-        f"- `RETENTION_PRECISION_MIN={rules.RETENTION_PRECISION_MIN}`",
-        f"- `RETENTION_LIFT_MIN={rules.RETENTION_LIFT_MIN}`",
+        f"- `RETENTION_RISK_DIFF_MIN={rules.RETENTION_RISK_DIFF_MIN}`",
+        f"- `RETENTION_PVALUE_MAX={rules.RETENTION_PVALUE_MAX}`",
         f"- `RETENTION_MIN_SIGNALS={rules.RETENTION_MIN_SIGNALS}`",
         f"- `THRESHOLD_TARGET={rules.THRESHOLD_TARGET}`",
         f"- `THRESHOLD_PLACEBOS={list(rules.THRESHOLD_PLACEBOS)}`",
@@ -147,7 +147,18 @@ def _build_report(payload: dict[str, object]) -> str:
         f"- `BOTTLENECK_PVALUE_MAX={rules.BOTTLENECK_PVALUE_MAX}`",
         f"- `PERMUTATION_ROUNDS={rules.PERMUTATION_ROUNDS}`",
         f"- `MOTION_MEDIAN_WINDOW={rules.MOTION_MEDIAN_WINDOW}`",
+        f"- `MISSING_DELTA_FALLBACK={rules.MISSING_DELTA_FALLBACK}`",
+        f"- `MISSING_DELTA_FALLBACK_Q={rules.MISSING_DELTA_FALLBACK_Q}`",
         f"- `FORWARD_HORIZON={rules.FORWARD_HORIZON}`",
+        f"- `RANDOM_SEED={rules.RANDOM_SEED}`",
+        "",
+        "### Formula/logic changelog",
+        "- `_binary_metrics` lift formula: `precision - base_rate` (changed from `recall - base_rate`).",
+        "- Retention verdict uses `risk_diff >= RETENTION_RISK_DIFF_MIN` and `pvalue <= RETENTION_PVALUE_MAX`.",
+        "- Threshold-delta missing values are replaced by 5th-percentile observed delta (or fallback default if none).",
+        "- Missing-outcome sensitivity branch now treats missing outcome as stagnation candidate (`True`).",
+        "- `_slope` is relative weekly growth `((end/start)-1)/delta` (changed from absolute delta; segment-pooled comparison needs level-free slopes per trajectory v3 spec).",
+        "- Airtime verdict is effect-size-bound only (`abs(rho)<=0.20`); p-value reported as evidence, not required (equivalence claim).",
         "",
         "## Claim-level update",
         "",
@@ -172,10 +183,14 @@ def _evidence_summary(
     evidence: dict[str, object],
 ) -> str:
     if key == "retention_lower_band":
-        payload = sensitivity.get("missing_as_negative", {})
+        payload = sensitivity.get("missing_as_failure", {})
+        risk = evidence.get("default_risk_diff")
+        pvalue = evidence.get("default_risk_pvalue")
         return (
             f"precision={_format(payload.get('precision'))}, "
             f"recall={_format(payload.get('recall'))}, "
+            f"risk_diff={_format(risk)}, "
+            f"p={_format(pvalue)}, "
             f"band_q={evidence.get('band_q')}"
         )
     if key == "threshold_1500_inflexion":

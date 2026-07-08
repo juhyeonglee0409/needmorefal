@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import math
 import json
 import tempfile
 from pathlib import Path
@@ -56,10 +57,26 @@ def test_alpha_formula_and_forward_horizon() -> None:
     ]
     alpha_follower, alpha_views = rules.compute_alpha(channels=channels, week_count=weeks, forward_horizon=12)
 
-    # c1 follower slope 2, c2 follower slope 4 -> median=3, so alpha=-1
-    assert alpha_follower["c1"][0] == -1.0
-    # c1 view slope 4, c2 view slope 3 -> median=3.5, so alpha=0.5
-    assert alpha_views["c1"][0] == 0.5
+    expected_follower_c1 = ((224.0 / 200.0) - 1.0) / 12.0
+    expected_follower_c2 = ((398.0 / 350.0) - 1.0) / 12.0
+    follower_median = (expected_follower_c1 + expected_follower_c2) / 2.0
+    # c1 follower is slower than median by about -0.0007.
+    assert math.isclose(
+        alpha_follower["c1"][0],
+        expected_follower_c1 - follower_median,
+        rel_tol=1e-12,
+        abs_tol=1e-12,
+    )
+    # c1 view growth is faster than c2 in this fixture; relative alpha is positive.
+    expected_view_c1 = ((148.0 / 100.0) - 1.0) / 12.0
+    expected_view_c2 = ((216.0 / 180.0) - 1.0) / 12.0
+    view_median = (expected_view_c1 + expected_view_c2) / 2.0
+    assert math.isclose(
+        alpha_views["c1"][0],
+        expected_view_c1 - view_median,
+        rel_tol=1e-12,
+        abs_tol=1e-12,
+    )
     # After 12-week horizon, no forward alpha
     assert alpha_follower["c1"][12] is None
     assert alpha_views["c2"][12] is None
