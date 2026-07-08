@@ -1,0 +1,518 @@
+{
+ "5528b971123df85b8334bb17d799c268": {
+  "signal": "neutral",
+  "eff_pct": 0.94,
+  "mom_pct": 0.565,
+  "week": "2026-06-29"
+ },
+ "af957f7db8ea0ad9a7bd006a5055514b": {
+  "signal": "neutral",
+  "eff_pct": 0.683,
+  "mom_pct": 0.16,
+  "week": "2026-06-29"
+ },
+ "a035fc7c8bdd74d644aa134c38619513": {
+  "signal": "green",
+  "eff_pct": 0.858,
+  "mom_pct": 0.776,
+  "week": "2026-06-29"
+ },
+ "4385ebf9aa154e1bdd55fd12b0039912": {
+  "signal": "neutral",
+  "eff_pct": 0.828,
+  "mom_pct": 0.558,
+  "week": "2026-06-29"
+ },
+ "c57ab4efaf2548f27214834daeb5c901": {
+  "signal": "neutral",
+  "eff_pct": 0.709,
+  "mom_pct": 0.652,
+  "week": "2026-06-29"
+ },
+ "10b7410e52f8040ec86ec36c90f8b508": {
+  "signal": "neutral",
+  "eff_pct": 0.215,
+  "mom_pct": 0.341,
+  "week": "2026-06-29"
+ },
+ "cbf0a8ed9c274da1c12d824a7d214fd7": {
+  "signal": "green",
+  "eff_pct": 0.929,
+  "mom_pct": 0.997,
+  "week": "2026-06-29"
+ },
+ "270b1c629013679b7341b0e764c0fc0a": {
+  "signal": "near",
+  "eff_pct": 0.592,
+  "mom_pct": 0.771,
+  "week": "2026-06-29"
+ },
+ "6d705e771d02e31473b84b3eb9988ec6": {
+  "signal": "neutral",
+  "eff_pct": 0.51,
+  "mom_pct": 0.485,
+  "week": "2026-06-29"
+ },
+ "b3e9f222e434ae3016276987bf080eb4": {
+  "signal": "neutral",
+  "eff_pct": 0.15,
+  "mom_pct": 0.256,
+  "week": "2026-06-29"
+ },
+ "7dd6f0927c18f4acc3f40b8d31a80f0f": {
+  "signal": "neutral",
+  "eff_pct": 0.516,
+  "mom_pct": 0.477,
+  "week": "2026-06-29"
+ },
+ "03bc1508b04c3fc4788af8bd0c9db08b": {
+  "signal": "near",
+  "eff_pct": 0.265,
+  "mom_pct": 0.763,
+  "week": "2026-06-29"
+ },
+ "88e0c8e14dd95355d663e608fb96931d": {
+  "signal": "green",
+  "eff_pct": 0.979,
+  "mom_pct": 0.876,
+  "week": "2026-06-29"
+ },
+ "f55fe79c18a40e8a9a735c5588f8ffe5": {
+  "signal": "neutral",
+  "eff_pct": 0.202,
+  "mom_pct": 0.252,
+  "week": "2026-06-29"
+ },
+ "5a907d9b9bb311fbfba1fa8ed3facefc": {
+  "signal": "neutral",
+  "eff_pct": 0.912,
+  "mom_pct": 0.229,
+  "week": "2026-06-29"
+ },
+ "e84904b2acdd8768fed92f506cdbff15": {
+  "signal": "neutral",
+  "eff_pct": 0.198,
+  "mom_pct": 0.335,
+  "week": "2026-06-29"
+ },
+ "f83b18e17d760163fdbd6e9512d5fdfb": {
+  "signal": "neutral",
+  "eff_pct": 0.404,
+  "mom_pct": 0.535,
+  "week": "2026-06-29"
+ },
+ "e0148650aafbdd530cec9b97251db8c5": {
+  "signal": "neutral",
+  "eff_pct": 0.094,
+  "mom_pct": 0.705,
+  "week": "2026-06-29"
+ },
+ "2434c8e01c4582b37b1ab925af938cde": {
+  "signal": "neutral",
+  "eff_pct": 0.8,
+  "mom_pct": 0.556,
+  "week": "2026-06-29"
+ },
+ "a0b5a7e5e5b2536f1a2e210b900d7b2a": {
+  "signal": "red",
+  "eff_pct": 0.202,
+  "mom_pct": 0.153,
+  "week": "2026-06-29"
+ },
+ "552b6fe655627fc014fccf800175791c": {
+  "signal": "green",
+  "eff_pct": 0.966,
+  "mom_pct": 0.932,
+  "week": "2026-06-29"
+ },
+ "7800f6f77b65e03d4cfe19c5d189a887": {
+  "signal": "green",
+  "eff_pct": 0.982,
+  "mom_pct": 0.993,
+  "week": "2026-06-29"
+ },
+ "1dbe6170fb2911b0410dcc5bbb668a88": {
+  "signal": "neutral",
+  "eff_pct": 0.495,
+  "mom_pct": 0.638,
+  "week": "2026-06-29"
+ },
+ "d2bda7d79fb184ecfe2d7aad62a9550c": {
+  "signal": "near",
+  "eff_pct": 0.145,
+  "mom_pct": 0.766,
+  "week": "2026-06-29"
+ },
+ "16bd6cdfb96c89ff41c6baa60b0ac556": {
+  "signal": "green",
+  "eff_pct": 0.94,
+  "mom_pct": 0.924,
+  "week": "2026-06-29"
+ },
+ "c74e12f274bd25a2a27bd9a848d646e7": {
+  "signal": "green",
+  "eff_pct": 0.943,
+  "mom_pct": 0.945,
+  "week": "2026-06-29"
+ },
+ "2f050f29c9924122356ac91765f17e56": {
+  "signal": "neutral",
+  "eff_pct": 0.226,
+  "mom_pct": 0.575,
+  "week": "2026-06-29"
+ },
+ "520546ce9c0092b0a8aa7feb9a9779be": {
+  "signal": "neutral",
+  "eff_pct": 0.036,
+  "mom_pct": 0.665,
+  "week": "2026-06-29"
+ },
+ "e7104b41f018bb2db3dca526d9f00e53": {
+  "signal": "neutral",
+  "eff_pct": 0.404,
+  "mom_pct": 0.394,
+  "week": "2026-06-29"
+ },
+ "e675d3956f76c9b05d2628961555ef75": {
+  "signal": "neutral",
+  "eff_pct": 0.421,
+  "mom_pct": 0.64,
+  "week": "2026-06-29"
+ },
+ "997f79211ebbe0ae36b2fb58795c4f23": {
+  "signal": null,
+  "eff_pct": null,
+  "mom_pct": null,
+  "week": "2026-06-29"
+ },
+ "001fa0b0a6b869d0c1912d2715d14d08": {
+  "signal": "green",
+  "eff_pct": 0.94,
+  "mom_pct": 0.945,
+  "week": "2026-06-29"
+ },
+ "e24d8a6e6f04c4f113f50f38028405c7": {
+  "signal": "red",
+  "eff_pct": 0.131,
+  "mom_pct": 0.245,
+  "week": "2026-06-29"
+ },
+ "9ae6c9253f82bd40ea1ddec9266fe3b8": {
+  "signal": "neutral",
+  "eff_pct": 0.898,
+  "mom_pct": 0.618,
+  "week": "2026-06-29"
+ },
+ "170033804ad3bf4727999fbb2dfff931": {
+  "signal": "green",
+  "eff_pct": 0.826,
+  "mom_pct": 0.905,
+  "week": "2026-06-29"
+ },
+ "08d50d8b580de6b3c53e93224765a706": {
+  "signal": "neutral",
+  "eff_pct": 0.266,
+  "mom_pct": 0.352,
+  "week": "2026-06-29"
+ },
+ "f0be4ff62bf741a843ca6de9bb269504": {
+  "signal": "red",
+  "eff_pct": 0.055,
+  "mom_pct": 0.233,
+  "week": "2026-06-29"
+ },
+ "31b26b75870c8a37f6899fdfd69b5e2c": {
+  "signal": "neutral",
+  "eff_pct": 0.661,
+  "mom_pct": 0.156,
+  "week": "2026-06-29"
+ },
+ "df611e80a67667f3bfb39e4f5af9914e": {
+  "signal": "neutral",
+  "eff_pct": 0.492,
+  "mom_pct": 0.508,
+  "week": "2026-06-29"
+ },
+ "ff6d652ad0286f8bd2b5ffb0d39b9430": {
+  "signal": "near",
+  "eff_pct": 0.265,
+  "mom_pct": 0.769,
+  "week": "2026-06-29"
+ },
+ "c4a867051fca980c13961bb6d88b1b2d": {
+  "signal": "neutral",
+  "eff_pct": 0.226,
+  "mom_pct": 0.427,
+  "week": "2026-06-29"
+ },
+ "665e30123ceac7e99390e0d1b9373f07": {
+  "signal": "neutral",
+  "eff_pct": 0.635,
+  "mom_pct": 0.565,
+  "week": "2026-06-29"
+ },
+ "f44a14716f255c1473a92776d1d54cdf": {
+  "signal": "green",
+  "eff_pct": 0.934,
+  "mom_pct": 0.953,
+  "week": "2026-06-29"
+ },
+ "7a847332420ea9ec8a2795d2bfd4ecaa": {
+  "signal": "neutral",
+  "eff_pct": 0.135,
+  "mom_pct": 0.479,
+  "week": "2026-06-29"
+ },
+ "864d0e63fdae150763be620468255798": {
+  "signal": "neutral",
+  "eff_pct": 0.682,
+  "mom_pct": 0.214,
+  "week": "2026-06-29"
+ },
+ "0e0b56ad2b567e80a4d2352d6a4bd4be": {
+  "signal": "near",
+  "eff_pct": 0.627,
+  "mom_pct": 0.865,
+  "week": "2026-06-29"
+ },
+ "6e0cf11c9837f580d79f1c247d0166c9": {
+  "signal": "near",
+  "eff_pct": 0.484,
+  "mom_pct": 0.83,
+  "week": "2026-06-29"
+ },
+ "88a3cc93da8b998e0958811fcd509b77": {
+  "signal": "green",
+  "eff_pct": 0.75,
+  "mom_pct": 0.769,
+  "week": "2026-06-29"
+ },
+ "09ab5a820633bb87ab008bef322ab77d": {
+  "signal": "neutral",
+  "eff_pct": 0.858,
+  "mom_pct": 0.573,
+  "week": "2026-06-29"
+ },
+ "19008cc648cb3fc8ebbdc0df3d5a05de": {
+  "signal": "neutral",
+  "eff_pct": 0.352,
+  "mom_pct": 0.548,
+  "week": "2026-06-29"
+ },
+ "f72fcd1b77a7ce5c4b683bea156dd83e": {
+  "signal": null,
+  "eff_pct": null,
+  "mom_pct": null,
+  "week": "2026-06-29"
+ },
+ "b05c77137f47647684406f32511fea8f": {
+  "signal": "neutral",
+  "eff_pct": 0.343,
+  "mom_pct": 0.379,
+  "week": "2026-06-29"
+ },
+ "3a042c2719502eca2e63e060cb001bcf": {
+  "signal": "neutral",
+  "eff_pct": 0.826,
+  "mom_pct": 0.057,
+  "week": "2026-06-29"
+ },
+ "dadb0a61ec6a6e6eee09613fc3b350c7": {
+  "signal": "neutral",
+  "eff_pct": 0.41,
+  "mom_pct": 0.304,
+  "week": "2026-06-29"
+ },
+ "3672dcf3ed323df04d16ce8e53310fbb": {
+  "signal": "neutral",
+  "eff_pct": 0.516,
+  "mom_pct": 0.59,
+  "week": "2026-06-29"
+ },
+ "dfb6711cf947fe82ba341ebcb3d9d878": {
+  "signal": "neutral",
+  "eff_pct": 0.501,
+  "mom_pct": 0.558,
+  "week": "2026-06-29"
+ },
+ "84f9105eec43bf59d0004ed798d0f73f": {
+  "signal": "neutral",
+  "eff_pct": 0.427,
+  "mom_pct": 0.469,
+  "week": "2026-06-29"
+ },
+ "dd6006b80e344811cc15af56b82b33c1": {
+  "signal": "near",
+  "eff_pct": 0.12,
+  "mom_pct": 0.771,
+  "week": "2026-06-29"
+ },
+ "d589a489bb5e79673a229bb2c5da0778": {
+  "signal": "neutral",
+  "eff_pct": 0.196,
+  "mom_pct": 0.565,
+  "week": "2026-06-29"
+ },
+ "90a1397224bf42317e7a3f6a7cab074e": {
+  "signal": "neutral",
+  "eff_pct": 0.633,
+  "mom_pct": 0.508,
+  "week": "2026-06-29"
+ },
+ "ad81381b1e957d4caba0a94246196321": {
+  "signal": "near",
+  "eff_pct": 0.246,
+  "mom_pct": 0.849,
+  "week": "2026-06-29"
+ },
+ "e640dae5b7a1ee65482349508212fc40": {
+  "signal": "near",
+  "eff_pct": 0.378,
+  "mom_pct": 0.824,
+  "week": "2026-06-29"
+ },
+ "b2812af0d1c8516d5d39b97b3e1fed40": {
+  "signal": "neutral",
+  "eff_pct": 0.328,
+  "mom_pct": 0.091,
+  "week": "2026-06-29"
+ },
+ "efc4ad80c2526926e3aedf08ac1ed628": {
+  "signal": "green",
+  "eff_pct": 0.94,
+  "mom_pct": 0.968,
+  "week": "2026-06-29"
+ },
+ "a5259339c2fc32fa7e6d4137ac8aa418": {
+  "signal": "near",
+  "eff_pct": 0.271,
+  "mom_pct": 0.945,
+  "week": "2026-06-29"
+ },
+ "a0f8a019054e7b93b5f5568edb822fa3": {
+  "signal": "neutral",
+  "eff_pct": 0.343,
+  "mom_pct": 0.588,
+  "week": "2026-06-29"
+ },
+ "2dc0960bba74eee9d113b50db3694f42": {
+  "signal": "neutral",
+  "eff_pct": 0.406,
+  "mom_pct": 0.64,
+  "week": "2026-06-29"
+ },
+ "9893ab2f91d85e7d1d2d5bd0e7e878b1": {
+  "signal": "neutral",
+  "eff_pct": 0.172,
+  "mom_pct": 0.519,
+  "week": "2026-06-29"
+ },
+ "e1b4c4264d1a26e757ecb6fb48cc4af1": {
+  "signal": "green",
+  "eff_pct": 0.821,
+  "mom_pct": 0.851,
+  "week": "2026-06-29"
+ },
+ "b14dcab3312d73b13d8399601604a9b2": {
+  "signal": "neutral",
+  "eff_pct": 0.863,
+  "mom_pct": 0.558,
+  "week": "2026-06-29"
+ },
+ "0a454c74fd0bb498686b88383cf8747b": {
+  "signal": "green",
+  "eff_pct": 0.863,
+  "mom_pct": 0.903,
+  "week": "2026-06-29"
+ },
+ "4aca983902fc5d8faf77fa8ab24ef8f4": {
+  "signal": "neutral",
+  "eff_pct": 0.384,
+  "mom_pct": 0.21,
+  "week": "2026-06-29"
+ },
+ "5a510014231f539c138a18890725c658": {
+  "signal": "neutral",
+  "eff_pct": 0.471,
+  "mom_pct": 0.105,
+  "week": "2026-06-29"
+ },
+ "dc2cf8ead5d9b1b8d83f20cc1311b89a": {
+  "signal": "neutral",
+  "eff_pct": 0.471,
+  "mom_pct": 0.327,
+  "week": "2026-06-29"
+ },
+ "b73f518cdb8faf951efd99244739c70a": {
+  "signal": "near",
+  "eff_pct": 0.246,
+  "mom_pct": 0.928,
+  "week": "2026-06-29"
+ },
+ "f01073fa2dea2ba4e61a735c0a13115f": {
+  "signal": "near",
+  "eff_pct": 0.497,
+  "mom_pct": 0.876,
+  "week": "2026-06-29"
+ },
+ "bc249293ca4ebaa079fb15c01e349f31": {
+  "signal": "green",
+  "eff_pct": 0.925,
+  "mom_pct": 0.997,
+  "week": "2026-06-29"
+ },
+ "37ac1f698a0c99c9341f8dc27e84b4f9": {
+  "signal": "red",
+  "eff_pct": 0.231,
+  "mom_pct": 0.156,
+  "week": "2026-06-29"
+ },
+ "d1c8d9fd2b0bfe5582dd81b25457bacc": {
+  "signal": "neutral",
+  "eff_pct": 0.109,
+  "mom_pct": 0.508,
+  "week": "2026-06-29"
+ },
+ "719c1c7f45c5b5aef11a0402a46411e5": {
+  "signal": "red",
+  "eff_pct": 0.003,
+  "mom_pct": 0.062,
+  "week": "2026-06-29"
+ },
+ "7f14607b5647c202855fcb4fed5bcb40": {
+  "signal": "neutral",
+  "eff_pct": 0.222,
+  "mom_pct": 0.515,
+  "week": "2026-06-29"
+ },
+ "8796880c44666eb81beea5f2a2ac0c40": {
+  "signal": "neutral",
+  "eff_pct": 0.606,
+  "mom_pct": 0.472,
+  "week": "2026-06-29"
+ },
+ "2de724a796d338b5324801fa053ddc93": {
+  "signal": "neutral",
+  "eff_pct": 0.845,
+  "mom_pct": 0.331,
+  "week": "2026-06-29"
+ },
+ "7144160314e3770125d73d17e3fce8d8": {
+  "signal": "red",
+  "eff_pct": 0.111,
+  "mom_pct": 0.245,
+  "week": "2026-06-29"
+ },
+ "d2cd02d96e04f8455abe567edd4c29be": {
+  "signal": "neutral",
+  "eff_pct": 0.358,
+  "mom_pct": 0.473,
+  "week": "2026-06-29"
+ },
+ "680cf5e2fd782c9f1f3cfc1327dc967f": {
+  "signal": "neutral",
+  "eff_pct": 0.391,
+  "mom_pct": 0.394,
+  "week": "2026-06-29"
+ }
+}

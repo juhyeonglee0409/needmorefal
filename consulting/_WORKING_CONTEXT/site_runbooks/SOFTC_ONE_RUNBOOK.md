@@ -40,6 +40,7 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 | Checkpoint page (JS challenge) | Vercel bot detection | 브라우저 세션에서 1회 해결. HTTP client로는 통과 불가. |
 | DOM 100-row cap | `/streams` 페이지 표시 상한 | extraction-cap residual risk. 데이터 부재 증거 아님. |
 | 429 loop after ~1.5 req/s | 서버 rate limit 임계값 | 탭 수 × 딜레이 조합으로 총 요청률 ~1 req/s 이하 유지. |
+| **[2026-07-08] in-page fetch() 선별 429** | 대량 수집(999건 @1.1s) 직후 추가 배치에서 fetch API 경로만 지속 429 (10분+ 냉각으로도 미해제). **같은 세션의 문서 내비게이션·same-origin iframe 로드는 정상 통과** — WAF가 fetch(XHR)와 문서 요청을 구분 | fetch 429 시 iframe 로드 경로로 전환 (RSC payload는 HTML에 내장이라 추출 동일). 배치 간 냉각과 무관하게 4s+/req 보수 유지 |
 
 ## Collection Defaults
 
@@ -73,6 +74,7 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 | 2026-06-15 | 구비바 §5 scale ladder | 6 workers, 6s delay — checkpoint/rate boundary 미발생 | `구비바_§5_SOFTCONE_full_range_collection_run_20260615.md` |
 | 2026-06-16 | 구비바 §6 upper reference band | nodriver + existing profile, 687/687 후보 detail 완료, 271행 채택 | `cohort_ref_upper_band.csv`, `구비바_§6_upper_reference_band_collection_run_20260616.md` |
 | 2026-07-04 | 버튜버 아웃리치 census | Chrome MCP(사용자 ENTERPRISE 세션) + 버추얼 랭킹 94p 수확, 1.1s/req. 치지직 7,203행. **지표만(secret/raw 0건 검증)** | `runs/vtuber_outreach_pilot_20260704/softcon_chzzk_census_20260704.ndjson` (원본 다운로드: `D:\Gunsmith_Mailbox\reports\`) |
+| 2026-07-08 | 백테스트 주간 시계열 | 채널 상세 페이지 RSC payload에 **주간 summary 53주(소형 채널은 일간 rows) 내장** 확인. in-page fetch 999채널 오류 0 (1.1s/req). 직후 추가 배치는 fetch 429 → iframe 경로로 전환 수집 | `runs/backtest_20260708/weekly_series.ndjson` (999ch), Failure Modes 행 참조 |
 
 ## Open Risks
 
