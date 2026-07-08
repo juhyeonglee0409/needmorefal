@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>호명 루틴 방향 측정</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Malgun Gothic','Apple SD Gothic Neo',-apple-system,sans-serif;
+    color:#1e293b; background:#f1f5f9; padding:16px; width:1000px; }
+  .card { background:white; border-radius:14px; padding:24px 30px 18px;
+    box-shadow:0 4px 24px rgba(15,23,42,0.08); }
+  .top { border-top:5px solid; border-image:linear-gradient(90deg,#7c3aed,#3b82f6,#06b6d4) 1;
+    margin:-24px -30px 14px; padding:16px 30px 0; }
+  .label { font-size:10px; color:#64748b; letter-spacing:3px; text-transform:uppercase; }
+  h1 { font-size:19px; font-weight:800; margin:5px 0 1px; }
+  .sub { font-size:11px; color:#94a3b8; }
+  .tiles { display:flex; gap:10px; margin:14px 0 16px; }
+  .tile { flex:1; padding:12px 14px; border-radius:10px; background:#f8fafc; border:1px solid #e2e8f0; }
+  .tile.g { background:#f0fdf4; border-color:#bbf7d0; }
+  .tile .k { font-size:10.5px; color:#64748b; font-weight:700; }
+  .tile .v { font-size:24px; font-weight:800; margin:2px 0 1px; }
+  .tile .v small { font-size:12px; font-weight:700; color:#059669; }
+  .tile .d { font-size:10px; color:#94a3b8; line-height:1.45; }
+  .chart-title { font-size:12.5px; font-weight:800; margin-bottom:2px; }
+  .chart-sub { font-size:10px; color:#94a3b8; margin-bottom:8px; }
+  .legend { display:flex; gap:14px; font-size:10.5px; color:#475569; margin-bottom:6px; }
+  .legend span { display:inline-flex; align-items:center; gap:5px; }
+  .sw { width:10px; height:10px; border-radius:3px; display:inline-block; }
+  .plot { position:relative; height:240px; margin:20px 0 0; }
+  .grid { position:absolute; left:34px; right:8px; border-top:1px solid #f1f5f9; }
+  .gl { position:absolute; left:0; top:-7px; transform:translateX(-36px); font-size:9.5px; color:#cbd5e1; width:30px; text-align:right; }
+  .bars { position:absolute; left:34px; right:8px; bottom:22px; top:0; display:flex; align-items:flex-end; gap:2px; }
+  .bcol { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; position:relative; }
+  .bar { width:100%; max-width:22px; border-radius:4px 4px 0 0; background:#c4b5fd; }
+  .bar.after { background:#7c3aed; }
+  .bval { position:absolute; top:-15px; font-size:9.5px; font-weight:800; color:#7c3aed; }
+  .xl { position:absolute; bottom:-20px; font-size:9px; color:#94a3b8; white-space:nowrap; }
+  .divider { position:absolute; top:-6px; bottom:16px; width:0; border-left:2px dashed #f59e0b; }
+  .divlabel { position:absolute; top:-26px; right:8px; font-size:10px; font-weight:800; color:#d97706; background:#fffbeb; padding:2px 8px; border-radius:5px; white-space:nowrap; }
+  .baseline { position:absolute; left:34px; right:8px; border-top:2px dashed #94a3b8; }
+  .baselabel { position:absolute; left:4px; top:-15px; font-size:9.5px; color:#64748b; background:rgba(255,255,255,0.85); padding:0 4px; border-radius:3px; }
+  .note { margin-top:22px; font-size:9.5px; color:#94a3b8; line-height:1.55; border-top:1px solid #e2e8f0; padding-top:8px; }
+</style></head><body>
+<div class="card">
+  <div class="top">
+    <div class="label">Directional Read · 2026.07.08</div>
+    <h1>호명 루틴 방향 측정 — 시청자당 채팅 (참여 밀도)</h1>
+    <div class="sub">구비바 · 방송일 기준 · 루틴 도입 2026-07-01 전후 · ⚠ 5방송일 잠정치 (판정은 4주 뒤)</div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile g">
+      <div class="k">시청자당 채팅 (루틴 후 평균)</div>
+      <div class="v">2.06 <small>+44%</small></div>
+      <div class="d">루틴 전 4주 평균 1.43 대비 · 평시청 같은 날끼리 비교해도 상승</div>
+    </div>
+    <div class="tile g">
+      <div class="k">참여의 바닥 (기간 최저치)</div>
+      <div class="v">1.69 <small>↑</small></div>
+      <div class="d">루틴 전 4주 최저 0.27 — 높은 날은 전에도 있었지만, <b>낮은 날이 사라진 것</b>이 신호</div>
+    </div>
+    <div class="tile">
+      <div class="k">팔로워 전환 (일간 증가)</div>
+      <div class="v" style="color:#64748b;">+0.25</div>
+      <div class="d">아직 무반응 (전 +0.58, 잡음 범위 내) — 다음 고리: 엔딩 예고</div>
+    </div>
+    <div class="tile">
+      <div class="k">교란 통제</div>
+      <div class="v" style="color:#64748b;">유지</div>
+      <div class="d">평시청 중앙값 16 → 16 · 일 방송시간 7.1h → 7.0h (조건 동일)</div>
+    </div>
+  </div>
+
+  <div class="chart-title">일별 시청자당 채팅 — 6/4 ~ 7/7 (방송일 25일)</div>
+  <div class="chart-sub">막대 = 그날 채팅 수 ÷ 평균 시청자 · 값 라벨은 루틴 이후만 표기</div>
+  <div class="legend">
+    <span><span class="sw" style="background:#c4b5fd;"></span>루틴 전</span>
+    <span><span class="sw" style="background:#7c3aed;"></span>루틴 후 (7/1~)</span>
+    <span><span class="sw" style="background:none;border-top:2px dashed #94a3b8;height:0;width:14px;border-radius:0;"></span>루틴 전 4주 평균 1.43</span>
+  </div>
+
+  <div class="plot">
+    <!-- grid: max 2.5, height 218px usable (240-22) -->
+    <div class="grid" style="bottom:22px;"><span class="gl">0</span></div>
+    <div class="grid" style="bottom:109px;"><span class="gl">1.0</span></div>
+    <div class="grid" style="bottom:196px;"><span class="gl">2.0</span></div>
+    <div class="baseline" style="bottom:146px;"><span class="baselabel">루틴 전 4주 평균 1.43</span></div>
+    <div class="bars">
+      <!-- height = value/2.5 * 218px -->
+      <div class="bcol"><div class="bar" style="height:112px;"></div><span class="xl">6/4</span></div>
+      <div class="bcol"><div class="bar" style="height:58px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:77px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:141px;"></div><span class="xl">6/8</span></div>
+      <div class="bcol"><div class="bar" style="height:81px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:197px;"></div><span class="xl">6/12</span></div>
+      <div class="bcol"><div class="bar" style="height:44px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:24px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:151px;"></div><span class="xl">6/15</span></div>
+      <div class="bcol"><div class="bar" style="height:169px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:174px;"></div><span class="xl">6/19</span></div>
+      <div class="bcol"><div class="bar" style="height:131px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:164px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:156px;"></div><span class="xl">6/22</span></div>
+      <div class="bcol"><div class="bar" style="height:203px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:141px;"></div><span class="xl">6/25</span></div>
+      <div class="bcol"><div class="bar" style="height:153px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:116px;"></div></div>
+      <div class="bcol"><div class="bar" style="height:111px;"></div><span class="xl">6/29</span></div>
+      <div class="bcol"><div class="bar" style="height:84px;"></div></div>
+      <div class="bcol" style="position:relative;">
+        <div class="divider" style="left:-2px;"></div>
+        <div class="divlabel">호명 루틴 시작 →</div>
+        <span class="bval">1.94</span><div class="bar after" style="height:169px;"></div><span class="xl">7/2</span>
+      </div>
+      <div class="bcol"><span class="bval">2.06</span><div class="bar after" style="height:180px;"></div><span class="xl">7/4</span></div>
+      <div class="bcol"><span class="bval">1.69</span><div class="bar after" style="height:147px;"></div><span class="xl">7/5</span></div>
+      <div class="bcol"><span class="bval">2.36</span><div class="bar after" style="height:206px;"></div><span class="xl">7/6</span></div>
+      <div class="bcol"><span class="bval">2.25</span><div class="bar after" style="height:196px;"></div><span class="xl">7/7</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    ※ 방향 측정이지 판정이 아닙니다 — 루틴 후 표본은 방송일 5일. 6월 중순에도 참여가 높은 날은 있었으며, 차이는 평균보다 <b>연속성(바닥 상승)</b>에 있습니다.
+    판정은 도입 4주 후(7월 말) 같은 지표로 재측정. · 데이터: 공개 방송 지표 일별 집계 (2026-06-04 ~ 07-07) · 이삭컨설팅
+  </div>
+</div></body></html>
