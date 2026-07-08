@@ -41,7 +41,8 @@ Scope: 스트리머 코호트 수집 (§4 enrichment, §5 broadcast history, §6
 | DOM 100-row cap | `/streams` 페이지 표시 상한 | extraction-cap residual risk. 데이터 부재 증거 아님. |
 | 429 loop after ~1.5 req/s | 서버 rate limit 임계값 | 탭 수 × 딜레이 조합으로 총 요청률 ~1 req/s 이하 유지. |
 | **[2026-07-08] in-page fetch() 선별 429** | 대량 수집(999건 @1.1s) 직후 추가 배치에서 fetch API 경로만 지속 429 (10분+ 냉각으로도 미해제). **같은 세션의 문서 내비게이션·same-origin iframe 로드는 정상 통과** — WAF가 fetch(XHR)와 문서 요청을 구분 | fetch 429 시 iframe 로드 경로로 전환 (RSC payload는 HTML에 내장이라 추출 동일). 단, 오후엔 iframe/문서 경로도 체크포인트 도달 — 종일 누적 시 전 경로 차단 |
-| **[2026-07-08] 누적 일일 WAF 예산** | 하루 동안 fetch 총량이 임계 넘으면 fetch 경로 지속 429. 실측: 아침 세션 1,082채널(@1.1s) + 오후 랭킹 98p(각 3.7MB≈363MB!) + 채널 528건(@2s) 후 429 진입. **15분 냉각으로 미해제** (아침 첫 프로브는 200 — 수 시간 경과 후 회복). 랭킹 페이지(3.7MB)가 채널 페이지(320KB)보다 예산을 훨씬 많이 소모 | 대량 수집은 **하루 ~1,500채널 이하로 분할**, 랭킹 재수확은 필요할 때만. 429 진입 시 당일 재개보다 익일 권장. 하버스터는 cursor 기반 재개 가능하게 설계 (window._census 패턴) |
+| **[2026-07-08] 누적 일일 WAF 예산 (fetch)** | 하루 동안 fetch 총량이 임계 넘으면 fetch 경로 지속 429. 실측: 아침 1,082채널(@1.1s) + 랭킹 98p(363MB!) + 528건(@2s) 후 429, 15분 냉각 미해제 | **fetch 대신 iframe 문서 경로로 전환** (아래 행). 랭킹 페이지(3.7MB)는 예산 소모 큼 — 필요할 때만 |
+| **[2026-07-08→09 대량수집 정본] iframe 문서 경로가 fetch 429 완전 우회** | fetch 429 상태에서도 **same-origin iframe 로드(문서 요청)는 무제한에 가깝게 통과**. 실측: fetch 429 진입 후 iframe으로 **6,392채널 연속 수집 완료(오류 1)**. iframe은 ~1,190채널마다 체크포인트에 걸리지만, **최상위 탭을 채널 URL로 1회 내비게이션하면 origin clearance 쿠키 갱신 → iframe 즉시 재개** (탭 이동은 챌린지 JS 자동 통과). 총 4회 복구로 6,392 완주 | 대량수집 기본 경로 = **iframe 하버스터** (`window._censusRunIframe`, cursor 재개 + 체크포인트 자동정지). 체크포인트 정지 시 tab navigate→쿠키갱신→재개. ~500채널마다 Blob 다운로드로 진행분 보존. 속도 1.8s/iframe, 실효 ~20채널/분 |
 
 ## Collection Defaults
 

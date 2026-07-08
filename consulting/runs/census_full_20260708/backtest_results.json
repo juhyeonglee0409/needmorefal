@@ -1,0 +1,241 @@
+{
+  "input": "runs\\census_full_20260708\\census_full_weekly.ndjson",
+  "forward_horizon": 12,
+  "week_count": 53,
+  "seed": 20260708,
+  "rules": {
+    "retention_lower_band": {
+      "verdict": "기각",
+      "effect_size": -0.24446721989505837,
+      "n": 396016,
+      "sensitivity": {
+        "missing_as_failure": {
+          "n": 396016,
+          "n_scored": 396016,
+          "predicted": 17783,
+          "tp": 9398,
+          "fp": 8385,
+          "tn": 85878,
+          "fn": 292355,
+          "precision": 0.5284822583366137,
+          "recall": 0.031144677931950967,
+          "base_rate": 0.7619717385156155,
+          "lift": -0.23348948017900184
+        },
+        "missing_as_negative": {
+          "n": 396016,
+          "n_scored": 396016,
+          "predicted": 17783,
+          "tp": 9398,
+          "fp": 8385,
+          "tn": 85878,
+          "fn": 292355,
+          "precision": 0.5284822583366137,
+          "recall": 0.031144677931950967,
+          "base_rate": 0.7619717385156155,
+          "lift": -0.23348948017900184
+        },
+        "missing_excluded": {
+          "n": 396016,
+          "n_scored": 137886,
+          "predicted": 10978,
+          "tp": 2593,
+          "fp": 8385,
+          "tn": 85878,
+          "fn": 41030,
+          "precision": 0.23619967207141557,
+          "recall": 0.0594411205098228,
+          "base_rate": 0.3163700448196336,
+          "lift": -0.08017037274821803
+        }
+      },
+      "evidence": {
+        "rule": "retention_lower_band_4weeks",
+        "band_q": 0.25,
+        "streak": 4,
+        "outcome_definition": "alpha_follower<=0 and alpha_avgLiveViews<=0",
+        "default_precision": 0.5284822583366137,
+        "default_recall": 0.031144677931950967,
+        "default_base_rate": 0.7619717385156155,
+        "default_risk_diff": -0.24446721989505837,
+        "default_risk_pvalue": 1.0,
+        "predicted_positive_rate": 0.04490475132317886,
+        "support_condition": "risk_diff >= 0.05 and pvalue <= 0.05"
+      }
+    },
+    "threshold_1500_inflexion": {
+      "verdict": "기각",
+      "effect_size": -0.18796493291418362,
+      "n": 57,
+      "sensitivity": {
+        "missing_as_failure": {
+          "n_events_target": 8,
+          "n_events_placebo": 49,
+          "mean_delta_target": -0.3745735698605379,
+          "mean_delta_placebo": -0.1866086369463543,
+          "effect_lift": -0.18796493291418362,
+          "permutation_pvalue": 1.0,
+          "positive_rate_target": 0.0,
+          "positive_rate_placebo": 0.10204081632653061
+        },
+        "missing_as_negative": {
+          "n_events_target": 8,
+          "n_events_placebo": 49,
+          "mean_delta_target": -0.3745735698605379,
+          "mean_delta_placebo": -0.1866086369463543,
+          "effect_lift": -0.18796493291418362,
+          "permutation_pvalue": 1.0,
+          "positive_rate_target": 0.0,
+          "positive_rate_placebo": 0.10204081632653061
+        },
+        "missing_excluded": {
+          "n_events_target": 3,
+          "n_events_placebo": 15,
+          "mean_delta_target": -0.2040949183439934,
+          "mean_delta_placebo": -0.05212913791801183,
+          "effect_lift": -0.15196578042598158,
+          "permutation_pvalue": 0.9476309226932669,
+          "positive_rate_target": 0.0,
+          "positive_rate_placebo": 0.3333333333333333
+        }
+      },
+      "evidence": {
+        "rule": "threshold_inflexion_1500_vs_placebo",
+        "target_threshold": 1500,
+        "placebo_thresholds": [
+          750,
+          1000,
+          2000,
+          3000
+        ],
+        "moving_median_window": 4,
+        "outcome_definition": "alpha_views_post_minus_pre"
+      }
+    },
+    "airtime_uncorrelated": {
+      "verdict": "지지",
+      "effect_size": 0.96573392311751,
+      "n": 137886,
+      "sensitivity": {
+        "missing_excluded": {
+          "n": 137886,
+          "spearman_rho": 0.03426607688249,
+          "permutation_pvalue": 0.0024937655860349127
+        },
+        "missing_as_zero": {
+          "n": 226999,
+          "spearman_rho": 0.04591170460752954,
+          "permutation_pvalue": 0.0024937655860349127
+        }
+      },
+      "evidence": {
+        "rule": "airtime_growth_uncorrelated",
+        "airtime_key": "airTime",
+        "growth_key": "alpha_avg_and_follower",
+        "min_n": 30,
+        "corr_abs_threshold": 0.2,
+        "support_condition": "abs(rho)<=0.20 and p>=0.20"
+      }
+    },
+    "bottleneck_axis": {
+      "verdict": "기각",
+      "effect_size": -0.0829834533077205,
+      "n": 396016,
+      "sensitivity": {
+        "missing_as_failure": {
+          "n": 396016,
+          "n_scored": 396016,
+          "predicted": 40186,
+          "tp": 33308,
+          "fp": 6878,
+          "tn": 28039,
+          "fn": 327791,
+          "precision": 0.8288458667197531,
+          "recall": 0.09224063207042944,
+          "base_rate": 0.9118293200274736,
+          "lift": -0.0829834533077205
+        },
+        "missing_as_negative": {
+          "n": 396016,
+          "n_scored": 396016,
+          "predicted": 40186,
+          "tp": 33308,
+          "fp": 6878,
+          "tn": 28039,
+          "fn": 327791,
+          "precision": 0.8288458667197531,
+          "recall": 0.09224063207042944,
+          "base_rate": 0.9118293200274736,
+          "lift": -0.0829834533077205
+        },
+        "missing_excluded": {
+          "n": 396016,
+          "n_scored": 137886,
+          "predicted": 22425,
+          "tp": 15547,
+          "fp": 6878,
+          "tn": 28039,
+          "fn": 87422,
+          "precision": 0.693288740245262,
+          "recall": 0.15098719031941651,
+          "base_rate": 0.7467690701013882,
+          "lift": -0.05348032985612616
+        },
+        "severity_corr": {
+          "n": 137886,
+          "spearman_rho": 0.0465831001013436,
+          "permutation_pvalue": 0.0024937655860349127
+        }
+      },
+      "evidence": {
+        "rule": "bottleneck_multi_axis_bottom25",
+        "axis_values": [
+          "efficiency",
+          "peak",
+          "airtime",
+          "follower"
+        ],
+        "prediction_condition": "severity=min(percentile(axis)); severity<=q25 and weak_axes>=2",
+        "axis_q": 0.25,
+        "weak_axes_min": 2,
+        "outcome_definition": "alpha_follower<=0 or alpha_views<=0",
+        "binary_lift_pvalue": 1.0,
+        "severity_corr": 0.0465831001013436,
+        "severity_corr_pvalue": 0.0024937655860349127,
+        "predicted_positive_rate": 0.16263435011531266
+      }
+    },
+    "growth_outlook": {
+      "verdict": "지지",
+      "effect_size": 0.4841994847412807,
+      "n": 185896,
+      "sensitivity": {
+        "missing_as_failure": {
+          "green_lift": 0.30816879426689325,
+          "green_pvalue": 0.0024937655860349127,
+          "red_lift": 0.23789515101300895,
+          "red_pvalue": 0.0024937655860349127
+        },
+        "missing_excluded": {
+          "green_lift": 0.5057393222311416,
+          "red_lift": 0.3976764735707839,
+          "n_green": 13824,
+          "n_red": 10651
+        }
+      },
+      "evidence": {
+        "rule": "growth_outlook_efficiency_x_momentum",
+        "definition": "eff=avg/follower, momentum=직전 4주 팔로워 상대성장, 세그먼트-주 percentile",
+        "q_high": 0.75,
+        "q_low": 0.25,
+        "outcome_definition": "alpha_follower>0 (전방 12주 초과 성장)",
+        "green_exceed_rate": 0.557823424675381,
+        "red_exceed_rate": 0.07362393993410032,
+        "base_exceed_rate": 0.28782760253044715,
+        "n_green": 23027,
+        "n_red": 18513,
+        "support_condition": "green/red lift >= 0.15 and p <= 0.05 (양방향 동시)"
+      }
+    }
+  }
+}
