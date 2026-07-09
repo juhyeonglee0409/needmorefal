@@ -2,8 +2,9 @@
 """발송 카드 86채널의 성장 전망 신호(§6.3.2) 산출.
 
 기준: 방법론 §6.3.2 — 효율(평시청/팔로워)·관성(직전 4주 팔로워 상대성장)의
-세그먼트 코호트 내 percentile 조합. 참조 모집단 = 백테스트 층화 표본 999 중
-growth 세그먼트(550), 기준 주 = 마지막 완결 주.
+세그먼트 코호트 내 percentile 조합.
+v2 (2026-07-09): 참조 모집단 = 전수 census_full 7,472 중 growth 세그먼트(5,640).
+카드 채널 시계열도 전수 파일에서 직접 읽음. 기준 주 = 마지막 완결 주.
 
 출력: growth_outlook_20260708.json {channel_id: {signal, eff_pct, mom_pct, week}}
 signal: green | near | neutral | red | None(데이터 부족)
@@ -13,7 +14,7 @@ from bisect import bisect_left, bisect_right
 from pathlib import Path
 
 BASE = Path(__file__).parent
-BT = BASE.parent / "backtest_20260708"
+FULL = BASE.parent / "census_full_20260708" / "census_full_weekly.ndjson"
 MOMENTUM = 4
 Q_HIGH, Q_LOW = 0.75, 0.25
 
@@ -51,7 +52,7 @@ def eff_mom(weeks_by_date, dates, t_idx):
 
 
 def main():
-    ref_rows = [json.loads(l) for l in (BT / "weekly_series.ndjson").read_text(encoding="utf-8").splitlines() if l.strip()]
+    ref_rows = [json.loads(l) for l in FULL.read_text(encoding="utf-8").splitlines() if l.strip()]
     ref = {r["channel_id"]: ({w["date"]: w for w in r["weeks"]}, r["segment"]) for r in ref_rows}
     all_dates = sorted({w["date"] for r in ref_rows for w in r["weeks"]})
     # 마지막 주는 수집 시점상 부분 주일 수 있어 직전 완결 주를 기준으로 쓴다
@@ -69,7 +70,7 @@ def main():
             pop_mom.append(mom)
     print(f"참조 모집단(growth): eff n={len(pop_eff)}, mom n={len(pop_mom)}")
 
-    cards = load_series(BASE / "cards_series_20260708.ndjson")
+    cards = {}  # v2: 전수 파일이 86채널 전부 포함 — ref에서 직접 조회
     send = [json.loads(l) for l in (BASE / "send_list_20260704.ndjson").read_text(encoding="utf-8").splitlines() if l.strip()]
 
     out = {}

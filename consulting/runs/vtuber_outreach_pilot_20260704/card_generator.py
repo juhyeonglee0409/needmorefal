@@ -204,7 +204,7 @@ for r in sorted(send, key=lambda x: x["channel_name"]):
         cls = "g" if ol["signal"] in ("green", "near") else "p"
         outlook_html = (f'  <h3>성장 전망 신호 <small>— 1년 주간 데이터 패턴</small></h3>\n'
                         f'  <div class="hl {cls}"><b>{badge}</b> · {text}</div>')
-        outlook_note = ("<br>※ 성장 전망 신호는 치지직 버튜버 999채널의 1년(53주) 주간 지표에서 확인된 "
+        outlook_note = ("<br>※ 성장 전망 신호는 치지직 버튜버 전수 7,472채널의 1년(53주) 주간 지표에서 확인된 "
                         f"패턴 통계입니다 (기준 주: {ol['week']}). 경향 안내이지 예측 보장이 아닙니다.")
         outlook_signal = ol["signal"]
     else:
