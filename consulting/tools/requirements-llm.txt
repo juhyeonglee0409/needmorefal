@@ -1,0 +1,3 @@
+# Vertex AI (Gemini) 접근용 — tools/vertex_client.py
+# 인증은 ADC(gcloud)이며 별도 API 키 불필요. 셋업: tools/VERTEX_SETUP.md
+google-genai
