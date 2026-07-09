@@ -115,6 +115,51 @@ def _extract_json(text: str) -> str:
     return text[start : end + 1]
 
 
+def vertex_image(
+    prompt: str,
+    out_path: str,
+    *,
+    model: str = "gemini-2.5-flash-image",
+    aspect_ratio: str | None = "4:3",
+    reference_images: list[str] | None = None,
+) -> str:
+    """Vertex Gemini 이미지 생성 → PNG 저장, 저장 경로 반환.
+
+    reference_images: 스타일 참조용 로컬 이미지 경로들 (기존 이미지 문법 계승용).
+    aspect_ratio 미지원 SDK 버전이면 자동으로 빼고 재시도한다.
+    """
+    from google.genai import types
+
+    client = _get_client()
+    contents: list[Any] = []
+    for ref in reference_images or []:
+        with open(ref, "rb") as fh:
+            contents.append(types.Part.from_bytes(data=fh.read(), mime_type="image/png"))
+    contents.append(prompt)
+
+    def _call(config):
+        return client.models.generate_content(model=model, contents=contents, config=config)
+
+    base = dict(response_modalities=["TEXT", "IMAGE"])
+    try:
+        cfg = types.GenerateContentConfig(
+            **base,
+            image_config=types.ImageConfig(aspect_ratio=aspect_ratio) if aspect_ratio else None,
+        )
+        resp = _call(cfg)
+    except (AttributeError, TypeError):  # ImageConfig 미지원 SDK
+        resp = _call(types.GenerateContentConfig(**base))
+
+    for part in resp.candidates[0].content.parts:
+        if getattr(part, "inline_data", None) and part.inline_data.data:
+            with open(out_path, "wb") as fh:
+                fh.write(part.inline_data.data)
+            return out_path
+    raise RuntimeError(
+        f"이미지 파트 없음 — 응답 텍스트: {(resp.text or '')[:200]!r}"
+    )
+
+
 def list_models(name_filter: str = "gemini") -> list[str]:
     """이 프로젝트로 호출 가능한 모델 id 목록 (기본 gemini 계열만)."""
     client = _get_client()

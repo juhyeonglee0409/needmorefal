@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>thumbnail v2</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1152px; height:864px; overflow:hidden; background:#07090d; }
+  .stage {
+    position:relative; width:1152px; height:864px;
+    background:#07090d url('thumb_bg_v2.png') no-repeat right center;
+    background-size:cover;
+    font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    color:#f4f6f8;
+  }
+  .brand { position:absolute; top:44px; left:56px; font-family:Consolas,monospace;
+    font-size:21px; letter-spacing:2px; color:#c9d2da; }
+  .brand b { color:#37f383; font-weight:700; }
+  .head { position:absolute; top:118px; left:52px; font-weight:900;
+    font-size:92px; line-height:1.22; letter-spacing:-2px;
+    text-shadow:0 4px 30px rgba(0,0,0,0.75); }
+  .head .g { color:#37f383; }
+  .sub { position:absolute; top:520px; left:56px; font-size:30px; font-weight:600;
+    color:#aeb9c2; letter-spacing:-0.5px; }
+  .sub b { color:#e8eef2; }
+  .pill { position:absolute; left:56px; right:56px; bottom:96px; height:104px;
+    border:3px solid #37f383; border-radius:18px; display:flex;
+    align-items:center; justify-content:center;
+    background:rgba(13,20,16,0.55); box-shadow:0 0 34px rgba(55,243,131,0.16); }
+  .pill span { font-size:52px; font-weight:900; color:#37f383; letter-spacing:1px; }
+  .foot { position:absolute; left:58px; bottom:40px; font-family:Consolas,monospace;
+    font-size:17px; letter-spacing:4px; color:#5c6772; }
+</style></head><body>
+<div class="stage">
+  <div class="brand">needmore<b>fal</b></div>
+  <div class="head">제 <span class="g">채널</span>,<br><span class="g">성장</span> 중<br>인 거 맞죠?</div>
+  <div class="sub">치지직 버튜버 <b>전수 7,400개 채널</b>과 비교</div>
+  <div class="pill"><span>버튜버 채널 컨설팅</span></div>
+  <div class="foot">DATA READING REPORT · VERIFIED PIPELINE</div>
+</div>
+</body></html>
