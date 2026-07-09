@@ -163,9 +163,11 @@ function openModal(card, team) {
   // 팀 스타일
   panel.className = 'modal-panel open' + (team === 'black' ? ' team-black' : '');
 
-  // 채우기
-  document.getElementById('modalAvatar').src = imgSrc;
-  document.getElementById('modalAvatar').alt = name + ' 프로필 이미지';
+  // 채우기 (익명화 데이터라 프로필 이미지 없음 — 있을 때만 표시)
+  const avatarEl = document.getElementById('modalAvatar');
+  avatarEl.src = imgSrc;
+  avatarEl.alt = name + ' 프로필 이미지';
+  avatarEl.style.display = imgSrc ? '' : 'none';
   document.getElementById('modalName').textContent = name;
   document.getElementById('modalRank').textContent = rank + ' · 팔로워 ' + data.metrics.followers;
   document.getElementById('modalInterp').innerHTML = data.interp;
