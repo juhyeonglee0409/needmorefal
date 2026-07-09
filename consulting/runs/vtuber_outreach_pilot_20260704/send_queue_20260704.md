@@ -72,7 +72,7 @@ Y2E Atelier님 안녕하세요! 치지직 버튜버 채널들 데이터를 정�
 
 ---
 
-## 견습마녀 새연 SaeYeon 〈ssaeyeon42@gamil.com〉 ⚠️발송보류(이메일 오타 의심)
+## 견습마녀 새연 SaeYeon 〈ssaeyeon42@gmail.com〉
 팔로워 182 · 평청 8 · 동급효율 상위 14% · tier=strong · 전망=green
 
 **제목:** 견습마녀 새연 SaeYeon님 채널 데이터 카드 만들었어요 (그냥 드리는 거예요)
