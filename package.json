@@ -1,0 +1,13 @@
+{
+  "name": "needmorefal",
+  "version": "1.0.0",
+  "description": "Data reading & consulting service for streamers",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.0"
+  }
+}
