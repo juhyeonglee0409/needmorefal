@@ -1,0 +1,38 @@
+P3 v2: F층 코드북 기반 κ 재측정
+==============================================
+유효 샘플: 100건 (v1과 동일 100건 층화 샘플)
+LLM: gpt-4.1-mini (v1과 동일) / 프롬프트: TILLER v0.7 F층 코드북
+휴리스틱: v0.7 판정 규칙으로 재태깅 (저장 태그 미사용)
+모드 값 정규화 적용 (v1 raw 수치와 비교 시 참고)
+
+  축              v1 κ    v2 κ      Δκ     v1 일치   v2 일치
+  channel       0.178   0.432  +0.254     76.0%   88.0%
+  sounding      0.303   0.364  +0.061     57.0%   81.0%
+  heading       0.255   0.789  +0.534     47.0%   89.0%
+  berth         0.055   0.223  +0.168     30.0%   79.0%
+  bearing       0.179   1.000  +0.821     77.0%  100.0%
+  slack         0.075   1.000  +0.925     55.0%  100.0%
+
+κ 해석: <0.20 poor / 0.21-0.40 fair / 0.41-0.60 moderate / 0.61-0.80 substantial / 0.81+ almost perfect
+
+축별 양성 검출 수 (공허한 κ 판별):
+  heading   : H=40 L=44
+  berth     : H=14 L=16
+  bearing   : H=0 L=0  ← 양성 0건: κ는 공허(전건 null 일치). 양성 포함 표적 표본으로 재측정 필요
+  slack     : H=0 L=0  ← 양성 0건: κ는 공허(전건 null 일치). 양성 포함 표적 표본으로 재측정 필요
+  channel   : H(>1)=10 L(>1)=13
+  sounding  : H(>1)=20 L(>1)=14
+
+넓이-깊이 스왑 (Ch↑So↓ vs Ch↓So↑ 교차): 0건 — 없음
+
+대형 불일치 (|ΔCh|>=2 또는 |ΔSo|>=2): 10건
+  41b4bad7: H[Ch1,So1] vs L[Ch1,So4]
+  ca9af049: H[Ch1,So1] vs L[Ch3,So1]
+  7cc7229c: H[Ch1,So1] vs L[Ch4,So1]
+  86f9491a: H[Ch1,So3] vs L[Ch3,So3]
+  624acf5d: H[Ch1,So3] vs L[Ch1,So1]
+  e0e8140e: H[Ch1,So1] vs L[Ch3,So2]
+  1d733121: H[Ch1,So1] vs L[Ch3,So1]
+  a1c53cfd: H[Ch1,So1] vs L[Ch4,So4]
+  275d1d20: H[Ch3,So1] vs L[Ch1,So1]
+  130f6efe: H[Ch3,So1] vs L[Ch1,So1]

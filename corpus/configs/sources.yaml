@@ -1,0 +1,95 @@
+E1:
+  name: "f/awesome-chatgpt-prompts"
+  type: github
+  repo: "f/awesome-chatgpt-prompts"
+  parser: "e1_act_sections"
+  target_models: ["chatgpt"]
+
+E2:
+  name: "ai-boost/awesome-prompts"
+  type: github
+  repo: "ai-boost/awesome-prompts"
+  parser: "file_per_prompt"
+  target_models: ["chatgpt", "generic"]
+
+E3:
+  name: "promptslab/awesome-prompt-engineering"
+  type: github
+  repo: "promptslab/awesome-prompt-engineering"
+  parser: "markdown_prompt_blocks"
+  target_models: ["generic"]
+
+E4:
+  name: "awesome-chatgpt-content-creation"
+  type: github
+  repo: "aminblm/awesome-chatgpt-content-creation-prompts"
+  parser: "markdown_prompt_blocks"
+  target_models: ["chatgpt"]
+
+K1:
+  name: "GPTers.org"
+  type: community
+  enabled: false
+  base_url: "https://gpters.org"
+  board_path: "/prompt"
+  pagination:
+    type: query
+    param: page
+    start: 1
+    max_pages: 50
+  selectors:
+    post_link: "a.post-title"
+    title: null
+  title_filter: "프롬프트|GPT|명령어|시스템|system"
+  delay_sec: 3
+  respect_robots: true
+  include_url_regex: "gpters\\.org"
+  note: "2026-06-22 live probe: robots.txt disallows configured board path. Board crawl disabled; collect via Google CSE site:gpters.org queries."
+
+K2:
+  name: "디시 ChatGPT 갤러리"
+  type: community
+  enabled: true
+  base_url: "https://gall.dcinside.com"
+  board_path: "/mgallery/board/lists/?id=chatgpt"
+  pagination:
+    type: query
+    param: page
+    start: 1
+    max_pages: 100
+  selectors:
+    post_link: "td.gall_tit a"
+    title: null
+  title_filter: "프롬프트|GPT|명령어|시스템|system"
+  delay_sec: 3
+  respect_robots: true
+  include_url_regex: "gall\\.dcinside\\.com"
+  note: "2026-06-22 Phase 4: corrected gallery id from chatgptai to chatgpt and re-enabled."
+
+K6:
+  name: "지피티스코리아 GPTsKOREA (구 GPTable)"
+  type: platform
+  enabled: true
+  base_url: "https://gptskorea.com"
+  board_path: "/community"
+  pagination:
+    type: query
+    param: page
+    start: 1
+    max_pages: 30
+  selectors:
+    post_link: "a[href*='&bmode=view']"
+    title: null
+  title_filter: null
+  delay_sec: 2
+  respect_robots: true
+  include_url_regex: "gptskorea\\.com"
+  note: "2026-06-22 Phase 4: gptable.net moved to gptskorea.com; community board uses view links with bmode=view. Pagination parameter may need live adjustment."
+
+K7:
+  name: "오픈프롬프트 OpenPrompt"
+  type: prpt_api
+  enabled: true
+  base_url: "https://prpt.ai"
+  api_base: "https://api.prpt.ai"
+  note: "2026-06-23: Switched to direct API fetch. 1,179 prompts total, writes directly to extracted (skips gate/extract). API: /post/prompt/list/load?startRow=N&endRow=M"

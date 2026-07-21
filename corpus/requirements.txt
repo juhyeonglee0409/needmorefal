@@ -1,0 +1,8 @@
+openai
+anthropic
+beautifulsoup4
+datasketch
+pyyaml
+requests
+tiktoken
+nodriver

@@ -1,0 +1,20 @@
+P3 Gemini: F층 코드북 모델 이식성 (Vertex AI gemini-3.1-pro-preview)
+======================================================
+유효 샘플: 99건 (v1/v2와 동일 층화 샘플)
+H=v0.7 휴리스틱 / G=gemini-3.1-pro-preview / O=gpt-4.1-mini — 동일 코드북 프롬프트
+
+  축             κ(H,G)   κ(H,O)   κ(O,G)     일치(H,G)   일치(O,G)
+  channel        0.560    0.457    0.437       92.9%     89.9%
+  sounding       0.221    0.327    0.285       69.7%     73.7%
+  heading        0.708    0.786    0.801       83.8%     88.9%
+  berth          0.406    0.238    0.474       81.8%     82.8%
+  bearing        0.000    1.000    0.000       98.0%     98.0%
+  slack          1.000    1.000    1.000      100.0%    100.0%
+
+κ 해석: <0.20 poor / 0.21-0.40 fair / 0.41-0.60 moderate / 0.61-0.80 substantial / 0.81+ almost perfect
+
+축별 양성 검출 수:
+  heading   : H=39 G=46 O=43
+  berth     : H=13 G=21 O=16
+  bearing   : H=0 G=2 O=0
+  slack     : H=0 G=0 O=0  ← 전원 0건: κ 공허

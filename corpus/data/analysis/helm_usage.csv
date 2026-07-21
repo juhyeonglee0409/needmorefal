@@ -1,0 +1,10 @@
+domain,n,heading_pct,berth_pct,bearing_pct,slack_pct
+analysis,652,58%,21%,19%,15%
+business,510,38%,9%,7%,20%
+coding,632,65%,41%,32%,17%
+creative,1121,22%,6%,6%,10%
+education,424,41%,16%,11%,14%
+other,1249,14%,6%,2%,7%
+roleplay,536,84%,12%,15%,10%
+system,12,58%,8%,8%,0%
+writing,700,39%,18%,9%,15%

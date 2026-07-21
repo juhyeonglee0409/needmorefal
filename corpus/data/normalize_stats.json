@@ -1,0 +1,9 @@
+{
+  "after_exact_dedup": 6430,
+  "after_near_dedup": 6404,
+  "exact_dupes_removed": 691,
+  "input_records": 7121,
+  "near_dupes_removed": 26,
+  "quality_filtered": 271,
+  "records": 6133
+}

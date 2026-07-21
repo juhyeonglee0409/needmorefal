@@ -1,0 +1,1326 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corpus Explorer</title>
+  <style>
+    :root {
+      --bg: #1a1a2e;
+      --panel: #22243a;
+      --panel-2: #191b2b;
+      --line: #343852;
+      --line-soft: #2a2d43;
+      --text: #e0e0e0;
+      --muted: #9aa3b8;
+      --faint: #6f7890;
+      --accent: #4fc3f7;
+      --accent-2: #7dd3fc;
+      --danger: #ff8a80;
+      --ok: #7ee787;
+      --warn: #ffb86b;
+      --chip: #252940;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    button, input, select {
+      font: inherit;
+    }
+    button {
+      color: var(--text);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+    .app {
+      min-width: 1180px;
+      padding: 18px 22px 24px;
+    }
+    .topbar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .title h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .title p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .status {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+    .filters {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 274px;
+      gap: 12px;
+      align-items: stretch;
+      margin-bottom: 10px;
+    }
+    .filter-panel,
+    .heatmap-panel,
+    .summary,
+    .table-wrap,
+    .detail {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .filter-panel {
+      padding: 12px;
+    }
+    .time-nav {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 10px;
+      padding-bottom: 11px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .time-nav-title,
+    .time-row-label {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .time-nav-title {
+      padding-top: 4px;
+    }
+    .time-nav-rows {
+      display: grid;
+      gap: 7px;
+      min-width: 0;
+    }
+    .time-row {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      min-width: 0;
+    }
+    .time-options {
+      display: flex;
+      gap: 10px;
+      min-width: 0;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+    .time-link {
+      flex: 0 0 auto;
+      min-height: 24px;
+      padding: 1px 0 3px;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .time-link.active {
+      color: var(--accent-2);
+      border-bottom-color: var(--accent);
+    }
+    .time-link.dim {
+      color: var(--faint);
+    }
+    .time-link .count {
+      margin-left: 3px;
+      color: var(--faint);
+      font-size: 11px;
+    }
+    .filter-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.8fr 0.75fr 0.8fr 1fr;
+      gap: 10px 14px;
+      align-items: start;
+    }
+    .filter-group {
+      min-width: 0;
+    }
+    .filter-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .chip {
+      min-height: 26px;
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .chip.active {
+      color: #06131a;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .chip:focus-visible,
+    .icon-btn:focus-visible,
+    .page-btn:focus-visible,
+    .table th button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .search-row {
+      display: grid;
+      grid-template-columns: 1.4fr 150px 180px 105px;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .field label {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .text-input,
+    .select,
+    .num-input {
+      width: 100%;
+      height: 32px;
+      color: var(--text);
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0 10px;
+    }
+    .range-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+    .switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel-2);
+      color: var(--muted);
+      user-select: none;
+    }
+    .switch input {
+      accent-color: var(--accent);
+    }
+    .switch.active {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+    .heatmap-panel {
+      padding: 12px;
+    }
+    .heatmap-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .heatmap {
+      display: grid;
+      grid-template-columns: 34px repeat(4, 1fr);
+      gap: 4px;
+      align-items: stretch;
+    }
+    .axis,
+    .hm-cell {
+      min-height: 38px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .axis {
+      color: var(--faint);
+      font-size: 11px;
+    }
+    .hm-cell {
+      border: 1px solid var(--line-soft);
+      color: #eef7ff;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+    .hm-cell.active {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+    .summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      min-height: 44px;
+    }
+    .summary strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+    .summary .stats {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .icon-btn {
+      height: 30px;
+      padding: 0 10px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: var(--panel-2);
+    }
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 10px;
+      align-items: start;
+    }
+    .table-wrap {
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    .table th,
+    .table td {
+      border-bottom: 1px solid var(--line-soft);
+      padding: 0 8px;
+      height: 36px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    .table th {
+      color: var(--muted);
+      background: #202236;
+      font-size: 11px;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.035em;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .table th button {
+      width: 100%;
+      color: inherit;
+      text-align: left;
+      text-transform: inherit;
+      letter-spacing: inherit;
+      padding: 0;
+    }
+    .table tbody tr {
+      cursor: pointer;
+    }
+    .table tbody tr:hover,
+    .table tbody tr.selected {
+      background: #293049;
+    }
+    .col-num { width: 48px; }
+    .col-id { width: 138px; font-family: var(--mono); }
+    .col-domain { width: 108px; }
+    .col-lang { width: 70px; }
+    .col-ch,
+    .col-so { width: 54px; text-align: center; }
+    .col-helm { width: 98px; }
+    .col-time { width: 126px; font-family: var(--mono); }
+    .col-tokens { width: 78px; text-align: right; }
+    .col-body { width: auto; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 22px;
+      padding: 0 7px;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #101522;
+      font-weight: 700;
+    }
+    .score-1 { background: #9aa3b8; }
+    .score-2 { background: #61afef; }
+    .score-3 { background: #7ee787; }
+    .score-4 { background: #ffb86b; }
+    .helm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 20px;
+      padding: 0 5px;
+      margin-right: 3px;
+      border-radius: 5px;
+      background: #2e3c5e;
+      color: var(--accent-2);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+    .empty {
+      color: var(--faint);
+    }
+    .pager {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px;
+      color: var(--muted);
+    }
+    .pager-controls {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .page-btn {
+      min-width: 34px;
+      height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--muted);
+      background: var(--panel-2);
+    }
+    .page-btn.active {
+      color: #06131a;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .page-btn:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+    .detail {
+      min-height: 520px;
+      position: sticky;
+      top: 14px;
+      overflow: hidden;
+    }
+    .detail-empty {
+      display: flex;
+      height: 520px;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-align: center;
+      padding: 24px;
+    }
+    .detail-head {
+      padding: 14px;
+      border-bottom: 1px solid var(--line-soft);
+      background: #202236;
+    }
+    .detail-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .detail-title code {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent-2);
+    }
+    .cruise-badge {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: rgba(126, 231, 135, 0.15);
+      color: var(--ok);
+      border: 1px solid rgba(126, 231, 135, 0.35);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+      color: var(--muted);
+    }
+    .meta-grid span {
+      color: var(--text);
+    }
+    .detail-section {
+      padding: 14px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .detail-section:last-child {
+      border-bottom: 0;
+    }
+    .section-title {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tiller-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .tiller-cell {
+      padding: 9px;
+      border: 1px solid var(--line-soft);
+      border-radius: 6px;
+      background: var(--panel-2);
+    }
+    .tiller-cell .label {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+    .reason {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+    .body {
+      max-height: 420px;
+      overflow: auto;
+      white-space: pre-wrap;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #edf1f7;
+      background: var(--panel-2);
+      border: 1px solid var(--line-soft);
+      border-radius: 6px;
+      padding: 12px;
+    }
+    .body-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .loading,
+    .error {
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+    }
+    .error {
+      border-color: rgba(255, 138, 128, 0.55);
+      color: #ffd1cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="title">
+        <h1>Corpus Explorer</h1>
+        <p>5,836건 TILLER 태깅 프롬프트 코퍼스 브라우저</p>
+      </div>
+      <div id="status" class="status">explorer_data.json 로딩 중</div>
+    </header>
+
+    <div id="loading" class="loading">데이터를 불러오는 중입니다.</div>
+    <div id="error" class="error" hidden></div>
+
+    <main id="dashboard" hidden>
+      <section class="filters">
+        <div class="filter-panel">
+          <div class="time-nav">
+            <div class="time-nav-title">기간</div>
+            <div class="time-nav-rows">
+              <div class="time-row">
+                <div class="time-row-label">년도</div>
+                <div id="timeYearList" class="time-options"></div>
+              </div>
+              <div class="time-row">
+                <div class="time-row-label">월</div>
+                <div id="timeMonthList" class="time-options"></div>
+              </div>
+            </div>
+          </div>
+          <div class="filter-grid">
+            <div class="filter-group">
+              <div class="filter-label">Domain</div>
+              <div id="domainChips" class="chips"></div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-label">Lang</div>
+              <div id="langChips" class="chips"></div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-label">Channel</div>
+              <div id="chChips" class="chips"></div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-label">Sounding</div>
+              <div id="soChips" class="chips"></div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-label">HELM</div>
+              <div id="helmChips" class="chips"></div>
+            </div>
+          </div>
+          <div class="search-row">
+            <div class="field">
+              <label for="searchInput">검색</label>
+              <input id="searchInput" class="text-input" type="search" placeholder="body 텍스트 검색">
+            </div>
+            <div class="field">
+              <label for="sourceSelect">Source</label>
+              <select id="sourceSelect" class="select"></select>
+            </div>
+            <div class="field">
+              <label>Tokens</label>
+              <div class="range-pair">
+                <input id="tokenMin" class="num-input" type="number" min="0" value="0" aria-label="minimum tokens">
+                <input id="tokenMax" class="num-input" type="number" min="0" aria-label="maximum tokens">
+              </div>
+            </div>
+            <label id="cruiseLabel" class="switch">
+              <input id="cruiseOnly" type="checkbox">
+              <span>Cruise only</span>
+            </label>
+          </div>
+        </div>
+
+        <aside class="heatmap-panel">
+          <div class="heatmap-title">
+            <span>TRIM Heatmap</span>
+            <button id="clearTrim" class="icon-btn" type="button">Clear</button>
+          </div>
+          <div id="heatmap" class="heatmap"></div>
+        </aside>
+      </section>
+
+      <section class="summary">
+        <div id="summaryText" class="stats"></div>
+        <button id="resetFilters" class="icon-btn" type="button">Reset filters</button>
+      </section>
+
+      <section class="main-grid">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-num">#</th>
+                <th class="col-id"><button type="button" data-sort="id">ID</button></th>
+                <th class="col-domain"><button type="button" data-sort="domain">Domain</button></th>
+                <th class="col-lang"><button type="button" data-sort="lang">Lang</button></th>
+                <th class="col-ch"><button type="button" data-sort="ch">Ch</button></th>
+                <th class="col-so"><button type="button" data-sort="so">So</button></th>
+                <th class="col-helm">HELM</th>
+                <th class="col-time"><button type="button" data-sort="time_ts">Time</button></th>
+                <th class="col-tokens"><button type="button" data-sort="tokens">Tokens</button></th>
+                <th class="col-body"><button type="button" data-sort="body">Body</button></th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+          <div class="pager">
+            <div id="pageInfo"></div>
+            <div id="pagerControls" class="pager-controls"></div>
+          </div>
+        </div>
+
+        <aside id="detail" class="detail">
+          <div class="detail-empty">행을 선택하면 프롬프트 전문과 TILLER 정보가 열립니다.</div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const DATA_URL = './data/explorer_data.json';
+    const PAGE_SIZE = 50;
+    const DOMAINS = ['coding', 'writing', 'analysis', 'business', 'education', 'creative', 'roleplay', 'system', 'other'];
+    const LANGS = ['ko', 'en', 'mixed'];
+    const HELM = [
+      ['heading', 'H'],
+      ['berth', 'B'],
+      ['bearing', 'Be'],
+      ['slack', 'S'],
+    ];
+
+    const state = {
+      records: [],
+      filtered: [],
+      selectedDomains: new Set(),
+      lang: 'all',
+      ch: 'all',
+      so: 'all',
+      helm: new Set(),
+      cruiseOnly: false,
+      source: 'all',
+      search: '',
+      timeYear: 'all',
+      timeMonth: 'all',
+      tokenMin: 0,
+      tokenMax: 0,
+      sortKey: 'time_ts',
+      sortDir: 'desc',
+      page: 1,
+      selectedId: null,
+      showFullBody: false,
+      debounce: null,
+    };
+
+    const el = {
+      status: document.getElementById('status'),
+      loading: document.getElementById('loading'),
+      error: document.getElementById('error'),
+      dashboard: document.getElementById('dashboard'),
+      domainChips: document.getElementById('domainChips'),
+      timeYearList: document.getElementById('timeYearList'),
+      timeMonthList: document.getElementById('timeMonthList'),
+      langChips: document.getElementById('langChips'),
+      chChips: document.getElementById('chChips'),
+      soChips: document.getElementById('soChips'),
+      helmChips: document.getElementById('helmChips'),
+      searchInput: document.getElementById('searchInput'),
+      sourceSelect: document.getElementById('sourceSelect'),
+      tokenMin: document.getElementById('tokenMin'),
+      tokenMax: document.getElementById('tokenMax'),
+      cruiseOnly: document.getElementById('cruiseOnly'),
+      cruiseLabel: document.getElementById('cruiseLabel'),
+      heatmap: document.getElementById('heatmap'),
+      clearTrim: document.getElementById('clearTrim'),
+      summaryText: document.getElementById('summaryText'),
+      resetFilters: document.getElementById('resetFilters'),
+      resultsBody: document.getElementById('resultsBody'),
+      pageInfo: document.getElementById('pageInfo'),
+      pagerControls: document.getElementById('pagerControls'),
+      detail: document.getElementById('detail'),
+    };
+
+    function fmt(n) {
+      return Number(n || 0).toLocaleString('ko-KR');
+    }
+
+    function pct(part, total) {
+      if (!total) return '0.0%';
+      return `${((part / total) * 100).toFixed(1)}%`;
+    }
+
+    function fullBody(record) {
+      return record.body_full || record.body || '';
+    }
+
+    function preview(text, len = 120) {
+      const flat = String(text || '').replace(/\s+/g, ' ').trim();
+      return flat.length > len ? flat.slice(0, len) + '...' : flat;
+    }
+
+    function isCruise(record) {
+      return record.ch >= 2 && record.ch <= 3 && record.so >= 2 && record.so <= 3;
+    }
+
+    function hasHelm(record, key) {
+      return record[key] !== null && record[key] !== undefined && record[key] !== '';
+    }
+
+    function scoreBadge(value) {
+      const v = Number(value || 0);
+      return `<span class="badge score-${v}">${v || '-'}</span>`;
+    }
+
+    function helmBadges(record) {
+      const badges = HELM
+        .filter(([key]) => hasHelm(record, key))
+        .map(([, label]) => `<span class="helm">${label}</span>`)
+        .join('');
+      return badges || '<span class="empty">-</span>';
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function makeChip(label, active, onClick, title = '') {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `chip${active ? ' active' : ''}`;
+      btn.textContent = label;
+      if (title) btn.title = title;
+      btn.addEventListener('click', onClick);
+      return btn;
+    }
+
+    function recordMonth(record) {
+      const label = String(record.time_label || '');
+      if (/^\d{4}-\d{2}/.test(label)) return label.slice(0, 7);
+      if (Number(record.time_ts) > 0) {
+        const d = new Date(Number(record.time_ts) * 1000);
+        if (!Number.isNaN(d.getTime())) {
+          const year = d.getUTCFullYear();
+          const month = String(d.getUTCMonth() + 1).padStart(2, '0');
+          return `${year}-${month}`;
+        }
+      }
+      return '';
+    }
+
+    function recordYear(record) {
+      const month = recordMonth(record);
+      return month ? month.slice(0, 4) : '';
+    }
+
+    function countBy(records, keyFn) {
+      const counts = new Map();
+      for (const record of records) {
+        const key = keyFn(record);
+        if (!key) continue;
+        counts.set(key, (counts.get(key) || 0) + 1);
+      }
+      return counts;
+    }
+
+    function allYears() {
+      return Array.from(new Set(state.records.map(recordYear).filter(Boolean))).sort((a, b) => b.localeCompare(a));
+    }
+
+    function allMonths(year = 'all') {
+      return Array.from(new Set(state.records.map(recordMonth).filter(Boolean)))
+        .filter(month => year === 'all' || month.startsWith(`${year}-`))
+        .sort((a, b) => b.localeCompare(a));
+    }
+
+    function monthLabel(month) {
+      if (state.timeYear === 'all') return month.replace('-', '.');
+      return `${Number(month.slice(5, 7))}월`;
+    }
+
+    function makeTimeLink(label, count, active, onClick, title = '') {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `time-link${active ? ' active' : ''}${count === 0 ? ' dim' : ''}`;
+      if (title) btn.title = title;
+      btn.append(document.createTextNode(label));
+      if (count !== null && count !== undefined) {
+        const countEl = document.createElement('span');
+        countEl.className = 'count';
+        countEl.textContent = fmt(count);
+        btn.append(countEl);
+      }
+      btn.addEventListener('click', onClick);
+      return btn;
+    }
+
+    function renderTimeControls() {
+      const baseRows = state.records.filter(record => passesFilters(record, { includeTime: false }));
+      const yearCounts = countBy(baseRows, recordYear);
+      const monthCounts = countBy(baseRows, recordMonth);
+      const years = allYears();
+      const selectedYearCount = state.timeYear === 'all'
+        ? baseRows.length
+        : (yearCounts.get(state.timeYear) || 0);
+      const months = allMonths(state.timeYear);
+
+      el.timeYearList.replaceChildren(
+        makeTimeLink('전체', baseRows.length, state.timeYear === 'all' && state.timeMonth === 'all', () => {
+          state.timeYear = 'all';
+          state.timeMonth = 'all';
+          state.page = 1;
+          update();
+        }, '전체 기간'),
+        ...years.map(year => makeTimeLink(`${year}년`, yearCounts.get(year) || 0, state.timeYear === year, () => {
+          state.timeYear = year;
+          state.timeMonth = 'all';
+          state.page = 1;
+          update();
+        }, `${year}년 전체`))
+      );
+
+      el.timeMonthList.replaceChildren(
+        makeTimeLink('전체', selectedYearCount, state.timeMonth === 'all', () => {
+          state.timeMonth = 'all';
+          state.page = 1;
+          update();
+        }, state.timeYear === 'all' ? '전체 월' : `${state.timeYear}년 전체`),
+        ...months.map(month => makeTimeLink(monthLabel(month), monthCounts.get(month) || 0, state.timeMonth === month, () => {
+          if (state.timeMonth === month) {
+            state.timeMonth = 'all';
+          } else {
+            state.timeMonth = month;
+            state.timeYear = month.slice(0, 4);
+          }
+          state.page = 1;
+          update();
+        }, `${month} 월간 보기`))
+      );
+    }
+
+    function renderFilterControls() {
+      renderTimeControls();
+
+      el.domainChips.replaceChildren(
+        makeChip('all', state.selectedDomains.size === 0, () => {
+          state.selectedDomains.clear();
+          update();
+        }),
+        ...DOMAINS.map(domain => makeChip(domain, state.selectedDomains.has(domain), () => {
+          if (state.selectedDomains.has(domain)) state.selectedDomains.delete(domain);
+          else state.selectedDomains.add(domain);
+          update();
+        }))
+      );
+
+      el.langChips.replaceChildren(
+        makeChip('all', state.lang === 'all', () => { state.lang = 'all'; update(); }),
+        ...LANGS.map(lang => makeChip(lang, state.lang === lang, () => { state.lang = lang; update(); }))
+      );
+
+      el.chChips.replaceChildren(
+        makeChip('all', state.ch === 'all', () => { state.ch = 'all'; update(); }),
+        ...[1, 2, 3, 4].map(v => makeChip(String(v), Number(state.ch) === v, () => { state.ch = v; update(); }))
+      );
+
+      el.soChips.replaceChildren(
+        makeChip('all', state.so === 'all', () => { state.so = 'all'; update(); }),
+        ...[1, 2, 3, 4].map(v => makeChip(String(v), Number(state.so) === v, () => { state.so = v; update(); }))
+      );
+
+      el.helmChips.replaceChildren(
+        ...HELM.map(([key, label]) => makeChip(label, state.helm.has(key), () => {
+          if (state.helm.has(key)) state.helm.delete(key);
+          else state.helm.add(key);
+          update();
+        }, key))
+      );
+      el.cruiseLabel.classList.toggle('active', state.cruiseOnly);
+    }
+
+    function sourceSort(a, b) {
+      const pa = String(a).match(/^([A-Z]+)(\d+)$/);
+      const pb = String(b).match(/^([A-Z]+)(\d+)$/);
+      if (pa && pb && pa[1] === pb[1]) return Number(pa[2]) - Number(pb[2]);
+      return String(a).localeCompare(String(b));
+    }
+
+    function initSources() {
+      const sources = Array.from(new Set(state.records.map(r => r.source).filter(Boolean))).sort(sourceSort);
+      el.sourceSelect.replaceChildren(
+        new Option('all', 'all'),
+        ...sources.map(source => new Option(source, source))
+      );
+    }
+
+    function initTokenRange() {
+      const maxTokens = Math.max(...state.records.map(r => Number(r.tokens || 0)), 0);
+      state.tokenMin = 0;
+      state.tokenMax = maxTokens;
+      el.tokenMin.value = 0;
+      el.tokenMax.value = maxTokens;
+      el.tokenMax.max = maxTokens;
+      el.tokenMin.max = maxTokens;
+    }
+
+    function passesTimeFilter(record) {
+      const month = recordMonth(record);
+      if (state.timeMonth !== 'all') return month === state.timeMonth;
+      if (state.timeYear !== 'all') return recordYear(record) === state.timeYear;
+      return true;
+    }
+
+    function passesFilters(record, options = {}) {
+      const includeTime = options.includeTime !== false;
+      if (state.selectedDomains.size && !state.selectedDomains.has(record.domain)) return false;
+      if (state.lang !== 'all' && record.lang !== state.lang) return false;
+      if (state.ch !== 'all' && Number(record.ch) !== Number(state.ch)) return false;
+      if (state.so !== 'all' && Number(record.so) !== Number(state.so)) return false;
+      if (state.cruiseOnly && !isCruise(record)) return false;
+      if (state.source !== 'all' && record.source !== state.source) return false;
+      if (includeTime && !passesTimeFilter(record)) return false;
+      if (state.helm.size) {
+        for (const key of state.helm) {
+          if (!hasHelm(record, key)) return false;
+        }
+      }
+      const tokens = Number(record.tokens || 0);
+      if (tokens < state.tokenMin || tokens > state.tokenMax) return false;
+      if (state.search) {
+        const text = fullBody(record).toLowerCase();
+        if (!text.includes(state.search)) return false;
+      }
+      return true;
+    }
+
+    function sortRecords(records) {
+      const key = state.sortKey;
+      const dir = state.sortDir === 'asc' ? 1 : -1;
+      records.sort((a, b) => {
+        let av = key === 'body' ? fullBody(a) : a[key];
+        let bv = key === 'body' ? fullBody(b) : b[key];
+        if (key === 'tokens' || key === 'ch' || key === 'so' || key === 'time_ts') {
+          av = Number(av || 0);
+          bv = Number(bv || 0);
+          return (av - bv) * dir;
+        }
+        return String(av ?? '').localeCompare(String(bv ?? '')) * dir;
+      });
+    }
+
+    function applyFilters() {
+      state.filtered = state.records.filter(passesFilters);
+      sortRecords(state.filtered);
+      const pageCount = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE));
+      if (state.page > pageCount) state.page = pageCount;
+    }
+
+    function renderSummary() {
+      const total = state.records.length;
+      const rows = state.filtered;
+      const ch1so1 = rows.filter(r => Number(r.ch) === 1 && Number(r.so) === 1).length;
+      const cruise = rows.filter(isCruise).length;
+      const heading = rows.filter(r => hasHelm(r, 'heading')).length;
+      el.summaryText.innerHTML = `
+        <span><strong>${fmt(rows.length)}</strong>건 / ${fmt(total)}건</span>
+        <span>Ch1×So1: <strong>${pct(ch1so1, rows.length)}</strong></span>
+        <span>순항: <strong>${pct(cruise, rows.length)}</strong></span>
+        <span>heading: <strong>${pct(heading, rows.length)}</strong></span>
+      `;
+    }
+
+    function renderHeatmap() {
+      const counts = Array.from({ length: 4 }, () => Array(4).fill(0));
+      for (const r of state.filtered) {
+        const ch = Number(r.ch);
+        const so = Number(r.so);
+        if (ch >= 1 && ch <= 4 && so >= 1 && so <= 4) counts[ch - 1][so - 1]++;
+      }
+      const max = Math.max(...counts.flat(), 1);
+      const nodes = [];
+      nodes.push(Object.assign(document.createElement('div'), { className: 'axis', textContent: 'Ch\\So' }));
+      for (let so = 1; so <= 4; so++) {
+        nodes.push(Object.assign(document.createElement('div'), { className: 'axis', textContent: `So${so}` }));
+      }
+      for (let ch = 1; ch <= 4; ch++) {
+        nodes.push(Object.assign(document.createElement('div'), { className: 'axis', textContent: `Ch${ch}` }));
+        for (let so = 1; so <= 4; so++) {
+          const count = counts[ch - 1][so - 1];
+          const alpha = 0.12 + 0.78 * (count / max);
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `hm-cell${Number(state.ch) === ch && Number(state.so) === so ? ' active' : ''}`;
+          btn.style.background = `rgba(79, 195, 247, ${alpha.toFixed(3)})`;
+          btn.textContent = fmt(count);
+          btn.title = `Ch${ch} × So${so}`;
+          btn.addEventListener('click', () => {
+            state.ch = ch;
+            state.so = so;
+            state.page = 1;
+            update();
+          });
+          nodes.push(btn);
+        }
+      }
+      el.heatmap.replaceChildren(...nodes);
+    }
+
+    function renderTable() {
+      const start = (state.page - 1) * PAGE_SIZE;
+      const pageRows = state.filtered.slice(start, start + PAGE_SIZE);
+      el.resultsBody.innerHTML = pageRows.map((record, i) => {
+        const idx = start + i + 1;
+        return `
+          <tr data-id="${escapeHtml(record.id)}" class="${record.id === state.selectedId ? 'selected' : ''}">
+            <td class="col-num">${fmt(idx)}</td>
+            <td class="col-id">${escapeHtml(record.id)}</td>
+            <td class="col-domain">${escapeHtml(record.domain)}</td>
+            <td class="col-lang">${escapeHtml(record.lang)}</td>
+            <td class="col-ch">${scoreBadge(record.ch)}</td>
+            <td class="col-so">${scoreBadge(record.so)}</td>
+            <td class="col-helm">${helmBadges(record)}</td>
+            <td class="col-time">${escapeHtml(record.time_label || '-')}</td>
+            <td class="col-tokens">${fmt(record.tokens)}</td>
+            <td class="col-body">${escapeHtml(preview(fullBody(record)))}</td>
+          </tr>
+        `;
+      }).join('');
+
+      for (const row of el.resultsBody.querySelectorAll('tr')) {
+        row.addEventListener('click', () => {
+          state.selectedId = row.dataset.id;
+          state.showFullBody = false;
+          renderTable();
+          renderDetail();
+        });
+      }
+      renderPager();
+    }
+
+    function renderPager() {
+      const pageCount = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE));
+      const start = state.filtered.length ? (state.page - 1) * PAGE_SIZE + 1 : 0;
+      const end = Math.min(state.filtered.length, state.page * PAGE_SIZE);
+      el.pageInfo.textContent = `${fmt(start)}-${fmt(end)} / ${fmt(state.filtered.length)} | page ${fmt(state.page)} of ${fmt(pageCount)}`;
+
+      const buttons = [];
+      const add = (label, page, disabled = false, active = false) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `page-btn${active ? ' active' : ''}`;
+        btn.textContent = label;
+        btn.disabled = disabled;
+        btn.addEventListener('click', () => {
+          state.page = page;
+          renderTable();
+        });
+        buttons.push(btn);
+      };
+      add('‹', Math.max(1, state.page - 1), state.page === 1);
+      const from = Math.max(1, state.page - 2);
+      const to = Math.min(pageCount, from + 4);
+      for (let p = Math.max(1, to - 4); p <= to; p++) {
+        add(String(p), p, false, p === state.page);
+      }
+      add('›', Math.min(pageCount, state.page + 1), state.page === pageCount);
+      el.pagerControls.replaceChildren(...buttons);
+    }
+
+    function renderDetail() {
+      const record = state.records.find(r => r.id === state.selectedId);
+      if (!record) {
+        el.detail.innerHTML = '<div class="detail-empty">행을 선택하면 프롬프트 전문과 TILLER 정보가 열립니다.</div>';
+        return;
+      }
+      const bodyText = state.showFullBody ? fullBody(record) : record.body;
+      const bodyToggle = record.body_full
+        ? `<button id="toggleBody" class="icon-btn" type="button">${state.showFullBody ? '2000자 보기' : '전문 보기'}</button>`
+        : '';
+      el.detail.innerHTML = `
+        <div class="detail-head">
+          <div class="detail-title">
+            <code>${escapeHtml(record.id)}</code>
+            ${isCruise(record) ? '<span class="cruise-badge">순항</span>' : ''}
+          </div>
+          <div class="meta-grid">
+            <div>Domain: <span>${escapeHtml(record.domain)}</span></div>
+            <div>Lang: <span>${escapeHtml(record.lang)}</span></div>
+            <div>Source: <span>${escapeHtml(record.source || '-')}</span></div>
+            <div>Time: <span>${escapeHtml(record.time_label || '-')}</span></div>
+            <div>Time source: <span>${escapeHtml(record.time_source || '-')}</span></div>
+            <div>Published: <span>${escapeHtml(record.published_at || '-')}</span></div>
+            <div>Collected: <span>${escapeHtml(record.collected_at || '-')}</span></div>
+            <div>Tokens: <span>${fmt(record.tokens)}</span></div>
+            <div>Models: <span>${escapeHtml((record.models || []).join(', ') || '-')}</span></div>
+            <div>Placeholders: <span>${record.placeholders ? 'yes' : 'no'}</span></div>
+            <div>System: <span>${record.system ? 'yes' : 'no'}</span></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h2 class="section-title">TILLER</h2>
+          <div class="tiller-grid">
+            <div class="tiller-cell">
+              <div class="label">Channel</div>
+              ${scoreBadge(record.ch)}
+              <code class="reason">${escapeHtml(record.ch_reason || '-')}</code>
+            </div>
+            <div class="tiller-cell">
+              <div class="label">Sounding</div>
+              ${scoreBadge(record.so)}
+              <code class="reason">${escapeHtml(record.so_reason || '-')}</code>
+            </div>
+            <div class="tiller-cell">
+              <div class="label">Heading / Berth</div>
+              <div>${escapeHtml(record.heading || 'null')} / ${escapeHtml(record.berth || 'null')}</div>
+            </div>
+            <div class="tiller-cell">
+              <div class="label">Bearing / Slack</div>
+              <div>${escapeHtml(record.bearing || 'null')} / ${escapeHtml(record.slack || 'null')}</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h2 class="section-title">Body</h2>
+          <div class="body">${escapeHtml(bodyText)}</div>
+          <div class="body-actions">${bodyToggle}</div>
+        </div>
+      `;
+      const toggle = document.getElementById('toggleBody');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          state.showFullBody = !state.showFullBody;
+          renderDetail();
+        });
+      }
+    }
+
+    function update() {
+      renderFilterControls();
+      applyFilters();
+      if (state.selectedId && !state.filtered.some(record => record.id === state.selectedId)) {
+        state.selectedId = null;
+        state.showFullBody = false;
+      }
+      renderSummary();
+      renderHeatmap();
+      renderTable();
+      renderDetail();
+      el.status.textContent = `${fmt(state.records.length)} records loaded`;
+    }
+
+    function scheduleUpdate() {
+      window.clearTimeout(state.debounce);
+      state.debounce = window.setTimeout(() => {
+        state.page = 1;
+        update();
+      }, 200);
+    }
+
+    function resetFilters() {
+      state.selectedDomains.clear();
+      state.lang = 'all';
+      state.ch = 'all';
+      state.so = 'all';
+      state.helm.clear();
+      state.cruiseOnly = false;
+      state.source = 'all';
+      state.search = '';
+      state.timeYear = 'all';
+      state.timeMonth = 'all';
+      state.tokenMin = 0;
+      state.tokenMax = Math.max(...state.records.map(r => Number(r.tokens || 0)), 0);
+      state.page = 1;
+      state.selectedId = null;
+      el.searchInput.value = '';
+      el.sourceSelect.value = 'all';
+      el.tokenMin.value = state.tokenMin;
+      el.tokenMax.value = state.tokenMax;
+      el.cruiseOnly.checked = false;
+      update();
+    }
+
+    function bindEvents() {
+      el.searchInput.addEventListener('input', () => {
+        state.search = el.searchInput.value.trim().toLowerCase();
+        scheduleUpdate();
+      });
+      el.sourceSelect.addEventListener('change', () => {
+        state.source = el.sourceSelect.value;
+        state.page = 1;
+        update();
+      });
+      el.tokenMin.addEventListener('input', () => {
+        state.tokenMin = Math.max(0, Number(el.tokenMin.value || 0));
+        scheduleUpdate();
+      });
+      el.tokenMax.addEventListener('input', () => {
+        state.tokenMax = Math.max(0, Number(el.tokenMax.value || 0));
+        scheduleUpdate();
+      });
+      el.cruiseOnly.addEventListener('change', () => {
+        state.cruiseOnly = el.cruiseOnly.checked;
+        state.page = 1;
+        update();
+      });
+      el.clearTrim.addEventListener('click', () => {
+        state.ch = 'all';
+        state.so = 'all';
+        state.page = 1;
+        update();
+      });
+      el.resetFilters.addEventListener('click', resetFilters);
+      document.querySelectorAll('[data-sort]').forEach(button => {
+        button.addEventListener('click', () => {
+          const key = button.dataset.sort;
+          if (state.sortKey === key) {
+            state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+          } else {
+            state.sortKey = key;
+            state.sortDir = 'asc';
+          }
+          update();
+        });
+      });
+    }
+
+    async function boot() {
+      try {
+        const response = await fetch(DATA_URL);
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        const payload = await response.json();
+        state.records = Array.isArray(payload) ? payload : payload.records || [];
+        if (!state.records.length) throw new Error('explorer_data.json has no records');
+        state.records.forEach((record, idx) => {
+          if (!record.id) record.id = `row-${idx}`;
+        });
+        initSources();
+        initTokenRange();
+        bindEvents();
+        el.loading.hidden = true;
+        el.dashboard.hidden = false;
+        update();
+      } catch (err) {
+        el.loading.hidden = true;
+        el.error.hidden = false;
+        el.error.innerHTML = `
+          <strong>데이터 로드 실패</strong><br>
+          ${escapeHtml(err.message || String(err))}<br><br>
+          <code>cd "Contextwins Project/tools/corpus" && python3 build_explorer_data.py && python3 -m http.server</code><br>
+          그 다음 <code>http://localhost:8000/corpus_explorer.html</code>로 열어주세요.
+        `;
+        el.status.textContent = 'load failed';
+      }
+    }
+
+    boot();
+  </script>
+</body>
+</html>

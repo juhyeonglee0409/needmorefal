@@ -1,0 +1,53 @@
+P3: LLM 교차검증 결과
+========================================
+유효 샘플: 100건
+
+  channel   : κ=0.178  일치율=76.0%
+  sounding  : κ=0.303  일치율=57.0%
+  heading   : κ=0.255  일치율=47.0%
+  berth     : κ=0.055  일치율=30.0%
+  bearing   : κ=0.179  일치율=77.0%
+  slack     : κ=0.075  일치율=55.0%
+
+κ 해석 기준:
+  <0.20: 거의 일치 없음 (poor)
+  0.21-0.40: 약한 일치 (fair)
+  0.41-0.60: 보통 (moderate)
+  0.61-0.80: 상당한 일치 (substantial)
+  0.81-1.00: 거의 완벽 (almost perfect)
+
+불일치 주요 사례:
+  00fb8419: H[Ch3,So2] vs L[Ch1,So2]
+  ca9af049: H[Ch3,So1] vs L[Ch1,So2]
+  2111395e: H[Ch1,So4] vs L[Ch1,So1]
+  6bb03ef7: H[Ch3,So1] vs L[Ch1,So4]
+  e61c5f5a: H[Ch2,So1] vs L[Ch1,So4]
+  a4e0540b: H[Ch3,So2] vs L[Ch1,So3]
+  5e264293: H[Ch3,So3] vs L[Ch1,So3]
+  7dc8b3b5: H[Ch3,So2] vs L[Ch1,So2]
+  7cc7229c: H[Ch1,So1] vs L[Ch1,So3]
+  3979f5e2: H[Ch1,So1] vs L[Ch1,So3]
+  7aed3ec5: H[Ch3,So2] vs L[Ch1,So3]
+  86f9491a: H[Ch1,So3] vs L[Ch3,So3]
+  67c7474f: H[Ch1,So4] vs L[Ch1,So1]
+  8358ac65: H[Ch1,So1] vs L[Ch1,So3]
+  e7c145e9: H[Ch1,So1] vs L[Ch3,So4]
+  e0e8140e: H[Ch1,So1] vs L[Ch1,So3]
+  d305c1af: H[Ch3,So3] vs L[Ch1,So3]
+  10d449db: H[Ch3,So2] vs L[Ch1,So2]
+  75d25537: H[Ch3,So1] vs L[Ch1,So3]
+  a1c53cfd: H[Ch2,So1] vs L[Ch3,So3]
+  3133f2a8: H[Ch3,So1] vs L[Ch1,So3]
+  6f7f77c7: H[Ch3,So2] vs L[Ch1,So2]
+  d7092cc8: H[Ch1,So4] vs L[Ch1,So1]
+  89db48eb: H[Ch1,So4] vs L[Ch1,So1]
+  0dea027d: H[Ch3,So1] vs L[Ch1,So4]
+  88902c4d: H[Ch3,So3] vs L[Ch1,So3]
+  3e6f312b: H[Ch3,So1] vs L[Ch1,So2]
+  58d6fab6: H[Ch1,So4] vs L[Ch1,So1]
+  275d1d20: H[Ch3,So2] vs L[Ch1,So2]
+  130f6efe: H[Ch2,So1] vs L[Ch3,So3]
+  e2f7d872: H[Ch1,So3] vs L[Ch1,So1]
+  9845e727: H[Ch3,So1] vs L[Ch1,So2]
+  b43898b4: H[Ch1,So1] vs L[Ch1,So3]
+  e81d0e2a: H[Ch3,So1] vs L[Ch1,So3]

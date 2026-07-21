@@ -1,0 +1,96 @@
+K1:
+  engine: serper
+  queries:
+    - 'site:gpters.org "프롬프트" OR "prompt"'
+    - 'site:gpters.org "시스템 프롬프트" OR "system prompt"'
+    - 'site:gpters.org "GPT" "명령어" OR "지시문"'
+    - 'site:gpters.org "ChatGPT" OR "Claude" "프롬프트"'
+
+E10:
+  engine: serper
+  queries:
+    - 'site:reddit.com/r/ChatGPT "my prompt" OR "system prompt"'
+    - 'site:reddit.com/r/ChatGPT "here''s my prompt" OR "I use this prompt"'
+
+E11:
+  engine: serper
+  queries:
+    - 'site:reddit.com/r/PromptEngineering "prompt" OR "template"'
+    - 'site:reddit.com/r/PromptEngineering "act as" OR "you are a"'
+
+E12:
+  engine: serper
+  queries:
+    - 'site:reddit.com/r/ClaudeAI "system prompt" OR "custom instructions"'
+    - 'site:reddit.com/r/ClaudeAI "prompt" OR "artifact"'
+
+K10:
+  engine: serper
+  queries:
+    - '"프롬프트 모음" site:tistory.com'
+    - '"프롬프트 템플릿" site:tistory.com'
+    - '"GPT 프롬프트" "너는" site:tistory.com'
+    - '"ChatGPT 명령어" site:tistory.com'
+    - '"시스템 프롬프트" site:tistory.com'
+    - '"custom instructions" site:tistory.com'
+    - '"Claude 프롬프트" site:tistory.com'
+    - '"프롬프트 공유" ChatGPT site:tistory.com'
+    - '"AI 프롬프트" "역할" site:tistory.com'
+
+K11:
+  engine: serper
+  queries:
+    - '"Act as" site:velog.io'
+    - '"Claude 프롬프트" site:velog.io'
+    - '"LLM prompt" site:velog.io'
+    - '"system prompt" site:velog.io'
+    - '"코드 리뷰 프롬프트" site:velog.io'
+
+E13:
+  engine: serper
+  queries:
+    - 'site:threads.net "prompt" "ChatGPT" OR "Claude"'
+    - 'site:threads.net "system prompt" OR "custom instructions"'
+    - 'site:threads.net "act as" OR "you are a"'
+
+K13:
+  engine: serper
+  queries:
+    - 'site:threads.net "프롬프트" ChatGPT'
+    - 'site:threads.net "GPT 프롬프트" OR "시스템 프롬프트"'
+    - 'site:threads.net "프롬프트 공유" OR "프롬프트 추천"'
+
+K14:
+  engine: serper
+  queries:
+    - 'site:brunch.co.kr "프롬프트" ChatGPT'
+    - 'site:brunch.co.kr "GPT 프롬프트" OR "시스템 프롬프트"'
+    - 'site:brunch.co.kr "프롬프트 모음" OR "프롬프트 공유"'
+    - 'site:brunch.co.kr "Claude" "프롬프트"'
+
+K15:
+  engine: serper
+  queries:
+    - 'site:github.com "프롬프트" "ChatGPT" readme'
+    - 'site:github.com "한국어 프롬프트" OR "korean prompt"'
+    - 'site:github.com awesome-prompts korean'
+    - 'site:github.com "GPT 프롬프트 모음"'
+
+K16:
+  engine: serper
+  queries:
+    - '"ChatGPT 프롬프트 모음" -site:youtube.com'
+    - '"GPT 프롬프트 템플릿" "너는"'
+    - '"시스템 프롬프트" "역할" ChatGPT -site:youtube.com'
+    - '"Claude 프롬프트" "시스템" 모음'
+    - '"프롬프트 공유" ChatGPT 모음 -site:youtube.com'
+    - '"AI 프롬프트" "복사" OR "템플릿" -site:youtube.com'
+
+K12:
+  engine: naver
+  queries:
+    - '"프롬프트 모음" ChatGPT'
+    - '"GPT 프롬프트" "너는"'
+    - '"시스템 프롬프트" GPT'
+    - '"프롬프트 템플릿" AI'
+    - '"Claude 프롬프트"'
