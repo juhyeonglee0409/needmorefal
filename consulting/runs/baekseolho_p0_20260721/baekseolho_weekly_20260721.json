@@ -1,0 +1,36 @@
+{
+  "channel_id": "cfb182e69a68cd9d18138a817dea2e9b",
+  "channel_name": "백설호 snowfox",
+  "platform": "naverchzzk",
+  "source_url": "https://viewership.softc.one/channel/naverchzzk/cfb182e69a68cd9d18138a817dea2e9b",
+  "fetched_at": "2026-07-21T21:00+09:00",
+  "collection_route": "browser document load (RSC payload extraction), single channel",
+  "profile": {
+    "followerCount": 148,
+    "tags": ["virtual"],
+    "recentLiveAt": "2026-07-21T14:06:00.000Z",
+    "recentLiveTitle": "엔드필드 운 뚱땡이",
+    "recentLiveCategory": "명일방주: 엔드필드"
+  },
+  "context": {
+    "kmong_inquiry": "2026-07-21 20:16, STANDARD 79k 문의",
+    "self_reported": "활동 3개월, 현업 병행, 방송 20:30~24:00 수휴방, 저챗+종겜, 시청 2~3명, 목표 시청자 40~50",
+    "census_note": "census_pool(7/4)에 rookie로 존재, outreach excluded(버튜버 휴리스틱 오분류 vtuber=False/low), softcon 7/4 rank 5618/7203"
+  },
+  "weekly_summary": [
+    {"date": "2026-04-20", "sumLiveViews": 1058, "viewership": 105, "sumChatCount": 1729, "maxLiveViews": 27, "maxChatCount": 136, "avgLiveViews": 6, "avgChatCount": 11, "maxFollowerCount": 80, "airTime": 15.2, "sumCount": 152},
+    {"date": "2026-04-27", "sumLiveViews": 838, "viewership": 83, "sumChatCount": 1638, "maxLiveViews": 14, "maxChatCount": 47, "avgLiveViews": 5, "avgChatCount": 10, "maxFollowerCount": 94, "airTime": 14.9, "sumCount": 149},
+    {"date": "2026-05-04", "sumLiveViews": 242, "viewership": 24, "sumChatCount": 1237, "maxLiveViews": 5, "maxChatCount": 39, "avgLiveViews": 1, "avgChatCount": 10, "maxFollowerCount": 98, "airTime": 12.3, "sumCount": 123},
+    {"date": "2026-05-11", "sumLiveViews": 699, "viewership": 69, "sumChatCount": 2206, "maxLiveViews": 6, "maxChatCount": 35, "avgLiveViews": 2, "avgChatCount": 8, "maxFollowerCount": 105, "airTime": 25.0, "sumCount": 250},
+    {"date": "2026-05-18", "sumLiveViews": 878, "viewership": 87, "sumChatCount": 3442, "maxLiveViews": 8, "maxChatCount": 38, "avgLiveViews": 3, "avgChatCount": 14, "maxFollowerCount": 115, "airTime": 23.5, "sumCount": 235},
+    {"date": "2026-05-25", "sumLiveViews": 1070, "viewership": 107, "sumChatCount": 4184, "maxLiveViews": 7, "maxChatCount": 173, "avgLiveViews": 3, "avgChatCount": 13, "maxFollowerCount": 125, "airTime": 30.5, "sumCount": 305},
+    {"date": "2026-06-01", "sumLiveViews": 1064, "viewership": 106, "sumChatCount": 4742, "maxLiveViews": 8, "maxChatCount": 70, "avgLiveViews": 3, "avgChatCount": 13, "maxFollowerCount": 125, "airTime": 34.8, "sumCount": 348},
+    {"date": "2026-06-08", "sumLiveViews": 1006, "viewership": 100, "sumChatCount": 2886, "maxLiveViews": 8, "maxChatCount": 29, "avgLiveViews": 3, "avgChatCount": 9, "maxFollowerCount": 127, "airTime": 31.5, "sumCount": 315},
+    {"date": "2026-06-15", "sumLiveViews": 1266, "viewership": 126, "sumChatCount": 3989, "maxLiveViews": 12, "maxChatCount": 49, "avgLiveViews": 4, "avgChatCount": 12, "maxFollowerCount": 134, "airTime": 30.8, "sumCount": 308},
+    {"date": "2026-06-22", "sumLiveViews": 1195, "viewership": 119, "sumChatCount": 3921, "maxLiveViews": 12, "maxChatCount": 42, "avgLiveViews": 4, "avgChatCount": 13, "maxFollowerCount": 139, "airTime": 29.7, "sumCount": 297},
+    {"date": "2026-06-29", "sumLiveViews": 900, "viewership": 90, "sumChatCount": 2957, "maxLiveViews": 10, "maxChatCount": 61, "avgLiveViews": 3, "avgChatCount": 11, "maxFollowerCount": 145, "airTime": 25.9, "sumCount": 259},
+    {"date": "2026-07-06", "sumLiveViews": 721, "viewership": 72, "sumChatCount": 2318, "maxLiveViews": 7, "maxChatCount": 68, "avgLiveViews": 2, "avgChatCount": 9, "maxFollowerCount": 147, "airTime": 24.3, "sumCount": 243},
+    {"date": "2026-07-13", "sumLiveViews": 522, "viewership": 52, "sumChatCount": 1714, "maxLiveViews": 8, "maxChatCount": 50, "avgLiveViews": 2, "avgChatCount": 9, "maxFollowerCount": 148, "airTime": 18.7, "sumCount": 187},
+    {"date": "2026-07-20", "sumLiveViews": 127, "viewership": 12, "sumChatCount": 564, "maxLiveViews": 4, "maxChatCount": 21, "avgLiveViews": 2, "avgChatCount": 9, "maxFollowerCount": 148, "airTime": 5.9, "sumCount": 59, "partial_week": true}
+  ]
+}

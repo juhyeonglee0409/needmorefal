@@ -1,0 +1,69 @@
+{
+ "generated_at": "2026-07-21",
+ "signal_census_aligned": {
+  "label": "census-aligned",
+  "week": "2026-06-29",
+  "eff": 0.020689655172413793,
+  "mom": 0.03999999999999998,
+  "rookie": {
+   "eff_pct": 0.31,
+   "mom_pct": 0.729,
+   "signal": "neutral"
+  },
+  "growth": {
+   "eff_pct": 0.782,
+   "mom_pct": 0.939,
+   "signal": "green"
+  },
+  "signal": "neutral"
+ },
+ "signal_subject_latest": {
+  "label": "subject-latest",
+  "week": "2026-07-13",
+  "eff": 0.013513513513513514,
+  "mom": 0.026119402985074647,
+  "rookie": {
+   "eff_pct": 0.147,
+   "mom_pct": 0.653,
+   "signal": "neutral"
+  },
+  "growth": {
+   "eff_pct": 0.573,
+   "mom_pct": 0.894,
+   "signal": "near"
+  },
+  "signal": "neutral"
+ },
+ "segment_context": {
+  "ref_week": "2026-06-29",
+  "rookie_n": 1467,
+  "growth_n": 5477,
+  "rookie_avg_median": 2,
+  "rookie_air_median": 7.9,
+  "growth_air_median": 16.1,
+  "subject_avg_pct_in_rookie": 0.657,
+  "rookie_share_avg_ge10": 0.024,
+  "growth_share_avg_ge15": 0.212,
+  "growth_share_avg_ge40": 0.054,
+  "all_share_avg_ge40": 0.043,
+  "subject_air_pct_all": 0.749,
+  "subject_air_pct_rookie": 0.896
+ },
+ "peer_card_stats": {
+  "band": "follower ±1500 (card v2 규약)",
+  "n": 6198,
+  "eff_rank": 2304,
+  "eff_top_pct": 37.2,
+  "med_avg": 5.0,
+  "med_eff": 15.78,
+  "med_h": 13.0,
+  "census_rank": 5618,
+  "census_top_pct": 78.0,
+  "subject": {
+   "followers": 145,
+   "avg": 3,
+   "hours": 25.9,
+   "eff1k": 20.7
+  }
+ }
+}
