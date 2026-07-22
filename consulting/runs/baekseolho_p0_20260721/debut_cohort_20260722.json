@@ -1,0 +1,93 @@
+{
+ "generated_at": "2026-07-22",
+ "design": {
+  "window_first_observed": "2025-07-07",
+  "debut_range": [
+   "2025-08-04",
+   "2026-04-20"
+  ],
+  "eval_week": 13,
+  "small_start_max": 300,
+  "caveats": [
+   "데뷔=추적시작 근사(이주채널 혼입 가능)",
+   "시대 드리프트",
+   "L3 아님 — 내부 참고치"
+  ]
+ },
+ "subject": {
+  "name": "백설호",
+  "first_week": "2026-04-20",
+  "fol_w1": 80,
+  "fol_w13": 148,
+  "avg_w13": 2,
+  "air_w13": 18.7,
+  "growth_mult": 1.85,
+  "weekly_rise_streak": true
+ },
+ "all_newcomers": {
+  "label": "관측시작 창내부 전체",
+  "n": 4380,
+  "active_w13_share": 0.843,
+  "streak_share": 0.202,
+  "fol_w13_median": 324.0,
+  "fol_w13_p75": 765,
+  "fol_w13_p90": 2057,
+  "subject_fol_pct": 0.262,
+  "mult_median": 1.13,
+  "subject_mult_pct": 0.752,
+  "avg_w13_median_active": 5,
+  "subject_avg_pct_active": 0.186,
+  "air_w13_median_active": 16.3,
+  "subject_air_pct_active": 0.552
+ },
+ "small_debut": {
+  "label": "소형 데뷔 (첫주 팔로워<=300)",
+  "n": 2425,
+  "active_w13_share": 0.801,
+  "streak_share": 0.173,
+  "fol_w13_median": 158,
+  "fol_w13_p75": 243,
+  "fol_w13_p90": 331,
+  "subject_fol_pct": 0.473,
+  "mult_median": 1.45,
+  "subject_mult_pct": 0.58,
+  "avg_w13_median_active": 4.0,
+  "subject_avg_pct_active": 0.281,
+  "air_w13_median_active": 13.4,
+  "subject_air_pct_active": 0.645
+ },
+ "era_drift": {
+  "2025H2": {
+   "label": "소형 2025H2",
+   "n": 1514,
+   "active_w13_share": 0.836,
+   "streak_share": 0.16,
+   "fol_w13_median": 175.0,
+   "fol_w13_p75": 256,
+   "fol_w13_p90": 333,
+   "subject_fol_pct": 0.416,
+   "mult_median": 1.25,
+   "subject_mult_pct": 0.668,
+   "avg_w13_median_active": 3.0,
+   "subject_avg_pct_active": 0.284,
+   "air_w13_median_active": 14.1,
+   "subject_air_pct_active": 0.632
+  },
+  "2026H1": {
+   "label": "소형 2026H1",
+   "n": 911,
+   "active_w13_share": 0.742,
+   "streak_share": 0.195,
+   "fol_w13_median": 128,
+   "fol_w13_p75": 213,
+   "fol_w13_p90": 325,
+   "subject_fol_pct": 0.566,
+   "mult_median": 2.27,
+   "subject_mult_pct": 0.434,
+   "avg_w13_median_active": 4.0,
+   "subject_avg_pct_active": 0.275,
+   "air_w13_median_active": 12.7,
+   "subject_air_pct_active": 0.671
+  }
+ }
+}
