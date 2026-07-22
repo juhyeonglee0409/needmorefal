@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>채널 지표 읽는 법 — 상담 자료</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Malgun Gothic','Apple SD Gothic Neo',-apple-system,sans-serif;
+    color:#1e293b; background:#f1f5f9; font-size:12.5px; line-height:1.55; padding:14px; }
+  .card { max-width:680px; margin:0 auto; background:white; border-radius:14px;
+    padding:24px 32px; box-shadow:0 4px 24px rgba(15,23,42,0.08); }
+  .top { border-top:5px solid; border-image:linear-gradient(90deg,#7c3aed,#3b82f6,#06b6d4) 1;
+    margin:-24px -32px 16px; padding:18px 32px 0; }
+  .label { font-size:10px; color:#64748b; letter-spacing:3px; text-transform:uppercase; }
+  h1 { font-size:20px; font-weight:800; margin:6px 0 2px; }
+  .sub { font-size:11.5px; color:#94a3b8; }
+  table { width:100%; border-collapse:collapse; font-size:11.5px; margin-top:14px; }
+  th,td { padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:#f8fafc; font-size:10.5px; color:#475569; white-space:nowrap; border-bottom:1px solid #e2e8f0; }
+  tr.def td { border-bottom:none; padding-bottom:3px; }
+  td.m { font-weight:800; white-space:nowrap; }
+  .rank { display:inline-block; font-size:9px; font-weight:700; padding:1px 6px; border-radius:8px; margin-left:4px; vertical-align:middle; }
+  .r1 { background:#7c3aed; color:white; } .r2 { background:#e9d5ff; color:#6b21a8; }
+  .r3 { background:#e2e8f0; color:#475569; } .r4 { background:#f1f5f9; color:#64748b; }
+  tr.anno td { border-bottom:1px solid #f1f5f9; padding:0 10px 9px; }
+  .an { font-size:10.5px; color:#6b21a8; background:#faf5ff; border-radius:6px; padding:4px 9px; display:inline-block; }
+  .an b { font-variant-numeric:tabular-nums; }
+  .two { display:flex; gap:10px; margin-top:14px; }
+  .half { flex:1; border-radius:10px; padding:10px 12px; font-size:11px; }
+  .bad { background:#fff7ed; border:1px solid #fed7aa; color:#7c2d12; }
+  .good { background:#f0fdf4; border:1px solid #bbf7d0; color:#14532d; }
+  .half .t { font-size:9.5px; font-weight:700; letter-spacing:1px; margin-bottom:4px; }
+  .hl { border-left:3px solid #06b6d4; background:#ecfeff; padding:9px 12px;
+    border-radius:0 6px 6px 0; margin:12px 0 0; font-size:12px; }
+  .hl b.a { color:#0e7490; }
+  .note { margin-top:12px; font-size:9px; color:#94a3b8; line-height:1.5; }
+</style></head><body>
+<div class="card">
+  <div class="top">
+    <div class="label">Reading The Numbers · 2026.07</div>
+    <h1>채널 지표 4개 — 정의와 역할</h1>
+    <div class="sub">방송 데이터 공통 기준 · 하단 보라색 줄은 백설호님 채널의 현재 값 (최근 14주)</div>
+  </div>
+
+  <table>
+    <tr><th style="width:19%;">지표</th><th style="width:37%;">정의</th><th>성질과 용도</th></tr>
+
+    <tr class="def">
+      <td class="m">① 최고 시청자<br><span class="rank r1">체급 판단 1순위</span></td>
+      <td>방송 중 동시 시청자 수의 최댓값 (피크)</td>
+      <td>방송 길이의 영향을 받지 않는다. 채널의 순간 동원력, 즉 체급을 나타내는 기준 지표.</td>
+    </tr>
+    <tr class="anno"><td colspan="3"><span class="an">└ 백설호님: <b>8~12</b> 안정 · 역대 최고 <b>27</b> (데뷔 첫 주)</span></td></tr>
+
+    <tr class="def">
+      <td class="m">② 채팅 수<br><span class="rank r2">참여 강도</span></td>
+      <td>6분 구간당 평균 채팅 수</td>
+      <td>남아 있는 시청자가 얼마나 활발히 반응하는지를 나타낸다. 시청자 수와 별개로 읽는다.</td>
+    </tr>
+    <tr class="anno"><td colspan="3"><span class="an">└ 백설호님: <b>9~14</b> — 평균 시청 2~4명 대비 높은 밀도</span></td></tr>
+
+    <tr class="def">
+      <td class="m">③ 평균 시청자<br><span class="rank r3">비율 계산용</span></td>
+      <td>시청 총량 ÷ 방송시간</td>
+      <td>방송시간이 길수록 기계적으로 낮아진다. 효율·비율 계산에 쓰며, 이 지표 하나로 채널을 판단하지 않는다.</td>
+    </tr>
+    <tr class="anno"><td colspan="3"><span class="an">└ 백설호님: <b>2~4</b> — "2~3명 방송" 체감의 정체가 이 지표</span></td></tr>
+
+    <tr class="def">
+      <td class="m">④ 팔로워<br><span class="rank r4">누적 기록</span></td>
+      <td>팔로우를 누른 누적 인원 (사실상 감소하지 않음)</td>
+      <td>과거 시청의 누적 결과. 실시간 시청 규모와는 다른 지표이며, 순서는 시청 → 팔로워.</td>
+    </tr>
+    <tr class="anno"><td colspan="3"><span class="an">└ 백설호님: <b>150</b> — 13주 연속 상승 (80→150)</span></td></tr>
+  </table>
+
+  <div class="two">
+    <div class="half bad">
+      <div class="t">지표 ③ 하나로만 읽으면</div>
+      "석 달 했는데 2~3명 보는 방송"
+    </div>
+    <div class="half good">
+      <div class="t">네 지표로 읽으면</div>
+      "최고 순간 두 자릿수가 모이고, 남은 사람은 진하게 반응하며, 13주 연속 팔로워가 늘어온 채널"
+    </div>
+  </div>
+  <div class="hl">두 서술 모두 같은 채널의 사실입니다. 다른 건 채널이 아니라 <b class="a">읽는 지표</b>예요 — 오늘 상담은 이 네 개를 함께 놓고 봅니다.</div>
+
+  <div class="note">
+    ※ 출처: 공개 방송 지표 (공개 뷰어십 통계 사이트 + 치지직 공개 채널 정보), 2026.07.21 수집 · 14주 전체 (2026.04.20~07.20).<br>
+    ※ 공개 지표 기반 자료로, 채널 내부 데이터(시청 지속시간·유입 경로 등)는 반영되지 않았습니다.
+  </div>
+</div></body></html>
