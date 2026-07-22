@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>익명 VTuber 사례 · 실행 설계와 4주 실측 (PREMIUM 범위 샘플)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Malgun Gothic','Apple SD Gothic Neo',-apple-system,sans-serif;
+    color:#1e293b; background:#f1f5f9; font-size:12.5px; line-height:1.55; padding:14px; }
+  .card { max-width:680px; margin:0 auto 14px; background:white; border-radius:14px;
+    padding:24px 32px; box-shadow:0 4px 24px rgba(15,23,42,0.08); }
+  .top { border-top:5px solid; border-image:linear-gradient(90deg,#7c3aed,#3b82f6,#06b6d4) 1;
+    margin:-24px -32px 16px; padding:18px 32px 0; }
+  .label { font-size:10px; color:#64748b; letter-spacing:3px; text-transform:uppercase; }
+  h1 { font-size:19px; font-weight:800; margin:6px 0 2px; }
+  h2 { font-size:15px; font-weight:800; margin:4px 0 8px; }
+  .sub { font-size:11.5px; color:#94a3b8; }
+  .badge { display:inline-block; background:linear-gradient(90deg,#7c3aed,#3b82f6); color:white;
+    border-radius:10px; padding:8px 16px; font-size:20px; font-weight:800; margin:10px 0 4px; }
+  .badge small { display:block; font-size:9.5px; font-weight:400; opacity:.9; }
+  h3 { font-size:13.5px; font-weight:800; margin:14px 0 6px; }
+  h3 small { font-size:9.5px; color:#94a3b8; font-weight:400; }
+  table { width:100%; border-collapse:collapse; font-size:11.5px; }
+  th,td { padding:6px 10px; border-bottom:1px solid #f1f5f9; text-align:left; }
+  th { background:#f8fafc; font-size:10.5px; color:#475569; }
+  td.n,th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  .me { color:#7c3aed; font-weight:800; }
+  .hl { border-left:3px solid #06b6d4; background:#ecfeff; padding:8px 12px;
+    border-radius:0 6px 6px 0; margin:8px 0; font-size:12px; }
+  .hl.p { border-color:#7c3aed; background:#faf5ff; }
+  .hl.g { border-color:#059669; background:#f0fdf4; }
+  .hl.w { border-color:#ea580c; background:#fff7ed; }
+  .note { margin-top:12px; font-size:9px; color:#94a3b8; line-height:1.5; }
+  .foot { margin-top:10px; padding-top:8px; border-top:1px solid #e2e8f0;
+    font-size:10.5px; color:#64748b; display:flex; justify-content:space-between; }
+  .step { display:inline-block; background:#7c3aed; color:white; font-size:10px; font-weight:700;
+    border-radius:8px; padding:2px 9px; margin-right:6px; vertical-align:middle; }
+</style></head><body>
+
+<div class="card">
+  <div class="top">
+    <div class="label">Consulting Sample · 익명 처리 · Premium 범위</div>
+    <h1>실행 설계 → 실행 → 4주 실측</h1>
+    <div class="sub">익명 VTuber 사례 · PREMIUM(실행 코칭) 산출물이 실제로 어떻게 생겼는지 보여드리는 샘플입니다</div>
+  </div>
+
+  <div class="badge">일평균 후원 +57%<small>참여 장치 도입 4주차 · 실측치 · 시청자 수·방송시간 증가 없이</small></div>
+
+  <h3><span class="step">1단계</span>실행 우선순위 설계 <small>— 어느 레버부터 당길 것인가</small></h3>
+  <p style="font-size:12px; margin:4px 0 8px;">수익을 움직이는 경로는 세 축뿐입니다. 축마다 "얼마나 커질 수 있나"와 "얼마나 빨리 움직이나"가 다릅니다. (수치는 현재 수입 = 1.0 기준 배수)</p>
+  <table>
+    <tr><th>레버</th><th class="n">기대 배수</th><th>판정</th></tr>
+    <tr><td>① 시청자 수 확대</td><td class="n">단독으로 7.2× 필요</td><td>단독 경로 비현실 — 장기 축</td></tr>
+    <tr><td>② 구독 전환</td><td class="n">+0.1~0.2×</td><td class="me">가장 빨리 움직임 (거의 0에서 시작)</td></tr>
+    <tr><td>③ 참여도 (인당 후원 강도)</td><td class="n">×1.5 시 수입 ~1.5×</td><td class="me">중간 레버 — 장치 설계로 개입 가능</td></tr>
+  </table>
+  <div class="hl p">판정: <b>가장 큰 레버가 아니라 가장 빨리 움직이는 레버부터.</b> ②구독 루틴 정비와 ③참여형 후원 장치(룰렛형 — 확률 분포·단가를 시뮬레이션으로 사전 설계)를 선행 실행으로 확정. 재설계 제안치는 시뮬레이션으로 사전 검증(+139%, 실행 전 추정임을 명시).</div>
+
+  <h3><span class="step">2단계</span>실행 <small>— 클라이언트가 장치를 도입</small></h3>
+  <div class="hl">참여형 후원 장치를 방송에 도입. 도입 시점부터 주간 지표 모니터링 개시 (후원 원장·방송 지표 주 단위 추적).</div>
+
+  <h3><span class="step">3단계</span>4주차 실측 <small>— 제안이 실제로 움직였는가</small></h3>
+  <table>
+    <tr><th>지표</th><th class="n">실측</th></tr>
+    <tr><td>일평균 후원 결제액 (직전 월 대비)</td><td class="n me">+57%</td></tr>
+    <tr><td>직전 월 한 달 총액 도달 시점</td><td class="n me">20일 만에 초과</td></tr>
+    <tr><td>후반 10일 vs 전반 10일</td><td class="n me">+73% (감쇠가 아니라 가속)</td></tr>
+    <tr><td>장치 직접 기여 (단가 시그니처 77건 식별)</td><td class="n">총액의 13.6%</td></tr>
+    <tr><td>참여(채팅) 후원 비중</td><td class="n">43%</td></tr>
+  </table>
+  <div class="hl g">장치의 가치는 직접 매출(13.6%)보다 <b>참여 문화의 활성화</b>에 있었습니다 — 설계 의도(참여도 축)대로 움직였는지를 단가 시그니처로 분리 확인합니다.</div>
+  <div class="hl w"><b>정직한 해석 (그대로 전달되는 부분입니다):</b> 이 상승을 장치 단독 효과로 단정하지 않습니다. 같은 기간 신작 콘텐츠 사이클과 이벤트성 대형 후원이 겹쳐 있었고(이벤트분 제외 시에도 일평균 +30%), 상위 후원자 5인 집중도가 59%로 소수 이탈 리스크가 있습니다. 지속성은 익월 재검증으로 판정합니다 — 이 재검증 루프가 분기 점검의 내용입니다.</div>
+
+  <h3>이 루프가 PREMIUM입니다</h3>
+  <p style="font-size:12px;">설계(시뮬레이션 검증) → 실행 → 4주 모니터링 → 실측 판정 → 다음 분기 재점검. 보고서가 서랍에 들어가는 게 아니라, <b>제안이 실제로 움직였는지 숫자로 확인하고 다음 수를 두는 것</b>까지가 서비스 범위입니다.</p>
+
+  <div class="note">
+    ※ 의뢰인 동의하에 모든 식별 정보(채널명·수익 절대액·시청자 정보·커뮤니티 용어·게임명·시기)를 제거하고, 구조와 방법만 남겨 재구성했습니다.<br>
+    ※ 수치 성격: 1단계 재설계 제안치(+139%)는 실행 전 시뮬레이션 검증치, 3단계 수치(+57% 등)는 도입 4주차 실측치입니다. 실측 상승의 원인 분해는 본문 명시대로 미확정이며, 특정 성과를 보장하지 않습니다.
+  </div>
+  <div class="foot">
+    <span>만든 사람: 이삭컨설팅 (스트리머 데이터 분석)</span>
+    <span>PREMIUM: 실행 설계 + 4주 모니터링 + 분기 재점검</span>
+  </div>
+</div>
+</body></html>
