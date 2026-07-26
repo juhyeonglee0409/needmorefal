@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""데뷔 정렬 신생 코호트 분석 — 백설호 3개월 차 위치 실측 (내부 참고치, L3 아님).
+"""데뷔 정렬 신생 코호트 분석, 백설호 3개월 차 위치 실측 (내부 참고치, L3 아님).
 
 설계:
 - 코호트 = census_full 7,472 중 "관측 시작이 창 내부"인 채널 (좌측 절단 제외).
@@ -63,7 +63,7 @@ for r in rows:
     for w in weeks:
         off = (parse_date(w["date"]) - first).days // 7 + 1  # week 1 = 데뷔 주
         by_offset[off] = w
-    # week 13 값: carry-forward (이탈해도 분모 유지 — 생존 편향 방지)
+    # week 13 값: carry-forward (이탈해도 분모 유지, 생존 편향 방지)
     fol13 = None
     last_fol = None
     active13 = False
@@ -125,7 +125,7 @@ out = {
         "window_first_observed": str(all_first),
         "debut_range": [str(WINDOW_BUFFER_FIRST), str(LAST_DEBUT)],
         "eval_week": EVAL_WEEK, "small_start_max": SMALL_START_MAX,
-        "caveats": ["데뷔=추적시작 근사(이주채널 혼입 가능)", "시대 드리프트", "L3 아님 — 내부 참고치"],
+        "caveats": ["데뷔=추적시작 근사(이주채널 혼입 가능)", "시대 드리프트", "L3 아님, 내부 참고치"],
     },
     "subject": SUBJECT | {"first_week": str(SUBJECT["first_week"])},
     "all_newcomers": describe(cohort, "관측시작 창내부 전체"),

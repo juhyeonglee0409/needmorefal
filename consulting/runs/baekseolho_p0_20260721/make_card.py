@@ -23,30 +23,30 @@ tier = "strong" if ppct <= 30 else ("mid" if ppct <= 50 or ps["census_top_pct"] 
 hero_html = (
     f'    <div class="hv"><div class="k">팔로워 대비 시청자 효율</div><div class="v">상위 {ppct:.0f}%</div>'
     f'<div class="d">비슷한 규모 버튜버 {n:,}개 중 {ps["eff_rank"]:,}위</div></div>\n'
-    f'    <div class="hv b"><div class="k">다음 이정표 — 팔로워 1,500</div><div class="v">{1500-f:,}명</div>'
+    f'    <div class="hv b"><div class="k">다음 이정표: 팔로워 1,500</div><div class="v">{1500-f:,}명</div>'
     f'<div class="d">{f:,} / 1,500 · 첫 체급 구간</div></div>')
 
-insight = (f"팔로워 {f:,}명에 평균 {avg}명 시청 — 팔로워 대비 시청 전환(효율)은 동급 중앙값의 <b>{eff_ratio:.1f}배</b>로 "
+insight = (f"팔로워 {f:,}명에 평균 {avg}명 시청, 팔로워 대비 시청 전환(효율)은 동급 중앙값의 <b>{eff_ratio:.1f}배</b>로 "
            f"안정적인 편이에요. 초기 3개월 채널에서 이 효율이 유지되는 건 좋은 신호입니다. "
            f"지금은 효율을 지키면서 <b>팔로워 기반을 넓히는 것</b>이 다음 과제로 보입니다.")
 
 sig = a["signal_census_aligned"]
-outlook_html = ('  <h3>성장 전망 신호 <small>— 1년 주간 데이터 패턴</small></h3>\n'
+outlook_html = ('  <h3>성장 전망 신호 <small>(1년 주간 데이터 패턴)</small></h3>\n'
                 '  <div class="hl p"><b><span style="color:#94a3b8;">●</span> 안정 구간</b> · '
                 '시청 효율과 최근 팔로워 흐름이 동급 중간 범위예요. 특히 <b>최근 4주 팔로워 흐름은 '
-                '동급 상위 30% 안</b>에 들어 있어요 — 이 흐름에 시청 효율(팔로워→시청 전환)까지 붙으면 '
+                '동급 상위 30% 안</b>에 들어 있어요. 이 흐름에 시청 효율(팔로워→시청 전환)까지 붙으면 '
                 '데이터상 가장 강한 조합이 됩니다. 이 구간에서는 지표 하나를 정해 집중적으로 움직이는 것이 '
                 '다음 변화를 만드는 패턴이었습니다.</div>')
 outlook_note = ("<br>※ 성장 전망 신호는 치지직 버튜버 전수 7,472채널의 1년(53주) 주간 지표에서 확인된 "
                 f"패턴 통계입니다 (기준 주: {sig['week']}). 경향 안내이지 예측 보장이 아닙니다.")
 
 pctbar = f / 1500 * 100
-ms_title = "다음 이정표 — 팔로워 1,500"
+ms_title = "다음 이정표: 팔로워 1,500"
 ms_body = (f'<div class="bar"><div style="width:{pctbar:.1f}%"></div></div>'
            f'<div style="font-size:11px;color:#64748b;">{f:,} / 1,500 · <b>{1500-f:,}명 남음</b></div>'
            f'<div class="hl p">현재 분포 기준, 팔로워 1,500 이상인 동급 채널의 <b>83%</b>가 "평균 시청자 14명 이상"을 '
            f'유지하고 있어요 (1,500 미만에서는 28%). 다만 이 숫자는 구간의 풍경이지 넘는 순간 저절로 바뀐다는 뜻은 '
-           f'아니에요 — 실제로 먼저 움직이는 건 위의 <b>성장 전망 신호</b> 쪽 지표들입니다.</div>')
+           f'아니에요. 실제로 먼저 움직이는 건 위의 <b>성장 전망 신호</b> 쪽 지표들입니다.</div>')
 
 CARD_TMPL = """<!DOCTYPE html>
 <html lang="ko"><head><meta charset="UTF-8">
