@@ -1,0 +1,107 @@
+{
+ "generated_at": "2026-07-26",
+ "measurement_illusion": {
+  "june_4w": {
+   "weeks": [
+    "2026-06-08",
+    "2026-06-15",
+    "2026-06-22",
+    "2026-06-29"
+   ],
+   "airTime": 56.4,
+   "viewership": 521,
+   "chat": 2981,
+   "avg_of_avg": 9.5,
+   "peak_max": 25,
+   "follower_end": 140
+  },
+  "july_3w": {
+   "weeks": [
+    "2026-07-06",
+    "2026-07-13",
+    "2026-07-20"
+   ],
+   "airTime": 78.1,
+   "viewership": 540,
+   "chat": 5711,
+   "avg_of_avg": 6.7,
+   "peak_max": 19,
+   "follower_end": 219
+  },
+  "airtime_ratio": 1.85,
+  "viewership_per_week_june": 130.2,
+  "viewership_per_week_july": 180.0,
+  "chat_per_week_june": 745,
+  "chat_per_week_july": 1904
+ },
+ "signal": {
+  "census_aligned": {
+   "week": "2026-06-29",
+   "eff": 0.07142857142857142,
+   "mom": 0.38636363636363635,
+   "rookie": {
+    "eff_pct": 0.834,
+    "mom_pct": 0.965,
+    "signal": "green"
+   },
+   "growth": {
+    "eff_pct": 0.994,
+    "mom_pct": 0.997,
+    "signal": "green"
+   }
+  },
+  "subject_latest": {
+   "week": "2026-07-20",
+   "eff": 0.0319634703196347,
+   "mom": 0.22198275862068967,
+   "rookie": {
+    "eff_pct": 0.493,
+    "mom_pct": 0.936,
+    "signal": "near"
+   },
+   "growth": {
+    "eff_pct": 0.917,
+    "mom_pct": 0.995,
+    "signal": "green"
+   }
+  }
+ },
+ "segment_context": {
+  "ref_week": "2026-06-29",
+  "growth_n": 5477,
+  "subject_avg_pct_growth": 0.532,
+  "subject_peak_pct_growth": 0.546,
+  "subject_air_pct_growth": 0.674,
+  "growth_avg_median": 6,
+  "growth_peak_median": 14,
+  "growth_air_median": 16.1
+ },
+ "debut_cohort": {
+  "eval_week": 18,
+  "n_all": 4201,
+  "n_small": 2265,
+  "active_share": 0.784,
+  "f18_median": 175,
+  "subject_f18": 219,
+  "subject_f18_pct": 0.634,
+  "avg18_median": 4,
+  "subject_avg18_pct": 0.784,
+  "peak18_median": 9,
+  "subject_peak18_pct": 0.785
+ },
+ "peer_card_stats": {
+  "n": 6243,
+  "eff_rank": 1350,
+  "eff_top_pct": 21.6,
+  "med_avg": 5,
+  "med_eff": 15.72,
+  "med_h": 13,
+  "subject": {
+   "followers": 219,
+   "avg": 7,
+   "peak": 15,
+   "hours": 24.0,
+   "eff1k": 32.0
+  }
+ }
+}
