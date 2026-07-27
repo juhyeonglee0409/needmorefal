@@ -1,0 +1,100 @@
+{
+  "case_id": "yuria_20260727",
+  "channel_ref": "유리아 루네아 (치지직, af4b2fb44f7f6e00b9513e25887268a2)",
+  "prior_channel_name": "모나카 Monaka (2026-07-04 census 시점)",
+  "created_at": "2026-07-27",
+  "status": {
+    "stage": "B",
+    "stage_note": "입력 수집. 결제 완료 후 본인 데이터 수령 단계",
+    "analysis_status": "open",
+    "close_status": "open"
+  },
+
+  "commercial": {
+    "inbound_at": "2026-07-26T09:52",
+    "channel": "크몽 (gig 783585 경유 문의)",
+    "payment_tier": "DELUXE",
+    "payment_amount_krw": 139000,
+    "paid_at": "2026-07-27T18:27",
+    "delivery_profile": "P2_실행형",
+    "upgrade": true,
+    "upgrade_reason": "케이스 참여 2단계 동의 (채널명 공개 사례). 정책: 상담운영_정책메모_20260727.md §1",
+    "pilot": true,
+    "note": "첫 유료 전환 케이스. 파일럿 종료 트리거(리뷰 10건 또는 3개월) 카운트 대상"
+  },
+
+  "consent": {
+    "case_program_level": 2,
+    "level_definition": "채널명 공개, before/after 성장 사례 게재",
+    "agreed_at": "2026-07-27T18:27",
+    "conditions": [
+      "게시 전 원고 확인 필수 (미이행 시 게시 불가)",
+      "철회 자유. 철회 시 기제공 혜택 회수 없음",
+      "본명·개인 신상 비공개 (채널 데이터만)"
+    ],
+    "minor_check": "pending",
+    "minor_check_note": "만 19세 미만 시 보호자 동의 필요. 조건 명시 방식으로 안내함(직접 질문 회피, §2.7)",
+    "publication_status": "not_yet"
+  },
+
+  "profile_input": {
+    "debut": "2026-03-23",
+    "origin": "유튜브 쇼츠로 시작 후 치지직 라이브 전환. 유튜브 쇼츠·영상 현재도 운영 중(라이브만 중단)",
+    "planning": "버튜버 계획 없이 흥미로 시작. 본인 확인됨",
+    "self_assessment_at_intake": "한참 아래단계인 것 같다 (실제: 4개월차 코호트 상위 22%)",
+    "stated_problem": "말이 많은 편이 아니라 오디오가 빈다 / 시청자가 안 는다",
+    "goal": "시청자 증가 후 수익화",
+    "schedule_constraint": {
+      "time": "오전 고정 (저녁은 체력 문제로 본인이 전환)",
+      "weekend": "휴방. 변경 불가",
+      "implication": "시간대·요일 최적화 불가. 남은 변수는 콘텐츠 배분"
+    },
+    "temperament": "전화 상담 부담(채팅 선택). 내향적. 실행력은 높음(편성 전환·로블록스·시참 모두 스스로 시도)"
+  },
+
+  "diagnosis_preliminary": {
+    "claim_level": "L1~L2",
+    "source": "runs/yuria_p0_20260726/ (공개 지표 기반, 상담 P0 단계)",
+    "findings": [
+      "측정 착시: 7월 방송시간 1.85배 증가로 평청만 -29%. 총시청량 +38%, 채팅 +156%, 팔로워 +56%",
+      "성장 전망 신호 청신호 (growth 세그먼트 효율 99.4%ile, 관성 99.7%ile)",
+      "데뷔 정렬 코호트 18주차: 평청·피크 모두 상위 22% (n=2,265)",
+      "카테고리별 시간당 팔로워: 아이온2 0.34 vs 로블록스 계열 1.5~1.8 (5배). 시간 배분은 87:13 역전",
+      "노마이크 방송 15.2h에 팔로워 +1 (시간당 0.07) vs 마이크 306h에 +152 (0.50). 7배 격차",
+      "시참 명시 방송(7/23)이 단일 최대 팔로워 증가 +14"
+    ],
+    "hypothesis_primary": "'오디오가 빈다'는 말수 문제가 아니라 최다 투입 콘텐츠(아이온2 노마이크)가 저관여 구조. 해법(로블록스 시참)은 본인이 이미 보유",
+    "open_questions": [
+      "6월 초 채팅 급증(주 243→940회)의 원인 미확정. 본인도 모름",
+      "로블록스 효과와 시기 효과(7월 급성장 국면) 미분리",
+      "이벤트(200팔 기념, 프로회원 기념) 중첩",
+      "로블록스 유입층의 후원 전환 가능성 (구매력 우려, 검증 필요)"
+    ]
+  },
+
+  "data_inventory": {
+    "public": [
+      "runs/yuria_p0_20260726/yuria_weekly_20260726.json (주간 16주)",
+      "runs/yuria_p0_20260726/yuria_streams_analysis_20260727.json (방송 100개 집계)",
+      "runs/yuria_p0_20260726/yuria_analysis_20260726.json (신호·코호트)"
+    ],
+    "client_provided": {
+      "donation_ledger": "수령함. 케이스 편입 대기",
+      "daily_stats": "수령함. 케이스 편입 대기"
+    }
+  },
+
+  "deliverable_plan": {
+    "deluxe_stage1": "1년 성장 궤적, 평균값 착시 보정, 동급 비교, 효율 분석, 강점·병목, 목표 설정, 월별 점검 지표",
+    "deluxe_stage2": "수익·후원 구조 진단 (본인 데이터 기반)",
+    "premium_add": "실행 우선순위 설계, 4주 모니터링 + 체크인 4회, 분기 재점검 3회, 전략 리빌딩 1회",
+    "monitoring_note": "실시간 방문 부담 표명함. 다시보기 또는 사전 고지 방식으로 조정 합의",
+    "deadline": "DELUXE 1차 리포트 7일 이내 (2026-08-03)"
+  },
+
+  "disclosure": {
+    "default_tag": "red",
+    "public_demo_ready": false,
+    "note": "2단계 동의로 채널명 공개 가능하나, 게시 전 본인 원고 확인 절차 필수"
+  }
+}
