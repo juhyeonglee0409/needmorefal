@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-07-27",
+  "channel_id": "af4b2fb44f7f6e00b9513e25887268a2",
+  "channel_name": "유리아 루네아",
+  "source": "viewership.softc.one /streams?startDateTime=2026-03-01&endDateTime=2026-07-28 (ENTERPRISE 세션, RSC payload 추출)",
+  "collection_note": "무료 범위는 최근 5개만 노출. 날짜 쿼리 명시 시 100개(2026-03-30~07-27). 100은 DOM 상한일 가능성 있음(런북 DOM 100-row cap)",
+
+  "category_totals": {
+    "note": "채널 페이지 카테고리 집계. 전 기간 누적",
+    "rows": [
+      {"category": "아이온2", "airTime": 59.3, "avgLiveViews": 9, "maxLiveViews": 25, "avgChat6min": 5.3, "sumChat": 3167, "viewership": 507, "chatPerHour": 53.4},
+      {"category": "로블록스", "airTime": 27.0, "avgLiveViews": 6, "maxLiveViews": 13, "avgChat6min": 10.5, "sumChat": 2847, "viewership": 168, "chatPerHour": 105.4},
+      {"category": "두근두근타운", "airTime": 7.2, "avgLiveViews": 4, "maxLiveViews": 8, "avgChat6min": 6.1, "sumChat": 442, "viewership": 30, "chatPerHour": 61.4},
+      {"category": "talk", "airTime": 0.8, "avgLiveViews": 6, "maxLiveViews": 8, "avgChat6min": 11.9, "sumChat": 95, "viewership": 4, "chatPerHour": 118.8}
+    ]
+  },
+
+  "follower_gain_by_category_combo": {
+    "note": "방송 100개 단위 집계. df = 방송 중 팔로워 증감 합계. dfPerH = 시간당 팔로워 획득",
+    "rows": [
+      {"combo": "아이온2", "n": 83, "hours": 256.2, "df": 87, "dfPerH": 0.34},
+      {"combo": "로블록스+두근두근타운", "n": 3, "hours": 15.0, "df": 23, "dfPerH": 1.54},
+      {"combo": "두근두근타운+아이온2", "n": 2, "hours": 9.5, "df": 2, "dfPerH": 0.21},
+      {"combo": "로블록스", "n": 3, "hours": 9.0, "df": 16, "dfPerH": 1.78},
+      {"combo": "로블록스+아이온2", "n": 2, "hours": 8.8, "df": 7, "dfPerH": 0.80},
+      {"combo": "로블록스+아이온2+talk", "n": 1, "hours": 4.0, "df": 3, "dfPerH": 0.75},
+      {"combo": "두근두근타운", "n": 2, "hours": 4.0, "df": 4, "dfPerH": 1.00},
+      {"combo": "멧챠 카멜레온+아이온2", "n": 1, "hours": 4.0, "df": 2, "dfPerH": 0.50},
+      {"combo": "멧챠 카멜레온+두근두근타운", "n": 1, "hours": 3.8, "df": 2, "dfPerH": 0.52},
+      {"combo": "로블록스+talk", "n": 1, "hours": 3.7, "df": 6, "dfPerH": 1.62}
+    ],
+    "headline": "로블록스 계열 시간당 팔로워 획득이 아이온2 단독의 약 5배. 시간 배분은 아이온2 87% : 로블록스 계열 13%"
+  },
+
+  "no_mic_comparison": {
+    "note": "제목에 '노마이크' 포함 여부로 분류",
+    "no_mic": {"n": 5, "hours": 15.2, "df": 1, "dfPerH": 0.07, "first": "2026-07-06", "last": "2026-07-24"},
+    "with_mic": {"n": 95, "hours": 306.3, "df": 152, "dfPerH": 0.50},
+    "ratio": "7.1배",
+    "headline": "노마이크 방송은 팔로워 획득이 사실상 정지. 7/6 시작으로 7월 방송시간 증가(주 14.1h→26.0h) 시점과 일치",
+    "caveat": "n=5. 노마이크 방송이 대부분 아이온2 배럭 키우기라 노마이크 효과와 콘텐츠 효과가 분리되지 않음"
+  },
+
+  "sicham_streams": {
+    "note": "제목에 '시참' 포함",
+    "rows": [
+      {"date": "2026-07-23", "hours": 4.7, "df": 14, "title": "로블로블 시참가능"},
+      {"date": "2026-07-14", "hours": 4.3, "df": 1, "title": "아침부터 공겜 (시참X)"},
+      {"date": "2026-05-14", "hours": 1.6, "df": 0, "title": "[밍티비] 아이온2 무닌 치유"},
+      {"date": "2026-05-09", "hours": 2.7, "df": 0, "title": "[밍티비] 아이온2 무닌 치유"},
+      {"date": "2026-05-05", "hours": 4.8, "df": 1, "title": "[밍티비] 1부 아이온2 2부"}
+    ],
+    "headline": "7/23 '로블로블 시참가능'이 단일 방송 최대 팔로워 증가(+14). 통상 0~6 대비 이례치",
+    "caveat": "같은 시기 '200팔 기념', '프로회원기념 이벤트' 제목 확인됨. 이벤트 효과와 분리 불가"
+  },
+
+  "milestones": {
+    "roblox_first": "2026-07-07",
+    "no_mic_first": "2026-07-06",
+    "streams_window": ["2026-03-30", "2026-07-27"]
+  },
+
+  "limits": [
+    "로블록스는 7월 시작이라 시기 효과(채널 급성장 국면)와 카테고리 효과가 섞임",
+    "이벤트(200팔 기념, 프로회원 기념)가 같은 시기에 겹침",
+    "카테고리 조합별 n이 대부분 1~3으로 통계적 확정 불가",
+    "claim level L1~L2 (단면 관찰). 인과 주장 금지"
+  ]
+}
