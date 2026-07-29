@@ -11,11 +11,14 @@ chs = []
 with open(SRC, encoding="utf-8") as f:
     for line in f:
         chs.append(json.loads(line))
-print("기준 주:", chs[0]["weeks"][AT]["date"], "| 결과 창:", chs[0]["weeks"][AT+1]["date"], "~", chs[0]["weeks"][52]["date"])
+full = next(c for c in chs if len(c["weeks"]) == 53)
+print("기준 주:", full["weeks"][AT]["date"], "| 결과 창:", full["weeks"][AT+1]["date"], "~", full["weeks"][52]["date"])
 
 cands = []
 for c in chs:
     w = c["weeks"]
+    if len(w) < 53:  # 관측 기간이 짧은 채널 제외 (센서스에 28주 등 부분 관측 다수)
+        continue
     f_at = w[AT]["maxFollowerCount"]
     if not f_at or f_at > 2495: continue
     w8 = w[AT-7:AT+1]
