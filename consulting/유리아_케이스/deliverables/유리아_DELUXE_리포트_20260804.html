@@ -46,6 +46,22 @@
   ol,ul { margin:6px 0 6px 18px; font-size:12px; }
   li { margin-bottom:5px; }
   p.lead { font-size:12px; margin:4px 0 8px; }
+  .chart { margin:12px 0; padding:12px 14px; background:#f8fafc; border-radius:10px; }
+  .ct { font-size:10.5px; font-weight:700; color:#475569; margin-bottom:8px; }
+  .crow { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:11px; }
+  .clab { width:92px; text-align:right; color:#475569; flex-shrink:0; }
+  .ctrack { flex:1; background:#e2e8f0; border-radius:4px; height:15px; position:relative; }
+  .cbar { height:15px; border-radius:4px; background:linear-gradient(90deg,#7c3aed,#3b82f6); }
+  .cbar.g { background:linear-gradient(90deg,#059669,#34d399); }
+  .cbar.o { background:linear-gradient(90deg,#ea580c,#fb923c); }
+  .cbar.gy { background:#cbd5e1; }
+  .cval { font-weight:800; width:64px; flex-shrink:0; font-variant-numeric:tabular-nums; }
+  .scale { position:relative; height:64px; margin:10px 4px 0; }
+  .sline { position:absolute; top:34px; left:0; right:0; height:8px; background:#e2e8f0; border-radius:4px; }
+  .sband { position:absolute; top:34px; height:8px; background:linear-gradient(90deg,#7c3aed,#3b82f6); border-radius:4px; opacity:.85; }
+  .smark { position:absolute; top:26px; width:2px; height:24px; background:#475569; }
+  .slab { position:absolute; font-size:9.5px; color:#475569; white-space:nowrap; transform:translateX(-50%); }
+  .sdot { position:absolute; top:31px; width:14px; height:14px; border-radius:50%; background:#059669; border:3px solid white; box-shadow:0 1px 4px rgba(0,0,0,.25); }
   @media print { body { zoom:0.85; padding:6px; } }
 </style></head><body>
 
@@ -93,6 +109,15 @@
   </table>
   <div style="font-size:9.5px;color:#94a3b8;">* 시청자 수 = 해당 월 방송을 본 사람 수 합계 (채널 내부 데이터, 방송별 유니크 기준)</div>
 
+  <div class="chart">
+    <div class="ct">한 사람이 방송에 머무는 시간 (월평균)</div>
+    <div class="crow"><div class="clab">3월</div><div class="ctrack"><div class="cbar gy" style="width:26%"></div></div><div class="cval">4.1분</div></div>
+    <div class="crow"><div class="clab">4월</div><div class="ctrack"><div class="cbar gy" style="width:28%"></div></div><div class="cval">4.4분</div></div>
+    <div class="crow"><div class="clab">5월</div><div class="ctrack"><div class="cbar" style="width:52%"></div></div><div class="cval">8.1분</div></div>
+    <div class="crow"><div class="clab">6월</div><div class="ctrack"><div class="cbar" style="width:76%"></div></div><div class="cval">11.9분</div></div>
+    <div class="crow"><div class="clab">7월</div><div class="ctrack"><div class="cbar g" style="width:100%"></div></div><div class="cval me">15.6분</div></div>
+  </div>
+
   <div class="hl g"><b>가장 중요한 열은 평균 체류입니다.</b> 한 사람이 방송에 머무는 시간이 4개월 만에 4.1분에서 15.6분으로 3.8배가 됐습니다. 시청자 수를 늘리는 것보다 훨씬 어려운 게 머무는 시간을 늘리는 것인데, 이 채널은 그게 매달 한 번도 꺾이지 않고 올라갔습니다. 채널의 성장이 "지나가는 사람"이 아니라 <b>"머무는 사람"</b>에서 일어나고 있다는 뜻입니다.</div>
 
   <div class="hl">팔로워는 데뷔 후 19주 만에 246명입니다 (7/31 기준). 특히 7월 한 달에만 +106으로, 6월까지의 누적 속도보다 뚜렷하게 빨라졌습니다. 상담일(7/26) 이후 닷새 동안에도 +27이 이어졌습니다.</div>
@@ -114,6 +139,15 @@
     <tr><td>팔로워</td><td class="n">140</td><td class="n">219</td><td class="n up">+56%</td></tr>
     <tr class="peak"><td>평균 동시 시청자</td><td class="n">9.5</td><td class="n">6.7</td><td class="n dn">-29%</td></tr>
   </table>
+
+  <div class="chart">
+    <div class="ct">6월 대비 7월 변화폭 (색이 다른 것 하나가 착시의 정체)</div>
+    <div class="crow"><div class="clab">주간 채팅</div><div class="ctrack"><div class="cbar g" style="width:100%"></div></div><div class="cval up">+156%</div></div>
+    <div class="crow"><div class="clab">방송시간</div><div class="ctrack"><div class="cbar" style="width:54%"></div></div><div class="cval">+85%</div></div>
+    <div class="crow"><div class="clab">팔로워</div><div class="ctrack"><div class="cbar g" style="width:36%"></div></div><div class="cval up">+56%</div></div>
+    <div class="crow"><div class="clab">총 시청량</div><div class="ctrack"><div class="cbar g" style="width:24%"></div></div><div class="cval up">+38%</div></div>
+    <div class="crow"><div class="clab">평균 동시</div><div class="ctrack"><div class="cbar o" style="width:19%"></div></div><div class="cval dn">-29%</div></div>
+  </div>
 
   <div class="hl g"><b>내려간 것은 평균 동시 시청자 하나뿐입니다.</b> 이 지표는 총 시청량을 방송시간으로 나눈 값이라, 방송을 1.85배 늘리면 같은 인기로도 숫자가 내려갑니다. 분모가 커진 것이지 인기가 식은 게 아닙니다. 총량 지표(시청량, 채팅, 팔로워)는 전부 크게 올랐습니다.</div>
 
@@ -143,6 +177,17 @@
     <tr><td>주간 방송시간</td><td class="n">24.0h</td><td class="n">13.0h</td><td class="n">+11.0h</td></tr>
   </table>
 
+  <div class="chart">
+    <div class="ct">동기 데뷔 2,265개 채널 분포에서의 위치 (왼쪽이 상위)</div>
+    <div class="scale" style="height:56px;">
+      <div class="sline"></div>
+      <div class="sband" style="left:0;width:100%;opacity:.18;"></div>
+      <div class="smark" style="left:50%;"></div><div class="slab" style="left:50%;top:52px;">중앙값</div>
+      <div class="sdot" style="left:22%;"></div>
+      <div class="slab" style="left:22%;top:12px;font-weight:800;color:#059669;">유리아 루네아 · 상위 22%</div>
+    </div>
+  </div>
+
   <div class="hl">팔로워 대비 실제로 방송을 보는 사람의 비율(시청 전환 효율)이 동급의 <b>2.0배</b>입니다. 팔로워 수가 많아 보이는 채널도 실제 시청자는 적은 경우가 흔한데, 이 채널은 반대입니다. 팔로워가 곧 시청자로 이어지는 <b>드문 체질</b>이고, 성장 단계에서 가장 갖기 어려운 자산입니다.</div>
 
   <div class="hl g">규모 무관 전체 성장 채널군(1만 팔로워 미만)에서 계산해도 시청 효율 상위 0.6%, 최근 성장 관성 상위 0.3%입니다. "한참 아래 단계"라는 자기 평가와 데이터가 일치하지 않습니다. <b>단계가 낮은 게 아니라 시작한 지 얼마 안 된 것</b>이고, 그 시점 대비로는 최상위권입니다.</div>
@@ -162,6 +207,16 @@
     <tr class="peak"><td>로블록스 계열 (시참 포함)</td><td class="n">13%</td><td class="n me">1.5~1.8명</td><td class="n me">10.5</td></tr>
   </table>
   <div style="font-size:9.5px;color:#94a3b8;">* 채팅 밀도 = 6분당 채팅 수. 저스트 채팅은 11.9로 가장 높음</div>
+
+  <div class="chart">
+    <div class="ct">시간은 어디에, 효율은 어디에 (배분과 효율의 엇갈림)</div>
+    <div class="crow"><div class="clab">시간 배분</div><div class="ctrack"><div class="cbar gy" style="width:87%"></div></div><div class="cval">아이온2 87%</div></div>
+    <div class="crow"><div class="clab"></div><div class="ctrack"><div class="cbar" style="width:13%"></div></div><div class="cval me">로블 13%</div></div>
+    <div style="height:6px;"></div>
+    <div class="crow"><div class="clab">시간당 팔로워</div><div class="ctrack"><div class="cbar gy" style="width:21%"></div></div><div class="cval">0.34명</div></div>
+    <div class="crow"><div class="clab"></div><div class="ctrack"><div class="cbar g" style="width:100%"></div></div><div class="cval up">1.5~1.8명</div></div>
+    <div style="font-size:9.5px;color:#94a3b8;margin-top:6px;">회색 = 아이온2 · 색상 = 로블록스 계열. 시간의 87%가 효율 낮은 쪽에, 효율 5배인 쪽에 13%</div>
+  </div>
 
   <div class="hl w"><b>시간당 팔로워 효율이 5배 차이인데, 시간은 87 대 13으로 정반대에 들어가 있습니다.</b> 여기에 노마이크 방송의 격차가 겹칩니다. 노마이크 15.2시간 동안 팔로워 +1 (시간당 0.07명), 마이크 방송 306시간 동안 +152 (시간당 0.50명). 7배 차이입니다.</div>
 
@@ -190,6 +245,15 @@
     <tr class="peak"><td>유리아 조건(평균 시청 5명 이상) 서브그룹 중앙값~상위 10%</td><td class="n me">+52 ~ +173</td></tr>
   </table>
 
+  <div class="chart">
+    <div class="ct">최근 4주 팔로워 증가: 유사 궤적 1,330개 채널과 비교</div>
+    <div class="crow"><div class="clab">중앙값</div><div class="ctrack"><div class="cbar gy" style="width:8%"></div></div><div class="cval">+7</div></div>
+    <div class="crow"><div class="clab">상위 25%</div><div class="ctrack"><div class="cbar gy" style="width:24%"></div></div><div class="cval">+20</div></div>
+    <div class="crow"><div class="clab">상위 10%</div><div class="ctrack"><div class="cbar" style="width:46%"></div></div><div class="cval">+39</div></div>
+    <div class="crow"><div class="clab">상위 5%</div><div class="ctrack"><div class="cbar" style="width:62%"></div></div><div class="cval">+53</div></div>
+    <div class="crow"><div class="clab">유리아 루네아</div><div class="ctrack"><div class="cbar g" style="width:100%"></div></div><div class="cval up">+85</div></div>
+  </div>
+
   <div class="hl p"><b>유리아님의 최근 4주 실측은 +85입니다.</b> 같은 구간에서 유사 궤적 채널 1,330개 중 이보다 빨랐던 채널은 1.2%뿐입니다. 지금 페이스(월 +85)를 분기로 환산하면 +276인데, 이는 유사 궤적 채널의 98.4%보다 빠른 속도라 <b>지속을 전제로 계획을 세우면 위험합니다.</b> 계획은 범위로 세우는 것이 맞습니다.</div>
 
   <div class="hl g"><b>성장 전망 신호는 계속 청신호입니다.</b> 시청 효율 상위권과 팔로워 흐름 가속이 동시에 나타나는 조합인데, 지난 1년 전수 데이터에서 이 조합의 채널은 10곳 중 9곳이 규모 대비 초과 성장으로 이어졌습니다. 이 신호가 꺼지는지가 매달 점검의 핵심입니다 (6장).</div>
@@ -210,6 +274,20 @@
     <tr class="peak"><td>목표선</td><td class="n me">350~420</td><td>유사 궤적 상위 25%~10% 페이스</td></tr>
     <tr><td>점검선</td><td class="n">280 미만</td><td>신호 점검 필요 (실패가 아니라 원인 확인 트리거)</td></tr>
   </table>
+
+  <div class="chart">
+    <div class="ct">3개월 뒤 팔로워 지도 (8~10월)</div>
+    <div class="scale">
+      <div class="sline"></div>
+      <div class="sband" style="left:55%;width:35%;"></div>
+      <div class="sdot" style="left:3%;"></div>
+      <div class="slab" style="left:5%;top:12px;font-weight:800;color:#059669;">현재 246</div>
+      <div class="smark" style="left:20%;background:#ea580c;"></div><div class="slab" style="left:20%;top:52px;color:#ea580c;">점검선 280</div>
+      <div class="smark" style="left:30%;"></div><div class="slab" style="left:30%;top:12px;">기본선 300</div>
+      <div class="slab" style="left:72%;top:12px;font-weight:800;color:#7c3aed;">목표선 350~420</div>
+      <div class="slab" style="left:72%;top:52px;">유사 궤적 상위 25~10% 페이스</div>
+    </div>
+  </div>
 
   <h3>매달 이것만 보시면 됩니다</h3>
   <table>
