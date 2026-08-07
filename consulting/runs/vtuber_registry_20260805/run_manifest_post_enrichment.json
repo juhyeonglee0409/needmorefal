@@ -1,0 +1,34 @@
+{
+  "run_id": "vtuber_registry_20260805",
+  "status": "in_progress_manual_qa_and_platform_expansion_pending",
+  "generated_at": "2026-08-05T23:52:06+0900",
+  "base_manifest": "C:\\Repos\\needmorefal\\consulting\\runs\\vtuber_registry_20260805\\run_manifest.json",
+  "base_manifest_sha256": "e75c8309b88e337e7588e96158300be6cfe90b38775d1efa02dd276b240d643d",
+  "public_web_research": true,
+  "logged_in_session_used": false,
+  "external_contact_performed": false,
+  "secret_values_stored": false,
+  "counts": {
+    "sources": 57,
+    "personas": 8203,
+    "accounts": 8217,
+    "organizations": 16,
+    "affiliations": 39,
+    "reviews": 828
+  },
+  "platform_counts": {
+    "chzzk": 7907,
+    "cime": 177,
+    "soop": 120,
+    "youtube": 13
+  },
+  "review_status_counts": {
+    "open": 793,
+    "resolved": 35
+  },
+  "manual_qa": {
+    "sample_size": 100,
+    "completed": 0
+  },
+  "coverage_report": "C:\\Repos\\needmorefal\\consulting\\runs\\vtuber_registry_20260805\\50_coverage\\coverage_status.json"
+}

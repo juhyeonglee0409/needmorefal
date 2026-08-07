@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://needmorefal.com/schemas/korean-vtuber-registry-v0.1.json",
+  "title": "Korean VTuber Registry v0.1",
+  "oneOf": [
+    {"$ref": "#/$defs/persona"},
+    {"$ref": "#/$defs/account"},
+    {"$ref": "#/$defs/organization"},
+    {"$ref": "#/$defs/affiliation"},
+    {"$ref": "#/$defs/source"},
+    {"$ref": "#/$defs/observation"},
+    {"$ref": "#/$defs/review_item"}
+  ],
+  "$defs": {
+    "source_ids": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^krvt_s_[0-9a-f]{32}$"},
+      "uniqueItems": true
+    },
+    "persona": {
+      "type": "object",
+      "required": [
+        "record_type", "persona_id", "display_name", "public_aliases",
+        "market", "market_evidence", "vtuber_status", "representation_mode",
+        "operating_model", "activity_status", "first_seen_at",
+        "last_verified_at", "review_status", "source_ids"
+      ],
+      "properties": {
+        "record_type": {"const": "persona"},
+        "persona_id": {"type": "string", "pattern": "^krvt_p_[0-9a-f]{32}$"},
+        "display_name": {"type": "string"},
+        "public_aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "market": {"const": "ko_KR"},
+        "market_evidence": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "vtuber_status": {"enum": ["confirmed", "probable", "review", "excluded"]},
+        "representation_mode": {"enum": ["live2d", "three_d", "png", "vr_avatar", "mixed_virtual", "unknown"]},
+        "operating_model": {"enum": ["agency_ip_owned", "creator_owned_managed", "independent_team", "independent_solo", "corporate_character", "project_collective", "unknown"]},
+        "activity_status": {"enum": ["active_30d", "active_90d", "hiatus_declared", "dormant_365d", "inactive", "graduated", "predebut", "unknown"]},
+        "first_seen_at": {"type": "string"},
+        "last_verified_at": {"type": "string"},
+        "review_status": {"enum": ["auto", "manual_confirmed", "manual_rejected", "needs_review"]},
+        "source_ids": {"$ref": "#/$defs/source_ids"}
+      },
+      "additionalProperties": false
+    },
+    "account": {
+      "type": "object",
+      "required": [
+        "record_type", "account_id", "persona_id", "platform",
+        "platform_account_id", "id_namespace", "display_name", "handle",
+        "canonical_url", "account_role", "last_public_activity_at",
+        "first_seen_at", "last_verified_at", "source_ids"
+      ],
+      "properties": {
+        "record_type": {"const": "account"},
+        "account_id": {"type": "string", "pattern": "^krvt_a_[0-9a-f]{32}$"},
+        "persona_id": {"type": "string", "pattern": "^krvt_p_[0-9a-f]{32}$"},
+        "platform": {"enum": ["chzzk", "soop", "cime", "youtube", "twitch", "x", "other", "unknown"]},
+        "platform_account_id": {"type": "string", "minLength": 1},
+        "id_namespace": {"enum": ["official_platform_id", "softcon_platform_channel_id", "inferred_chzzk_channel_id", "unknown"]},
+        "display_name": {"type": "string"},
+        "handle": {"type": ["string", "null"]},
+        "canonical_url": {"type": ["string", "null"]},
+        "account_role": {"enum": ["primary", "secondary", "archive", "clips", "group", "unknown"]},
+        "last_public_activity_at": {"type": ["string", "null"]},
+        "first_seen_at": {"type": "string"},
+        "last_verified_at": {"type": "string"},
+        "source_ids": {"$ref": "#/$defs/source_ids"}
+      },
+      "additionalProperties": false
+    },
+    "organization": {
+      "type": "object",
+      "required": [
+        "record_type", "organization_id", "display_name", "aliases",
+        "organization_type", "domains", "review_status", "source_ids"
+      ],
+      "properties": {
+        "record_type": {"const": "organization"},
+        "organization_id": {"type": "string", "pattern": "^krvt_o_[0-9a-f]{32}$"},
+        "display_name": {"type": "string", "minLength": 1},
+        "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "organization_type": {"enum": ["agency", "label", "corporation", "collective", "project", "platform", "unknown"]},
+        "domains": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "review_status": {"enum": ["auto", "manual_confirmed", "manual_rejected", "needs_review"]},
+        "source_ids": {"$ref": "#/$defs/source_ids"}
+      },
+      "additionalProperties": false
+    },
+    "affiliation": {
+      "type": "object",
+      "required": [
+        "record_type", "affiliation_id", "persona_id", "organization_id",
+        "relationship", "start_at", "end_at", "status", "source_ids"
+      ],
+      "properties": {
+        "record_type": {"const": "affiliation"},
+        "affiliation_id": {"type": "string", "pattern": "^krvt_f_[0-9a-f]{32}$"},
+        "persona_id": {"type": "string", "pattern": "^krvt_p_[0-9a-f]{32}$"},
+        "organization_id": {"type": "string", "pattern": "^krvt_o_[0-9a-f]{32}$"},
+        "relationship": {"enum": ["talent", "member", "managed", "partner", "former", "unknown"]},
+        "start_at": {"type": ["string", "null"]},
+        "end_at": {"type": ["string", "null"]},
+        "status": {"enum": ["current", "former", "announced", "unknown"]},
+        "source_ids": {"$ref": "#/$defs/source_ids"}
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "record_type", "source_id", "uri", "source_tier", "publisher",
+        "observed_at", "supports", "note", "secret_values_stored"
+      ],
+      "properties": {
+        "record_type": {"const": "source"},
+        "source_id": {"type": "string", "pattern": "^krvt_s_[0-9a-f]{32}$"},
+        "uri": {"type": "string", "minLength": 1},
+        "source_tier": {"enum": ["P0", "P1", "P2", "P3", "P4"]},
+        "publisher": {"type": "string"},
+        "observed_at": {"type": "string"},
+        "supports": {"type": "array", "items": {"enum": ["market", "vtuber_identity", "account_link", "affiliation", "activity", "metrics", "name"]}, "uniqueItems": true},
+        "note": {"type": "string"},
+        "secret_values_stored": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "record_type", "observation_id", "account_id", "observed_at",
+        "period_start", "period_end", "granularity", "metrics", "source_ids"
+      ],
+      "properties": {
+        "record_type": {"const": "observation"},
+        "observation_id": {"type": "string", "pattern": "^krvt_m_[0-9a-f]{32}$"},
+        "account_id": {"type": "string", "pattern": "^krvt_a_[0-9a-f]{32}$"},
+        "observed_at": {"type": "string"},
+        "period_start": {"type": ["string", "null"]},
+        "period_end": {"type": ["string", "null"]},
+        "granularity": {"enum": ["snapshot", "day", "week", "month", "unknown"]},
+        "metrics": {"type": "object"},
+        "source_ids": {"$ref": "#/$defs/source_ids"}
+      },
+      "additionalProperties": false
+    },
+    "review_item": {
+      "type": "object",
+      "required": [
+        "record_type", "review_id", "entity_type", "entity_id",
+        "issue_code", "severity", "status", "details", "source_ids"
+      ],
+      "properties": {
+        "record_type": {"const": "review_item"},
+        "review_id": {"type": "string", "pattern": "^krvt_r_[0-9a-f]{32}$"},
+        "entity_type": {"enum": ["persona", "account", "organization", "affiliation", "source", "observation"]},
+        "entity_id": {"type": "string"},
+        "issue_code": {"type": "string", "minLength": 1},
+        "severity": {"enum": ["info", "warning", "blocking"]},
+        "status": {"enum": ["open", "resolved", "rejected"]},
+        "details": {"type": "object"},
+        "source_ids": {"$ref": "#/$defs/source_ids"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

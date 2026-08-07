@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "generated_at": "2026-08-05T23:51:51+0900",
+  "counts": {
+    "sources": 57,
+    "personas": 8203,
+    "accounts": 8217,
+    "organizations": 16,
+    "affiliations": 39,
+    "observations": 241689,
+    "reviews": 828
+  },
+  "platform_counts": {
+    "chzzk": 7907,
+    "cime": 177,
+    "soop": 120,
+    "youtube": 13
+  },
+  "problems": {
+    "duplicate_source_ids": 0,
+    "duplicate_persona_ids": 0,
+    "duplicate_account_ids": 0,
+    "duplicate_organization_ids": 0,
+    "duplicate_affiliation_ids": 0,
+    "duplicate_observation_ids": 0,
+    "duplicate_review_ids": 0,
+    "duplicate_account_natural_keys": 0,
+    "missing_account_persona_refs": 0,
+    "missing_observation_account_refs": 0,
+    "missing_affiliation_persona_refs": 0,
+    "missing_affiliation_organization_refs": 0,
+    "missing_review_entity_refs": 0,
+    "missing_source_refs": 0
+  },
+  "missing_source_ref_types": {},
+  "samples": {
+    "duplicate_account_natural_keys": [],
+    "missing_account_persona_refs": []
+  }
+}

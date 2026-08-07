@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-08-05T23:52:06+0900",
+  "status": "in_progress_manual_qa_and_platform_expansion_pending",
+  "counts": {
+    "sources": 57,
+    "personas": 8203,
+    "accounts": 8217,
+    "organizations": 16,
+    "affiliations": 39,
+    "reviews": 828
+  },
+  "platform_counts": {
+    "chzzk": 7907,
+    "cime": 177,
+    "soop": 120,
+    "youtube": 13
+  },
+  "source_tier_counts": {
+    "P0": 21,
+    "P1": 33,
+    "P2": 2,
+    "P4": 1
+  },
+  "organization_status_counts": {
+    "manual_confirmed": 16
+  },
+  "review_status_counts": {
+    "open": 793,
+    "resolved": 35
+  },
+  "open_review_counts": {
+    "agency_domain_requires_organization_mapping": 5,
+    "cross_platform_same_name_no_auto_merge": 60,
+    "official_roster_name_not_exact_unique": 9,
+    "official_soop_cross_platform_identity_ambiguous": 1,
+    "platform_inferred_from_chzzk_id_shape": 704,
+    "public_name_changed_between_sources": 13,
+    "public_name_changed_since_qa_sample": 1
+  },
+  "resolved_review_counts": {
+    "agency_domain_requires_organization_mapping": 6,
+    "official_roster_name_not_exact_unique": 6,
+    "official_soop_handle_missing_from_softcon_seed": 11,
+    "organization_seed_requires_official_source": 12
+  },
+  "official_account_candidate_counts": {
+    "materialized_existing_persona_corroborated": 1,
+    "materialized_new_persona": 9,
+    "materialized_new_persona_cross_platform_review": 1
+  },
+  "manual_qa": {
+    "sample_size": 100,
+    "completed": 0
+  },
+  "public_profile_qa_evidence": {
+    "rows": 100,
+    "successful_public_profiles": 98,
+    "not_checked_non_chzzk": 2,
+    "nonblank_expected_names": 87,
+    "exact_name_matches": 86,
+    "name_changes_queued": 1,
+    "blank_names_backfilled": 11,
+    "explicit_vtuber_text_signals": 3
+  },
+  "known_coverage_gaps": [
+    {
+      "code": "softcon_soop_official_handle_gap",
+      "count": 0,
+      "note": "Official ISEGYE IDOL SOOP handles absent from the Softcon seed."
+    },
+    {
+      "code": "softcon_cid_not_official_soop_handle",
+      "count": 0,
+      "note": "AKAIV official SOOP handles require identity reconciliation; Softcon cid is not assumed to be the handle."
+    },
+    {
+      "code": "youtube_independent_population_not_systematically_discovered",
+      "count": null,
+      "note": "13 official-linked YouTube seed accounts are present, but YouTube-only and independent YouTube-primary Korean VTubers remain outside the current population frame."
+    },
+    {
+      "code": "manual_qa_incomplete",
+      "count": 100,
+      "note": "The stratified 100-account manual QA sheet is not yet closed."
+    }
+  ],
+  "collection_boundaries": {
+    "public_web_research_used": true,
+    "logged_in_session_used": false,
+    "external_contact_performed": false,
+    "secrets_stored": false
+  }
+}

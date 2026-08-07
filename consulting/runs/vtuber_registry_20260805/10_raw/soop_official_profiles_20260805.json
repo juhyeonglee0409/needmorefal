@@ -1,0 +1,24 @@
+{
+  "retrieved_at": "2026-08-05T23:48:00+09:00",
+  "endpoint_template": "https://bjapi.afreecatv.com/api/{user_id}/station",
+  "logged_in_session_used": false,
+  "records": [
+    {"organization_seed":"아카이브","official_name":"우사미","user_id":"u3ams2","user_nick":"u32","station_name":"u32"},
+    {"organization_seed":"아카이브","official_name":"여르미","user_id":"yeorumi030","user_nick":"여르미_","station_name":"여르미_"},
+    {"organization_seed":"아카이브","official_name":"한결","user_id":"kaksjak0730","user_nick":"한결___","station_name":"한결__"},
+    {"organization_seed":"아카이브","official_name":"비몽","user_id":"beemong","user_nick":"비몽♪","station_name":"비몽♪"},
+    {"organization_seed":"아카이브","official_name":"샤르망","user_id":"owozzz","user_nick":"샤르망","station_name":"샤르망"},
+    {"organization_seed":"이세계아이돌","official_name":"아이네","user_id":"inehine","user_nick":"아이네♪","station_name":"아이네♪"},
+    {"organization_seed":"이세계아이돌","official_name":"징버거","user_id":"jingburger1","user_nick":"징버거☆","station_name":"징버거☆"},
+    {"organization_seed":"이세계아이돌","official_name":"릴파","user_id":"lilpa0309","user_nick":"릴파♬","station_name":"릴파♬"},
+    {"organization_seed":"이세계아이돌","official_name":"주르르","user_id":"cotton1217","user_nick":"주르르","station_name":"주르르"},
+    {"organization_seed":"이세계아이돌","official_name":"고세구","user_id":"gosegu2","user_nick":"고세구!","station_name":"고세구!!"},
+    {"organization_seed":"이세계아이돌","official_name":"비챤","user_id":"viichan6","user_nick":"비챤","station_name":"비챤"}
+  ],
+  "corroborated_existing_identity": {
+    "official_user_id": "beemong",
+    "existing_account_id": "krvt_a_3caf3b80847f5d01b767abd99084835a",
+    "existing_platform_account_id": "bee",
+    "evidence": "The Softcon SOOP account carried the exact stylized public name 비몽♪; the old public station endpoint now returns a logic error while the official AKAIV-linked beemong endpoint returns 비몽♪."
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "run_id": "vtuber_registry_20260805",
+  "status": "completed_local_bootstrap_unreviewed",
+  "generated_at": "2026-08-05T23:08:46+0900",
+  "network_access": false,
+  "secret_values_stored": false,
+  "input_files": {
+    "D:\\Gunsmith_Mailbox\\reports\\softcon_virtual_census_20260704.ndjson": {
+      "sha256": "b4691a5a8399bb07f500120a5d96d552346bb72f6d605f27c933839ef42dd708",
+      "bytes": 1022928
+    },
+    "C:\\Repos\\needmorefal\\consulting\\runs\\census_full_20260708\\census_full_weekly.ndjson": {
+      "sha256": "5edac204c8efc0b488cbee5e920ca20c9f86919d471967d107052d4617a76d88",
+      "bytes": 37156873
+    },
+    "C:\\Repos\\needmorefal\\consulting\\runs\\vtuber_outreach_pilot_20260704\\census_pool.ndjson": {
+      "sha256": "6627f0ce74bd1e06eb3fa9a93e1f92853743a9fdf60ce6a40dac8ab566db22ec",
+      "bytes": 5044992
+    },
+    "C:\\Repos\\needmorefal\\consulting\\tools\\outreach\\agencies.yaml": {
+      "sha256": "337b7b007a501c76b5e67e9701582a91b263bc762c058a8db9877b6067e739db",
+      "bytes": 702
+    }
+  },
+  "input_counts": {
+    "softcon_rows": 7489,
+    "softcon_unique_platform_keys": 7489,
+    "weekly_rows": 7472,
+    "profile_rows": 7204,
+    "profile_unique_channels": 7201
+  },
+  "join_counts": {
+    "weekly_direct_platform_matches": 6768,
+    "weekly_chzzk_id_shape_inferences": 704,
+    "weekly_unresolved": 0,
+    "softcon_without_weekly": 721,
+    "profiles_joined": 7201,
+    "profile_only_accounts_added": 0,
+    "public_name_changes": 13
+  },
+  "output_counts": {
+    "personas": 8193,
+    "accounts": 8193,
+    "organizations": 12,
+    "affiliations": 0,
+    "observations": 241689,
+    "review_items": 800
+  },
+  "platform_counts": {
+    "chzzk": 7907,
+    "cime": 177,
+    "soop": 109
+  },
+  "observation_counts": {
+    "softcon_snapshot": 7489,
+    "profile_snapshot": 7201,
+    "weekly": 226999,
+    "total": 241689
+  },
+  "review_counts": {
+    "agency_domain_requires_organization_mapping": 11,
+    "cross_platform_same_name_no_auto_merge": 60,
+    "organization_seed_requires_official_source": 12,
+    "platform_inferred_from_chzzk_id_shape": 704,
+    "public_name_changed_between_sources": 13
+  },
+  "cross_platform_same_name_groups": 60,
+  "validation": {
+    "error_count": 0,
+    "details": {
+      "sources": {
+        "records": 4,
+        "errors": 0
+      },
+      "personas": {
+        "records": 8193,
+        "errors": 0
+      },
+      "accounts": {
+        "records": 8193,
+        "errors": 0
+      },
+      "organizations": {
+        "records": 12,
+        "errors": 0
+      },
+      "observations": {
+        "records": 241689,
+        "errors": 0
+      },
+      "review_queue": {
+        "records": 800,
+        "errors": 0
+      }
+    },
+    "errors": []
+  }
+}

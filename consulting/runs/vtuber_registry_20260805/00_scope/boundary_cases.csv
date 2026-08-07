@@ -1,0 +1,21 @@
+case_id,scenario,registry_decision,active_population,operating_model,merge_rule,note
+B01,최근 30일 한국어 치지직 Live2D 버튜버,include,include,unknown,n/a,표준 포함 사례
+B02,최근 30일 한국어 PNG 버튜버,include,include,unknown,n/a,표현 형식과 정체성을 분리
+B03,얼굴 방송과 버추얼 방송을 병행하지만 고정 가상 페르소나가 있음,include,include,unknown,n/a,hybrid 표기
+B04,일반 스트리머가 이벤트 1회만 아바타를 사용,exclude,exclude,n/a,n/a,지속적 가상 정체성 없음
+B05,한국 기업 소속 버튜버가 최근 활동,include,include,agency_ip_owned,n/a,기업세 포함
+B06,기업 홍보 캐릭터가 독립 채널에서 정기 방송,include,include,corporate_character,n/a,창작자 시장 집계에서는 분리 가능
+B07,기업 마스코트가 광고 영상 1회에만 등장,exclude,exclude,n/a,n/a,지속적 수행 정체성 없음
+B08,기수 전체가 쓰는 그룹 공용 채널,account_only,exclude,project_collective,no_persona_merge,organization account로 보존
+B09,버튜버 공식 클립 전용 채널,account_only,exclude,unknown,link_to_existing_persona,새 페르소나를 만들지 않음
+B10,日本語 활동이 주이고 한국어 자막만 간헐적으로 제공,exclude,exclude,n/a,n/a,한국어권 주요 대상 증거 부족
+B11,국적은 공개하지 않았지만 한국어권을 주 대상으로 활동,include,include,unknown,n/a,국적이 아니라 시장 기준
+B12,한국 국적 공개자이나 일본어권만 대상으로 활동,exclude,exclude,n/a,n/a,기본 모집단은 국적 기준이 아님
+B13,60일 전 휴식 공지를 낸 버튜버,include,exclude,unknown,n/a,hiatus_declared 상태
+B14,공식 졸업 공지가 확인된 버튜버,include_historical,exclude,unknown,n/a,graduated 상태로 보존
+B15,공식 계정과 데뷔일이 공개된 데뷔 예정자,include,exclude,unknown,n/a,predebut 상태
+B16,이름과 목소리가 유사한 새 페르소나이나 공식 연결 없음,include_separately,case_by_case,unknown,do_not_merge,전생 추정 금지
+B17,본인이 이전 계정과 새 계정을 공식적으로 연결,include,case_by_case,unknown,merge_explicit,공식 직접 링크
+B18,서로 다른 플랫폼에 같은 이름의 계정이 존재,include_separately,case_by_case,unknown,do_not_merge,이름 일치만으로 병합 금지
+B19,마지막 공개 활동이 200일 전이고 종료 공지는 없음,include,exclude,unknown,n/a,dormant_365d 상태
+B20,자동 생성 영상만 올리며 지속적 수행 주체나 페르소나가 확인되지 않음,exclude,exclude,n/a,n/a,가상 캐릭터 콘텐츠와 버튜버를 구분

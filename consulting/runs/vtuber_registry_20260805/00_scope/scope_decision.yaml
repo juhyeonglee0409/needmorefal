@@ -1,0 +1,53 @@
+registry_id: kr_vtuber_registry_20260805
+decision_date: 2026-08-05
+authority: operator
+status: approved
+
+population:
+  market_basis: korean_language_market
+  active_window_days: 90
+  census_date: 2026-08-05
+  include_platforms:
+    - chzzk
+    - soop
+    - cime
+    - youtube
+    - twitch
+    - other_public_platforms
+
+inclusion:
+  png_vtuber: true
+  hybrid_virtual_creator: true_when_persistent_virtual_persona
+  corporate_character: true_with_separate_label
+  predebut: registry_only
+  hiatus: registry_only
+  graduated: historical_registry_only
+
+identity:
+  unit: public_vtuber_persona
+  account_key: platform_plus_platform_account_id
+  merge_requires: explicit_public_link_or_manual_corroboration
+  reincarnation_link: official_self_disclosure_only
+  real_person_identity_inference: prohibited
+
+source_strategy:
+  primary_seed: softcon_virtual_census
+  softcon_platform_mapping:
+    naverchzzk: chzzk
+    afreeca: soop
+    cime: cime
+  soop_primary_discovery: softcon_afreeca_rows
+  cime_primary_discovery: softcon_cime_rows
+  youtube_strategy: known_account_enrichment_then_search
+
+output:
+  canonical_visibility: internal
+  public_export: separate_operator_approval
+  outreach_state: separate_derived_view
+
+execution_boundary:
+  local_bootstrap: approved
+  public_web_research: approved
+  logged_in_profile_or_session: separate_explicit_approval
+  external_message_or_contact: prohibited_without_separate_explicit_approval
+

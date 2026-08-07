@@ -1,0 +1,9 @@
+{"generated_at": "2026-08-05T23:08:28+0900", "event": "bootstrap_start", "network_access": false}
+{"generated_at": "2026-08-05T23:08:28+0900", "event": "softcon_loaded", "rows": 7489, "platform_counts": {"chzzk": 7203, "cime": 177, "soop": 109}}
+{"generated_at": "2026-08-05T23:08:28+0900", "event": "profiles_loaded", "rows": 7204, "unique_channels": 7201, "duplicate_updates": 0, "missing_id": 3}
+{"generated_at": "2026-08-05T23:08:29+0900", "event": "weekly_scanned", "rows": 7472, "direct_matches": 6768, "chzzk_inferred": 704, "unresolved": 0}
+{"generated_at": "2026-08-05T23:08:36+0900", "event": "weekly_observations", "count": 50000}
+{"generated_at": "2026-08-05T23:08:39+0900", "event": "weekly_observations", "count": 100000}
+{"generated_at": "2026-08-05T23:08:42+0900", "event": "weekly_observations", "count": 150000}
+{"generated_at": "2026-08-05T23:08:45+0900", "event": "weekly_observations", "count": 200000}
+{"generated_at": "2026-08-05T23:08:55+0900", "event": "bootstrap_complete", "personas": 8193, "accounts": 8193, "organizations": 12, "affiliations": 0, "observations": 241689, "review_items": 800}
